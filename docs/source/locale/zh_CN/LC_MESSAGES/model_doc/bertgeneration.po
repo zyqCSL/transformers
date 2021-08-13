@@ -1,0 +1,940 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/bertgeneration.rst:14
+msgid "BertGeneration"
+msgstr ""
+
+#: ../../source/model_doc/bertgeneration.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/bertgeneration.rst:19
+msgid ""
+"The BertGeneration model is a BERT model that can be leveraged for "
+"sequence-to-sequence tasks using "
+":class:`~transformers.EncoderDecoderModel` as proposed in `Leveraging "
+"Pre-trained Checkpoints for Sequence Generation Tasks "
+"<https://arxiv.org/abs/1907.12461>`__ by Sascha Rothe, Shashi Narayan, "
+"Aliaksei Severyn."
+msgstr ""
+
+#: ../../source/model_doc/bertgeneration.rst:23
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/bertgeneration.rst:25
+msgid ""
+"*Unsupervised pretraining of large neural models has recently "
+"revolutionized Natural Language Processing. By warm-starting from the "
+"publicly released checkpoints, NLP practitioners have pushed the state-"
+"of-the-art on multiple benchmarks while saving significant amounts of "
+"compute time. So far the focus has been mainly on the Natural Language "
+"Understanding tasks. In this paper, we demonstrate the efficacy of pre-"
+"trained checkpoints for Sequence Generation. We developed a Transformer-"
+"based sequence-to-sequence model that is compatible with publicly "
+"available pre-trained BERT, GPT-2 and RoBERTa checkpoints and conducted "
+"an extensive empirical study on the utility of initializing our model, "
+"both encoder and decoder, with these checkpoints. Our models result in "
+"new state-of-the-art results on Machine Translation, Text Summarization, "
+"Sentence Splitting, and Sentence Fusion.*"
+msgstr ""
+
+#: ../../source/model_doc/bertgeneration.rst:34
+msgid "Usage:"
+msgstr ""
+
+#: ../../source/model_doc/bertgeneration.rst:36
+msgid ""
+"The model can be used in combination with the "
+":class:`~transformers.EncoderDecoderModel` to leverage two pretrained "
+"BERT checkpoints for subsequent fine-tuning."
+msgstr ""
+
+#: ../../source/model_doc/bertgeneration.rst:59
+msgid ""
+"Pretrained :class:`~transformers.EncoderDecoderModel` are also directly "
+"available in the model hub, e.g.,"
+msgstr ""
+
+#: ../../source/model_doc/bertgeneration.rst:75
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/bertgeneration.rst:77
+msgid ""
+":class:`~transformers.BertGenerationEncoder` and "
+":class:`~transformers.BertGenerationDecoder` should be used in "
+"combination with :class:`~transformers.EncoderDecoder`."
+msgstr ""
+
+#: ../../source/model_doc/bertgeneration.rst:79
+msgid ""
+"For summarization, sentence splitting, sentence fusion and translation, "
+"no special tokens are required for the input. Therefore, no EOS token "
+"should be added to the end of the input."
+msgstr ""
+
+#: ../../source/model_doc/bertgeneration.rst:82
+msgid ""
+"This model was contributed by `patrickvonplaten "
+"<https://huggingface.co/patrickvonplaten>`__. The original code can be "
+"found `here <https://tfhub.dev/s?module-type=text-"
+"generation&subtype=module,placeholder>`__."
+msgstr ""
+
+#: ../../source/model_doc/bertgeneration.rst:86
+msgid "BertGenerationConfig"
+msgstr ""
+
+#: of transformers.BertGenerationConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.BertGenerationPreTrainedModel`. It is used to "
+"instantiate a BertGeneration model according to the specified arguments, "
+"defining the model architecture."
+msgstr ""
+
+#: of transformers.BertGenerationConfig:5
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.BertGenerationConfig transformers.BertGenerationDecoder
+#: transformers.BertGenerationDecoder.forward
+#: transformers.BertGenerationEncoder
+#: transformers.BertGenerationEncoder.forward
+#: transformers.BertGenerationTokenizer
+#: transformers.BertGenerationTokenizer.save_vocabulary
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.BertGenerationConfig:8
+msgid ""
+"Vocabulary size of the BERT model. Defines the number of different tokens"
+" that can be represented by the :obj:`inputs_ids` passed when calling "
+":class:`~transformers.BertGeneration`."
+msgstr ""
+
+#: of transformers.BertGenerationConfig:11
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.BertGenerationConfig:13
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.BertGenerationConfig:15
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.BertGenerationConfig:17
+msgid ""
+"Dimensionality of the \"intermediate\" (often called feed-forward) layer "
+"in the Transformer encoder."
+msgstr ""
+
+#: of transformers.BertGenerationConfig:19
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.BertGenerationConfig:22
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.BertGenerationConfig:24
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.BertGenerationConfig:26
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.BertGenerationConfig:29
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.BertGenerationConfig:31
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.BertGenerationConfig:33
+msgid ""
+"If :obj:`True`, use gradient checkpointing to save memory at the expense "
+"of slower backward pass."
+msgstr ""
+
+#: of transformers.BertGenerationConfig:35
+msgid ""
+"Type of position embedding. Choose one of :obj:`\"absolute\"`, "
+":obj:`\"relative_key\"`, :obj:`\"relative_key_query\"`. For positional "
+"embeddings use :obj:`\"absolute\"`. For more information on "
+":obj:`\"relative_key\"`, please refer to `Self-Attention with Relative "
+"Position Representations (Shaw et al.) "
+"<https://arxiv.org/abs/1803.02155>`__. For more information on "
+":obj:`\"relative_key_query\"`, please refer to `Method 4` in `Improve "
+"Transformer Models with Better Relative Position Embeddings (Huang et "
+"al.) <https://arxiv.org/abs/2009.13658>`__."
+msgstr ""
+
+#: of transformers.BertGenerationConfig:42
+msgid ""
+"Whether or not the model should return the last key/values attentions "
+"(not used by all models). Only relevant if ``config.is_decoder=True``."
+msgstr ""
+
+#: of transformers.BertGenerationConfig:46
+msgid "Examples::"
+msgstr ""
+
+#: ../../source/model_doc/bertgeneration.rst:93
+msgid "BertGenerationTokenizer"
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer:1
+msgid ""
+"Construct a BertGeneration tokenizer. Based on `SentencePiece "
+"<https://github.com/google/sentencepiece>`__."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer:3
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer:6
+msgid ""
+"`SentencePiece <https://github.com/google/sentencepiece>`__ file "
+"(generally has a `.spm` extension) that contains the vocabulary necessary"
+" to instantiate a tokenizer."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer:9
+msgid "The end of sequence token."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer:11
+msgid "The begin of sequence token."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer:13
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer:16
+msgid ""
+"The token used for padding, for example when batching sequences of "
+"different lengths."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer:18
+msgid ""
+"Will be passed to the ``SentencePieceProcessor.__init__()`` method. The "
+"`Python wrapper for SentencePiece "
+"<https://github.com/google/sentencepiece/tree/master/python>`__ can be "
+"used, among other things, to set:  - ``enable_sampling``: Enable subword "
+"regularization. - ``nbest_size``: Sampling parameters for unigram. "
+"Invalid for BPE-Dropout.    - ``nbest_size = {0,1}``: No sampling is "
+"performed.   - ``nbest_size > 1``: samples from the nbest_size results."
+"   - ``nbest_size < 0``: assuming that nbest_size is infinite and samples"
+" from the all hypothesis (lattice)     using forward-filtering-and-"
+"backward-sampling algorithm.  - ``alpha``: Smoothing parameter for "
+"unigram sampling, and dropout probability of merge operations for   BPE-"
+"dropout."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer:18
+msgid ""
+"Will be passed to the ``SentencePieceProcessor.__init__()`` method. The "
+"`Python wrapper for SentencePiece "
+"<https://github.com/google/sentencepiece/tree/master/python>`__ can be "
+"used, among other things, to set:"
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer:21
+msgid "``enable_sampling``: Enable subword regularization."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer:22
+msgid "``nbest_size``: Sampling parameters for unigram. Invalid for BPE-Dropout."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer:24
+msgid "``nbest_size = {0,1}``: No sampling is performed."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer:25
+msgid "``nbest_size > 1``: samples from the nbest_size results."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer:26
+msgid ""
+"``nbest_size < 0``: assuming that nbest_size is infinite and samples from"
+" the all hypothesis (lattice) using forward-filtering-and-backward-"
+"sampling algorithm."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer:29
+msgid ""
+"``alpha``: Smoothing parameter for unigram sampling, and dropout "
+"probability of merge operations for BPE-dropout."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward
+#: transformers.BertGenerationEncoder.forward
+#: transformers.BertGenerationTokenizer.save_vocabulary
+msgid "Returns"
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward
+#: transformers.BertGenerationEncoder.forward
+#: transformers.BertGenerationTokenizer.save_vocabulary
+msgid "Return type"
+msgstr ""
+
+#: of transformers.BertGenerationTokenizer.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/bertgeneration.rst:99
+msgid "BertGenerationEncoder"
+msgstr ""
+
+#: of transformers.BertGenerationEncoder:1
+msgid ""
+"The bare BertGeneration model transformer outputting raw hidden-states "
+"without any specific head on top."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder:3 transformers.BertGenerationEncoder:3
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder:7 transformers.BertGenerationEncoder:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder:11
+#: transformers.BertGenerationEncoder:11
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.BertGenerationEncoder:17
+msgid ""
+"The model can behave as an encoder (with only self-attention) as well as "
+"a decoder, in which case a layer of cross-attention is added between the "
+"self-attention layers, following the architecture described in `Attention"
+" is all you need <https://arxiv.org/abs/1706.03762>`__ by Ashish Vaswani,"
+" Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez,"
+" Lukasz Kaiser and Illia Polosukhin."
+msgstr ""
+
+#: of transformers.BertGenerationEncoder:22
+msgid ""
+"This model should be used when leveraging Bert or Roberta checkpoints for"
+" the :class:`~transformers.EncoderDecoderModel` class as described in "
+"`Leveraging Pre-trained Checkpoints for Sequence Generation Tasks "
+"<https://arxiv.org/abs/1907.12461>`__ by Sascha Rothe, Shashi Narayan, "
+"and Aliaksei Severyn."
+msgstr ""
+
+#: of transformers.BertGenerationEncoder:26
+msgid ""
+"To behave as an decoder the model needs to be initialized with the "
+":obj:`is_decoder` argument of the configuration set to :obj:`True`. To be"
+" used in a Seq2Seq model, the model needs to initialized with both "
+":obj:`is_decoder` argument and :obj:`add_cross_attention` set to "
+":obj:`True`; an :obj:`encoder_hidden_states` is then expected as an input"
+" to the forward pass."
+msgstr ""
+
+#: of transformers.BertGenerationEncoder.forward:1
+msgid ""
+"The :class:`~transformers.BertGenerationEncoder` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:4
+#: transformers.BertGenerationEncoder.forward:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:8
+#: transformers.BertGenerationEncoder.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.BertGenerationTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.__call__` and "
+":meth:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:8
+#: transformers.BertGenerationEncoder.forward:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:10
+#: transformers.BertGenerationEncoder.forward:10
+msgid ""
+"Indices can be obtained using "
+":class:`~transformers.BertGenerationTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.__call__` and "
+":meth:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:14
+#: transformers.BertGenerationEncoder.forward:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:16
+#: transformers.BertGenerationEncoder.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:16
+#: transformers.BertGenerationEncoder.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:18
+#: transformers.BertGenerationDecoder.forward:51
+#: transformers.BertGenerationEncoder.forward:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:19
+#: transformers.BertGenerationDecoder.forward:52
+#: transformers.BertGenerationEncoder.forward:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:21
+#: transformers.BertGenerationEncoder.forward:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:23
+#: transformers.BertGenerationEncoder.forward:23
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:23
+#: transformers.BertGenerationEncoder.forward:23
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:26
+#: transformers.BertGenerationEncoder.forward:26
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:28
+#: transformers.BertGenerationEncoder.forward:28
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:28
+#: transformers.BertGenerationEncoder.forward:28
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:30
+#: transformers.BertGenerationEncoder.forward:30
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:31
+#: transformers.BertGenerationEncoder.forward:31
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:33
+#: transformers.BertGenerationEncoder.forward:33
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:37
+#: transformers.BertGenerationEncoder.forward:37
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:40
+#: transformers.BertGenerationEncoder.forward:40
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:43
+#: transformers.BertGenerationEncoder.forward:43
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:45
+#: transformers.BertGenerationEncoder.forward:45
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the encoder."
+" Used in the cross-attention if the model is configured as a decoder."
+msgstr ""
+
+#: of transformers.BertGenerationEncoder.forward:48
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``: ``1`` for "
+"tokens that are NOT MASKED, ``0`` for MASKED tokens."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:58
+#: transformers.BertGenerationEncoder.forward:52
+msgid ""
+"Contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding.  If :obj:`past_key_values` are used, "
+"the user can optionally input only the last :obj:`decoder_input_ids` "
+"(those that don't have their past key value states given to this model) "
+"of shape :obj:`(batch_size, 1)` instead of all :obj:`decoder_input_ids` "
+"of shape :obj:`(batch_size, sequence_length)`."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:58
+#: transformers.BertGenerationEncoder.forward:52
+msgid ""
+"Contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:60
+#: transformers.BertGenerationEncoder.forward:54
+msgid ""
+"If :obj:`past_key_values` are used, the user can optionally input only "
+"the last :obj:`decoder_input_ids` (those that don't have their past key "
+"value states given to this model) of shape :obj:`(batch_size, 1)` instead"
+" of all :obj:`decoder_input_ids` of shape :obj:`(batch_size, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:64
+#: transformers.BertGenerationEncoder.forward:58
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.BertGenerationEncoder.forward:62
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.BertGenerationConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model.    If "
+":obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size,   1, hidden_size)` is output. - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and optionally if   "
+"``config.is_encoder_decoder=True`` 2 additional tensors of shape "
+":obj:`(batch_size, num_heads,   encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and optionally if   "
+"``config.is_encoder_decoder=True`` in the cross-attention blocks) that "
+"can be used (see   :obj:`past_key_values` input) to speed up sequential "
+"decoding. - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` and ``config.add_cross_attention=True`` is "
+"passed or when ``config.output_attentions=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for each layer) of shape :obj:`(batch_size,"
+" num_heads,   sequence_length, sequence_length)`.    Attentions weights "
+"of the decoder's cross-attention layer, after the attention softmax, used"
+" to compute the   weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.BertGenerationEncoder.forward:62
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.BertGenerationConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BertGenerationEncoder.forward:66
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.BertGenerationEncoder.forward:68
+msgid ""
+"If :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size, 1, hidden_size)` is output."
+msgstr ""
+
+#: of transformers.BertGenerationEncoder.forward:70
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) "
+"and optionally if ``config.is_encoder_decoder=True`` 2 additional tensors"
+" of shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.BertGenerationEncoder.forward:75
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and optionally if ``config.is_encoder_decoder=True`` in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:74
+#: transformers.BertGenerationEncoder.forward:78
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:77
+#: transformers.BertGenerationEncoder.forward:81
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:78
+#: transformers.BertGenerationEncoder.forward:82
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:81
+#: transformers.BertGenerationEncoder.forward:85
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.BertGenerationEncoder.forward:87
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` and "
+"``config.add_cross_attention=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BertGenerationEncoder.forward:90
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.BertGenerationEncoder.forward:92
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:96
+#: transformers.BertGenerationEncoder.forward:94
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/bertgeneration.rst:106
+msgid "BertGenerationDecoder"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder:1
+msgid ""
+"BertGeneration Model with a `language modeling` head on top for CLM fine-"
+"tuning."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:1
+msgid ""
+"The :class:`~transformers.BertGenerationDecoder` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:48
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:  - 1 for "
+"tokens that are **not masked**, - 0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:48
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:54
+msgid ""
+"Labels for computing the left-to-right language modeling loss (next word "
+"prediction). Indices should be in ``[-100, 0, ..., config.vocab_size]`` "
+"(see ``input_ids`` docstring) Tokens with indices set to ``-100`` are "
+"ignored (masked), the loss is only computed for the tokens with labels in"
+" ``[0, ..., config.vocab_size]``"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:68
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.BertGenerationConfig`) and inputs.  - **loss** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, returned when"
+" :obj:`labels` is provided) -- Language modeling loss (for next-token "
+"prediction). - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Cross attentions weights after the"
+" attention softmax, used to compute the weighted average in the   cross-"
+"attention heads. - **past_key_values** "
+"(:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`torch.FloatTensor` tuples of length :obj:`config.n_layers`, with"
+" each tuple containing the   cached key, value states of the self-"
+"attention and the cross-attention layers if model is used in   encoder-"
+"decoder setting. Only relevant if ``config.is_decoder = True``.    "
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see   :obj:`past_key_values` input) to speed up"
+" sequential decoding.   Example::      >>> from transformers import "
+"BertGenerationTokenizer, BertGenerationDecoder, BertGenerationConfig     "
+">>> import torch      >>> tokenizer = "
+"BertGenerationTokenizer.from_pretrained('google"
+"/bert_for_seq_generation_L-24_bbc_encoder')     >>> config = "
+"BertGenerationConfig.from_pretrained(\"google/bert_for_seq_generation_L-"
+"24_bbc_encoder\")     >>> config.is_decoder = True     >>> model = "
+"BertGenerationDecoder.from_pretrained('google/bert_for_seq_generation_L-"
+"24_bbc_encoder', config=config)      >>> inputs = tokenizer(\"Hello, my "
+"dog is cute\", return_token_type_ids=False, return_tensors=\"pt\")     "
+">>> outputs = model(**inputs)      >>> prediction_logits = outputs.logits"
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:68
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.BertGenerationConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:72
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss (for "
+"next-token prediction)."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:73
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:83
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:86
+msgid ""
+"Cross attentions weights after the attention softmax, used to compute the"
+" weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:88
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`torch.FloatTensor` tuples of"
+" length :obj:`config.n_layers`, with each tuple containing the cached "
+"key, value states of the self-attention and the cross-attention layers if"
+" model is used in encoder-decoder setting. Only relevant if "
+"``config.is_decoder = True``."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:92
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.BertGenerationDecoder.forward:110
+msgid ""
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+

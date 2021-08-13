@@ -1,0 +1,1831 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/distilbert.rst:14
+msgid "DistilBERT"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:19
+#, python-format
+msgid ""
+"The DistilBERT model was proposed in the blog post `Smaller, faster, "
+"cheaper, lighter: Introducing DistilBERT, a distilled version of BERT "
+"<https://medium.com/huggingface/distilbert-8cf3380435b5>`__, and the "
+"paper `DistilBERT, a distilled version of BERT: smaller, faster, cheaper "
+"and lighter <https://arxiv.org/abs/1910.01108>`__. DistilBERT is a small,"
+" fast, cheap and light Transformer model trained by distilling BERT base."
+" It has 40% less parameters than `bert-base-uncased`, runs 60% faster "
+"while preserving over 95% of BERT's performances as measured on the GLUE "
+"language understanding benchmark."
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:26
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:28
+#, python-format
+msgid ""
+"*As Transfer Learning from large-scale pre-trained models becomes more "
+"prevalent in Natural Language Processing (NLP), operating these large "
+"models in on-the-edge and/or under constrained computational training or "
+"inference budgets remains challenging. In this work, we propose a method "
+"to pre-train a smaller general-purpose language representation model, "
+"called DistilBERT, which can then be fine-tuned with good performances on"
+" a wide range of tasks like its larger counterparts. While most prior "
+"work investigated the use of distillation for building task-specific "
+"models, we leverage knowledge distillation during the pretraining phase "
+"and show that it is possible to reduce the size of a BERT model by 40%, "
+"while retaining 97% of its language understanding capabilities and being "
+"60% faster. To leverage the inductive biases learned by larger models "
+"during pretraining, we introduce a triple loss combining language "
+"modeling, distillation and cosine-distance losses. Our smaller, faster "
+"and lighter model is cheaper to pre-train and we demonstrate its "
+"capabilities for on-device computations in a proof-of-concept experiment "
+"and a comparative on-device study.*"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:40
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:42
+msgid ""
+"DistilBERT doesn't have :obj:`token_type_ids`, you don't need to indicate"
+" which token belongs to which segment. Just separate your segments with "
+"the separation token :obj:`tokenizer.sep_token` (or :obj:`[SEP]`)."
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:44
+msgid ""
+"DistilBERT doesn't have options to select the input positions "
+"(:obj:`position_ids` input). This could be added if necessary though, "
+"just let us know if you need this option."
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:47
+msgid ""
+"This model was contributed by `victorsanh "
+"<https://huggingface.co/victorsanh>`__. The original code can be found "
+":prefix_link:`here <examples/research-projects/distillation>`."
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:52
+msgid "DistilBertConfig"
+msgstr ""
+
+#: of transformers.DistilBertConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.DistilBertModel` or a "
+":class:`~transformers.TFDistilBertModel`. It is used to instantiate a "
+"DistilBERT model according to the specified arguments, defining the model"
+" architecture. Instantiating a configuration with the defaults will yield"
+" a similar configuration to that of the DistilBERT `distilbert-base-"
+"uncased <https://huggingface.co/distilbert-base-uncased>`__ architecture."
+msgstr ""
+
+#: of transformers.DistilBertConfig:7
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.DistilBertConfig transformers.DistilBertForMaskedLM
+#: transformers.DistilBertForMaskedLM.forward
+#: transformers.DistilBertForMultipleChoice
+#: transformers.DistilBertForMultipleChoice.forward
+#: transformers.DistilBertForQuestionAnswering
+#: transformers.DistilBertForQuestionAnswering.forward
+#: transformers.DistilBertForSequenceClassification
+#: transformers.DistilBertForSequenceClassification.forward
+#: transformers.DistilBertForTokenClassification
+#: transformers.DistilBertForTokenClassification.forward
+#: transformers.DistilBertModel transformers.DistilBertModel.forward
+#: transformers.TFDistilBertForMaskedLM
+#: transformers.TFDistilBertForMaskedLM.call
+#: transformers.TFDistilBertForMultipleChoice
+#: transformers.TFDistilBertForMultipleChoice.call
+#: transformers.TFDistilBertForQuestionAnswering
+#: transformers.TFDistilBertForQuestionAnswering.call
+#: transformers.TFDistilBertForSequenceClassification
+#: transformers.TFDistilBertForSequenceClassification.call
+#: transformers.TFDistilBertForTokenClassification
+#: transformers.TFDistilBertForTokenClassification.call
+#: transformers.TFDistilBertModel transformers.TFDistilBertModel.call
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.DistilBertConfig:10
+msgid ""
+"Vocabulary size of the DistilBERT model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.DistilBertModel` or "
+":class:`~transformers.TFDistilBertModel`."
+msgstr ""
+
+#: of transformers.DistilBertConfig:14
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.DistilBertConfig:17
+msgid "Whether to use sinusoidal positional embeddings."
+msgstr ""
+
+#: of transformers.DistilBertConfig:19
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.DistilBertConfig:21
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.DistilBertConfig:23
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.DistilBertConfig:25
+msgid ""
+"The size of the \"intermediate\" (often named feed-forward) layer in the "
+"Transformer encoder."
+msgstr ""
+
+#: of transformers.DistilBertConfig:27
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.DistilBertConfig:29
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.DistilBertConfig:31
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.DistilBertConfig:34
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.DistilBertConfig:36
+msgid ""
+"The dropout probabilities used in the question answering model "
+":class:`~transformers.DistilBertForQuestionAnswering`."
+msgstr ""
+
+#: of transformers.DistilBertConfig:39
+msgid ""
+"The dropout probabilities used in the sequence classification and the "
+"multiple choice model "
+":class:`~transformers.DistilBertForSequenceClassification`."
+msgstr ""
+
+#: of transformers.DistilBertConfig:43
+#: transformers.DistilBertForMultipleChoice.forward:64
+msgid "Examples::"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:59
+msgid "DistilBertTokenizer"
+msgstr ""
+
+#: of transformers.DistilBertTokenizer:1
+msgid "Construct a DistilBERT tokenizer."
+msgstr ""
+
+#: of transformers.DistilBertTokenizer:3
+msgid ""
+":class:`~transformers.DistilBertTokenizer` is identical to "
+":class:`~transformers.BertTokenizer` and runs end-to-end tokenization: "
+"punctuation splitting and wordpiece."
+msgstr ""
+
+#: of transformers.DistilBertTokenizer:6
+msgid ""
+"Refer to superclass :class:`~transformers.BertTokenizer` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:66
+msgid "DistilBertTokenizerFast"
+msgstr ""
+
+#: of transformers.DistilBertTokenizerFast:1
+msgid ""
+"Construct a \"fast\" DistilBERT tokenizer (backed by HuggingFace's "
+"`tokenizers` library)."
+msgstr ""
+
+#: of transformers.DistilBertTokenizerFast:3
+msgid ""
+":class:`~transformers.DistilBertTokenizerFast` is identical to "
+":class:`~transformers.BertTokenizerFast` and runs end-to-end "
+"tokenization: punctuation splitting and wordpiece."
+msgstr ""
+
+#: of transformers.DistilBertTokenizerFast:6
+msgid ""
+"Refer to superclass :class:`~transformers.BertTokenizerFast` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:73
+msgid "DistilBertModel"
+msgstr ""
+
+#: of transformers.DistilBertModel:1 transformers.TFDistilBertModel:1
+msgid ""
+"The bare DistilBERT encoder/transformer outputting raw hidden-states "
+"without any specific head on top."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM:3
+#: transformers.DistilBertForMultipleChoice:5
+#: transformers.DistilBertForQuestionAnswering:5
+#: transformers.DistilBertForSequenceClassification:5
+#: transformers.DistilBertForTokenClassification:5
+#: transformers.DistilBertModel:3
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM:7
+#: transformers.DistilBertForMultipleChoice:9
+#: transformers.DistilBertForQuestionAnswering:9
+#: transformers.DistilBertForSequenceClassification:9
+#: transformers.DistilBertForTokenClassification:9
+#: transformers.DistilBertModel:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM:11
+#: transformers.DistilBertForMultipleChoice:13
+#: transformers.DistilBertForQuestionAnswering:13
+#: transformers.DistilBertForSequenceClassification:13
+#: transformers.DistilBertForTokenClassification:13
+#: transformers.DistilBertModel:11 transformers.TFDistilBertForMaskedLM:30
+#: transformers.TFDistilBertForMultipleChoice:32
+#: transformers.TFDistilBertForQuestionAnswering:32
+#: transformers.TFDistilBertForSequenceClassification:32
+#: transformers.TFDistilBertForTokenClassification:32
+#: transformers.TFDistilBertModel:30
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.DistilBertModel.forward:1
+msgid ""
+"The :class:`~transformers.DistilBertModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:4
+#: transformers.DistilBertForMultipleChoice.forward:4
+#: transformers.DistilBertForQuestionAnswering.forward:4
+#: transformers.DistilBertForSequenceClassification.forward:4
+#: transformers.DistilBertForTokenClassification.forward:4
+#: transformers.DistilBertModel.forward:4
+#: transformers.TFDistilBertForMaskedLM.call:4
+#: transformers.TFDistilBertForMultipleChoice.call:4
+#: transformers.TFDistilBertForQuestionAnswering.call:4
+#: transformers.TFDistilBertForSequenceClassification.call:4
+#: transformers.TFDistilBertForTokenClassification.call:4
+#: transformers.TFDistilBertModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:8
+#: transformers.DistilBertForMultipleChoice.forward:8
+#: transformers.DistilBertForQuestionAnswering.forward:8
+#: transformers.DistilBertForSequenceClassification.forward:8
+#: transformers.DistilBertForTokenClassification.forward:8
+#: transformers.DistilBertModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.DistilBertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:8
+#: transformers.DistilBertForMultipleChoice.forward:8
+#: transformers.DistilBertForQuestionAnswering.forward:8
+#: transformers.DistilBertForSequenceClassification.forward:8
+#: transformers.DistilBertForTokenClassification.forward:8
+#: transformers.DistilBertModel.forward:8
+#: transformers.TFDistilBertForMaskedLM.call:8
+#: transformers.TFDistilBertForMultipleChoice.call:8
+#: transformers.TFDistilBertForQuestionAnswering.call:8
+#: transformers.TFDistilBertForSequenceClassification.call:8
+#: transformers.TFDistilBertForTokenClassification.call:8
+#: transformers.TFDistilBertModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:10
+#: transformers.DistilBertForMultipleChoice.forward:10
+#: transformers.DistilBertForQuestionAnswering.forward:10
+#: transformers.DistilBertForSequenceClassification.forward:10
+#: transformers.DistilBertForTokenClassification.forward:10
+#: transformers.DistilBertModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.DistilBertTokenizer`."
+" See :meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:14
+#: transformers.DistilBertForMultipleChoice.forward:14
+#: transformers.DistilBertForQuestionAnswering.forward:14
+#: transformers.DistilBertForSequenceClassification.forward:14
+#: transformers.DistilBertForTokenClassification.forward:14
+#: transformers.DistilBertModel.forward:14
+#: transformers.TFDistilBertForMaskedLM.call:14
+#: transformers.TFDistilBertForMultipleChoice.call:14
+#: transformers.TFDistilBertForQuestionAnswering.call:14
+#: transformers.TFDistilBertForSequenceClassification.call:14
+#: transformers.TFDistilBertForTokenClassification.call:14
+#: transformers.TFDistilBertModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:16
+#: transformers.DistilBertForMultipleChoice.forward:16
+#: transformers.DistilBertForQuestionAnswering.forward:16
+#: transformers.DistilBertForSequenceClassification.forward:16
+#: transformers.DistilBertForTokenClassification.forward:16
+#: transformers.DistilBertModel.forward:16
+#: transformers.TFDistilBertForMaskedLM.call:16
+#: transformers.TFDistilBertForMultipleChoice.call:16
+#: transformers.TFDistilBertForQuestionAnswering.call:16
+#: transformers.TFDistilBertForSequenceClassification.call:16
+#: transformers.TFDistilBertForTokenClassification.call:16
+#: transformers.TFDistilBertModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:16
+#: transformers.DistilBertForMultipleChoice.forward:16
+#: transformers.DistilBertForQuestionAnswering.forward:16
+#: transformers.DistilBertForSequenceClassification.forward:16
+#: transformers.DistilBertForTokenClassification.forward:16
+#: transformers.DistilBertModel.forward:16
+#: transformers.TFDistilBertForMaskedLM.call:16
+#: transformers.TFDistilBertForMultipleChoice.call:16
+#: transformers.TFDistilBertForQuestionAnswering.call:16
+#: transformers.TFDistilBertForSequenceClassification.call:16
+#: transformers.TFDistilBertForTokenClassification.call:16
+#: transformers.TFDistilBertModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:18
+#: transformers.DistilBertForMultipleChoice.forward:18
+#: transformers.DistilBertForQuestionAnswering.forward:18
+#: transformers.DistilBertForSequenceClassification.forward:18
+#: transformers.DistilBertForTokenClassification.forward:18
+#: transformers.DistilBertModel.forward:18
+#: transformers.TFDistilBertForMaskedLM.call:18
+#: transformers.TFDistilBertForMultipleChoice.call:18
+#: transformers.TFDistilBertForQuestionAnswering.call:18
+#: transformers.TFDistilBertForSequenceClassification.call:18
+#: transformers.TFDistilBertForTokenClassification.call:18
+#: transformers.TFDistilBertModel.call:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:19
+#: transformers.DistilBertForMultipleChoice.forward:19
+#: transformers.DistilBertForQuestionAnswering.forward:19
+#: transformers.DistilBertForSequenceClassification.forward:19
+#: transformers.DistilBertForTokenClassification.forward:19
+#: transformers.DistilBertModel.forward:19
+#: transformers.TFDistilBertForMaskedLM.call:19
+#: transformers.TFDistilBertForMultipleChoice.call:19
+#: transformers.TFDistilBertForQuestionAnswering.call:19
+#: transformers.TFDistilBertForSequenceClassification.call:19
+#: transformers.TFDistilBertForTokenClassification.call:19
+#: transformers.TFDistilBertModel.call:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:21
+#: transformers.DistilBertForMultipleChoice.forward:21
+#: transformers.DistilBertForQuestionAnswering.forward:21
+#: transformers.DistilBertForSequenceClassification.forward:21
+#: transformers.DistilBertForTokenClassification.forward:21
+#: transformers.DistilBertModel.forward:21
+#: transformers.TFDistilBertForMaskedLM.call:21
+#: transformers.TFDistilBertForMultipleChoice.call:21
+#: transformers.TFDistilBertForQuestionAnswering.call:21
+#: transformers.TFDistilBertForSequenceClassification.call:21
+#: transformers.TFDistilBertForTokenClassification.call:21
+#: transformers.TFDistilBertModel.call:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:23
+#: transformers.DistilBertForMultipleChoice.forward:23
+#: transformers.DistilBertForQuestionAnswering.forward:23
+#: transformers.DistilBertForSequenceClassification.forward:23
+#: transformers.DistilBertForTokenClassification.forward:23
+#: transformers.DistilBertModel.forward:23
+#: transformers.TFDistilBertForMaskedLM.call:23
+#: transformers.TFDistilBertForMultipleChoice.call:23
+#: transformers.TFDistilBertForQuestionAnswering.call:23
+#: transformers.TFDistilBertForSequenceClassification.call:23
+#: transformers.TFDistilBertForTokenClassification.call:23
+#: transformers.TFDistilBertModel.call:23
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:23
+#: transformers.DistilBertForMultipleChoice.forward:23
+#: transformers.DistilBertForQuestionAnswering.forward:23
+#: transformers.DistilBertForSequenceClassification.forward:23
+#: transformers.DistilBertForTokenClassification.forward:23
+#: transformers.DistilBertModel.forward:23
+#: transformers.TFDistilBertForMaskedLM.call:23
+#: transformers.TFDistilBertForMultipleChoice.call:23
+#: transformers.TFDistilBertForQuestionAnswering.call:23
+#: transformers.TFDistilBertForSequenceClassification.call:23
+#: transformers.TFDistilBertForTokenClassification.call:23
+#: transformers.TFDistilBertModel.call:23
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:25
+#: transformers.DistilBertForMultipleChoice.forward:25
+#: transformers.DistilBertForQuestionAnswering.forward:25
+#: transformers.DistilBertForSequenceClassification.forward:25
+#: transformers.DistilBertForTokenClassification.forward:25
+#: transformers.DistilBertModel.forward:25
+#: transformers.TFDistilBertForMaskedLM.call:25
+#: transformers.TFDistilBertForMultipleChoice.call:25
+#: transformers.TFDistilBertForQuestionAnswering.call:25
+#: transformers.TFDistilBertForSequenceClassification.call:25
+#: transformers.TFDistilBertForTokenClassification.call:25
+#: transformers.TFDistilBertModel.call:25
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:26
+#: transformers.DistilBertForMultipleChoice.forward:26
+#: transformers.DistilBertForQuestionAnswering.forward:26
+#: transformers.DistilBertForSequenceClassification.forward:26
+#: transformers.DistilBertForTokenClassification.forward:26
+#: transformers.DistilBertModel.forward:26
+#: transformers.TFDistilBertForMaskedLM.call:26
+#: transformers.TFDistilBertForMultipleChoice.call:26
+#: transformers.TFDistilBertForQuestionAnswering.call:26
+#: transformers.TFDistilBertForSequenceClassification.call:26
+#: transformers.TFDistilBertForTokenClassification.call:26
+#: transformers.TFDistilBertModel.call:26
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:28
+#: transformers.DistilBertForMultipleChoice.forward:28
+#: transformers.DistilBertForQuestionAnswering.forward:28
+#: transformers.DistilBertForSequenceClassification.forward:28
+#: transformers.DistilBertForTokenClassification.forward:28
+#: transformers.DistilBertModel.forward:28
+#: transformers.TFDistilBertForMaskedLM.call:28
+#: transformers.TFDistilBertForMultipleChoice.call:28
+#: transformers.TFDistilBertForQuestionAnswering.call:28
+#: transformers.TFDistilBertForSequenceClassification.call:28
+#: transformers.TFDistilBertForTokenClassification.call:28
+#: transformers.TFDistilBertModel.call:28
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:32
+#: transformers.DistilBertForMultipleChoice.forward:32
+#: transformers.DistilBertForQuestionAnswering.forward:32
+#: transformers.DistilBertForSequenceClassification.forward:32
+#: transformers.DistilBertForTokenClassification.forward:32
+#: transformers.DistilBertModel.forward:32
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:35
+#: transformers.DistilBertForMultipleChoice.forward:35
+#: transformers.DistilBertForQuestionAnswering.forward:35
+#: transformers.DistilBertForSequenceClassification.forward:35
+#: transformers.DistilBertForTokenClassification.forward:35
+#: transformers.DistilBertModel.forward:35
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:38
+#: transformers.DistilBertForMultipleChoice.forward:38
+#: transformers.DistilBertForQuestionAnswering.forward:38
+#: transformers.DistilBertForSequenceClassification.forward:38
+#: transformers.DistilBertForTokenClassification.forward:38
+#: transformers.DistilBertModel.forward:38
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward
+#: transformers.DistilBertForMultipleChoice.forward
+#: transformers.DistilBertForQuestionAnswering.forward
+#: transformers.DistilBertForSequenceClassification.forward
+#: transformers.DistilBertForTokenClassification.forward
+#: transformers.DistilBertModel.forward
+#: transformers.TFDistilBertForMaskedLM.call
+#: transformers.TFDistilBertForMultipleChoice.call
+#: transformers.TFDistilBertForQuestionAnswering.call
+#: transformers.TFDistilBertForSequenceClassification.call
+#: transformers.TFDistilBertForTokenClassification.call
+#: transformers.TFDistilBertModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.DistilBertModel.forward:41
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.DistilBertConfig`) and inputs.  "
+"- **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.DistilBertModel.forward:41
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.DistilBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.DistilBertModel.forward:45
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:51
+#: transformers.DistilBertForMultipleChoice.forward:53
+#: transformers.DistilBertForQuestionAnswering.forward:56
+#: transformers.DistilBertForSequenceClassification.forward:51
+#: transformers.DistilBertForTokenClassification.forward:50
+#: transformers.DistilBertModel.forward:46
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:54
+#: transformers.DistilBertForMultipleChoice.forward:56
+#: transformers.DistilBertForQuestionAnswering.forward:59
+#: transformers.DistilBertForSequenceClassification.forward:54
+#: transformers.DistilBertForTokenClassification.forward:53
+#: transformers.DistilBertModel.forward:49
+#: transformers.TFDistilBertForMaskedLM.call:60
+#: transformers.TFDistilBertForMultipleChoice.call:62
+#: transformers.TFDistilBertForQuestionAnswering.call:65
+#: transformers.TFDistilBertForSequenceClassification.call:60
+#: transformers.TFDistilBertForTokenClassification.call:59
+#: transformers.TFDistilBertModel.call:55
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:55
+#: transformers.DistilBertForMultipleChoice.forward:57
+#: transformers.DistilBertForQuestionAnswering.forward:60
+#: transformers.DistilBertForSequenceClassification.forward:55
+#: transformers.DistilBertForTokenClassification.forward:54
+#: transformers.DistilBertModel.forward:50
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:58
+#: transformers.DistilBertForMultipleChoice.forward:60
+#: transformers.DistilBertForQuestionAnswering.forward:63
+#: transformers.DistilBertForSequenceClassification.forward:58
+#: transformers.DistilBertForTokenClassification.forward:57
+#: transformers.DistilBertModel.forward:53
+#: transformers.TFDistilBertForMaskedLM.call:64
+#: transformers.TFDistilBertForMultipleChoice.call:66
+#: transformers.TFDistilBertForQuestionAnswering.call:69
+#: transformers.TFDistilBertForSequenceClassification.call:64
+#: transformers.TFDistilBertForTokenClassification.call:63
+#: transformers.TFDistilBertModel.call:59
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward
+#: transformers.DistilBertForMultipleChoice.forward
+#: transformers.DistilBertForQuestionAnswering.forward
+#: transformers.DistilBertForSequenceClassification.forward
+#: transformers.DistilBertForTokenClassification.forward
+#: transformers.DistilBertModel.forward
+#: transformers.TFDistilBertForMaskedLM.call
+#: transformers.TFDistilBertForMultipleChoice.call
+#: transformers.TFDistilBertForQuestionAnswering.call
+#: transformers.TFDistilBertForSequenceClassification.call
+#: transformers.TFDistilBertForTokenClassification.call
+#: transformers.TFDistilBertModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.DistilBertModel.forward:55
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:62
+#: transformers.DistilBertForQuestionAnswering.forward:67
+#: transformers.DistilBertForSequenceClassification.forward:62
+#: transformers.DistilBertForTokenClassification.forward:61
+#: transformers.DistilBertModel.forward:57
+#: transformers.TFDistilBertForMaskedLM.call:68
+#: transformers.TFDistilBertForMultipleChoice.call:70
+#: transformers.TFDistilBertForQuestionAnswering.call:73
+#: transformers.TFDistilBertForSequenceClassification.call:68
+#: transformers.TFDistilBertForTokenClassification.call:67
+#: transformers.TFDistilBertModel.call:63
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:80
+msgid "DistilBertForMaskedLM"
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM:1
+#: transformers.TFDistilBertForMaskedLM:1
+msgid "DistilBert Model with a `masked language modeling` head on top."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:1
+msgid ""
+"The :class:`~transformers.DistilBertForMaskedLM` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:40
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:45
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.DistilBertConfig`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:45
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.DistilBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:49
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:50
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.DistilBertForMaskedLM.forward:60
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:87
+msgid "DistilBertForSequenceClassification"
+msgstr ""
+
+#: of transformers.DistilBertForSequenceClassification:1
+#: transformers.TFDistilBertForSequenceClassification:1
+msgid ""
+"DistilBert Model transformer with a sequence classification/regression "
+"head on top (a linear layer on top of the pooled output) e.g. for GLUE "
+"tasks."
+msgstr ""
+
+#: of transformers.DistilBertForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.DistilBertForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.DistilBertForSequenceClassification.forward:40
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.DistilBertForSequenceClassification.forward:45
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DistilBertConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"(or regression if config.num_labels==1) loss. - **logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.DistilBertForSequenceClassification.forward:45
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DistilBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.DistilBertForSequenceClassification.forward:49
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.DistilBertForSequenceClassification.forward:50
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.DistilBertForSequenceClassification.forward:60
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:94
+msgid "DistilBertForMultipleChoice"
+msgstr ""
+
+#: of transformers.DistilBertForMultipleChoice:1
+#: transformers.TFDistilBertForMultipleChoice:1
+msgid ""
+"DistilBert Model with a multiple choice classification head on top (a "
+"linear layer on top of the pooled output and a softmax) e.g. for "
+"RocStories/SWAG tasks."
+msgstr ""
+
+#: of transformers.DistilBertForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.DistilBertForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.DistilBertForMultipleChoice.forward:40
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.DistilBertForMultipleChoice.forward:45
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DistilBertConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape `(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"loss. - **logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Examples::      >>> from transformers import "
+"DistilBertTokenizer, DistilBertForMultipleChoice     >>> import torch"
+"      >>> tokenizer = DistilBertTokenizer.from_pretrained('distilbert-"
+"base-cased')     >>> model = DistilBertForMultipleChoice.from_pretrained"
+"('distilbert-base-cased')      >>> prompt = \"In Italy, pizza served in "
+"formal settings, such as at a restaurant, is presented unsliced.\"     "
+">>> choice0 = \"It is eaten with a fork and a knife.\"     >>> choice1 = "
+"\"It is eaten while held in the hand.\"     >>> labels = "
+"torch.tensor(0).unsqueeze(0)  # choice0 is correct (according to "
+"Wikipedia ;)), batch size 1      >>> encoding = tokenizer([[prompt, "
+"choice0], [prompt, choice1]], return_tensors='pt', padding=True)     >>> "
+"outputs = model(**{k: v.unsqueeze(0) for k,v in encoding.items()}, "
+"labels=labels) # batch size is 1      >>> # the linear classifier still "
+"needs to be trained     >>> loss = outputs.loss     >>> logits = "
+"outputs.logits"
+msgstr ""
+
+#: of transformers.DistilBertForMultipleChoice.forward:45
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DistilBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.DistilBertForMultipleChoice.forward:49
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.DistilBertForMultipleChoice.forward:50
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.DistilBertForMultipleChoice.forward:52
+#: transformers.TFDistilBertForMultipleChoice.call:58
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.DistilBertForMultipleChoice.forward:83
+msgid ""
+":class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:101
+msgid "DistilBertForTokenClassification"
+msgstr ""
+
+#: of transformers.DistilBertForTokenClassification:1
+#: transformers.TFDistilBertForTokenClassification:1
+msgid ""
+"DistilBert Model with a token classification head on top (a linear layer "
+"on top of the hidden-states output) e.g. for Named-Entity-Recognition "
+"(NER) tasks."
+msgstr ""
+
+#: of transformers.DistilBertForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.DistilBertForTokenClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.DistilBertForTokenClassification.forward:40
+#: transformers.TFDistilBertForTokenClassification.call:46
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.DistilBertForTokenClassification.forward:44
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DistilBertConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when ``labels`` is provided)  -- Classification "
+"loss. - **logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.DistilBertForTokenClassification.forward:44
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DistilBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.DistilBertForTokenClassification.forward:48
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.DistilBertForTokenClassification.forward:49
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.DistilBertForTokenClassification.forward:59
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:108
+msgid "DistilBertForQuestionAnswering"
+msgstr ""
+
+#: of transformers.DistilBertForQuestionAnswering:1
+msgid ""
+"DistilBert Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.DistilBertForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.DistilBertForQuestionAnswering` forward method,"
+" overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.DistilBertForQuestionAnswering.forward:40
+#: transformers.TFDistilBertForQuestionAnswering.call:46
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.DistilBertForQuestionAnswering.forward:44
+#: transformers.TFDistilBertForQuestionAnswering.call:50
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.DistilBertForQuestionAnswering.forward:49
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.DistilBertConfig`) "
+"and inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.DistilBertForQuestionAnswering.forward:49
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.DistilBertConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.DistilBertForQuestionAnswering.forward:53
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.DistilBertForQuestionAnswering.forward:54
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.DistilBertForQuestionAnswering.forward:55
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.DistilBertForQuestionAnswering.forward:65
+msgid ""
+":class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:114
+msgid "TFDistilBertModel"
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM:3
+#: transformers.TFDistilBertForMultipleChoice:5
+#: transformers.TFDistilBertForQuestionAnswering:5
+#: transformers.TFDistilBertForSequenceClassification:5
+#: transformers.TFDistilBertForTokenClassification:5
+#: transformers.TFDistilBertModel:3
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM:7
+#: transformers.TFDistilBertForMultipleChoice:9
+#: transformers.TFDistilBertForQuestionAnswering:9
+#: transformers.TFDistilBertForSequenceClassification:9
+#: transformers.TFDistilBertForTokenClassification:9
+#: transformers.TFDistilBertModel:7
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM:13
+#: transformers.TFDistilBertForMultipleChoice:15
+#: transformers.TFDistilBertForQuestionAnswering:15
+#: transformers.TFDistilBertForSequenceClassification:15
+#: transformers.TFDistilBertForTokenClassification:15
+#: transformers.TFDistilBertModel:13
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM:15
+#: transformers.TFDistilBertForMultipleChoice:17
+#: transformers.TFDistilBertForQuestionAnswering:17
+#: transformers.TFDistilBertForSequenceClassification:17
+#: transformers.TFDistilBertForTokenClassification:17
+#: transformers.TFDistilBertModel:15
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM:16
+#: transformers.TFDistilBertForMultipleChoice:18
+#: transformers.TFDistilBertForQuestionAnswering:18
+#: transformers.TFDistilBertForSequenceClassification:18
+#: transformers.TFDistilBertForTokenClassification:18
+#: transformers.TFDistilBertModel:16
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM:18
+#: transformers.TFDistilBertForMultipleChoice:20
+#: transformers.TFDistilBertForQuestionAnswering:20
+#: transformers.TFDistilBertForSequenceClassification:20
+#: transformers.TFDistilBertForTokenClassification:20
+#: transformers.TFDistilBertModel:18
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM:21
+#: transformers.TFDistilBertForMultipleChoice:23
+#: transformers.TFDistilBertForQuestionAnswering:23
+#: transformers.TFDistilBertForSequenceClassification:23
+#: transformers.TFDistilBertForTokenClassification:23
+#: transformers.TFDistilBertModel:21
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM:24
+#: transformers.TFDistilBertForMultipleChoice:26
+#: transformers.TFDistilBertForQuestionAnswering:26
+#: transformers.TFDistilBertForSequenceClassification:26
+#: transformers.TFDistilBertForTokenClassification:26
+#: transformers.TFDistilBertModel:24
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM:25
+#: transformers.TFDistilBertForMultipleChoice:27
+#: transformers.TFDistilBertForQuestionAnswering:27
+#: transformers.TFDistilBertForSequenceClassification:27
+#: transformers.TFDistilBertForTokenClassification:27
+#: transformers.TFDistilBertModel:25
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])`"
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM:27
+#: transformers.TFDistilBertForMultipleChoice:29
+#: transformers.TFDistilBertForQuestionAnswering:29
+#: transformers.TFDistilBertForSequenceClassification:29
+#: transformers.TFDistilBertForTokenClassification:29
+#: transformers.TFDistilBertModel:27
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids})`"
+msgstr ""
+
+#: of transformers.TFDistilBertModel.call:1
+msgid ""
+"The :class:`~transformers.TFDistilBertModel` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM.call:8
+#: transformers.TFDistilBertForMultipleChoice.call:8
+#: transformers.TFDistilBertForQuestionAnswering.call:8
+#: transformers.TFDistilBertForSequenceClassification.call:8
+#: transformers.TFDistilBertForTokenClassification.call:8
+#: transformers.TFDistilBertModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.DistilBertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM.call:10
+#: transformers.TFDistilBertForMultipleChoice.call:10
+#: transformers.TFDistilBertForQuestionAnswering.call:10
+#: transformers.TFDistilBertForSequenceClassification.call:10
+#: transformers.TFDistilBertForTokenClassification.call:10
+#: transformers.TFDistilBertModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.DistilBertTokenizer`."
+" See :func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM.call:32
+#: transformers.TFDistilBertForMultipleChoice.call:32
+#: transformers.TFDistilBertForQuestionAnswering.call:32
+#: transformers.TFDistilBertForSequenceClassification.call:32
+#: transformers.TFDistilBertForTokenClassification.call:32
+#: transformers.TFDistilBertModel.call:32
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM.call:36
+#: transformers.TFDistilBertForMultipleChoice.call:36
+#: transformers.TFDistilBertForQuestionAnswering.call:36
+#: transformers.TFDistilBertForSequenceClassification.call:36
+#: transformers.TFDistilBertForTokenClassification.call:36
+#: transformers.TFDistilBertModel.call:36
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM.call:40
+#: transformers.TFDistilBertForMultipleChoice.call:40
+#: transformers.TFDistilBertForQuestionAnswering.call:40
+#: transformers.TFDistilBertForSequenceClassification.call:40
+#: transformers.TFDistilBertForTokenClassification.call:40
+#: transformers.TFDistilBertModel.call:40
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM.call:43
+#: transformers.TFDistilBertForMultipleChoice.call:43
+#: transformers.TFDistilBertForQuestionAnswering.call:43
+#: transformers.TFDistilBertForSequenceClassification.call:43
+#: transformers.TFDistilBertForTokenClassification.call:43
+#: transformers.TFDistilBertModel.call:43
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFDistilBertModel.call:47
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.DistilBertConfig`) and inputs.  "
+"- **last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(tf.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFDistilBertModel.call:47
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.DistilBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFDistilBertModel.call:51
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.TFDistilBertModel.call:52
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM.call:61
+#: transformers.TFDistilBertForMultipleChoice.call:63
+#: transformers.TFDistilBertForQuestionAnswering.call:66
+#: transformers.TFDistilBertForSequenceClassification.call:61
+#: transformers.TFDistilBertForTokenClassification.call:60
+#: transformers.TFDistilBertModel.call:56
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFDistilBertModel.call:61
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:121
+msgid "TFDistilBertForMaskedLM"
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM.call:1
+msgid ""
+"The :class:`~transformers.TFDistilBertForMaskedLM` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM.call:46
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM.call:51
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.DistilBertConfig`) and inputs.  "
+"- **loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is"
+" the number of non-masked labels, returned when :obj:`labels` is "
+"provided) -- Masked language modeling (MLM) loss. - **logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length, "
+"config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM.call:51
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.DistilBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM.call:55
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss."
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM.call:56
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM.call:57
+#: transformers.TFDistilBertForMultipleChoice.call:59
+#: transformers.TFDistilBertForQuestionAnswering.call:62
+#: transformers.TFDistilBertForSequenceClassification.call:57
+#: transformers.TFDistilBertForTokenClassification.call:56
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFDistilBertForMaskedLM.call:66
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:128
+msgid "TFDistilBertForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFDistilBertForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFDistilBertForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFDistilBertForSequenceClassification.call:46
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in ``[0, ..., config.num_labels - 1]``. If ``config.num_labels"
+" == 1`` a regression loss is computed (Mean-Square loss), If "
+"``config.num_labels > 1`` a classification loss is computed (Cross-"
+"Entropy)."
+msgstr ""
+
+#: of transformers.TFDistilBertForSequenceClassification.call:51
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DistilBertConfig`) and "
+"inputs.  - **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"(or regression if config.num_labels==1) loss. - **logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, config.num_labels)`) -- "
+"Classification (or regression if config.num_labels==1) scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFDistilBertForSequenceClassification.call:51
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DistilBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.TFDistilBertForSequenceClassification.call:55
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFDistilBertForSequenceClassification.call:56
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFDistilBertForSequenceClassification.call:66
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:136
+msgid "TFDistilBertForMultipleChoice"
+msgstr ""
+
+#: of transformers.TFDistilBertForMultipleChoice.call:1
+msgid ""
+"The :class:`~transformers.TFDistilBertForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFDistilBertForMultipleChoice.call:46
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.TFDistilBertForMultipleChoice.call:51
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DistilBertConfig`) and "
+"inputs.  - **loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"loss. - **logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFDistilBertForMultipleChoice.call:51
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DistilBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.TFDistilBertForMultipleChoice.call:55
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.TFDistilBertForMultipleChoice.call:56
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.TFDistilBertForMultipleChoice.call:68
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` or"
+" :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:144
+msgid "TFDistilBertForTokenClassification"
+msgstr ""
+
+#: of transformers.TFDistilBertForTokenClassification.call:1
+msgid ""
+"The :class:`~transformers.TFDistilBertForTokenClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFDistilBertForTokenClassification.call:50
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.DistilBertConfig`) and inputs.  "
+"- **loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is"
+" the number of unmasked labels, returned when ``labels`` is provided)  --"
+" Classification loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, config.num_labels)`) -- "
+"Classification scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFDistilBertForTokenClassification.call:50
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.DistilBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFDistilBertForTokenClassification.call:54
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss."
+msgstr ""
+
+#: of transformers.TFDistilBertForTokenClassification.call:55
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.num_labels)`) -- Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFDistilBertForTokenClassification.call:65
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/distilbert.rst:151
+msgid "TFDistilBertForQuestionAnswering"
+msgstr ""
+
+#: of transformers.TFDistilBertForQuestionAnswering:1
+msgid ""
+"DistilBert Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layer on top of the hidden-"
+"states output to compute `span start logits` and `span end logits`)."
+msgstr ""
+
+#: of transformers.TFDistilBertForQuestionAnswering.call:1
+msgid ""
+"The :class:`~transformers.TFDistilBertForQuestionAnswering` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFDistilBertForQuestionAnswering.call:55
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DistilBertConfig`) and "
+"inputs.  - **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, "
+"`optional`, returned when :obj:`start_positions` and :obj:`end_positions`"
+" are provided) -- Total span extraction loss is the sum of a Cross-"
+"Entropy for the start and end positions. - **start_logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length)`) -- Span-"
+"start scores (before SoftMax). - **end_logits** (:obj:`tf.Tensor` of "
+"shape :obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFDistilBertForQuestionAnswering.call:55
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DistilBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.TFDistilBertForQuestionAnswering.call:59
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions."
+msgstr ""
+
+#: of transformers.TFDistilBertForQuestionAnswering.call:60
+msgid ""
+"**start_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFDistilBertForQuestionAnswering.call:61
+msgid ""
+"**end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFDistilBertForQuestionAnswering.call:71
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+

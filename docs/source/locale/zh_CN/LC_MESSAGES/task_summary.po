@@ -1,0 +1,682 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/task_summary.rst:14
+msgid "Summary of the tasks"
+msgstr ""
+
+#: ../../source/task_summary.rst:16
+msgid ""
+"This page shows the most frequent use-cases when using the library. The "
+"models available allow for many different configurations and a great "
+"versatility in use-cases. The most simple ones are presented here, "
+"showcasing usage for tasks such as question answering, sequence "
+"classification, named entity recognition and others."
+msgstr ""
+
+#: ../../source/task_summary.rst:20
+msgid ""
+"These examples leverage auto-models, which are classes that will "
+"instantiate a model according to a given checkpoint, automatically "
+"selecting the correct model architecture. Please check the "
+":class:`~transformers.AutoModel` documentation for more information. Feel"
+" free to modify the code to be more specific and adapt it to your "
+"specific use-case."
+msgstr ""
+
+#: ../../source/task_summary.rst:24
+msgid ""
+"In order for a model to perform well on a task, it must be loaded from a "
+"checkpoint corresponding to that task. These checkpoints are usually pre-"
+"trained on a large corpus of data and fine-tuned on a specific task. This"
+" means the following:"
+msgstr ""
+
+#: ../../source/task_summary.rst:28
+msgid ""
+"Not all models were fine-tuned on all tasks. If you want to fine-tune a "
+"model on a specific task, you can leverage one of the `run_$TASK.py` "
+"scripts in the `examples "
+"<https://github.com/huggingface/transformers/tree/master/examples>`__ "
+"directory."
+msgstr ""
+
+#: ../../source/task_summary.rst:31
+msgid ""
+"Fine-tuned models were fine-tuned on a specific dataset. This dataset may"
+" or may not overlap with your use-case and domain. As mentioned "
+"previously, you may leverage the `examples "
+"<https://github.com/huggingface/transformers/tree/master/examples>`__ "
+"scripts to fine-tune your model, or you may create your own training "
+"script."
+msgstr ""
+
+#: ../../source/task_summary.rst:36
+msgid ""
+"In order to do an inference on a task, several mechanisms are made "
+"available by the library:"
+msgstr ""
+
+#: ../../source/task_summary.rst:38
+msgid ""
+"Pipelines: very easy-to-use abstractions, which require as little as two "
+"lines of code."
+msgstr ""
+
+#: ../../source/task_summary.rst:39
+msgid ""
+"Direct model use: Less abstractions, but more flexibility and power via a"
+" direct access to a tokenizer (PyTorch/TensorFlow) and full inference "
+"capacity."
+msgstr ""
+
+#: ../../source/task_summary.rst:42
+msgid "Both approaches are showcased here."
+msgstr ""
+
+#: ../../source/task_summary.rst:46
+msgid ""
+"All tasks presented here leverage pre-trained checkpoints that were fine-"
+"tuned on specific tasks. Loading a checkpoint that was not fine-tuned on "
+"a specific task would load only the base transformer layers and not the "
+"additional head that is used for the task, initializing the weights of "
+"that head randomly."
+msgstr ""
+
+#: ../../source/task_summary.rst:50
+msgid "This would produce random output."
+msgstr ""
+
+#: ../../source/task_summary.rst:53
+msgid "Sequence Classification"
+msgstr ""
+
+#: ../../source/task_summary.rst:55
+msgid ""
+"Sequence classification is the task of classifying sequences according to"
+" a given number of classes. An example of sequence classification is the "
+"GLUE dataset, which is entirely based on that task. If you would like to "
+"fine-tune a model on a GLUE sequence classification task, you may "
+"leverage the :prefix_link:`run_glue.py <examples/pytorch/text-"
+"classification/run_glue.py>`, :prefix_link:`run_tf_glue.py "
+"<examples/tensorflow/text-classification/run_tf_glue.py>`, "
+":prefix_link:`run_tf_text_classification.py <examples/tensorflow/text-"
+"classification/run_tf_text_classification.py>` or "
+":prefix_link:`run_xnli.py <examples/pytorch/text-"
+"classification/run_xnli.py>` scripts."
+msgstr ""
+
+#: ../../source/task_summary.rst:63
+msgid ""
+"Here is an example of using pipelines to do sentiment analysis: "
+"identifying if a sequence is positive or negative. It leverages a fine-"
+"tuned model on sst2, which is a GLUE task."
+msgstr ""
+
+#: ../../source/task_summary.rst:66
+msgid ""
+"This returns a label (\"POSITIVE\" or \"NEGATIVE\") alongside a score, as"
+" follows:"
+msgstr ""
+
+#: ../../source/task_summary.rst:83
+msgid ""
+"Here is an example of doing a sequence classification using a model to "
+"determine if two sequences are paraphrases of each other. The process is "
+"the following:"
+msgstr ""
+
+#: ../../source/task_summary.rst:86 ../../source/task_summary.rst:209
+#: ../../source/task_summary.rst:662
+msgid ""
+"Instantiate a tokenizer and a model from the checkpoint name. The model "
+"is identified as a BERT model and loads it with the weights stored in the"
+" checkpoint."
+msgstr ""
+
+#: ../../source/task_summary.rst:88
+msgid ""
+"Build a sequence from the two sentences, with the correct model-specific "
+"separators, token type ids and attention masks (which will be created "
+"automatically by the tokenizer)."
+msgstr ""
+
+#: ../../source/task_summary.rst:90
+msgid ""
+"Pass this sequence through the model so that it is classified in one of "
+"the two available classes: 0 (not a paraphrase) and 1 (is a paraphrase)."
+msgstr ""
+
+#: ../../source/task_summary.rst:92
+msgid "Compute the softmax of the result to get probabilities over the classes."
+msgstr ""
+
+#: ../../source/task_summary.rst:93 ../../source/task_summary.rst:218
+msgid "Print the results."
+msgstr ""
+
+#: ../../source/task_summary.rst:167
+msgid "Extractive Question Answering"
+msgstr ""
+
+#: ../../source/task_summary.rst:169
+msgid ""
+"Extractive Question Answering is the task of extracting an answer from a "
+"text given a question. An example of a question answering dataset is the "
+"SQuAD dataset, which is entirely based on that task. If you would like to"
+" fine-tune a model on a SQuAD task, you may leverage the `run_qa.py "
+"<https://github.com/huggingface/transformers/tree/master/examples/pytorch"
+"/question-answering/run_qa.py>`__ and `run_tf_squad.py "
+"<https://github.com/huggingface/transformers/tree/master/examples/tensorflow"
+"/question-answering/run_tf_squad.py>`__ scripts."
+msgstr ""
+
+#: ../../source/task_summary.rst:178
+msgid ""
+"Here is an example of using pipelines to do question answering: "
+"extracting an answer from a text given a question. It leverages a fine-"
+"tuned model on SQuAD."
+msgstr ""
+
+#: ../../source/task_summary.rst:193
+msgid ""
+"This returns an answer extracted from the text, a confidence score, "
+"alongside \"start\" and \"end\" values, which are the positions of the "
+"extracted answer in the text."
+msgstr ""
+
+#: ../../source/task_summary.rst:207
+msgid ""
+"Here is an example of question answering using a model and a tokenizer. "
+"The process is the following:"
+msgstr ""
+
+#: ../../source/task_summary.rst:211
+msgid "Define a text and a few questions."
+msgstr ""
+
+#: ../../source/task_summary.rst:212
+msgid ""
+"Iterate over the questions and build a sequence from the text and the "
+"current question, with the correct model-specific separators token type "
+"ids and attention masks."
+msgstr ""
+
+#: ../../source/task_summary.rst:214
+msgid ""
+"Pass this sequence through the model. This outputs a range of scores "
+"across the entire sequence tokens (question and text), for both the start"
+" and end positions."
+msgstr ""
+
+#: ../../source/task_summary.rst:216
+msgid "Compute the softmax of the result to get probabilities over the tokens."
+msgstr ""
+
+#: ../../source/task_summary.rst:217
+msgid ""
+"Fetch the tokens from the identified start and stop values, convert those"
+" tokens to a string."
+msgstr ""
+
+#: ../../source/task_summary.rst:313
+msgid "Language Modeling"
+msgstr ""
+
+#: ../../source/task_summary.rst:315
+msgid ""
+"Language modeling is the task of fitting a model to a corpus, which can "
+"be domain specific. All popular transformer-based models are trained "
+"using a variant of language modeling, e.g. BERT with masked language "
+"modeling, GPT-2 with causal language modeling."
+msgstr ""
+
+#: ../../source/task_summary.rst:319
+msgid ""
+"Language modeling can be useful outside of pretraining as well, for "
+"example to shift the model distribution to be domain-specific: using a "
+"language model trained over a very large corpus, and then fine-tuning it "
+"to a news dataset or on scientific papers e.g. `LysandreJik/arxiv-nlp "
+"<https://huggingface.co/lysandre/arxiv-nlp>`__."
+msgstr ""
+
+#: ../../source/task_summary.rst:324
+msgid "Masked Language Modeling"
+msgstr ""
+
+#: ../../source/task_summary.rst:326
+msgid ""
+"Masked language modeling is the task of masking tokens in a sequence with"
+" a masking token, and prompting the model to fill that mask with an "
+"appropriate token. This allows the model to attend to both the right "
+"context (tokens on the right of the mask) and the left context (tokens on"
+" the left of the mask). Such a training creates a strong basis for "
+"downstream tasks requiring bi-directional context, such as SQuAD "
+"(question answering, see `Lewis, Lui, Goyal et al. "
+"<https://arxiv.org/abs/1910.13461>`__, part 4.2). If you would like to "
+"fine-tune a model on a masked language modeling task, you may leverage "
+"the :prefix_link:`run_mlm.py <examples/pytorch/language-"
+"modeling/run_mlm.py>` script."
+msgstr ""
+
+#: ../../source/task_summary.rst:333
+msgid "Here is an example of using pipelines to replace a mask from a sequence:"
+msgstr ""
+
+#: ../../source/task_summary.rst:341
+msgid ""
+"This outputs the sequences with the mask filled, the confidence score, "
+"and the token id in the tokenizer vocabulary:"
+msgstr ""
+
+#: ../../source/task_summary.rst:373
+msgid ""
+"Here is an example of doing masked language modeling using a model and a "
+"tokenizer. The process is the following:"
+msgstr ""
+
+#: ../../source/task_summary.rst:375
+msgid ""
+"Instantiate a tokenizer and a model from the checkpoint name. The model "
+"is identified as a DistilBERT model and loads it with the weights stored "
+"in the checkpoint."
+msgstr ""
+
+#: ../../source/task_summary.rst:377
+msgid ""
+"Define a sequence with a masked token, placing the "
+":obj:`tokenizer.mask_token` instead of a word."
+msgstr ""
+
+#: ../../source/task_summary.rst:378
+msgid ""
+"Encode that sequence into a list of IDs and find the position of the "
+"masked token in that list."
+msgstr ""
+
+#: ../../source/task_summary.rst:379
+msgid ""
+"Retrieve the predictions at the index of the mask token: this tensor has "
+"the same size as the vocabulary, and the values are the scores attributed"
+" to each token. The model gives higher score to tokens it deems probable "
+"in that context."
+msgstr ""
+
+#: ../../source/task_summary.rst:382
+msgid ""
+"Retrieve the top 5 tokens using the PyTorch :obj:`topk` or TensorFlow "
+":obj:`top_k` methods."
+msgstr ""
+
+#: ../../source/task_summary.rst:383
+msgid "Replace the mask token by the tokens and print the results"
+msgstr ""
+
+#: ../../source/task_summary.rst:421
+msgid "This prints five sequences, with the top 5 tokens predicted by the model:"
+msgstr ""
+
+#: ../../source/task_summary.rst:435
+msgid "Causal Language Modeling"
+msgstr ""
+
+#: ../../source/task_summary.rst:437
+msgid ""
+"Causal language modeling is the task of predicting the token following a "
+"sequence of tokens. In this situation, the model only attends to the left"
+" context (tokens on the left of the mask). Such a training is "
+"particularly interesting for generation tasks. If you would like to fine-"
+"tune a model on a causal language modeling task, you may leverage the "
+":prefix_link:`run_clm.py <examples/pytorch/language-modeling/run_clm.py>`"
+" script."
+msgstr ""
+
+#: ../../source/task_summary.rst:442
+msgid ""
+"Usually, the next token is predicted by sampling from the logits of the "
+"last hidden state the model produces from the input sequence."
+msgstr ""
+
+#: ../../source/task_summary.rst:445
+msgid ""
+"Here is an example of using the tokenizer and model and leveraging the "
+":func:`~transformers.PreTrainedModel.top_k_top_p_filtering` method to "
+"sample the next token following an input sequence of tokens."
+msgstr ""
+
+#: ../../source/task_summary.rst:501
+msgid ""
+"This outputs a (hopefully) coherent next token following the original "
+"sequence, which in our case is the word *has*:"
+msgstr ""
+
+#: ../../source/task_summary.rst:508
+msgid ""
+"In the next section, we show how "
+":func:`~transformers.generation_utils.GenerationMixin.generate` can be "
+"used to generate multiple tokens up to a specified length instead of one "
+"token at a time."
+msgstr ""
+
+#: ../../source/task_summary.rst:512
+msgid "Text Generation"
+msgstr ""
+
+#: ../../source/task_summary.rst:514
+msgid ""
+"In text generation (*a.k.a* *open-ended text generation*) the goal is to "
+"create a coherent portion of text that is a continuation from the given "
+"context. The following example shows how *GPT-2* can be used in pipelines"
+" to generate text. As a default all models apply *Top-K* sampling when "
+"used in pipelines, as configured in their respective configurations (see "
+"`gpt-2 config "
+"<https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-config.json>`__"
+" for example)."
+msgstr ""
+
+#: ../../source/task_summary.rst:529
+msgid ""
+"Here, the model generates a random text with a total maximal length of "
+"*50* tokens from context *\"As far as I am concerned, I will\"*. Behind "
+"the scenes, the pipeline object calls the method "
+":func:`~transformers.PreTrainedModel.generate` to generate text. The "
+"default arguments for this method can be overridden in the pipeline, as "
+"is shown above for the arguments ``max_length`` and ``do_sample``."
+msgstr ""
+
+#: ../../source/task_summary.rst:534
+msgid ""
+"Below is an example of text generation using ``XLNet`` and its tokenizer,"
+" which includes calling ``generate`` directly:"
+msgstr ""
+
+#: ../../source/task_summary.rst:593
+msgid ""
+"Text generation is currently possible with *GPT-2*, *OpenAi-GPT*, *CTRL*,"
+" *XLNet*, *Transfo-XL* and *Reformer* in PyTorch and for most models in "
+"Tensorflow as well. As can be seen in the example above *XLNet* and "
+"*Transfo-XL* often need to be padded to work well. GPT-2 is usually a "
+"good choice for *open-ended text generation* because it was trained on "
+"millions of webpages with a causal language modeling objective."
+msgstr ""
+
+#: ../../source/task_summary.rst:598
+msgid ""
+"For more information on how to apply different decoding strategies for "
+"text generation, please also refer to our text generation blog post `here"
+" <https://huggingface.co/blog/how-to-generate>`__."
+msgstr ""
+
+#: ../../source/task_summary.rst:603
+msgid "Named Entity Recognition"
+msgstr ""
+
+#: ../../source/task_summary.rst:605
+msgid ""
+"Named Entity Recognition (NER) is the task of classifying tokens "
+"according to a class, for example, identifying a token as a person, an "
+"organisation or a location. An example of a named entity recognition "
+"dataset is the CoNLL-2003 dataset, which is entirely based on that task. "
+"If you would like to fine-tune a model on an NER task, you may leverage "
+"the :prefix_link:`run_ner.py <examples/pytorch/token-"
+"classification/run_ner.py>` script."
+msgstr ""
+
+#: ../../source/task_summary.rst:610
+msgid ""
+"Here is an example of using pipelines to do named entity recognition, "
+"specifically, trying to identify tokens as belonging to one of 9 classes:"
+msgstr ""
+
+#: ../../source/task_summary.rst:613
+msgid "O, Outside of a named entity"
+msgstr ""
+
+#: ../../source/task_summary.rst:614
+msgid ""
+"B-MIS, Beginning of a miscellaneous entity right after another "
+"miscellaneous entity"
+msgstr ""
+
+#: ../../source/task_summary.rst:615
+msgid "I-MIS, Miscellaneous entity"
+msgstr ""
+
+#: ../../source/task_summary.rst:616
+msgid "B-PER, Beginning of a person's name right after another person's name"
+msgstr ""
+
+#: ../../source/task_summary.rst:617
+msgid "I-PER, Person's name"
+msgstr ""
+
+#: ../../source/task_summary.rst:618
+msgid "B-ORG, Beginning of an organisation right after another organisation"
+msgstr ""
+
+#: ../../source/task_summary.rst:619
+msgid "I-ORG, Organisation"
+msgstr ""
+
+#: ../../source/task_summary.rst:620
+msgid "B-LOC, Beginning of a location right after another location"
+msgstr ""
+
+#: ../../source/task_summary.rst:621
+msgid "I-LOC, Location"
+msgstr ""
+
+#: ../../source/task_summary.rst:623
+msgid ""
+"It leverages a fine-tuned model on CoNLL-2003, fine-tuned by `@stefan-it "
+"<https://github.com/stefan-it>`__ from `dbmdz "
+"<https://github.com/dbmdz>`__."
+msgstr ""
+
+#: ../../source/task_summary.rst:636
+msgid ""
+"This outputs a list of all words that have been identified as one of the "
+"entities from the 9 classes defined above. Here are the expected results:"
+msgstr ""
+
+#: ../../source/task_summary.rst:657
+msgid ""
+"Note how the tokens of the sequence \"Hugging Face\" have been identified"
+" as an organisation, and \"New York City\", \"DUMBO\" and \"Manhattan "
+"Bridge\" have been identified as locations."
+msgstr ""
+
+#: ../../source/task_summary.rst:660
+msgid ""
+"Here is an example of doing named entity recognition, using a model and a"
+" tokenizer. The process is the following:"
+msgstr ""
+
+#: ../../source/task_summary.rst:664
+msgid ""
+"Define a sequence with known entities, such as \"Hugging Face\" as an "
+"organisation and \"New York City\" as a location."
+msgstr ""
+
+#: ../../source/task_summary.rst:665
+msgid ""
+"Split words into tokens so that they can be mapped to predictions. We use"
+" a small hack by, first, completely encoding and decoding the sequence, "
+"so that we're left with a string that contains the special tokens."
+msgstr ""
+
+#: ../../source/task_summary.rst:667
+msgid "Encode that sequence into IDs (special tokens are added automatically)."
+msgstr ""
+
+#: ../../source/task_summary.rst:668
+msgid ""
+"Retrieve the predictions by passing the input to the model and getting "
+"the first output. This results in a distribution over the 9 possible "
+"classes for each token. We take the argmax to retrieve the most likely "
+"class for each token."
+msgstr ""
+
+#: ../../source/task_summary.rst:671
+msgid "Zip together each token with its prediction and print it."
+msgstr ""
+
+#: ../../source/task_summary.rst:721
+msgid ""
+"This outputs a list of each token mapped to its corresponding prediction."
+" Differently from the pipeline, here every token has a prediction as we "
+"didn't remove the \"0\"th class, which means that no particular entity "
+"was found on that token."
+msgstr ""
+
+#: ../../source/task_summary.rst:725
+msgid ""
+"In the above example, ``predictions`` is an integer that corresponds to "
+"the predicted class. We can use the ``model.config.id2label`` property in"
+" order to recover the class name corresponding to the class number, which"
+" is illustrated below:"
+msgstr ""
+
+#: ../../source/task_summary.rst:768
+msgid "Summarization"
+msgstr ""
+
+#: ../../source/task_summary.rst:770
+msgid ""
+"Summarization is the task of summarizing a document or an article into a "
+"shorter text. If you would like to fine-tune a model on a summarization "
+"task, you may leverage the `run_summarization.py "
+"<https://github.com/huggingface/transformers/tree/master/examples/pytorch/summarization/run_summarization.py>`__"
+" script."
+msgstr ""
+
+#: ../../source/task_summary.rst:775
+msgid ""
+"An example of a summarization dataset is the CNN / Daily Mail dataset, "
+"which consists of long news articles and was created for the task of "
+"summarization. If you would like to fine-tune a model on a summarization "
+"task, various approaches are described in this :prefix_link:`document "
+"<examples/pytorch/summarization/README.md>`."
+msgstr ""
+
+#: ../../source/task_summary.rst:779
+msgid ""
+"Here is an example of using the pipelines to do summarization. It "
+"leverages a Bart model that was fine-tuned on the CNN / Daily Mail data "
+"set."
+msgstr ""
+
+#: ../../source/task_summary.rst:807
+msgid ""
+"Because the summarization pipeline depends on the "
+"``PreTrainedModel.generate()`` method, we can override the default "
+"arguments of ``PreTrainedModel.generate()`` directly in the pipeline for "
+"``max_length`` and ``min_length`` as shown below. This outputs the "
+"following summary:"
+msgstr ""
+
+#: ../../source/task_summary.rst:816
+msgid ""
+"Here is an example of doing summarization using a model and a tokenizer. "
+"The process is the following:"
+msgstr ""
+
+#: ../../source/task_summary.rst:818 ../../source/task_summary.rst:882
+msgid ""
+"Instantiate a tokenizer and a model from the checkpoint name. "
+"Summarization is usually done using an encoder-decoder model, such as "
+"``Bart`` or ``T5``."
+msgstr ""
+
+#: ../../source/task_summary.rst:820 ../../source/task_summary.rst:884
+msgid "Define the article that should be summarized."
+msgstr ""
+
+#: ../../source/task_summary.rst:821
+msgid "Add the T5 specific prefix \"summarize: \"."
+msgstr ""
+
+#: ../../source/task_summary.rst:822
+msgid "Use the ``PreTrainedModel.generate()`` method to generate the summary."
+msgstr ""
+
+#: ../../source/task_summary.rst:824
+msgid ""
+"In this example we use Google's T5 model. Even though it was pre-trained "
+"only on a multi-task mixed dataset (including CNN / Daily Mail), it "
+"yields very good results."
+msgstr ""
+
+#: ../../source/task_summary.rst:855
+msgid "Translation"
+msgstr ""
+
+#: ../../source/task_summary.rst:857
+msgid ""
+"Translation is the task of translating a text from one language to "
+"another. If you would like to fine-tune a model on a translation task, "
+"you may leverage the `run_translation.py "
+"<https://github.com/huggingface/transformers/tree/master/examples/pytorch/translation/run_translation.py>`__"
+" script."
+msgstr ""
+
+#: ../../source/task_summary.rst:861
+msgid ""
+"An example of a translation dataset is the WMT English to German dataset,"
+" which has sentences in English as the input data and the corresponding "
+"sentences in German as the target data. If you would like to fine-tune a "
+"model on a translation task, various approaches are described in this "
+":prefix_link:`document <examples/pytorch.translation/README.md>`."
+msgstr ""
+
+#: ../../source/task_summary.rst:866
+msgid ""
+"Here is an example of using the pipelines to do translation. It leverages"
+" a T5 model that was only pre-trained on a multi-task mixture dataset "
+"(including WMT), yet, yielding impressive translation results."
+msgstr ""
+
+#: ../../source/task_summary.rst:877
+msgid ""
+"Because the translation pipeline depends on the "
+"``PreTrainedModel.generate()`` method, we can override the default "
+"arguments of ``PreTrainedModel.generate()`` directly in the pipeline as "
+"is shown for ``max_length`` above."
+msgstr ""
+
+#: ../../source/task_summary.rst:880
+msgid ""
+"Here is an example of doing translation using a model and a tokenizer. "
+"The process is the following:"
+msgstr ""
+
+#: ../../source/task_summary.rst:885
+msgid "Add the T5 specific prefix \"translate English to German: \""
+msgstr ""
+
+#: ../../source/task_summary.rst:886
+msgid "Use the ``PreTrainedModel.generate()`` method to perform the translation."
+msgstr ""
+
+#: ../../source/task_summary.rst:907
+msgid "As with the pipeline example, we get the same translation:"
+msgstr ""
+

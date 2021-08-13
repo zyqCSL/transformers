@@ -1,0 +1,656 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/performance.md:17
+msgid "Performance and Scalability: How To Fit a Bigger Model and Train It Faster"
+msgstr ""
+
+#: ../../source/performance.md:19
+msgid ""
+"For now the software sections of this document are mainly Pytorch-"
+"specific, but the guide can be extended to other frameworks in the "
+"future."
+msgstr ""
+
+#: ../../source/performance.md:21
+msgid "Quick notes"
+msgstr ""
+
+#: ../../source/performance.md:23
+msgid ""
+"This section gives brief ideas on how to make training faster and support"
+" bigger models. Later sections will expand, demonstrate and elucidate "
+"each of these."
+msgstr ""
+
+#: ../../source/performance.md:25
+msgid "Faster Training"
+msgstr ""
+
+#: ../../source/performance.md:27 ../../source/performance.md:41
+msgid "Hardware:"
+msgstr ""
+
+#: ../../source/performance.md:29
+msgid "fast connectivity between GPUs"
+msgstr ""
+
+#: ../../source/performance.md:30
+msgid "intra-node: NVLink"
+msgstr ""
+
+#: ../../source/performance.md:31
+msgid "inter-node: Infiniband / Intel OPA"
+msgstr ""
+
+#: ../../source/performance.md:33 ../../source/performance.md:47
+msgid "Software:"
+msgstr ""
+
+#: ../../source/performance.md:35
+msgid "Data Parallel / Distributed Data Parallel"
+msgstr ""
+
+#: ../../source/performance.md:36
+msgid "fp16 (autocast caching)"
+msgstr ""
+
+#: ../../source/performance.md:39
+msgid "Bigger Models"
+msgstr ""
+
+#: ../../source/performance.md:43
+msgid "bigger GPUs"
+msgstr ""
+
+#: ../../source/performance.md:44
+msgid "more GPUs"
+msgstr ""
+
+#: ../../source/performance.md:45
+msgid "more CPU and NVMe (offloaded to by DeepSpeed)"
+msgstr ""
+
+#: ../../source/performance.md:49
+msgid "Deepspeed ZeRO"
+msgstr ""
+
+#: ../../source/performance.md:50
+msgid "Deepspeed ZeRO-Offload"
+msgstr ""
+
+#: ../../source/performance.md:51
+msgid "Megatron-LM 3D Parallelism"
+msgstr ""
+
+#: ../../source/performance.md:52
+msgid "Pipeline Parallelism"
+msgstr ""
+
+#: ../../source/performance.md:53
+msgid "Tensor Parallelism"
+msgstr ""
+
+#: ../../source/performance.md:54
+msgid "Low-memory Optimizers"
+msgstr ""
+
+#: ../../source/performance.md:55
+msgid "fp16/bf16 (smaller data)"
+msgstr ""
+
+#: ../../source/performance.md:59
+msgid "Hardware"
+msgstr ""
+
+#: ../../source/performance.md:61
+msgid "Multi-GPU Connectivity"
+msgstr ""
+
+#: ../../source/performance.md:63
+msgid ""
+"If you use multiple GPUs the way cards are inter-connected can have a "
+"huge impact on the total training time."
+msgstr ""
+
+#: ../../source/performance.md:65
+msgid "If the GPUs are on the same physical node, you can run:"
+msgstr ""
+
+#: ../../source/performance.md:71
+msgid "and it will tell you how the GPUs are inter-connected."
+msgstr ""
+
+#: ../../source/performance.md:73
+msgid ""
+"On a machine with dual-GPU and which are connected with NVLink, you will "
+"most likely see something like:"
+msgstr ""
+
+#: ../../source/performance.md:81
+msgid "on a different machine w/o NVLink we may see:"
+msgstr ""
+
+#: ../../source/performance.md:88
+msgid "The report includes this legend:"
+msgstr ""
+
+#: ../../source/performance.md:100
+msgid ""
+"So the first report NV2 tells us the GPUs are interconnected with 2 "
+"NVLinks, and the second report PHB we have a typical consumer-level "
+"PCIe+Bridge setup."
+msgstr ""
+
+#: ../../source/performance.md:102
+msgid ""
+"Check what type of connectivity you have on your setup. Some of these "
+"will make the communication between cards faster (e.g. NVLink), others "
+"slower (e.g. PHB)."
+msgstr ""
+
+#: ../../source/performance.md:104
+msgid ""
+"Depending on the type of scalability solution used, the connectivity "
+"speed could have a major or a minor impact. If the GPUs need to sync "
+"rarely, as in DDP, the impact of a slower connection will be less "
+"significant. If the GPUs need to send messages to each other often, as in"
+" ZeRO-DP, then faster connectivity becomes super important to achieve "
+"faster training."
+msgstr ""
+
+#: ../../source/performance.md:106
+msgid "NVlink"
+msgstr ""
+
+#: ../../source/performance.md:108
+msgid ""
+"NVLink is a wire-based serial multi-lane near-range communications link "
+"developed by Nvidia."
+msgstr ""
+
+#: ../../source/performance.md:110
+msgid ""
+"Each new generation provides a faster bandwidth, e.g. here is a quote "
+"from Nvidia Ampere GA102 GPU Architecture:"
+msgstr ""
+
+#: ../../source/performance.md:112
+msgid ""
+"Third-Generation NVLink® GA102 GPUs utilize NVIDIA’s third-generation "
+"NVLink interface, which includes four x4 links, with each link providing "
+"14.0625 GB/sec bandwidth in each direction between two GPUs. Four links "
+"provide 56.25 GB/sec bandwidth in each direction, and 112.5 GB/sec total "
+"bandwidth between two GPUs. Two RTX 3090 GPUs can be connected together "
+"for SLI using NVLink. (Note that 3-Way and 4-Way SLI configurations are "
+"not supported.)"
+msgstr ""
+
+#: ../../source/performance.md:119
+msgid ""
+"So the higher X you get in the report of NVX in the output of nvidia-smi "
+"topo -m the better. The generation will depend on your GPU architecture."
+msgstr ""
+
+#: ../../source/performance.md:121
+msgid ""
+"Let's compare the execution of a gpt2 language model training over a "
+"small sample of wikitext."
+msgstr ""
+
+#: ../../source/performance.md:123
+msgid "The results are:"
+msgstr ""
+
+#: ../../source/performance.md:146
+#, python-format
+msgid "You can see that NVLink completes the training ~23% faster."
+msgstr ""
+
+#: ../../source/performance.md:148
+msgid ""
+"In the second benchmark we use NCCL_P2P_DISABLE=1 to tell the GPUs not to"
+" use NVLink."
+msgstr ""
+
+#: ../../source/performance.md:150 ../../source/performance.md:357
+msgid "Here is the full benchmark code and outputs:"
+msgstr ""
+
+#: ../../source/performance.md:172 ../../source/performance.md:388
+msgid ""
+"Hardware: 2x TITAN RTX 24GB each + NVlink with 2 NVLinks (NV2 in nvidia-"
+"smi topo -m) Software: pytorch-1.8-to-be + cuda-11.0 / "
+"transformers==4.3.0.dev0"
+msgstr ""
+
+#: ../../source/performance.md:175
+msgid "Software"
+msgstr ""
+
+#: ../../source/performance.md:177
+msgid "Anatomy of Model's Memory"
+msgstr ""
+
+#: ../../source/performance.md:179
+msgid "The components on GPU memory are the following:"
+msgstr ""
+
+#: ../../source/performance.md:180
+msgid "the model weights"
+msgstr ""
+
+#: ../../source/performance.md:181
+msgid "the forward activations saved for gradient computation"
+msgstr ""
+
+#: ../../source/performance.md:182
+msgid "the gradients"
+msgstr ""
+
+#: ../../source/performance.md:183
+msgid "the optimizer state"
+msgstr ""
+
+#: ../../source/performance.md:185
+msgid "forward vs backward Execution Speed"
+msgstr ""
+
+#: ../../source/performance.md:187
+msgid ""
+"For convolutions and linear layers there are 2x flops in the backward "
+"compared to the forward, which generally translates into ~2x slower "
+"(sometimes more, because sizes in the backward tend to be more awkward). "
+"Activations are usually bandwidth-limited, and it’s typical for an "
+"activation to have to read more data in the backward than in the forward "
+"(e.g. activation forward reads once, writes once, activation backward "
+"reads twice, gradOutput and output of the forward, and writes once, "
+"gradInput)."
+msgstr ""
+
+#: ../../source/performance.md:189
+msgid "fp16"
+msgstr ""
+
+#: ../../source/performance.md:191
+msgid "AMP = Automatic Mixed Precision"
+msgstr ""
+
+#: ../../source/performance.md:193
+msgid ""
+"If we look at what's happening with FP16 training (mixed precision) we "
+"have:"
+msgstr ""
+
+#: ../../source/performance.md:194
+msgid ""
+"the model has two copies in memory: one in half-precision for the "
+"forward/backward computations and one in full precision - no memory saved"
+" here"
+msgstr ""
+
+#: ../../source/performance.md:195
+msgid ""
+"the forward activations saved for gradient computation are in half-"
+"precision - memory is saved here"
+msgstr ""
+
+#: ../../source/performance.md:196
+msgid ""
+"the gradients are computed in half-precision but converted to full-"
+"precision for the update, no saving there"
+msgstr ""
+
+#: ../../source/performance.md:197
+msgid ""
+"the optimizer states are in full precision as all the updates are done in"
+" full-precision"
+msgstr ""
+
+#: ../../source/performance.md:199
+msgid ""
+"So the savings only happen for the forward activations saved for the "
+"backward computation, and there is a slight overhead because the model "
+"weights are stored both in half- and full-precision."
+msgstr ""
+
+#: ../../source/performance.md:201
+msgid ""
+"Now let's look at a simple text-classification fine-tuning on 2 GPUs (I'm"
+" giving the command for reference):"
+msgstr ""
+
+#: ../../source/performance.md:218
+msgid ""
+"Since the only savings we get are in the model activations saved for the "
+"backward passed, it's logical that the bigger those activations are, the "
+"bigger the saving will be. If we try different batch sizes, I indeed get "
+"(this is with nvidia-smi so not completely reliable as said above but it "
+"will be a fair comparison):"
+msgstr ""
+
+#: ../../source/performance.md:257
+msgid ""
+"So there is only a real memory saving if we train at a high batch size "
+"(and it's not half) and at batch sizes lower than 8, you actually get a "
+"bigger memory footprint (because of the overhead mentioned above). The "
+"gain for FP16 training is that in each of those cases, the training with "
+"the flag --fp16 is twice as fast, which does require every tensor to have"
+" every dimension be a multiple of 8 (examples pad the tensors to a "
+"sequence length that is a multiple of 8)."
+msgstr ""
+
+#: ../../source/performance.md:259
+msgid ""
+"Summary: FP16 with apex or AMP will only give you some memory savings "
+"with a reasonably high batch size."
+msgstr ""
+
+#: ../../source/performance.md:261
+msgid ""
+"Additionally, under mixed precision when possible, it's important that "
+"the batch size is a multiple of 8 to efficiently use tensor cores."
+msgstr ""
+
+#: ../../source/performance.md:263
+msgid "Some amazing tutorials to read on mixed precision:"
+msgstr ""
+
+#: ../../source/performance.md:264
+msgid "@sgugger wrote a great explanation of mixed precision here"
+msgstr ""
+
+#: ../../source/performance.md:265
+msgid ""
+"Aleksey Bilogur's A developer-friendly guide to mixed precision training "
+"with PyTorch"
+msgstr ""
+
+#: ../../source/performance.md:267
+msgid "fp16 caching"
+msgstr ""
+
+#: ../../source/performance.md:269
+msgid ""
+"pytorch autocast which performs AMP include a caching feature, which "
+"speed things up by caching fp16-converted values. Here is the full "
+"description from this comment:"
+msgstr ""
+
+#: ../../source/performance.md:271
+msgid ""
+"Autocast maintains a cache of the FP16 casts of model params (leaves). "
+"This helps streamline parameter reuse: if the same FP32 param is used in "
+"several different FP16list ops, like several matmuls, instead of re-"
+"casting the param to FP16 on entering each matmul, the cast will occur on"
+" the first matmul, the casted FP16 copy will be cached, and for all later"
+" matmuls the FP16 copy will be reused. The cache is maintained only "
+"within a particular outermost autocast context. When you exit the "
+"autocast context the cache is dropped. For recommended usage, in which "
+"autocast wraps the forward pass, and then you exit the context before "
+"calling backward(), this means the cache only lasts the duration of the "
+"forward pass each iteration, and will be rebuilt next iteration. (The "
+"cache of FP16-casted copies MUST be rebuilt each iteration. The FP32 "
+"params get updated by the optimizer, so the FP16 copies must be "
+"recreated, otherwise the FP16 values will be stale.)"
+msgstr ""
+
+#: ../../source/performance.md:273
+msgid "Batch sizes"
+msgstr ""
+
+#: ../../source/performance.md:275
+msgid ""
+"One gets the most efficient performance when batch sizes and input/output"
+" neuron counts are divisible by a certain number, which typically starts "
+"at 8, but can be much higher as well. That number varies a lot depending "
+"on the specific hardware being used and the dtype of the model."
+msgstr ""
+
+#: ../../source/performance.md:277
+msgid ""
+"For example for fully connected layers (which correspond to GEMMs), "
+"NVIDIA provides recommendations for input/output neuron counts and batch "
+"size."
+msgstr ""
+
+#: ../../source/performance.md:280
+msgid ""
+"Tensor Core Requirements define the multiplier based on the dtype and the"
+" hardware. For example, for fp16 a multiple of 8 is recommended, but on "
+"A100 it's 64!"
+msgstr ""
+
+#: ../../source/performance.md:282
+msgid ""
+"For parameters that are small, there is also Dimension Quantization "
+"Effects to consider, this is where tiling happens and the right "
+"multiplier can have a significant speedup."
+msgstr ""
+
+#: ../../source/performance.md:285
+msgid "DP vs DDP"
+msgstr ""
+
+#: ../../source/performance.md:287
+msgid ""
+"DistributedDataParallel (DDP) is typically faster than DataParallel (DP),"
+" but it is not always the case:"
+msgstr ""
+
+#: ../../source/performance.md:288
+msgid ""
+"while DP is python threads-based, DDP is multiprocess-based - and as such"
+" it has no python threads limitations, such as GIL"
+msgstr ""
+
+#: ../../source/performance.md:289
+msgid ""
+"on the other hand a slow inter-connectivity between the GPU cards could "
+"lead to an actual slower outcome with DDP"
+msgstr ""
+
+#: ../../source/performance.md:291
+msgid ""
+"Here are the main differences in the inter-GPU communication overhead "
+"between the two modes:"
+msgstr ""
+
+#: ../../source/performance.md:293
+msgid "DDP:"
+msgstr ""
+
+#: ../../source/performance.md:295
+msgid ""
+"At the start time the main process replicates the model once from gpu 0 "
+"to the rest of gpus"
+msgstr ""
+
+#: ../../source/performance.md:296
+msgid "Then for each batch:"
+msgstr ""
+
+#: ../../source/performance.md:297
+msgid "each gpu consumes each own mini-batch of data directly"
+msgstr ""
+
+#: ../../source/performance.md:298
+msgid ""
+"during backward, once the local gradients are ready, they are then "
+"averaged across all processes"
+msgstr ""
+
+#: ../../source/performance.md:300
+msgid "DP:"
+msgstr ""
+
+#: ../../source/performance.md:302
+msgid "For each batch:"
+msgstr ""
+
+#: ../../source/performance.md:303
+msgid "gpu 0 reads the batch of data and then sends a mini-batch to each gpu"
+msgstr ""
+
+#: ../../source/performance.md:304
+msgid "replicates the up-to-date model from gpu 0 to each gpu"
+msgstr ""
+
+#: ../../source/performance.md:305
+msgid "runs forward and sends output from each gpu to gpu 0, computes loss"
+msgstr ""
+
+#: ../../source/performance.md:306
+msgid "scatters loss from gpu 0 to all gpus, runs backward"
+msgstr ""
+
+#: ../../source/performance.md:307
+msgid "sends gradients from each gpu to gpu 0 and averages those"
+msgstr ""
+
+#: ../../source/performance.md:309
+msgid ""
+"The only communication DDP performs per batch is sending gradients, "
+"whereas DP does 5 different data exchanges per batch."
+msgstr ""
+
+#: ../../source/performance.md:311
+msgid ""
+"DP copies data within the process via python threads, whereas DDP copies "
+"data via torch.distributed."
+msgstr ""
+
+#: ../../source/performance.md:313
+msgid ""
+"Under DP gpu 0 performs a lot more work than the rest of the gpus, thus "
+"resulting in under-utilization of gpus."
+msgstr ""
+
+#: ../../source/performance.md:315
+msgid ""
+"You can use DDP across multiple machines, but this is not the case with "
+"DP."
+msgstr ""
+
+#: ../../source/performance.md:317
+msgid ""
+"There are other differences between DP and DDP but they aren't relevant "
+"to this discussion."
+msgstr ""
+
+#: ../../source/performance.md:319
+msgid ""
+"If you want to go really deep into understanding these 2 modes, this "
+"article is highly recommended, as it has great diagrams, includes "
+"multiple benchmarks and profiler outputs on various hardware, explains "
+"all the nuances that you may need to know."
+msgstr ""
+
+#: ../../source/performance.md:321
+msgid "Let's look at an actual benchmark:"
+msgstr ""
+
+#: ../../source/performance.md:351
+msgid "Analysis:"
+msgstr ""
+
+#: ../../source/performance.md:353
+#, python-format
+msgid ""
+"Here DP is ~10% slower than DDP w/ NVlink, but ~15% faster than DDP w/o "
+"NVlink"
+msgstr ""
+
+#: ../../source/performance.md:355
+msgid ""
+"The real difference will depend on how much data each GPU needs to sync "
+"with the others - the more there is to sync, the more a slow link will "
+"slow down the total runtime."
+msgstr ""
+
+#: ../../source/performance.md:359
+msgid ""
+"NCCL_P2P_DISABLE=1 was used to disable the NVLink feature on the "
+"corresponding benchmark."
+msgstr ""
+
+#: ../../source/performance.md:392
+msgid "DataLoader"
+msgstr ""
+
+#: ../../source/performance.md:394
+msgid ""
+"One of the important requirements to reach great training speed is the "
+"ability to feed the GPU at the maximum speed it can handle. By default "
+"everything happens in the main process and it might not be able to read "
+"the data from disk fast enough, and thus create a bottleneck, leading to "
+"GPU under-utilization."
+msgstr ""
+
+#: ../../source/performance.md:396
+msgid ""
+"DataLoader(pin_memory=True, ...) which ensures that the data gets "
+"preloaded into the pinned memory on CPU and typically leads to much "
+"faster transfers from CPU to GPU memory."
+msgstr ""
+
+#: ../../source/performance.md:397
+#, python-format
+msgid ""
+"DataLoader(num_workers=4, ...) - spawn several workers to pre-load data "
+"faster - during training watch the GPU utilization stats and if it's far "
+"from 100% experiment with raising the number of workers. Of course, the "
+"problem could be elsewhere so a very big number of workers won't "
+"necessarily lead to a better performance."
+msgstr ""
+
+#: ../../source/performance.md:399
+msgid "Faster optimizer"
+msgstr ""
+
+#: ../../source/performance.md:401
+msgid ""
+"pytorch-nightly introduced torch.optim._multi_tensor which should "
+"significantly speed up the optimizers for situations with lots of small "
+"feature tensors. It should eventually become the default, but if you want"
+" to experiment with it sooner and don't mind using the bleed-edge, see: "
+"https://github.com/huggingface/transformers/issues/9965"
+msgstr ""
+
+#: ../../source/performance.md:404
+msgid "Contribute"
+msgstr ""
+
+#: ../../source/performance.md:406
+msgid ""
+"This document is far from being complete and a lot more needs to be "
+"added, so if you have additions or corrections to make please don't "
+"hesitate to open a PR or if you aren't sure start an Issue and we can "
+"discuss the details there."
+msgstr ""
+
+#: ../../source/performance.md:408
+msgid ""
+"When making contributions that A is better than B, please try to include "
+"a reproducible benchmark and/or a link to the source of that information "
+"(unless it comes directly from you)."
+msgstr ""
+

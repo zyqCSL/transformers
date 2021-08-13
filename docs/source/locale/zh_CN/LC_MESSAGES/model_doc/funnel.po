@@ -1,0 +1,2413 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/funnel.rst:14
+msgid "Funnel Transformer"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:19
+msgid ""
+"The Funnel Transformer model was proposed in the paper `Funnel-"
+"Transformer: Filtering out Sequential Redundancy for Efficient Language "
+"Processing <https://arxiv.org/abs/2006.03236>`__. It is a bidirectional "
+"transformer model, like BERT, but with a pooling operation after each "
+"block of layers, a bit like in traditional convolutional neural networks "
+"(CNN) in computer vision."
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:24
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:26
+msgid ""
+"*With the success of language pretraining, it is highly desirable to "
+"develop more efficient architectures of good scalability that can exploit"
+" the abundant unlabeled data at a lower cost. To improve the efficiency, "
+"we examine the much-overlooked redundancy in maintaining a full-length "
+"token-level presentation, especially for tasks that only require a "
+"single-vector presentation of the sequence. With this intuition, we "
+"propose Funnel-Transformer which gradually compresses the sequence of "
+"hidden states to a shorter one and hence reduces the computation cost. "
+"More importantly, by re-investing the saved FLOPs from length reduction "
+"in constructing a deeper or wider model, we further improve the model "
+"capacity. In addition, to perform token-level predictions as required by "
+"common pretraining objectives, Funnel-Transformer is able to recover a "
+"deep representation for each token from the reduced hidden sequence via a"
+" decoder. Empirically, with comparable or fewer FLOPs, Funnel-Transformer"
+" outperforms the standard Transformer on a wide variety of sequence-level"
+" prediction tasks, including text classification, language understanding,"
+" and reading comprehension.*"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:38
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:40
+msgid ""
+"Since Funnel Transformer uses pooling, the sequence length of the hidden "
+"states changes after each block of layers. The base model therefore has a"
+" final sequence length that is a quarter of the original one. This model "
+"can be used directly for tasks that just require a sentence summary (like"
+" sequence classification or multiple choice). For other tasks, the full "
+"model is used; this full model has a decoder that upsamples the final "
+"hidden states to the same sequence length as the input."
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:45
+msgid ""
+"The Funnel Transformer checkpoints are all available with a full version "
+"and a base version. The first ones should be used for "
+":class:`~transformers.FunnelModel`, "
+":class:`~transformers.FunnelForPreTraining`, "
+":class:`~transformers.FunnelForMaskedLM`, "
+":class:`~transformers.FunnelForTokenClassification` and "
+"class:`~transformers.FunnelForQuestionAnswering`. The second ones should "
+"be used for :class:`~transformers.FunnelBaseModel`, "
+":class:`~transformers.FunnelForSequenceClassification` and "
+":class:`~transformers.FunnelForMultipleChoice`."
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:52
+msgid ""
+"This model was contributed by `sgugger "
+"<https://huggingface.co/sgugger>`__. The original code can be found `here"
+" <https://github.com/laiguokun/Funnel-Transformer>`__."
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:57
+msgid "FunnelConfig"
+msgstr ""
+
+#: of transformers.FunnelConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.FunnelModel` or a "
+":class:`~transformers.TFBertModel`. It is used to instantiate a Funnel "
+"Transformer model according to the specified arguments, defining the "
+"model architecture. Instantiating a configuration with the defaults will "
+"yield a similar configuration to that of the Funnel Transformer `funnel-"
+"transformer/small <https://huggingface.co/funnel-transformer/small>`__ "
+"architecture."
+msgstr ""
+
+#: of transformers.FunnelConfig:7
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.FunnelBaseModel transformers.FunnelBaseModel.forward
+#: transformers.FunnelConfig transformers.FunnelForMaskedLM
+#: transformers.FunnelForMaskedLM.forward transformers.FunnelForMultipleChoice
+#: transformers.FunnelForMultipleChoice.forward
+#: transformers.FunnelForPreTraining.forward
+#: transformers.FunnelForQuestionAnswering
+#: transformers.FunnelForQuestionAnswering.forward
+#: transformers.FunnelForSequenceClassification
+#: transformers.FunnelForSequenceClassification.forward
+#: transformers.FunnelForTokenClassification
+#: transformers.FunnelForTokenClassification.forward transformers.FunnelModel
+#: transformers.FunnelModel.forward
+#: transformers.FunnelTokenizer.build_inputs_with_special_tokens
+#: transformers.FunnelTokenizer.create_token_type_ids_from_sequences
+#: transformers.FunnelTokenizer.get_special_tokens_mask
+#: transformers.FunnelTokenizer.save_vocabulary
+#: transformers.FunnelTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.TFFunnelBaseModel transformers.TFFunnelBaseModel.call
+#: transformers.TFFunnelForMaskedLM transformers.TFFunnelForMaskedLM.call
+#: transformers.TFFunnelForMultipleChoice
+#: transformers.TFFunnelForMultipleChoice.call
+#: transformers.TFFunnelForPreTraining transformers.TFFunnelForPreTraining.call
+#: transformers.TFFunnelForQuestionAnswering
+#: transformers.TFFunnelForQuestionAnswering.call
+#: transformers.TFFunnelForSequenceClassification
+#: transformers.TFFunnelForSequenceClassification.call
+#: transformers.TFFunnelForTokenClassification
+#: transformers.TFFunnelForTokenClassification.call transformers.TFFunnelModel
+#: transformers.TFFunnelModel.call
+#: transformers.models.funnel.modeling_funnel.FunnelForPreTrainingOutput
+#: transformers.models.funnel.modeling_tf_funnel.TFFunnelForPreTrainingOutput
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.FunnelConfig:10
+msgid ""
+"Vocabulary size of the Funnel transformer. Defines the number of "
+"different tokens that can be represented by the :obj:`inputs_ids` passed "
+"when calling :class:`~transformers.FunnelModel` or "
+":class:`~transformers.TFFunnelModel`."
+msgstr ""
+
+#: of transformers.FunnelConfig:14
+msgid "The sizes of the blocks used in the model."
+msgstr ""
+
+#: of transformers.FunnelConfig:16
+msgid ""
+"If passed along, each layer of each block is repeated the number of times"
+" indicated."
+msgstr ""
+
+#: of transformers.FunnelConfig:18
+msgid "The number of layers in the decoder (when not using the base model)."
+msgstr ""
+
+#: of transformers.FunnelConfig:20
+msgid "Dimensionality of the model's hidden states."
+msgstr ""
+
+#: of transformers.FunnelConfig:22
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.FunnelConfig:24
+msgid "Dimensionality of the model's heads."
+msgstr ""
+
+#: of transformers.FunnelConfig:26
+msgid "Inner dimension in the feed-forward blocks."
+msgstr ""
+
+#: of transformers.FunnelConfig:28
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.FunnelConfig:31
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.FunnelConfig:33
+msgid "The dropout probability for the attention probabilities."
+msgstr ""
+
+#: of transformers.FunnelConfig:35
+msgid ""
+"The dropout probability used between the two layers of the feed-forward "
+"blocks."
+msgstr ""
+
+#: of transformers.FunnelConfig:37
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.FunnelConfig:40
+msgid ""
+"The vocabulary size of the :obj:`token_type_ids` passed when calling "
+":class:`~transformers.FunnelModel` or "
+":class:`~transformers.TFFunnelModel`."
+msgstr ""
+
+#: of transformers.FunnelConfig:43
+msgid ""
+"The standard deviation of the `uniform initializer` for initializing all "
+"weight matrices in attention layers."
+msgstr ""
+
+#: of transformers.FunnelConfig:46
+msgid ""
+"The standard deviation of the `normal initializer` for initializing the "
+"embedding matrix and the weight of linear layers. Will default to 1 for "
+"the embedding matrix and the value given by Xavier initialization for "
+"linear layers."
+msgstr ""
+
+#: of transformers.FunnelConfig:50
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.FunnelConfig:52
+msgid ""
+"Possible values are ``\"mean\"`` or ``\"max\"``. The way pooling is "
+"performed at the beginning of each block."
+msgstr ""
+
+#: of transformers.FunnelConfig:54
+msgid ""
+"Possible values are ``\"relative_shift\"`` or ``\"factorized\"``. The "
+"former is faster on CPU/GPU while the latter is faster on TPU."
+msgstr ""
+
+#: of transformers.FunnelConfig:57
+msgid "Whether or not to separate the cls token when applying pooling."
+msgstr ""
+
+#: of transformers.FunnelConfig:59
+msgid ""
+"When using ``separate_cls``, whether or not to truncate the last token "
+"when pooling, to avoid getting a sequence length that is not a multiple "
+"of 2."
+msgstr ""
+
+#: of transformers.FunnelConfig:62
+msgid ""
+"Whether or not to apply the pooling only to the query or to query, key "
+"and values for the attention layers."
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:64
+msgid "FunnelTokenizer"
+msgstr ""
+
+#: of transformers.FunnelTokenizer:1
+msgid "Construct a Funnel Transformer tokenizer."
+msgstr ""
+
+#: of transformers.FunnelTokenizer:3
+msgid ""
+":class:`~transformers.FunnelTokenizer` is identical to "
+":class:`~transformers.BertTokenizer` and runs end-to-end tokenization: "
+"punctuation splitting and wordpiece."
+msgstr ""
+
+#: of transformers.FunnelTokenizer:6
+msgid ""
+"Refer to superclass :class:`~transformers.BertTokenizer` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: of transformers.FunnelTokenizer.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. A BERT "
+"sequence has the following format:"
+msgstr ""
+
+#: of transformers.FunnelTokenizer.build_inputs_with_special_tokens:4
+msgid "single sequence: ``[CLS] X [SEP]``"
+msgstr ""
+
+#: of transformers.FunnelTokenizer.build_inputs_with_special_tokens:5
+msgid "pair of sequences: ``[CLS] A [SEP] B [SEP]``"
+msgstr ""
+
+#: of transformers.FunnelTokenizer.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.FunnelTokenizer.build_inputs_with_special_tokens:9
+#: transformers.FunnelTokenizer.create_token_type_ids_from_sequences:13
+#: transformers.FunnelTokenizer.get_special_tokens_mask:6
+#: transformers.FunnelTokenizerFast.create_token_type_ids_from_sequences:13
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward
+#: transformers.FunnelForMaskedLM.forward
+#: transformers.FunnelForMultipleChoice.forward
+#: transformers.FunnelForPreTraining.forward
+#: transformers.FunnelForQuestionAnswering.forward
+#: transformers.FunnelForSequenceClassification.forward
+#: transformers.FunnelForTokenClassification.forward
+#: transformers.FunnelModel.forward
+#: transformers.FunnelTokenizer.build_inputs_with_special_tokens
+#: transformers.FunnelTokenizer.create_token_type_ids_from_sequences
+#: transformers.FunnelTokenizer.get_special_tokens_mask
+#: transformers.FunnelTokenizer.save_vocabulary
+#: transformers.FunnelTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.TFFunnelBaseModel.call transformers.TFFunnelForMaskedLM.call
+#: transformers.TFFunnelForMultipleChoice.call
+#: transformers.TFFunnelForPreTraining.call
+#: transformers.TFFunnelForQuestionAnswering.call
+#: transformers.TFFunnelForSequenceClassification.call
+#: transformers.TFFunnelForTokenClassification.call
+#: transformers.TFFunnelModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.FunnelTokenizer.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward
+#: transformers.FunnelForMaskedLM.forward
+#: transformers.FunnelForMultipleChoice.forward
+#: transformers.FunnelForPreTraining.forward
+#: transformers.FunnelForQuestionAnswering.forward
+#: transformers.FunnelForSequenceClassification.forward
+#: transformers.FunnelForTokenClassification.forward
+#: transformers.FunnelModel.forward
+#: transformers.FunnelTokenizer.build_inputs_with_special_tokens
+#: transformers.FunnelTokenizer.create_token_type_ids_from_sequences
+#: transformers.FunnelTokenizer.get_special_tokens_mask
+#: transformers.FunnelTokenizer.save_vocabulary
+#: transformers.FunnelTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.TFFunnelBaseModel.call transformers.TFFunnelForMaskedLM.call
+#: transformers.TFFunnelForMultipleChoice.call
+#: transformers.TFFunnelForPreTraining.call
+#: transformers.TFFunnelForQuestionAnswering.call
+#: transformers.TFFunnelForSequenceClassification.call
+#: transformers.TFFunnelForTokenClassification.call
+#: transformers.TFFunnelModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.FunnelTokenizer.build_inputs_with_special_tokens:13
+#: transformers.FunnelTokenizer.create_token_type_ids_from_sequences:18
+#: transformers.FunnelTokenizer.get_special_tokens_mask:12
+#: transformers.FunnelTokenizerFast.create_token_type_ids_from_sequences:18
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.FunnelTokenizer.create_token_type_ids_from_sequences:1
+#: transformers.FunnelTokenizerFast.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. A Funnel Transformer sequence pair mask has the "
+"following format:"
+msgstr ""
+
+#: of transformers.FunnelTokenizer.create_token_type_ids_from_sequences:9
+#: transformers.FunnelTokenizerFast.create_token_type_ids_from_sequences:9
+msgid ""
+"If :obj:`token_ids_1` is :obj:`None`, this method only returns the first "
+"portion of the mask (0s)."
+msgstr ""
+
+#: of transformers.FunnelTokenizer.create_token_type_ids_from_sequences:11
+#: transformers.FunnelTokenizer.get_special_tokens_mask:4
+#: transformers.FunnelTokenizerFast.create_token_type_ids_from_sequences:11
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.FunnelTokenizer.create_token_type_ids_from_sequences:16
+#: transformers.FunnelTokenizerFast.create_token_type_ids_from_sequences:16
+msgid ""
+"List of `token type IDs <../glossary.html#token-type-ids>`_ according to "
+"the given sequence(s)."
+msgstr ""
+
+#: of transformers.FunnelTokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.FunnelTokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.FunnelTokenizer.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.FunnelTokenizer.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.FunnelTokenizer.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.FunnelTokenizer.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.FunnelTokenizer.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.FunnelTokenizer.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.FunnelTokenizer.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:72
+msgid "FunnelTokenizerFast"
+msgstr ""
+
+#: of transformers.FunnelTokenizerFast:1
+msgid ""
+"Construct a \"fast\" Funnel Transformer tokenizer (backed by "
+"HuggingFace's `tokenizers` library)."
+msgstr ""
+
+#: of transformers.FunnelTokenizerFast:3
+msgid ""
+":class:`~transformers.FunnelTokenizerFast` is identical to "
+":class:`~transformers.BertTokenizerFast` and runs end-to-end "
+"tokenization: punctuation splitting and wordpiece."
+msgstr ""
+
+#: of transformers.FunnelTokenizerFast:6
+msgid ""
+"Refer to superclass :class:`~transformers.BertTokenizerFast` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:79
+msgid "Funnel specific outputs"
+msgstr ""
+
+#: of transformers.models.funnel.modeling_funnel.FunnelForPreTrainingOutput:1
+#: transformers.models.funnel.modeling_tf_funnel.TFFunnelForPreTrainingOutput:1
+msgid "Output type of :class:`~transformers.FunnelForPreTraining`."
+msgstr ""
+
+#: of transformers.models.funnel.modeling_funnel.FunnelForPreTrainingOutput:3
+msgid "Total loss of the ELECTRA-style objective."
+msgstr ""
+
+#: of transformers.models.funnel.modeling_funnel.FunnelForPreTrainingOutput:5
+#: transformers.models.funnel.modeling_tf_funnel.TFFunnelForPreTrainingOutput:3
+msgid "Prediction scores of the head (scores for each token before SoftMax)."
+msgstr ""
+
+#: of transformers.models.funnel.modeling_funnel.FunnelForPreTrainingOutput:7
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the model at the output"
+" of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.models.funnel.modeling_funnel.FunnelForPreTrainingOutput:7
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:52
+#: transformers.FunnelForMaskedLM.forward:57
+#: transformers.FunnelForMultipleChoice.forward:59
+#: transformers.FunnelForPreTraining.forward:59
+#: transformers.FunnelForQuestionAnswering.forward:62
+#: transformers.FunnelForSequenceClassification.forward:57
+#: transformers.FunnelForTokenClassification.forward:56
+#: transformers.FunnelModel.forward:52 transformers.TFFunnelBaseModel.call:58
+#: transformers.TFFunnelForMaskedLM.call:63
+#: transformers.TFFunnelForMultipleChoice.call:65
+#: transformers.TFFunnelForPreTraining.call:58
+#: transformers.TFFunnelForQuestionAnswering.call:68
+#: transformers.TFFunnelForSequenceClassification.call:63
+#: transformers.TFFunnelForTokenClassification.call:62
+#: transformers.TFFunnelModel.call:58
+#: transformers.models.funnel.modeling_funnel.FunnelForPreTrainingOutput:10
+#: transformers.models.funnel.modeling_tf_funnel.TFFunnelForPreTrainingOutput:8
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.models.funnel.modeling_funnel.FunnelForPreTrainingOutput:12
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.models.funnel.modeling_funnel.FunnelForPreTrainingOutput:12
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:56
+#: transformers.FunnelForMaskedLM.forward:61
+#: transformers.FunnelForMultipleChoice.forward:63
+#: transformers.FunnelForPreTraining.forward:63
+#: transformers.FunnelForQuestionAnswering.forward:66
+#: transformers.FunnelForSequenceClassification.forward:61
+#: transformers.FunnelForTokenClassification.forward:60
+#: transformers.FunnelModel.forward:56 transformers.TFFunnelBaseModel.call:62
+#: transformers.TFFunnelForMaskedLM.call:67
+#: transformers.TFFunnelForMultipleChoice.call:69
+#: transformers.TFFunnelForPreTraining.call:62
+#: transformers.TFFunnelForQuestionAnswering.call:72
+#: transformers.TFFunnelForSequenceClassification.call:67
+#: transformers.TFFunnelForTokenClassification.call:66
+#: transformers.TFFunnelModel.call:62
+#: transformers.models.funnel.modeling_funnel.FunnelForPreTrainingOutput:15
+#: transformers.models.funnel.modeling_tf_funnel.TFFunnelForPreTrainingOutput:13
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.funnel.modeling_tf_funnel.TFFunnelForPreTrainingOutput:5
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.  Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.funnel.modeling_tf_funnel.TFFunnelForPreTrainingOutput:5
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of
+#: transformers.models.funnel.modeling_tf_funnel.TFFunnelForPreTrainingOutput:10
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.funnel.modeling_tf_funnel.TFFunnelForPreTrainingOutput:10
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:89
+msgid "FunnelBaseModel"
+msgstr ""
+
+#: of transformers.FunnelBaseModel:1 transformers.TFFunnelBaseModel:1
+msgid ""
+"The base Funnel Transformer Model transformer outputting raw hidden-"
+"states without upsampling head (also called decoder) or any task-specific"
+" head on top."
+msgstr ""
+
+#: of transformers.FunnelBaseModel:5 transformers.FunnelForMaskedLM:3
+#: transformers.FunnelForMultipleChoice:5
+#: transformers.FunnelForQuestionAnswering:5
+#: transformers.FunnelForSequenceClassification:5
+#: transformers.FunnelForTokenClassification:5 transformers.FunnelModel:3
+#: transformers.TFFunnelBaseModel:5 transformers.TFFunnelForMaskedLM:3
+#: transformers.TFFunnelForMultipleChoice:5
+#: transformers.TFFunnelForPreTraining:4
+#: transformers.TFFunnelForQuestionAnswering:5
+#: transformers.TFFunnelForSequenceClassification:5
+#: transformers.TFFunnelForTokenClassification:5 transformers.TFFunnelModel:3
+msgid ""
+"The Funnel Transformer model was proposed in `Funnel-Transformer: "
+"Filtering out Sequential Redundancy for Efficient Language Processing "
+"<https://arxiv.org/abs/2006.03236>`__ by Zihang Dai, Guokun Lai, Yiming "
+"Yang, Quoc V. Le."
+msgstr ""
+
+#: of transformers.FunnelBaseModel:8 transformers.FunnelForMaskedLM:6
+#: transformers.FunnelForMultipleChoice:8
+#: transformers.FunnelForQuestionAnswering:8
+#: transformers.FunnelForSequenceClassification:8
+#: transformers.FunnelForTokenClassification:8 transformers.FunnelModel:6
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.FunnelBaseModel:12 transformers.FunnelForMaskedLM:10
+#: transformers.FunnelForMultipleChoice:12
+#: transformers.FunnelForQuestionAnswering:12
+#: transformers.FunnelForSequenceClassification:12
+#: transformers.FunnelForTokenClassification:12 transformers.FunnelModel:10
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.FunnelBaseModel:16 transformers.FunnelForMaskedLM:14
+#: transformers.FunnelForMultipleChoice:16
+#: transformers.FunnelForQuestionAnswering:16
+#: transformers.FunnelForSequenceClassification:16
+#: transformers.FunnelForTokenClassification:16 transformers.FunnelModel:14
+#: transformers.TFFunnelBaseModel:35 transformers.TFFunnelForMaskedLM:33
+#: transformers.TFFunnelForMultipleChoice:35
+#: transformers.TFFunnelForPreTraining:34
+#: transformers.TFFunnelForQuestionAnswering:35
+#: transformers.TFFunnelForSequenceClassification:35
+#: transformers.TFFunnelForTokenClassification:35 transformers.TFFunnelModel:33
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:1
+msgid ""
+"The :class:`~transformers.FunnelBaseModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:4
+#: transformers.FunnelForMaskedLM.forward:4
+#: transformers.FunnelForMultipleChoice.forward:4
+#: transformers.FunnelForPreTraining.forward:4
+#: transformers.FunnelForQuestionAnswering.forward:4
+#: transformers.FunnelForSequenceClassification.forward:4
+#: transformers.FunnelForTokenClassification.forward:4
+#: transformers.FunnelModel.forward:4 transformers.TFFunnelBaseModel.call:4
+#: transformers.TFFunnelForMaskedLM.call:4
+#: transformers.TFFunnelForMultipleChoice.call:4
+#: transformers.TFFunnelForPreTraining.call:4
+#: transformers.TFFunnelForQuestionAnswering.call:4
+#: transformers.TFFunnelForSequenceClassification.call:4
+#: transformers.TFFunnelForTokenClassification.call:4
+#: transformers.TFFunnelModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:8
+#: transformers.FunnelForMaskedLM.forward:8
+#: transformers.FunnelForMultipleChoice.forward:8
+#: transformers.FunnelForPreTraining.forward:8
+#: transformers.FunnelForQuestionAnswering.forward:8
+#: transformers.FunnelForSequenceClassification.forward:8
+#: transformers.FunnelForTokenClassification.forward:8
+#: transformers.FunnelModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.BertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:8
+#: transformers.FunnelForMaskedLM.forward:8
+#: transformers.FunnelForMultipleChoice.forward:8
+#: transformers.FunnelForPreTraining.forward:8
+#: transformers.FunnelForQuestionAnswering.forward:8
+#: transformers.FunnelForSequenceClassification.forward:8
+#: transformers.FunnelForTokenClassification.forward:8
+#: transformers.FunnelModel.forward:8 transformers.TFFunnelBaseModel.call:8
+#: transformers.TFFunnelForMaskedLM.call:8
+#: transformers.TFFunnelForMultipleChoice.call:8
+#: transformers.TFFunnelForPreTraining.call:8
+#: transformers.TFFunnelForQuestionAnswering.call:8
+#: transformers.TFFunnelForSequenceClassification.call:8
+#: transformers.TFFunnelForTokenClassification.call:8
+#: transformers.TFFunnelModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:10
+#: transformers.FunnelForMaskedLM.forward:10
+#: transformers.FunnelForMultipleChoice.forward:10
+#: transformers.FunnelForPreTraining.forward:10
+#: transformers.FunnelForQuestionAnswering.forward:10
+#: transformers.FunnelForSequenceClassification.forward:10
+#: transformers.FunnelForTokenClassification.forward:10
+#: transformers.FunnelModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.BertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:14
+#: transformers.FunnelForMaskedLM.forward:14
+#: transformers.FunnelForMultipleChoice.forward:14
+#: transformers.FunnelForPreTraining.forward:14
+#: transformers.FunnelForQuestionAnswering.forward:14
+#: transformers.FunnelForSequenceClassification.forward:14
+#: transformers.FunnelForTokenClassification.forward:14
+#: transformers.FunnelModel.forward:14 transformers.TFFunnelBaseModel.call:14
+#: transformers.TFFunnelForMaskedLM.call:14
+#: transformers.TFFunnelForMultipleChoice.call:14
+#: transformers.TFFunnelForPreTraining.call:14
+#: transformers.TFFunnelForQuestionAnswering.call:14
+#: transformers.TFFunnelForSequenceClassification.call:14
+#: transformers.TFFunnelForTokenClassification.call:14
+#: transformers.TFFunnelModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:16
+#: transformers.FunnelForMaskedLM.forward:16
+#: transformers.FunnelForMultipleChoice.forward:16
+#: transformers.FunnelForPreTraining.forward:16
+#: transformers.FunnelForQuestionAnswering.forward:16
+#: transformers.FunnelForSequenceClassification.forward:16
+#: transformers.FunnelForTokenClassification.forward:16
+#: transformers.FunnelModel.forward:16 transformers.TFFunnelBaseModel.call:16
+#: transformers.TFFunnelForMaskedLM.call:16
+#: transformers.TFFunnelForMultipleChoice.call:16
+#: transformers.TFFunnelForPreTraining.call:16
+#: transformers.TFFunnelForQuestionAnswering.call:16
+#: transformers.TFFunnelForSequenceClassification.call:16
+#: transformers.TFFunnelForTokenClassification.call:16
+#: transformers.TFFunnelModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:16
+#: transformers.FunnelForMaskedLM.forward:16
+#: transformers.FunnelForMultipleChoice.forward:16
+#: transformers.FunnelForPreTraining.forward:16
+#: transformers.FunnelForQuestionAnswering.forward:16
+#: transformers.FunnelForSequenceClassification.forward:16
+#: transformers.FunnelForTokenClassification.forward:16
+#: transformers.FunnelModel.forward:16 transformers.TFFunnelBaseModel.call:16
+#: transformers.TFFunnelForMaskedLM.call:16
+#: transformers.TFFunnelForMultipleChoice.call:16
+#: transformers.TFFunnelForPreTraining.call:16
+#: transformers.TFFunnelForQuestionAnswering.call:16
+#: transformers.TFFunnelForSequenceClassification.call:16
+#: transformers.TFFunnelForTokenClassification.call:16
+#: transformers.TFFunnelModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:18
+#: transformers.FunnelForMaskedLM.forward:18
+#: transformers.FunnelForMultipleChoice.forward:18
+#: transformers.FunnelForPreTraining.forward:18
+#: transformers.FunnelForQuestionAnswering.forward:18
+#: transformers.FunnelForSequenceClassification.forward:18
+#: transformers.FunnelForTokenClassification.forward:18
+#: transformers.FunnelModel.forward:18 transformers.TFFunnelBaseModel.call:18
+#: transformers.TFFunnelForMaskedLM.call:18
+#: transformers.TFFunnelForMultipleChoice.call:18
+#: transformers.TFFunnelForPreTraining.call:18
+#: transformers.TFFunnelForQuestionAnswering.call:18
+#: transformers.TFFunnelForSequenceClassification.call:18
+#: transformers.TFFunnelForTokenClassification.call:18
+#: transformers.TFFunnelModel.call:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:19
+#: transformers.FunnelForMaskedLM.forward:19
+#: transformers.FunnelForMultipleChoice.forward:19
+#: transformers.FunnelForPreTraining.forward:19
+#: transformers.FunnelForQuestionAnswering.forward:19
+#: transformers.FunnelForSequenceClassification.forward:19
+#: transformers.FunnelForTokenClassification.forward:19
+#: transformers.FunnelModel.forward:19 transformers.TFFunnelBaseModel.call:19
+#: transformers.TFFunnelForMaskedLM.call:19
+#: transformers.TFFunnelForMultipleChoice.call:19
+#: transformers.TFFunnelForPreTraining.call:19
+#: transformers.TFFunnelForQuestionAnswering.call:19
+#: transformers.TFFunnelForSequenceClassification.call:19
+#: transformers.TFFunnelForTokenClassification.call:19
+#: transformers.TFFunnelModel.call:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:21
+#: transformers.FunnelForMaskedLM.forward:21
+#: transformers.FunnelForMultipleChoice.forward:21
+#: transformers.FunnelForPreTraining.forward:21
+#: transformers.FunnelForQuestionAnswering.forward:21
+#: transformers.FunnelForSequenceClassification.forward:21
+#: transformers.FunnelForTokenClassification.forward:21
+#: transformers.FunnelModel.forward:21 transformers.TFFunnelBaseModel.call:21
+#: transformers.TFFunnelForMaskedLM.call:21
+#: transformers.TFFunnelForMultipleChoice.call:21
+#: transformers.TFFunnelForPreTraining.call:21
+#: transformers.TFFunnelForQuestionAnswering.call:21
+#: transformers.TFFunnelForSequenceClassification.call:21
+#: transformers.TFFunnelForTokenClassification.call:21
+#: transformers.TFFunnelModel.call:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:23
+#: transformers.FunnelForMaskedLM.forward:23
+#: transformers.FunnelForMultipleChoice.forward:23
+#: transformers.FunnelForPreTraining.forward:23
+#: transformers.FunnelForQuestionAnswering.forward:23
+#: transformers.FunnelForSequenceClassification.forward:23
+#: transformers.FunnelForTokenClassification.forward:23
+#: transformers.FunnelModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:23
+#: transformers.FunnelForMaskedLM.forward:23
+#: transformers.FunnelForMultipleChoice.forward:23
+#: transformers.FunnelForPreTraining.forward:23
+#: transformers.FunnelForQuestionAnswering.forward:23
+#: transformers.FunnelForSequenceClassification.forward:23
+#: transformers.FunnelForTokenClassification.forward:23
+#: transformers.FunnelModel.forward:23 transformers.TFFunnelBaseModel.call:23
+#: transformers.TFFunnelForMaskedLM.call:23
+#: transformers.TFFunnelForMultipleChoice.call:23
+#: transformers.TFFunnelForPreTraining.call:23
+#: transformers.TFFunnelForQuestionAnswering.call:23
+#: transformers.TFFunnelForSequenceClassification.call:23
+#: transformers.TFFunnelForTokenClassification.call:23
+#: transformers.TFFunnelModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:26
+#: transformers.FunnelForMaskedLM.forward:26
+#: transformers.FunnelForMultipleChoice.forward:26
+#: transformers.FunnelForPreTraining.forward:26
+#: transformers.FunnelForQuestionAnswering.forward:26
+#: transformers.FunnelForSequenceClassification.forward:26
+#: transformers.FunnelForTokenClassification.forward:26
+#: transformers.FunnelModel.forward:26 transformers.TFFunnelBaseModel.call:26
+#: transformers.TFFunnelForMaskedLM.call:26
+#: transformers.TFFunnelForMultipleChoice.call:26
+#: transformers.TFFunnelForPreTraining.call:26
+#: transformers.TFFunnelForQuestionAnswering.call:26
+#: transformers.TFFunnelForSequenceClassification.call:26
+#: transformers.TFFunnelForTokenClassification.call:26
+#: transformers.TFFunnelModel.call:26
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:27
+#: transformers.FunnelForMaskedLM.forward:27
+#: transformers.FunnelForMultipleChoice.forward:27
+#: transformers.FunnelForPreTraining.forward:27
+#: transformers.FunnelForQuestionAnswering.forward:27
+#: transformers.FunnelForSequenceClassification.forward:27
+#: transformers.FunnelForTokenClassification.forward:27
+#: transformers.FunnelModel.forward:27 transformers.TFFunnelBaseModel.call:27
+#: transformers.TFFunnelForMaskedLM.call:27
+#: transformers.TFFunnelForMultipleChoice.call:27
+#: transformers.TFFunnelForPreTraining.call:27
+#: transformers.TFFunnelForQuestionAnswering.call:27
+#: transformers.TFFunnelForSequenceClassification.call:27
+#: transformers.TFFunnelForTokenClassification.call:27
+#: transformers.TFFunnelModel.call:27
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:29
+#: transformers.FunnelForMaskedLM.forward:29
+#: transformers.FunnelForMultipleChoice.forward:29
+#: transformers.FunnelForPreTraining.forward:29
+#: transformers.FunnelForQuestionAnswering.forward:29
+#: transformers.FunnelForSequenceClassification.forward:29
+#: transformers.FunnelForTokenClassification.forward:29
+#: transformers.FunnelModel.forward:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:31
+#: transformers.FunnelForMaskedLM.forward:31
+#: transformers.FunnelForMultipleChoice.forward:31
+#: transformers.FunnelForPreTraining.forward:31
+#: transformers.FunnelForQuestionAnswering.forward:31
+#: transformers.FunnelForSequenceClassification.forward:31
+#: transformers.FunnelForTokenClassification.forward:31
+#: transformers.FunnelModel.forward:31 transformers.TFFunnelBaseModel.call:31
+#: transformers.TFFunnelForMaskedLM.call:31
+#: transformers.TFFunnelForMultipleChoice.call:31
+#: transformers.TFFunnelForPreTraining.call:31
+#: transformers.TFFunnelForQuestionAnswering.call:31
+#: transformers.TFFunnelForSequenceClassification.call:31
+#: transformers.TFFunnelForTokenClassification.call:31
+#: transformers.TFFunnelModel.call:31
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:35
+#: transformers.FunnelForMaskedLM.forward:35
+#: transformers.FunnelForMultipleChoice.forward:35
+#: transformers.FunnelForPreTraining.forward:35
+#: transformers.FunnelForQuestionAnswering.forward:35
+#: transformers.FunnelForSequenceClassification.forward:35
+#: transformers.FunnelForTokenClassification.forward:35
+#: transformers.FunnelModel.forward:35
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:38
+#: transformers.FunnelForMaskedLM.forward:38
+#: transformers.FunnelForMultipleChoice.forward:38
+#: transformers.FunnelForPreTraining.forward:38
+#: transformers.FunnelForQuestionAnswering.forward:38
+#: transformers.FunnelForSequenceClassification.forward:38
+#: transformers.FunnelForTokenClassification.forward:38
+#: transformers.FunnelModel.forward:38
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:41
+#: transformers.FunnelForMaskedLM.forward:41
+#: transformers.FunnelForMultipleChoice.forward:41
+#: transformers.FunnelForPreTraining.forward:41
+#: transformers.FunnelForQuestionAnswering.forward:41
+#: transformers.FunnelForSequenceClassification.forward:41
+#: transformers.FunnelForTokenClassification.forward:41
+#: transformers.FunnelModel.forward:41
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:44
+#: transformers.FunnelModel.forward:44
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FunnelConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:44
+#: transformers.FunnelModel.forward:44
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FunnelConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:48
+#: transformers.FunnelModel.forward:48
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:49
+#: transformers.FunnelForMaskedLM.forward:54
+#: transformers.FunnelForMultipleChoice.forward:56
+#: transformers.FunnelForPreTraining.forward:56
+#: transformers.FunnelForQuestionAnswering.forward:59
+#: transformers.FunnelForSequenceClassification.forward:54
+#: transformers.FunnelForTokenClassification.forward:53
+#: transformers.FunnelModel.forward:49
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:53
+#: transformers.FunnelForMaskedLM.forward:58
+#: transformers.FunnelForMultipleChoice.forward:60
+#: transformers.FunnelForPreTraining.forward:60
+#: transformers.FunnelForQuestionAnswering.forward:63
+#: transformers.FunnelForSequenceClassification.forward:58
+#: transformers.FunnelForTokenClassification.forward:57
+#: transformers.FunnelModel.forward:53
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:58
+#: transformers.FunnelModel.forward:58
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.FunnelBaseModel.forward:60
+#: transformers.FunnelForMaskedLM.forward:65
+#: transformers.FunnelForMultipleChoice.forward:67
+#: transformers.FunnelForQuestionAnswering.forward:70
+#: transformers.FunnelForSequenceClassification.forward:65
+#: transformers.FunnelForTokenClassification.forward:64
+#: transformers.FunnelModel.forward:60 transformers.TFFunnelBaseModel.call:66
+#: transformers.TFFunnelForMaskedLM.call:71
+#: transformers.TFFunnelForMultipleChoice.call:73
+#: transformers.TFFunnelForQuestionAnswering.call:76
+#: transformers.TFFunnelForSequenceClassification.call:71
+#: transformers.TFFunnelForTokenClassification.call:70
+#: transformers.TFFunnelModel.call:66
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:96
+msgid "FunnelModel"
+msgstr ""
+
+#: of transformers.FunnelModel:1 transformers.TFFunnelModel:1
+msgid ""
+"The bare Funnel Transformer Model transformer outputting raw hidden-"
+"states without any specific head on top."
+msgstr ""
+
+#: of transformers.FunnelModel.forward:1
+msgid ""
+"The :class:`~transformers.FunnelModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:103
+msgid "FunnelModelForPreTraining"
+msgstr ""
+
+#: of transformers.FunnelForPreTraining.forward:1
+msgid ""
+"The :class:`~transformers.FunnelForPreTraining` forward method, overrides"
+" the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FunnelForPreTraining.forward:43
+msgid ""
+"Labels for computing the ELECTRA-style loss. Input should be a sequence "
+"of tokens (see :obj:`input_ids` docstring) Indices should be in ``[0, "
+"1]``:  - 0 indicates the token is an original token, - 1 indicates the "
+"token was replaced."
+msgstr ""
+
+#: of transformers.FunnelForPreTraining.forward:43
+msgid ""
+"Labels for computing the ELECTRA-style loss. Input should be a sequence "
+"of tokens (see :obj:`input_ids` docstring) Indices should be in ``[0, "
+"1]``:"
+msgstr ""
+
+#: of transformers.FunnelForPreTraining.forward:46
+msgid "0 indicates the token is an original token,"
+msgstr ""
+
+#: of transformers.FunnelForPreTraining.forward:47
+msgid "1 indicates the token was replaced."
+msgstr ""
+
+#: of transformers.FunnelForPreTraining.forward:50
+msgid ""
+"A "
+":class:`~transformers.models.funnel.modeling_funnel.FunnelForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.FunnelConfig`) and "
+"inputs.  - **loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss of the ELECTRA-"
+"style objective. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Prediction scores of the head "
+"(scores for each token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Examples::      >>> from transformers import "
+"FunnelTokenizer, FunnelForPreTraining     >>> import torch      >>> "
+"tokenizer = FunnelTokenizer.from_pretrained('funnel-transformer/small')"
+"     >>> model = FunnelForPreTraining.from_pretrained('funnel-"
+"transformer/small')      >>> inputs = tokenizer(\"Hello, my dog is "
+"cute\", return_tensors= \"pt\")     >>> logits = model(**inputs).logits"
+msgstr ""
+
+#: of transformers.FunnelForPreTraining.forward:50
+msgid ""
+"A "
+":class:`~transformers.models.funnel.modeling_funnel.FunnelForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.FunnelConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.FunnelForPreTraining.forward:54
+msgid ""
+"**loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss of the ELECTRA-"
+"style objective."
+msgstr ""
+
+#: of transformers.FunnelForPreTraining.forward:55
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Prediction scores of the head (scores for each "
+"token before SoftMax)."
+msgstr ""
+
+#: of transformers.FunnelForPreTraining.forward:67
+#: transformers.TFFunnelForPreTraining.call:66
+msgid "Examples::"
+msgstr ""
+
+#: of transformers.FunnelForPreTraining.forward:77
+msgid ""
+":class:`~transformers.models.funnel.modeling_funnel.FunnelForPreTrainingOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:110
+msgid "FunnelForMaskedLM"
+msgstr ""
+
+#: of transformers.FunnelForMaskedLM:1
+msgid "Funnel Transformer Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.FunnelForMaskedLM.forward:1
+msgid ""
+"The :class:`~transformers.FunnelForMaskedLM` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FunnelForMaskedLM.forward:43
+#: transformers.TFFunnelForMaskedLM.call:49
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.FunnelForMaskedLM.forward:48
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FunnelConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.FunnelForMaskedLM.forward:48
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FunnelConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FunnelForMaskedLM.forward:52
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.FunnelForMaskedLM.forward:53
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.FunnelForMaskedLM.forward:63
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:117
+msgid "FunnelForSequenceClassification"
+msgstr ""
+
+#: of transformers.FunnelForSequenceClassification:1
+msgid ""
+"Funnel Transformer Model with a sequence classification/regression head "
+"on top (two linear layer on top of the first timestep of the last hidden "
+"state) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.FunnelForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.FunnelForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FunnelForSequenceClassification.forward:43
+#: transformers.TFFunnelForSequenceClassification.call:49
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.FunnelForSequenceClassification.forward:48
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FunnelConfig`) and inputs.  -"
+" **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.FunnelForSequenceClassification.forward:48
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FunnelConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FunnelForSequenceClassification.forward:52
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.FunnelForSequenceClassification.forward:53
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FunnelForSequenceClassification.forward:63
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:124
+msgid "FunnelForMultipleChoice"
+msgstr ""
+
+#: of transformers.FunnelForMultipleChoice:1
+msgid ""
+"Funnel Transformer Model with a multiple choice classification head on "
+"top (two linear layer on top of the first timestep of the last hidden "
+"state, and a softmax) e.g. for RocStories/SWAG tasks."
+msgstr ""
+
+#: of transformers.FunnelForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.FunnelForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FunnelForMultipleChoice.forward:43
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.FunnelForMultipleChoice.forward:48
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FunnelConfig`) and inputs.  -"
+" **loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned"
+" when :obj:`labels` is provided) -- Classification loss. - **logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, num_choices)`) -- "
+"`num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.FunnelForMultipleChoice.forward:48
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FunnelConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FunnelForMultipleChoice.forward:52
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.FunnelForMultipleChoice.forward:53
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.FunnelForMultipleChoice.forward:55
+#: transformers.TFFunnelForMultipleChoice.call:61
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FunnelForMultipleChoice.forward:65
+msgid ""
+":class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:131
+msgid "FunnelForTokenClassification"
+msgstr ""
+
+#: of transformers.FunnelForTokenClassification:1
+msgid ""
+"Funnel Transformer Model with a token classification head on top (a "
+"linear layer on top of the hidden-states output) e.g. for Named-Entity-"
+"Recognition (NER) tasks."
+msgstr ""
+
+#: of transformers.FunnelForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.FunnelForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FunnelForTokenClassification.forward:43
+#: transformers.TFFunnelForTokenClassification.call:49
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.FunnelForTokenClassification.forward:47
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FunnelConfig`) and inputs.  -"
+" **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.FunnelForTokenClassification.forward:47
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FunnelConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FunnelForTokenClassification.forward:51
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.FunnelForTokenClassification.forward:52
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.FunnelForTokenClassification.forward:62
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:138
+msgid "FunnelForQuestionAnswering"
+msgstr ""
+
+#: of transformers.FunnelForQuestionAnswering:1
+msgid ""
+"Funnel Transformer Model with a span classification head on top for "
+"extractive question-answering tasks like SQuAD (a linear layer on top of "
+"the hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.FunnelForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.FunnelForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FunnelForQuestionAnswering.forward:43
+#: transformers.TFFunnelForQuestionAnswering.call:49
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.FunnelForQuestionAnswering.forward:47
+#: transformers.TFFunnelForQuestionAnswering.call:53
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.FunnelForQuestionAnswering.forward:52
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.FunnelConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.FunnelForQuestionAnswering.forward:52
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.FunnelConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.FunnelForQuestionAnswering.forward:56
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.FunnelForQuestionAnswering.forward:57
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FunnelForQuestionAnswering.forward:58
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FunnelForQuestionAnswering.forward:68
+msgid ""
+":class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:145
+msgid "TFFunnelBaseModel"
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel:8 transformers.TFFunnelForMaskedLM:6
+#: transformers.TFFunnelForMultipleChoice:8
+#: transformers.TFFunnelForPreTraining:7
+#: transformers.TFFunnelForQuestionAnswering:8
+#: transformers.TFFunnelForSequenceClassification:8
+#: transformers.TFFunnelForTokenClassification:8 transformers.TFFunnelModel:6
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel:12 transformers.TFFunnelForMaskedLM:10
+#: transformers.TFFunnelForMultipleChoice:12
+#: transformers.TFFunnelForPreTraining:11
+#: transformers.TFFunnelForQuestionAnswering:12
+#: transformers.TFFunnelForSequenceClassification:12
+#: transformers.TFFunnelForTokenClassification:12 transformers.TFFunnelModel:10
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel:18 transformers.TFFunnelForMaskedLM:16
+#: transformers.TFFunnelForMultipleChoice:18
+#: transformers.TFFunnelForPreTraining:17
+#: transformers.TFFunnelForQuestionAnswering:18
+#: transformers.TFFunnelForSequenceClassification:18
+#: transformers.TFFunnelForTokenClassification:18 transformers.TFFunnelModel:16
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel:20 transformers.TFFunnelForMaskedLM:18
+#: transformers.TFFunnelForMultipleChoice:20
+#: transformers.TFFunnelForPreTraining:19
+#: transformers.TFFunnelForQuestionAnswering:20
+#: transformers.TFFunnelForSequenceClassification:20
+#: transformers.TFFunnelForTokenClassification:20 transformers.TFFunnelModel:18
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel:21 transformers.TFFunnelForMaskedLM:19
+#: transformers.TFFunnelForMultipleChoice:21
+#: transformers.TFFunnelForPreTraining:20
+#: transformers.TFFunnelForQuestionAnswering:21
+#: transformers.TFFunnelForSequenceClassification:21
+#: transformers.TFFunnelForTokenClassification:21 transformers.TFFunnelModel:19
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel:23 transformers.TFFunnelForMaskedLM:21
+#: transformers.TFFunnelForMultipleChoice:23
+#: transformers.TFFunnelForPreTraining:22
+#: transformers.TFFunnelForQuestionAnswering:23
+#: transformers.TFFunnelForSequenceClassification:23
+#: transformers.TFFunnelForTokenClassification:23 transformers.TFFunnelModel:21
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel:26 transformers.TFFunnelForMaskedLM:24
+#: transformers.TFFunnelForMultipleChoice:26
+#: transformers.TFFunnelForPreTraining:25
+#: transformers.TFFunnelForQuestionAnswering:26
+#: transformers.TFFunnelForSequenceClassification:26
+#: transformers.TFFunnelForTokenClassification:26 transformers.TFFunnelModel:24
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel:29 transformers.TFFunnelForMaskedLM:27
+#: transformers.TFFunnelForMultipleChoice:29
+#: transformers.TFFunnelForPreTraining:28
+#: transformers.TFFunnelForQuestionAnswering:29
+#: transformers.TFFunnelForSequenceClassification:29
+#: transformers.TFFunnelForTokenClassification:29 transformers.TFFunnelModel:27
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel:30 transformers.TFFunnelForMaskedLM:28
+#: transformers.TFFunnelForMultipleChoice:30
+#: transformers.TFFunnelForPreTraining:29
+#: transformers.TFFunnelForQuestionAnswering:30
+#: transformers.TFFunnelForSequenceClassification:30
+#: transformers.TFFunnelForTokenClassification:30 transformers.TFFunnelModel:28
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel:32 transformers.TFFunnelForMaskedLM:30
+#: transformers.TFFunnelForMultipleChoice:32
+#: transformers.TFFunnelForPreTraining:31
+#: transformers.TFFunnelForQuestionAnswering:32
+#: transformers.TFFunnelForSequenceClassification:32
+#: transformers.TFFunnelForTokenClassification:32 transformers.TFFunnelModel:30
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel.call:1
+msgid ""
+"The :class:`~transformers.TFFunnelBaseModel` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel.call:8
+#: transformers.TFFunnelForMaskedLM.call:8
+#: transformers.TFFunnelForMultipleChoice.call:8
+#: transformers.TFFunnelForPreTraining.call:8
+#: transformers.TFFunnelForQuestionAnswering.call:8
+#: transformers.TFFunnelForSequenceClassification.call:8
+#: transformers.TFFunnelForTokenClassification.call:8
+#: transformers.TFFunnelModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.FunnelTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel.call:10
+#: transformers.TFFunnelForMaskedLM.call:10
+#: transformers.TFFunnelForMultipleChoice.call:10
+#: transformers.TFFunnelForPreTraining.call:10
+#: transformers.TFFunnelForQuestionAnswering.call:10
+#: transformers.TFFunnelForSequenceClassification.call:10
+#: transformers.TFFunnelForTokenClassification.call:10
+#: transformers.TFFunnelModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.FunnelTokenizer`. See"
+" :func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel.call:23
+#: transformers.TFFunnelForMaskedLM.call:23
+#: transformers.TFFunnelForMultipleChoice.call:23
+#: transformers.TFFunnelForPreTraining.call:23
+#: transformers.TFFunnelForQuestionAnswering.call:23
+#: transformers.TFFunnelForSequenceClassification.call:23
+#: transformers.TFFunnelForTokenClassification.call:23
+#: transformers.TFFunnelModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel.call:29
+#: transformers.TFFunnelForMaskedLM.call:29
+#: transformers.TFFunnelForMultipleChoice.call:29
+#: transformers.TFFunnelForPreTraining.call:29
+#: transformers.TFFunnelForQuestionAnswering.call:29
+#: transformers.TFFunnelForSequenceClassification.call:29
+#: transformers.TFFunnelForTokenClassification.call:29
+#: transformers.TFFunnelModel.call:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel.call:35
+#: transformers.TFFunnelForMaskedLM.call:35
+#: transformers.TFFunnelForMultipleChoice.call:35
+#: transformers.TFFunnelForPreTraining.call:35
+#: transformers.TFFunnelForQuestionAnswering.call:35
+#: transformers.TFFunnelForSequenceClassification.call:35
+#: transformers.TFFunnelForTokenClassification.call:35
+#: transformers.TFFunnelModel.call:35
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel.call:39
+#: transformers.TFFunnelForMaskedLM.call:39
+#: transformers.TFFunnelForMultipleChoice.call:39
+#: transformers.TFFunnelForPreTraining.call:39
+#: transformers.TFFunnelForQuestionAnswering.call:39
+#: transformers.TFFunnelForSequenceClassification.call:39
+#: transformers.TFFunnelForTokenClassification.call:39
+#: transformers.TFFunnelModel.call:39
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel.call:43
+#: transformers.TFFunnelForMaskedLM.call:43
+#: transformers.TFFunnelForMultipleChoice.call:43
+#: transformers.TFFunnelForPreTraining.call:43
+#: transformers.TFFunnelForQuestionAnswering.call:43
+#: transformers.TFFunnelForSequenceClassification.call:43
+#: transformers.TFFunnelForTokenClassification.call:43
+#: transformers.TFFunnelModel.call:43
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel.call:46
+#: transformers.TFFunnelForMaskedLM.call:46
+#: transformers.TFFunnelForMultipleChoice.call:46
+#: transformers.TFFunnelForPreTraining.call:46
+#: transformers.TFFunnelForQuestionAnswering.call:46
+#: transformers.TFFunnelForSequenceClassification.call:46
+#: transformers.TFFunnelForTokenClassification.call:46
+#: transformers.TFFunnelModel.call:46
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel.call:50 transformers.TFFunnelModel.call:50
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FunnelConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(tf.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel.call:50 transformers.TFFunnelModel.call:50
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FunnelConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel.call:54 transformers.TFFunnelModel.call:54
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel.call:55 transformers.TFFunnelModel.call:55
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel.call:59
+#: transformers.TFFunnelForMaskedLM.call:64
+#: transformers.TFFunnelForMultipleChoice.call:66
+#: transformers.TFFunnelForPreTraining.call:59
+#: transformers.TFFunnelForQuestionAnswering.call:69
+#: transformers.TFFunnelForSequenceClassification.call:64
+#: transformers.TFFunnelForTokenClassification.call:63
+#: transformers.TFFunnelModel.call:59
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFFunnelBaseModel.call:64 transformers.TFFunnelModel.call:64
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:152
+msgid "TFFunnelModel"
+msgstr ""
+
+#: of transformers.TFFunnelModel.call:1
+msgid ""
+"The :class:`~transformers.TFFunnelModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:159
+msgid "TFFunnelModelForPreTraining"
+msgstr ""
+
+#: of transformers.TFFunnelForPreTraining:1
+msgid ""
+"Funnel model with a binary classification head on top as used during "
+"pretraining for identifying generated tokens."
+msgstr ""
+
+#: of transformers.TFFunnelForPreTraining.call:1
+msgid ""
+"The :class:`~transformers.TFFunnelForPreTraining` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFFunnelForPreTraining.call:50
+msgid ""
+"A "
+":class:`~transformers.models.funnel.modeling_tf_funnel.TFFunnelForPreTrainingOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FunnelConfig`) and inputs.  -"
+" **logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Prediction scores of the head (scores for each "
+"token before SoftMax). - **hidden_states** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Examples::      >>> from transformers import FunnelTokenizer, "
+"TFFunnelForPreTraining     >>> import torch      >>> tokenizer = "
+"TFFunnelTokenizer.from_pretrained('funnel-transformer/small')     >>> "
+"model = TFFunnelForPreTraining.from_pretrained('funnel-"
+"transformer/small')      >>> inputs = tokenizer(\"Hello, my dog is "
+"cute\", return_tensors= \"tf\")     >>> logits = model(inputs).logits"
+msgstr ""
+
+#: of transformers.TFFunnelForPreTraining.call:50
+msgid ""
+"A "
+":class:`~transformers.models.funnel.modeling_tf_funnel.TFFunnelForPreTrainingOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FunnelConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFFunnelForPreTraining.call:54
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Prediction scores of the head (scores for each "
+"token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFFunnelForMaskedLM.call:60
+#: transformers.TFFunnelForMultipleChoice.call:62
+#: transformers.TFFunnelForPreTraining.call:55
+#: transformers.TFFunnelForQuestionAnswering.call:65
+#: transformers.TFFunnelForSequenceClassification.call:60
+#: transformers.TFFunnelForTokenClassification.call:59
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFFunnelForPreTraining.call:76
+msgid ""
+":class:`~transformers.models.funnel.modeling_tf_funnel.TFFunnelForPreTrainingOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:166
+msgid "TFFunnelForMaskedLM"
+msgstr ""
+
+#: of transformers.TFFunnelForMaskedLM:1
+msgid "Funnel Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.TFFunnelForMaskedLM.call:1
+msgid ""
+"The :class:`~transformers.TFFunnelForMaskedLM` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFFunnelForMaskedLM.call:54
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FunnelConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss. - **logits** (:obj:`tf.Tensor` "
+"of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFFunnelForMaskedLM.call:54
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FunnelConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFFunnelForMaskedLM.call:58
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss."
+msgstr ""
+
+#: of transformers.TFFunnelForMaskedLM.call:59
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFFunnelForMaskedLM.call:69
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:173
+msgid "TFFunnelForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFFunnelForSequenceClassification:1
+msgid ""
+"Funnel Model transformer with a sequence classification/regression head "
+"on top (a linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.TFFunnelForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFFunnelForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFFunnelForSequenceClassification.call:54
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FunnelConfig`) and inputs.  -"
+" **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, config.num_labels)`) -- Classification (or regression "
+"if config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFFunnelForSequenceClassification.call:54
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FunnelConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFFunnelForSequenceClassification.call:58
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFFunnelForSequenceClassification.call:59
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFFunnelForSequenceClassification.call:69
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:180
+msgid "TFFunnelForMultipleChoice"
+msgstr ""
+
+#: of transformers.TFFunnelForMultipleChoice:1
+msgid ""
+"Funnel Model with a multiple choice classification head on top (a linear "
+"layer on top of the pooled output and a softmax) e.g. for RocStories/SWAG"
+" tasks."
+msgstr ""
+
+#: of transformers.TFFunnelForMultipleChoice.call:1
+msgid ""
+"The :class:`~transformers.TFFunnelForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFFunnelForMultipleChoice.call:49
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.TFFunnelForMultipleChoice.call:54
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FunnelConfig`) and inputs.  -"
+" **loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss. - "
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFFunnelForMultipleChoice.call:54
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FunnelConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFFunnelForMultipleChoice.call:58
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.TFFunnelForMultipleChoice.call:59
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.TFFunnelForMultipleChoice.call:71
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` or"
+" :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:187
+msgid "TFFunnelForTokenClassification"
+msgstr ""
+
+#: of transformers.TFFunnelForTokenClassification:1
+msgid ""
+"Funnel Model with a token classification head on top (a linear layer on "
+"top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) "
+"tasks."
+msgstr ""
+
+#: of transformers.TFFunnelForTokenClassification.call:1
+msgid ""
+"The :class:`~transformers.TFFunnelForTokenClassification` forward method,"
+" overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFFunnelForTokenClassification.call:53
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FunnelConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, config.num_labels)`) -- "
+"Classification scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFFunnelForTokenClassification.call:53
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FunnelConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFFunnelForTokenClassification.call:57
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss."
+msgstr ""
+
+#: of transformers.TFFunnelForTokenClassification.call:58
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.num_labels)`) -- Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFFunnelForTokenClassification.call:68
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/funnel.rst:194
+msgid "TFFunnelForQuestionAnswering"
+msgstr ""
+
+#: of transformers.TFFunnelForQuestionAnswering:1
+msgid ""
+"Funnel Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.TFFunnelForQuestionAnswering.call:1
+msgid ""
+"The :class:`~transformers.TFFunnelForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFFunnelForQuestionAnswering.call:58
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FunnelConfig`) and inputs.  -"
+" **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions. - **start_logits** (:obj:`tf.Tensor` of "
+"shape :obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFFunnelForQuestionAnswering.call:58
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FunnelConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFFunnelForQuestionAnswering.call:62
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions."
+msgstr ""
+
+#: of transformers.TFFunnelForQuestionAnswering.call:63
+msgid ""
+"**start_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFFunnelForQuestionAnswering.call:64
+msgid ""
+"**end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFFunnelForQuestionAnswering.call:74
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+

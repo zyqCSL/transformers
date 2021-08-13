@@ -1,0 +1,3384 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-10 04:49+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/bart.rst:14
+msgid "BART"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:16
+msgid ""
+"**DISCLAIMER:** If you see something strange, file a `Github Issue "
+"<https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template"
+"=bug-report.md&title>`__ and assign @patrickvonplaten"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:21
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:23
+msgid ""
+"The Bart model was proposed in `BART: Denoising Sequence-to-Sequence Pre-"
+"training for Natural Language Generation, Translation, and Comprehension "
+"<https://arxiv.org/abs/1910.13461>`__ by Mike Lewis, Yinhan Liu, Naman "
+"Goyal, Marjan Ghazvininejad, Abdelrahman Mohamed, Omer Levy, Ves Stoyanov"
+" and Luke Zettlemoyer on 29 Oct, 2019."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:27
+msgid "According to the abstract,"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:29
+msgid ""
+"Bart uses a standard seq2seq/machine translation architecture with a "
+"bidirectional encoder (like BERT) and a left-to-right decoder (like GPT)."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:31
+msgid ""
+"The pretraining task involves randomly shuffling the order of the "
+"original sentences and a novel in-filling scheme, where spans of text are"
+" replaced with a single mask token."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:33
+msgid ""
+"BART is particularly effective when fine tuned for text generation but "
+"also works well for comprehension tasks. It matches the performance of "
+"RoBERTa with comparable training resources on GLUE and SQuAD, achieves "
+"new state-of-the-art results on a range of abstractive dialogue, question"
+" answering, and summarization tasks, with gains of up to 6 ROUGE."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:38
+msgid ""
+"This model was contributed by `sshleifer "
+"<https://huggingface.co/sshleifer>`__. The Authors' code can be found "
+"`here <https://github.com/pytorch/fairseq/tree/master/examples/bart>`__."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:43
+msgid "Examples"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:45
+msgid ""
+"Examples and scripts for fine-tuning BART and other models for sequence "
+"to sequence tasks can be found in "
+":prefix_link:`examples/pytorch/summarization/ "
+"<examples/pytorch/summarization/README.md>`."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:47
+msgid ""
+"An example of how to train "
+":class:`~transformers.BartForConditionalGeneration` with a Hugging Face "
+":obj:`datasets` object can be found in this `forum discussion "
+"<https://discuss.huggingface.co/t/train-bart-for-conditional-"
+"generation-e-g-summarization/1904>`__."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:50
+msgid ""
+"`Distilled checkpoints "
+"<https://huggingface.co/models?search=distilbart>`__ are described in "
+"this `paper <https://arxiv.org/abs/2010.13002>`__."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:55
+msgid "Implementation Notes"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:57
+msgid ""
+"Bart doesn't use :obj:`token_type_ids` for sequence classification. Use "
+":class:`~transformers.BartTokenizer` or "
+":meth:`~transformers.BartTokenizer.encode` to get the proper splitting."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:59
+msgid ""
+"The forward pass of :class:`~transformers.BartModel` will create the "
+"``decoder_input_ids`` if they are not passed. This is different than some"
+" other modeling APIs. A typical use case of this feature is mask filling."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:61
+msgid ""
+"Model predictions are intended to be identical to the original "
+"implementation when :obj:`force_bos_token_to_be_generated=True`. This "
+"only works, however, if the string you pass to :func:`fairseq.encode` "
+"starts with a space."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:64
+msgid ""
+":meth:`~transformers.generation_utils.GenerationMixin.generate` should be"
+" used for conditional generation tasks like summarization, see the "
+"example in that docstrings."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:66
+msgid ""
+"Models that load the `facebook/bart-large-cnn` weights will not have a "
+":obj:`mask_token_id`, or be able to perform mask-filling tasks."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:70
+msgid "Mask Filling"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:72
+msgid ""
+"The :obj:`facebook/bart-base` and :obj:`facebook/bart-large` checkpoints "
+"can be used to fill multi-token masks."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:87
+msgid "BartConfig"
+msgstr ""
+
+#: of transformers.BartConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.BartModel`. It is used to instantiate a BART model "
+"according to the specified arguments, defining the model architecture. "
+"Instantiating a configuration with the defaults will yield a similar "
+"configuration to that of the BART `facebook/bart-large "
+"<https://huggingface.co/facebook/bart-large>`__ architecture."
+msgstr ""
+
+#: of transformers.BartConfig:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.BartConfig transformers.BartForConditionalGeneration
+#: transformers.BartForConditionalGeneration.forward
+#: transformers.BartForQuestionAnswering
+#: transformers.BartForQuestionAnswering.forward
+#: transformers.BartForSequenceClassification
+#: transformers.BartForSequenceClassification.forward transformers.BartModel
+#: transformers.BartModel.forward transformers.FlaxBartForConditionalGeneration
+#: transformers.FlaxBartForConditionalGeneration.__call__
+#: transformers.FlaxBartForConditionalGeneration.decode
+#: transformers.FlaxBartForConditionalGeneration.encode
+#: transformers.FlaxBartForQuestionAnswering
+#: transformers.FlaxBartForQuestionAnswering.__call__
+#: transformers.FlaxBartForQuestionAnswering.decode
+#: transformers.FlaxBartForQuestionAnswering.encode
+#: transformers.FlaxBartForSequenceClassification
+#: transformers.FlaxBartForSequenceClassification.__call__
+#: transformers.FlaxBartForSequenceClassification.decode
+#: transformers.FlaxBartForSequenceClassification.encode
+#: transformers.FlaxBartModel transformers.FlaxBartModel.__call__
+#: transformers.FlaxBartModel.decode transformers.FlaxBartModel.encode
+#: transformers.TFBartForConditionalGeneration
+#: transformers.TFBartForConditionalGeneration.call transformers.TFBartModel
+#: transformers.TFBartModel.call
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.BartConfig:10
+msgid ""
+"Vocabulary size of the BART model. Defines the number of different tokens"
+" that can be represented by the :obj:`inputs_ids` passed when calling "
+":class:`~transformers.BartModel` or :class:`~transformers.TFBartModel`."
+msgstr ""
+
+#: of transformers.BartConfig:14
+msgid "Dimensionality of the layers and the pooler layer."
+msgstr ""
+
+#: of transformers.BartConfig:16
+msgid "Number of encoder layers."
+msgstr ""
+
+#: of transformers.BartConfig:18
+msgid "Number of decoder layers."
+msgstr ""
+
+#: of transformers.BartConfig:20
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.BartConfig:22
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"decoder."
+msgstr ""
+
+#: of transformers.BartConfig:24 transformers.BartConfig:26
+msgid ""
+"Dimensionality of the \"intermediate\" (often named feed-forward) layer "
+"in decoder."
+msgstr ""
+
+#: of transformers.BartConfig:28
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.BartConfig:31
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.BartConfig:33
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.BartConfig:35
+msgid "The dropout ratio for activations inside the fully connected layer."
+msgstr ""
+
+#: of transformers.BartConfig:37
+msgid "The dropout ratio for classifier."
+msgstr ""
+
+#: of transformers.BartConfig:39
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.BartConfig:42
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.BartConfig:44
+msgid ""
+"(:obj:`float`, `optional`, defaults to 0.0): The LayerDrop probability "
+"for the encoder. See the `LayerDrop paper <see "
+"https://arxiv.org/abs/1909.11556>`__ for more details."
+msgstr ""
+
+#: of transformers.BartConfig:47
+msgid ""
+"(:obj:`float`, `optional`, defaults to 0.0): The LayerDrop probability "
+"for the decoder. See the `LayerDrop paper <see "
+"https://arxiv.org/abs/1909.11556>`__ for more details."
+msgstr ""
+
+#: of transformers.BartConfig:50
+msgid ""
+"If True, use gradient checkpointing to save memory at the expense of "
+"slower backward pass."
+msgstr ""
+
+#: of transformers.BartConfig:52
+msgid "Scale embeddings by diving by sqrt(d_model)."
+msgstr ""
+
+#: of transformers.BartConfig:54
+msgid ""
+"Whether or not the model should return the last key/values attentions "
+"(not used by all models)."
+msgstr ""
+
+#: of transformers.BartConfig:56
+msgid ""
+"(:obj:`int`, `optional`, defaults to 3): The number of labels to use in "
+":class:`~transformers.BartForSequenceClassification`."
+msgstr ""
+
+#: of transformers.BartConfig:58
+msgid ""
+"The id of the token to force as the last generated token when "
+":obj:`max_length` is reached. Usually set to :obj:`eos_token_id`."
+msgstr ""
+
+#: of transformers.BartConfig:62 transformers.BartForCausalLM.forward:99
+#: transformers.BartForQuestionAnswering.forward:150
+#: transformers.BartForSequenceClassification.forward:144
+#: transformers.BartModel.forward:143
+#: transformers.FlaxBartForConditionalGeneration.decode:73
+#: transformers.FlaxBartForConditionalGeneration.encode:45
+#: transformers.FlaxBartForQuestionAnswering.__call__:95
+#: transformers.FlaxBartForQuestionAnswering.decode:78
+#: transformers.FlaxBartForQuestionAnswering.encode:45
+#: transformers.FlaxBartForSequenceClassification.__call__:94
+#: transformers.FlaxBartForSequenceClassification.decode:78
+#: transformers.FlaxBartForSequenceClassification.encode:45
+#: transformers.FlaxBartModel.__call__:97 transformers.FlaxBartModel.decode:78
+#: transformers.FlaxBartModel.encode:45 transformers.TFBartModel.call:121
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:94
+msgid "BartTokenizer"
+msgstr ""
+
+#: of transformers.BartTokenizer:1
+msgid "Construct a BART tokenizer."
+msgstr ""
+
+#: of transformers.BartTokenizer:3
+msgid ""
+":class:`~transformers.BartTokenizer` is identical to "
+":class:`~transformers.RobertaTokenizer`. Refer to superclass "
+":class:`~transformers.RobertaTokenizer` for usage examples and "
+"documentation concerning the initialization parameters and other methods."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:101
+msgid "BartTokenizerFast"
+msgstr ""
+
+#: of transformers.BartTokenizerFast:1
+msgid ""
+"Construct a \"fast\" BART tokenizer (backed by HuggingFace's `tokenizers`"
+" library)."
+msgstr ""
+
+#: of transformers.BartTokenizerFast:3
+msgid ""
+":class:`~transformers.BartTokenizerFast` is identical to "
+":class:`~transformers.RobertaTokenizerFast`. Refer to superclass "
+":class:`~transformers.RobertaTokenizerFast` for usage examples and "
+"documentation concerning the initialization parameters and other methods."
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:108
+msgid "BartModel"
+msgstr ""
+
+#: of transformers.BartModel:1
+msgid ""
+"The bare BART Model outputting raw hidden-states without any specific "
+"head on top. This model inherits from "
+":class:`~transformers.PreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings, "
+"pruning heads etc.)"
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration:6
+#: transformers.BartForQuestionAnswering:8
+#: transformers.BartForSequenceClassification:8 transformers.BartModel:6
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration:10
+#: transformers.BartForQuestionAnswering:12
+#: transformers.BartForSequenceClassification:12 transformers.BartModel:10
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.BartModel.forward:1
+msgid ""
+"The :class:`~transformers.BartModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:4
+#: transformers.BartForQuestionAnswering.forward:4
+#: transformers.BartForSequenceClassification.forward:4
+#: transformers.BartModel.forward:4
+#: transformers.FlaxBartForConditionalGeneration.__call__:4
+#: transformers.FlaxBartForQuestionAnswering.__call__:4
+#: transformers.FlaxBartForSequenceClassification.__call__:4
+#: transformers.FlaxBartModel.__call__:4
+#: transformers.TFBartForConditionalGeneration.call:4
+#: transformers.TFBartModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:8
+#: transformers.BartForQuestionAnswering.forward:8
+#: transformers.BartForSequenceClassification.forward:8
+#: transformers.BartModel.forward:8
+#: transformers.FlaxBartForConditionalGeneration.__call__:8
+#: transformers.FlaxBartForConditionalGeneration.encode:1
+#: transformers.FlaxBartForQuestionAnswering.__call__:8
+#: transformers.FlaxBartForQuestionAnswering.encode:1
+#: transformers.FlaxBartForSequenceClassification.__call__:8
+#: transformers.FlaxBartForSequenceClassification.encode:1
+#: transformers.FlaxBartModel.__call__:8 transformers.FlaxBartModel.encode:1
+msgid ""
+"Indices of input sequence tokens in the vocabulary. Padding will be "
+"ignored by default should you provide it.  Indices can be obtained using "
+":class:`~transformers.BartTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:3
+#: transformers.BartForConditionalGeneration.forward:8
+#: transformers.BartForQuestionAnswering.forward:8
+#: transformers.BartForSequenceClassification.forward:8
+#: transformers.BartModel.forward:8
+#: transformers.FlaxBartForConditionalGeneration.__call__:8
+#: transformers.FlaxBartForConditionalGeneration.encode:1
+#: transformers.FlaxBartForQuestionAnswering.__call__:8
+#: transformers.FlaxBartForQuestionAnswering.encode:1
+#: transformers.FlaxBartForSequenceClassification.__call__:8
+#: transformers.FlaxBartForSequenceClassification.encode:1
+#: transformers.FlaxBartModel.__call__:8 transformers.FlaxBartModel.encode:1
+msgid ""
+"Indices of input sequence tokens in the vocabulary. Padding will be "
+"ignored by default should you provide it."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:6
+#: transformers.BartForConditionalGeneration.forward:11
+#: transformers.BartForConditionalGeneration.forward:26
+#: transformers.BartForQuestionAnswering.forward:11
+#: transformers.BartForQuestionAnswering.forward:26
+#: transformers.BartForSequenceClassification.forward:11
+#: transformers.BartForSequenceClassification.forward:26
+#: transformers.BartModel.forward:11 transformers.BartModel.forward:26
+#: transformers.FlaxBartForConditionalGeneration.__call__:11
+#: transformers.FlaxBartForConditionalGeneration.__call__:26
+#: transformers.FlaxBartForConditionalGeneration.decode:3
+#: transformers.FlaxBartForConditionalGeneration.encode:4
+#: transformers.FlaxBartForQuestionAnswering.__call__:11
+#: transformers.FlaxBartForQuestionAnswering.__call__:26
+#: transformers.FlaxBartForQuestionAnswering.decode:3
+#: transformers.FlaxBartForQuestionAnswering.encode:4
+#: transformers.FlaxBartForSequenceClassification.__call__:11
+#: transformers.FlaxBartForSequenceClassification.__call__:26
+#: transformers.FlaxBartForSequenceClassification.decode:3
+#: transformers.FlaxBartForSequenceClassification.encode:4
+#: transformers.FlaxBartModel.__call__:11
+#: transformers.FlaxBartModel.__call__:26 transformers.FlaxBartModel.decode:3
+#: transformers.FlaxBartModel.encode:4
+#: transformers.TFBartForConditionalGeneration.call:25
+#: transformers.TFBartModel.call:25
+msgid ""
+"Indices can be obtained using :class:`~transformers.BartTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:10
+#: transformers.BartForConditionalGeneration.forward:15
+#: transformers.BartForQuestionAnswering.forward:15
+#: transformers.BartForSequenceClassification.forward:15
+#: transformers.BartModel.forward:15
+#: transformers.FlaxBartForConditionalGeneration.__call__:15
+#: transformers.FlaxBartForConditionalGeneration.encode:8
+#: transformers.FlaxBartForQuestionAnswering.__call__:15
+#: transformers.FlaxBartForQuestionAnswering.encode:8
+#: transformers.FlaxBartForSequenceClassification.__call__:15
+#: transformers.FlaxBartForSequenceClassification.encode:8
+#: transformers.FlaxBartModel.__call__:15 transformers.FlaxBartModel.encode:8
+#: transformers.TFBartForConditionalGeneration.call:14
+#: transformers.TFBartModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:17
+#: transformers.BartForQuestionAnswering.forward:17
+#: transformers.BartForSequenceClassification.forward:17
+#: transformers.BartModel.forward:17
+#: transformers.FlaxBartForConditionalGeneration.__call__:17
+#: transformers.FlaxBartForConditionalGeneration.decode:18
+#: transformers.FlaxBartForConditionalGeneration.encode:10
+#: transformers.FlaxBartForQuestionAnswering.__call__:17
+#: transformers.FlaxBartForQuestionAnswering.decode:18
+#: transformers.FlaxBartForQuestionAnswering.encode:10
+#: transformers.FlaxBartForSequenceClassification.__call__:17
+#: transformers.FlaxBartForSequenceClassification.decode:18
+#: transformers.FlaxBartForSequenceClassification.encode:10
+#: transformers.FlaxBartModel.__call__:17 transformers.FlaxBartModel.decode:18
+#: transformers.FlaxBartModel.encode:10
+#: transformers.TFBartForConditionalGeneration.call:16
+#: transformers.TFBartModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:12
+#: transformers.BartForConditionalGeneration.forward:17
+#: transformers.BartForQuestionAnswering.forward:17
+#: transformers.BartForSequenceClassification.forward:17
+#: transformers.BartModel.forward:17
+#: transformers.FlaxBartForConditionalGeneration.__call__:17
+#: transformers.FlaxBartForConditionalGeneration.decode:18
+#: transformers.FlaxBartForConditionalGeneration.encode:10
+#: transformers.FlaxBartForQuestionAnswering.__call__:17
+#: transformers.FlaxBartForQuestionAnswering.decode:18
+#: transformers.FlaxBartForQuestionAnswering.encode:10
+#: transformers.FlaxBartForSequenceClassification.__call__:17
+#: transformers.FlaxBartForSequenceClassification.decode:18
+#: transformers.FlaxBartForSequenceClassification.encode:10
+#: transformers.FlaxBartModel.__call__:17 transformers.FlaxBartModel.decode:18
+#: transformers.FlaxBartModel.encode:10
+#: transformers.TFBartForConditionalGeneration.call:16
+#: transformers.TFBartModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:14
+#: transformers.BartForCausalLM.forward:59
+#: transformers.BartForConditionalGeneration.forward:19
+#: transformers.BartForQuestionAnswering.forward:19
+#: transformers.BartForSequenceClassification.forward:19
+#: transformers.BartModel.forward:19
+#: transformers.FlaxBartForConditionalGeneration.__call__:19
+#: transformers.FlaxBartForConditionalGeneration.decode:20
+#: transformers.FlaxBartForConditionalGeneration.encode:12
+#: transformers.FlaxBartForQuestionAnswering.__call__:19
+#: transformers.FlaxBartForQuestionAnswering.decode:20
+#: transformers.FlaxBartForQuestionAnswering.encode:12
+#: transformers.FlaxBartForSequenceClassification.__call__:19
+#: transformers.FlaxBartForSequenceClassification.decode:20
+#: transformers.FlaxBartForSequenceClassification.encode:12
+#: transformers.FlaxBartModel.__call__:19 transformers.FlaxBartModel.decode:20
+#: transformers.FlaxBartModel.encode:12
+#: transformers.TFBartForConditionalGeneration.call:18
+#: transformers.TFBartModel.call:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:15
+#: transformers.BartForCausalLM.forward:60
+#: transformers.BartForConditionalGeneration.forward:20
+#: transformers.BartForQuestionAnswering.forward:20
+#: transformers.BartForSequenceClassification.forward:20
+#: transformers.BartModel.forward:20
+#: transformers.FlaxBartForConditionalGeneration.__call__:20
+#: transformers.FlaxBartForConditionalGeneration.decode:21
+#: transformers.FlaxBartForConditionalGeneration.encode:13
+#: transformers.FlaxBartForQuestionAnswering.__call__:20
+#: transformers.FlaxBartForQuestionAnswering.decode:21
+#: transformers.FlaxBartForQuestionAnswering.encode:13
+#: transformers.FlaxBartForSequenceClassification.__call__:20
+#: transformers.FlaxBartForSequenceClassification.decode:21
+#: transformers.FlaxBartForSequenceClassification.encode:13
+#: transformers.FlaxBartModel.__call__:20 transformers.FlaxBartModel.decode:21
+#: transformers.FlaxBartModel.encode:13
+#: transformers.TFBartForConditionalGeneration.call:19
+#: transformers.TFBartModel.call:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:17
+#: transformers.BartForConditionalGeneration.forward:22
+#: transformers.BartForQuestionAnswering.forward:22
+#: transformers.BartForSequenceClassification.forward:22
+#: transformers.BartModel.forward:22
+#: transformers.FlaxBartForConditionalGeneration.__call__:22
+#: transformers.FlaxBartForConditionalGeneration.decode:23
+#: transformers.FlaxBartForConditionalGeneration.encode:15
+#: transformers.FlaxBartForQuestionAnswering.__call__:22
+#: transformers.FlaxBartForQuestionAnswering.decode:23
+#: transformers.FlaxBartForQuestionAnswering.encode:15
+#: transformers.FlaxBartForSequenceClassification.__call__:22
+#: transformers.FlaxBartForSequenceClassification.decode:23
+#: transformers.FlaxBartForSequenceClassification.encode:15
+#: transformers.FlaxBartModel.__call__:22 transformers.FlaxBartModel.decode:23
+#: transformers.FlaxBartModel.encode:15
+#: transformers.TFBartForConditionalGeneration.call:21
+#: transformers.TFBartModel.call:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:24
+#: transformers.BartForQuestionAnswering.forward:24
+#: transformers.BartForSequenceClassification.forward:24
+#: transformers.BartModel.forward:24
+#: transformers.TFBartForConditionalGeneration.call:23
+#: transformers.TFBartModel.call:23
+msgid ""
+"Indices of decoder input sequence tokens in the vocabulary.  Indices can "
+"be obtained using :class:`~transformers.BartTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" decoder input IDs? <../glossary.html#decoder-input-ids>`__  Bart uses "
+"the :obj:`eos_token_id` as the starting token for "
+":obj:`decoder_input_ids` generation. If :obj:`past_key_values` is used, "
+"optionally only the last :obj:`decoder_input_ids` have to be input (see "
+":obj:`past_key_values`).  For translation and summarization training, "
+":obj:`decoder_input_ids` should be provided. If no "
+":obj:`decoder_input_ids` is provided, the model will create this tensor "
+"by shifting the :obj:`input_ids` to the right for denoising pre-training "
+"following the paper."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:24
+#: transformers.BartForQuestionAnswering.forward:24
+#: transformers.BartForSequenceClassification.forward:24
+#: transformers.BartModel.forward:24
+#: transformers.FlaxBartForConditionalGeneration.__call__:24
+#: transformers.FlaxBartForConditionalGeneration.decode:1
+#: transformers.FlaxBartForQuestionAnswering.__call__:24
+#: transformers.FlaxBartForQuestionAnswering.decode:1
+#: transformers.FlaxBartForSequenceClassification.__call__:24
+#: transformers.FlaxBartForSequenceClassification.decode:1
+#: transformers.FlaxBartModel.__call__:24 transformers.FlaxBartModel.decode:1
+#: transformers.TFBartForConditionalGeneration.call:23
+#: transformers.TFBartModel.call:23
+msgid "Indices of decoder input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:30
+#: transformers.BartForQuestionAnswering.forward:30
+#: transformers.BartForSequenceClassification.forward:30
+#: transformers.BartModel.forward:30
+#: transformers.FlaxBartForConditionalGeneration.__call__:30
+#: transformers.FlaxBartForConditionalGeneration.decode:7
+#: transformers.FlaxBartForQuestionAnswering.__call__:30
+#: transformers.FlaxBartForQuestionAnswering.decode:7
+#: transformers.FlaxBartForSequenceClassification.__call__:30
+#: transformers.FlaxBartForSequenceClassification.decode:7
+#: transformers.FlaxBartModel.__call__:30 transformers.FlaxBartModel.decode:7
+#: transformers.TFBartForConditionalGeneration.call:29
+#: transformers.TFBartModel.call:29
+msgid "`What are decoder input IDs? <../glossary.html#decoder-input-ids>`__"
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:32
+#: transformers.BartForQuestionAnswering.forward:32
+#: transformers.BartForSequenceClassification.forward:32
+#: transformers.BartModel.forward:32
+#: transformers.TFBartForConditionalGeneration.call:31
+#: transformers.TFBartModel.call:31
+msgid ""
+"Bart uses the :obj:`eos_token_id` as the starting token for "
+":obj:`decoder_input_ids` generation. If :obj:`past_key_values` is used, "
+"optionally only the last :obj:`decoder_input_ids` have to be input (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:36
+#: transformers.BartForQuestionAnswering.forward:36
+#: transformers.BartForSequenceClassification.forward:36
+#: transformers.BartModel.forward:36
+#: transformers.FlaxBartForConditionalGeneration.__call__:32
+#: transformers.FlaxBartForConditionalGeneration.decode:9
+#: transformers.FlaxBartForQuestionAnswering.__call__:32
+#: transformers.FlaxBartForQuestionAnswering.decode:9
+#: transformers.FlaxBartForSequenceClassification.__call__:32
+#: transformers.FlaxBartForSequenceClassification.decode:9
+#: transformers.FlaxBartModel.__call__:32 transformers.FlaxBartModel.decode:9
+#: transformers.TFBartForConditionalGeneration.call:35
+#: transformers.TFBartModel.call:35
+msgid ""
+"For translation and summarization training, :obj:`decoder_input_ids` "
+"should be provided. If no :obj:`decoder_input_ids` is provided, the model"
+" will create this tensor by shifting the :obj:`input_ids` to the right "
+"for denoising pre-training following the paper."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:40
+#: transformers.BartForQuestionAnswering.forward:40
+#: transformers.BartForSequenceClassification.forward:40
+#: transformers.BartModel.forward:40
+msgid ""
+"Default behavior: generate a tensor that ignores pad tokens in "
+":obj:`decoder_input_ids`. Causal mask will also be used by default.  If "
+"you want to change padding behavior, you should read "
+":func:`modeling_bart._prepare_decoder_inputs` and modify to your needs. "
+"See diagram 1 in `the paper <https://arxiv.org/abs/1910.13461>`__ for "
+"more information on the default strategy."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:40
+#: transformers.BartForQuestionAnswering.forward:40
+#: transformers.BartForSequenceClassification.forward:40
+#: transformers.BartModel.forward:40
+#: transformers.FlaxBartForConditionalGeneration.__call__:36
+#: transformers.FlaxBartForConditionalGeneration.decode:25
+#: transformers.FlaxBartForQuestionAnswering.__call__:36
+#: transformers.FlaxBartForQuestionAnswering.decode:25
+#: transformers.FlaxBartForSequenceClassification.__call__:36
+#: transformers.FlaxBartForSequenceClassification.decode:25
+#: transformers.FlaxBartModel.__call__:36 transformers.FlaxBartModel.decode:25
+msgid ""
+"Default behavior: generate a tensor that ignores pad tokens in "
+":obj:`decoder_input_ids`. Causal mask will also be used by default."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:43
+#: transformers.BartForQuestionAnswering.forward:43
+#: transformers.BartForSequenceClassification.forward:43
+#: transformers.BartModel.forward:43
+msgid ""
+"If you want to change padding behavior, you should read "
+":func:`modeling_bart._prepare_decoder_inputs` and modify to your needs. "
+"See diagram 1 in `the paper <https://arxiv.org/abs/1910.13461>`__ for "
+"more information on the default strategy."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:47
+#: transformers.BartForQuestionAnswering.forward:47
+#: transformers.BartForSequenceClassification.forward:47
+#: transformers.BartModel.forward:47
+#: transformers.TFBartForConditionalGeneration.call:41
+#: transformers.TFBartModel.call:41
+msgid ""
+"Mask to nullify selected heads of the attention modules in the encoder. "
+"Mask values selected in ``[0, 1]``:  - 1 indicates the head is **not "
+"masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:47
+#: transformers.BartForQuestionAnswering.forward:47
+#: transformers.BartForSequenceClassification.forward:47
+#: transformers.BartModel.forward:47
+#: transformers.TFBartForConditionalGeneration.call:41
+#: transformers.TFBartModel.call:41
+msgid ""
+"Mask to nullify selected heads of the attention modules in the encoder. "
+"Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:27
+#: transformers.BartForCausalLM.forward:33
+#: transformers.BartForConditionalGeneration.forward:49
+#: transformers.BartForConditionalGeneration.forward:54
+#: transformers.BartForConditionalGeneration.forward:60
+#: transformers.BartForQuestionAnswering.forward:49
+#: transformers.BartForQuestionAnswering.forward:54
+#: transformers.BartForQuestionAnswering.forward:60
+#: transformers.BartForSequenceClassification.forward:49
+#: transformers.BartForSequenceClassification.forward:54
+#: transformers.BartForSequenceClassification.forward:60
+#: transformers.BartModel.forward:49 transformers.BartModel.forward:54
+#: transformers.BartModel.forward:60
+#: transformers.TFBartForConditionalGeneration.call:43
+#: transformers.TFBartForConditionalGeneration.call:48
+#: transformers.TFBartForConditionalGeneration.call:53
+#: transformers.TFBartModel.call:43 transformers.TFBartModel.call:48
+#: transformers.TFBartModel.call:53
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:28
+#: transformers.BartForCausalLM.forward:34
+#: transformers.BartForConditionalGeneration.forward:50
+#: transformers.BartForConditionalGeneration.forward:55
+#: transformers.BartForConditionalGeneration.forward:61
+#: transformers.BartForQuestionAnswering.forward:50
+#: transformers.BartForQuestionAnswering.forward:55
+#: transformers.BartForQuestionAnswering.forward:61
+#: transformers.BartForSequenceClassification.forward:50
+#: transformers.BartForSequenceClassification.forward:55
+#: transformers.BartForSequenceClassification.forward:61
+#: transformers.BartModel.forward:50 transformers.BartModel.forward:55
+#: transformers.BartModel.forward:61
+#: transformers.TFBartForConditionalGeneration.call:44
+#: transformers.TFBartForConditionalGeneration.call:49
+#: transformers.TFBartForConditionalGeneration.call:54
+#: transformers.TFBartModel.call:44 transformers.TFBartModel.call:49
+#: transformers.TFBartModel.call:54
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:52
+#: transformers.BartForQuestionAnswering.forward:52
+#: transformers.BartForSequenceClassification.forward:52
+#: transformers.BartModel.forward:52
+#: transformers.TFBartForConditionalGeneration.call:46
+#: transformers.TFBartModel.call:46
+msgid ""
+"Mask to nullify selected heads of the attention modules in the decoder. "
+"Mask values selected in ``[0, 1]``:  - 1 indicates the head is **not "
+"masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:52
+#: transformers.BartForQuestionAnswering.forward:52
+#: transformers.BartForSequenceClassification.forward:52
+#: transformers.BartModel.forward:52
+#: transformers.TFBartForConditionalGeneration.call:46
+#: transformers.TFBartModel.call:46
+msgid ""
+"Mask to nullify selected heads of the attention modules in the decoder. "
+"Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:57
+#: transformers.BartForQuestionAnswering.forward:57
+#: transformers.BartForSequenceClassification.forward:57
+#: transformers.BartModel.forward:57
+msgid ""
+"Mask to nullify selected heads of the cross-attention modules in the "
+"decoder. Mask values selected in ``[0, 1]``:  - 1 indicates the head is "
+"**not masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:57
+#: transformers.BartForQuestionAnswering.forward:57
+#: transformers.BartForSequenceClassification.forward:57
+#: transformers.BartModel.forward:57
+msgid ""
+"Mask to nullify selected heads of the cross-attention modules in the "
+"decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:63
+#: transformers.BartForQuestionAnswering.forward:63
+#: transformers.BartForSequenceClassification.forward:63
+#: transformers.BartModel.forward:63
+#: transformers.FlaxBartForConditionalGeneration.decode:13
+#: transformers.FlaxBartForQuestionAnswering.decode:13
+#: transformers.FlaxBartForSequenceClassification.decode:13
+#: transformers.FlaxBartModel.decode:13
+msgid ""
+"Tuple consists of (:obj:`last_hidden_state`, `optional`: "
+":obj:`hidden_states`, `optional`: :obj:`attentions`) "
+":obj:`last_hidden_state` of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`, `optional`) is a sequence of hidden-states at the output "
+"of the last layer of the encoder. Used in the cross-attention of the "
+"decoder."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:68
+#: transformers.BartForQuestionAnswering.forward:68
+#: transformers.BartForSequenceClassification.forward:68
+#: transformers.BartModel.forward:68
+msgid ""
+"Tuple of :obj:`tuple(torch.FloatTensor)` of length "
+":obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`.  Contains pre-computed "
+"hidden-states (key and values in the self-attention blocks and in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding.  If :obj:`past_key_values` are "
+"used, the user can optionally input only the last "
+":obj:`decoder_input_ids` (those that don't have their past key value "
+"states given to this model) of shape :obj:`(batch_size, 1)` instead of "
+"all :obj:`decoder_input_ids`` of shape :obj:`(batch_size, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:68
+#: transformers.BartForQuestionAnswering.forward:68
+#: transformers.BartForSequenceClassification.forward:68
+#: transformers.BartModel.forward:68
+msgid ""
+"Tuple of :obj:`tuple(torch.FloatTensor)` of length "
+":obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:43
+#: transformers.BartForConditionalGeneration.forward:72
+#: transformers.BartForConditionalGeneration.forward:117
+#: transformers.BartForQuestionAnswering.forward:72
+#: transformers.BartForQuestionAnswering.forward:122
+#: transformers.BartForSequenceClassification.forward:72
+#: transformers.BartForSequenceClassification.forward:116
+#: transformers.BartModel.forward:72 transformers.BartModel.forward:115
+#: transformers.FlaxBartForConditionalGeneration.__call__:66
+#: transformers.FlaxBartForQuestionAnswering.__call__:67
+#: transformers.FlaxBartForSequenceClassification.__call__:66
+#: transformers.FlaxBartModel.__call__:69
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and in the cross-attention blocks) that can be used (see "
+":obj:`past_key_values` input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:75
+#: transformers.BartForQuestionAnswering.forward:75
+#: transformers.BartForSequenceClassification.forward:75
+#: transformers.BartModel.forward:75
+msgid ""
+"If :obj:`past_key_values` are used, the user can optionally input only "
+"the last :obj:`decoder_input_ids` (those that don't have their past key "
+"value states given to this model) of shape :obj:`(batch_size, 1)` instead"
+" of all :obj:`decoder_input_ids`` of shape :obj:`(batch_size, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:79
+#: transformers.BartForQuestionAnswering.forward:79
+#: transformers.BartForSequenceClassification.forward:79
+#: transformers.BartModel.forward:79
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:83
+#: transformers.BartForQuestionAnswering.forward:83
+#: transformers.BartForSequenceClassification.forward:83
+#: transformers.BartModel.forward:83
+msgid ""
+"Optionally, instead of passing :obj:`decoder_input_ids` you can choose to"
+" directly pass an embedded representation. If :obj:`past_key_values` is "
+"used, optionally only the last :obj:`decoder_inputs_embeds` have to be "
+"input (see :obj:`past_key_values`). This is useful if you want more "
+"control over how to convert :obj:`decoder_input_ids` indices into "
+"associated vectors than the model's internal embedding lookup matrix.  If"
+" :obj:`decoder_input_ids` and :obj:`decoder_inputs_embeds` are both "
+"unset, :obj:`decoder_inputs_embeds` takes the value of "
+":obj:`inputs_embeds`."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:83
+#: transformers.BartForQuestionAnswering.forward:83
+#: transformers.BartForSequenceClassification.forward:83
+#: transformers.BartModel.forward:83
+msgid ""
+"Optionally, instead of passing :obj:`decoder_input_ids` you can choose to"
+" directly pass an embedded representation. If :obj:`past_key_values` is "
+"used, optionally only the last :obj:`decoder_inputs_embeds` have to be "
+"input (see :obj:`past_key_values`). This is useful if you want more "
+"control over how to convert :obj:`decoder_input_ids` indices into "
+"associated vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:88
+#: transformers.BartForQuestionAnswering.forward:88
+#: transformers.BartForSequenceClassification.forward:88
+#: transformers.BartModel.forward:88
+msgid ""
+"If :obj:`decoder_input_ids` and :obj:`decoder_inputs_embeds` are both "
+"unset, :obj:`decoder_inputs_embeds` takes the value of "
+":obj:`inputs_embeds`."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:56
+#: transformers.BartForConditionalGeneration.forward:91
+#: transformers.BartForQuestionAnswering.forward:91
+#: transformers.BartForSequenceClassification.forward:91
+#: transformers.BartModel.forward:91
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:62
+#: transformers.BartForConditionalGeneration.forward:94
+#: transformers.BartForQuestionAnswering.forward:94
+#: transformers.BartForSequenceClassification.forward:94
+#: transformers.BartModel.forward:94
+#: transformers.FlaxBartForConditionalGeneration.__call__:48
+#: transformers.FlaxBartForConditionalGeneration.decode:37
+#: transformers.FlaxBartForConditionalGeneration.encode:20
+#: transformers.FlaxBartForQuestionAnswering.__call__:48
+#: transformers.FlaxBartForQuestionAnswering.decode:37
+#: transformers.FlaxBartForQuestionAnswering.encode:20
+#: transformers.FlaxBartForSequenceClassification.__call__:48
+#: transformers.FlaxBartForSequenceClassification.decode:37
+#: transformers.FlaxBartForSequenceClassification.encode:20
+#: transformers.FlaxBartModel.__call__:48 transformers.FlaxBartModel.decode:37
+#: transformers.FlaxBartModel.encode:20
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:65
+#: transformers.BartForConditionalGeneration.forward:97
+#: transformers.BartForQuestionAnswering.forward:97
+#: transformers.BartForSequenceClassification.forward:97
+#: transformers.BartModel.forward:97
+#: transformers.FlaxBartForConditionalGeneration.__call__:51
+#: transformers.FlaxBartForConditionalGeneration.decode:40
+#: transformers.FlaxBartForConditionalGeneration.encode:23
+#: transformers.FlaxBartForQuestionAnswering.__call__:51
+#: transformers.FlaxBartForQuestionAnswering.decode:40
+#: transformers.FlaxBartForQuestionAnswering.encode:23
+#: transformers.FlaxBartForSequenceClassification.__call__:51
+#: transformers.FlaxBartForSequenceClassification.decode:40
+#: transformers.FlaxBartForSequenceClassification.encode:23
+#: transformers.FlaxBartModel.__call__:51 transformers.FlaxBartModel.decode:40
+#: transformers.FlaxBartModel.encode:23
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:68
+#: transformers.BartForConditionalGeneration.forward:100
+#: transformers.BartForQuestionAnswering.forward:100
+#: transformers.BartForSequenceClassification.forward:100
+#: transformers.BartModel.forward:100
+#: transformers.FlaxBartForConditionalGeneration.__call__:54
+#: transformers.FlaxBartForConditionalGeneration.decode:43
+#: transformers.FlaxBartForConditionalGeneration.encode:26
+#: transformers.FlaxBartForQuestionAnswering.__call__:54
+#: transformers.FlaxBartForQuestionAnswering.decode:43
+#: transformers.FlaxBartForQuestionAnswering.encode:26
+#: transformers.FlaxBartForSequenceClassification.__call__:54
+#: transformers.FlaxBartForSequenceClassification.decode:43
+#: transformers.FlaxBartForSequenceClassification.encode:26
+#: transformers.FlaxBartModel.__call__:54 transformers.FlaxBartModel.decode:43
+#: transformers.FlaxBartModel.encode:26
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward
+#: transformers.BartForConditionalGeneration.forward
+#: transformers.BartForQuestionAnswering.forward
+#: transformers.BartForSequenceClassification.forward
+#: transformers.BartModel.forward
+#: transformers.FlaxBartForConditionalGeneration.__call__
+#: transformers.FlaxBartForConditionalGeneration.decode
+#: transformers.FlaxBartForConditionalGeneration.encode
+#: transformers.FlaxBartForQuestionAnswering.__call__
+#: transformers.FlaxBartForQuestionAnswering.decode
+#: transformers.FlaxBartForQuestionAnswering.encode
+#: transformers.FlaxBartForSequenceClassification.__call__
+#: transformers.FlaxBartForSequenceClassification.decode
+#: transformers.FlaxBartForSequenceClassification.encode
+#: transformers.FlaxBartModel.__call__ transformers.FlaxBartModel.decode
+#: transformers.FlaxBartModel.encode
+#: transformers.TFBartForConditionalGeneration.call
+#: transformers.TFBartModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.BartModel.forward:103
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqModelOutput` or a tuple "
+"of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BartConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the decoder of the model.    If"
+" :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size,   1, hidden_size)` is output. - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the decoder at the output of each "
+"layer plus the initial embedding outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the decoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the "
+"decoder's cross-attention layer, after the attention softmax, used to "
+"compute the   weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the encoder at the output of each "
+"layer plus the initial embedding outputs. - **encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the encoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads."
+msgstr ""
+
+#: of transformers.BartModel.forward:103
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqModelOutput` or a tuple "
+"of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BartConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BartModel.forward:107
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the decoder of the model."
+msgstr ""
+
+#: of transformers.BartModel.forward:109
+#: transformers.FlaxBartForQuestionAnswering.decode:52
+#: transformers.FlaxBartForSequenceClassification.decode:52
+#: transformers.FlaxBartModel.__call__:63 transformers.FlaxBartModel.decode:52
+#: transformers.TFBartModel.call:88
+msgid ""
+"If :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size, 1, hidden_size)` is output."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:113
+#: transformers.BartForQuestionAnswering.forward:118
+#: transformers.BartForSequenceClassification.forward:112
+#: transformers.BartModel.forward:111
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) "
+"and 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:119
+#: transformers.BartForQuestionAnswering.forward:124
+#: transformers.BartForSequenceClassification.forward:118
+#: transformers.BartModel.forward:117
+msgid ""
+"**decoder_hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:122
+#: transformers.BartForQuestionAnswering.forward:127
+#: transformers.BartForSequenceClassification.forward:121
+#: transformers.BartModel.forward:120
+#: transformers.FlaxBartForConditionalGeneration.__call__:71
+#: transformers.FlaxBartForQuestionAnswering.__call__:72
+#: transformers.FlaxBartForSequenceClassification.__call__:71
+#: transformers.FlaxBartModel.__call__:74
+#: transformers.TFBartForConditionalGeneration.call:100
+#: transformers.TFBartModel.call:98
+msgid ""
+"Hidden-states of the decoder at the output of each layer plus the initial"
+" embedding outputs."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:123
+#: transformers.BartForQuestionAnswering.forward:128
+#: transformers.BartForSequenceClassification.forward:122
+#: transformers.BartModel.forward:121
+msgid ""
+"**decoder_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:126
+#: transformers.BartForQuestionAnswering.forward:131
+#: transformers.BartForSequenceClassification.forward:125
+#: transformers.BartModel.forward:124
+#: transformers.FlaxBartForConditionalGeneration.__call__:75
+#: transformers.FlaxBartForQuestionAnswering.__call__:76
+#: transformers.FlaxBartForSequenceClassification.__call__:75
+#: transformers.FlaxBartModel.__call__:78
+#: transformers.TFBartForConditionalGeneration.call:104
+#: transformers.TFBartModel.call:102
+msgid ""
+"Attentions weights of the decoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:86
+#: transformers.BartForConditionalGeneration.forward:128
+#: transformers.BartForQuestionAnswering.forward:133
+#: transformers.BartForSequenceClassification.forward:127
+#: transformers.BartModel.forward:126
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:131
+#: transformers.BartForQuestionAnswering.forward:136
+#: transformers.BartForSequenceClassification.forward:130
+#: transformers.BartModel.forward:129
+#: transformers.FlaxBartForConditionalGeneration.__call__:80
+#: transformers.FlaxBartForQuestionAnswering.__call__:81
+#: transformers.FlaxBartForQuestionAnswering.decode:74
+#: transformers.FlaxBartForSequenceClassification.__call__:80
+#: transformers.FlaxBartForSequenceClassification.decode:74
+#: transformers.FlaxBartModel.__call__:83 transformers.FlaxBartModel.decode:74
+#: transformers.TFBartForConditionalGeneration.call:109
+#: transformers.TFBartModel.call:107
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:133
+#: transformers.BartForQuestionAnswering.forward:138
+#: transformers.BartForSequenceClassification.forward:132
+#: transformers.BartModel.forward:131
+msgid ""
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:134
+#: transformers.BartForQuestionAnswering.forward:139
+#: transformers.BartForSequenceClassification.forward:133
+#: transformers.BartModel.forward:132
+msgid ""
+"**encoder_hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:137
+#: transformers.BartForQuestionAnswering.forward:142
+#: transformers.BartForSequenceClassification.forward:136
+#: transformers.BartModel.forward:135
+#: transformers.FlaxBartForConditionalGeneration.__call__:86
+#: transformers.FlaxBartForQuestionAnswering.__call__:87
+#: transformers.FlaxBartForSequenceClassification.__call__:86
+#: transformers.FlaxBartModel.__call__:89
+#: transformers.TFBartForConditionalGeneration.call:115
+#: transformers.TFBartModel.call:113
+msgid ""
+"Hidden-states of the encoder at the output of each layer plus the initial"
+" embedding outputs."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:138
+#: transformers.BartForQuestionAnswering.forward:143
+#: transformers.BartForSequenceClassification.forward:137
+#: transformers.BartModel.forward:136
+msgid ""
+"**encoder_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:141
+#: transformers.BartForQuestionAnswering.forward:146
+#: transformers.BartForSequenceClassification.forward:140
+#: transformers.BartModel.forward:139
+#: transformers.FlaxBartForConditionalGeneration.__call__:90
+#: transformers.FlaxBartForQuestionAnswering.__call__:91
+#: transformers.FlaxBartForSequenceClassification.__call__:90
+#: transformers.FlaxBartModel.__call__:93
+#: transformers.TFBartForConditionalGeneration.call:119
+#: transformers.TFBartModel.call:117
+msgid ""
+"Attentions weights of the encoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward
+#: transformers.BartForConditionalGeneration.forward
+#: transformers.BartForQuestionAnswering.forward
+#: transformers.BartForSequenceClassification.forward
+#: transformers.BartModel.forward
+#: transformers.FlaxBartForConditionalGeneration.__call__
+#: transformers.FlaxBartForConditionalGeneration.decode
+#: transformers.FlaxBartForConditionalGeneration.encode
+#: transformers.FlaxBartForQuestionAnswering.__call__
+#: transformers.FlaxBartForQuestionAnswering.decode
+#: transformers.FlaxBartForQuestionAnswering.encode
+#: transformers.FlaxBartForSequenceClassification.__call__
+#: transformers.FlaxBartForSequenceClassification.decode
+#: transformers.FlaxBartForSequenceClassification.encode
+#: transformers.FlaxBartModel.__call__ transformers.FlaxBartModel.decode
+#: transformers.FlaxBartModel.encode
+#: transformers.TFBartForConditionalGeneration.call
+#: transformers.TFBartModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.BartModel.forward:141
+msgid ""
+":class:`~transformers.modeling_outputs.Seq2SeqModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:115
+msgid "BartForConditionalGeneration"
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration:1
+msgid ""
+"The BART Model with a language modeling head. Can be used for "
+"summarization. This model inherits from "
+":class:`~transformers.PreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings, "
+"pruning heads etc.)"
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:1
+msgid ""
+"The :class:`~transformers.BartForConditionalGeneration` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:51
+#: transformers.BartForConditionalGeneration.forward:102
+#: transformers.TFBartForConditionalGeneration.call:81
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should "
+"either be in ``[0, ..., config.vocab_size]`` or -100 (see ``input_ids`` "
+"docstring). Tokens with indices set to ``-100`` are ignored (masked), the"
+" loss is only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:107
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BartConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, "
+"`optional`, returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the decoder at the output of each "
+"layer plus the initial embedding outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the decoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the "
+"decoder's cross-attention layer, after the attention softmax, used to "
+"compute the   weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the encoder at the output of each "
+"layer plus the initial embedding outputs. - **encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the encoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:107
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BartConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:111
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:76
+#: transformers.BartForConditionalGeneration.forward:112
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:143
+msgid ""
+":class:`~transformers.modeling_outputs.Seq2SeqLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:145
+#: transformers.FlaxBartForConditionalGeneration.__call__:94
+#: transformers.TFBartForConditionalGeneration.call:123
+msgid "Summarization example::"
+msgstr ""
+
+#: of transformers.BartForConditionalGeneration.forward:159
+#: transformers.FlaxBartForConditionalGeneration.__call__:108
+#: transformers.TFBartForConditionalGeneration.call:137
+msgid "Mask filling example::"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:122
+msgid "BartForSequenceClassification"
+msgstr ""
+
+#: of transformers.BartForSequenceClassification:1
+#: transformers.FlaxBartForSequenceClassification:1
+msgid ""
+"Bart model with a sequence classification/head on top (a linear layer on "
+"top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.BartForQuestionAnswering:4
+#: transformers.BartForSequenceClassification:4
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.BartForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.BartForSequenceClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BartForSequenceClassification.forward:102
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels > 1` a classification loss is computed (Cross-"
+"Entropy)."
+msgstr ""
+
+#: of transformers.BartForSequenceClassification.forward:106
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BartConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`label` is provided) -- Classification (or"
+" regression if config.num_labels==1) loss. - **logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax). - **past_key_values** "
+"(:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`tuple(torch.FloatTensor)` of length :obj:`config.n_layers`, with"
+" each tuple having 2 tensors   of shape :obj:`(batch_size, num_heads, "
+"sequence_length, embed_size_per_head)`) and 2 additional tensors of   "
+"shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the decoder at the output of each "
+"layer plus the initial embedding outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the decoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the "
+"decoder's cross-attention layer, after the attention softmax, used to "
+"compute the   weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the encoder at the output of each "
+"layer plus the initial embedding outputs. - **encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the encoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads."
+msgstr ""
+
+#: of transformers.BartForSequenceClassification.forward:106
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BartConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.BartForSequenceClassification.forward:110
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`label` is provided) -- Classification (or regression "
+"if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.BartForSequenceClassification.forward:111
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.BartForSequenceClassification.forward:142
+msgid ""
+":class:`~transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput` "
+"or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:129
+msgid "BartForQuestionAnswering"
+msgstr ""
+
+#: of transformers.BartForQuestionAnswering:1
+#: transformers.FlaxBartForQuestionAnswering:1
+msgid ""
+"BART Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layer on top of the hidden-"
+"states output to compute `span start logits` and `span end logits`)."
+msgstr ""
+
+#: of transformers.BartForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.BartForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BartForQuestionAnswering.forward:102
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.BartForQuestionAnswering.forward:106
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (`sequence_length`). Position outside of the sequence are "
+"not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.BartForQuestionAnswering.forward:111
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BartConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, "
+"`optional`, returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the decoder at the output of each "
+"layer plus the initial embedding outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the decoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the "
+"decoder's cross-attention layer, after the attention softmax, used to "
+"compute the   weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the encoder at the output of each "
+"layer plus the initial embedding outputs. - **encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the encoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads."
+msgstr ""
+
+#: of transformers.BartForQuestionAnswering.forward:111
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BartConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.BartForQuestionAnswering.forward:115
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.BartForQuestionAnswering.forward:116
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.BartForQuestionAnswering.forward:117
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.BartForQuestionAnswering.forward:148
+msgid ""
+":class:`~transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:136
+msgid "BartForCausalLM"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:69
+msgid "Args:"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:9
+msgid ""
+"input_ids (:obj:`torch.LongTensor` of shape :obj:`(batch_size, "
+"sequence_length)`):"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:16
+msgid ""
+"attention_mask (:obj:`torch.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`, `optional`):"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:19
+msgid ""
+"encoder_hidden_states  (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`):"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:19
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the encoder."
+" Used in the cross-attention if the model is configured as a decoder."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:22
+msgid ""
+"encoder_attention_mask (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`, `optional`):"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:22
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:28
+msgid ""
+"head_mask (:obj:`torch.Tensor` of shape :obj:`(decoder_layers, "
+"decoder_attention_heads)`, `optional`):"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:25
+msgid ""
+"Mask to nullify selected heads of the attention modules. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:34
+msgid ""
+"cross_attn_head_mask (:obj:`torch.Tensor` of shape :obj:`(decoder_layers,"
+" decoder_attention_heads)`, `optional`):"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:31
+#: transformers.TFBartForConditionalGeneration.call:51
+#: transformers.TFBartModel.call:51
+msgid ""
+"Mask to nullify selected heads of the cross-attention modules. Mask "
+"values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:48
+msgid ""
+"past_key_values (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``):"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:37
+msgid ""
+"Tuple of :obj:`tuple(torch.FloatTensor)` of length "
+":obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`. The two additional "
+"tensors are only required when the model is used as a decoder in a "
+"Sequence to Sequence model."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:47
+msgid ""
+"If :obj:`past_key_values` are used, the user can optionally input only "
+"the last ``decoder_input_ids`` (those that don't have their past key "
+"value states given to this model) of shape :obj:`(batch_size, 1)` instead"
+" of all ``decoder_input_ids`` of shape :obj:`(batch_size, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:53
+msgid ""
+"labels (:obj:`torch.LongTensor` of shape :obj:`(batch_size, "
+"sequence_length)`, `optional`):"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:59
+msgid "use_cache (:obj:`bool`, `optional`):"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:62
+msgid "output_attentions (:obj:`bool`, `optional`):"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:65
+msgid "output_hidden_states (:obj:`bool`, `optional`):"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:69
+msgid "return_dict (:obj:`bool`, `optional`):"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:71
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BartConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Language modeling"
+" loss (for next-token prediction). - **logits** (:obj:`torch.FloatTensor`"
+" of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Cross attentions weights after the"
+" attention softmax, used to compute the weighted average in the   cross-"
+"attention heads. - **past_key_values** "
+"(:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`torch.FloatTensor` tuples of length :obj:`config.n_layers`, with"
+" each tuple containing the   cached key, value states of the self-"
+"attention and the cross-attention layers if model is used in   encoder-"
+"decoder setting. Only relevant if ``config.is_decoder = True``.    "
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see   :obj:`past_key_values` input) to speed up"
+" sequential decoding.   Example::      >>> from transformers import "
+"BartTokenizer, BartForCausalLM      >>> tokenizer = "
+"BartTokenizer.from_pretrained('facebook/bart-large')     >>> model = "
+"BartForCausalLM.from_pretrained('facebook/bart-large', "
+"add_cross_attention=False)     >>> assert model.config.is_decoder, "
+"f\"{model.__class__} has to be configured as a decoder.\"     >>> inputs "
+"= tokenizer(\"Hello, my dog is cute\", return_tensors=\"pt\")     >>> "
+"outputs = model(**inputs)      >>> last_hidden_states = "
+"outputs.last_hidden_state"
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:71
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BartConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:75
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss (for "
+"next-token prediction)."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:77
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:80
+#: transformers.FlaxBartForConditionalGeneration.decode:54
+#: transformers.FlaxBartForConditionalGeneration.encode:37
+#: transformers.FlaxBartForQuestionAnswering.decode:65
+#: transformers.FlaxBartForQuestionAnswering.encode:37
+#: transformers.FlaxBartForSequenceClassification.decode:65
+#: transformers.FlaxBartForSequenceClassification.encode:37
+#: transformers.FlaxBartModel.decode:65 transformers.FlaxBartModel.encode:37
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:81
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:84
+#: transformers.FlaxBartForConditionalGeneration.decode:58
+#: transformers.FlaxBartForConditionalGeneration.encode:41
+#: transformers.FlaxBartForQuestionAnswering.decode:69
+#: transformers.FlaxBartForQuestionAnswering.encode:41
+#: transformers.FlaxBartForSequenceClassification.decode:69
+#: transformers.FlaxBartForSequenceClassification.encode:41
+#: transformers.FlaxBartModel.decode:69 transformers.FlaxBartModel.encode:41
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:89
+#: transformers.FlaxBartForConditionalGeneration.decode:63
+msgid ""
+"Cross attentions weights after the attention softmax, used to compute the"
+" weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:91
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`torch.FloatTensor` tuples of"
+" length :obj:`config.n_layers`, with each tuple containing the cached "
+"key, value states of the self-attention and the cross-attention layers if"
+" model is used in encoder-decoder setting. Only relevant if "
+"``config.is_decoder = True``."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:95
+#: transformers.FlaxBartForConditionalGeneration.decode:69
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.BartForCausalLM.forward:110
+msgid ""
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:143
+msgid "TFBartModel"
+msgstr ""
+
+#: of transformers.TFBartModel:1
+msgid ""
+"The bare BART Model outputting raw hidden-states without any specific "
+"head on top. This model inherits from "
+":class:`~transformers.TFPreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings, "
+"pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration:6 transformers.TFBartModel:6
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration:12
+#: transformers.TFBartModel:12
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration:14
+#: transformers.TFBartModel:14
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration:15
+#: transformers.TFBartModel:15
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration:17
+#: transformers.TFBartModel:17
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration:20
+#: transformers.TFBartModel:20
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration:23
+#: transformers.TFBartModel:23
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(input_ids)`"
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration:24
+#: transformers.TFBartModel:24
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration:26
+#: transformers.TFBartModel:26
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration:29
+#: transformers.TFBartModel:29
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.TFPreTrainedModel.from_pretrained` method to load "
+"the model weights."
+msgstr ""
+
+#: of transformers.TFBartModel.call:1
+msgid ""
+"The :class:`~transformers.TFBartModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:8
+#: transformers.TFBartModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.BertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:8
+#: transformers.TFBartModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:10
+#: transformers.TFBartModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.BertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:39
+#: transformers.TFBartModel.call:39
+msgid ""
+"will be made by default and ignore pad tokens. It is not recommended to "
+"set this for most use cases."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:51
+#: transformers.TFBartModel.call:51
+msgid ""
+"Mask to nullify selected heads of the cross-attention modules. Mask "
+"values selected in ``[0, 1]``:  - 1 indicates the head is **not masked**,"
+" - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:56
+#: transformers.TFBartModel.call:56
+msgid ""
+"hidden states at the output of the last layer of the encoder. Used in the"
+" cross-attention of the decoder. of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)` is a sequence of"
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:59
+#: transformers.TFBartModel.call:59
+msgid ""
+"contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding. If :obj:`past_key_values` are used, "
+"the user can optionally input only the last :obj:`decoder_input_ids` "
+"(those that don't have their past key value states given to this model) "
+"of shape :obj:`(batch_size, 1)` instead of all :obj:`decoder_input_ids` "
+"of shape :obj:`(batch_size, sequence_length)`."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:64
+#: transformers.TFBartModel.call:64
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`). Set to :obj:`False` during training, :obj:`True`"
+" during generation"
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:67
+#: transformers.TFBartModel.call:67
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:71
+#: transformers.TFBartModel.call:71
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:75
+#: transformers.TFBartModel.call:75
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:78
+#: transformers.TFBartModel.call:78
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFBartModel.call:82
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSeq2SeqModelOutput` or a "
+"tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BartConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the decoder of the model.    If "
+":obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size,   1, hidden_size)` is output. - "
+"**past_key_values** (:obj:`List[tf.Tensor]`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- List "
+"of :obj:`tf.Tensor` of length :obj:`config.n_layers`, with each tensor of"
+" shape :obj:`(2, batch_size,   num_heads, sequence_length, "
+"embed_size_per_head)`).    Contains pre-computed hidden-states (key and "
+"values in the attention blocks) of the decoder that can be   used (see "
+":obj:`past_key_values` input) to speed up sequential decoding. - "
+"**decoder_hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the decoder at the output of each layer plus the initial "
+"embedding outputs. - **decoder_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the decoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads. - **cross_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the decoder's cross-attention"
+" layer, after the attention softmax, used to compute the   weighted "
+"average in the cross-attention heads. - **encoder_last_hidden_state** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`, `optional`) -- Sequence of hidden-states at the output of "
+"the last layer of the encoder of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the encoder at the output of each layer plus the initial "
+"embedding outputs. - **encoder_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the encoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.TFBartModel.call:82
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSeq2SeqModelOutput` or a "
+"tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BartConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFBartModel.call:86
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the decoder of the model."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:92
+#: transformers.TFBartModel.call:90
+msgid ""
+"**past_key_values** (:obj:`List[tf.Tensor]`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- List "
+"of :obj:`tf.Tensor` of length :obj:`config.n_layers`, with each tensor of"
+" shape :obj:`(2, batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`)."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:95
+#: transformers.TFBartModel.call:93
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) of the decoder that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:97
+#: transformers.TFBartModel.call:95
+msgid ""
+"**decoder_hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:101
+#: transformers.TFBartModel.call:99
+msgid ""
+"**decoder_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:106
+#: transformers.TFBartModel.call:104
+msgid ""
+"**cross_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:111
+#: transformers.TFBartModel.call:109
+msgid ""
+"**encoder_last_hidden_state** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:112
+#: transformers.TFBartModel.call:110
+msgid ""
+"**encoder_hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:116
+#: transformers.TFBartModel.call:114
+msgid ""
+"**encoder_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFBartModel.call:119
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSeq2SeqModelOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:150
+msgid "TFBartForConditionalGeneration"
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration:1
+msgid ""
+"The BART Model with a language modeling head. Can be used for "
+"summarization. This model inherits from "
+":class:`~transformers.TFPreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings, "
+"pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:1
+msgid ""
+"The :class:`~transformers.TFBartForConditionalGeneration` forward method,"
+" overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:86
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSeq2SeqLMOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BartConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Language modeling loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **past_key_values** (:obj:`List[tf.Tensor]`, "
+"`optional`, returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- List of :obj:`tf.Tensor` of length "
+":obj:`config.n_layers`, with each tensor of shape :obj:`(2, batch_size,"
+"   num_heads, sequence_length, embed_size_per_head)`).    Contains pre-"
+"computed hidden-states (key and values in the attention blocks) of the "
+"decoder that can be   used (see :obj:`past_key_values` input) to speed up"
+" sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the decoder at the output of each layer plus the initial "
+"embedding outputs. - **decoder_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the decoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads. - **cross_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the decoder's cross-attention"
+" layer, after the attention softmax, used to compute the   weighted "
+"average in the cross-attention heads. - **encoder_last_hidden_state** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`, `optional`) -- Sequence of hidden-states at the output of "
+"the last layer of the encoder of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the encoder at the output of each layer plus the initial "
+"embedding outputs. - **encoder_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the encoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:86
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSeq2SeqLMOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BartConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:90
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Language modeling loss."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:91
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFBartForConditionalGeneration.call:121
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSeq2SeqLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:157
+msgid "FlaxBartModel"
+msgstr ""
+
+#: of transformers.FlaxBartModel:1
+msgid ""
+"The bare Bart Model transformer outputting raw hidden-states without any "
+"specific head on top. This model inherits from "
+":class:`~transformers.FlaxPreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings, "
+"pruning heads etc.)"
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration:6
+#: transformers.FlaxBartForQuestionAnswering:8
+#: transformers.FlaxBartForSequenceClassification:8
+#: transformers.FlaxBartModel:6
+msgid ""
+"This model is also a Flax Linen `flax.nn.Module "
+"<https://flax.readthedocs.io/en/latest/_autosummary/flax.nn.module.html>`__"
+" subclass. Use it as a regular Flax Module and refer to the Flax "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration:10
+#: transformers.FlaxBartForQuestionAnswering:12
+#: transformers.FlaxBartForSequenceClassification:12
+#: transformers.FlaxBartModel:10
+msgid "Finally, this model supports inherent JAX features such as:"
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration:12
+#: transformers.FlaxBartForQuestionAnswering:14
+#: transformers.FlaxBartForSequenceClassification:14
+#: transformers.FlaxBartModel:12
+msgid ""
+"`Just-In-Time (JIT) compilation "
+"<https://jax.readthedocs.io/en/latest/jax.html#just-in-time-compilation-"
+"jit>`__"
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration:13
+#: transformers.FlaxBartForQuestionAnswering:15
+#: transformers.FlaxBartForSequenceClassification:15
+#: transformers.FlaxBartModel:13
+msgid ""
+"`Automatic Differentiation <https://jax.readthedocs.io/en/latest/jax.html"
+"#automatic-differentiation>`__"
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration:14
+#: transformers.FlaxBartForQuestionAnswering:16
+#: transformers.FlaxBartForSequenceClassification:16
+#: transformers.FlaxBartModel:14
+msgid ""
+"`Vectorization <https://jax.readthedocs.io/en/latest/jax.html"
+"#vectorization-vmap>`__"
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration:15
+#: transformers.FlaxBartForQuestionAnswering:17
+#: transformers.FlaxBartForSequenceClassification:17
+#: transformers.FlaxBartModel:15
+msgid ""
+"`Parallelization <https://jax.readthedocs.io/en/latest/jax.html"
+"#parallelization-pmap>`__"
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration:17
+#: transformers.FlaxBartForQuestionAnswering:19
+#: transformers.FlaxBartForSequenceClassification:19
+#: transformers.FlaxBartModel:17
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.FlaxPreTrainedModel.from_pretrained` method to load "
+"the model weights."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:1
+#: transformers.FlaxBartForQuestionAnswering.__call__:1
+#: transformers.FlaxBartForSequenceClassification.__call__:1
+#: transformers.FlaxBartModel.__call__:1
+msgid ""
+"The :class:`~transformers.FlaxBartPreTrainedModel` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:24
+#: transformers.FlaxBartForConditionalGeneration.decode:1
+#: transformers.FlaxBartForQuestionAnswering.__call__:24
+#: transformers.FlaxBartForQuestionAnswering.decode:1
+#: transformers.FlaxBartForSequenceClassification.__call__:24
+#: transformers.FlaxBartForSequenceClassification.decode:1
+#: transformers.FlaxBartModel.__call__:24 transformers.FlaxBartModel.decode:1
+msgid ""
+"Indices of decoder input sequence tokens in the vocabulary.  Indices can "
+"be obtained using :class:`~transformers.BartTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" decoder input IDs? <../glossary.html#decoder-input-ids>`__  For "
+"translation and summarization training, :obj:`decoder_input_ids` should "
+"be provided. If no :obj:`decoder_input_ids` is provided, the model will "
+"create this tensor by shifting the :obj:`input_ids` to the right for "
+"denoising pre-training following the paper."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:36
+#: transformers.FlaxBartForConditionalGeneration.decode:25
+#: transformers.FlaxBartForQuestionAnswering.__call__:36
+#: transformers.FlaxBartForQuestionAnswering.decode:25
+#: transformers.FlaxBartForSequenceClassification.__call__:36
+#: transformers.FlaxBartForSequenceClassification.decode:25
+#: transformers.FlaxBartModel.__call__:36 transformers.FlaxBartModel.decode:25
+msgid ""
+"Default behavior: generate a tensor that ignores pad tokens in "
+":obj:`decoder_input_ids`. Causal mask will also be used by default.  If "
+"you want to change padding behavior, you should modify to your needs. See"
+" diagram 1 in `the paper <https://arxiv.org/abs/1910.13461>`__ for more "
+"information on the default strategy."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:39
+#: transformers.FlaxBartForConditionalGeneration.decode:28
+#: transformers.FlaxBartForQuestionAnswering.__call__:39
+#: transformers.FlaxBartForQuestionAnswering.decode:28
+#: transformers.FlaxBartForSequenceClassification.__call__:39
+#: transformers.FlaxBartForSequenceClassification.decode:28
+#: transformers.FlaxBartModel.__call__:39 transformers.FlaxBartModel.decode:28
+msgid ""
+"If you want to change padding behavior, you should modify to your needs. "
+"See diagram 1 in `the paper <https://arxiv.org/abs/1910.13461>`__ for "
+"more information on the default strategy."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:42
+#: transformers.FlaxBartForConditionalGeneration.encode:17
+#: transformers.FlaxBartForQuestionAnswering.__call__:42
+#: transformers.FlaxBartForQuestionAnswering.encode:17
+#: transformers.FlaxBartForSequenceClassification.__call__:42
+#: transformers.FlaxBartForSequenceClassification.encode:17
+#: transformers.FlaxBartModel.__call__:42 transformers.FlaxBartModel.encode:17
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:45
+#: transformers.FlaxBartForConditionalGeneration.decode:31
+#: transformers.FlaxBartForQuestionAnswering.__call__:45
+#: transformers.FlaxBartForQuestionAnswering.decode:31
+#: transformers.FlaxBartForSequenceClassification.__call__:45
+#: transformers.FlaxBartForSequenceClassification.decode:31
+#: transformers.FlaxBartModel.__call__:45 transformers.FlaxBartModel.decode:31
+msgid ""
+"Indices of positions of each decoder input sequence tokens in the "
+"position embeddings. Selected in the range ``[0, "
+"config.max_position_embeddings - 1]``."
+msgstr ""
+
+#: of transformers.FlaxBartModel.__call__:57
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput` or "
+"a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BartConfig`) and "
+"inputs.  - **last_hidden_state** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the decoder of the model.    If"
+" :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size,   1, hidden_size)` is output. - "
+"**past_key_values** (:obj:`tuple(tuple(jnp.ndarray))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(jnp.ndarray)` of "
+"length :obj:`config.n_layers`, with each tuple having 2 tensors of   "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the decoder at the output of each layer plus the initial "
+"embedding outputs. - **decoder_attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights of the decoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads. - **cross_attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights of the decoder's cross-"
+"attention layer, after the attention softmax, used to compute the   "
+"weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` "
+"(one for the output of the embeddings + one for the output of each layer)"
+" of   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the encoder at the output of each layer plus the initial "
+"embedding outputs. - **encoder_attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights of the encoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.FlaxBartModel.__call__:57
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput` or "
+"a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BartConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.FlaxBartModel.__call__:61
+msgid ""
+"**last_hidden_state** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the decoder of the model."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:62
+#: transformers.FlaxBartForQuestionAnswering.__call__:63
+#: transformers.FlaxBartForSequenceClassification.__call__:62
+#: transformers.FlaxBartModel.__call__:65
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(jnp.ndarray))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(jnp.ndarray)` of "
+"length :obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:68
+#: transformers.FlaxBartForQuestionAnswering.__call__:69
+#: transformers.FlaxBartForSequenceClassification.__call__:68
+#: transformers.FlaxBartModel.__call__:71
+msgid ""
+"**decoder_hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:72
+#: transformers.FlaxBartForQuestionAnswering.__call__:73
+#: transformers.FlaxBartForSequenceClassification.__call__:72
+#: transformers.FlaxBartModel.__call__:75
+msgid ""
+"**decoder_attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:77
+#: transformers.FlaxBartForConditionalGeneration.decode:60
+#: transformers.FlaxBartForQuestionAnswering.__call__:78
+#: transformers.FlaxBartForSequenceClassification.__call__:77
+#: transformers.FlaxBartModel.__call__:80
+msgid ""
+"**cross_attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:82
+#: transformers.FlaxBartForQuestionAnswering.__call__:83
+#: transformers.FlaxBartForSequenceClassification.__call__:82
+#: transformers.FlaxBartModel.__call__:85
+msgid ""
+"**encoder_last_hidden_state** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:83
+#: transformers.FlaxBartForQuestionAnswering.__call__:84
+#: transformers.FlaxBartForSequenceClassification.__call__:83
+#: transformers.FlaxBartModel.__call__:86
+msgid ""
+"**encoder_hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:87
+#: transformers.FlaxBartForQuestionAnswering.__call__:88
+#: transformers.FlaxBartForSequenceClassification.__call__:87
+#: transformers.FlaxBartModel.__call__:90
+msgid ""
+"**encoder_attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxBartModel.__call__:95
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.decode:34
+#: transformers.FlaxBartForQuestionAnswering.decode:34
+#: transformers.FlaxBartForSequenceClassification.decode:34
+#: transformers.FlaxBartModel.decode:34
+msgid ""
+"Dictionary of pre-computed hidden-states (key and values in the attention"
+" blocks) that can be used for fast auto-regressive decoding. Pre-computed"
+" key and value hidden-states are of shape `[batch_size, max_length]`."
+msgstr ""
+
+#: of transformers.FlaxBartForQuestionAnswering.decode:46
+#: transformers.FlaxBartForSequenceClassification.decode:46
+#: transformers.FlaxBartModel.decode:46
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.<class "
+"'transformers.models.bart.configuration_bart.BartConfig'>`) and inputs.  "
+"- **last_hidden_state** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model.    If :obj:`past_key_values` is "
+"used only the last hidden-state of the sequences of shape "
+":obj:`(batch_size,   1, hidden_size)` is output. - **past_key_values** "
+"(:obj:`tuple(tuple(jnp.ndarray))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`tuple(jnp.ndarray)` of length :obj:`config.n_layers`, with each "
+"tuple having 2 tensors of   shape :obj:`(batch_size, num_heads, "
+"sequence_length, embed_size_per_head)`) and optionally if   "
+"``config.is_encoder_decoder=True`` 2 additional tensors of shape "
+":obj:`(batch_size, num_heads,   encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and optionally if   "
+"``config.is_encoder_decoder=True`` in the cross-attention blocks) that "
+"can be used (see   :obj:`past_key_values` input) to speed up sequential "
+"decoding. - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads. - "
+"**cross_attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_attentions=True`` and ``config.add_cross_attention=True`` "
+"is passed or when ``config.output_attentions=True``) -- Tuple of "
+":obj:`jnp.ndarray` (one for each layer) of shape :obj:`(batch_size, "
+"num_heads, sequence_length,   sequence_length)`.    Attentions weights of"
+" the decoder's cross-attention layer, after the attention softmax, used "
+"to compute the   weighted average in the cross-attention heads.   "
+"Example::      >>> from transformers import BartTokenizer, "
+"FlaxBartForConditionalGeneration      >>> model = "
+"FlaxBartForConditionalGeneration.from_pretrained('facebook/bart-large-"
+"cnn')     >>> tokenizer = BartTokenizer.from_pretrained('facebook/bart-"
+"large-cnn')      >>> text = \"My friends are cool but they eat too many "
+"carbs.\"     >>> inputs = tokenizer(text, max_length=1024, "
+"return_tensors='jax')     >>> encoder_outputs = model.encode(**inputs)"
+"      >>> decoder_start_token_id = model.config.decoder_start_token_id"
+"     >>> decoder_input_ids = jnp.ones((inputs.input_ids.shape[0], 1), "
+"dtype=\"i4\") * decoder_start_token_id      >>> outputs = "
+"model.decode(decoder_input_ids, encoder_outputs)     >>> "
+"last_decoder_hidden_states = outputs.last_hidden_state"
+msgstr ""
+
+#: of transformers.FlaxBartForQuestionAnswering.decode:46
+#: transformers.FlaxBartForSequenceClassification.decode:46
+#: transformers.FlaxBartModel.decode:46
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.<class "
+"'transformers.models.bart.configuration_bart.BartConfig'>`) and inputs."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.encode:33
+#: transformers.FlaxBartForQuestionAnswering.decode:50
+#: transformers.FlaxBartForQuestionAnswering.encode:33
+#: transformers.FlaxBartForSequenceClassification.decode:50
+#: transformers.FlaxBartForSequenceClassification.encode:33
+#: transformers.FlaxBartModel.decode:50 transformers.FlaxBartModel.encode:33
+msgid ""
+"**last_hidden_state** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.FlaxBartForQuestionAnswering.decode:54
+#: transformers.FlaxBartForSequenceClassification.decode:54
+#: transformers.FlaxBartModel.decode:54
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(jnp.ndarray))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(jnp.ndarray)` of "
+"length :obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" optionally if ``config.is_encoder_decoder=True`` 2 additional tensors of"
+" shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.FlaxBartForQuestionAnswering.decode:59
+#: transformers.FlaxBartForSequenceClassification.decode:59
+#: transformers.FlaxBartModel.decode:59
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and optionally if ``config.is_encoder_decoder=True`` in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.decode:51
+#: transformers.FlaxBartForConditionalGeneration.encode:34
+#: transformers.FlaxBartForQuestionAnswering.decode:62
+#: transformers.FlaxBartForQuestionAnswering.encode:34
+#: transformers.FlaxBartForSequenceClassification.decode:62
+#: transformers.FlaxBartForSequenceClassification.encode:34
+#: transformers.FlaxBartModel.decode:62 transformers.FlaxBartModel.encode:34
+msgid ""
+"**hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.decode:55
+#: transformers.FlaxBartForConditionalGeneration.encode:38
+#: transformers.FlaxBartForQuestionAnswering.decode:66
+#: transformers.FlaxBartForQuestionAnswering.encode:38
+#: transformers.FlaxBartForSequenceClassification.decode:66
+#: transformers.FlaxBartForSequenceClassification.encode:38
+#: transformers.FlaxBartModel.decode:66 transformers.FlaxBartModel.encode:38
+msgid ""
+"**attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxBartForQuestionAnswering.decode:71
+#: transformers.FlaxBartForSequenceClassification.decode:71
+#: transformers.FlaxBartModel.decode:71
+msgid ""
+"**cross_attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_attentions=True`` and ``config.add_cross_attention=True`` "
+"is passed or when ``config.output_attentions=True``) -- Tuple of "
+":obj:`jnp.ndarray` (one for each layer) of shape :obj:`(batch_size, "
+"num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxBartForQuestionAnswering.decode:94
+#: transformers.FlaxBartForSequenceClassification.decode:94
+#: transformers.FlaxBartModel.decode:94
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.encode:29
+#: transformers.FlaxBartForQuestionAnswering.encode:29
+#: transformers.FlaxBartForSequenceClassification.encode:29
+#: transformers.FlaxBartModel.encode:29
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.<class "
+"'transformers.models.bart.configuration_bart.BartConfig'>`) and inputs.  "
+"- **last_hidden_state** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Example::      >>> from transformers import BartTokenizer, "
+"FlaxBartForConditionalGeneration      >>> model = "
+"FlaxBartForConditionalGeneration.from_pretrained('facebook/bart-large-"
+"cnn')     >>> tokenizer = BartTokenizer.from_pretrained('facebook/bart-"
+"large-cnn')      >>> text = \"My friends are cool but they eat too many "
+"carbs.\"     >>> inputs = tokenizer(text, max_length=1024, "
+"return_tensors='jax')     >>> encoder_outputs = model.encode(**inputs)"
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.encode:29
+#: transformers.FlaxBartForQuestionAnswering.encode:29
+#: transformers.FlaxBartForSequenceClassification.encode:29
+#: transformers.FlaxBartModel.encode:29
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.<class "
+"'transformers.models.bart.configuration_bart.BartConfig'>`) and inputs."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.encode:55
+#: transformers.FlaxBartForQuestionAnswering.encode:55
+#: transformers.FlaxBartForSequenceClassification.encode:55
+#: transformers.FlaxBartModel.encode:55
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:164
+msgid "FlaxBartForConditionalGeneration"
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration:1
+msgid ""
+"The BART Model with a language modeling head. Can be used for "
+"summarization. This model inherits from "
+":class:`~transformers.FlaxPreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings, "
+"pruning heads etc.)"
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:57
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BartConfig`) and inputs.  - "
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **past_key_values** (:obj:`tuple(tuple(jnp.ndarray))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(jnp.ndarray)` of "
+"length :obj:`config.n_layers`, with each tuple having 2 tensors of   "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the decoder at the output of each layer plus the initial "
+"embedding outputs. - **decoder_attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights of the decoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads. - **cross_attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights of the decoder's cross-"
+"attention layer, after the attention softmax, used to compute the   "
+"weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` "
+"(one for the output of the embeddings + one for the output of each layer)"
+" of   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the encoder at the output of each layer plus the initial "
+"embedding outputs. - **encoder_attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights of the encoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:57
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BartConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:61
+#: transformers.FlaxBartForConditionalGeneration.decode:50
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.__call__:92
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.decode:46
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.<class "
+"'transformers.models.bart.configuration_bart.BartConfig'>`) and inputs.  "
+"- **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads. - "
+"**cross_attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Cross attentions weights after the attention "
+"softmax, used to compute the weighted average in the   cross-attention "
+"heads. - **past_key_values** (:obj:`tuple(tuple(jnp.ndarray))`, "
+"`optional`, returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`jnp.ndarray` tuples of "
+"length :obj:`config.n_layers`, with each tuple containing the cached   "
+"key, value states of the self-attention and the cross-attention layers if"
+" model is used in encoder-decoder   setting. Only relevant if "
+"``config.is_decoder = True``.    Contains pre-computed hidden-states (key"
+" and values in the attention blocks) that can be used (see   "
+":obj:`past_key_values` input) to speed up sequential decoding.   "
+"Example::      >>> from transformers import BartTokenizer, "
+"FlaxBartForConditionalGeneration      >>> model = "
+"FlaxBartForConditionalGeneration.from_pretrained('facebook/bart-large-"
+"cnn')     >>> tokenizer = BartTokenizer.from_pretrained('facebook/bart-"
+"large-cnn')      >>> text = \"My friends are cool but they eat too many "
+"carbs.\"     >>> inputs = tokenizer(text, max_length=1024, "
+"return_tensors='jax')     >>> encoder_outputs = model.encode(**inputs)"
+"      >>> decoder_start_token_id = model.config.decoder_start_token_id"
+"     >>> decoder_input_ids = jnp.ones((inputs.input_ids.shape[0], 1), "
+"dtype=\"i4\") * decoder_start_token_id      >>> outputs = "
+"model.decode(decoder_input_ids, encoder_outputs)     >>> logits = "
+"outputs.logits"
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.decode:46
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.<class "
+"'transformers.models.bart.configuration_bart.BartConfig'>`) and inputs."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.decode:65
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(jnp.ndarray))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`jnp.ndarray` tuples of "
+"length :obj:`config.n_layers`, with each tuple containing the cached key,"
+" value states of the self-attention and the cross-attention layers if "
+"model is used in encoder-decoder setting. Only relevant if "
+"``config.is_decoder = True``."
+msgstr ""
+
+#: of transformers.FlaxBartForConditionalGeneration.decode:89
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:171
+msgid "FlaxBartForSequenceClassification"
+msgstr ""
+
+#: of transformers.FlaxBartForQuestionAnswering:4
+#: transformers.FlaxBartForSequenceClassification:4
+msgid ""
+"This model inherits from :class:`~transformers.FlaxPreTrainedModel`. "
+"Check the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.FlaxBartForSequenceClassification.__call__:57
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BartConfig`) and "
+"inputs.  - **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax). - **past_key_values** "
+"(:obj:`tuple(tuple(jnp.ndarray))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`tuple(jnp.ndarray)` of length :obj:`config.n_layers`, with each "
+"tuple having 2 tensors of   shape :obj:`(batch_size, num_heads, "
+"sequence_length, embed_size_per_head)`) and 2 additional tensors of   "
+"shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the decoder at the output of each layer plus the initial "
+"embedding outputs. - **decoder_attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights of the decoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads. - **cross_attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights of the decoder's cross-"
+"attention layer, after the attention softmax, used to compute the   "
+"weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` "
+"(one for the output of the embeddings + one for the output of each layer)"
+" of   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the encoder at the output of each layer plus the initial "
+"embedding outputs. - **encoder_attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights of the encoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.FlaxBartForSequenceClassification.__call__:57
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BartConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.FlaxBartForSequenceClassification.__call__:61
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBartForSequenceClassification.__call__:92
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bart.rst:178
+msgid "FlaxBartForQuestionAnswering"
+msgstr ""
+
+#: of transformers.FlaxBartForQuestionAnswering.__call__:57
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BartConfig`) and "
+"inputs.  - **start_logits** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **past_key_values** (:obj:`tuple(tuple(jnp.ndarray))`, "
+"`optional`, returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(jnp.ndarray)` of "
+"length :obj:`config.n_layers`, with each tuple having 2 tensors of   "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the decoder at the output of each layer plus the initial "
+"embedding outputs. - **decoder_attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights of the decoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads. - **cross_attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights of the decoder's cross-"
+"attention layer, after the attention softmax, used to compute the   "
+"weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` "
+"(one for the output of the embeddings + one for the output of each layer)"
+" of   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the encoder at the output of each layer plus the initial "
+"embedding outputs. - **encoder_attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights of the encoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.FlaxBartForQuestionAnswering.__call__:57
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BartConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.FlaxBartForQuestionAnswering.__call__:61
+msgid ""
+"**start_logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBartForQuestionAnswering.__call__:62
+msgid ""
+"**end_logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBartForQuestionAnswering.__call__:93
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+

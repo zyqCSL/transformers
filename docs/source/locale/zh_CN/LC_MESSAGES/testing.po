@@ -1,0 +1,1493 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/testing.rst:14
+msgid "Testing"
+msgstr ""
+
+#: ../../source/testing.rst:17
+msgid ""
+"Let's take a look at how 🤗 Transformer models are tested and how you can "
+"write new tests and improve the existing ones."
+msgstr ""
+
+#: ../../source/testing.rst:19
+msgid "There are 2 test suites in the repository:"
+msgstr ""
+
+#: ../../source/testing.rst:21
+msgid "``tests`` -- tests for the general API"
+msgstr ""
+
+#: ../../source/testing.rst:22
+msgid ""
+"``examples`` -- tests primarily for various applications that aren't part"
+" of the API"
+msgstr ""
+
+#: ../../source/testing.rst:25
+msgid "How transformers are tested"
+msgstr ""
+
+#: ../../source/testing.rst:27
+msgid ""
+"Once a PR is submitted it gets tested with 9 CircleCi jobs. Every new "
+"commit to that PR gets retested. These jobs are defined in this "
+":prefix_link:`config file <.circleci/config.yml>`, so that if needed you "
+"can reproduce the same environment on your machine."
+msgstr ""
+
+#: ../../source/testing.rst:31
+msgid "These CI jobs don't run ``@slow`` tests."
+msgstr ""
+
+#: ../../source/testing.rst:33
+msgid ""
+"There are 3 jobs run by `github actions "
+"<https://github.com/huggingface/transformers/actions>`__:"
+msgstr ""
+
+#: ../../source/testing.rst:35
+msgid ""
+":prefix_link:`torch hub integration <.github/workflows/github-torch-"
+"hub.yml>`: checks whether torch hub integration works."
+msgstr ""
+
+#: ../../source/testing.rst:38
+msgid ""
+":prefix_link:`self-hosted (push) <.github/workflows/self-push.yml>`: runs"
+" fast tests on GPU only on commits on ``master``. It only runs if a "
+"commit on ``master`` has updated the code in one of the following "
+"folders: ``src``, ``tests``, ``.github`` (to prevent running on added "
+"model cards, notebooks, etc.)"
+msgstr ""
+
+#: ../../source/testing.rst:42
+msgid ""
+":prefix_link:`self-hosted runner <.github/workflows/self-scheduled.yml>`:"
+" runs normal and slow tests on GPU in ``tests`` and ``examples``:"
+msgstr ""
+
+#: ../../source/testing.rst:50
+msgid ""
+"The results can be observed `here "
+"<https://github.com/huggingface/transformers/actions>`__."
+msgstr ""
+
+#: ../../source/testing.rst:55
+msgid "Running tests"
+msgstr ""
+
+#: ../../source/testing.rst:62
+msgid "Choosing which tests to run"
+msgstr ""
+
+#: ../../source/testing.rst:64
+msgid ""
+"This document goes into many details of how tests can be run. If after "
+"reading everything, you need even more details you will find them `here "
+"<https://docs.pytest.org/en/latest/usage.html>`__."
+msgstr ""
+
+#: ../../source/testing.rst:67
+msgid "Here are some most useful ways of running tests."
+msgstr ""
+
+#: ../../source/testing.rst:69
+msgid "Run all:"
+msgstr ""
+
+#: ../../source/testing.rst:75 ../../source/testing.rst:894
+msgid "or:"
+msgstr ""
+
+#: ../../source/testing.rst:81
+msgid "Note that the latter is defined as:"
+msgstr ""
+
+#: ../../source/testing.rst:87
+msgid "which tells pytest to:"
+msgstr ""
+
+#: ../../source/testing.rst:89
+msgid ""
+"run as many test processes as they are CPU cores (which could be too many"
+" if you don't have a ton of RAM!)"
+msgstr ""
+
+#: ../../source/testing.rst:90
+msgid ""
+"ensure that all tests from the same file will be run by the same test "
+"process"
+msgstr ""
+
+#: ../../source/testing.rst:91
+msgid "do not capture output"
+msgstr ""
+
+#: ../../source/testing.rst:92
+msgid "run in verbose mode"
+msgstr ""
+
+#: ../../source/testing.rst:97
+msgid "Getting the list of all tests"
+msgstr ""
+
+#: ../../source/testing.rst:99
+msgid "All tests of the test suite:"
+msgstr ""
+
+#: ../../source/testing.rst:105
+msgid "All tests of a given test file:"
+msgstr ""
+
+#: ../../source/testing.rst:114
+msgid "Run a specific test module"
+msgstr ""
+
+#: ../../source/testing.rst:116
+msgid "To run an individual test module:"
+msgstr ""
+
+#: ../../source/testing.rst:124
+msgid "Run specific tests"
+msgstr ""
+
+#: ../../source/testing.rst:126
+msgid ""
+"Since unittest is used inside most of the tests, to run specific subtests"
+" you need to know the name of the unittest class containing those tests. "
+"For example, it could be:"
+msgstr ""
+
+#: ../../source/testing.rst:133
+msgid "Here:"
+msgstr ""
+
+#: ../../source/testing.rst:135
+msgid "``tests/test_optimization.py`` - the file with tests"
+msgstr ""
+
+#: ../../source/testing.rst:136
+msgid "``OptimizationTest`` - the name of the class"
+msgstr ""
+
+#: ../../source/testing.rst:137
+msgid "``test_adam_w`` - the name of the specific test function"
+msgstr ""
+
+#: ../../source/testing.rst:139
+msgid ""
+"If the file contains multiple classes, you can choose to run only tests "
+"of a given class. For example:"
+msgstr ""
+
+#: ../../source/testing.rst:146
+msgid "will run all the tests inside that class."
+msgstr ""
+
+#: ../../source/testing.rst:148
+msgid ""
+"As mentioned earlier you can see what tests are contained inside the "
+"``OptimizationTest`` class by running:"
+msgstr ""
+
+#: ../../source/testing.rst:154
+msgid "You can run tests by keyword expressions."
+msgstr ""
+
+#: ../../source/testing.rst:156
+msgid "To run only tests whose name contains ``adam``:"
+msgstr ""
+
+#: ../../source/testing.rst:162
+msgid ""
+"Logical ``and`` and ``or`` can be used to indicate whether all keywords "
+"should match or either. ``not`` can be used to negate."
+msgstr ""
+
+#: ../../source/testing.rst:165
+msgid "To run all tests except those whose name contains ``adam``:"
+msgstr ""
+
+#: ../../source/testing.rst:171
+msgid "And you can combine the two patterns in one:"
+msgstr ""
+
+#: ../../source/testing.rst:177
+msgid ""
+"For example to run both ``test_adafactor`` and ``test_adam_w`` you can "
+"use:"
+msgstr ""
+
+#: ../../source/testing.rst:183
+msgid ""
+"Note that we use ``or`` here, since we want either of the keywords to "
+"match to include both."
+msgstr ""
+
+#: ../../source/testing.rst:185
+msgid ""
+"If you want to include only tests that include both patterns, ``and`` is "
+"to be used:"
+msgstr ""
+
+#: ../../source/testing.rst:194
+msgid "Run only modified tests"
+msgstr ""
+
+#: ../../source/testing.rst:196
+msgid ""
+"You can run the tests related to the unstaged files or the current branch"
+" (according to Git) by using `pytest-picked "
+"<https://github.com/anapaulagomes/pytest-picked>`__. This is a great way "
+"of quickly testing your changes didn't break anything, since it won't run"
+" the tests related to files you didn't touch."
+msgstr ""
+
+#: ../../source/testing.rst:208
+msgid ""
+"All tests will be run from files and folders which are modified, but not "
+"yet committed."
+msgstr ""
+
+#: ../../source/testing.rst:211
+msgid "Automatically rerun failed tests on source modification"
+msgstr ""
+
+#: ../../source/testing.rst:213
+msgid ""
+"`pytest-xdist <https://github.com/pytest-dev/pytest-xdist>`__ provides a "
+"very useful feature of detecting all failed tests, and then waiting for "
+"you to modify files and continuously re-rerun those failing tests until "
+"they pass while you fix them. So that you don't need to re start pytest "
+"after you made the fix. This is repeated until all tests pass after which"
+" again a full run is performed."
+msgstr ""
+
+#: ../../source/testing.rst:222
+msgid "To enter the mode: ``pytest -f`` or ``pytest --looponfail``"
+msgstr ""
+
+#: ../../source/testing.rst:224
+msgid ""
+"File changes are detected by looking at ``looponfailroots`` root "
+"directories and all of their contents (recursively). If the default for "
+"this value does not work for you, you can change it in your project by "
+"setting a configuration option in ``setup.cfg``:"
+msgstr ""
+
+#: ../../source/testing.rst:233
+msgid "or ``pytest.ini``/``tox.ini`` files:"
+msgstr ""
+
+#: ../../source/testing.rst:240
+msgid ""
+"This would lead to only looking for file changes in the respective "
+"directories, specified relatively to the ini-file’s directory."
+msgstr ""
+
+#: ../../source/testing.rst:243
+msgid ""
+"`pytest-watch <https://github.com/joeyespo/pytest-watch>`__ is an "
+"alternative implementation of this functionality."
+msgstr ""
+
+#: ../../source/testing.rst:247
+msgid "Skip a test module"
+msgstr ""
+
+#: ../../source/testing.rst:249
+msgid ""
+"If you want to run all test modules, except a few you can exclude them by"
+" giving an explicit list of tests to run. For example, to run all except "
+"``test_modeling_*.py`` tests:"
+msgstr ""
+
+#: ../../source/testing.rst:258
+msgid "Clearing state"
+msgstr ""
+
+#: ../../source/testing.rst:260
+msgid ""
+"CI builds and when isolation is important (against speed), cache should "
+"be cleared:"
+msgstr ""
+
+#: ../../source/testing.rst:267
+msgid "Running tests in parallel"
+msgstr ""
+
+#: ../../source/testing.rst:269
+msgid ""
+"As mentioned earlier ``make test`` runs tests in parallel via ``pytest-"
+"xdist`` plugin (``-n X`` argument, e.g. ``-n 2`` to run 2 parallel jobs)."
+msgstr ""
+
+#: ../../source/testing.rst:272
+msgid ""
+"``pytest-xdist``'s ``--dist=`` option allows one to control how the tests"
+" are grouped. ``--dist=loadfile`` puts the tests located in one file onto"
+" the same process."
+msgstr ""
+
+#: ../../source/testing.rst:275
+msgid ""
+"Since the order of executed tests is different and unpredictable, if "
+"running the test suite with ``pytest-xdist`` produces failures (meaning "
+"we have some undetected coupled tests), use `pytest-replay "
+"<https://github.com/ESSS/pytest-replay>`__ to replay the tests in the "
+"same order, which should help with then somehow reducing that failing "
+"sequence to a minimum."
+msgstr ""
+
+#: ../../source/testing.rst:281
+msgid "Test order and repetition"
+msgstr ""
+
+#: ../../source/testing.rst:283
+msgid ""
+"It's good to repeat the tests several times, in sequence, randomly, or in"
+" sets, to detect any potential inter-dependency and state-related bugs "
+"(tear down). And the straightforward multiple repetition is just good to "
+"detect some problems that get uncovered by randomness of DL."
+msgstr ""
+
+#: ../../source/testing.rst:289
+msgid "Repeat tests"
+msgstr ""
+
+#: ../../source/testing.rst:291
+msgid "`pytest-flakefinder <https://github.com/dropbox/pytest-flakefinder>`__:"
+msgstr ""
+
+#: ../../source/testing.rst:297
+msgid "And then run every test multiple times (50 by default):"
+msgstr ""
+
+#: ../../source/testing.rst:304
+msgid "This plugin doesn't work with ``-n`` flag from ``pytest-xdist``."
+msgstr ""
+
+#: ../../source/testing.rst:307
+msgid ""
+"There is another plugin ``pytest-repeat``, but it doesn't work with "
+"``unittest``."
+msgstr ""
+
+#: ../../source/testing.rst:311
+msgid "Run tests in a random order"
+msgstr ""
+
+#: ../../source/testing.rst:317
+msgid ""
+"Important: the presence of ``pytest-random-order`` will automatically "
+"randomize tests, no configuration change or command line options is "
+"required."
+msgstr ""
+
+#: ../../source/testing.rst:320
+msgid ""
+"As explained earlier this allows detection of coupled tests - where one "
+"test's state affects the state of another. When ``pytest-random-order`` "
+"is installed it will print the random seed it used for that session, e.g:"
+msgstr ""
+
+#: ../../source/testing.rst:330
+msgid ""
+"So that if the given particular sequence fails, you can reproduce it by "
+"adding that exact seed, e.g.:"
+msgstr ""
+
+#: ../../source/testing.rst:339
+msgid ""
+"It will only reproduce the exact order if you use the exact same list of "
+"tests (or no list at all). Once you start to manually narrowing down the "
+"list you can no longer rely on the seed, but have to list them manually "
+"in the exact order they failed and tell pytest to not randomize them "
+"instead using ``--random-order-bucket=none``, e.g.:"
+msgstr ""
+
+#: ../../source/testing.rst:347
+msgid "To disable the shuffling for all tests:"
+msgstr ""
+
+#: ../../source/testing.rst:353
+msgid ""
+"By default ``--random-order-bucket=module`` is implied, which will "
+"shuffle the files on the module levels. It can also shuffle on ``class``,"
+" ``package``, ``global`` and ``none`` levels. For the complete details "
+"please see its `documentation <https://github.com/jbasko/pytest-random-"
+"order>`__."
+msgstr ""
+
+#: ../../source/testing.rst:357
+msgid ""
+"Another randomization alternative is: ``pytest-randomly`` "
+"<https://github.com/pytest-dev/pytest-randomly>`__. This module has a "
+"very similar functionality/interface, but it doesn't have the bucket "
+"modes available in ``pytest-random-order``. It has the same problem of "
+"imposing itself once installed."
+msgstr ""
+
+#: ../../source/testing.rst:362
+msgid "Look and feel variations"
+msgstr ""
+
+#: ../../source/testing.rst:365
+msgid "pytest-sugar"
+msgstr ""
+
+#: ../../source/testing.rst:367
+msgid ""
+"`pytest-sugar <https://github.com/Frozenball/pytest-sugar>`__ is a plugin"
+" that improves the look-n-feel, adds a progressbar, and show tests that "
+"fail and the assert instantly. It gets activated automatically upon "
+"installation."
+msgstr ""
+
+#: ../../source/testing.rst:374
+msgid "To run tests without it, run:"
+msgstr ""
+
+#: ../../source/testing.rst:380
+msgid "or uninstall it."
+msgstr ""
+
+#: ../../source/testing.rst:385
+msgid "Report each sub-test name and its progress"
+msgstr ""
+
+#: ../../source/testing.rst:387
+msgid ""
+"For a single or a group of tests via ``pytest`` (after ``pip install "
+"pytest-pspec``):"
+msgstr ""
+
+#: ../../source/testing.rst:396
+msgid "Instantly shows failed tests"
+msgstr ""
+
+#: ../../source/testing.rst:398
+msgid ""
+"`pytest-instafail <https://github.com/pytest-dev/pytest-instafail>`__ "
+"shows failures and errors instantly instead of waiting until the end of "
+"test session."
+msgstr ""
+
+#: ../../source/testing.rst:410
+msgid "To GPU or not to GPU"
+msgstr ""
+
+#: ../../source/testing.rst:412
+msgid ""
+"On a GPU-enabled setup, to test in CPU-only mode add "
+"``CUDA_VISIBLE_DEVICES=\"\"``:"
+msgstr ""
+
+#: ../../source/testing.rst:418
+msgid ""
+"or if you have multiple gpus, you can specify which one is to be used by "
+"``pytest``. For example, to use only the second gpu if you have gpus "
+"``0`` and ``1``, you can run:"
+msgstr ""
+
+#: ../../source/testing.rst:425
+msgid "This is handy when you want to run different tasks on different GPUs."
+msgstr ""
+
+#: ../../source/testing.rst:427
+msgid ""
+"Some tests must be run on CPU-only, others on either CPU or GPU or TPU, "
+"yet others on multiple-GPUs. The following skip decorators are used to "
+"set the requirements of tests CPU/GPU/TPU-wise:"
+msgstr ""
+
+#: ../../source/testing.rst:430
+msgid "``require_torch`` - this test will run only under torch"
+msgstr ""
+
+#: ../../source/testing.rst:431
+msgid "``require_torch_gpu`` - as ``require_torch`` plus requires at least 1 GPU"
+msgstr ""
+
+#: ../../source/testing.rst:432
+msgid ""
+"``require_torch_multi_gpu`` - as ``require_torch`` plus requires at least"
+" 2 GPUs"
+msgstr ""
+
+#: ../../source/testing.rst:433
+msgid ""
+"``require_torch_non_multi_gpu`` - as ``require_torch`` plus requires 0 or"
+" 1 GPUs"
+msgstr ""
+
+#: ../../source/testing.rst:434
+msgid ""
+"``require_torch_up_to_2_gpus`` - as ``require_torch`` plus requires 0 or "
+"1 or 2 GPUs"
+msgstr ""
+
+#: ../../source/testing.rst:435
+msgid "``require_torch_tpu`` - as ``require_torch`` plus requires at least 1 TPU"
+msgstr ""
+
+#: ../../source/testing.rst:437
+msgid "Let's depict the GPU requirements in the following table:"
+msgstr ""
+
+#: ../../source/testing.rst:441
+msgid "n gpus"
+msgstr ""
+
+#: ../../source/testing.rst:441
+msgid "decorator"
+msgstr ""
+
+#: ../../source/testing.rst:443
+msgid "``>= 0``"
+msgstr ""
+
+#: ../../source/testing.rst:443
+msgid "``@require_torch``"
+msgstr ""
+
+#: ../../source/testing.rst:445
+msgid "``>= 1``"
+msgstr ""
+
+#: ../../source/testing.rst:445
+msgid "``@require_torch_gpu``"
+msgstr ""
+
+#: ../../source/testing.rst:447
+msgid "``>= 2``"
+msgstr ""
+
+#: ../../source/testing.rst:447
+msgid "``@require_torch_multi_gpu``"
+msgstr ""
+
+#: ../../source/testing.rst:449
+msgid "``< 2``"
+msgstr ""
+
+#: ../../source/testing.rst:449
+msgid "``@require_torch_non_multi_gpu``"
+msgstr ""
+
+#: ../../source/testing.rst:451
+msgid "``< 3``"
+msgstr ""
+
+#: ../../source/testing.rst:451
+msgid "``@require_torch_up_to_2_gpus``"
+msgstr ""
+
+#: ../../source/testing.rst:455
+msgid ""
+"For example, here is a test that must be run only when there are 2 or "
+"more GPUs available and pytorch is installed:"
+msgstr ""
+
+#: ../../source/testing.rst:462
+msgid ""
+"If a test requires ``tensorflow`` use the ``require_tf`` decorator. For "
+"example:"
+msgstr ""
+
+#: ../../source/testing.rst:469
+msgid ""
+"These decorators can be stacked. For example, if a test is slow and "
+"requires at least one GPU under pytorch, here is how to set it up:"
+msgstr ""
+
+#: ../../source/testing.rst:478
+msgid ""
+"Some decorators like ``@parametrized`` rewrite test names, therefore "
+"``@require_*`` skip decorators have to be listed last for them to work "
+"correctly. Here is an example of the correct usage:"
+msgstr ""
+
+#: ../../source/testing.rst:487
+msgid ""
+"This order problem doesn't exist with ``@pytest.mark.parametrize``, you "
+"can put it first or last and it will still work. But it only works with "
+"non-unittests."
+msgstr ""
+
+#: ../../source/testing.rst:490
+msgid "Inside tests:"
+msgstr ""
+
+#: ../../source/testing.rst:492
+msgid "How many GPUs are available:"
+msgstr ""
+
+#: ../../source/testing.rst:502
+msgid "Distributed training"
+msgstr ""
+
+#: ../../source/testing.rst:504
+msgid ""
+"``pytest`` can't deal with distributed training directly. If this is "
+"attempted - the sub-processes don't do the right thing and end up "
+"thinking they are ``pytest`` and start running the test suite in loops. "
+"It works, however, if one spawns a normal process that then spawns off "
+"multiple workers and manages the IO pipes."
+msgstr ""
+
+#: ../../source/testing.rst:508
+msgid "Here are some tests that use it:"
+msgstr ""
+
+#: ../../source/testing.rst:510
+msgid ""
+":prefix_link:`test_trainer_distributed.py "
+"<tests/test_trainer_distributed.py>`"
+msgstr ""
+
+#: ../../source/testing.rst:511
+msgid ":prefix_link:`test_deepspeed.py <tests/deepspeed/test_deepspeed.py>`"
+msgstr ""
+
+#: ../../source/testing.rst:513
+msgid ""
+"To jump right into the execution point, search for the "
+"``execute_subprocess_async`` call in those tests."
+msgstr ""
+
+#: ../../source/testing.rst:515
+msgid "You will need at least 2 GPUs to see these tests in action:"
+msgstr ""
+
+#: ../../source/testing.rst:523
+msgid "Output capture"
+msgstr ""
+
+#: ../../source/testing.rst:525
+msgid ""
+"During test execution any output sent to ``stdout`` and ``stderr`` is "
+"captured. If a test or a setup method fails, its according captured "
+"output will usually be shown along with the failure traceback."
+msgstr ""
+
+#: ../../source/testing.rst:528
+msgid ""
+"To disable output capturing and to get the ``stdout`` and ``stderr`` "
+"normally, use ``-s`` or ``--capture=no``:"
+msgstr ""
+
+#: ../../source/testing.rst:534
+msgid "To send test results to JUnit format output:"
+msgstr ""
+
+#: ../../source/testing.rst:542
+msgid "Color control"
+msgstr ""
+
+#: ../../source/testing.rst:544
+msgid "To have no color (e.g., yellow on white background is not readable):"
+msgstr ""
+
+#: ../../source/testing.rst:553
+msgid "Sending test report to online pastebin service"
+msgstr ""
+
+#: ../../source/testing.rst:555
+msgid "Creating a URL for each test failure:"
+msgstr ""
+
+#: ../../source/testing.rst:561
+msgid ""
+"This will submit test run information to a remote Paste service and "
+"provide a URL for each failure. You may select tests as usual or add for "
+"example -x if you only want to send one particular failure."
+msgstr ""
+
+#: ../../source/testing.rst:564
+msgid "Creating a URL for a whole test session log:"
+msgstr ""
+
+#: ../../source/testing.rst:573
+msgid "Writing tests"
+msgstr ""
+
+#: ../../source/testing.rst:575
+msgid ""
+"🤗 transformers tests are based on ``unittest``, but run by ``pytest``, so"
+" most of the time features from both systems can be used."
+msgstr ""
+
+#: ../../source/testing.rst:578
+msgid ""
+"You can read `here <https://docs.pytest.org/en/stable/unittest.html>`__ "
+"which features are supported, but the important thing to remember is that"
+" most ``pytest`` fixtures don't work. Neither parametrization, but we use"
+" the module ``parameterized`` that works in a similar way."
+msgstr ""
+
+#: ../../source/testing.rst:584
+msgid "Parametrization"
+msgstr ""
+
+#: ../../source/testing.rst:586
+msgid ""
+"Often, there is a need to run the same test multiple times, but with "
+"different arguments. It could be done from within the test, but then "
+"there is no way of running that test for just one set of arguments."
+msgstr ""
+
+#: ../../source/testing.rst:603
+msgid ""
+"Now, by default this test will be run 3 times, each time with the last 3 "
+"arguments of ``test_floor`` being assigned the corresponding arguments in"
+" the parameter list."
+msgstr ""
+
+#: ../../source/testing.rst:606
+msgid ""
+"and you could run just the ``negative`` and ``integer`` sets of params "
+"with:"
+msgstr ""
+
+#: ../../source/testing.rst:612
+msgid "or all but ``negative`` sub-tests, with:"
+msgstr ""
+
+#: ../../source/testing.rst:618
+msgid ""
+"Besides using the ``-k`` filter that was just mentioned, you can find out"
+" the exact name of each sub-test and run any or all of them using their "
+"exact names."
+msgstr ""
+
+#: ../../source/testing.rst:625 ../../source/testing.rst:670
+msgid "and it will list:"
+msgstr ""
+
+#: ../../source/testing.rst:633
+msgid "So now you can run just 2 specific sub-tests:"
+msgstr ""
+
+#: ../../source/testing.rst:639
+msgid ""
+"The module `parameterized <https://pypi.org/project/parameterized/>`__ "
+"which is already in the developer dependencies of ``transformers`` works "
+"for both: ``unittests`` and ``pytest`` tests."
+msgstr ""
+
+#: ../../source/testing.rst:642
+msgid ""
+"If, however, the test is not a ``unittest``, you may use "
+"``pytest.mark.parametrize`` (or you may see it being used in some "
+"existing tests, mostly under ``examples``)."
+msgstr ""
+
+#: ../../source/testing.rst:645
+msgid ""
+"Here is the same example, this time using ``pytest``'s ``parametrize`` "
+"marker:"
+msgstr ""
+
+#: ../../source/testing.rst:662
+msgid ""
+"Same as with ``parameterized``, with ``pytest.mark.parametrize`` you can "
+"have a fine control over which sub-tests are run, if the ``-k`` filter "
+"doesn't do the job. Except, this parametrization function creates a "
+"slightly different set of names for the sub-tests. Here is what they look"
+" like:"
+msgstr ""
+
+#: ../../source/testing.rst:678
+msgid "So now you can run just the specific test:"
+msgstr ""
+
+#: ../../source/testing.rst:684
+msgid "as in the previous example."
+msgstr ""
+
+#: ../../source/testing.rst:689
+msgid "Files and directories"
+msgstr ""
+
+#: ../../source/testing.rst:691
+msgid ""
+"In tests often we need to know where things are relative to the current "
+"test file, and it's not trivial since the test could be invoked from more"
+" than one directory or could reside in sub-directories with different "
+"depths. A helper class :obj:`transformers.test_utils.TestCasePlus` solves"
+" this problem by sorting out all the basic paths and provides easy "
+"accessors to them:"
+msgstr ""
+
+#: ../../source/testing.rst:696
+msgid "``pathlib`` objects (all fully resolved):"
+msgstr ""
+
+#: ../../source/testing.rst:698
+msgid "``test_file_path`` - the current test file path, i.e. ``__file__``"
+msgstr ""
+
+#: ../../source/testing.rst:699
+msgid "``test_file_dir`` - the directory containing the current test file"
+msgstr ""
+
+#: ../../source/testing.rst:700
+msgid "``tests_dir`` - the directory of the ``tests`` test suite"
+msgstr ""
+
+#: ../../source/testing.rst:701
+msgid "``examples_dir`` - the directory of the ``examples`` test suite"
+msgstr ""
+
+#: ../../source/testing.rst:702
+msgid "``repo_root_dir`` - the directory of the repository"
+msgstr ""
+
+#: ../../source/testing.rst:703
+msgid ""
+"``src_dir`` - the directory of ``src`` (i.e. where the ``transformers`` "
+"sub-dir resides)"
+msgstr ""
+
+#: ../../source/testing.rst:705
+msgid ""
+"stringified paths---same as above but these return paths as strings, "
+"rather than ``pathlib`` objects:"
+msgstr ""
+
+#: ../../source/testing.rst:707
+msgid "``test_file_path_str``"
+msgstr ""
+
+#: ../../source/testing.rst:708
+msgid "``test_file_dir_str``"
+msgstr ""
+
+#: ../../source/testing.rst:709
+msgid "``tests_dir_str``"
+msgstr ""
+
+#: ../../source/testing.rst:710
+msgid "``examples_dir_str``"
+msgstr ""
+
+#: ../../source/testing.rst:711
+msgid "``repo_root_dir_str``"
+msgstr ""
+
+#: ../../source/testing.rst:712
+msgid "``src_dir_str``"
+msgstr ""
+
+#: ../../source/testing.rst:714
+msgid ""
+"To start using those all you need is to make sure that the test resides "
+"in a subclass of :obj:`transformers.test_utils.TestCasePlus`. For "
+"example:"
+msgstr ""
+
+#: ../../source/testing.rst:724
+msgid ""
+"If you don't need to manipulate paths via ``pathlib`` or you just need a "
+"path as a string, you can always invoked ``str()`` on the ``pathlib`` "
+"object or use the accessors ending with ``_str``. For example:"
+msgstr ""
+
+#: ../../source/testing.rst:738
+msgid "Temporary files and directories"
+msgstr ""
+
+#: ../../source/testing.rst:740
+msgid ""
+"Using unique temporary files and directories are essential for parallel "
+"test running, so that the tests won't overwrite each other's data. Also "
+"we want to get the temporary files and directories removed at the end of "
+"each test that created them. Therefore, using packages like ``tempfile``,"
+" which address these needs is essential."
+msgstr ""
+
+#: ../../source/testing.rst:744
+msgid ""
+"However, when debugging tests, you need to be able to see what goes into "
+"the temporary file or directory and you want to know it's exact path and "
+"not having it randomized on every test re-run."
+msgstr ""
+
+#: ../../source/testing.rst:747
+msgid ""
+"A helper class :obj:`transformers.test_utils.TestCasePlus` is best used "
+"for such purposes. It's a sub-class of :obj:`unittest.TestCase`, so we "
+"can easily inherit from it in the test modules."
+msgstr ""
+
+#: ../../source/testing.rst:750
+msgid "Here is an example of its usage:"
+msgstr ""
+
+#: ../../source/testing.rst:759
+msgid ""
+"This code creates a unique temporary directory, and sets :obj:`tmp_dir` "
+"to its location."
+msgstr ""
+
+#: ../../source/testing.rst:761
+msgid "Create a unique temporary dir:"
+msgstr ""
+
+#: ../../source/testing.rst:768
+msgid ""
+"``tmp_dir`` will contain the path to the created temporary dir. It will "
+"be automatically removed at the end of the test."
+msgstr ""
+
+#: ../../source/testing.rst:771
+msgid ""
+"Create a temporary dir of my choice, ensure it's empty before the test "
+"starts and don't empty it after the test."
+msgstr ""
+
+#: ../../source/testing.rst:778
+msgid ""
+"This is useful for debug when you want to monitor a specific directory "
+"and want to make sure the previous tests didn't leave any data in there."
+msgstr ""
+
+#: ../../source/testing.rst:781
+msgid ""
+"You can override the default behavior by directly overriding the "
+"``before`` and ``after`` args, leading to one of the following behaviors:"
+msgstr ""
+
+#: ../../source/testing.rst:784
+msgid ""
+"``before=True``: the temporary dir will always be cleared at the "
+"beginning of the test."
+msgstr ""
+
+#: ../../source/testing.rst:785
+msgid ""
+"``before=False``: if the temporary dir already existed, any existing "
+"files will remain there."
+msgstr ""
+
+#: ../../source/testing.rst:786
+msgid ""
+"``after=True``: the temporary dir will always be deleted at the end of "
+"the test."
+msgstr ""
+
+#: ../../source/testing.rst:787
+msgid ""
+"``after=False``: the temporary dir will always be left intact at the end "
+"of the test."
+msgstr ""
+
+#: ../../source/testing.rst:790
+msgid ""
+"In order to run the equivalent of ``rm -r`` safely, only subdirs of the "
+"project repository checkout are allowed if an explicit obj:`tmp_dir` is "
+"used, so that by mistake no ``/tmp`` or similar important part of the "
+"filesystem will get nuked. i.e. please always pass paths that start with "
+"``./``."
+msgstr ""
+
+#: ../../source/testing.rst:795
+msgid ""
+"Each test can register multiple temporary directories and they all will "
+"get auto-removed, unless requested otherwise."
+msgstr ""
+
+#: ../../source/testing.rst:800
+msgid "Temporary sys.path override"
+msgstr ""
+
+#: ../../source/testing.rst:802
+msgid ""
+"If you need to temporary override ``sys.path`` to import from another "
+"test for example, you can use the ``ExtendSysPath`` context manager. "
+"Example:"
+msgstr ""
+
+#: ../../source/testing.rst:817
+msgid "Skipping tests"
+msgstr ""
+
+#: ../../source/testing.rst:819
+msgid ""
+"This is useful when a bug is found and a new test is written, yet the bug"
+" is not fixed yet. In order to be able to commit it to the main "
+"repository we need make sure it's skipped during ``make test``."
+msgstr ""
+
+#: ../../source/testing.rst:822
+msgid "Methods:"
+msgstr ""
+
+#: ../../source/testing.rst:824
+msgid ""
+"A **skip** means that you expect your test to pass only if some "
+"conditions are met, otherwise pytest should skip running the test "
+"altogether. Common examples are skipping windows-only tests on non-"
+"windows platforms, or skipping tests that depend on an external resource "
+"which is not available at the moment (for example a database)."
+msgstr ""
+
+#: ../../source/testing.rst:828
+msgid ""
+"A **xfail** means that you expect a test to fail for some reason. A "
+"common example is a test for a feature not yet implemented, or a bug not "
+"yet fixed. When a test passes despite being expected to fail (marked with"
+" pytest.mark.xfail), it’s an xpass and will be reported in the test "
+"summary."
+msgstr ""
+
+#: ../../source/testing.rst:832
+msgid ""
+"One of the important differences between the two is that ``skip`` doesn't"
+" run the test, and ``xfail`` does. So if the code that's buggy causes "
+"some bad state that will affect other tests, do not use ``xfail``."
+msgstr ""
+
+#: ../../source/testing.rst:836
+msgid "Implementation"
+msgstr ""
+
+#: ../../source/testing.rst:838
+msgid "Here is how to skip whole test unconditionally:"
+msgstr ""
+
+#: ../../source/testing.rst:845
+msgid "or via pytest:"
+msgstr ""
+
+#: ../../source/testing.rst:851 ../../source/testing.rst:874
+msgid "or the ``xfail`` way:"
+msgstr ""
+
+#: ../../source/testing.rst:858
+msgid "Here is how to skip a test based on some internal check inside the test:"
+msgstr ""
+
+#: ../../source/testing.rst:866
+msgid "or the whole module:"
+msgstr ""
+
+#: ../../source/testing.rst:881
+msgid "Here is how to skip all tests in a module if some import is missing:"
+msgstr ""
+
+#: ../../source/testing.rst:887
+msgid "Skip a test based on a condition:"
+msgstr ""
+
+#: ../../source/testing.rst:901
+msgid "or skip the whole module:"
+msgstr ""
+
+#: ../../source/testing.rst:909
+msgid ""
+"More details, example and ways are `here "
+"<https://docs.pytest.org/en/latest/skipping.html>`__."
+msgstr ""
+
+#: ../../source/testing.rst:912
+msgid "Slow tests"
+msgstr ""
+
+#: ../../source/testing.rst:914
+msgid ""
+"The library of tests is ever-growing, and some of the tests take minutes "
+"to run, therefore we can't afford waiting for an hour for the test suite "
+"to complete on CI. Therefore, with some exceptions for essential tests, "
+"slow tests should be marked as in the example below:"
+msgstr ""
+
+#: ../../source/testing.rst:924
+msgid ""
+"Once a test is marked as ``@slow``, to run such tests set ``RUN_SLOW=1`` "
+"env var, e.g.:"
+msgstr ""
+
+#: ../../source/testing.rst:930
+msgid ""
+"Some decorators like ``@parameterized`` rewrite test names, therefore "
+"``@slow`` and the rest of the skip decorators ``@require_*`` have to be "
+"listed last for them to work correctly. Here is an example of the correct"
+" usage:"
+msgstr ""
+
+#: ../../source/testing.rst:939
+msgid ""
+"As explained at the beginning of this document, slow tests get to run on "
+"a scheduled basis, rather than in PRs CI checks. So it's possible that "
+"some problems will be missed during a PR submission and get merged. Such "
+"problems will get caught during the next scheduled CI job. But it also "
+"means that it's important to run the slow tests on your machine before "
+"submitting the PR."
+msgstr ""
+
+#: ../../source/testing.rst:944
+msgid ""
+"Here is a rough decision making mechanism for choosing which tests should"
+" be marked as slow:"
+msgstr ""
+
+#: ../../source/testing.rst:946
+msgid ""
+"If the test is focused on one of the library's internal components (e.g.,"
+" modeling files, tokenization files, pipelines), then we should run that "
+"test in the non-slow test suite. If it's focused on an other aspect of "
+"the library, such as the documentation or the examples, then we should "
+"run these tests in the slow test suite. And then, to refine this approach"
+" we should have exceptions:"
+msgstr ""
+
+#: ../../source/testing.rst:951
+msgid ""
+"All tests that need to download a heavy set of weights or a dataset that "
+"is larger than ~50MB (e.g., model or tokenizer integration tests, "
+"pipeline integration tests) should be set to slow. If you're adding a new"
+" model, you should create and upload to the hub a tiny version of it "
+"(with random weights) for integration tests. This is discussed in the "
+"following paragraphs."
+msgstr ""
+
+#: ../../source/testing.rst:955
+msgid ""
+"All tests that need to do a training not specifically optimized to be "
+"fast should be set to slow."
+msgstr ""
+
+#: ../../source/testing.rst:956
+msgid ""
+"We can introduce exceptions if some of these should-be-non-slow tests are"
+" excruciatingly slow, and set them to ``@slow``. Auto-modeling tests, "
+"which save and load large files to disk, are a good example of tests that"
+" are marked as ``@slow``."
+msgstr ""
+
+#: ../../source/testing.rst:959
+msgid ""
+"If a test completes under 1 second on CI (including downloads if any) "
+"then it should be a normal test regardless."
+msgstr ""
+
+#: ../../source/testing.rst:961
+msgid ""
+"Collectively, all the non-slow tests need to cover entirely the different"
+" internals, while remaining fast. For example, a significant coverage can"
+" be achieved by testing with specially created tiny models with random "
+"weights. Such models have the very minimal number of layers (e.g., 2), "
+"vocab size (e.g., 1000), etc. Then the ``@slow`` tests can use large slow"
+" models to do qualitative testing. To see the use of these simply look "
+"for *tiny* models with:"
+msgstr ""
+
+#: ../../source/testing.rst:970
+msgid ""
+"Here is a an example of a :prefix_link:`script <scripts/fsmt/fsmt-make-"
+"tiny-model.py>` that created the tiny model `stas/tiny-wmt19-en-de "
+"<https://huggingface.co/stas/tiny-wmt19-en-de>`__. You can easily adjust "
+"it to your specific model's architecture."
+msgstr ""
+
+#: ../../source/testing.rst:974
+msgid ""
+"It's easy to measure the run-time incorrectly if for example there is an "
+"overheard of downloading a huge model, but if you test it locally the "
+"downloaded files would be cached and thus the download time not measured."
+" Hence check the execution speed report in CI logs instead (the output of"
+" ``pytest --durations=0 tests``)."
+msgstr ""
+
+#: ../../source/testing.rst:978
+msgid ""
+"That report is also useful to find slow outliers that aren't marked as "
+"such, or which need to be re-written to be fast. If you notice that the "
+"test suite starts getting slow on CI, the top listing of this report will"
+" show the slowest tests."
+msgstr ""
+
+#: ../../source/testing.rst:984
+msgid "Testing the stdout/stderr output"
+msgstr ""
+
+#: ../../source/testing.rst:986
+msgid ""
+"In order to test functions that write to ``stdout`` and/or ``stderr``, "
+"the test can access those streams using the ``pytest``'s `capsys system "
+"<https://docs.pytest.org/en/latest/capture.html>`__. Here is how this is "
+"accomplished:"
+msgstr ""
+
+#: ../../source/testing.rst:1006
+msgid ""
+"And, of course, most of the time, ``stderr`` will come as a part of an "
+"exception, so try/except has to be used in such a case:"
+msgstr ""
+
+#: ../../source/testing.rst:1021
+msgid ""
+"Another approach to capturing stdout is via "
+"``contextlib.redirect_stdout``:"
+msgstr ""
+
+#: ../../source/testing.rst:1039
+msgid ""
+"An important potential issue with capturing stdout is that it may contain"
+" ``\\r`` characters that in normal ``print`` reset everything that has "
+"been printed so far. There is no problem with ``pytest``, but with "
+"``pytest -s`` these characters get included in the buffer, so to be able "
+"to have the test run with and without ``-s``, you have to make an extra "
+"cleanup to the captured output, using ``re.sub(r'~.*\\r', '', buf, 0, "
+"re.M)``."
+msgstr ""
+
+#: ../../source/testing.rst:1044
+msgid ""
+"But, then we have a helper context manager wrapper to automatically take "
+"care of it all, regardless of whether it has some ``\\r``'s in it or not,"
+" so it's a simple:"
+msgstr ""
+
+#: ../../source/testing.rst:1054
+msgid "Here is a full test example:"
+msgstr ""
+
+#: ../../source/testing.rst:1065
+msgid ""
+"If you'd like to capture ``stderr`` use the :obj:`CaptureStderr` class "
+"instead:"
+msgstr ""
+
+#: ../../source/testing.rst:1074
+msgid ""
+"If you need to capture both streams at once, use the parent "
+":obj:`CaptureStd` class:"
+msgstr ""
+
+#: ../../source/testing.rst:1086
+msgid "Capturing logger stream"
+msgstr ""
+
+#: ../../source/testing.rst:1088
+msgid ""
+"If you need to validate the output of a logger, you can use "
+":obj:`CaptureLogger`:"
+msgstr ""
+
+#: ../../source/testing.rst:1104
+msgid "Testing with environment variables"
+msgstr ""
+
+#: ../../source/testing.rst:1106
+msgid ""
+"If you want to test the impact of environment variables for a specific "
+"test you can use a helper decorator "
+"``transformers.testing_utils.mockenv``"
+msgstr ""
+
+#: ../../source/testing.rst:1117
+msgid ""
+"At times an external program needs to be called, which requires setting "
+"``PYTHONPATH`` in ``os.environ`` to include multiple local paths. A "
+"helper class :obj:`transformers.test_utils.TestCasePlus` comes to help:"
+msgstr ""
+
+#: ../../source/testing.rst:1128
+msgid ""
+"Depending on whether the test file was under the ``tests`` test suite or "
+"``examples`` it'll correctly set up ``env[PYTHONPATH]`` to include one of"
+" these two directories, and also the ``src`` directory to ensure the "
+"testing is done against the current repo, and finally with whatever "
+"``env[PYTHONPATH]`` was already set to before the test was called if "
+"anything."
+msgstr ""
+
+#: ../../source/testing.rst:1133
+msgid ""
+"This helper method creates a copy of the ``os.environ`` object, so the "
+"original remains intact."
+msgstr ""
+
+#: ../../source/testing.rst:1137
+msgid "Getting reproducible results"
+msgstr ""
+
+#: ../../source/testing.rst:1139
+msgid ""
+"In some situations you may want to remove randomness for your tests. To "
+"get identical reproducable results set, you will need to fix the seed:"
+msgstr ""
+
+#: ../../source/testing.rst:1164
+msgid "Debugging tests"
+msgstr ""
+
+#: ../../source/testing.rst:1166
+msgid "To start a debugger at the point of the warning, do this:"
+msgstr ""
+
+#: ../../source/testing.rst:1174
+msgid "Working with github actions workflows"
+msgstr ""
+
+#: ../../source/testing.rst:1176
+msgid "To trigger a self-push workflow CI job, you must:"
+msgstr ""
+
+#: ../../source/testing.rst:1178
+msgid "Create a new branch on ``transformers`` origin (not a fork!)."
+msgstr ""
+
+#: ../../source/testing.rst:1179
+msgid ""
+"The branch name has to start with either ``ci_`` or ``ci-`` (``master`` "
+"triggers it too, but we can't do PRs on ``master``). It also gets "
+"triggered only for specific paths - you can find the up-to-date "
+"definition in case it changed since this document has been written `here "
+"<https://github.com/huggingface/transformers/blob/master/.github/workflows"
+"/self-push.yml>`__ under `push:`"
+msgstr ""
+
+#: ../../source/testing.rst:1183
+msgid "Create a PR from this branch."
+msgstr ""
+
+#: ../../source/testing.rst:1184
+msgid ""
+"Then you can see the job appear `here "
+"<https://github.com/huggingface/transformers/actions/workflows/self-"
+"push.yml>`__. It may not run right away if there is a backlog."
+msgstr ""
+
+#: ../../source/testing.rst:1192
+msgid "Testing Experimental CI Features"
+msgstr ""
+
+#: ../../source/testing.rst:1194
+msgid ""
+"Testing CI features can be potentially problematic as it can interfere "
+"with the normal CI functioning. Therefore if a new CI feature is to be "
+"added, it should be done as following."
+msgstr ""
+
+#: ../../source/testing.rst:1197
+msgid "Create a new dedicated job that tests what needs to be tested"
+msgstr ""
+
+#: ../../source/testing.rst:1198
+msgid ""
+"The new job must always succeed so that it gives us a green ✓ (details "
+"below)."
+msgstr ""
+
+#: ../../source/testing.rst:1199
+msgid ""
+"Let it run for some days to see that a variety of different PR types get "
+"to run on it (user fork branches, non-forked branches, branches "
+"originating from github.com UI direct file edit, various forced pushes, "
+"etc. - there are so many) while monitoring the experimental job's logs "
+"(not the overall job green as it's purposefully always green)"
+msgstr ""
+
+#: ../../source/testing.rst:1203
+msgid ""
+"When it's clear that everything is solid, then merge the new changes into"
+" existing jobs."
+msgstr ""
+
+#: ../../source/testing.rst:1205
+msgid ""
+"That way experiments on CI functionality itself won't interfere with the "
+"normal workflow."
+msgstr ""
+
+#: ../../source/testing.rst:1207
+msgid ""
+"Now how can we make the job always succeed while the new CI feature is "
+"being developed?"
+msgstr ""
+
+#: ../../source/testing.rst:1209
+msgid ""
+"Some CIs, like TravisCI support ignore-step-failure and will report the "
+"overall job as successful, but CircleCI and Github Actions as of this "
+"writing don't support that."
+msgstr ""
+
+#: ../../source/testing.rst:1212
+msgid "So the following workaround can be used:"
+msgstr ""
+
+#: ../../source/testing.rst:1214
+msgid ""
+"``set +euo pipefail`` at the beginning of the run command to suppress "
+"most potential failures in the bash script."
+msgstr ""
+
+#: ../../source/testing.rst:1215
+msgid ""
+"the last command must be a success: ``echo \"done\"`` or just ``true`` "
+"will do"
+msgstr ""
+
+#: ../../source/testing.rst:1217
+msgid "Here is an example:"
+msgstr ""
+
+#: ../../source/testing.rst:1233
+msgid "For simple commands you could also do:"
+msgstr ""
+
+#: ../../source/testing.rst:1239
+msgid ""
+"Of course, once satisfied with the results, integrate the experimental "
+"step or job with the rest of the normal jobs, while removing ``set +euo "
+"pipefail`` or any other things you may have added to ensure that the "
+"experimental job doesn't interfere with the normal CI functioning."
+msgstr ""
+
+#: ../../source/testing.rst:1243
+msgid ""
+"This whole process would have been much easier if we only could set "
+"something like ``allow-failure`` for the experimental step, and let it "
+"fail without impacting the overall status of PRs. But as mentioned "
+"earlier CircleCI and Github Actions don't support it at the moment."
+msgstr ""
+
+#: ../../source/testing.rst:1247
+msgid ""
+"You can vote for this feature and see where it is at at these CI-specific"
+" threads:"
+msgstr ""
+
+#: ../../source/testing.rst:1249
+msgid "`Github Actions: <https://github.com/actions/toolkit/issues/399>`__"
+msgstr ""
+
+#: ../../source/testing.rst:1250
+msgid "`CircleCI: <https://ideas.circleci.com/ideas/CCI-I-344>`__"
+msgstr ""
+

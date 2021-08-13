@@ -1,0 +1,331 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/installation.md:17
+msgid "Installation"
+msgstr ""
+
+#: ../../source/installation.md:19
+msgid ""
+"🤗 Transformers is tested on Python 3.6+, and PyTorch 1.1.0+ or TensorFlow"
+" 2.0+."
+msgstr ""
+
+#: ../../source/installation.md:21
+msgid ""
+"You should install 🤗 Transformers in a virtual environment. If you're "
+"unfamiliar with Python virtual environments, check out the user guide. "
+"Create a virtual environment with the version of Python you're going to "
+"use and activate it."
+msgstr ""
+
+#: ../../source/installation.md:25
+msgid ""
+"Now, if you want to use 🤗 Transformers, you can install it with pip. If "
+"you'd like to play with the examples, you must install it from source."
+msgstr ""
+
+#: ../../source/installation.md:28
+msgid "Installation with pip"
+msgstr ""
+
+#: ../../source/installation.md:30
+msgid ""
+"First you need to install one of, or both, TensorFlow 2.0 and PyTorch. "
+"Please refer to TensorFlow installation page, PyTorch installation page "
+"and/or Flax installation page regarding the specific install command for "
+"your platform."
+msgstr ""
+
+#: ../../source/installation.md:36
+msgid ""
+"When TensorFlow 2.0 and/or PyTorch has been installed, 🤗 Transformers can"
+" be installed using pip as follows:"
+msgstr ""
+
+#: ../../source/installation.md:42
+msgid ""
+"Alternatively, for CPU-support only, you can install 🤗 Transformers and "
+"PyTorch in one line with:"
+msgstr ""
+
+#: ../../source/installation.md:48
+msgid "or 🤗 Transformers and TensorFlow 2.0 in one line with:"
+msgstr ""
+
+#: ../../source/installation.md:54
+msgid "or 🤗 Transformers and Flax in one line with:"
+msgstr ""
+
+#: ../../source/installation.md:60
+msgid "To check 🤗 Transformers is properly installed, run the following command:"
+msgstr ""
+
+#: ../../source/installation.md:66
+msgid "It should download a pretrained model then print something like"
+msgstr ""
+
+#: ../../source/installation.md:72
+msgid ""
+"(Note that TensorFlow will print additional stuff before that last "
+"statement.)"
+msgstr ""
+
+#: ../../source/installation.md:74
+msgid "Installing from source"
+msgstr ""
+
+#: ../../source/installation.md:76
+msgid "Here is how to quickly install transformers from source:"
+msgstr ""
+
+#: ../../source/installation.md:82
+msgid ""
+"Note that this will install not the latest released version, but the "
+"bleeding edge master version, which you may want to use in case a bug has"
+" been fixed since the last official release and a new release hasn't  "
+"been yet rolled out."
+msgstr ""
+
+#: ../../source/installation.md:84
+msgid ""
+"While we strive to keep master operational at all times, if you notice "
+"some issues, they usually get fixed within a few hours or a day and and "
+"you're more than welcome to help us detect any problems by opening an "
+"Issue and this way, things will get fixed even sooner."
+msgstr ""
+
+#: ../../source/installation.md:86
+msgid "Again, you can run:"
+msgstr ""
+
+#: ../../source/installation.md:92
+msgid "to check 🤗 Transformers is properly installed."
+msgstr ""
+
+#: ../../source/installation.md:94
+msgid "Editable install"
+msgstr ""
+
+#: ../../source/installation.md:96
+msgid ""
+"If you want to constantly use the bleeding edge master version of the "
+"source code, or if you want to contribute to the library and need to test"
+" the changes in the code you're making, you will need an editable "
+"install. This is done by cloning the repository and installing with the "
+"following commands:"
+msgstr ""
+
+#: ../../source/installation.md:104
+msgid ""
+"This command performs a magical link between the folder you cloned the "
+"repository to and your python library paths, and it'll look inside this "
+"folder in addition to the normal library-wide paths. So if normally your "
+"python packages get installed into:"
+msgstr ""
+
+#: ../../source/installation.md:108
+msgid ""
+"now this editable install will reside where you clone the folder to, e.g."
+" ~/transformers/ and python will search it too."
+msgstr ""
+
+#: ../../source/installation.md:110
+msgid ""
+"Do note that you have to keep that transformers folder around and not "
+"delete it to continue using the  transformers library."
+msgstr ""
+
+#: ../../source/installation.md:112
+msgid ""
+"Now, let's get to the real benefit of this installation approach. Say, "
+"you saw some new feature has been just committed into master. If you have"
+" already performed all the steps above, to update your transformers to "
+"include all the latest commits, all you need to do is to cd into that "
+"cloned repository folder and update the clone to the latest version:"
+msgstr ""
+
+#: ../../source/installation.md:119
+msgid ""
+"There is nothing else to do. Your python environment will find the "
+"bleeding edge version of transformers on the next run."
+msgstr ""
+
+#: ../../source/installation.md:122
+msgid "With conda"
+msgstr ""
+
+#: ../../source/installation.md:124
+msgid ""
+"Since Transformers version v4.0.0, we now have a conda channel: "
+"huggingface."
+msgstr ""
+
+#: ../../source/installation.md:126
+msgid "🤗 Transformers can be installed using conda as follows:"
+msgstr ""
+
+#: ../../source/installation.md:132
+msgid ""
+"Follow the installation pages of TensorFlow, PyTorch or Flax to see how "
+"to install them with conda."
+msgstr ""
+
+#: ../../source/installation.md:134
+msgid "Caching models"
+msgstr ""
+
+#: ../../source/installation.md:136
+msgid ""
+"This library provides pretrained models that will be downloaded and "
+"cached locally. Unless you specify a location with cache_dir=... when you"
+" use methods like from_pretrained, these models will automatically be "
+"downloaded in the folder given by the shell environment variable "
+"TRANSFORMERS_CACHE. The default value for it will be the Hugging Face "
+"cache home followed by /transformers/. This is (by order of priority):"
+msgstr ""
+
+#: ../../source/installation.md:141
+msgid "shell environment variable HF_HOME"
+msgstr ""
+
+#: ../../source/installation.md:142
+msgid "shell environment variable XDG_CACHE_HOME + /huggingface/"
+msgstr ""
+
+#: ../../source/installation.md:143
+msgid "default: ~/.cache/huggingface/"
+msgstr ""
+
+#: ../../source/installation.md:145
+msgid ""
+"So if you don't have any specific environment variable set, the cache "
+"directory will be at ~/.cache/huggingface/transformers/."
+msgstr ""
+
+#: ../../source/installation.md:148
+msgid ""
+"Note: If you have set a shell environment variable for one of the "
+"predecessors of this library (PYTORCH_TRANSFORMERS_CACHE or "
+"PYTORCH_PRETRAINED_BERT_CACHE), those will be used if there is no shell "
+"environment variable for TRANSFORMERS_CACHE."
+msgstr ""
+
+#: ../../source/installation.md:152
+msgid "Offline mode"
+msgstr ""
+
+#: ../../source/installation.md:154
+msgid ""
+"It's possible to run 🤗 Transformers in a firewalled or a no-network "
+"environment."
+msgstr ""
+
+#: ../../source/installation.md:156
+msgid ""
+"Setting environment variable TRANSFORMERS_OFFLINE=1 will tell 🤗 "
+"Transformers to use local files only and will not try to look things up."
+msgstr ""
+
+#: ../../source/installation.md:158
+msgid ""
+"Most likely you may want to couple this with HF_DATASETS_OFFLINE=1 that "
+"performs the same for 🤗 Datasets if you're using the latter."
+msgstr ""
+
+#: ../../source/installation.md:160
+msgid ""
+"Here is an example of how this can be used on a filesystem that is shared"
+" between a normally networked and a firewalled to the external world "
+"instances."
+msgstr ""
+
+#: ../../source/installation.md:162
+msgid ""
+"On the instance with the normal network run your program which will "
+"download and cache models (and optionally datasets if you use 🤗 "
+"Datasets). For example:"
+msgstr ""
+
+#: ../../source/installation.md:168
+msgid ""
+"and then with the same filesystem you can now run the same program on a "
+"firewalled instance:"
+msgstr ""
+
+#: ../../source/installation.md:173
+msgid "and it should succeed without any hanging waiting to timeout."
+msgstr ""
+
+#: ../../source/installation.md:175
+msgid "Fetching models and tokenizers to use offline"
+msgstr ""
+
+#: ../../source/installation.md:177
+msgid ""
+"When running a script the first time like mentioned above, the downloaded"
+" files will be cached for future reuse. However, it is also possible to "
+"download files and point to their local path instead."
+msgstr ""
+
+#: ../../source/installation.md:180
+msgid ""
+"Downloading files can be done through the Web Interface by clicking on "
+"the \"Download\" button, but it can also be handled programmatically "
+"using the huggingface_hub library that is a dependency to transformers:"
+msgstr ""
+
+#: ../../source/installation.md:183
+msgid "Using snapshot_download to download an entire repository"
+msgstr ""
+
+#: ../../source/installation.md:184
+msgid "Using hf_hub_download to download a specific file"
+msgstr ""
+
+#: ../../source/installation.md:186
+msgid "See the reference for these methods in the huggingface_hub documentation."
+msgstr ""
+
+#: ../../source/installation.md:189
+msgid "Do you want to run a Transformer model on a mobile device?"
+msgstr ""
+
+#: ../../source/installation.md:191
+msgid "You should check out our swift-coreml-transformers repo."
+msgstr ""
+
+#: ../../source/installation.md:193
+msgid ""
+"It contains a set of tools to convert PyTorch or TensorFlow 2.0 trained "
+"Transformer models (currently contains GPT-2, DistilGPT-2, BERT, and "
+"DistilBERT) to CoreML models that run on iOS devices."
+msgstr ""
+
+#: ../../source/installation.md:196
+msgid ""
+"At some point in the future, you'll be able to seamlessly move from "
+"pretraining or fine-tuning models in PyTorch or TensorFlow 2.0 to "
+"productizing them in CoreML, or prototype a model or an app in CoreML "
+"then research its hyperparameters or architecture from PyTorch or "
+"TensorFlow 2.0. Super exciting!"
+msgstr ""
+

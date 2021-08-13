@@ -1,0 +1,1792 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/blenderbot.rst:14
+msgid "Blenderbot"
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:16
+msgid ""
+"**DISCLAIMER:** If you see something strange, file a `Github Issue "
+"<https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template"
+"=bug-report.md&title>`__ ."
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:20
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:22
+msgid ""
+"The Blender chatbot model was proposed in `Recipes for building an open-"
+"domain chatbot <https://arxiv.org/pdf/2004.13637.pdf>`__ Stephen Roller, "
+"Emily Dinan, Naman Goyal, Da Ju, Mary Williamson, Yinhan Liu, Jing Xu, "
+"Myle Ott, Kurt Shuster, Eric M. Smith, Y-Lan Boureau, Jason Weston on 30 "
+"Apr 2020."
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:26
+msgid "The abstract of the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:28
+msgid ""
+"*Building open-domain chatbots is a challenging area for machine learning"
+" research. While prior work has shown that scaling neural models in the "
+"number of parameters and the size of the data they are trained on gives "
+"improved results, we show that other ingredients are important for a "
+"high-performing chatbot. Good conversation requires a number of skills "
+"that an expert conversationalist blends in a seamless way: providing "
+"engaging talking points and listening to their partners, and displaying "
+"knowledge, empathy and personality appropriately, while maintaining a "
+"consistent persona. We show that large scale models can learn these "
+"skills when given appropriate training data and choice of generation "
+"strategy. We build variants of these recipes with 90M, 2.7B and 9.4B "
+"parameter models, and make our models and code publicly available. Human "
+"evaluations show our best models are superior to existing approaches in "
+"multi-turn dialogue in terms of engagingness and humanness measurements. "
+"We then discuss the limitations of this work by analyzing failure cases "
+"of our models.*"
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:39
+msgid ""
+"This model was contributed by `sshleifer "
+"<https://huggingface.co/sshleifer>`__. The authors' code can be found "
+"`here <https://github.com/facebookresearch/ParlAI>`__ ."
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:44
+msgid "Implementation Notes"
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:46
+msgid ""
+"Blenderbot uses a standard `seq2seq model transformer "
+"<https://arxiv.org/pdf/1706.03762.pdf>`__ based architecture."
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:47
+msgid ""
+"Available checkpoints can be found in the `model hub "
+"<https://huggingface.co/models?search=blenderbot>`__."
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:48
+msgid ""
+"This is the `default` Blenderbot model class. However, some smaller "
+"checkpoints, such as ``facebook/blenderbot_small_90M``, have a different "
+"architecture and consequently should be used with `BlenderbotSmall "
+"<https://huggingface.co/transformers/master/model_doc/blenderbot_small.html>`__."
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:54
+msgid "Usage"
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:56
+msgid "Here is an example of model usage:"
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:72
+msgid "BlenderbotConfig"
+msgstr ""
+
+#: of transformers.BlenderbotConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.BlenderbotModel`. It is used to instantiate an "
+"Blenderbot model according to the specified arguments, defining the model"
+" architecture. Instantiating a configuration with the defaults will yield"
+" a similar configuration to that of the Blenderbot `facebook/blenderbot-"
+"3B <https://huggingface.co/facebook/blenderbot-3B>`__ architecture."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.BlenderbotConfig
+#: transformers.BlenderbotForConditionalGeneration
+#: transformers.BlenderbotForConditionalGeneration.forward
+#: transformers.BlenderbotModel transformers.BlenderbotModel.forward
+#: transformers.BlenderbotTokenizer.build_inputs_with_special_tokens
+#: transformers.TFBlenderbotForConditionalGeneration
+#: transformers.TFBlenderbotForConditionalGeneration.call
+#: transformers.TFBlenderbotModel transformers.TFBlenderbotModel.call
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.BlenderbotConfig:10
+msgid ""
+"Vocabulary size of the Blenderbot model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.BlenderbotModel` or "
+":class:`~transformers.TFBlenderbotModel`."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:14
+msgid "Dimensionality of the layers and the pooler layer."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:16
+msgid "Number of encoder layers."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:18
+msgid "Number of decoder layers."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:20
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:22
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"decoder."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:24 transformers.BlenderbotConfig:26
+msgid ""
+"Dimensionality of the \"intermediate\" (often named feed-forward) layer "
+"in decoder."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:28
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:31
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:33
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:35
+msgid "The dropout ratio for activations inside the fully connected layer."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:37
+msgid "The dropout ratio for classifier."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:39
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:42
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:44
+msgid ""
+"(:obj:`float`, `optional`, defaults to 0.0): The LayerDrop probability "
+"for the encoder. See the `LayerDrop paper <see "
+"https://arxiv.org/abs/1909.11556>`__ for more details."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:47
+msgid ""
+"(:obj:`float`, `optional`, defaults to 0.0): The LayerDrop probability "
+"for the decoder. See the `LayerDrop paper <see "
+"https://arxiv.org/abs/1909.11556>`__ for more details."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:50
+msgid ""
+"If True, use gradient checkpointing to save memory at the expense of "
+"slower backward pass."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:52
+msgid "Scale embeddings by diving by sqrt(d_model)."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:54
+msgid ""
+"Whether or not the model should return the last key/values attentions "
+"(not used by all models)"
+msgstr ""
+
+#: of transformers.BlenderbotConfig:56
+msgid ""
+"The id of the token to force as the last generated token when "
+":obj:`max_length` is reached. Usually set to :obj:`eos_token_id`."
+msgstr ""
+
+#: of transformers.BlenderbotConfig:60
+#: transformers.BlenderbotForCausalLM.forward:99
+#: transformers.BlenderbotModel.forward:135
+#: transformers.TFBlenderbotModel.call:117
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:78
+msgid "BlenderbotTokenizer"
+msgstr ""
+
+#: of transformers.BlenderbotTokenizer:1
+msgid "Construct a Blenderbot tokenizer."
+msgstr ""
+
+#: of transformers.BlenderbotTokenizer:3
+msgid ""
+":class:`~transformers.Blenderbot` is nearly identical to "
+":class:`~transformers.RobertaTokenizer` and runs end-to-end tokenization:"
+" punctuation splitting and wordpiece. The only difference is that it "
+"doesn't add BOS token to the beginning of sequences."
+msgstr ""
+
+#: of transformers.BlenderbotTokenizer:7
+msgid ""
+"Refer to superclass :class:`~transformers.RobertaTokenizer` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: of transformers.BlenderbotTokenizer.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. A "
+"Blenderbot sequence has the following format:"
+msgstr ""
+
+#: of transformers.BlenderbotTokenizer.build_inputs_with_special_tokens:4
+msgid "single sequence: `` X </s>``"
+msgstr ""
+
+#: of transformers.BlenderbotTokenizer.build_inputs_with_special_tokens:6
+msgid "List of IDs to which the special tokens will be added"
+msgstr ""
+
+#: of transformers.BlenderbotTokenizer.build_inputs_with_special_tokens:8
+msgid "Will be ignored"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward
+#: transformers.BlenderbotForConditionalGeneration.forward
+#: transformers.BlenderbotModel.forward
+#: transformers.BlenderbotTokenizer.build_inputs_with_special_tokens
+#: transformers.TFBlenderbotForConditionalGeneration.call
+#: transformers.TFBlenderbotModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.BlenderbotTokenizer.build_inputs_with_special_tokens:11
+msgid ""
+"list of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward
+#: transformers.BlenderbotForConditionalGeneration.forward
+#: transformers.BlenderbotModel.forward
+#: transformers.BlenderbotTokenizer.build_inputs_with_special_tokens
+#: transformers.TFBlenderbotForConditionalGeneration.call
+#: transformers.TFBlenderbotModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.BlenderbotTokenizer.build_inputs_with_special_tokens:12
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:85
+msgid "BlenderbotModel"
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:87
+msgid ""
+"See :obj:`transformers.BartModel` for arguments to `forward` and "
+"`generate`"
+msgstr ""
+
+#: of transformers.BlenderbotModel:1
+msgid ""
+"The bare Blenderbot Model outputting raw hidden-states without any "
+"specific head on top. This model inherits from "
+":class:`~transformers.PreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings, "
+"pruning heads etc.)"
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration:6
+#: transformers.BlenderbotModel:6
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration:10
+#: transformers.BlenderbotModel:10
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.BlenderbotModel.forward:1
+msgid ""
+"The :class:`~transformers.BlenderbotModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:4
+#: transformers.BlenderbotModel.forward:4
+#: transformers.TFBlenderbotForConditionalGeneration.call:4
+#: transformers.TFBlenderbotModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:8
+#: transformers.BlenderbotModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary. Padding will be "
+"ignored by default should you provide it.  Indices can be obtained using "
+":class:`~transformers.BlenderbotTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:3
+#: transformers.BlenderbotForConditionalGeneration.forward:8
+#: transformers.BlenderbotModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary. Padding will be "
+"ignored by default should you provide it."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:6
+#: transformers.BlenderbotForConditionalGeneration.forward:11
+#: transformers.BlenderbotForConditionalGeneration.forward:26
+#: transformers.BlenderbotModel.forward:11
+#: transformers.BlenderbotModel.forward:26
+#: transformers.TFBlenderbotForConditionalGeneration.call:10
+#: transformers.TFBlenderbotForConditionalGeneration.call:25
+#: transformers.TFBlenderbotModel.call:10
+#: transformers.TFBlenderbotModel.call:25
+msgid ""
+"Indices can be obtained using :class:`~transformers.BlenderbotTokenizer`."
+" See :meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:10
+#: transformers.BlenderbotForConditionalGeneration.forward:15
+#: transformers.BlenderbotModel.forward:15
+#: transformers.TFBlenderbotForConditionalGeneration.call:14
+#: transformers.TFBlenderbotModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:17
+#: transformers.BlenderbotModel.forward:17
+#: transformers.TFBlenderbotForConditionalGeneration.call:16
+#: transformers.TFBlenderbotModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:12
+#: transformers.BlenderbotForConditionalGeneration.forward:17
+#: transformers.BlenderbotModel.forward:17
+#: transformers.TFBlenderbotForConditionalGeneration.call:16
+#: transformers.TFBlenderbotModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:14
+#: transformers.BlenderbotForCausalLM.forward:59
+#: transformers.BlenderbotForConditionalGeneration.forward:19
+#: transformers.BlenderbotModel.forward:19
+#: transformers.TFBlenderbotForConditionalGeneration.call:18
+#: transformers.TFBlenderbotModel.call:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:15
+#: transformers.BlenderbotForCausalLM.forward:60
+#: transformers.BlenderbotForConditionalGeneration.forward:20
+#: transformers.BlenderbotModel.forward:20
+#: transformers.TFBlenderbotForConditionalGeneration.call:19
+#: transformers.TFBlenderbotModel.call:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:17
+#: transformers.BlenderbotForConditionalGeneration.forward:22
+#: transformers.BlenderbotModel.forward:22
+#: transformers.TFBlenderbotForConditionalGeneration.call:21
+#: transformers.TFBlenderbotModel.call:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:24
+#: transformers.BlenderbotModel.forward:24
+#: transformers.TFBlenderbotForConditionalGeneration.call:23
+#: transformers.TFBlenderbotModel.call:23
+msgid ""
+"Indices of decoder input sequence tokens in the vocabulary.  Indices can "
+"be obtained using :class:`~transformers.BlenderbotTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" decoder input IDs? <../glossary.html#decoder-input-ids>`__  Blenderbot "
+"uses the :obj:`bos_token_id` as the starting token for "
+":obj:`decoder_input_ids` generation. If :obj:`past_key_values` is used, "
+"optionally only the last :obj:`decoder_input_ids` have to be input (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:24
+#: transformers.BlenderbotModel.forward:24
+#: transformers.TFBlenderbotForConditionalGeneration.call:23
+#: transformers.TFBlenderbotModel.call:23
+msgid "Indices of decoder input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:30
+#: transformers.BlenderbotModel.forward:30
+#: transformers.TFBlenderbotForConditionalGeneration.call:29
+#: transformers.TFBlenderbotModel.call:29
+msgid "`What are decoder input IDs? <../glossary.html#decoder-input-ids>`__"
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:32
+#: transformers.BlenderbotModel.forward:32
+#: transformers.TFBlenderbotForConditionalGeneration.call:31
+#: transformers.TFBlenderbotModel.call:31
+msgid ""
+"Blenderbot uses the :obj:`bos_token_id` as the starting token for "
+":obj:`decoder_input_ids` generation. If :obj:`past_key_values` is used, "
+"optionally only the last :obj:`decoder_input_ids` have to be input (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:36
+#: transformers.BlenderbotModel.forward:36
+msgid ""
+"Default behavior: generate a tensor that ignores pad tokens in "
+":obj:`decoder_input_ids`. Causal mask will also be used by default."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:39
+#: transformers.BlenderbotModel.forward:39
+#: transformers.TFBlenderbotForConditionalGeneration.call:37
+#: transformers.TFBlenderbotModel.call:37
+msgid ""
+"Mask to nullify selected heads of the attention modules in the encoder. "
+"Mask values selected in ``[0, 1]``:  - 1 indicates the head is **not "
+"masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:39
+#: transformers.BlenderbotModel.forward:39
+#: transformers.TFBlenderbotForConditionalGeneration.call:37
+#: transformers.TFBlenderbotModel.call:37
+msgid ""
+"Mask to nullify selected heads of the attention modules in the encoder. "
+"Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:27
+#: transformers.BlenderbotForCausalLM.forward:33
+#: transformers.BlenderbotForConditionalGeneration.forward:41
+#: transformers.BlenderbotForConditionalGeneration.forward:46
+#: transformers.BlenderbotForConditionalGeneration.forward:52
+#: transformers.BlenderbotModel.forward:41
+#: transformers.BlenderbotModel.forward:46
+#: transformers.BlenderbotModel.forward:52
+#: transformers.TFBlenderbotForConditionalGeneration.call:39
+#: transformers.TFBlenderbotForConditionalGeneration.call:44
+#: transformers.TFBlenderbotForConditionalGeneration.call:49
+#: transformers.TFBlenderbotModel.call:39
+#: transformers.TFBlenderbotModel.call:44
+#: transformers.TFBlenderbotModel.call:49
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:28
+#: transformers.BlenderbotForCausalLM.forward:34
+#: transformers.BlenderbotForConditionalGeneration.forward:42
+#: transformers.BlenderbotForConditionalGeneration.forward:47
+#: transformers.BlenderbotForConditionalGeneration.forward:53
+#: transformers.BlenderbotModel.forward:42
+#: transformers.BlenderbotModel.forward:47
+#: transformers.BlenderbotModel.forward:53
+#: transformers.TFBlenderbotForConditionalGeneration.call:40
+#: transformers.TFBlenderbotForConditionalGeneration.call:45
+#: transformers.TFBlenderbotForConditionalGeneration.call:50
+#: transformers.TFBlenderbotModel.call:40
+#: transformers.TFBlenderbotModel.call:45
+#: transformers.TFBlenderbotModel.call:50
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:44
+#: transformers.BlenderbotModel.forward:44
+#: transformers.TFBlenderbotForConditionalGeneration.call:42
+#: transformers.TFBlenderbotModel.call:42
+msgid ""
+"Mask to nullify selected heads of the attention modules in the decoder. "
+"Mask values selected in ``[0, 1]``:  - 1 indicates the head is **not "
+"masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:44
+#: transformers.BlenderbotModel.forward:44
+#: transformers.TFBlenderbotForConditionalGeneration.call:42
+#: transformers.TFBlenderbotModel.call:42
+msgid ""
+"Mask to nullify selected heads of the attention modules in the decoder. "
+"Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:49
+#: transformers.BlenderbotModel.forward:49
+msgid ""
+"Mask to nullify selected heads of the cross-attention modules in the "
+"decoder. Mask values selected in ``[0, 1]``:  - 1 indicates the head is "
+"**not masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:49
+#: transformers.BlenderbotModel.forward:49
+msgid ""
+"Mask to nullify selected heads of the cross-attention modules in the "
+"decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:55
+#: transformers.BlenderbotModel.forward:55
+msgid ""
+"Tuple consists of (:obj:`last_hidden_state`, `optional`: "
+":obj:`hidden_states`, `optional`: :obj:`attentions`) "
+":obj:`last_hidden_state` of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`, `optional`) is a sequence of hidden-states at the output "
+"of the last layer of the encoder. Used in the cross-attention of the "
+"decoder."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:60
+#: transformers.BlenderbotModel.forward:60
+msgid ""
+"Tuple of :obj:`tuple(torch.FloatTensor)` of length "
+":obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`.  Contains pre-computed "
+"hidden-states (key and values in the self-attention blocks and in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding.  If :obj:`past_key_values` are "
+"used, the user can optionally input only the last "
+":obj:`decoder_input_ids` (those that don't have their past key value "
+"states given to this model) of shape :obj:`(batch_size, 1)` instead of "
+"all :obj:`decoder_input_ids`` of shape :obj:`(batch_size, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:60
+#: transformers.BlenderbotModel.forward:60
+msgid ""
+"Tuple of :obj:`tuple(torch.FloatTensor)` of length "
+":obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:43
+#: transformers.BlenderbotForConditionalGeneration.forward:64
+#: transformers.BlenderbotForConditionalGeneration.forward:109
+#: transformers.BlenderbotModel.forward:64
+#: transformers.BlenderbotModel.forward:107
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and in the cross-attention blocks) that can be used (see "
+":obj:`past_key_values` input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:67
+#: transformers.BlenderbotModel.forward:67
+msgid ""
+"If :obj:`past_key_values` are used, the user can optionally input only "
+"the last :obj:`decoder_input_ids` (those that don't have their past key "
+"value states given to this model) of shape :obj:`(batch_size, 1)` instead"
+" of all :obj:`decoder_input_ids`` of shape :obj:`(batch_size, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:71
+#: transformers.BlenderbotModel.forward:71
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:75
+#: transformers.BlenderbotModel.forward:75
+msgid ""
+"Optionally, instead of passing :obj:`decoder_input_ids` you can choose to"
+" directly pass an embedded representation. If :obj:`past_key_values` is "
+"used, optionally only the last :obj:`decoder_inputs_embeds` have to be "
+"input (see :obj:`past_key_values`). This is useful if you want more "
+"control over how to convert :obj:`decoder_input_ids` indices into "
+"associated vectors than the model's internal embedding lookup matrix.  If"
+" :obj:`decoder_input_ids` and :obj:`decoder_inputs_embeds` are both "
+"unset, :obj:`decoder_inputs_embeds` takes the value of "
+":obj:`inputs_embeds`."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:75
+#: transformers.BlenderbotModel.forward:75
+msgid ""
+"Optionally, instead of passing :obj:`decoder_input_ids` you can choose to"
+" directly pass an embedded representation. If :obj:`past_key_values` is "
+"used, optionally only the last :obj:`decoder_inputs_embeds` have to be "
+"input (see :obj:`past_key_values`). This is useful if you want more "
+"control over how to convert :obj:`decoder_input_ids` indices into "
+"associated vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:80
+#: transformers.BlenderbotModel.forward:80
+msgid ""
+"If :obj:`decoder_input_ids` and :obj:`decoder_inputs_embeds` are both "
+"unset, :obj:`decoder_inputs_embeds` takes the value of "
+":obj:`inputs_embeds`."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:56
+#: transformers.BlenderbotForConditionalGeneration.forward:83
+#: transformers.BlenderbotModel.forward:83
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:62
+#: transformers.BlenderbotForConditionalGeneration.forward:86
+#: transformers.BlenderbotModel.forward:86
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:65
+#: transformers.BlenderbotForConditionalGeneration.forward:89
+#: transformers.BlenderbotModel.forward:89
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:68
+#: transformers.BlenderbotForConditionalGeneration.forward:92
+#: transformers.BlenderbotModel.forward:92
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.BlenderbotModel.forward:95
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqModelOutput` or a tuple "
+"of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BlenderbotConfig`) and inputs.  "
+"- **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the decoder of the model.    If"
+" :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size,   1, hidden_size)` is output. - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the decoder at the output of each "
+"layer plus the initial embedding outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the decoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the "
+"decoder's cross-attention layer, after the attention softmax, used to "
+"compute the   weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the encoder at the output of each "
+"layer plus the initial embedding outputs. - **encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the encoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads.   Example::      >>> from transformers import "
+"BlenderbotTokenizer, BlenderbotModel      >>> model = "
+"BlenderbotModel.from_pretrained(\"facebook/blenderbot-400M-distill\")"
+"     >>> tokenizer = BlenderbotTokenizer.from_pretrained(\"facebook"
+"/blenderbot-400M-distill\")      >>> input_ids = tokenizer(\"Studies have"
+" been shown that owning a dog is good for you\", "
+"return_tensors=\"pt\").input_ids  # Batch size 1     >>> "
+"decoder_input_ids = tokenizer(\"Studies show that\", "
+"return_tensors=\"pt\").input_ids  # Batch size 1     >>> outputs = "
+"model(input_ids=input_ids, decoder_input_ids=decoder_input_ids)      >>> "
+"last_hidden_states = outputs.last_hidden_state"
+msgstr ""
+
+#: of transformers.BlenderbotModel.forward:95
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqModelOutput` or a tuple "
+"of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BlenderbotConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BlenderbotModel.forward:99
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the decoder of the model."
+msgstr ""
+
+#: of transformers.BlenderbotModel.forward:101
+#: transformers.TFBlenderbotModel.call:84
+msgid ""
+"If :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size, 1, hidden_size)` is output."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:105
+#: transformers.BlenderbotModel.forward:103
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) "
+"and 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:111
+#: transformers.BlenderbotModel.forward:109
+msgid ""
+"**decoder_hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:114
+#: transformers.BlenderbotModel.forward:112
+#: transformers.TFBlenderbotForConditionalGeneration.call:96
+#: transformers.TFBlenderbotModel.call:94
+msgid ""
+"Hidden-states of the decoder at the output of each layer plus the initial"
+" embedding outputs."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:115
+#: transformers.BlenderbotModel.forward:113
+msgid ""
+"**decoder_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:118
+#: transformers.BlenderbotModel.forward:116
+#: transformers.TFBlenderbotForConditionalGeneration.call:100
+#: transformers.TFBlenderbotModel.call:98
+msgid ""
+"Attentions weights of the decoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:86
+#: transformers.BlenderbotForConditionalGeneration.forward:120
+#: transformers.BlenderbotModel.forward:118
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:123
+#: transformers.BlenderbotModel.forward:121
+#: transformers.TFBlenderbotForConditionalGeneration.call:105
+#: transformers.TFBlenderbotModel.call:103
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:125
+#: transformers.BlenderbotModel.forward:123
+msgid ""
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:126
+#: transformers.BlenderbotModel.forward:124
+msgid ""
+"**encoder_hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:129
+#: transformers.BlenderbotModel.forward:127
+#: transformers.TFBlenderbotForConditionalGeneration.call:111
+#: transformers.TFBlenderbotModel.call:109
+msgid ""
+"Hidden-states of the encoder at the output of each layer plus the initial"
+" embedding outputs."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:130
+#: transformers.BlenderbotModel.forward:128
+msgid ""
+"**encoder_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:133
+#: transformers.BlenderbotModel.forward:131
+#: transformers.TFBlenderbotForConditionalGeneration.call:115
+#: transformers.TFBlenderbotModel.call:113
+msgid ""
+"Attentions weights of the encoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.BlenderbotModel.forward:147
+msgid ""
+":class:`~transformers.modeling_outputs.Seq2SeqModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:94
+msgid "BlenderbotForConditionalGeneration"
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:96
+msgid ""
+"See :obj:`transformers.BartForConditionalGeneration` for arguments to "
+"`forward` and `generate`"
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration:1
+msgid ""
+"The Blenderbot Model with a language modeling head. Can be used for "
+"summarization. This model inherits from "
+":class:`~transformers.PreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings, "
+"pruning heads etc.)"
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:1
+msgid ""
+"The :class:`~transformers.BlenderbotForConditionalGeneration` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:51
+#: transformers.BlenderbotForConditionalGeneration.forward:94
+#: transformers.TFBlenderbotForConditionalGeneration.call:77
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should "
+"either be in ``[0, ..., config.vocab_size]`` or -100 (see ``input_ids`` "
+"docstring). Tokens with indices set to ``-100`` are ignored (masked), the"
+" loss is only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:99
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BlenderbotConfig`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, "
+"`optional`, returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the decoder at the output of each "
+"layer plus the initial embedding outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the decoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the "
+"decoder's cross-attention layer, after the attention softmax, used to "
+"compute the   weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the encoder at the output of each "
+"layer plus the initial embedding outputs. - **encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the encoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:99
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BlenderbotConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:103
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:76
+#: transformers.BlenderbotForConditionalGeneration.forward:104
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:135
+msgid ""
+":class:`~transformers.modeling_outputs.Seq2SeqLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.BlenderbotForConditionalGeneration.forward:137
+#: transformers.TFBlenderbotForConditionalGeneration.call:119
+msgid "Conversation example::"
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:103
+msgid "BlenderbotForCausalLM"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:69
+msgid "Args:"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:9
+msgid ""
+"input_ids (:obj:`torch.LongTensor` of shape :obj:`(batch_size, "
+"sequence_length)`):"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:16
+msgid ""
+"attention_mask (:obj:`torch.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`, `optional`):"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:19
+msgid ""
+"encoder_hidden_states  (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`):"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:19
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the encoder."
+" Used in the cross-attention if the model is configured as a decoder."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:22
+msgid ""
+"encoder_attention_mask (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`, `optional`):"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:22
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:28
+msgid ""
+"head_mask (:obj:`torch.Tensor` of shape :obj:`(decoder_layers, "
+"decoder_attention_heads)`, `optional`):"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:25
+msgid ""
+"Mask to nullify selected heads of the attention modules. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:34
+msgid ""
+"cross_attn_head_mask (:obj:`torch.Tensor` of shape :obj:`(decoder_layers,"
+" decoder_attention_heads)`, `optional`):"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:31
+#: transformers.TFBlenderbotForConditionalGeneration.call:47
+#: transformers.TFBlenderbotModel.call:47
+msgid ""
+"Mask to nullify selected heads of the cross-attention modules. Mask "
+"values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:48
+msgid ""
+"past_key_values (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``):"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:37
+msgid ""
+"Tuple of :obj:`tuple(torch.FloatTensor)` of length "
+":obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`. The two additional "
+"tensors are only required when the model is used as a decoder in a "
+"Sequence to Sequence model."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:47
+msgid ""
+"If :obj:`past_key_values` are used, the user can optionally input only "
+"the last ``decoder_input_ids`` (those that don't have their past key "
+"value states given to this model) of shape :obj:`(batch_size, 1)` instead"
+" of all ``decoder_input_ids`` of shape :obj:`(batch_size, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:53
+msgid ""
+"labels (:obj:`torch.LongTensor` of shape :obj:`(batch_size, "
+"sequence_length)`, `optional`):"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:59
+msgid "use_cache (:obj:`bool`, `optional`):"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:62
+msgid "output_attentions (:obj:`bool`, `optional`):"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:65
+msgid "output_hidden_states (:obj:`bool`, `optional`):"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:69
+msgid "return_dict (:obj:`bool`, `optional`):"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:71
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BlenderbotConfig`) "
+"and inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Language modeling"
+" loss (for next-token prediction). - **logits** (:obj:`torch.FloatTensor`"
+" of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Cross attentions weights after the"
+" attention softmax, used to compute the weighted average in the   cross-"
+"attention heads. - **past_key_values** "
+"(:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`torch.FloatTensor` tuples of length :obj:`config.n_layers`, with"
+" each tuple containing the   cached key, value states of the self-"
+"attention and the cross-attention layers if model is used in   encoder-"
+"decoder setting. Only relevant if ``config.is_decoder = True``.    "
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see   :obj:`past_key_values` input) to speed up"
+" sequential decoding.   Example::      >>> from transformers import "
+"BlenderbotTokenizer, BlenderbotForCausalLM      >>> tokenizer = "
+"BlenderbotTokenizer.from_pretrained('facebook/bart-large')     >>> model "
+"= BlenderbotForCausalLM.from_pretrained('facebook/bart-large', "
+"add_cross_attention=False)     >>> assert model.config.is_decoder, "
+"f\"{model.__class__} has to be configured as a decoder.\"     >>> inputs "
+"= tokenizer(\"Hello, my dog is cute\", return_tensors=\"pt\")     >>> "
+"outputs = model(**inputs)      >>> last_hidden_states = "
+"outputs.last_hidden_state"
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:71
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BlenderbotConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:75
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss (for "
+"next-token prediction)."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:77
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:80
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:81
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:84
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:89
+msgid ""
+"Cross attentions weights after the attention softmax, used to compute the"
+" weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:91
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`torch.FloatTensor` tuples of"
+" length :obj:`config.n_layers`, with each tuple containing the cached "
+"key, value states of the self-attention and the cross-attention layers if"
+" model is used in encoder-decoder setting. Only relevant if "
+"``config.is_decoder = True``."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:95
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.BlenderbotForCausalLM.forward:110
+msgid ""
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:110
+msgid "TFBlenderbotModel"
+msgstr ""
+
+#: of transformers.TFBlenderbotModel:1
+msgid ""
+"The bare BLENDERBOT Model outputting raw hidden-states without any "
+"specific head on top. This model inherits from "
+":class:`~transformers.TFPreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings, "
+"pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration:6
+#: transformers.TFBlenderbotModel:6
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration:12
+#: transformers.TFBlenderbotModel:12
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration:14
+#: transformers.TFBlenderbotModel:14
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration:15
+#: transformers.TFBlenderbotModel:15
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration:17
+#: transformers.TFBlenderbotModel:17
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration:20
+#: transformers.TFBlenderbotModel:20
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration:23
+#: transformers.TFBlenderbotModel:23
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(input_ids)`"
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration:24
+#: transformers.TFBlenderbotModel:24
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration:26
+#: transformers.TFBlenderbotModel:26
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration:29
+#: transformers.TFBlenderbotModel:29
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.TFPreTrainedModel.from_pretrained` method to load "
+"the model weights."
+msgstr ""
+
+#: of transformers.TFBlenderbotModel.call:1
+msgid ""
+"The :class:`~transformers.TFBlenderbotModel` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:8
+#: transformers.TFBlenderbotModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.BlenderbotTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:8
+#: transformers.TFBlenderbotModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:35
+#: transformers.TFBlenderbotModel.call:35
+msgid ""
+"will be made by default and ignore pad tokens. It is not recommended to "
+"set this for most use cases."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:47
+#: transformers.TFBlenderbotModel.call:47
+msgid ""
+"Mask to nullify selected heads of the cross-attention modules. Mask "
+"values selected in ``[0, 1]``:  - 1 indicates the head is **not masked**,"
+" - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:52
+#: transformers.TFBlenderbotModel.call:52
+msgid ""
+"hidden states at the output of the last layer of the encoder. Used in the"
+" cross-attention of the decoder. of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)` is a sequence of"
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:55
+#: transformers.TFBlenderbotModel.call:55
+msgid ""
+"contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding. If :obj:`past_key_values` are used, "
+"the user can optionally input only the last :obj:`decoder_input_ids` "
+"(those that don't have their past key value states given to this model) "
+"of shape :obj:`(batch_size, 1)` instead of all :obj:`decoder_input_ids` "
+"of shape :obj:`(batch_size, sequence_length)`."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:60
+#: transformers.TFBlenderbotModel.call:60
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`). Set to :obj:`False` during training, :obj:`True`"
+" during generation"
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:63
+#: transformers.TFBlenderbotModel.call:63
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:67
+#: transformers.TFBlenderbotModel.call:67
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:71
+#: transformers.TFBlenderbotModel.call:71
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:74
+#: transformers.TFBlenderbotModel.call:74
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFBlenderbotModel.call:78
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSeq2SeqModelOutput` or a "
+"tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BlenderbotConfig`) and inputs.  "
+"- **last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the decoder of the model.    If "
+":obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size,   1, hidden_size)` is output. - "
+"**past_key_values** (:obj:`List[tf.Tensor]`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- List "
+"of :obj:`tf.Tensor` of length :obj:`config.n_layers`, with each tensor of"
+" shape :obj:`(2, batch_size,   num_heads, sequence_length, "
+"embed_size_per_head)`).    Contains pre-computed hidden-states (key and "
+"values in the attention blocks) of the decoder that can be   used (see "
+":obj:`past_key_values` input) to speed up sequential decoding. - "
+"**decoder_hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the decoder at the output of each layer plus the initial "
+"embedding outputs. - **decoder_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the decoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads. - **cross_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the decoder's cross-attention"
+" layer, after the attention softmax, used to compute the   weighted "
+"average in the cross-attention heads. - **encoder_last_hidden_state** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`, `optional`) -- Sequence of hidden-states at the output of "
+"the last layer of the encoder of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the encoder at the output of each layer plus the initial "
+"embedding outputs. - **encoder_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the encoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.TFBlenderbotModel.call:78
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSeq2SeqModelOutput` or a "
+"tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BlenderbotConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFBlenderbotModel.call:82
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the decoder of the model."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:88
+#: transformers.TFBlenderbotModel.call:86
+msgid ""
+"**past_key_values** (:obj:`List[tf.Tensor]`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- List "
+"of :obj:`tf.Tensor` of length :obj:`config.n_layers`, with each tensor of"
+" shape :obj:`(2, batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`)."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:91
+#: transformers.TFBlenderbotModel.call:89
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) of the decoder that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:93
+#: transformers.TFBlenderbotModel.call:91
+msgid ""
+"**decoder_hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:97
+#: transformers.TFBlenderbotModel.call:95
+msgid ""
+"**decoder_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:102
+#: transformers.TFBlenderbotModel.call:100
+msgid ""
+"**cross_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:107
+#: transformers.TFBlenderbotModel.call:105
+msgid ""
+"**encoder_last_hidden_state** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:108
+#: transformers.TFBlenderbotModel.call:106
+msgid ""
+"**encoder_hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:112
+#: transformers.TFBlenderbotModel.call:110
+msgid ""
+"**encoder_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFBlenderbotModel.call:115
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSeq2SeqModelOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/blenderbot.rst:117
+msgid "TFBlenderbotForConditionalGeneration"
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration:1
+msgid ""
+"The BLENDERBOT Model with a language modeling head. Can be used for "
+"summarization. This model inherits from "
+":class:`~transformers.TFPreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings, "
+"pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:1
+msgid ""
+"The :class:`~transformers.TFBlenderbotForConditionalGeneration` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:82
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSeq2SeqLMOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BlenderbotConfig`) and inputs.  "
+"- **loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is"
+" the number of non-masked labels, returned when :obj:`labels` is "
+"provided) -- Language modeling loss. - **logits** (:obj:`tf.Tensor` of "
+"shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **past_key_values** "
+"(:obj:`List[tf.Tensor]`, `optional`, returned when ``use_cache=True`` is "
+"passed or when ``config.use_cache=True``) -- List of :obj:`tf.Tensor` of "
+"length :obj:`config.n_layers`, with each tensor of shape :obj:`(2, "
+"batch_size,   num_heads, sequence_length, embed_size_per_head)`).    "
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) of the decoder that can be   used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the decoder at the output of each layer plus the initial "
+"embedding outputs. - **decoder_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the decoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads. - **cross_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the decoder's cross-attention"
+" layer, after the attention softmax, used to compute the   weighted "
+"average in the cross-attention heads. - **encoder_last_hidden_state** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`, `optional`) -- Sequence of hidden-states at the output of "
+"the last layer of the encoder of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the encoder at the output of each layer plus the initial "
+"embedding outputs. - **encoder_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the encoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:82
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSeq2SeqLMOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BlenderbotConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:86
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Language modeling loss."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:87
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFBlenderbotForConditionalGeneration.call:117
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSeq2SeqLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+

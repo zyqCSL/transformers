@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/main_classes/logging.rst:14
+msgid "Logging"
+msgstr ""
+
+#: ../../source/main_classes/logging.rst:16
+msgid ""
+"🤗 Transformers has a centralized logging system, so that you can setup "
+"the verbosity of the library easily."
+msgstr ""
+
+#: ../../source/main_classes/logging.rst:18
+msgid "Currently the default verbosity of the library is ``WARNING``."
+msgstr ""
+
+#: ../../source/main_classes/logging.rst:20
+msgid ""
+"To change the level of verbosity, just use one of the direct setters. For"
+" instance, here is how to change the verbosity to the INFO level."
+msgstr ""
+
+#: ../../source/main_classes/logging.rst:28
+msgid ""
+"You can also use the environment variable ``TRANSFORMERS_VERBOSITY`` to "
+"override the default verbosity. You can set it to one of the following: "
+"``debug``, ``info``, ``warning``, ``error``, ``critical``. For example:"
+msgstr ""
+
+#: ../../source/main_classes/logging.rst:35
+msgid ""
+"All the methods of this logging module are documented below, the main "
+"ones are :func:`transformers.logging.get_verbosity` to get the current "
+"level of verbosity in the logger and "
+":func:`transformers.logging.set_verbosity` to set the verbosity to the "
+"level of your choice. In order (from the least verbose to the most "
+"verbose), those levels (with their corresponding int values in "
+"parenthesis) are:"
+msgstr ""
+
+#: ../../source/main_classes/logging.rst:40
+msgid ""
+":obj:`transformers.logging.CRITICAL` or :obj:`transformers.logging.FATAL`"
+" (int value, 50): only report the most critical errors."
+msgstr ""
+
+#: ../../source/main_classes/logging.rst:42
+msgid ":obj:`transformers.logging.ERROR` (int value, 40): only report errors."
+msgstr ""
+
+#: ../../source/main_classes/logging.rst:43
+msgid ""
+":obj:`transformers.logging.WARNING` or :obj:`transformers.logging.WARN` "
+"(int value, 30): only reports error and warnings. This the default level "
+"used by the library."
+msgstr ""
+
+#: ../../source/main_classes/logging.rst:45
+msgid ""
+":obj:`transformers.logging.INFO` (int value, 20): reports error, warnings"
+" and basic information."
+msgstr ""
+
+#: ../../source/main_classes/logging.rst:46
+msgid ":obj:`transformers.logging.DEBUG` (int value, 10): report all information."
+msgstr ""
+
+#: ../../source/main_classes/logging.rst:49
+msgid "Base setters"
+msgstr ""
+
+#: of transformers.logging.set_verbosity_error:1
+msgid "Set the verbosity to the :obj:`ERROR` level."
+msgstr ""
+
+#: of transformers.logging.set_verbosity_warning:1
+msgid "Set the verbosity to the :obj:`WARNING` level."
+msgstr ""
+
+#: of transformers.logging.set_verbosity_info:1
+msgid "Set the verbosity to the :obj:`INFO` level."
+msgstr ""
+
+#: of transformers.logging.set_verbosity_debug:1
+msgid "Set the verbosity to the :obj:`DEBUG` level."
+msgstr ""
+
+#: ../../source/main_classes/logging.rst:60
+msgid "Other functions"
+msgstr ""
+
+#: of transformers.logging.get_verbosity:1
+msgid "Return the current level for the 🤗 Transformers's root logger as an int."
+msgstr ""
+
+#: of transformers.logging.get_verbosity
+msgid "Returns"
+msgstr ""
+
+#: of transformers.logging.get_verbosity:3
+msgid "The logging level."
+msgstr ""
+
+#: of transformers.logging.get_verbosity
+msgid "Return type"
+msgstr ""
+
+#: of transformers.logging.get_verbosity:4
+msgid ":obj:`int`"
+msgstr ""
+
+#: of transformers.logging.get_verbosity:8
+msgid "🤗 Transformers has following logging levels:"
+msgstr ""
+
+#: of transformers.logging.get_verbosity:10
+msgid "50: ``transformers.logging.CRITICAL`` or ``transformers.logging.FATAL``"
+msgstr ""
+
+#: of transformers.logging.get_verbosity:11
+msgid "40: ``transformers.logging.ERROR``"
+msgstr ""
+
+#: of transformers.logging.get_verbosity:12
+msgid "30: ``transformers.logging.WARNING`` or ``transformers.logging.WARN``"
+msgstr ""
+
+#: of transformers.logging.get_verbosity:13
+msgid "20: ``transformers.logging.INFO``"
+msgstr ""
+
+#: of transformers.logging.get_verbosity:14
+msgid "10: ``transformers.logging.DEBUG``"
+msgstr ""
+
+#: of transformers.logging.set_verbosity:1
+msgid "Set the verbosity level for the 🤗 Transformers's root logger."
+msgstr ""
+
+#: of transformers.logging.set_verbosity
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.logging.set_verbosity:3
+msgid ""
+"Logging level, e.g., one of:  - ``transformers.logging.CRITICAL`` or "
+"``transformers.logging.FATAL`` - ``transformers.logging.ERROR`` - "
+"``transformers.logging.WARNING`` or ``transformers.logging.WARN`` - "
+"``transformers.logging.INFO`` - ``transformers.logging.DEBUG``"
+msgstr ""
+
+#: of transformers.logging.set_verbosity:3
+msgid "Logging level, e.g., one of:"
+msgstr ""
+
+#: of transformers.logging.set_verbosity:5
+msgid "``transformers.logging.CRITICAL`` or ``transformers.logging.FATAL``"
+msgstr ""
+
+#: of transformers.logging.set_verbosity:6
+msgid "``transformers.logging.ERROR``"
+msgstr ""
+
+#: of transformers.logging.set_verbosity:7
+msgid "``transformers.logging.WARNING`` or ``transformers.logging.WARN``"
+msgstr ""
+
+#: of transformers.logging.set_verbosity:8
+msgid "``transformers.logging.INFO``"
+msgstr ""
+
+#: of transformers.logging.set_verbosity:9
+msgid "``transformers.logging.DEBUG``"
+msgstr ""
+
+#: of transformers.logging.get_logger:1
+msgid "Return a logger with the specified name."
+msgstr ""
+
+#: of transformers.logging.get_logger:3
+msgid ""
+"This function is not supposed to be directly accessed unless you are "
+"writing a custom transformers module."
+msgstr ""
+
+#: of transformers.logging.enable_default_handler:1
+msgid "Enable the default handler of the HuggingFace Transformers's root logger."
+msgstr ""
+
+#: of transformers.logging.disable_default_handler:1
+msgid "Disable the default handler of the HuggingFace Transformers's root logger."
+msgstr ""
+
+#: of transformers.logging.enable_explicit_format:1
+msgid ""
+"Enable explicit formatting for every HuggingFace Transformers's logger. "
+"The explicit formatter is as follows:"
+msgstr ""
+
+#: of transformers.logging.enable_explicit_format:7
+#: transformers.logging.reset_format:3
+msgid ""
+"All handlers currently bound to the root logger are affected by this "
+"method."
+msgstr ""
+
+#: of transformers.logging.reset_format:1
+msgid "Resets the formatting for HuggingFace Transformers's loggers."
+msgstr ""
+

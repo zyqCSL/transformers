@@ -1,0 +1,3199 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/main_classes/trainer.rst:14
+#: ../../source/main_classes/trainer.rst:81
+msgid "Trainer"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:16
+msgid ""
+"The :class:`~transformers.Trainer` and :class:`~transformers.TFTrainer` "
+"classes provide an API for feature-complete training in most standard use"
+" cases. It's used in most of the :doc:`example scripts <../examples>`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:19
+msgid ""
+"Before instantiating your "
+":class:`~transformers.Trainer`/:class:`~transformers.TFTrainer`, create a"
+" "
+":class:`~transformers.TrainingArguments`/:class:`~transformers.TFTrainingArguments`"
+" to access all the points of customization during training."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:23
+msgid ""
+"The API supports distributed training on multiple GPUs/TPUs, mixed "
+"precision through `NVIDIA Apex <https://github.com/NVIDIA/apex>`__ and "
+"Native AMP for PyTorch and :obj:`tf.keras.mixed_precision` for "
+"TensorFlow."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:26
+msgid ""
+"Both :class:`~transformers.Trainer` and :class:`~transformers.TFTrainer` "
+"contain the basic training loop which supports the above features. To "
+"inject custom behavior you can subclass them and override the following "
+"methods:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:29
+msgid ""
+"**get_train_dataloader**/**get_train_tfdataset** -- Creates the training "
+"DataLoader (PyTorch) or TF Dataset."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:30
+msgid ""
+"**get_eval_dataloader**/**get_eval_tfdataset** -- Creates the evaluation "
+"DataLoader (PyTorch) or TF Dataset."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:31
+msgid ""
+"**get_test_dataloader**/**get_test_tfdataset** -- Creates the test "
+"DataLoader (PyTorch) or TF Dataset."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:32
+msgid "**log** -- Logs information on the various objects watching training."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:33
+msgid ""
+"**create_optimizer_and_scheduler** -- Sets up the optimizer and learning "
+"rate scheduler if they were not passed at init. Note, that you can also "
+"subclass or override the ``create_optimizer`` and ``create_scheduler`` "
+"methods separately."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:36
+msgid "**create_optimizer** -- Sets up the optimizer if it wasn't passed at init."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:37
+msgid ""
+"**create_scheduler** -- Sets up the learning rate scheduler if it wasn't "
+"passed at init."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:38
+msgid "**compute_loss** - Computes the loss on a batch of training inputs."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:39
+msgid "**training_step** -- Performs a training step."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:40
+msgid "**prediction_step** -- Performs an evaluation/test step."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:41
+msgid "**run_model** (TensorFlow only) -- Basic pass through the model."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:42
+msgid "**evaluate** -- Runs an evaluation loop and returns metrics."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:43
+msgid ""
+"**predict** -- Returns predictions (with metrics if labels are available)"
+" on a test set."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:47
+msgid ""
+"The :class:`~transformers.Trainer` class is optimized for 🤗 Transformers "
+"models and can have surprising behaviors when you use it on other models."
+" When using it on your own model, make sure:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:50
+msgid ""
+"your model always return tuples or subclasses of "
+":class:`~transformers.file_utils.ModelOutput`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:51
+msgid ""
+"your model can compute the loss if a :obj:`labels` argument is provided "
+"and that loss is returned as the first element of the tuple (if your "
+"model returns tuples)"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:53
+msgid ""
+"your model can accept multiple label arguments (use the "
+":obj:`label_names` in your :class:`~transformers.TrainingArguments` to "
+"indicate their name to the :class:`~transformers.Trainer`) but none of "
+"them should be named :obj:`\"label\"`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:57
+msgid ""
+"Here is an example of how to customize :class:`~transformers.Trainer` "
+"using a custom loss function for multi-label classification:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:75
+msgid ""
+"Another way to customize the training loop behavior for the PyTorch "
+":class:`~transformers.Trainer` is to use :doc:`callbacks <callback>` that"
+" can inspect the training loop state (for progress reporting, logging on "
+"TensorBoard or other ML platforms...) and take decisions (like early "
+"stopping)."
+msgstr ""
+
+#: of transformers.Trainer:1
+msgid ""
+"Trainer is a simple but feature-complete training and eval loop for "
+"PyTorch, optimized for 🤗 Transformers."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.evaluate transformers.Seq2SeqTrainer.predict
+#: transformers.Seq2SeqTrainingArguments transformers.TFTrainer
+#: transformers.TFTrainer.evaluate transformers.TFTrainer.get_eval_tfdataset
+#: transformers.TFTrainer.get_test_tfdataset transformers.TFTrainer.log
+#: transformers.TFTrainer.predict transformers.TFTrainer.run_model
+#: transformers.TFTrainingArguments transformers.Trainer
+#: transformers.Trainer.add_callback transformers.Trainer.create_scheduler
+#: transformers.Trainer.evaluate transformers.Trainer.floating_point_ops
+#: transformers.Trainer.get_eval_dataloader
+#: transformers.Trainer.get_test_dataloader
+#: transformers.Trainer.hyperparameter_search transformers.Trainer.log
+#: transformers.Trainer.log_metrics transformers.Trainer.metrics_format
+#: transformers.Trainer.pop_callback transformers.Trainer.predict
+#: transformers.Trainer.prediction_step transformers.Trainer.push_to_hub
+#: transformers.Trainer.remove_callback transformers.Trainer.save_metrics
+#: transformers.Trainer.train transformers.Trainer.training_step
+#: transformers.TrainingArguments
+#: transformers.TrainingArguments.main_process_first
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.Trainer:3
+msgid ""
+"The model to train, evaluate or use for predictions. If not provided, a "
+"``model_init`` must be passed.  .. note::      "
+":class:`~transformers.Trainer` is optimized to work with the "
+":class:`~transformers.PreTrainedModel`     provided by the library. You "
+"can still use your own models defined as :obj:`torch.nn.Module` as long "
+"as     they work the same way as the 🤗 Transformers models."
+msgstr ""
+
+#: of transformers.Trainer:3
+msgid ""
+"The model to train, evaluate or use for predictions. If not provided, a "
+"``model_init`` must be passed."
+msgstr ""
+
+#: of transformers.Trainer:7
+msgid ""
+":class:`~transformers.Trainer` is optimized to work with the "
+":class:`~transformers.PreTrainedModel` provided by the library. You can "
+"still use your own models defined as :obj:`torch.nn.Module` as long as "
+"they work the same way as the 🤗 Transformers models."
+msgstr ""
+
+#: of transformers.Trainer:11
+msgid ""
+"The arguments to tweak for training. Will default to a basic instance of "
+":class:`~transformers.TrainingArguments` with the ``output_dir`` set to a"
+" directory named `tmp_trainer` in the current directory if not provided."
+msgstr ""
+
+#: of transformers.Trainer:15
+msgid ""
+"The function to use to form a batch from a list of elements of "
+":obj:`train_dataset` or :obj:`eval_dataset`. Will default to "
+":func:`~transformers.default_data_collator` if no ``tokenizer`` is "
+"provided, an instance of :func:`~transformers.DataCollatorWithPadding` "
+"otherwise."
+msgstr ""
+
+#: of transformers.Trainer:19
+msgid ""
+"The dataset to use for training. If it is an :obj:`datasets.Dataset`, "
+"columns not accepted by the ``model.forward()`` method are automatically "
+"removed.  Note that if it's a "
+":obj:`torch.utils.data.dataset.IterableDataset` with some randomization "
+"and you are training in a distributed fashion, your iterable dataset "
+"should either use a internal attribute :obj:`generator` that is a "
+":obj:`torch.Generator` for the randomization that must be identical on "
+"all processes (and the Trainer will manually set the seed of this "
+":obj:`generator` at each epoch) or have a :obj:`set_epoch()` method that "
+"internally sets the seed of the RNGs used."
+msgstr ""
+
+#: of transformers.Trainer:19
+msgid ""
+"The dataset to use for training. If it is an :obj:`datasets.Dataset`, "
+"columns not accepted by the ``model.forward()`` method are automatically "
+"removed."
+msgstr ""
+
+#: of transformers.Trainer:22
+msgid ""
+"Note that if it's a :obj:`torch.utils.data.dataset.IterableDataset` with "
+"some randomization and you are training in a distributed fashion, your "
+"iterable dataset should either use a internal attribute :obj:`generator` "
+"that is a :obj:`torch.Generator` for the randomization that must be "
+"identical on all processes (and the Trainer will manually set the seed of"
+" this :obj:`generator` at each epoch) or have a :obj:`set_epoch()` method"
+" that internally sets the seed of the RNGs used."
+msgstr ""
+
+#: of transformers.Trainer:28
+msgid ""
+"The dataset to use for evaluation. If it is an :obj:`datasets.Dataset`, "
+"columns not accepted by the ``model.forward()`` method are automatically "
+"removed."
+msgstr ""
+
+#: of transformers.Trainer:31
+msgid ""
+"The tokenizer used to preprocess the data. If provided, will be used to "
+"automatically pad the inputs the maximum length when batching inputs, and"
+" it will be saved along the model to make it easier to rerun an "
+"interrupted training or reuse the fine-tuned model."
+msgstr ""
+
+#: of transformers.Trainer:35
+msgid ""
+"A function that instantiates the model to be used. If provided, each call"
+" to :meth:`~transformers.Trainer.train` will start from a new instance of"
+" the model as given by this function.  The function may have zero "
+"argument, or a single one containing the optuna/Ray Tune trial object, to"
+" be able to choose different architectures according to hyper parameters "
+"(such as layer count, sizes of inner layers, dropout probabilities etc)."
+msgstr ""
+
+#: of transformers.Trainer:35
+msgid ""
+"A function that instantiates the model to be used. If provided, each call"
+" to :meth:`~transformers.Trainer.train` will start from a new instance of"
+" the model as given by this function."
+msgstr ""
+
+#: of transformers.Trainer:38
+msgid ""
+"The function may have zero argument, or a single one containing the "
+"optuna/Ray Tune trial object, to be able to choose different "
+"architectures according to hyper parameters (such as layer count, sizes "
+"of inner layers, dropout probabilities etc)."
+msgstr ""
+
+#: of transformers.TFTrainer:19 transformers.Trainer:42
+msgid ""
+"The function that will be used to compute metrics at evaluation. Must "
+"take a :class:`~transformers.EvalPrediction` and return a dictionary "
+"string to metric values."
+msgstr ""
+
+#: of transformers.Trainer:45
+msgid ""
+"A list of callbacks to customize the training loop. Will add those to the"
+" list of default callbacks detailed in :doc:`here <callback>`.  If you "
+"want to remove one of the default callbacks used, use the "
+":meth:`Trainer.remove_callback` method."
+msgstr ""
+
+#: of transformers.Trainer:45
+msgid ""
+"A list of callbacks to customize the training loop. Will add those to the"
+" list of default callbacks detailed in :doc:`here <callback>`."
+msgstr ""
+
+#: of transformers.Trainer:48
+msgid ""
+"If you want to remove one of the default callbacks used, use the "
+":meth:`Trainer.remove_callback` method."
+msgstr ""
+
+#: of transformers.Trainer:50
+msgid ""
+"A tuple containing the optimizer and the scheduler to use. Will default "
+"to an instance of :class:`~transformers.AdamW` on your model and a "
+"scheduler given by :func:`~transformers.get_linear_schedule_with_warmup` "
+"controlled by :obj:`args`."
+msgstr ""
+
+#: of transformers.Trainer:56
+msgid "Important attributes:"
+msgstr ""
+
+#: of transformers.Trainer:58
+msgid ""
+"**model** -- Always points to the core model. If using a transformers "
+"model, it will be a :class:`~transformers.PreTrainedModel` subclass."
+msgstr ""
+
+#: of transformers.Trainer:60
+msgid ""
+"**model_wrapped** -- Always points to the most external model in case one"
+" or more other modules wrap the original model. This is the model that "
+"should be used for the forward pass. For example, under ``DeepSpeed``, "
+"the inner model is wrapped in ``DeepSpeed`` and then again in "
+"``torch.nn.DistributedDataParallel``. If the inner model hasn't been "
+"wrapped, then ``self.model_wrapped`` is the same as ``self.model``."
+msgstr ""
+
+#: of transformers.Trainer:64
+msgid ""
+"**is_model_parallel** -- Whether or not a model has been switched to a "
+"model parallel mode (different from data parallelism, this means some of "
+"the model layers are split on different GPUs)."
+msgstr ""
+
+#: of transformers.Trainer:66
+msgid ""
+"**place_model_on_device** -- Whether or not to automatically place the "
+"model on the device - it will be set to :obj:`False` if model parallel or"
+" deepspeed is used, or if the default "
+"``TrainingArguments.place_model_on_device`` is overridden to return "
+":obj:`False` ."
+msgstr ""
+
+#: of transformers.Trainer:69
+msgid ""
+"**is_in_train** -- Whether or not a model is currently running ``train`` "
+"(e.g. when ``evaluate`` is called while in ``train``)"
+msgstr ""
+
+#: of transformers.Trainer.add_callback:1
+msgid ""
+"Add a callback to the current list of "
+":class:`~transformer.TrainerCallback`."
+msgstr ""
+
+#: of transformers.Trainer.add_callback:3
+msgid ""
+"A :class:`~transformer.TrainerCallback` class or an instance of a "
+":class:`~transformer.TrainerCallback`. In the first case, will "
+"instantiate a member of that class."
+msgstr ""
+
+#: of transformers.Trainer.compute_loss:1
+msgid ""
+"How the loss is computed by Trainer. By default, all models return the "
+"loss in the first element."
+msgstr ""
+
+#: of transformers.Trainer.compute_loss:3
+msgid "Subclass and override for custom behavior."
+msgstr ""
+
+#: of transformers.Trainer.create_optimizer:1
+msgid "Setup the optimizer."
+msgstr ""
+
+#: of transformers.Trainer.create_optimizer:3
+msgid ""
+"We provide a reasonable default that works well. If you want to use "
+"something else, you can pass a tuple in the Trainer's init through "
+":obj:`optimizers`, or subclass and override this method in a subclass."
+msgstr ""
+
+#: of transformers.TFTrainer.create_optimizer_and_scheduler:1
+#: transformers.Trainer.create_optimizer_and_scheduler:1
+msgid "Setup the optimizer and the learning rate scheduler."
+msgstr ""
+
+#: of transformers.Trainer.create_optimizer_and_scheduler:3
+msgid ""
+"We provide a reasonable default that works well. If you want to use "
+"something else, you can pass a tuple in the Trainer's init through "
+":obj:`optimizers`, or subclass and override this method (or "
+":obj:`create_optimizer` and/or :obj:`create_scheduler`) in a subclass."
+msgstr ""
+
+#: of transformers.Trainer.create_scheduler:1
+msgid ""
+"Setup the scheduler. The optimizer of the trainer must have been set up "
+"before this method is called."
+msgstr ""
+
+#: of transformers.Trainer.create_scheduler:3
+msgid "The number of training steps to do."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.evaluate:1 transformers.TFTrainer.evaluate:1
+#: transformers.Trainer.evaluate:1
+msgid "Run evaluation and returns metrics."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.evaluate:3 transformers.TFTrainer.evaluate:3
+#: transformers.Trainer.evaluate:3
+msgid ""
+"The calling script will be responsible for providing a method to compute "
+"metrics, as they are task-dependent (pass it to the init "
+":obj:`compute_metrics` argument)."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.evaluate:6 transformers.Trainer.evaluate:6
+msgid "You can also subclass and override this method to inject custom behavior."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.evaluate:8 transformers.Trainer.evaluate:8
+msgid ""
+"Pass a dataset if you wish to override :obj:`self.eval_dataset`. If it is"
+" an :obj:`datasets.Dataset`, columns not accepted by the "
+"``model.forward()`` method are automatically removed. It must implement "
+"the :obj:`__len__` method."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.evaluate:12
+#: transformers.Seq2SeqTrainer.predict:9 transformers.Trainer.evaluate:12
+#: transformers.Trainer.predict:9 transformers.Trainer.prediction_step:14
+msgid ""
+"A list of keys in the output of your model (if it is a dictionary) that "
+"should be ignored when gathering predictions."
+msgstr ""
+
+#: of transformers.Trainer.evaluate:15
+msgid ""
+"An optional prefix to be used as the metrics key prefix. For example the "
+"metrics \"bleu\" will be named \"eval_bleu\" if the prefix is \"eval\" "
+"(default)"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.evaluate transformers.TFTrainer.evaluate
+#: transformers.TFTrainer.run_model transformers.Trainer.evaluate
+#: transformers.Trainer.floating_point_ops
+#: transformers.Trainer.hyperparameter_search
+#: transformers.Trainer.metrics_format transformers.Trainer.pop_callback
+#: transformers.Trainer.prediction_step transformers.Trainer.push_to_hub
+#: transformers.Trainer.training_step
+msgid "Returns"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.evaluate:24 transformers.Trainer.evaluate:19
+msgid ""
+"A dictionary containing the evaluation loss and the potential metrics "
+"computed from the predictions. The dictionary also contains the epoch "
+"number which comes from the training state."
+msgstr ""
+
+#: of transformers.Trainer.evaluation_loop:1
+#: transformers.Trainer.prediction_loop:1
+msgid ""
+"Prediction/evaluation loop, shared by :obj:`Trainer.evaluate()` and "
+":obj:`Trainer.predict()`."
+msgstr ""
+
+#: of transformers.TFTrainer.prediction_loop:4
+#: transformers.Trainer.evaluation_loop:3
+#: transformers.Trainer.prediction_loop:3
+msgid "Works both with or without labels."
+msgstr ""
+
+#: of transformers.Trainer.floating_point_ops:1
+msgid ""
+"For models that inherit from :class:`~transformers.PreTrainedModel`, uses"
+" that method to compute the number of floating point operations for every"
+" backward + forward pass. If using another model, either implement such a"
+" method in the model or subclass and override this method."
+msgstr ""
+
+#: of transformers.Trainer.floating_point_ops:5
+#: transformers.Trainer.prediction_step:7 transformers.Trainer.training_step:7
+msgid "The inputs and targets of the model."
+msgstr ""
+
+#: of transformers.Trainer.floating_point_ops:8
+msgid "The number of floating-point operations."
+msgstr ""
+
+#: of transformers.TFTrainer.run_model transformers.Trainer.floating_point_ops
+#: transformers.Trainer.hyperparameter_search
+#: transformers.Trainer.metrics_format transformers.Trainer.pop_callback
+#: transformers.Trainer.prediction_step transformers.Trainer.training_step
+msgid "Return type"
+msgstr ""
+
+#: of transformers.Trainer.floating_point_ops:9
+msgid ":obj:`int`"
+msgstr ""
+
+#: of transformers.Trainer.get_eval_dataloader:1
+msgid "Returns the evaluation :class:`~torch.utils.data.DataLoader`."
+msgstr ""
+
+#: of transformers.TFTrainer.get_eval_tfdataset:10
+#: transformers.TFTrainer.get_test_tfdataset:10
+#: transformers.TFTrainer.get_train_tfdataset:3
+#: transformers.TFTrainer.run_model:3
+#: transformers.Trainer.get_eval_dataloader:3
+#: transformers.Trainer.get_test_dataloader:3
+#: transformers.Trainer.get_train_dataloader:6
+msgid ""
+"Subclass and override this method if you want to inject some custom "
+"behavior."
+msgstr ""
+
+#: of transformers.Trainer.get_eval_dataloader:5
+msgid ""
+"If provided, will override :obj:`self.eval_dataset`. If it is an "
+":obj:`datasets.Dataset`, columns not accepted by the ``model.forward()`` "
+"method are automatically removed. It must implement :obj:`__len__`."
+msgstr ""
+
+#: of transformers.Trainer.get_test_dataloader:1
+msgid "Returns the test :class:`~torch.utils.data.DataLoader`."
+msgstr ""
+
+#: of transformers.Trainer.get_test_dataloader:5
+msgid ""
+"The test dataset to use. If it is an :obj:`datasets.Dataset`, columns not"
+" accepted by the ``model.forward()`` method are automatically removed. It"
+" must implement :obj:`__len__`."
+msgstr ""
+
+#: of transformers.Trainer.get_train_dataloader:1
+msgid "Returns the training :class:`~torch.utils.data.DataLoader`."
+msgstr ""
+
+#: of transformers.Trainer.get_train_dataloader:3
+msgid ""
+"Will use no sampler if :obj:`self.train_dataset` does not implement "
+":obj:`__len__`, a random sampler (adapted to distributed training if "
+"necessary) otherwise."
+msgstr ""
+
+#: of transformers.Trainer.hyperparameter_search:1
+msgid ""
+"Launch an hyperparameter search using ``optuna`` or ``Ray Tune``. The "
+"optimized quantity is determined by :obj:`compute_objective`, which "
+"defaults to a function returning the evaluation loss when no metric is "
+"provided, the sum of all metrics otherwise."
+msgstr ""
+
+#: of transformers.Trainer.hyperparameter_search:7
+msgid ""
+"To use this method, you need to have provided a ``model_init`` when "
+"initializing your :class:`~transformers.Trainer`: we need to reinitialize"
+" the model at each new run. This is incompatible with the ``optimizers`` "
+"argument, so you need to subclass :class:`~transformers.Trainer` and "
+"override the method "
+":meth:`~transformers.Trainer.create_optimizer_and_scheduler` for custom "
+"optimizer/scheduler."
+msgstr ""
+
+#: of transformers.Trainer.hyperparameter_search:12
+msgid ""
+"A function that defines the hyperparameter search space. Will default to "
+":func:`~transformers.trainer_utils.default_hp_space_optuna` or "
+":func:`~transformers.trainer_utils.default_hp_space_ray` depending on "
+"your backend."
+msgstr ""
+
+#: of transformers.Trainer.hyperparameter_search:16
+msgid ""
+"A function computing the objective to minimize or maximize from the "
+"metrics returned by the :obj:`evaluate` method. Will default to "
+":func:`~transformers.trainer_utils.default_compute_objective`."
+msgstr ""
+
+#: of transformers.Trainer.hyperparameter_search:19
+msgid "The number of trial runs to test."
+msgstr ""
+
+#: of transformers.Trainer.hyperparameter_search:21
+msgid ""
+"Whether to optimize greater or lower objects. Can be :obj:`\"minimize\"` "
+"or :obj:`\"maximize\"`, you should pick :obj:`\"minimize\"` when "
+"optimizing the validation loss, :obj:`\"maximize\"` when optimizing one "
+"or several metrics."
+msgstr ""
+
+#: of transformers.Trainer.hyperparameter_search:25
+msgid ""
+"The backend to use for hyperparameter search. Will default to optuna or "
+"Ray Tune, depending on which one is installed. If both are installed, "
+"will default to optuna."
+msgstr ""
+
+#: of transformers.Trainer.hyperparameter_search:28
+msgid ""
+"Additional keyword arguments passed along to :obj:`optuna.create_study` "
+"or :obj:`ray.tune.run`. For more information see:  - the documentation of"
+" `optuna.create_study   "
+"<https://optuna.readthedocs.io/en/stable/reference/generated/optuna.study.create_study.html>`__"
+" - the documentation of `tune.run   "
+"<https://docs.ray.io/en/latest/tune/api_docs/execution.html#tune-run>`__"
+msgstr ""
+
+#: of transformers.Trainer.hyperparameter_search:28
+msgid ""
+"Additional keyword arguments passed along to :obj:`optuna.create_study` "
+"or :obj:`ray.tune.run`. For more information see:"
+msgstr ""
+
+#: of transformers.Trainer.hyperparameter_search:31
+msgid ""
+"the documentation of `optuna.create_study "
+"<https://optuna.readthedocs.io/en/stable/reference/generated/optuna.study.create_study.html>`__"
+msgstr ""
+
+#: of transformers.Trainer.hyperparameter_search:33
+msgid ""
+"the documentation of `tune.run "
+"<https://docs.ray.io/en/latest/tune/api_docs/execution.html#tune-run>`__"
+msgstr ""
+
+#: of transformers.Trainer.hyperparameter_search:36
+msgid "All the information about the best run."
+msgstr ""
+
+#: of transformers.Trainer.hyperparameter_search:37
+msgid ":class:`transformers.trainer_utils.BestRun`"
+msgstr ""
+
+#: of transformers.Trainer.init_git_repo:1
+msgid "Initializes a git repo in :obj:`self.args.push_to_hub_model_id`."
+msgstr ""
+
+#: of transformers.Trainer.is_local_process_zero:1
+msgid ""
+"Whether or not this process is the local (e.g., on one machine if "
+"training in a distributed fashion on several machines) main process."
+msgstr ""
+
+#: of transformers.Trainer.is_world_process_zero:1
+msgid ""
+"Whether or not this process is the global main process (when training in "
+"a distributed fashion on several machines, this is only going to be "
+":obj:`True` for one process)."
+msgstr ""
+
+#: of transformers.TFTrainer.log:1 transformers.Trainer.log:1
+msgid "Log :obj:`logs` on the various objects watching training."
+msgstr ""
+
+#: of transformers.TFTrainer.log:3 transformers.Trainer.log:3
+msgid "Subclass and override this method to inject custom behavior."
+msgstr ""
+
+#: of transformers.TFTrainer.log:5 transformers.Trainer.log:5
+msgid "The values to log."
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:1
+msgid "Log metrics in a specially formatted way"
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:3 transformers.Trainer.save_metrics:3
+#: transformers.Trainer.save_state:3
+msgid "Under distributed environment this is done only for a process with rank 0."
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:5
+msgid "Mode/split name: one of ``train``, ``eval``, ``test``"
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:7
+msgid "The metrics returned from train/evaluate/predictmetrics: metrics dict"
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:10
+msgid "Notes on memory reports:"
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:12
+msgid ""
+"In order to get memory usage report you need to install ``psutil``. You "
+"can do that with ``pip install psutil``."
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:14
+msgid "Now when this method is run, you will see a report that will include: ::"
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:25
+msgid "**Understanding the reports:**"
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:27
+msgid ""
+"the first segment, e.g., ``train__``, tells you which stage the metrics "
+"are for. Reports starting with ``init_`` will be added to the first stage"
+" that gets run. So that if only evaluation is run, the memory usage for "
+"the ``__init__`` will be reported along with the ``eval_`` metrics."
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:30
+msgid ""
+"the third segment, is either ``cpu`` or ``gpu``, tells you whether it's "
+"the general RAM or the gpu0 memory metric."
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:32
+msgid ""
+"``*_alloc_delta`` - is the difference in the used/allocated memory "
+"counter between the end and the start of the stage - it can be negative "
+"if a function released more memory than it allocated."
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:34
+msgid ""
+"``*_peaked_delta`` - is any extra memory that was consumed and then freed"
+" - relative to the current allocated memory counter - it is never "
+"negative. When you look at the metrics of any stage you add up "
+"``alloc_delta`` + ``peaked_delta`` and you know how much memory was "
+"needed to complete that stage."
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:38
+msgid ""
+"The reporting happens only for process of rank 0 and gpu 0 (if there is a"
+" gpu). Typically this is enough since the main process does the bulk of "
+"work, but it could be not quite so if model parallel is used and then "
+"other GPUs may use a different amount of gpu memory. This is also not the"
+" same under DataParallel where gpu0 may require much more memory than the"
+" rest since it stores the gradient and optimizer states for all "
+"participating GPUS. Perhaps in the future these reports will evolve to "
+"measure those too."
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:44
+msgid ""
+"The CPU RAM metric measures RSS (Resident Set Size) includes both the "
+"memory which is unique to the process and the memory shared with other "
+"processes. It is important to note that it does not include swapped out "
+"memory, so the reports could be imprecise."
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:48
+msgid ""
+"The CPU peak memory is measured using a sampling thread. Due to python's "
+"GIL it may miss some of the peak memory if that thread didn't get a "
+"chance to run when the highest memory was used. Therefore this report can"
+" be less than reality. Using ``tracemalloc`` would have reported the "
+"exact peak memory, but it doesn't report memory allocations outside of "
+"python. So if some C++ CUDA extension allocated its own memory it won't "
+"be reported. And therefore it was dropped in favor of the memory sampling"
+" approach, which reads the current process memory usage."
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:54
+msgid ""
+"The GPU allocated and peak memory reporting is done with "
+"``torch.cuda.memory_allocated()`` and "
+"``torch.cuda.max_memory_allocated()``. This metric reports only "
+"\"deltas\" for pytorch-specific allocations, as ``torch.cuda`` memory "
+"management system doesn't track any memory allocated outside of pytorch. "
+"For example, the very first cuda call typically loads CUDA kernels, which"
+" may take from 0.5 to 2GB of GPU memory."
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:59
+msgid ""
+"Note that this tracker doesn't account for memory allocations outside of "
+":class:`~transformers.Trainer`'s ``__init__``, ``train``, ``evaluate`` "
+"and ``predict`` calls."
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:62
+msgid ""
+"Because ``evaluation`` calls may happen during ``train``, we can't handle"
+" nested invocations because ``torch.cuda.max_memory_allocated`` is a "
+"single counter, so if it gets reset by a nested eval call, ``train``'s "
+"tracker will report incorrect info. If this `pytorch issue "
+"<https://github.com/pytorch/pytorch/issues/16266>`__ gets resolved it "
+"will be possible to change this class to be re-entrant. Until then we "
+"will only track the outer level of ``train``, ``evaluate`` and "
+"``predict`` methods. Which means that if ``eval`` is called during "
+"``train``, it's the latter that will account for its memory usage and "
+"that of the former."
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:69
+msgid ""
+"This also means that if any other tool that is used along the "
+":class:`~transformers.Trainer` calls "
+"``torch.cuda.reset_peak_memory_stats``, the gpu peak memory stats could "
+"be invalid. And the :class:`~transformers.Trainer` will disrupt the "
+"normal behavior of any such tools that rely on calling "
+"``torch.cuda.reset_peak_memory_stats`` themselves."
+msgstr ""
+
+#: of transformers.Trainer.log_metrics:74
+msgid ""
+"For best performance you may want to consider turning the memory "
+"profiling off for production runs."
+msgstr ""
+
+#: of transformers.Trainer.metrics_format:1
+msgid "Reformat Trainer metrics values to a human-readable format"
+msgstr ""
+
+#: of transformers.Trainer.metrics_format:3 transformers.Trainer.save_metrics:7
+msgid "The metrics returned from train/evaluate/predict"
+msgstr ""
+
+#: of transformers.Trainer.metrics_format:6
+msgid "The reformatted metrics"
+msgstr ""
+
+#: of transformers.Trainer.metrics_format:7
+msgid "metrics (:obj:`Dict[str, float]`)"
+msgstr ""
+
+#: of transformers.Trainer.num_examples:1
+msgid ""
+"Helper to get number of samples in a "
+":class:`~torch.utils.data.DataLoader` by accessing its dataset."
+msgstr ""
+
+#: of transformers.Trainer.num_examples:3
+msgid ""
+"Will raise an exception if the underlying dataset does not implement "
+"method :obj:`__len__`"
+msgstr ""
+
+#: of transformers.Trainer.pop_callback:1
+msgid ""
+"Remove a callback from the current list of "
+":class:`~transformer.TrainerCallback` and returns it."
+msgstr ""
+
+#: of transformers.Trainer.pop_callback:3
+msgid ""
+"If the callback is not found, returns :obj:`None` (and no error is "
+"raised)."
+msgstr ""
+
+#: of transformers.Trainer.pop_callback:5
+msgid ""
+"A :class:`~transformer.TrainerCallback` class or an instance of a "
+":class:`~transformer.TrainerCallback`. In the first case, will pop the "
+"first member of that class found in the list of callbacks."
+msgstr ""
+
+#: of transformers.Trainer.pop_callback:9
+msgid "The callback removed, if found."
+msgstr ""
+
+#: of transformers.Trainer.pop_callback:10
+msgid ":class:`~transformer.TrainerCallback`"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.predict:1 transformers.TFTrainer.predict:1
+#: transformers.Trainer.predict:1
+msgid "Run prediction and returns predictions and potential metrics."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.predict:3 transformers.TFTrainer.predict:3
+#: transformers.Trainer.predict:3
+msgid ""
+"Depending on the dataset and your use case, your test dataset may contain"
+" labels. In that case, this method will also return metrics, like in "
+":obj:`evaluate()`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.predict:6 transformers.Trainer.predict:6
+msgid ""
+"Dataset to run the predictions on. If it is an :obj:`datasets.Dataset`, "
+"columns not accepted by the ``model.forward()`` method are automatically "
+"removed. Has to implement the method :obj:`__len__`"
+msgstr ""
+
+#: of transformers.Trainer.predict:12
+msgid ""
+"An optional prefix to be used as the metrics key prefix. For example the "
+"metrics \"bleu\" will be named \"test_bleu\" if the prefix is \"test\" "
+"(default)"
+msgstr ""
+
+#: of transformers.Trainer.predict:18
+msgid ""
+"If your predictions or labels have different sequence length (for "
+"instance because you're doing dynamic padding in a token classification "
+"task) the predictions will be padded (on the right) to allow for "
+"concatenation into one array. The padding index is -100."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.predict:27 transformers.TFTrainer.predict:13
+#: transformers.Trainer.predict:22
+msgid "Returns: `NamedTuple` A namedtuple with the following keys:"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.predict:29 transformers.TFTrainer.predict:15
+#: transformers.Trainer.predict:24
+msgid "predictions (:obj:`np.ndarray`): The predictions on :obj:`test_dataset`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.predict:30 transformers.TFTrainer.predict:16
+#: transformers.Trainer.predict:25
+msgid ""
+"label_ids (:obj:`np.ndarray`, `optional`): The labels (if the dataset "
+"contained some)."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.predict:31 transformers.TFTrainer.predict:17
+#: transformers.Trainer.predict:26
+msgid ""
+"metrics (:obj:`Dict[str, float]`, `optional`): The potential dictionary "
+"of metrics (if the dataset contained labels)."
+msgstr ""
+
+#: of transformers.Trainer.prediction_step:1
+msgid "Perform an evaluation step on :obj:`model` using obj:`inputs`."
+msgstr ""
+
+#: of transformers.Trainer.prediction_step:3
+#: transformers.Trainer.training_step:3
+msgid "Subclass and override to inject custom behavior."
+msgstr ""
+
+#: of transformers.Trainer.prediction_step:5
+msgid "The model to evaluate."
+msgstr ""
+
+#: of transformers.Trainer.prediction_step:7
+#: transformers.Trainer.training_step:7
+msgid ""
+"The inputs and targets of the model.  The dictionary will be unpacked "
+"before being fed to the model. Most models expect the targets under the "
+"argument :obj:`labels`. Check your model's documentation for all accepted"
+" arguments."
+msgstr ""
+
+#: of transformers.Trainer.prediction_step:9
+#: transformers.Trainer.training_step:9
+msgid ""
+"The dictionary will be unpacked before being fed to the model. Most "
+"models expect the targets under the argument :obj:`labels`. Check your "
+"model's documentation for all accepted arguments."
+msgstr ""
+
+#: of transformers.Trainer.prediction_step:12
+msgid "Whether or not to return the loss only."
+msgstr ""
+
+#: of transformers.Trainer.prediction_step:18
+msgid "A tuple with the loss, logits and labels (each being optional)."
+msgstr ""
+
+#: of transformers.Trainer.push_to_hub:1
+msgid ""
+"Upload `self.model` and `self.tokenizer` to the 🤗 model hub on the repo "
+"`self.args.push_to_hub_model_id`."
+msgstr ""
+
+#: of transformers.Trainer.push_to_hub:3
+msgid "Message to commit while pushing."
+msgstr ""
+
+#: of transformers.Trainer.push_to_hub:5
+msgid ""
+"Additional keyword arguments passed along to "
+":meth:`~transformers.Trainer.create_model_card`."
+msgstr ""
+
+#: of transformers.Trainer.push_to_hub:7
+msgid "The url of the commit of your model in the given repository."
+msgstr ""
+
+#: of transformers.Trainer.remove_callback:1
+msgid ""
+"Remove a callback from the current list of "
+":class:`~transformer.TrainerCallback`."
+msgstr ""
+
+#: of transformers.Trainer.remove_callback:3
+msgid ""
+"A :class:`~transformer.TrainerCallback` class or an instance of a "
+":class:`~transformer.TrainerCallback`. In the first case, will remove the"
+" first member of that class found in the list of callbacks."
+msgstr ""
+
+#: of transformers.Trainer.save_metrics:1
+msgid "Save metrics into a json file for that split, e.g. ``train_results.json``."
+msgstr ""
+
+#: of transformers.Trainer.save_metrics:5
+msgid "Mode/split name: one of ``train``, ``eval``, ``test``, ``all``"
+msgstr ""
+
+#: of transformers.Trainer.save_metrics:9
+msgid ""
+"Creates combined metrics by updating ``all_results.json`` with metrics of"
+" this call"
+msgstr ""
+
+#: of transformers.Trainer.save_metrics:12
+msgid ""
+"To understand the metrics please read the docstring of "
+":meth:`~transformers.Trainer.log_metrics`. The only difference is that "
+"raw unformatted numbers are saved in the current method."
+msgstr ""
+
+#: of transformers.TFTrainer.save_model:1 transformers.Trainer.save_model:1
+msgid "Will save the model, so you can reload it using :obj:`from_pretrained()`."
+msgstr ""
+
+#: of transformers.Trainer.save_model:3
+msgid "Will only save from the main process."
+msgstr ""
+
+#: of transformers.Trainer.save_state:1
+msgid ""
+"Saves the Trainer state, since Trainer.save_model saves only the "
+"tokenizer with the model"
+msgstr ""
+
+#: of transformers.Trainer.train:1
+msgid "Main training entry point."
+msgstr ""
+
+#: of transformers.Trainer.train:3
+msgid ""
+"If a :obj:`str`, local path to a saved checkpoint as saved by a previous "
+"instance of :class:`~transformers.Trainer`. If a :obj:`bool` and equals "
+"`True`, load the last checkpoint in `args.output_dir` as saved by a "
+"previous instance of :class:`~transformers.Trainer`. If present, training"
+" will resume from the model/optimizer/scheduler states loaded here."
+msgstr ""
+
+#: of transformers.Trainer.train:8
+msgid "The trial run or the hyperparameter dictionary for hyperparameter search."
+msgstr ""
+
+#: of transformers.Trainer.train:10
+msgid ""
+"A list of keys in the output of your model (if it is a dictionary) that "
+"should be ignored when gathering predictions for evaluation during the "
+"training."
+msgstr ""
+
+#: of transformers.Trainer.train:13
+msgid "Additional keyword arguments used to hide deprecated arguments"
+msgstr ""
+
+#: of transformers.Trainer.training_step:1
+msgid "Perform a training step on a batch of inputs."
+msgstr ""
+
+#: of transformers.Trainer.training_step:5
+msgid "The model to train."
+msgstr ""
+
+#: of transformers.Trainer.training_step:13
+msgid "The tensor with training loss on this batch."
+msgstr ""
+
+#: of transformers.Trainer.training_step:14
+msgid ":obj:`torch.Tensor`"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:88
+msgid "Seq2SeqTrainer"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.evaluate:15
+#: transformers.Seq2SeqTrainer.predict:12
+msgid ""
+"An optional prefix to be used as the metrics key prefix. For example the "
+"metrics \"bleu\" will be named \"eval_bleu\" if the prefix is "
+"``\"eval\"`` (default)"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.evaluate:18
+#: transformers.Seq2SeqTrainer.predict:15
+msgid "The maximum target length to use when predicting with the generate method."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.evaluate:20
+#: transformers.Seq2SeqTrainer.predict:17
+msgid ""
+"Number of beams for beam search that will be used when predicting with "
+"the generate method. 1 means no beam search."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainer.predict:23
+msgid ""
+"If your predictions or labels have different sequence lengths (for "
+"instance because you're doing dynamic padding in a token classification "
+"task) the predictions will be padded (on the right) to allow for "
+"concatenation into one array. The padding index is -100."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:95
+msgid "TFTrainer"
+msgstr ""
+
+#: of transformers.TFTrainer:1
+msgid ""
+"TFTrainer is a simple but feature-complete training and eval loop for "
+"TensorFlow, optimized for 🤗 Transformers."
+msgstr ""
+
+#: of transformers.TFTrainer:3
+msgid "The model to train, evaluate or use for predictions."
+msgstr ""
+
+#: of transformers.TFTrainer:5
+msgid "The arguments to tweak training."
+msgstr ""
+
+#: of transformers.TFTrainer:7
+msgid ""
+"The dataset to use for training. The dataset should yield tuples of "
+"``(features, labels)`` where ``features`` is a dict of input features and"
+" ``labels`` is the labels. If ``labels`` is a tensor, the loss is "
+"calculated by the model by calling ``model(features, labels=labels)``. If"
+" ``labels`` is a dict, such as when using a QuestionAnswering head model "
+"with multiple targets, the loss is instead calculated by calling "
+"``model(features, **labels)``."
+msgstr ""
+
+#: of transformers.TFTrainer:13
+msgid ""
+"The dataset to use for evaluation. The dataset should yield tuples of "
+"``(features, labels)`` where ``features`` is a dict of input features and"
+" ``labels`` is the labels. If ``labels`` is a tensor, the loss is "
+"calculated by the model by calling ``model(features, labels=labels)``. If"
+" ``labels`` is a dict, such as when using a QuestionAnswering head model "
+"with multiple targets, the loss is instead calculated by calling "
+"``model(features, **labels)``."
+msgstr ""
+
+#: of transformers.TFTrainer:22
+msgid "Object to write to TensorBoard."
+msgstr ""
+
+#: of transformers.TFTrainer:24
+msgid ""
+"A tuple containing the optimizer and the scheduler to use. The optimizer "
+"default to an instance of :class:`tf.keras.optimizers.Adam` if "
+":obj:`args.weight_decay_rate` is 0 else an instance of "
+":class:`~transformers.AdamWeightDecay`. The scheduler will default to an "
+"instance of :class:`tf.keras.optimizers.schedules.PolynomialDecay` if "
+":obj:`args.num_warmup_steps` is 0 else an instance of "
+":class:`~transformers.WarmUp`."
+msgstr ""
+
+#: of transformers.TFTrainer.create_optimizer_and_scheduler:3
+msgid ""
+"We provide a reasonable default that works well. If you want to use "
+"something else, you can pass a tuple in the TFTrainer's init through "
+":obj:`optimizers`, or subclass and override this method."
+msgstr ""
+
+#: of transformers.TFTrainer.evaluate:6
+msgid ""
+"Pass a dataset if you wish to override :obj:`self.eval_dataset`. The "
+"dataset should yield tuples of ``(features, labels)`` where ``features`` "
+"is a dict of input features and ``labels`` is the labels. If ``labels`` "
+"is a tensor, the loss is calculated by the model by calling "
+"``model(features, labels=labels)``. If ``labels`` is a dict, such as when"
+" using a QuestionAnswering head model with multiple targets, the loss is "
+"instead calculated by calling ``model(features, **labels)``."
+msgstr ""
+
+#: of transformers.TFTrainer.evaluate:13
+msgid ""
+"A dictionary containing the evaluation loss and the potential metrics "
+"computed from the predictions."
+msgstr ""
+
+#: of transformers.TFTrainer.get_eval_tfdataset:1
+msgid "Returns the evaluation :class:`~tf.data.Dataset`."
+msgstr ""
+
+#: of transformers.TFTrainer.get_eval_tfdataset:3
+msgid ""
+"If provided, will override `self.eval_dataset`. The dataset should yield "
+"tuples of ``(features, labels)`` where ``features`` is a dict of input "
+"features and ``labels`` is the labels. If ``labels`` is a tensor, the "
+"loss is calculated by the model by calling ``model(features, "
+"labels=labels)``. If ``labels`` is a dict, such as when using a "
+"QuestionAnswering head model with multiple targets, the loss is instead "
+"calculated by calling ``model(features, **labels)``."
+msgstr ""
+
+#: of transformers.TFTrainer.get_test_tfdataset:1
+msgid "Returns a test :class:`~tf.data.Dataset`."
+msgstr ""
+
+#: of transformers.TFTrainer.get_test_tfdataset:3
+msgid ""
+"The dataset to use. The dataset should yield tuples of ``(features, "
+"labels)`` where ``features`` is a dict of input features and ``labels`` "
+"is the labels. If ``labels`` is a tensor, the loss is calculated by the "
+"model by calling ``model(features, labels=labels)``. If ``labels`` is a "
+"dict, such as when using a QuestionAnswering head model with multiple "
+"targets, the loss is instead calculated by calling ``model(features, "
+"**labels)``."
+msgstr ""
+
+#: of transformers.TFTrainer.get_train_tfdataset:1
+msgid "Returns the training :class:`~tf.data.Dataset`."
+msgstr ""
+
+#: of transformers.TFTrainer.predict:6
+msgid ""
+"Dataset to run the predictions on. The dataset should yield tuples of "
+"``(features, labels)`` where ``features`` is a dict of input features and"
+" ``labels`` is the labels. If ``labels`` is a tensor, the loss is "
+"calculated by the model by calling ``model(features, labels=labels)``. If"
+" ``labels`` is a dict, such as when using a QuestionAnswering head model "
+"with multiple targets, the loss is instead calculated by calling "
+"``model(features, **labels)``"
+msgstr ""
+
+#: of transformers.TFTrainer.prediction_loop:1
+msgid ""
+"Prediction/evaluation loop, shared by "
+":func:`~transformers.TFTrainer.evaluate` and "
+":func:`~transformers.TFTrainer.predict`."
+msgstr ""
+
+#: of transformers.TFTrainer.prediction_step:1
+msgid "Compute the prediction on features and update the loss with labels."
+msgstr ""
+
+#: of transformers.TFTrainer.prediction_step:3
+#: transformers.TFTrainer.training_step:3
+msgid "Subclass and override to inject some custom behavior."
+msgstr ""
+
+#: of transformers.TFTrainer.run_model:1
+msgid "Computes the loss of the given features and labels pair."
+msgstr ""
+
+#: of transformers.TFTrainer.run_model:5
+msgid "A batch of input features."
+msgstr ""
+
+#: of transformers.TFTrainer.run_model:7
+msgid "A batch of labels."
+msgstr ""
+
+#: of transformers.TFTrainer.run_model:9
+msgid "Whether or not to run the model in training mode."
+msgstr ""
+
+#: of transformers.TFTrainer.run_model:12
+msgid "The loss and logits."
+msgstr ""
+
+#: of transformers.TFTrainer.run_model:13
+msgid "A tuple of two :obj:`tf.Tensor`"
+msgstr ""
+
+#: of transformers.TFTrainer.setup_comet:1
+msgid "Setup the optional Comet.ml integration."
+msgstr ""
+
+#: of transformers.TFTrainer.setup_comet:9
+#: transformers.TFTrainer.setup_wandb:10
+msgid "Environment:"
+msgstr ""
+
+#: of transformers.TFTrainer.setup_comet:4
+msgid "COMET_MODE:"
+msgstr ""
+
+#: of transformers.TFTrainer.setup_comet:5
+msgid "(Optional): str - \"OFFLINE\", \"ONLINE\", or \"DISABLED\""
+msgstr ""
+
+#: of transformers.TFTrainer.setup_comet:6
+msgid "COMET_PROJECT_NAME:"
+msgstr ""
+
+#: of transformers.TFTrainer.setup_comet:7
+msgid "(Optional): str - Comet.ml project name for experiments"
+msgstr ""
+
+#: of transformers.TFTrainer.setup_comet:9
+msgid "COMET_OFFLINE_DIRECTORY:"
+msgstr ""
+
+#: of transformers.TFTrainer.setup_comet:9
+msgid ""
+"(Optional): str - folder to use for saving offline experiments when "
+"`COMET_MODE` is \"OFFLINE\""
+msgstr ""
+
+#: of transformers.TFTrainer.setup_comet:11
+msgid ""
+"For a number of configurable items in the environment, see `here "
+"<https://www.comet.ml/docs/python-sdk/advanced/#comet-configuration-"
+"variables>`__"
+msgstr ""
+
+#: of transformers.TFTrainer.setup_wandb:1
+msgid "Setup the optional Weights & Biases (`wandb`) integration."
+msgstr ""
+
+#: of transformers.TFTrainer.setup_wandb:3
+msgid ""
+"One can subclass and override this method to customize the setup if "
+"needed. Find more information `here "
+"<https://docs.wandb.com/huggingface>`__. You can also override the "
+"following environment variables:"
+msgstr ""
+
+#: of transformers.TFTrainer.setup_wandb:8
+msgid "WANDB_PROJECT:"
+msgstr ""
+
+#: of transformers.TFTrainer.setup_wandb:8
+msgid ""
+"(Optional): str - \"huggingface\" by default, set this to a custom string"
+" to store results in a different project."
+msgstr ""
+
+#: of transformers.TFTrainer.setup_wandb:10
+msgid "WANDB_DISABLED:"
+msgstr ""
+
+#: of transformers.TFTrainer.setup_wandb:11
+msgid ""
+"(Optional): boolean - defaults to false, set to \"true\" to disable wandb"
+" entirely."
+msgstr ""
+
+#: of transformers.TFTrainer.train:1
+msgid "Train method to train the model."
+msgstr ""
+
+#: of transformers.TFTrainer.training_step:1
+msgid "Perform a training step on features and labels."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:102
+msgid "TrainingArguments"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:1
+#: transformers.TFTrainingArguments:1 transformers.TrainingArguments:1
+msgid ""
+"TrainingArguments is the subset of the arguments we use in our example "
+"scripts **which relate to the training loop itself**."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:4
+#: transformers.TFTrainingArguments:4 transformers.TrainingArguments:4
+msgid ""
+"Using :class:`~transformers.HfArgumentParser` we can turn this class into"
+" `argparse <https://docs.python.org/3/library/argparse.html#module-"
+"argparse>`__ arguments that can be specified on the command line."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:8
+#: transformers.TFTrainingArguments:8 transformers.TrainingArguments:8
+msgid ""
+"The output directory where the model predictions and checkpoints will be "
+"written."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:10
+#: transformers.TFTrainingArguments:10 transformers.TrainingArguments:10
+msgid ""
+"If :obj:`True`, overwrite the content of the output directory. Use this "
+"to continue training if :obj:`output_dir` points to a checkpoint "
+"directory."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:13
+#: transformers.TFTrainingArguments:13 transformers.TrainingArguments:13
+msgid ""
+"Whether to run training or not. This argument is not directly used by "
+":class:`~transformers.Trainer`, it's intended to be used by your "
+"training/evaluation scripts instead. See the `example scripts "
+"<https://github.com/huggingface/transformers/tree/master/examples>`__ for"
+" more details."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:17
+#: transformers.TFTrainingArguments:17 transformers.TrainingArguments:17
+msgid ""
+"Whether to run evaluation on the validation set or not. Will be set to "
+":obj:`True` if :obj:`evaluation_strategy` is different from "
+":obj:`\"no\"`. This argument is not directly used by "
+":class:`~transformers.Trainer`, it's intended to be used by your "
+"training/evaluation scripts instead. See the `example scripts "
+"<https://github.com/huggingface/transformers/tree/master/examples>`__ for"
+" more details."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:23
+#: transformers.TFTrainingArguments:23 transformers.TrainingArguments:23
+msgid ""
+"Whether to run predictions on the test set or not. This argument is not "
+"directly used by :class:`~transformers.Trainer`, it's intended to be used"
+" by your training/evaluation scripts instead. See the `example scripts "
+"<https://github.com/huggingface/transformers/tree/master/examples>`__ for"
+" more details."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:28
+#: transformers.TFTrainingArguments:28 transformers.TrainingArguments:28
+msgid ""
+"The evaluation strategy to adopt during training. Possible values are:"
+"      * :obj:`\"no\"`: No evaluation is done during training.     * "
+":obj:`\"steps\"`: Evaluation is done (and logged) every "
+":obj:`eval_steps`.     * :obj:`\"epoch\"`: Evaluation is done at the end "
+"of each epoch."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:29
+#: transformers.TFTrainingArguments:29 transformers.TrainingArguments:29
+msgid "The evaluation strategy to adopt during training. Possible values are:"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:31
+#: transformers.TFTrainingArguments:31 transformers.TrainingArguments:31
+msgid ":obj:`\"no\"`: No evaluation is done during training."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:32
+#: transformers.TFTrainingArguments:32 transformers.TrainingArguments:32
+msgid ":obj:`\"steps\"`: Evaluation is done (and logged) every :obj:`eval_steps`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:33
+#: transformers.TFTrainingArguments:33 transformers.TrainingArguments:33
+msgid ":obj:`\"epoch\"`: Evaluation is done at the end of each epoch."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:35
+#: transformers.TrainingArguments:35
+msgid ""
+"When performing evaluation and generating predictions, only returns the "
+"loss."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:37
+#: transformers.TFTrainingArguments:35 transformers.TrainingArguments:37
+msgid "The batch size per GPU/TPU core/CPU for training."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:39
+#: transformers.TFTrainingArguments:37 transformers.TrainingArguments:39
+msgid "The batch size per GPU/TPU core/CPU for evaluation."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:41
+#: transformers.TrainingArguments:41
+msgid ""
+"Number of updates steps to accumulate the gradients for, before "
+"performing a backward/update pass.  .. warning::      When using gradient"
+" accumulation, one step is counted as one step with backward pass. "
+"Therefore,     logging, evaluation, save will be conducted every "
+"``gradient_accumulation_steps * xxx_step`` training     examples."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:41
+#: transformers.TrainingArguments:41
+msgid ""
+"Number of updates steps to accumulate the gradients for, before "
+"performing a backward/update pass."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:45
+#: transformers.TFTrainingArguments:44 transformers.TrainingArguments:45
+msgid ""
+"When using gradient accumulation, one step is counted as one step with "
+"backward pass. Therefore, logging, evaluation, save will be conducted "
+"every ``gradient_accumulation_steps * xxx_step`` training examples."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:49
+#: transformers.TrainingArguments:49
+msgid ""
+"Number of predictions steps to accumulate the output tensors for, before "
+"moving the results to the CPU. If left unset, the whole predictions are "
+"accumulated on GPU/TPU before being moved to the CPU (faster but requires"
+" more memory)."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:53
+#: transformers.TrainingArguments:53
+msgid "The initial learning rate for :class:`~transformers.AdamW` optimizer."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:55
+#: transformers.TrainingArguments:55
+msgid ""
+"The weight decay to apply (if not zero) to all layers except all bias and"
+" LayerNorm weights in :class:`~transformers.AdamW` optimizer."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:58
+#: transformers.TrainingArguments:58
+msgid "The beta1 hyperparameter for the :class:`~transformers.AdamW` optimizer."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:60
+#: transformers.TrainingArguments:60
+msgid "The beta2 hyperparameter for the :class:`~transformers.AdamW` optimizer."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:62
+#: transformers.TrainingArguments:62
+msgid "The epsilon hyperparameter for the :class:`~transformers.AdamW` optimizer."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:64
+#: transformers.TFTrainingArguments:57 transformers.TrainingArguments:64
+msgid "Maximum gradient norm (for gradient clipping)."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:66
+#: transformers.TrainingArguments:66
+msgid ""
+"Total number of training epochs to perform (if not an integer, will "
+"perform the decimal part percents of the last epoch before stopping "
+"training)."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:69
+#: transformers.TFTrainingArguments:61 transformers.TrainingArguments:69
+msgid ""
+"If set to a positive number, the total number of training steps to "
+"perform. Overrides :obj:`num_train_epochs`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:72
+#: transformers.TrainingArguments:72
+msgid ""
+"The scheduler type to use. See the documentation of "
+":class:`~transformers.SchedulerType` for all possible values."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:75
+#: transformers.TFTrainingArguments:64 transformers.TrainingArguments:75
+msgid ""
+"Ratio of total training steps used for a linear warmup from 0 to "
+":obj:`learning_rate`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:77
+#: transformers.TFTrainingArguments:66 transformers.TrainingArguments:77
+msgid ""
+"Number of steps used for a linear warmup from 0 to :obj:`learning_rate`. "
+"Overrides any effect of :obj:`warmup_ratio`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:80
+#: transformers.TrainingArguments:80
+msgid ""
+"Logger log level to use on the main process. Possible choices are the log"
+" levels as strings: 'debug', 'info', 'warning', 'error' and 'critical', "
+"plus a 'passive' level which doesn't set anything and lets the "
+"application set the level."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:84
+#: transformers.TrainingArguments:84
+msgid "Logger log level to use on replicas. Same choices as ``log_level``\""
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:86
+#: transformers.TrainingArguments:86
+msgid ""
+"In multinode distributed training, whether to log using :obj:`log_level` "
+"once per node, or only on the main node."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:89
+#: transformers.TrainingArguments:89
+msgid ""
+"`TensorBoard <https://www.tensorflow.org/tensorboard>`__ log directory. "
+"Will default to `output_dir/runs/**CURRENT_DATETIME_HOSTNAME**`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:92
+#: transformers.TFTrainingArguments:72 transformers.TrainingArguments:92
+msgid ""
+"The logging strategy to adopt during training. Possible values are:      "
+"* :obj:`\"no\"`: No logging is done during training.     * "
+":obj:`\"epoch\"`: Logging is done at the end of each epoch.     * "
+":obj:`\"steps\"`: Logging is done every :obj:`logging_steps`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:93
+#: transformers.TFTrainingArguments:73 transformers.TrainingArguments:93
+msgid "The logging strategy to adopt during training. Possible values are:"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:95
+#: transformers.TFTrainingArguments:75 transformers.TrainingArguments:95
+msgid ":obj:`\"no\"`: No logging is done during training."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:96
+#: transformers.TFTrainingArguments:76 transformers.TrainingArguments:96
+msgid ":obj:`\"epoch\"`: Logging is done at the end of each epoch."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:97
+#: transformers.TFTrainingArguments:77 transformers.TrainingArguments:97
+msgid ":obj:`\"steps\"`: Logging is done every :obj:`logging_steps`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:99
+#: transformers.TFTrainingArguments:79 transformers.TrainingArguments:99
+msgid "Whether to log and evaluate the first :obj:`global_step` or not."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:101
+#: transformers.TFTrainingArguments:81 transformers.TrainingArguments:101
+msgid ""
+"Number of update steps between two logs if "
+":obj:`logging_strategy=\"steps\"`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:103
+#: transformers.TFTrainingArguments:83 transformers.TrainingArguments:103
+msgid ""
+"The checkpoint save strategy to adopt during training. Possible values "
+"are:      * :obj:`\"no\"`: No save is done during training.     * "
+":obj:`\"epoch\"`: Save is done at the end of each epoch.     * "
+":obj:`\"steps\"`: Save is done every :obj:`save_steps`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:104
+#: transformers.TFTrainingArguments:84 transformers.TrainingArguments:104
+msgid ""
+"The checkpoint save strategy to adopt during training. Possible values "
+"are:"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:106
+#: transformers.TFTrainingArguments:86 transformers.TrainingArguments:106
+msgid ":obj:`\"no\"`: No save is done during training."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:107
+#: transformers.TFTrainingArguments:87 transformers.TrainingArguments:107
+msgid ":obj:`\"epoch\"`: Save is done at the end of each epoch."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:108
+#: transformers.TFTrainingArguments:88 transformers.TrainingArguments:108
+msgid ":obj:`\"steps\"`: Save is done every :obj:`save_steps`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:110
+#: transformers.TFTrainingArguments:90 transformers.TrainingArguments:110
+msgid ""
+"Number of updates steps before two checkpoint saves if "
+":obj:`save_strategy=\"steps\"`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:112
+#: transformers.TFTrainingArguments:92 transformers.TrainingArguments:112
+msgid ""
+"If a value is passed, will limit the total amount of checkpoints. Deletes"
+" the older checkpoints in :obj:`output_dir`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:115
+#: transformers.TrainingArguments:115
+msgid ""
+"When doing multi-node distributed training, whether to save models and "
+"checkpoints on each node, or only on the main one.  This should not be "
+"activated when the different nodes use the same storage as the files will"
+" be saved with the same names for each node."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:115
+#: transformers.TrainingArguments:115
+msgid ""
+"When doing multi-node distributed training, whether to save models and "
+"checkpoints on each node, or only on the main one."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:118
+#: transformers.TrainingArguments:118
+msgid ""
+"This should not be activated when the different nodes use the same "
+"storage as the files will be saved with the same names for each node."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:121
+#: transformers.TFTrainingArguments:95 transformers.TrainingArguments:121
+msgid "Whether to not use CUDA even when it is available or not."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:123
+#: transformers.TrainingArguments:123
+msgid ""
+"Random seed that will be set at the beginning of training. To ensure "
+"reproducibility across runs, use the "
+":func:`~transformers.Trainer.model_init` function to instantiate the "
+"model if it has some randomly initialized parameters."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:127
+#: transformers.TrainingArguments:127
+msgid ""
+"Whether to use 16-bit (mixed) precision training instead of 32-bit "
+"training."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:129
+#: transformers.TFTrainingArguments:101 transformers.TrainingArguments:129
+msgid ""
+"For :obj:`fp16` training, Apex AMP optimization level selected in ['O0', "
+"'O1', 'O2', and 'O3']. See details on the `Apex documentation "
+"<https://nvidia.github.io/apex/amp.html>`__."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:132
+#: transformers.TrainingArguments:132
+msgid ""
+"The backend to use for mixed precision training. Must be one of "
+":obj:`\"auto\"`, :obj:`\"amp\"` or :obj:`\"apex\"`. :obj:`\"auto\"` will "
+"use AMP or APEX depending on the PyTorch version detected, while the "
+"other choices will force the requested backend."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:136
+#: transformers.TrainingArguments:136
+msgid ""
+"Whether to use full 16-bit precision evaluation instead of 32-bit. This "
+"will be faster and save memory but can harm metric values."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:139
+#: transformers.TrainingArguments:139
+msgid "Rank of the process during distributed training."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:141
+#: transformers.TFTrainingArguments:106 transformers.TrainingArguments:141
+msgid ""
+"When training on TPU, the number of TPU cores (automatically passed by "
+"launcher script)."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:143
+#: transformers.TFTrainingArguments:110 transformers.TrainingArguments:143
+msgid ""
+"Whether to drop the last incomplete batch (if the length of the dataset "
+"is not divisible by the batch size) or not."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:146
+#: transformers.TrainingArguments:146
+msgid ""
+"Number of update steps between two evaluations if "
+":obj:`evaluation_strategy=\"steps\"`. Will default to the same value as "
+":obj:`logging_steps` if not set."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:149
+#: transformers.TrainingArguments:149
+msgid ""
+"Number of subprocesses to use for data loading (PyTorch only). 0 means "
+"that the data will be loaded in the main process."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:152
+#: transformers.TrainingArguments:152
+msgid ""
+"Some models like :doc:`TransformerXL <../model_doc/transformerxl>` or "
+":doc:`XLNet <../model_doc/xlnet>` can make use of the past hidden states "
+"for their predictions. If this argument is set to a positive int, the "
+"``Trainer`` will use the corresponding output (usually index 2) as the "
+"past state and feed it to the model at the next training step under the "
+"keyword argument ``mems``."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:157
+#: transformers.TrainingArguments:157
+msgid ""
+"A descriptor for the run. Typically used for `wandb "
+"<https://www.wandb.com/>`_ logging."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:159
+#: transformers.TrainingArguments:159
+msgid ""
+"Whether or not to disable the tqdm progress bars and table of metrics "
+"produced by :class:`~transformers.notebook.NotebookTrainingTracker` in "
+"Jupyter Notebooks. Will default to :obj:`True` if the logging level is "
+"set to warn or lower (default), :obj:`False` otherwise."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:163
+#: transformers.TrainingArguments:163
+msgid ""
+"If using :obj:`datasets.Dataset` datasets, whether or not to "
+"automatically remove the columns unused by the model forward method.  "
+"(Note that this behavior is not implemented for "
+":class:`~transformers.TFTrainer` yet.)"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:163
+#: transformers.TrainingArguments:163
+msgid ""
+"If using :obj:`datasets.Dataset` datasets, whether or not to "
+"automatically remove the columns unused by the model forward method."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:166
+#: transformers.TrainingArguments:166
+msgid ""
+"(Note that this behavior is not implemented for "
+":class:`~transformers.TFTrainer` yet.)"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:168
+#: transformers.TrainingArguments:168
+msgid ""
+"The list of keys in your dictionary of inputs that correspond to the "
+"labels.  Will eventually default to :obj:`[\"labels\"]` except if the "
+"model used is one of the :obj:`XxxForQuestionAnswering` in which case it "
+"will default to :obj:`[\"start_positions\", \"end_positions\"]`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:168
+#: transformers.TrainingArguments:168
+msgid ""
+"The list of keys in your dictionary of inputs that correspond to the "
+"labels."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:170
+#: transformers.TrainingArguments:170
+msgid ""
+"Will eventually default to :obj:`[\"labels\"]` except if the model used "
+"is one of the :obj:`XxxForQuestionAnswering` in which case it will "
+"default to :obj:`[\"start_positions\", \"end_positions\"]`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:174
+#: transformers.TrainingArguments:174
+msgid ""
+"Whether or not to load the best model found during training at the end of"
+" training.  .. note::      When set to :obj:`True`, the parameters "
+":obj:`save_strategy` needs to be the same as     :obj:`eval_strategy`, "
+"and in the case it is \"steps\", :obj:`save_steps` must be a round "
+"multiple of     :obj:`eval_steps`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:174
+#: transformers.TrainingArguments:174
+msgid ""
+"Whether or not to load the best model found during training at the end of"
+" training."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:178
+#: transformers.TrainingArguments:178
+msgid ""
+"When set to :obj:`True`, the parameters :obj:`save_strategy` needs to be "
+"the same as :obj:`eval_strategy`, and in the case it is \"steps\", "
+":obj:`save_steps` must be a round multiple of :obj:`eval_steps`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:182
+#: transformers.TrainingArguments:182
+msgid ""
+"Use in conjunction with :obj:`load_best_model_at_end` to specify the "
+"metric to use to compare two different models. Must be the name of a "
+"metric returned by the evaluation with or without the prefix "
+":obj:`\"eval_\"`. Will default to :obj:`\"loss\"` if unspecified and "
+":obj:`load_best_model_at_end=True` (to use the evaluation loss).  If you "
+"set this value, :obj:`greater_is_better` will default to :obj:`True`. "
+"Don't forget to set it to :obj:`False` if your metric is better when "
+"lower."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:182
+#: transformers.TrainingArguments:182
+msgid ""
+"Use in conjunction with :obj:`load_best_model_at_end` to specify the "
+"metric to use to compare two different models. Must be the name of a "
+"metric returned by the evaluation with or without the prefix "
+":obj:`\"eval_\"`. Will default to :obj:`\"loss\"` if unspecified and "
+":obj:`load_best_model_at_end=True` (to use the evaluation loss)."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:187
+#: transformers.TrainingArguments:187
+msgid ""
+"If you set this value, :obj:`greater_is_better` will default to "
+":obj:`True`. Don't forget to set it to :obj:`False` if your metric is "
+"better when lower."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:190
+#: transformers.TrainingArguments:190
+msgid ""
+"Use in conjunction with :obj:`load_best_model_at_end` and "
+":obj:`metric_for_best_model` to specify if better models should have a "
+"greater metric or not. Will default to:  - :obj:`True` if "
+":obj:`metric_for_best_model` is set to a value that isn't :obj:`\"loss\"`"
+" or   :obj:`\"eval_loss\"`. - :obj:`False` if "
+":obj:`metric_for_best_model` is not set, or set to :obj:`\"loss\"` or "
+":obj:`\"eval_loss\"`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:190
+#: transformers.TrainingArguments:190
+msgid ""
+"Use in conjunction with :obj:`load_best_model_at_end` and "
+":obj:`metric_for_best_model` to specify if better models should have a "
+"greater metric or not. Will default to:"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:193
+#: transformers.TrainingArguments:193
+msgid ""
+":obj:`True` if :obj:`metric_for_best_model` is set to a value that isn't "
+":obj:`\"loss\"` or :obj:`\"eval_loss\"`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:195
+#: transformers.TrainingArguments:195
+msgid ""
+":obj:`False` if :obj:`metric_for_best_model` is not set, or set to "
+":obj:`\"loss\"` or :obj:`\"eval_loss\"`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:197
+#: transformers.TrainingArguments:197
+msgid ""
+"When resuming training, whether or not to skip the epochs and batches to "
+"get the data loading at the same stage as in the previous training. If "
+"set to :obj:`True`, the training will begin faster (as that skipping step"
+" can take a long time) but will not yield the same results as the "
+"interrupted training would have."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:201
+#: transformers.TrainingArguments:201
+msgid ""
+"Use Sharded DDP training from `FairScale "
+"<https://github.com/facebookresearch/fairscale>`__ (in distributed "
+"training only). This is an experimental feature.  A list of options along"
+" the following:  - :obj:`\"simple\"`: to use first instance of sharded "
+"DDP released by fairscale (:obj:`ShardedDDP`) similar   to ZeRO-2. - "
+":obj:`\"zero_dp_2\"`: to use the second instance of sharded DPP released "
+"by fairscale   (:obj:`FullyShardedDDP`) in Zero-2 mode (with "
+":obj:`reshard_after_forward=False`). - :obj:`\"zero_dp_3\"`: to use the "
+"second instance of sharded DPP released by fairscale   "
+"(:obj:`FullyShardedDDP`) in Zero-3 mode (with "
+":obj:`reshard_after_forward=True`). - :obj:`\"offload\"`: to add ZeRO-"
+"offload (only compatible with :obj:`\"zero_dp_2\"` and "
+":obj:`\"zero_dp_3\"`).  If a string is passed, it will be split on space."
+" If a bool is passed, it will be converted to an empty list for "
+":obj:`False` and :obj:`[\"simple\"]` for :obj:`True`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:201
+#: transformers.TrainingArguments:201
+msgid ""
+"Use Sharded DDP training from `FairScale "
+"<https://github.com/facebookresearch/fairscale>`__ (in distributed "
+"training only). This is an experimental feature."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:204
+#: transformers.TrainingArguments:204
+msgid "A list of options along the following:"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:206
+#: transformers.TrainingArguments:206
+msgid ""
+":obj:`\"simple\"`: to use first instance of sharded DDP released by "
+"fairscale (:obj:`ShardedDDP`) similar to ZeRO-2."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:208
+#: transformers.TrainingArguments:208
+msgid ""
+":obj:`\"zero_dp_2\"`: to use the second instance of sharded DPP released "
+"by fairscale (:obj:`FullyShardedDDP`) in Zero-2 mode (with "
+":obj:`reshard_after_forward=False`)."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:210
+#: transformers.TrainingArguments:210
+msgid ""
+":obj:`\"zero_dp_3\"`: to use the second instance of sharded DPP released "
+"by fairscale (:obj:`FullyShardedDDP`) in Zero-3 mode (with "
+":obj:`reshard_after_forward=True`)."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:212
+#: transformers.TrainingArguments:212
+msgid ""
+":obj:`\"offload\"`: to add ZeRO-offload (only compatible with "
+":obj:`\"zero_dp_2\"` and :obj:`\"zero_dp_3\"`)."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:214
+#: transformers.TrainingArguments:214
+msgid ""
+"If a string is passed, it will be split on space. If a bool is passed, it"
+" will be converted to an empty list for :obj:`False` and "
+":obj:`[\"simple\"]` for :obj:`True`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:217
+#: transformers.TrainingArguments:217
+msgid ""
+"Use `Deepspeed <https://github.com/microsoft/deepspeed>`__. This is an "
+"experimental feature and its API may evolve in the future. The value is "
+"either the location of DeepSpeed json config file (e.g., "
+"``ds_config.json``) or an already loaded json file as a :obj:`dict`\""
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:221
+#: transformers.TrainingArguments:221
+msgid ""
+"The label smoothing factor to use. Zero means no label smoothing, "
+"otherwise the underlying onehot-encoded labels are changed from 0s and 1s"
+" to :obj:`label_smoothing_factor/num_labels` and :obj:`1 - "
+"label_smoothing_factor + label_smoothing_factor/num_labels` respectively."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:225
+#: transformers.TrainingArguments:225
+msgid ""
+"Enable one or more debug features. This is an experimental feature.  "
+"Possible options are:  - :obj:`\"underflow_overflow\"`: detects overflow "
+"in model's input/outputs and reports the last frames that   led to the "
+"event - :obj:`\"tpu_metrics_debug\"`: print debug metrics on TPU  The "
+"options should be separated by whitespaces."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:225
+#: transformers.TrainingArguments:225
+msgid "Enable one or more debug features. This is an experimental feature."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:227
+#: transformers.TrainingArguments:227
+msgid "Possible options are:"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:229
+#: transformers.TrainingArguments:229
+msgid ""
+":obj:`\"underflow_overflow\"`: detects overflow in model's input/outputs "
+"and reports the last frames that led to the event"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:231
+#: transformers.TrainingArguments:231
+msgid ":obj:`\"tpu_metrics_debug\"`: print debug metrics on TPU"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:233
+#: transformers.TrainingArguments:233
+msgid "The options should be separated by whitespaces."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:235
+#: transformers.TrainingArguments:235
+msgid ""
+"Whether or not to use the :class:`~transformers.Adafactor` optimizer "
+"instead of :class:`~transformers.AdamW`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:238
+#: transformers.TrainingArguments:238
+msgid ""
+"Whether or not to group together samples of roughly the same length in "
+"the training dataset (to minimize padding applied and be more efficient)."
+" Only useful if applying dynamic padding."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:241
+#: transformers.TrainingArguments:241
+msgid ""
+"Column name for precomputed lengths. If the column exists, grouping by "
+"length will use these values rather than computing them on train startup."
+" Ignored unless :obj:`group_by_length` is :obj:`True` and the dataset is "
+"an instance of :obj:`Dataset`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:245
+#: transformers.TrainingArguments:245
+msgid ""
+"The list of integrations to report the results and logs to. Supported "
+"platforms are :obj:`\"azure_ml\"`, :obj:`\"comet_ml\"`, "
+":obj:`\"mlflow\"`, :obj:`\"tensorboard\"` and :obj:`\"wandb\"`. Use "
+":obj:`\"all\"` to report to all integrations installed, :obj:`\"none\"` "
+"for no integrations."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:249
+#: transformers.TrainingArguments:249
+msgid ""
+"When using distributed training, the value of the flag "
+":obj:`find_unused_parameters` passed to :obj:`DistributedDataParallel`. "
+"Will default to :obj:`False` if gradient checkpointing is used, "
+":obj:`True` otherwise."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:253
+#: transformers.TrainingArguments:253
+msgid ""
+"Whether you want to pin memory in data loaders or not. Will default to "
+":obj:`True`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:255
+#: transformers.TrainingArguments:255
+msgid ""
+"Whether to skip adding of memory profiler reports to metrics. This is "
+"skipped by default because it slows down the training and evaluation "
+"speed."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:258
+#: transformers.TrainingArguments:258
+msgid ""
+"Whether or not to upload the trained model to the hub after training. If "
+"this is activated, and :obj:`output_dir` exists, it needs to be a local "
+"clone of the repository to which the :class:`~transformers.Trainer` will "
+"be pushed."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:262
+#: transformers.TrainingArguments:262
+msgid ""
+"The path to a folder with a valid checkpoint for your model. This "
+"argument is not directly used by :class:`~transformers.Trainer`, it's "
+"intended to be used by your training/evaluation scripts instead. See the "
+"`example scripts "
+"<https://github.com/huggingface/transformers/tree/master/examples>`__ for"
+" more details."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:267
+#: transformers.TrainingArguments:267
+msgid ""
+"The name of the repository to which push the "
+":class:`~transformers.Trainer` when :obj:`push_to_hub=True`. Will default"
+" to the name of :obj:`output_dir`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:270
+#: transformers.TrainingArguments:270
+msgid ""
+"The name of the organization in with to which push the "
+":class:`~transformers.Trainer`."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:272
+#: transformers.TrainingArguments:272
+msgid ""
+"The token to use to push the model to the Hub. Will default to the token "
+"in the cache folder obtained with :obj:`huggingface-cli login`."
+msgstr ""
+
+#: of transformers.TrainingArguments.device:1
+msgid "The device used by this process."
+msgstr ""
+
+#: of transformers.TFTrainingArguments.eval_batch_size:1
+#: transformers.TrainingArguments.eval_batch_size:1
+msgid ""
+"The actual batch size for evaluation (may differ from "
+":obj:`per_gpu_eval_batch_size` in distributed training)."
+msgstr ""
+
+#: of transformers.TrainingArguments.get_process_log_level:1
+msgid ""
+"Returns the log level to be used depending on whether this process is the"
+" main process of node 0, main process of node non-0, or a non-main "
+"process."
+msgstr ""
+
+#: of transformers.TrainingArguments.get_process_log_level:4
+msgid ""
+"For the main process the log level defaults to ``logging.INFO`` unless "
+"overridden by ``log_level`` argument."
+msgstr ""
+
+#: of transformers.TrainingArguments.get_process_log_level:6
+msgid ""
+"For the replica processes the log level defaults to ``logging.WARNING`` "
+"unless overridden by ``log_level_replica`` argument."
+msgstr ""
+
+#: of transformers.TrainingArguments.get_process_log_level:9
+msgid ""
+"The choice between the main and replica process settings is made "
+"according to the return value of ``should_log``."
+msgstr ""
+
+#: of transformers.TrainingArguments.get_warmup_steps:1
+msgid "Get number of steps used for a linear warmup."
+msgstr ""
+
+#: of transformers.TrainingArguments.local_process_index:1
+msgid "The index of the local process used."
+msgstr ""
+
+#: of transformers.TrainingArguments.main_process_first:1
+msgid ""
+"A context manager for torch distributed environment where on needs to do "
+"something on the main process, while blocking replicas, and when it's "
+"finished releasing the replicas."
+msgstr ""
+
+#: of transformers.TrainingArguments.main_process_first:4
+msgid ""
+"One such use is for ``datasets``'s ``map`` feature which to be efficient "
+"should be run once on the main process, which upon completion saves a "
+"cached version of results and which then automatically gets loaded by the"
+" replicas."
+msgstr ""
+
+#: of transformers.TrainingArguments.main_process_first:8
+msgid ""
+"if :obj:`True` first means process of rank 0 of each node if :obj:`False`"
+" first means process of rank 0 of node rank 0 In multi-node environment "
+"with a shared filesystem you most likely will want to use ``local=False``"
+" so that only the main process of the first node will do the processing. "
+"If however, the filesystem is not shared, then the main process of each "
+"node will need to do the processing, which is the default behavior."
+msgstr ""
+
+#: of transformers.TrainingArguments.main_process_first:14
+msgid "a work description to be used in debug logs"
+msgstr ""
+
+#: of transformers.TrainingArguments.n_gpu:1
+msgid "The number of GPUs used by this process."
+msgstr ""
+
+#: of transformers.TrainingArguments.n_gpu:5
+msgid ""
+"This will only be greater than one when you have multiple GPUs available "
+"but are not using distributed training. For distributed training, it will"
+" always be 1."
+msgstr ""
+
+#: of transformers.TrainingArguments.parallel_mode:1
+msgid ""
+"The current mode used for parallelism if multiple GPUs/TPU cores are "
+"available. One of:"
+msgstr ""
+
+#: of transformers.TrainingArguments.parallel_mode:3
+msgid ":obj:`ParallelMode.NOT_PARALLEL`: no parallelism (CPU or one GPU)."
+msgstr ""
+
+#: of transformers.TrainingArguments.parallel_mode:4
+msgid ""
+":obj:`ParallelMode.NOT_DISTRIBUTED`: several GPUs in one single process "
+"(uses :obj:`torch.nn.DataParallel`)."
+msgstr ""
+
+#: of transformers.TrainingArguments.parallel_mode:5
+msgid ""
+":obj:`ParallelMode.DISTRIBUTED`: several GPUs, each having its own "
+"process (uses :obj:`torch.nn.DistributedDataParallel`)."
+msgstr ""
+
+#: of transformers.TrainingArguments.parallel_mode:7
+msgid ":obj:`ParallelMode.TPU`: several TPU cores."
+msgstr ""
+
+#: of transformers.TrainingArguments.place_model_on_device:1
+msgid "Can be subclassed and overridden for some specific integrations."
+msgstr ""
+
+#: of transformers.TrainingArguments.process_index:1
+msgid "The index of the current process used."
+msgstr ""
+
+#: of transformers.TrainingArguments.should_log:1
+msgid "Whether or not the current process should produce log."
+msgstr ""
+
+#: of transformers.TrainingArguments.should_save:1
+msgid ""
+"Whether or not the current process should write to disk, e.g., to save "
+"models and checkpoints."
+msgstr ""
+
+#: of transformers.TrainingArguments.to_dict:1
+msgid ""
+"Serializes this instance while replace `Enum` by their values (for JSON "
+"serialization support)."
+msgstr ""
+
+#: of transformers.TrainingArguments.to_json_string:1
+msgid "Serializes this instance to a JSON string."
+msgstr ""
+
+#: of transformers.TrainingArguments.to_sanitized_dict:1
+msgid "Sanitized serialization to use with TensorBoard’s hparams"
+msgstr ""
+
+#: of transformers.TFTrainingArguments.train_batch_size:1
+#: transformers.TrainingArguments.train_batch_size:1
+msgid ""
+"The actual batch size for training (may differ from "
+":obj:`per_gpu_train_batch_size` in distributed training)."
+msgstr ""
+
+#: of transformers.TrainingArguments.world_size:1
+msgid "The number of processes used in parallel."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:109
+msgid "Seq2SeqTrainingArguments"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:280
+msgid "sortish_sampler (:obj:`bool`, `optional`, defaults to :obj:`False`):"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:277
+msgid ""
+"Whether to use a `sortish sampler` or not. Only possible if the "
+"underlying datasets are `Seq2SeqDataset` for now but will become "
+"generally available in the near future."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:280
+msgid ""
+"It sorts the inputs according to lengths in order to minimize the padding"
+" size, with a bit of randomness for the training set."
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:282
+msgid "predict_with_generate (:obj:`bool`, `optional`, defaults to :obj:`False`):"
+msgstr ""
+
+#: of transformers.Seq2SeqTrainingArguments:283
+msgid "Whether to use generate to calculate generative metrics (ROUGE, BLEU)."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:116
+msgid "TFTrainingArguments"
+msgstr ""
+
+#: of transformers.TFTrainingArguments:39
+msgid ""
+"(:obj:`int`, `optional`, defaults to 1): Number of updates steps to "
+"accumulate the gradients for, before performing a backward/update pass.  "
+".. warning::      When using gradient accumulation, one step is counted "
+"as one step with backward pass. Therefore,     logging, evaluation, save "
+"will be conducted every ``gradient_accumulation_steps * xxx_step`` "
+"training     examples."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:39
+msgid ""
+"(:obj:`int`, `optional`, defaults to 1): Number of updates steps to "
+"accumulate the gradients for, before performing a backward/update pass."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:47
+msgid "The initial learning rate for Adam."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:49
+msgid "The weight decay to apply (if not zero)."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:51
+msgid "The beta1 hyperparameter for the Adam optimizer."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:53
+msgid "The beta2 hyperparameter for the Adam optimizer."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:55
+msgid "The epsilon hyperparameter for the Adam optimizer."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:59
+msgid "Total number of training epochs to perform."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:69
+msgid ""
+"`TensorBoard <https://www.tensorflow.org/tensorboard>`__ log directory. "
+"Will default to `runs/**CURRENT_DATETIME_HOSTNAME**`."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:97
+msgid "Random seed that will be set at the beginning of training."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:99
+msgid ""
+"Whether to use 16-bit (mixed) precision training (through NVIDIA Apex) "
+"instead of 32-bit training."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:104
+msgid "During distributed training, the rank of the process."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:108
+msgid ""
+"Whether to activate the trace to record computation graphs and profiling "
+"information or not."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:113
+msgid "Number of update steps before two evaluations."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:115
+msgid ""
+"Some models like :doc:`TransformerXL <../model_doc/transformerxl>` or "
+":doc`XLNet <../model_doc/xlnet>` can make use of the past hidden states "
+"for their predictions. If this argument is set to a positive int, the "
+"``Trainer`` will use the corresponding output (usually index 2) as the "
+"past state and feed it to the model at the next training step under the "
+"keyword argument ``mems``."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:120
+msgid "The name of the TPU the process is running on."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:122
+msgid ""
+"The zone of the TPU the process is running on. If not specified, we will "
+"attempt to automatically detect from metadata."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:125
+msgid ""
+"Google Cloud Project name for the Cloud TPU-enabled project. If not "
+"specified, we will attempt to automatically detect from metadata."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:128
+msgid "A descriptor for the run. Notably used for wandb logging."
+msgstr ""
+
+#: of transformers.TFTrainingArguments:130
+msgid "Whether to activate the XLA compilation or not."
+msgstr ""
+
+#: of transformers.TFTrainingArguments.n_gpu:1
+#: transformers.TFTrainingArguments.n_replicas:1
+msgid "The number of replicas (CPUs, GPUs or TPU cores) used in this training."
+msgstr ""
+
+#: of transformers.TFTrainingArguments.strategy:1
+msgid "The strategy used for distributed training."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:123
+msgid "Logging"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:125
+msgid ""
+"By default :class:`~transformers.Trainer` will use ``logging.INFO`` for "
+"the main process and ``logging.WARNING`` for the replicas if any."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:128
+msgid ""
+"These defaults can be overridden to use any of the 5 ``logging`` levels "
+"with :class:`~transformers.TrainingArguments`'s arguments:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:131
+msgid "``log_level`` - for the main process"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:132
+msgid "``log_level_replica`` - for the replicas"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:134
+msgid ""
+"Further, if :class:`~transformers.TrainingArguments`'s "
+"``log_on_each_node`` is set to ``False`` only the main node will use the "
+"log level settings for its main process, all other nodes will use the log"
+" level settings for replicas."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:137
+msgid ""
+"Note that :class:`~transformers.Trainer` is going to set "
+"``transformers``'s log level separately for each node in its "
+":meth:`~transformers.Trainer.__init__`. So you may want to set this "
+"sooner (see the next example) if you tap into other ``transformers`` "
+"functionality before creating the :class:`~transformers.Trainer` object."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:141
+msgid "Here is an example of how this can be used in an application:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:163
+msgid ""
+"And then if you only want to see warnings on the main node and all other "
+"nodes to not print any most likely duplicated warnings you could run it "
+"as:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:170
+msgid ""
+"In the multi-node environment if you also don't want the logs to repeat "
+"for each node's main process, you will want to change the above to:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:177
+msgid ""
+"and then only the main process of the first node will log at the "
+"\"warning\" level, and all other processes on the main node and all "
+"processes on other nodes will log at the \"error\" level."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:180
+msgid "If you need your application to be as quiet as possible you could do:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:186
+msgid "(add ``--log_on_each_node 0`` if on multi-node environment)"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:191
+msgid "Randomness"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:193
+msgid ""
+"When resuming from a checkpoint generated by "
+":class:`~transformers.Trainer` all efforts are made to restore the "
+"`python`, `numpy` and `pytorch` RNG states to the same states as they "
+"were at the moment of saving that checkpoint, which should make the "
+"\"stop and resume\" style of training as close as possible to non-stop "
+"training."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:197
+msgid ""
+"However, due to various default non-deterministic pytorch settings this "
+"might not fully work. If you want full determinism please refer to "
+"`Controlling sources of randomness "
+"<https://pytorch.org/docs/stable/notes/randomness.html>`__. As explained "
+"in the document, that some of those settings that make things "
+"determinstic (.e.g., ``torch.backends.cudnn.deterministic``) may slow "
+"things down, therefore this can't be done by default, but you can enable "
+"those yourself if needed."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:205
+msgid "Trainer Integrations"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:209
+msgid ""
+"The :class:`~transformers.Trainer` has been extended to support libraries"
+" that may dramatically improve your training time and fit much bigger "
+"models."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:212
+msgid ""
+"Currently it supports third party solutions, `DeepSpeed "
+"<https://github.com/microsoft/DeepSpeed>`__ and `FairScale "
+"<https://github.com/facebookresearch/fairscale/>`__, which implement "
+"parts of the paper `ZeRO: Memory Optimizations Toward Training Trillion "
+"Parameter Models, by Samyam Rajbhandari, Jeff Rasley, Olatunji Ruwase, "
+"Yuxiong He <https://arxiv.org/abs/1910.02054>`__."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:217
+msgid "This provided support is new and experimental as of this writing."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:222
+msgid "CUDA Extension Installation Notes"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:224
+msgid ""
+"As of this writing, both FairScale and Deepspeed require compilation of "
+"CUDA C++ code, before they can be used."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:226
+msgid ""
+"While all installation issues should be dealt with through the "
+"corresponding GitHub Issues of `FairScale "
+"<https://github.com/facebookresearch/fairscale/issues>`__ and `Deepspeed "
+"<https://github.com/microsoft/DeepSpeed/issues>`__, there are a few "
+"common issues that one may encounter while building any PyTorch extension"
+" that needs to build CUDA extensions."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:231
+msgid ""
+"Therefore, if you encounter a CUDA-related build issue while doing one of"
+" the following or both:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:238
+msgid "please, read the following notes first."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:240
+msgid ""
+"In these notes we give examples for what to do when ``pytorch`` has been "
+"built with CUDA ``10.2``. If your situation is different remember to "
+"adjust the version number to the one you are after."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:244
+msgid "Possible problem #1"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:246
+msgid ""
+"While, Pytorch comes with its own CUDA toolkit, to build these two "
+"projects you must have an identical version of CUDA installed system-"
+"wide."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:249
+msgid ""
+"For example, if you installed ``pytorch`` with ``cudatoolkit==10.2`` in "
+"the Python environment, you also need to have CUDA ``10.2`` installed "
+"system-wide."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:252
+msgid ""
+"The exact location may vary from system to system, but "
+"``/usr/local/cuda-10.2`` is the most common location on many Unix "
+"systems. When CUDA is correctly set up and added to the ``PATH`` "
+"environment variable, one can find the installation location by doing:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:260
+msgid ""
+"If you don't have CUDA installed system-wide, install it first. You will "
+"find the instructions by using your favorite search engine. For example, "
+"if you're on Ubuntu you may want to search for: `ubuntu cuda 10.2 install"
+" <https://www.google.com/search?q=ubuntu+cuda+10.2+install>`__."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:265
+msgid "Possible problem #2"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:267
+msgid ""
+"Another possible common problem is that you may have more than one CUDA "
+"toolkit installed system-wide. For example you may have:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:275
+msgid ""
+"Now, in this situation you need to make sure that your ``PATH`` and "
+"``LD_LIBRARY_PATH`` environment variables contain the correct paths to "
+"the desired CUDA version. Typically, package installers will set these to"
+" contain whatever the last version was installed. If you encounter the "
+"problem, where the package build fails because it can't find the right "
+"CUDA version despite you having it installed system-wide, it means that "
+"you need to adjust the 2 aforementioned environment variables."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:281
+msgid "First, you may look at their contents:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:288
+msgid "so you get an idea of what is inside."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:290
+msgid "It's possible that ``LD_LIBRARY_PATH`` is empty."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:292
+msgid ""
+"``PATH`` lists the locations of where executables can be found and "
+"``LD_LIBRARY_PATH`` is for where shared libraries are to looked for. In "
+"both cases, earlier entries have priority over the later ones. ``:`` is "
+"used to separate multiple entries."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:296
+msgid ""
+"Now, to tell the build program where to find the specific CUDA toolkit, "
+"insert the desired paths to be listed first by doing:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:304
+msgid ""
+"Note that we aren't overwriting the existing values, but prepending "
+"instead."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:306
+msgid ""
+"Of course, adjust the version number, the full path if need be. Check "
+"that the directories you assign actually do exist. ``lib64`` sub-"
+"directory is where the various CUDA ``.so`` objects, like "
+"``libcudart.so`` reside, it's unlikely that your system will have it "
+"named differently, but if it is adjust it to reflect your reality."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:312
+msgid "Possible problem #3"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:314
+msgid ""
+"Some older CUDA versions may refuse to build with newer compilers. For "
+"example, you my have ``gcc-9`` but it wants ``gcc-7``."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:317
+msgid "There are various ways to go about it."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:319
+msgid ""
+"If you can install the latest CUDA toolkit it typically should support "
+"the newer compiler."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:321
+msgid ""
+"Alternatively, you could install the lower version of the compiler in "
+"addition to the one you already have, or you may already have it but it's"
+" not the default one, so the build system can't see it. If you have "
+"``gcc-7`` installed but the build system complains it can't find it, the "
+"following might do the trick:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:331
+msgid ""
+"Here, we are making a symlink to ``gcc-7`` from "
+"``/usr/local/cuda-10.2/bin/gcc`` and since ``/usr/local/cuda-10.2/bin/`` "
+"should be in the ``PATH`` environment variable (see the previous "
+"problem's solution), it should find ``gcc-7`` (and ``g++7``) and then the"
+" build will succeed."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:335
+msgid ""
+"As always make sure to edit the paths in the example to match your "
+"situation."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:338
+msgid "FairScale"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:340
+msgid ""
+"By integrating `FairScale "
+"<https://github.com/facebookresearch/fairscale/>`__ the "
+":class:`~transformers.Trainer` provides support for the following "
+"features from `the ZeRO paper <https://arxiv.org/abs/1910.02054>`__:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:343
+msgid "Optimizer State Sharding"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:344
+msgid "Gradient Sharding"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:345
+msgid "Model Parameters Sharding (new and very experimental)"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:346
+msgid "CPU offload (new and very experimental)"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:348
+msgid "You will need at least two GPUs to use this feature."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:351
+msgid "**Installation**:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:353
+msgid "Install the library via pypi:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:359
+msgid "or via ``transformers``' ``extras``:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:365
+msgid "(will become available starting from ``transformers==4.6.0``)"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:367
+msgid ""
+"or find more details on `the FairScale's GitHub page "
+"<https://github.com/facebookresearch/fairscale/#installation>`__."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:369
+msgid ""
+"If you're still struggling with the build, first make sure to read :ref"
+":`zero-install-notes`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:371
+msgid "If it's still not resolved the build issue, here are a few more ideas."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:373
+msgid ""
+"``fairscale`` seems to have an issue with the recently introduced by pip "
+"build isolation feature. If you have a problem with it, you may want to "
+"try one of:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:380
+#: ../../source/main_classes/trainer.rst:399
+msgid "or:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:391
+msgid ""
+"``fairscale`` also has issues with building against pytorch-nightly, so "
+"if you use it you may have to try one of:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:406
+msgid "Of course, adjust the urls to match the cuda version you use."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:408
+msgid ""
+"If after trying everything suggested you still encounter build issues, "
+"please, proceed with the GitHub Issue of `FairScale "
+"<https://github.com/facebookresearch/fairscale/issues>`__."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:413
+msgid "**Usage**:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:415
+msgid ""
+"To use the first version of Sharded data-parallelism, add ``--sharded_ddp"
+" simple`` to the command line arguments, and make sure you have added the"
+" distributed launcher ``-m torch.distributed.launch "
+"--nproc_per_node=NUMBER_OF_GPUS_YOU_HAVE`` if you haven't been using it "
+"already."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:419
+#: ../../source/main_classes/trainer.rst:444
+msgid ""
+"For example here is how you could use it for ``run_translation.py`` with "
+"2 GPUs:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:431
+#: ../../source/main_classes/trainer.rst:462
+msgid "Notes:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:433
+#: ../../source/main_classes/trainer.rst:464
+msgid "This feature requires distributed training (so multiple GPUs)."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:434
+#: ../../source/main_classes/trainer.rst:465
+msgid "It is not implemented for TPUs."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:435
+#: ../../source/main_classes/trainer.rst:466
+msgid "It works with ``--fp16`` too, to make things even faster."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:436
+msgid ""
+"One of the main benefits of enabling ``--sharded_ddp simple`` is that it "
+"uses a lot less GPU memory, so you should be able to use significantly "
+"larger batch sizes using the same hardware (e.g. 3x and even bigger) "
+"which should lead to significantly shorter training time."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:440
+msgid ""
+"To use the second version of Sharded data-parallelism, add "
+"``--sharded_ddp zero_dp_2`` or ``--sharded_ddp zero_dp_3`` to the command"
+" line arguments, and make sure you have added the distributed launcher "
+"``-m torch.distributed.launch --nproc_per_node=NUMBER_OF_GPUS_YOU_HAVE`` "
+"if you haven't been using it already."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:456
+msgid ""
+":obj:`zero_dp_2` is an optimized version of the simple wrapper, while "
+":obj:`zero_dp_3` fully shards model weights, gradients and optimizer "
+"states."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:459
+msgid ""
+"Both are compatible with adding :obj:`cpu_offload` to enable ZeRO-offload"
+" (activate it like this: :obj:`--sharded_ddp \"zero_dp_2 cpu_offload\"`)."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:467
+msgid "The ``cpu_offload`` additional option requires ``--fp16``."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:468
+msgid ""
+"This is an area of active development, so make sure you have a source "
+"install of fairscale to use this feature as some bugs you encounter may "
+"have been fixed there already."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:471
+msgid "Known caveats:"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:473
+msgid ""
+"This feature is incompatible with :obj:`--predict_with_generate` in the "
+"`run_translation.py` script."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:474
+msgid ""
+"Using :obj:`--sharded_ddp zero_dp_3` requires wrapping each layer of the "
+"model in the special container :obj:`FullyShardedDataParallelism` of "
+"fairscale. It should be used with the option :obj:`auto_wrap` if you are "
+"not doing this yourself: :obj:`--sharded_ddp \"zero_dp_3 auto_wrap\"`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:480
+msgid "DeepSpeed"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:483
+msgid "Moved to :ref:`deepspeed-trainer-integration`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:487
+msgid "Installation"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:489
+msgid "Moved to :ref:`deepspeed-installation`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:493
+msgid "Deployment with multiple GPUs"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:495
+msgid "Moved to :ref:`deepspeed-multi-gpu`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:499
+msgid "Deployment with one GPU"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:501
+msgid "Moved to :ref:`deepspeed-one-gpu`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:505
+msgid "Deployment in Notebooks"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:507
+msgid "Moved to :ref:`deepspeed-notebook`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:511
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:513
+msgid "Moved to :ref:`deepspeed-config`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:517
+msgid "Passing Configuration"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:519
+msgid "Moved to :ref:`deepspeed-config-passing`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:523
+msgid "Shared Configuration"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:525
+msgid "Moved to :ref:`deepspeed-config-shared`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:528
+msgid "ZeRO"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:530
+msgid "Moved to :ref:`deepspeed-zero`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:533
+msgid "ZeRO-2 Config"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:535
+msgid "Moved to :ref:`deepspeed-zero2-config`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:538
+msgid "ZeRO-3 Config"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:540
+msgid "Moved to :ref:`deepspeed-zero3-config`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:544
+msgid "NVMe Support"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:546
+msgid "Moved to :ref:`deepspeed-nvme`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:549
+msgid "ZeRO-2 vs ZeRO-3 Performance"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:551
+msgid "Moved to :ref:`deepspeed-zero2-zero3-performance`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:554
+msgid "ZeRO-2 Example"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:556
+msgid "Moved to :ref:`deepspeed-zero2-example`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:559
+msgid "ZeRO-3 Example"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:561
+msgid "Moved to :ref:`deepspeed-zero3-example`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:564
+msgid "Optimizer and Scheduler"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:569
+msgid "Optimizer"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:571
+msgid "Moved to :ref:`deepspeed-optimizer`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:575
+msgid "Scheduler"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:577
+msgid "Moved to :ref:`deepspeed-scheduler`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:580
+msgid "fp32 Precision"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:582
+msgid "Moved to :ref:`deepspeed-fp32`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:585
+msgid "Automatic Mixed Precision"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:587
+msgid "Moved to :ref:`deepspeed-amp`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:590
+msgid "Batch Size"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:592
+msgid "Moved to :ref:`deepspeed-bs`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:595
+msgid "Gradient Accumulation"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:597
+msgid "Moved to :ref:`deepspeed-grad-acc`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:601
+msgid "Gradient Clipping"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:603
+msgid "Moved to :ref:`deepspeed-grad-clip`."
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:607
+msgid "Getting The Model Weights Out"
+msgstr ""
+
+#: ../../source/main_classes/trainer.rst:609
+msgid "Moved to :ref:`deepspeed-weight-extraction`."
+msgstr ""
+

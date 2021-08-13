@@ -1,0 +1,2605 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/xlm.rst:14
+msgid "XLM"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:19
+msgid ""
+"The XLM model was proposed in `Cross-lingual Language Model Pretraining "
+"<https://arxiv.org/abs/1901.07291>`__ by Guillaume Lample, Alexis "
+"Conneau. It's a transformer pretrained using one of the following "
+"objectives:"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:22
+msgid "a causal language modeling (CLM) objective (next token prediction),"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:23
+msgid "a masked language modeling (MLM) objective (BERT-like), or"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:24
+msgid ""
+"a Translation Language Modeling (TLM) object (extension of BERT's MLM to "
+"multiple language inputs)"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:26
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:28
+msgid ""
+"*Recent studies have demonstrated the efficiency of generative "
+"pretraining for English natural language understanding. In this work, we "
+"extend this approach to multiple languages and show the effectiveness of "
+"cross-lingual pretraining. We propose two methods to learn cross-lingual "
+"language models (XLMs): one unsupervised that only relies on monolingual "
+"data, and one supervised that leverages parallel data with a new cross-"
+"lingual language model objective. We obtain state-of-the-art results on "
+"cross-lingual classification, unsupervised and supervised machine "
+"translation. On XNLI, our approach pushes the state of the art by an "
+"absolute gain of 4.9% accuracy. On unsupervised machine translation, we "
+"obtain 34.3 BLEU on WMT'16 German-English, improving the previous state "
+"of the art by more than 9 BLEU. On supervised machine translation, we "
+"obtain a new state of the art of 38.5 BLEU on WMT'16 Romanian-English, "
+"outperforming the previous best approach by more than 4 BLEU. Our code "
+"and pretrained models will be made publicly available.*"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:38
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:40
+msgid ""
+"XLM has many different checkpoints, which were trained using different "
+"objectives: CLM, MLM or TLM. Make sure to select the correct objective "
+"for your task (e.g. MLM checkpoints are not suitable for generation)."
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:42
+msgid ""
+"XLM has multilingual checkpoints which leverage a specific :obj:`lang` "
+"parameter. Check out the :doc:`multi-lingual <../multilingual>` page for "
+"more information."
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:45
+msgid ""
+"This model was contributed by `thomwolf "
+"<https://huggingface.co/thomwolf>`__. The original code can be found "
+"`here <https://github.com/facebookresearch/XLM/>`__."
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:50
+msgid "XLMConfig"
+msgstr ""
+
+#: of transformers.XLMConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.XLMModel` or a :class:`~transformers.TFXLMModel`. "
+"It is used to instantiate a XLM model according to the specified "
+"arguments, defining the model architecture. Instantiating a configuration"
+" with the defaults will yield a similar configuration to that of the "
+"`xlm-mlm-en-2048 <https://huggingface.co/xlm-mlm-en-2048>`__ "
+"architecture."
+msgstr ""
+
+#: of transformers.XLMConfig:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice
+#: transformers.TFXLMForMultipleChoice.call
+#: transformers.TFXLMForQuestionAnsweringSimple
+#: transformers.TFXLMForQuestionAnsweringSimple.call
+#: transformers.TFXLMForSequenceClassification
+#: transformers.TFXLMForSequenceClassification.call
+#: transformers.TFXLMForTokenClassification
+#: transformers.TFXLMForTokenClassification.call transformers.TFXLMModel
+#: transformers.TFXLMModel.call transformers.TFXLMWithLMHeadModel
+#: transformers.TFXLMWithLMHeadModel.call transformers.XLMConfig
+#: transformers.XLMForMultipleChoice transformers.XLMForMultipleChoice.forward
+#: transformers.XLMForQuestionAnswering
+#: transformers.XLMForQuestionAnswering.forward
+#: transformers.XLMForQuestionAnsweringSimple
+#: transformers.XLMForQuestionAnsweringSimple.forward
+#: transformers.XLMForSequenceClassification
+#: transformers.XLMForSequenceClassification.forward
+#: transformers.XLMForTokenClassification
+#: transformers.XLMForTokenClassification.forward transformers.XLMModel
+#: transformers.XLMModel.forward transformers.XLMTokenizer
+#: transformers.XLMTokenizer.build_inputs_with_special_tokens
+#: transformers.XLMTokenizer.create_token_type_ids_from_sequences
+#: transformers.XLMTokenizer.get_special_tokens_mask
+#: transformers.XLMTokenizer.save_vocabulary transformers.XLMWithLMHeadModel
+#: transformers.XLMWithLMHeadModel.forward
+#: transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.XLMConfig:9
+msgid ""
+"Vocabulary size of the BERT model. Defines the number of different tokens"
+" that can be represented by the :obj:`inputs_ids` passed when calling "
+":class:`~transformers.XLMModel` or :class:`~transformers.TFXLMModel`."
+msgstr ""
+
+#: of transformers.XLMConfig:12
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.XLMConfig:14
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.XLMConfig:16
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.XLMConfig:18
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.XLMConfig:20
+msgid "The dropout probability for the attention mechanism"
+msgstr ""
+
+#: of transformers.XLMConfig:22
+msgid "Whether or not to use `gelu` for the activations instead of `relu`."
+msgstr ""
+
+#: of transformers.XLMConfig:24
+msgid ""
+"Whether or not to use sinusoidal positional embeddings instead of "
+"absolute positional embeddings."
+msgstr ""
+
+#: of transformers.XLMConfig:26
+msgid ""
+"Whether or not the model should behave in a causal manner. Causal models "
+"use a triangular attention mask in order to only attend to the left-side "
+"context instead if a bidirectional context."
+msgstr ""
+
+#: of transformers.XLMConfig:29
+msgid ""
+"Whether or not to use an adaptive log softmax projection layer instead of"
+" a linear layer for the prediction layer."
+msgstr ""
+
+#: of transformers.XLMConfig:32
+msgid ""
+"The number of languages the model handles. Set to 1 for monolingual "
+"models."
+msgstr ""
+
+#: of transformers.XLMConfig:34
+msgid ""
+"Whether to use language embeddings. Some models use additional language "
+"embeddings, see `the multilingual models page "
+"<http://huggingface.co/transformers/multilingual.html#xlm-language-"
+"embeddings>`__ for information on how to use them."
+msgstr ""
+
+#: of transformers.XLMConfig:38
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.XLMConfig:41
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing the embedding matrices."
+msgstr ""
+
+#: of transformers.XLMConfig:43
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices except the embedding matrices."
+msgstr ""
+
+#: of transformers.XLMConfig:46
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.XLMConfig:48
+msgid "The index of the beginning of sentence token in the vocabulary."
+msgstr ""
+
+#: of transformers.XLMConfig:50
+msgid "The index of the end of sentence token in the vocabulary."
+msgstr ""
+
+#: of transformers.XLMConfig:52
+msgid "The index of the padding token in the vocabulary."
+msgstr ""
+
+#: of transformers.XLMConfig:54
+msgid "The index of the unknown token in the vocabulary."
+msgstr ""
+
+#: of transformers.XLMConfig:56
+msgid "The index of the masking token in the vocabulary."
+msgstr ""
+
+#: of transformers.XLMConfig:58
+msgid ""
+"Whether or not the initialized model should be a transformer encoder or "
+"decoder as seen in Vaswani et al."
+msgstr ""
+
+#: of transformers.XLMConfig:60
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models.  Has to be one of the "
+"following options:      - :obj:`\"last\"`: Take the last token hidden "
+"state (like XLNet).     - :obj:`\"first\"`: Take the first token hidden "
+"state (like BERT).     - :obj:`\"mean\"`: Take the mean of all tokens "
+"hidden states.     - :obj:`\"cls_index\"`: Supply a Tensor of "
+"classification token position (like GPT/GPT-2).     - :obj:`\"attn\"`: "
+"Not implemented now, use multi-head attention."
+msgstr ""
+
+#: of transformers.XLMConfig:60 transformers.XLMConfig:70
+#: transformers.XLMConfig:74
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models."
+msgstr ""
+
+#: of transformers.XLMConfig:62
+msgid "Has to be one of the following options:"
+msgstr ""
+
+#: of transformers.XLMConfig:64
+msgid ":obj:`\"last\"`: Take the last token hidden state (like XLNet)."
+msgstr ""
+
+#: of transformers.XLMConfig:65
+msgid ":obj:`\"first\"`: Take the first token hidden state (like BERT)."
+msgstr ""
+
+#: of transformers.XLMConfig:66
+msgid ":obj:`\"mean\"`: Take the mean of all tokens hidden states."
+msgstr ""
+
+#: of transformers.XLMConfig:67
+msgid ""
+":obj:`\"cls_index\"`: Supply a Tensor of classification token position "
+"(like GPT/GPT-2)."
+msgstr ""
+
+#: of transformers.XLMConfig:68
+msgid ":obj:`\"attn\"`: Not implemented now, use multi-head attention."
+msgstr ""
+
+#: of transformers.XLMConfig:70
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models.  Whether or not to add a "
+"projection after the vector extraction."
+msgstr ""
+
+#: of transformers.XLMConfig:72
+msgid "Whether or not to add a projection after the vector extraction."
+msgstr ""
+
+#: of transformers.XLMConfig:74
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models.  Pass :obj:`\"tanh\"` for a "
+"tanh activation to the output, any other value will result in no "
+"activation."
+msgstr ""
+
+#: of transformers.XLMConfig:76
+msgid ""
+"Pass :obj:`\"tanh\"` for a tanh activation to the output, any other value"
+" will result in no activation."
+msgstr ""
+
+#: of transformers.XLMConfig:78
+msgid ""
+"Used in the sequence classification and multiple choice models.  Whether "
+"the projection outputs should have :obj:`config.num_labels` or "
+":obj:`config.hidden_size` classes."
+msgstr ""
+
+#: of transformers.XLMConfig:78 transformers.XLMConfig:82
+msgid "Used in the sequence classification and multiple choice models."
+msgstr ""
+
+#: of transformers.XLMConfig:80
+msgid ""
+"Whether the projection outputs should have :obj:`config.num_labels` or "
+":obj:`config.hidden_size` classes."
+msgstr ""
+
+#: of transformers.XLMConfig:82
+msgid ""
+"Used in the sequence classification and multiple choice models.  The "
+"dropout ratio to be used after the projection and activation."
+msgstr ""
+
+#: of transformers.XLMConfig:84
+msgid "The dropout ratio to be used after the projection and activation."
+msgstr ""
+
+#: of transformers.XLMConfig:86 transformers.XLMConfig:88
+msgid "Used in the SQuAD evaluation script."
+msgstr ""
+
+#: of transformers.XLMConfig:90
+msgid ""
+"Model agnostic parameter to identify masked tokens when generating text "
+"in an MLM context."
+msgstr ""
+
+#: of transformers.XLMConfig:92
+msgid ""
+"The ID of the language used by the model. This parameter is used when "
+"generating text in a given language."
+msgstr ""
+
+#: of transformers.XLMConfig:95
+msgid "Examples::"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:56
+msgid "XLMTokenizer"
+msgstr ""
+
+#: of transformers.XLMTokenizer:1
+msgid ""
+"Construct an XLM tokenizer. Based on Byte-Pair Encoding. The tokenization"
+" process is the following:"
+msgstr ""
+
+#: of transformers.XLMTokenizer:3
+msgid "Moses preprocessing and tokenization for most supported languages."
+msgstr ""
+
+#: of transformers.XLMTokenizer:4
+msgid ""
+"Language specific tokenization for Chinese (Jieba), Japanese (KyTea) and "
+"Thai (PyThaiNLP)."
+msgstr ""
+
+#: of transformers.XLMTokenizer:5
+msgid "Optionally lowercases and normalizes all inputs text."
+msgstr ""
+
+#: of transformers.XLMTokenizer:6
+msgid ""
+"The arguments ``special_tokens`` and the function ``set_special_tokens``,"
+" can be used to add additional symbols (like \"__classify__\") to a "
+"vocabulary."
+msgstr ""
+
+#: of transformers.XLMTokenizer:8
+msgid ""
+"The :obj:`lang2id` attribute maps the languages supported by the model "
+"with their IDs if provided (automatically set for pretrained "
+"vocabularies)."
+msgstr ""
+
+#: of transformers.XLMTokenizer:10
+msgid ""
+"The :obj:`id2lang` attributes does reverse mapping if provided "
+"(automatically set for pretrained vocabularies)."
+msgstr ""
+
+#: of transformers.XLMTokenizer:12
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.XLMTokenizer:15
+msgid "Vocabulary file."
+msgstr ""
+
+#: of transformers.XLMTokenizer:17
+msgid "Merges file."
+msgstr ""
+
+#: of transformers.XLMTokenizer:19
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.XLMTokenizer:22
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token.  .. note::      When building a "
+"sequence using special tokens, this is not the token that is used for the"
+" beginning of     sequence. The token used is the :obj:`cls_token`."
+msgstr ""
+
+#: of transformers.XLMTokenizer:22
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token."
+msgstr ""
+
+#: of transformers.XLMTokenizer:26
+msgid ""
+"When building a sequence using special tokens, this is not the token that"
+" is used for the beginning of sequence. The token used is the "
+":obj:`cls_token`."
+msgstr ""
+
+#: of transformers.XLMTokenizer:29
+msgid ""
+"The separator token, which is used when building a sequence from multiple"
+" sequences, e.g. two sequences for sequence classification or for a text "
+"and a question for question answering. It is also used as the last token "
+"of a sequence built with special tokens."
+msgstr ""
+
+#: of transformers.XLMTokenizer:33
+msgid ""
+"The token used for padding, for example when batching sequences of "
+"different lengths."
+msgstr ""
+
+#: of transformers.XLMTokenizer:35
+msgid ""
+"The classifier token which is used when doing sequence classification "
+"(classification of the whole sequence instead of per-token "
+"classification). It is the first token of the sequence when built with "
+"special tokens."
+msgstr ""
+
+#: of transformers.XLMTokenizer:38
+msgid ""
+"The token used for masking values. This is the token used when training "
+"this model with masked language modeling. This is the token which the "
+"model will try to predict."
+msgstr ""
+
+#: of transformers.XLMTokenizer:41
+msgid "List of additional special tokens."
+msgstr ""
+
+#: of transformers.XLMTokenizer:43
+msgid "Dictionary mapping languages string identifiers to their IDs."
+msgstr ""
+
+#: of transformers.XLMTokenizer:45
+msgid "Dictionary mapping language IDs to their string identifiers."
+msgstr ""
+
+#: of transformers.XLMTokenizer:47
+msgid "Whether to lowercase and remove accents when tokenizing."
+msgstr ""
+
+#: of transformers.XLMTokenizer.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. An XLM "
+"sequence has the following format:"
+msgstr ""
+
+#: of transformers.XLMTokenizer.build_inputs_with_special_tokens:4
+msgid "single sequence: ``<s> X </s>``"
+msgstr ""
+
+#: of transformers.XLMTokenizer.build_inputs_with_special_tokens:5
+msgid "pair of sequences: ``<s> A </s> B </s>``"
+msgstr ""
+
+#: of transformers.XLMTokenizer.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.XLMTokenizer.build_inputs_with_special_tokens:9
+#: transformers.XLMTokenizer.create_token_type_ids_from_sequences:13
+#: transformers.XLMTokenizer.get_special_tokens_mask:6
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call
+#: transformers.TFXLMForQuestionAnsweringSimple.call
+#: transformers.TFXLMForSequenceClassification.call
+#: transformers.TFXLMForTokenClassification.call transformers.TFXLMModel.call
+#: transformers.TFXLMWithLMHeadModel.call
+#: transformers.XLMForMultipleChoice.forward
+#: transformers.XLMForQuestionAnswering.forward
+#: transformers.XLMForQuestionAnsweringSimple.forward
+#: transformers.XLMForSequenceClassification.forward
+#: transformers.XLMForTokenClassification.forward transformers.XLMModel.forward
+#: transformers.XLMTokenizer.build_inputs_with_special_tokens
+#: transformers.XLMTokenizer.create_token_type_ids_from_sequences
+#: transformers.XLMTokenizer.get_special_tokens_mask
+#: transformers.XLMTokenizer.save_vocabulary
+#: transformers.XLMWithLMHeadModel.forward
+msgid "Returns"
+msgstr ""
+
+#: of transformers.XLMTokenizer.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call
+#: transformers.TFXLMForQuestionAnsweringSimple.call
+#: transformers.TFXLMForSequenceClassification.call
+#: transformers.TFXLMForTokenClassification.call transformers.TFXLMModel.call
+#: transformers.TFXLMWithLMHeadModel.call
+#: transformers.XLMForMultipleChoice.forward
+#: transformers.XLMForQuestionAnswering.forward
+#: transformers.XLMForQuestionAnsweringSimple.forward
+#: transformers.XLMForSequenceClassification.forward
+#: transformers.XLMForTokenClassification.forward transformers.XLMModel.forward
+#: transformers.XLMTokenizer.build_inputs_with_special_tokens
+#: transformers.XLMTokenizer.create_token_type_ids_from_sequences
+#: transformers.XLMTokenizer.get_special_tokens_mask
+#: transformers.XLMTokenizer.save_vocabulary
+#: transformers.XLMWithLMHeadModel.forward
+msgid "Return type"
+msgstr ""
+
+#: of transformers.XLMTokenizer.build_inputs_with_special_tokens:13
+#: transformers.XLMTokenizer.create_token_type_ids_from_sequences:18
+#: transformers.XLMTokenizer.get_special_tokens_mask:12
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.XLMTokenizer.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. An XLM sequence pair mask has the following format:"
+msgstr ""
+
+#: of transformers.XLMTokenizer.create_token_type_ids_from_sequences:9
+msgid ""
+"If :obj:`token_ids_1` is :obj:`None`, this method only returns the first "
+"portion of the mask (0s)."
+msgstr ""
+
+#: of transformers.XLMTokenizer.create_token_type_ids_from_sequences:11
+#: transformers.XLMTokenizer.get_special_tokens_mask:4
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.XLMTokenizer.create_token_type_ids_from_sequences:16
+msgid ""
+"List of `token type IDs <../glossary.html#token-type-ids>`_ according to "
+"the given sequence(s)."
+msgstr ""
+
+#: of transformers.XLMTokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.XLMTokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.XLMTokenizer.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.XLMTokenizer.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.XLMTokenizer.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.XLMTokenizer.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.XLMTokenizer.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.XLMTokenizer.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.XLMTokenizer.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:64
+msgid "XLM specific outputs"
+msgstr ""
+
+#: of transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput:1
+msgid ""
+"Base class for outputs of question answering models using a "
+":obj:`SquadHead`."
+msgstr ""
+
+#: of transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput:3
+msgid ""
+"Classification loss as the sum of start token, end token (and "
+"is_impossible if provided) classification losses."
+msgstr ""
+
+#: of transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput:6
+msgid ""
+"Log probabilities for the top config.start_n_top start token "
+"possibilities (beam-search)."
+msgstr ""
+
+#: of transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput:8
+msgid ""
+"Indices for the top config.start_n_top start token possibilities (beam-"
+"search)."
+msgstr ""
+
+#: of transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput:10
+msgid ""
+"Log probabilities for the top ``config.start_n_top * config.end_n_top`` "
+"end token possibilities (beam-search)."
+msgstr ""
+
+#: of transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput:13
+msgid ""
+"Indices for the top ``config.start_n_top * config.end_n_top`` end token "
+"possibilities (beam-search)."
+msgstr ""
+
+#: of transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput:15
+msgid "Log probabilities for the ``is_impossible`` label of the answers."
+msgstr ""
+
+#: of transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput:17
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the model at the output"
+" of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput:17
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:90
+#: transformers.TFXLMForQuestionAnsweringSimple.call:97
+#: transformers.TFXLMForSequenceClassification.call:92
+#: transformers.TFXLMForTokenClassification.call:91
+#: transformers.TFXLMModel.call:87 transformers.TFXLMWithLMHeadModel.call:87
+#: transformers.XLMForMultipleChoice.forward:88
+#: transformers.XLMForQuestionAnswering.forward:104
+#: transformers.XLMForQuestionAnsweringSimple.forward:91
+#: transformers.XLMForSequenceClassification.forward:86
+#: transformers.XLMForTokenClassification.forward:85
+#: transformers.XLMModel.forward:81 transformers.XLMWithLMHeadModel.forward:86
+#: transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput:20
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput:22
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput:22
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:94
+#: transformers.TFXLMForQuestionAnsweringSimple.call:101
+#: transformers.TFXLMForSequenceClassification.call:96
+#: transformers.TFXLMForTokenClassification.call:95
+#: transformers.TFXLMModel.call:91 transformers.TFXLMWithLMHeadModel.call:91
+#: transformers.XLMForMultipleChoice.forward:92
+#: transformers.XLMForQuestionAnswering.forward:108
+#: transformers.XLMForQuestionAnsweringSimple.forward:95
+#: transformers.XLMForSequenceClassification.forward:90
+#: transformers.XLMForTokenClassification.forward:89
+#: transformers.XLMModel.forward:85 transformers.XLMWithLMHeadModel.forward:90
+#: transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput:25
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:71
+msgid "XLMModel"
+msgstr ""
+
+#: of transformers.TFXLMModel:1 transformers.XLMModel:1
+msgid ""
+"The bare XLM Model transformer outputting raw hidden-states without any "
+"specific head on top."
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice:5
+#: transformers.XLMForQuestionAnswering:5
+#: transformers.XLMForQuestionAnsweringSimple:5
+#: transformers.XLMForSequenceClassification:5
+#: transformers.XLMForTokenClassification:5 transformers.XLMModel:3
+#: transformers.XLMWithLMHeadModel:5
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice:9
+#: transformers.XLMForQuestionAnswering:9
+#: transformers.XLMForQuestionAnsweringSimple:9
+#: transformers.XLMForSequenceClassification:9
+#: transformers.XLMForTokenClassification:9 transformers.XLMModel:7
+#: transformers.XLMWithLMHeadModel:9
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice:32
+#: transformers.TFXLMForQuestionAnsweringSimple:32
+#: transformers.TFXLMForSequenceClassification:32
+#: transformers.TFXLMForTokenClassification:32 transformers.TFXLMModel:30
+#: transformers.TFXLMWithLMHeadModel:32 transformers.XLMForMultipleChoice:13
+#: transformers.XLMForQuestionAnswering:13
+#: transformers.XLMForQuestionAnsweringSimple:13
+#: transformers.XLMForSequenceClassification:13
+#: transformers.XLMForTokenClassification:13 transformers.XLMModel:11
+#: transformers.XLMWithLMHeadModel:13
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.XLMModel.forward:1
+msgid ""
+"The :class:`~transformers.XLMModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:4
+#: transformers.TFXLMForQuestionAnsweringSimple.call:4
+#: transformers.TFXLMForSequenceClassification.call:4
+#: transformers.TFXLMForTokenClassification.call:4
+#: transformers.TFXLMModel.call:4 transformers.TFXLMWithLMHeadModel.call:4
+#: transformers.XLMForMultipleChoice.forward:4
+#: transformers.XLMForQuestionAnswering.forward:4
+#: transformers.XLMForQuestionAnsweringSimple.forward:4
+#: transformers.XLMForSequenceClassification.forward:4
+#: transformers.XLMForTokenClassification.forward:4
+#: transformers.XLMModel.forward:4 transformers.XLMWithLMHeadModel.forward:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice.forward:8
+#: transformers.XLMForQuestionAnswering.forward:8
+#: transformers.XLMForQuestionAnsweringSimple.forward:8
+#: transformers.XLMForSequenceClassification.forward:8
+#: transformers.XLMForTokenClassification.forward:8
+#: transformers.XLMModel.forward:8 transformers.XLMWithLMHeadModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.XLMTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:8
+#: transformers.TFXLMForQuestionAnsweringSimple.call:8
+#: transformers.TFXLMForSequenceClassification.call:8
+#: transformers.TFXLMForTokenClassification.call:8
+#: transformers.TFXLMModel.call:8 transformers.TFXLMWithLMHeadModel.call:8
+#: transformers.XLMForMultipleChoice.forward:8
+#: transformers.XLMForQuestionAnswering.forward:8
+#: transformers.XLMForQuestionAnsweringSimple.forward:8
+#: transformers.XLMForSequenceClassification.forward:8
+#: transformers.XLMForTokenClassification.forward:8
+#: transformers.XLMModel.forward:8 transformers.XLMWithLMHeadModel.forward:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice.forward:10
+#: transformers.XLMForQuestionAnswering.forward:10
+#: transformers.XLMForQuestionAnsweringSimple.forward:10
+#: transformers.XLMForSequenceClassification.forward:10
+#: transformers.XLMForTokenClassification.forward:10
+#: transformers.XLMModel.forward:10 transformers.XLMWithLMHeadModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.XLMTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:14
+#: transformers.TFXLMForQuestionAnsweringSimple.call:14
+#: transformers.TFXLMForSequenceClassification.call:14
+#: transformers.TFXLMForTokenClassification.call:14
+#: transformers.TFXLMModel.call:14 transformers.TFXLMWithLMHeadModel.call:14
+#: transformers.XLMForMultipleChoice.forward:14
+#: transformers.XLMForQuestionAnswering.forward:14
+#: transformers.XLMForQuestionAnsweringSimple.forward:14
+#: transformers.XLMForSequenceClassification.forward:14
+#: transformers.XLMForTokenClassification.forward:14
+#: transformers.XLMModel.forward:14 transformers.XLMWithLMHeadModel.forward:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:16
+#: transformers.TFXLMForQuestionAnsweringSimple.call:16
+#: transformers.TFXLMForSequenceClassification.call:16
+#: transformers.TFXLMForTokenClassification.call:16
+#: transformers.TFXLMModel.call:16 transformers.TFXLMWithLMHeadModel.call:16
+#: transformers.XLMForMultipleChoice.forward:16
+#: transformers.XLMForQuestionAnswering.forward:16
+#: transformers.XLMForQuestionAnsweringSimple.forward:16
+#: transformers.XLMForSequenceClassification.forward:16
+#: transformers.XLMForTokenClassification.forward:16
+#: transformers.XLMModel.forward:16 transformers.XLMWithLMHeadModel.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:16
+#: transformers.TFXLMForQuestionAnsweringSimple.call:16
+#: transformers.TFXLMForSequenceClassification.call:16
+#: transformers.TFXLMForTokenClassification.call:16
+#: transformers.TFXLMModel.call:16 transformers.TFXLMWithLMHeadModel.call:16
+#: transformers.XLMForMultipleChoice.forward:16
+#: transformers.XLMForQuestionAnswering.forward:16
+#: transformers.XLMForQuestionAnsweringSimple.forward:16
+#: transformers.XLMForSequenceClassification.forward:16
+#: transformers.XLMForTokenClassification.forward:16
+#: transformers.XLMModel.forward:16 transformers.XLMWithLMHeadModel.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:18
+#: transformers.TFXLMForQuestionAnsweringSimple.call:18
+#: transformers.TFXLMForSequenceClassification.call:18
+#: transformers.TFXLMForTokenClassification.call:18
+#: transformers.TFXLMModel.call:18 transformers.TFXLMWithLMHeadModel.call:18
+#: transformers.XLMForMultipleChoice.forward:18
+#: transformers.XLMForQuestionAnswering.forward:18
+#: transformers.XLMForQuestionAnsweringSimple.forward:18
+#: transformers.XLMForSequenceClassification.forward:18
+#: transformers.XLMForTokenClassification.forward:18
+#: transformers.XLMModel.forward:18 transformers.XLMWithLMHeadModel.forward:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:19
+#: transformers.TFXLMForQuestionAnsweringSimple.call:19
+#: transformers.TFXLMForSequenceClassification.call:19
+#: transformers.TFXLMForTokenClassification.call:19
+#: transformers.TFXLMModel.call:19 transformers.TFXLMWithLMHeadModel.call:19
+#: transformers.XLMForMultipleChoice.forward:19
+#: transformers.XLMForQuestionAnswering.forward:19
+#: transformers.XLMForQuestionAnsweringSimple.forward:19
+#: transformers.XLMForSequenceClassification.forward:19
+#: transformers.XLMForTokenClassification.forward:19
+#: transformers.XLMModel.forward:19 transformers.XLMWithLMHeadModel.forward:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:21
+#: transformers.TFXLMForQuestionAnsweringSimple.call:21
+#: transformers.TFXLMForSequenceClassification.call:21
+#: transformers.TFXLMForTokenClassification.call:21
+#: transformers.TFXLMModel.call:21 transformers.TFXLMWithLMHeadModel.call:21
+#: transformers.XLMForMultipleChoice.forward:21
+#: transformers.XLMForQuestionAnswering.forward:21
+#: transformers.XLMForQuestionAnsweringSimple.forward:21
+#: transformers.XLMForSequenceClassification.forward:21
+#: transformers.XLMForTokenClassification.forward:21
+#: transformers.XLMModel.forward:21 transformers.XLMWithLMHeadModel.forward:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:23
+#: transformers.TFXLMForQuestionAnsweringSimple.call:23
+#: transformers.TFXLMForSequenceClassification.call:23
+#: transformers.TFXLMForTokenClassification.call:23
+#: transformers.TFXLMModel.call:23 transformers.TFXLMWithLMHeadModel.call:23
+#: transformers.XLMForMultipleChoice.forward:23
+#: transformers.XLMForQuestionAnswering.forward:23
+#: transformers.XLMForQuestionAnsweringSimple.forward:23
+#: transformers.XLMForSequenceClassification.forward:23
+#: transformers.XLMForTokenClassification.forward:23
+#: transformers.XLMModel.forward:23 transformers.XLMWithLMHeadModel.forward:23
+msgid ""
+"A parallel sequence of tokens to be used to indicate the language of each"
+" token in the input. Indices are languages ids which can be obtained from"
+" the language names by using two conversion mappings provided in the "
+"configuration of the model (only provided for multilingual models). More "
+"precisely, the `language name to language id` mapping is in "
+":obj:`model.config.lang2id` (which is a dictionary string to int) and the"
+" `language id to language name` mapping is in :obj:`model.config.id2lang`"
+" (dictionary int to string).  See usage examples detailed in the "
+":doc:`multilingual documentation <../multilingual>`."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:23
+#: transformers.TFXLMForQuestionAnsweringSimple.call:23
+#: transformers.TFXLMForSequenceClassification.call:23
+#: transformers.TFXLMForTokenClassification.call:23
+#: transformers.TFXLMModel.call:23 transformers.TFXLMWithLMHeadModel.call:23
+#: transformers.XLMForMultipleChoice.forward:23
+#: transformers.XLMForQuestionAnswering.forward:23
+#: transformers.XLMForQuestionAnsweringSimple.forward:23
+#: transformers.XLMForSequenceClassification.forward:23
+#: transformers.XLMForTokenClassification.forward:23
+#: transformers.XLMModel.forward:23 transformers.XLMWithLMHeadModel.forward:23
+msgid ""
+"A parallel sequence of tokens to be used to indicate the language of each"
+" token in the input. Indices are languages ids which can be obtained from"
+" the language names by using two conversion mappings provided in the "
+"configuration of the model (only provided for multilingual models). More "
+"precisely, the `language name to language id` mapping is in "
+":obj:`model.config.lang2id` (which is a dictionary string to int) and the"
+" `language id to language name` mapping is in :obj:`model.config.id2lang`"
+" (dictionary int to string)."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:29
+#: transformers.TFXLMForQuestionAnsweringSimple.call:29
+#: transformers.TFXLMForSequenceClassification.call:29
+#: transformers.TFXLMForTokenClassification.call:29
+#: transformers.TFXLMModel.call:29 transformers.TFXLMWithLMHeadModel.call:29
+#: transformers.XLMForMultipleChoice.forward:29
+#: transformers.XLMForQuestionAnswering.forward:29
+#: transformers.XLMForQuestionAnsweringSimple.forward:29
+#: transformers.XLMForSequenceClassification.forward:29
+#: transformers.XLMForTokenClassification.forward:29
+#: transformers.XLMModel.forward:29 transformers.XLMWithLMHeadModel.forward:29
+msgid ""
+"See usage examples detailed in the :doc:`multilingual documentation "
+"<../multilingual>`."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:31
+#: transformers.TFXLMForQuestionAnsweringSimple.call:31
+#: transformers.TFXLMForSequenceClassification.call:31
+#: transformers.TFXLMForTokenClassification.call:31
+#: transformers.TFXLMModel.call:31 transformers.TFXLMWithLMHeadModel.call:31
+#: transformers.XLMForMultipleChoice.forward:31
+#: transformers.XLMForQuestionAnswering.forward:31
+#: transformers.XLMForQuestionAnsweringSimple.forward:31
+#: transformers.XLMForSequenceClassification.forward:31
+#: transformers.XLMForTokenClassification.forward:31
+#: transformers.XLMModel.forward:31 transformers.XLMWithLMHeadModel.forward:31
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:31
+#: transformers.TFXLMForQuestionAnsweringSimple.call:31
+#: transformers.TFXLMForSequenceClassification.call:31
+#: transformers.TFXLMForTokenClassification.call:31
+#: transformers.TFXLMModel.call:31 transformers.TFXLMWithLMHeadModel.call:31
+#: transformers.XLMForMultipleChoice.forward:31
+#: transformers.XLMForQuestionAnswering.forward:31
+#: transformers.XLMForQuestionAnsweringSimple.forward:31
+#: transformers.XLMForSequenceClassification.forward:31
+#: transformers.XLMForTokenClassification.forward:31
+#: transformers.XLMModel.forward:31 transformers.XLMWithLMHeadModel.forward:31
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:34
+#: transformers.TFXLMForQuestionAnsweringSimple.call:34
+#: transformers.TFXLMForSequenceClassification.call:34
+#: transformers.TFXLMForTokenClassification.call:34
+#: transformers.TFXLMModel.call:34 transformers.TFXLMWithLMHeadModel.call:34
+#: transformers.XLMForMultipleChoice.forward:34
+#: transformers.XLMForQuestionAnswering.forward:34
+#: transformers.XLMForQuestionAnsweringSimple.forward:34
+#: transformers.XLMForSequenceClassification.forward:34
+#: transformers.XLMForTokenClassification.forward:34
+#: transformers.XLMModel.forward:34 transformers.XLMWithLMHeadModel.forward:34
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:35
+#: transformers.TFXLMForQuestionAnsweringSimple.call:35
+#: transformers.TFXLMForSequenceClassification.call:35
+#: transformers.TFXLMForTokenClassification.call:35
+#: transformers.TFXLMModel.call:35 transformers.TFXLMWithLMHeadModel.call:35
+#: transformers.XLMForMultipleChoice.forward:35
+#: transformers.XLMForQuestionAnswering.forward:35
+#: transformers.XLMForQuestionAnsweringSimple.forward:35
+#: transformers.XLMForSequenceClassification.forward:35
+#: transformers.XLMForTokenClassification.forward:35
+#: transformers.XLMModel.forward:35 transformers.XLMWithLMHeadModel.forward:35
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:37
+#: transformers.TFXLMForQuestionAnsweringSimple.call:37
+#: transformers.TFXLMForSequenceClassification.call:37
+#: transformers.TFXLMForTokenClassification.call:37
+#: transformers.TFXLMModel.call:37 transformers.TFXLMWithLMHeadModel.call:37
+#: transformers.XLMForMultipleChoice.forward:37
+#: transformers.XLMForQuestionAnswering.forward:37
+#: transformers.XLMForQuestionAnsweringSimple.forward:37
+#: transformers.XLMForSequenceClassification.forward:37
+#: transformers.XLMForTokenClassification.forward:37
+#: transformers.XLMModel.forward:37 transformers.XLMWithLMHeadModel.forward:37
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:39
+#: transformers.TFXLMForQuestionAnsweringSimple.call:39
+#: transformers.TFXLMForSequenceClassification.call:39
+#: transformers.TFXLMForTokenClassification.call:39
+#: transformers.TFXLMModel.call:39 transformers.TFXLMWithLMHeadModel.call:39
+#: transformers.XLMForMultipleChoice.forward:39
+#: transformers.XLMForQuestionAnswering.forward:39
+#: transformers.XLMForQuestionAnsweringSimple.forward:39
+#: transformers.XLMForSequenceClassification.forward:39
+#: transformers.XLMForTokenClassification.forward:39
+#: transformers.XLMModel.forward:39 transformers.XLMWithLMHeadModel.forward:39
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:39
+#: transformers.TFXLMForQuestionAnsweringSimple.call:39
+#: transformers.TFXLMForSequenceClassification.call:39
+#: transformers.TFXLMForTokenClassification.call:39
+#: transformers.TFXLMModel.call:39 transformers.TFXLMWithLMHeadModel.call:39
+#: transformers.XLMForMultipleChoice.forward:39
+#: transformers.XLMForQuestionAnswering.forward:39
+#: transformers.XLMForQuestionAnsweringSimple.forward:39
+#: transformers.XLMForSequenceClassification.forward:39
+#: transformers.XLMForTokenClassification.forward:39
+#: transformers.XLMModel.forward:39 transformers.XLMWithLMHeadModel.forward:39
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:42
+#: transformers.TFXLMForQuestionAnsweringSimple.call:42
+#: transformers.TFXLMForSequenceClassification.call:42
+#: transformers.TFXLMForTokenClassification.call:42
+#: transformers.TFXLMModel.call:42 transformers.TFXLMWithLMHeadModel.call:42
+#: transformers.XLMForMultipleChoice.forward:42
+#: transformers.XLMForQuestionAnswering.forward:42
+#: transformers.XLMForQuestionAnsweringSimple.forward:42
+#: transformers.XLMForSequenceClassification.forward:42
+#: transformers.XLMForTokenClassification.forward:42
+#: transformers.XLMModel.forward:42 transformers.XLMWithLMHeadModel.forward:42
+msgid "`What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:44
+#: transformers.TFXLMForQuestionAnsweringSimple.call:44
+#: transformers.TFXLMForSequenceClassification.call:44
+#: transformers.TFXLMForTokenClassification.call:44
+#: transformers.TFXLMModel.call:44 transformers.TFXLMWithLMHeadModel.call:44
+#: transformers.XLMForMultipleChoice.forward:44
+#: transformers.XLMForQuestionAnswering.forward:44
+#: transformers.XLMForQuestionAnsweringSimple.forward:44
+#: transformers.XLMForSequenceClassification.forward:44
+#: transformers.XLMForTokenClassification.forward:44
+#: transformers.XLMModel.forward:44 transformers.XLMWithLMHeadModel.forward:44
+msgid ""
+"Length of each sentence that can be used to avoid performing attention on"
+" padding token indices. You can also use `attention_mask` for the same "
+"result (see above), kept here for compatibility. Indices selected in "
+"``[0, ..., input_ids.size(-1)]``."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:48
+#: transformers.TFXLMForQuestionAnsweringSimple.call:48
+#: transformers.TFXLMForSequenceClassification.call:48
+#: transformers.TFXLMForTokenClassification.call:48
+#: transformers.TFXLMModel.call:48 transformers.TFXLMWithLMHeadModel.call:48
+#: transformers.XLMForMultipleChoice.forward:48
+#: transformers.XLMForQuestionAnswering.forward:48
+#: transformers.XLMForQuestionAnsweringSimple.forward:48
+#: transformers.XLMForSequenceClassification.forward:48
+#: transformers.XLMForTokenClassification.forward:48
+#: transformers.XLMModel.forward:48 transformers.XLMWithLMHeadModel.forward:48
+msgid ""
+"Dictionary string to ``torch.FloatTensor`` that contains precomputed "
+"hidden states (key and values in the attention blocks) as computed by the"
+" model (see :obj:`cache` output below). Can be used to speed up "
+"sequential decoding.  The dictionary object will be modified in-place "
+"during the forward pass to add newly computed hidden-states."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:48
+#: transformers.TFXLMForQuestionAnsweringSimple.call:48
+#: transformers.TFXLMForSequenceClassification.call:48
+#: transformers.TFXLMForTokenClassification.call:48
+#: transformers.TFXLMModel.call:48 transformers.TFXLMWithLMHeadModel.call:48
+#: transformers.XLMForMultipleChoice.forward:48
+#: transformers.XLMForQuestionAnswering.forward:48
+#: transformers.XLMForQuestionAnsweringSimple.forward:48
+#: transformers.XLMForSequenceClassification.forward:48
+#: transformers.XLMForTokenClassification.forward:48
+#: transformers.XLMModel.forward:48 transformers.XLMWithLMHeadModel.forward:48
+msgid ""
+"Dictionary string to ``torch.FloatTensor`` that contains precomputed "
+"hidden states (key and values in the attention blocks) as computed by the"
+" model (see :obj:`cache` output below). Can be used to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:52
+#: transformers.TFXLMForQuestionAnsweringSimple.call:52
+#: transformers.TFXLMForSequenceClassification.call:52
+#: transformers.TFXLMForTokenClassification.call:52
+#: transformers.TFXLMModel.call:52 transformers.TFXLMWithLMHeadModel.call:52
+#: transformers.XLMForMultipleChoice.forward:52
+#: transformers.XLMForQuestionAnswering.forward:52
+#: transformers.XLMForQuestionAnsweringSimple.forward:52
+#: transformers.XLMForSequenceClassification.forward:52
+#: transformers.XLMForTokenClassification.forward:52
+#: transformers.XLMModel.forward:52 transformers.XLMWithLMHeadModel.forward:52
+msgid ""
+"The dictionary object will be modified in-place during the forward pass "
+"to add newly computed hidden-states."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:55
+#: transformers.TFXLMForQuestionAnsweringSimple.call:55
+#: transformers.TFXLMForSequenceClassification.call:55
+#: transformers.TFXLMForTokenClassification.call:55
+#: transformers.TFXLMModel.call:55 transformers.TFXLMWithLMHeadModel.call:55
+#: transformers.XLMForMultipleChoice.forward:55
+#: transformers.XLMForQuestionAnswering.forward:55
+#: transformers.XLMForQuestionAnsweringSimple.forward:55
+#: transformers.XLMForSequenceClassification.forward:55
+#: transformers.XLMForTokenClassification.forward:55
+#: transformers.XLMModel.forward:55 transformers.XLMWithLMHeadModel.forward:55
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:55
+#: transformers.TFXLMForQuestionAnsweringSimple.call:55
+#: transformers.TFXLMForSequenceClassification.call:55
+#: transformers.TFXLMForTokenClassification.call:55
+#: transformers.TFXLMModel.call:55 transformers.TFXLMWithLMHeadModel.call:55
+#: transformers.XLMForMultipleChoice.forward:55
+#: transformers.XLMForQuestionAnswering.forward:55
+#: transformers.XLMForQuestionAnsweringSimple.forward:55
+#: transformers.XLMForSequenceClassification.forward:55
+#: transformers.XLMForTokenClassification.forward:55
+#: transformers.XLMModel.forward:55 transformers.XLMWithLMHeadModel.forward:55
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:57
+#: transformers.TFXLMForQuestionAnsweringSimple.call:57
+#: transformers.TFXLMForSequenceClassification.call:57
+#: transformers.TFXLMForTokenClassification.call:57
+#: transformers.TFXLMModel.call:57 transformers.TFXLMWithLMHeadModel.call:57
+#: transformers.XLMForMultipleChoice.forward:57
+#: transformers.XLMForQuestionAnswering.forward:57
+#: transformers.XLMForQuestionAnsweringSimple.forward:57
+#: transformers.XLMForSequenceClassification.forward:57
+#: transformers.XLMForTokenClassification.forward:57
+#: transformers.XLMModel.forward:57 transformers.XLMWithLMHeadModel.forward:57
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:58
+#: transformers.TFXLMForQuestionAnsweringSimple.call:58
+#: transformers.TFXLMForSequenceClassification.call:58
+#: transformers.TFXLMForTokenClassification.call:58
+#: transformers.TFXLMModel.call:58 transformers.TFXLMWithLMHeadModel.call:58
+#: transformers.XLMForMultipleChoice.forward:58
+#: transformers.XLMForQuestionAnswering.forward:58
+#: transformers.XLMForQuestionAnsweringSimple.forward:58
+#: transformers.XLMForSequenceClassification.forward:58
+#: transformers.XLMForTokenClassification.forward:58
+#: transformers.XLMModel.forward:58 transformers.XLMWithLMHeadModel.forward:58
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:60
+#: transformers.TFXLMForQuestionAnsweringSimple.call:60
+#: transformers.TFXLMForSequenceClassification.call:60
+#: transformers.TFXLMForTokenClassification.call:60
+#: transformers.TFXLMModel.call:60 transformers.TFXLMWithLMHeadModel.call:60
+#: transformers.XLMForMultipleChoice.forward:60
+#: transformers.XLMForQuestionAnswering.forward:60
+#: transformers.XLMForQuestionAnsweringSimple.forward:60
+#: transformers.XLMForSequenceClassification.forward:60
+#: transformers.XLMForTokenClassification.forward:60
+#: transformers.XLMModel.forward:60 transformers.XLMWithLMHeadModel.forward:60
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice.forward:64
+#: transformers.XLMForQuestionAnswering.forward:64
+#: transformers.XLMForQuestionAnsweringSimple.forward:64
+#: transformers.XLMForSequenceClassification.forward:64
+#: transformers.XLMForTokenClassification.forward:64
+#: transformers.XLMModel.forward:64 transformers.XLMWithLMHeadModel.forward:64
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice.forward:67
+#: transformers.XLMForQuestionAnswering.forward:67
+#: transformers.XLMForQuestionAnsweringSimple.forward:67
+#: transformers.XLMForSequenceClassification.forward:67
+#: transformers.XLMForTokenClassification.forward:67
+#: transformers.XLMModel.forward:67 transformers.XLMWithLMHeadModel.forward:67
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice.forward:70
+#: transformers.XLMForQuestionAnswering.forward:70
+#: transformers.XLMForQuestionAnsweringSimple.forward:70
+#: transformers.XLMForSequenceClassification.forward:70
+#: transformers.XLMForTokenClassification.forward:70
+#: transformers.XLMModel.forward:70 transformers.XLMWithLMHeadModel.forward:70
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.XLMModel.forward:73
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.XLMModel.forward:73
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.XLMModel.forward:77
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice.forward:85
+#: transformers.XLMForQuestionAnswering.forward:101
+#: transformers.XLMForQuestionAnsweringSimple.forward:88
+#: transformers.XLMForSequenceClassification.forward:83
+#: transformers.XLMForTokenClassification.forward:82
+#: transformers.XLMModel.forward:78 transformers.XLMWithLMHeadModel.forward:83
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice.forward:89
+#: transformers.XLMForQuestionAnswering.forward:105
+#: transformers.XLMForQuestionAnsweringSimple.forward:92
+#: transformers.XLMForSequenceClassification.forward:87
+#: transformers.XLMForTokenClassification.forward:86
+#: transformers.XLMModel.forward:82 transformers.XLMWithLMHeadModel.forward:87
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.XLMModel.forward:87
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:98
+#: transformers.TFXLMForQuestionAnsweringSimple.call:105
+#: transformers.TFXLMForSequenceClassification.call:100
+#: transformers.TFXLMForTokenClassification.call:99
+#: transformers.TFXLMModel.call:95 transformers.TFXLMWithLMHeadModel.call:95
+#: transformers.XLMForMultipleChoice.forward:96
+#: transformers.XLMForQuestionAnswering.forward:112
+#: transformers.XLMForQuestionAnsweringSimple.forward:99
+#: transformers.XLMForSequenceClassification.forward:94
+#: transformers.XLMForTokenClassification.forward:93
+#: transformers.XLMModel.forward:89 transformers.XLMWithLMHeadModel.forward:94
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:78
+msgid "XLMWithLMHeadModel"
+msgstr ""
+
+#: of transformers.TFXLMWithLMHeadModel:1 transformers.XLMWithLMHeadModel:1
+msgid ""
+"The XLM Model transformer with a language modeling head on top (linear "
+"layer with weights tied to the input embeddings)."
+msgstr ""
+
+#: of transformers.XLMWithLMHeadModel.forward:1
+msgid ""
+"The :class:`~transformers.XLMWithLMHeadModel` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.XLMWithLMHeadModel.forward:72
+msgid ""
+"Labels for language modeling. Note that the labels **are shifted** inside"
+" the model, i.e. you can set ``labels = input_ids`` Indices are selected "
+"in ``[-100, 0, ..., config.vocab_size]`` All labels set to ``-100`` are "
+"ignored (masked), the loss is only computed for labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.XLMWithLMHeadModel.forward:77
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.XLMWithLMHeadModel.forward:77
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.XLMWithLMHeadModel.forward:81
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.XLMWithLMHeadModel.forward:82
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.XLMWithLMHeadModel.forward:92
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:85
+msgid "XLMForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFXLMForSequenceClassification:1
+#: transformers.XLMForSequenceClassification:1
+msgid ""
+"XLM Model with a sequence classification/regression head on top (a linear"
+" layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.XLMForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.XLMForSequenceClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.XLMForSequenceClassification.forward:72
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.XLMForSequenceClassification.forward:77
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.XLMForSequenceClassification.forward:77
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.XLMForSequenceClassification.forward:81
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.XLMForSequenceClassification.forward:82
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.XLMForSequenceClassification.forward:92
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:92
+msgid "XLMForMultipleChoice"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice:1 transformers.XLMForMultipleChoice:1
+msgid ""
+"XLM Model with a multiple choice classification head on top (a linear "
+"layer on top of the pooled output and a softmax) e.g. for RocStories/SWAG"
+" tasks."
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.XLMForMultipleChoice` forward method, overrides"
+" the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice.forward:72
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice.forward:77
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss. - **logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, num_choices)`) -- "
+"`num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice.forward:77
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice.forward:81
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice.forward:82
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:86
+#: transformers.XLMForMultipleChoice.forward:84
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.XLMForMultipleChoice.forward:94
+msgid ""
+":class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:99
+msgid "XLMForTokenClassification"
+msgstr ""
+
+#: of transformers.TFXLMForTokenClassification:1
+#: transformers.XLMForTokenClassification:1
+msgid ""
+"XLM Model with a token classification head on top (a linear layer on top "
+"of the hidden-states output) e.g. for Named-Entity-Recognition (NER) "
+"tasks."
+msgstr ""
+
+#: of transformers.XLMForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.XLMForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLMForTokenClassification.call:78
+#: transformers.XLMForTokenClassification.forward:72
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.XLMForTokenClassification.forward:76
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.XLMForTokenClassification.forward:76
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.XLMForTokenClassification.forward:80
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.XLMForTokenClassification.forward:81
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.XLMForTokenClassification.forward:91
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:106
+msgid "XLMForQuestionAnsweringSimple"
+msgstr ""
+
+#: of transformers.XLMForQuestionAnsweringSimple:1
+msgid ""
+"XLM Model with a span classification head on top for extractive question-"
+"answering tasks like SQuAD (a linear layers on top of the hidden-states "
+"output to compute `span start logits` and `span end logits`)."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnsweringSimple.forward:1
+msgid ""
+"The :class:`~transformers.XLMForQuestionAnsweringSimple` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLMForQuestionAnsweringSimple.call:78
+#: transformers.XLMForQuestionAnswering.forward:72
+#: transformers.XLMForQuestionAnsweringSimple.forward:72
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.TFXLMForQuestionAnsweringSimple.call:82
+#: transformers.XLMForQuestionAnswering.forward:76
+#: transformers.XLMForQuestionAnsweringSimple.forward:76
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnsweringSimple.forward:81
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLMConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnsweringSimple.forward:81
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLMConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnsweringSimple.forward:85
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnsweringSimple.forward:86
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnsweringSimple.forward:87
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnsweringSimple.forward:97
+msgid ""
+":class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:113
+msgid "XLMForQuestionAnswering"
+msgstr ""
+
+#: of transformers.XLMForQuestionAnswering:1
+msgid ""
+"XLM Model with a beam-search span classification head on top for "
+"extractive question-answering tasks like SQuAD (a linear layers on top of"
+" the hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.XLMForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnswering.forward:80
+msgid "Labels whether a question has an answer or no answer (SQuAD 2.0)"
+msgstr ""
+
+#: of transformers.XLMForQuestionAnswering.forward:82
+msgid ""
+"Labels for position (index) of the classification token to use as input "
+"for computing plausibility of the answer."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnswering.forward:85
+msgid ""
+"Optional mask of tokens which can't be in answers (e.g. [CLS], [PAD], "
+"...). 1.0 means token should be masked. 0.0 mean token is not masked."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnswering.forward:89
+msgid ""
+"A "
+":class:`~transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLMConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned if both :obj:`start_positions` and "
+":obj:`end_positions` are provided) -- Classification loss as the sum of "
+"start token, end token (and is_impossible if provided) classification   "
+"losses. - **start_top_log_probs** (``torch.FloatTensor`` of shape "
+"``(batch_size, config.start_n_top)``, `optional`, returned if "
+"``start_positions`` or ``end_positions`` is not provided) -- Log "
+"probabilities for the top config.start_n_top start token possibilities "
+"(beam-search). - **start_top_index** (``torch.LongTensor`` of shape "
+"``(batch_size, config.start_n_top)``, `optional`, returned if "
+"``start_positions`` or ``end_positions`` is not provided) -- Indices for "
+"the top config.start_n_top start token possibilities (beam-search). - "
+"**end_top_log_probs** (``torch.FloatTensor`` of shape ``(batch_size, "
+"config.start_n_top * config.end_n_top)``, `optional`, returned if "
+"``start_positions`` or ``end_positions`` is not provided) -- Log "
+"probabilities for the top ``config.start_n_top * config.end_n_top`` end "
+"token possibilities   (beam-search). - **end_top_index** "
+"(``torch.LongTensor`` of shape ``(batch_size, config.start_n_top * "
+"config.end_n_top)``, `optional`, returned if ``start_positions`` or "
+"``end_positions`` is not provided) -- Indices for the top "
+"``config.start_n_top * config.end_n_top`` end token possibilities (beam-"
+"search). - **cls_logits** (``torch.FloatTensor`` of shape "
+"``(batch_size,)``, `optional`, returned if ``start_positions`` or "
+"``end_positions`` is not provided) -- Log probabilities for the "
+"``is_impossible`` label of the answers. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Example::      >>> from transformers import "
+"XLMTokenizer, XLMForQuestionAnswering     >>> import torch      >>> "
+"tokenizer = XLMTokenizer.from_pretrained('xlm-mlm-en-2048')     >>> model"
+" = XLMForQuestionAnswering.from_pretrained('xlm-mlm-en-2048')      >>> "
+"input_ids = torch.tensor(tokenizer.encode(\"Hello, my dog is cute\", "
+"add_special_tokens=True)).unsqueeze(0)  # Batch size 1     >>> "
+"start_positions = torch.tensor([1])     >>> end_positions = "
+"torch.tensor([3])      >>> outputs = model(input_ids, "
+"start_positions=start_positions, end_positions=end_positions)     >>> "
+"loss = outputs.loss"
+msgstr ""
+
+#: of transformers.XLMForQuestionAnswering.forward:89
+msgid ""
+"A "
+":class:`~transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLMConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnswering.forward:93
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned if both :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Classification loss as the sum of start token, end token "
+"(and is_impossible if provided) classification losses."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnswering.forward:95
+msgid ""
+"**start_top_log_probs** (``torch.FloatTensor`` of shape ``(batch_size, "
+"config.start_n_top)``, `optional`, returned if ``start_positions`` or "
+"``end_positions`` is not provided) -- Log probabilities for the top "
+"config.start_n_top start token possibilities (beam-search)."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnswering.forward:96
+msgid ""
+"**start_top_index** (``torch.LongTensor`` of shape ``(batch_size, "
+"config.start_n_top)``, `optional`, returned if ``start_positions`` or "
+"``end_positions`` is not provided) -- Indices for the top "
+"config.start_n_top start token possibilities (beam-search)."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnswering.forward:97
+msgid ""
+"**end_top_log_probs** (``torch.FloatTensor`` of shape ``(batch_size, "
+"config.start_n_top * config.end_n_top)``, `optional`, returned if "
+"``start_positions`` or ``end_positions`` is not provided) -- Log "
+"probabilities for the top ``config.start_n_top * config.end_n_top`` end "
+"token possibilities (beam-search)."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnswering.forward:99
+msgid ""
+"**end_top_index** (``torch.LongTensor`` of shape ``(batch_size, "
+"config.start_n_top * config.end_n_top)``, `optional`, returned if "
+"``start_positions`` or ``end_positions`` is not provided) -- Indices for "
+"the top ``config.start_n_top * config.end_n_top`` end token possibilities"
+" (beam-search)."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnswering.forward:100
+msgid ""
+"**cls_logits** (``torch.FloatTensor`` of shape ``(batch_size,)``, "
+"`optional`, returned if ``start_positions`` or ``end_positions`` is not "
+"provided) -- Log probabilities for the ``is_impossible`` label of the "
+"answers."
+msgstr ""
+
+#: of transformers.XLMForQuestionAnswering.forward:126
+msgid ""
+":class:`~transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:120
+msgid "TFXLMModel"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice:5
+#: transformers.TFXLMForQuestionAnsweringSimple:5
+#: transformers.TFXLMForSequenceClassification:5
+#: transformers.TFXLMForTokenClassification:5 transformers.TFXLMModel:3
+#: transformers.TFXLMWithLMHeadModel:5
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice:9
+#: transformers.TFXLMForQuestionAnsweringSimple:9
+#: transformers.TFXLMForSequenceClassification:9
+#: transformers.TFXLMForTokenClassification:9 transformers.TFXLMModel:7
+#: transformers.TFXLMWithLMHeadModel:9
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice:15
+#: transformers.TFXLMForQuestionAnsweringSimple:15
+#: transformers.TFXLMForSequenceClassification:15
+#: transformers.TFXLMForTokenClassification:15 transformers.TFXLMModel:13
+#: transformers.TFXLMWithLMHeadModel:15
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice:17
+#: transformers.TFXLMForQuestionAnsweringSimple:17
+#: transformers.TFXLMForSequenceClassification:17
+#: transformers.TFXLMForTokenClassification:17 transformers.TFXLMModel:15
+#: transformers.TFXLMWithLMHeadModel:17
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice:18
+#: transformers.TFXLMForQuestionAnsweringSimple:18
+#: transformers.TFXLMForSequenceClassification:18
+#: transformers.TFXLMForTokenClassification:18 transformers.TFXLMModel:16
+#: transformers.TFXLMWithLMHeadModel:18
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice:20
+#: transformers.TFXLMForQuestionAnsweringSimple:20
+#: transformers.TFXLMForSequenceClassification:20
+#: transformers.TFXLMForTokenClassification:20 transformers.TFXLMModel:18
+#: transformers.TFXLMWithLMHeadModel:20
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice:23
+#: transformers.TFXLMForQuestionAnsweringSimple:23
+#: transformers.TFXLMForSequenceClassification:23
+#: transformers.TFXLMForTokenClassification:23 transformers.TFXLMModel:21
+#: transformers.TFXLMWithLMHeadModel:23
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice:26
+#: transformers.TFXLMForQuestionAnsweringSimple:26
+#: transformers.TFXLMForSequenceClassification:26
+#: transformers.TFXLMForTokenClassification:26 transformers.TFXLMModel:24
+#: transformers.TFXLMWithLMHeadModel:26
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice:27
+#: transformers.TFXLMForQuestionAnsweringSimple:27
+#: transformers.TFXLMForSequenceClassification:27
+#: transformers.TFXLMForTokenClassification:27 transformers.TFXLMModel:25
+#: transformers.TFXLMWithLMHeadModel:27
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice:29
+#: transformers.TFXLMForQuestionAnsweringSimple:29
+#: transformers.TFXLMForSequenceClassification:29
+#: transformers.TFXLMForTokenClassification:29 transformers.TFXLMModel:27
+#: transformers.TFXLMWithLMHeadModel:29
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFXLMModel.call:1
+msgid ""
+"The :class:`~transformers.TFXLMModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:8
+#: transformers.TFXLMForQuestionAnsweringSimple.call:8
+#: transformers.TFXLMForSequenceClassification.call:8
+#: transformers.TFXLMForTokenClassification.call:8
+#: transformers.TFXLMModel.call:8 transformers.TFXLMWithLMHeadModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.BertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:10
+#: transformers.TFXLMForQuestionAnsweringSimple.call:10
+#: transformers.TFXLMForSequenceClassification.call:10
+#: transformers.TFXLMForTokenClassification.call:10
+#: transformers.TFXLMModel.call:10 transformers.TFXLMWithLMHeadModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.BertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:64
+#: transformers.TFXLMForQuestionAnsweringSimple.call:64
+#: transformers.TFXLMForSequenceClassification.call:64
+#: transformers.TFXLMForTokenClassification.call:64
+#: transformers.TFXLMModel.call:64 transformers.TFXLMWithLMHeadModel.call:64
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:68
+#: transformers.TFXLMForQuestionAnsweringSimple.call:68
+#: transformers.TFXLMForSequenceClassification.call:68
+#: transformers.TFXLMForTokenClassification.call:68
+#: transformers.TFXLMModel.call:68 transformers.TFXLMWithLMHeadModel.call:68
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:72
+#: transformers.TFXLMForQuestionAnsweringSimple.call:72
+#: transformers.TFXLMForSequenceClassification.call:72
+#: transformers.TFXLMForTokenClassification.call:72
+#: transformers.TFXLMModel.call:72 transformers.TFXLMWithLMHeadModel.call:72
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:75
+#: transformers.TFXLMForQuestionAnsweringSimple.call:75
+#: transformers.TFXLMForSequenceClassification.call:75
+#: transformers.TFXLMForTokenClassification.call:75
+#: transformers.TFXLMModel.call:75 transformers.TFXLMWithLMHeadModel.call:75
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFXLMModel.call:79
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(tf.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFXLMModel.call:79
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFXLMModel.call:83
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.TFXLMModel.call:84
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:91
+#: transformers.TFXLMForQuestionAnsweringSimple.call:98
+#: transformers.TFXLMForSequenceClassification.call:93
+#: transformers.TFXLMForTokenClassification.call:92
+#: transformers.TFXLMModel.call:88 transformers.TFXLMWithLMHeadModel.call:88
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFXLMModel.call:93
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:127
+msgid "TFXLMWithLMHeadModel"
+msgstr ""
+
+#: of transformers.TFXLMWithLMHeadModel.call:1
+msgid ""
+"The :class:`~transformers.TFXLMWithLMHeadModel` forward method, overrides"
+" the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLMWithLMHeadModel.call:79
+msgid ""
+"A "
+":class:`~transformers.models.xlm.modeling_tf_xlm.TFXLMWithLMHeadModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFXLMWithLMHeadModel.call:79
+msgid ""
+"A "
+":class:`~transformers.models.xlm.modeling_tf_xlm.TFXLMWithLMHeadModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFXLMWithLMHeadModel.call:83
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:87
+#: transformers.TFXLMForQuestionAnsweringSimple.call:94
+#: transformers.TFXLMForSequenceClassification.call:89
+#: transformers.TFXLMForTokenClassification.call:88
+#: transformers.TFXLMWithLMHeadModel.call:84
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFXLMWithLMHeadModel.call:93
+msgid ""
+":class:`~transformers.models.xlm.modeling_tf_xlm.TFXLMWithLMHeadModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:134
+msgid "TFXLMForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFXLMForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFXLMForSequenceClassification` forward method,"
+" overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLMForSequenceClassification.call:78
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in ``[0, ..., config.num_labels - 1]``. If ``config.num_labels"
+" == 1`` a regression loss is computed (Mean-Square loss), If "
+"``config.num_labels > 1`` a classification loss is computed (Cross-"
+"Entropy)."
+msgstr ""
+
+#: of transformers.TFXLMForSequenceClassification.call:83
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, config.num_labels)`) -- Classification (or regression "
+"if config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFXLMForSequenceClassification.call:83
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFXLMForSequenceClassification.call:87
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFXLMForSequenceClassification.call:88
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFXLMForSequenceClassification.call:98
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:141
+msgid "TFXLMForMultipleChoice"
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:1
+msgid ""
+"The :class:`~transformers.TFXLMForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:79
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss. - "
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:79
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:83
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:84
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.TFXLMForMultipleChoice.call:96
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` or"
+" :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:148
+msgid "TFXLMForTokenClassification"
+msgstr ""
+
+#: of transformers.TFXLMForTokenClassification.call:1
+msgid ""
+"The :class:`~transformers.TFXLMForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLMForTokenClassification.call:82
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, config.num_labels)`) -- "
+"Classification scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFXLMForTokenClassification.call:82
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFXLMForTokenClassification.call:86
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss."
+msgstr ""
+
+#: of transformers.TFXLMForTokenClassification.call:87
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.num_labels)`) -- Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFXLMForTokenClassification.call:97
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlm.rst:156
+msgid "TFXLMForQuestionAnsweringSimple"
+msgstr ""
+
+#: of transformers.TFXLMForQuestionAnsweringSimple:1
+msgid ""
+"XLM Model with a span classification head on top for extractive question-"
+"answering tasks like SQuAD (a linear layer on top of the hidden-states "
+"output to compute `span start logits` and `span end logits`)."
+msgstr ""
+
+#: of transformers.TFXLMForQuestionAnsweringSimple.call:1
+msgid ""
+"The :class:`~transformers.TFXLMForQuestionAnsweringSimple` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLMForQuestionAnsweringSimple.call:87
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions. - **start_logits** (:obj:`tf.Tensor` of "
+"shape :obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFXLMForQuestionAnsweringSimple.call:87
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFXLMForQuestionAnsweringSimple.call:91
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions."
+msgstr ""
+
+#: of transformers.TFXLMForQuestionAnsweringSimple.call:92
+msgid ""
+"**start_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFXLMForQuestionAnsweringSimple.call:93
+msgid ""
+"**end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFXLMForQuestionAnsweringSimple.call:103
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+

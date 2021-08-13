@@ -1,0 +1,506 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/main_classes/processors.rst:14
+#: ../../source/main_classes/processors.rst:20
+#: ../../source/main_classes/processors.rst:108
+msgid "Processors"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:16
+msgid ""
+"This library includes processors for several traditional tasks. These "
+"processors can be used to process a dataset into examples that can be fed"
+" to a model."
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:22
+msgid ""
+"All processors follow the same architecture which is that of the "
+":class:`~transformers.data.processors.utils.DataProcessor`. The processor"
+" returns a list of "
+":class:`~transformers.data.processors.utils.InputExample`. These "
+":class:`~transformers.data.processors.utils.InputExample` can be "
+"converted to :class:`~transformers.data.processors.utils.InputFeatures` "
+"in order to be fed to the model."
+msgstr ""
+
+#: of transformers.data.processors.utils.DataProcessor:1
+msgid "Base class for data converters for sequence classification data sets."
+msgstr ""
+
+#: of transformers.data.processors.utils.DataProcessor.get_dev_examples:1
+msgid "Gets a collection of :class:`InputExample` for the dev set."
+msgstr ""
+
+#: of
+#: transformers.data.processors.utils.DataProcessor.get_example_from_tensor_dict:1
+msgid "Gets an example from a dict with tensorflow tensors."
+msgstr ""
+
+#: of transformers.data.processors.glue.glue_convert_examples_to_features
+#: transformers.data.processors.squad.SquadProcessor.get_dev_examples
+#: transformers.data.processors.squad.SquadProcessor.get_examples_from_dataset
+#: transformers.data.processors.squad.SquadProcessor.get_train_examples
+#: transformers.data.processors.squad.squad_convert_examples_to_features
+#: transformers.data.processors.utils.DataProcessor.get_example_from_tensor_dict
+#: transformers.data.processors.utils.InputExample
+#: transformers.data.processors.utils.InputFeatures
+msgid "Parameters"
+msgstr ""
+
+#: of
+#: transformers.data.processors.utils.DataProcessor.get_example_from_tensor_dict:3
+msgid ""
+"Keys and values should match the corresponding Glue tensorflow_dataset "
+"examples."
+msgstr ""
+
+#: of transformers.data.processors.utils.DataProcessor.get_labels:1
+msgid "Gets the list of labels for this data set."
+msgstr ""
+
+#: of transformers.data.processors.utils.DataProcessor.get_test_examples:1
+msgid "Gets a collection of :class:`InputExample` for the test set."
+msgstr ""
+
+#: of transformers.data.processors.utils.DataProcessor.get_train_examples:1
+msgid "Gets a collection of :class:`InputExample` for the train set."
+msgstr ""
+
+#: of transformers.data.processors.utils.DataProcessor.tfds_map:1
+msgid ""
+"Some tensorflow_datasets datasets are not formatted the same way the GLUE"
+" datasets are. This method converts examples to the correct format."
+msgstr ""
+
+#: of transformers.data.processors.utils.InputExample:1
+msgid "A single training/test example for simple sequence classification."
+msgstr ""
+
+#: of transformers.data.processors.utils.InputExample:3
+msgid "Unique id for the example."
+msgstr ""
+
+#: of transformers.data.processors.utils.InputExample:4
+msgid ""
+"string. The untokenized text of the first sequence. For single sequence "
+"tasks, only this sequence must be specified."
+msgstr ""
+
+#: of transformers.data.processors.utils.InputExample:6
+msgid ""
+"(Optional) string. The untokenized text of the second sequence. Only must"
+" be specified for sequence pair tasks."
+msgstr ""
+
+#: of transformers.data.processors.utils.InputExample:8
+msgid ""
+"(Optional) string. The label of the example. This should be specified for"
+" train and dev examples, but not for test examples."
+msgstr ""
+
+#: of transformers.data.processors.utils.InputExample.to_json_string:1
+#: transformers.data.processors.utils.InputFeatures.to_json_string:1
+msgid "Serializes this instance to a JSON string."
+msgstr ""
+
+#: of transformers.data.processors.utils.InputFeatures:1
+msgid ""
+"A single set of features of data. Property names are the same names as "
+"the corresponding inputs to a model."
+msgstr ""
+
+#: of transformers.data.processors.utils.InputFeatures:3
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.data.processors.utils.InputFeatures:4
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``: Usually ``1`` for tokens that are NOT MASKED, "
+"``0`` for MASKED (padded) tokens."
+msgstr ""
+
+#: of transformers.data.processors.utils.InputFeatures:7
+msgid ""
+"(Optional) Segment token indices to indicate first and second portions of"
+" the inputs. Only some models use them."
+msgstr ""
+
+#: of transformers.data.processors.utils.InputFeatures:9
+msgid ""
+"(Optional) Label corresponding to the input. Int for classification "
+"problems, float for regression problems."
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:41
+msgid "GLUE"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:43
+msgid ""
+"`General Language Understanding Evaluation (GLUE) "
+"<https://gluebenchmark.com/>`__ is a benchmark that evaluates the "
+"performance of models across a diverse set of existing NLU tasks. It was "
+"released together with the paper `GLUE: A multi-task benchmark and "
+"analysis platform for natural language understanding "
+"<https://openreview.net/pdf?id=rJ4km2R5t7>`__"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:48
+msgid ""
+"This library hosts a total of 10 processors for the following tasks: "
+"MRPC, MNLI, MNLI (mismatched), CoLA, SST2, STSB, QQP, QNLI, RTE and WNLI."
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:51
+#: ../../source/main_classes/processors.rst:110
+msgid "Those processors are:"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:53
+msgid ":class:`~transformers.data.processors.utils.MrpcProcessor`"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:54
+msgid ":class:`~transformers.data.processors.utils.MnliProcessor`"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:55
+msgid ":class:`~transformers.data.processors.utils.MnliMismatchedProcessor`"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:56
+msgid ":class:`~transformers.data.processors.utils.Sst2Processor`"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:57
+msgid ":class:`~transformers.data.processors.utils.StsbProcessor`"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:58
+msgid ":class:`~transformers.data.processors.utils.QqpProcessor`"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:59
+msgid ":class:`~transformers.data.processors.utils.QnliProcessor`"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:60
+msgid ":class:`~transformers.data.processors.utils.RteProcessor`"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:61
+msgid ":class:`~transformers.data.processors.utils.WnliProcessor`"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:63
+msgid ""
+"Additionally, the following method can be used to load values from a data"
+" file and convert them to a list of "
+":class:`~transformers.data.processors.utils.InputExample`."
+msgstr ""
+
+#: of transformers.data.processors.glue.glue_convert_examples_to_features:1
+msgid "Loads a data file into a list of ``InputFeatures``"
+msgstr ""
+
+#: of transformers.data.processors.glue.glue_convert_examples_to_features:3
+msgid "List of ``InputExamples`` or ``tf.data.Dataset`` containing the examples."
+msgstr ""
+
+#: of transformers.data.processors.glue.glue_convert_examples_to_features:4
+msgid "Instance of a tokenizer that will tokenize the examples"
+msgstr ""
+
+#: of transformers.data.processors.glue.glue_convert_examples_to_features:5
+msgid "Maximum example length. Defaults to the tokenizer's max_len"
+msgstr ""
+
+#: of transformers.data.processors.glue.glue_convert_examples_to_features:6
+msgid "GLUE task"
+msgstr ""
+
+#: of transformers.data.processors.glue.glue_convert_examples_to_features:7
+msgid ""
+"List of labels. Can be obtained from the processor using the "
+"``processor.get_labels()`` method"
+msgstr ""
+
+#: of transformers.data.processors.glue.glue_convert_examples_to_features:8
+msgid ""
+"String indicating the output mode. Either ``regression`` or "
+"``classification``"
+msgstr ""
+
+#: of transformers.data.processors.glue.glue_convert_examples_to_features
+#: transformers.data.processors.squad.SquadProcessor.get_examples_from_dataset
+#: transformers.data.processors.squad.squad_convert_examples_to_features
+msgid "Returns"
+msgstr ""
+
+#: of transformers.data.processors.glue.glue_convert_examples_to_features:10
+msgid ""
+"If the ``examples`` input is a ``tf.data.Dataset``, will return a "
+"``tf.data.Dataset`` containing the task-specific features. If the input "
+"is a list of ``InputExamples``, will return a list of task-specific "
+"``InputFeatures`` which can be fed to the model."
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:69
+#: ../../source/main_classes/processors.rst:130
+msgid "Example usage"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:71
+msgid ""
+"An example using these processors is given in the "
+":prefix_link:`run_glue.py <examples/legacy/text-"
+"classification/run_glue.py>` script."
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:76
+msgid "XNLI"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:78
+msgid ""
+"`The Cross-Lingual NLI Corpus (XNLI) "
+"<https://www.nyu.edu/projects/bowman/xnli/>`__ is a benchmark that "
+"evaluates the quality of cross-lingual text representations. XNLI is "
+"crowd-sourced dataset based on `MultiNLI "
+"<http://www.nyu.edu/projects/bowman/multinli/>`: pairs of text are "
+"labeled with textual entailment annotations for 15 different languages "
+"(including both high-resource language such as English and low-resource "
+"languages such as Swahili)."
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:83
+msgid ""
+"It was released together with the paper `XNLI: Evaluating Cross-lingual "
+"Sentence Representations <https://arxiv.org/abs/1809.05053>`__"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:86
+msgid "This library hosts the processor to load the XNLI data:"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:88
+msgid ":class:`~transformers.data.processors.utils.XnliProcessor`"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:90
+msgid ""
+"Please note that since the gold labels are available on the test set, "
+"evaluation is performed on the test set."
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:92
+msgid ""
+"An example using these processors is given in the "
+":prefix_link:`run_xnli.py <examples/legacy/text-"
+"classification/run_xnli.py>` script."
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:97
+msgid "SQuAD"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:99
+msgid ""
+"`The Stanford Question Answering Dataset (SQuAD) "
+"<https://rajpurkar.github.io/SQuAD-explorer//>`__ is a benchmark that "
+"evaluates the performance of models on question answering. Two versions "
+"are available, v1.1 and v2.0. The first version (v1.1) was released "
+"together with the paper `SQuAD: 100,000+ Questions for Machine "
+"Comprehension of Text <https://arxiv.org/abs/1606.05250>`__. The second "
+"version (v2.0) was released alongside the paper `Know What You Don't "
+"Know: Unanswerable Questions for SQuAD "
+"<https://arxiv.org/abs/1806.03822>`__."
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:105
+msgid "This library hosts a processor for each of the two versions:"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:112
+msgid ":class:`~transformers.data.processors.utils.SquadV1Processor`"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:113
+msgid ":class:`~transformers.data.processors.utils.SquadV2Processor`"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:115
+msgid ""
+"They both inherit from the abstract class "
+":class:`~transformers.data.processors.utils.SquadProcessor`"
+msgstr ""
+
+#: of transformers.data.processors.squad.SquadProcessor:1
+msgid ""
+"Processor for the SQuAD data set. overridden by SquadV1Processor and "
+"SquadV2Processor, used by the version 1.1 and version 2.0 of SQuAD, "
+"respectively."
+msgstr ""
+
+#: of transformers.data.processors.squad.SquadProcessor.get_dev_examples:1
+msgid "Returns the evaluation example from the data directory."
+msgstr ""
+
+#: of transformers.data.processors.squad.SquadProcessor.get_dev_examples:3
+#: transformers.data.processors.squad.SquadProcessor.get_train_examples:3
+msgid "Directory containing the data files used for training and evaluating."
+msgstr ""
+
+#: of transformers.data.processors.squad.SquadProcessor.get_dev_examples:4
+msgid ""
+"None by default, specify this if the evaluation file has a different name"
+" than the original one which is `dev-v1.1.json` and `dev-v2.0.json` for "
+"squad versions 1.1 and 2.0 respectively."
+msgstr ""
+
+#: of
+#: transformers.data.processors.squad.SquadProcessor.get_examples_from_dataset:1
+msgid ""
+"Creates a list of "
+":class:`~transformers.data.processors.squad.SquadExample` using a TFDS "
+"dataset."
+msgstr ""
+
+#: of
+#: transformers.data.processors.squad.SquadProcessor.get_examples_from_dataset:3
+msgid "The tfds dataset loaded from `tensorflow_datasets.load(\"squad\")`"
+msgstr ""
+
+#: of
+#: transformers.data.processors.squad.SquadProcessor.get_examples_from_dataset:4
+msgid "Boolean specifying if in evaluation mode or in training mode"
+msgstr ""
+
+#: of
+#: transformers.data.processors.squad.SquadProcessor.get_examples_from_dataset:6
+msgid "List of SquadExample"
+msgstr ""
+
+#: of
+#: transformers.data.processors.squad.SquadProcessor.get_examples_from_dataset:8
+msgid "Examples::"
+msgstr ""
+
+#: of transformers.data.processors.squad.SquadProcessor.get_train_examples:1
+msgid "Returns the training examples from the data directory."
+msgstr ""
+
+#: of transformers.data.processors.squad.SquadProcessor.get_train_examples:4
+msgid ""
+"None by default, specify this if the training file has a different name "
+"than the original one which is `train-v1.1.json` and `train-v2.0.json` "
+"for squad versions 1.1 and 2.0 respectively."
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:120
+msgid ""
+"Additionally, the following method can be used to convert SQuAD examples "
+"into :class:`~transformers.data.processors.utils.SquadFeatures` that can "
+"be used as model inputs."
+msgstr ""
+
+#: of transformers.data.processors.squad.squad_convert_examples_to_features:1
+msgid ""
+"Converts a list of examples into a list of features that can be directly "
+"given as input to a model. It is model-dependant and takes advantage of "
+"many of the tokenizer's features to create the model's inputs."
+msgstr ""
+
+#: of transformers.data.processors.squad.squad_convert_examples_to_features:4
+msgid "list of :class:`~transformers.data.processors.squad.SquadExample`"
+msgstr ""
+
+#: of transformers.data.processors.squad.squad_convert_examples_to_features:5
+msgid "an instance of a child of :class:`~transformers.PreTrainedTokenizer`"
+msgstr ""
+
+#: of transformers.data.processors.squad.squad_convert_examples_to_features:6
+msgid "The maximum sequence length of the inputs."
+msgstr ""
+
+#: of transformers.data.processors.squad.squad_convert_examples_to_features:7
+msgid ""
+"The stride used when the context is too large and is split across several"
+" features."
+msgstr ""
+
+#: of transformers.data.processors.squad.squad_convert_examples_to_features:8
+msgid "The maximum length of the query."
+msgstr ""
+
+#: of transformers.data.processors.squad.squad_convert_examples_to_features:9
+msgid "whether to create features for model evaluation or model training."
+msgstr ""
+
+#: of transformers.data.processors.squad.squad_convert_examples_to_features:10
+msgid "Default to \"max_length\". Which padding strategy to use"
+msgstr ""
+
+#: of transformers.data.processors.squad.squad_convert_examples_to_features:11
+msgid ""
+"Default False. Either 'pt' or 'tf'. if 'pt': returns a "
+"torch.data.TensorDataset, if 'tf': returns a tf.data.Dataset"
+msgstr ""
+
+#: of transformers.data.processors.squad.squad_convert_examples_to_features:13
+msgid "multiple processing threads."
+msgstr ""
+
+#: of transformers.data.processors.squad.squad_convert_examples_to_features:15
+msgid "list of :class:`~transformers.data.processors.squad.SquadFeatures`"
+msgstr ""
+
+#: of transformers.data.processors.squad.squad_convert_examples_to_features:17
+msgid "Example::"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:125
+msgid ""
+"These processors as well as the aforementionned method can be used with "
+"files containing the data as well as with the `tensorflow_datasets` "
+"package. Examples are given below."
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:132
+msgid ""
+"Here is an example using the processors as well as the conversion method "
+"using data files:"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:153
+msgid "Using `tensorflow_datasets` is as easy as using a data file:"
+msgstr ""
+
+#: ../../source/main_classes/processors.rst:171
+msgid ""
+"Another example using these processors is given in the "
+":prefix_link:`run_squad.py <examples/legacy/question-"
+"answering/run_squad.py>` script."
+msgstr ""
+

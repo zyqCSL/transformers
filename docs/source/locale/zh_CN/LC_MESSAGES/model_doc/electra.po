@@ -1,0 +1,3159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-10 04:49+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/electra.rst:14
+msgid "ELECTRA"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:19
+msgid ""
+"The ELECTRA model was proposed in the paper `ELECTRA: Pre-training Text "
+"Encoders as Discriminators Rather Than Generators "
+"<https://openreview.net/pdf?id=r1xMH1BtvB>`__. ELECTRA is a new "
+"pretraining approach which trains two transformer models: the generator "
+"and the discriminator. The generator's role is to replace tokens in a "
+"sequence, and is therefore trained as a masked language model. The "
+"discriminator, which is the model we're interested in, tries to identify "
+"which tokens were replaced by the generator in the sequence."
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:25
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:27
+msgid ""
+"*Masked language modeling (MLM) pretraining methods such as BERT corrupt "
+"the input by replacing some tokens with [MASK] and then train a model to "
+"reconstruct the original tokens. While they produce good results when "
+"transferred to downstream NLP tasks, they generally require large amounts"
+" of compute to be effective. As an alternative, we propose a more sample-"
+"efficient pretraining task called replaced token detection. Instead of "
+"masking the input, our approach corrupts it by replacing some tokens with"
+" plausible alternatives sampled from a small generator network. Then, "
+"instead of training a model that predicts the original identities of the "
+"corrupted tokens, we train a discriminative model that predicts whether "
+"each token in the corrupted input was replaced by a generator sample or "
+"not. Thorough experiments demonstrate this new pretraining task is more "
+"efficient than MLM because the task is defined over all input tokens "
+"rather than just the small subset that was masked out. As a result, the "
+"contextual representations learned by our approach substantially "
+"outperform the ones learned by BERT given the same model size, data, and "
+"compute. The gains are particularly strong for small models; for example,"
+" we train a model on one GPU for 4 days that outperforms GPT (trained "
+"using 30x more compute) on the GLUE natural language understanding "
+"benchmark. Our approach also works well at scale, where it performs "
+"comparably to RoBERTa and XLNet while using less than 1/4 of their "
+"compute and outperforms them when using the same amount of compute.*"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:42
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:44
+msgid ""
+"ELECTRA is the pretraining approach, therefore there is nearly no changes"
+" done to the underlying model: BERT. The only change is the separation of"
+" the embedding size and the hidden size: the embedding size is generally "
+"smaller, while the hidden size is larger. An additional projection layer "
+"(linear) is used to project the embeddings from their embedding size to "
+"the hidden size. In the case where the embedding size is the same as the "
+"hidden size, no projection layer is used."
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:49
+msgid ""
+"The ELECTRA checkpoints saved using `Google Research's implementation "
+"<https://github.com/google-research/electra>`__ contain both the "
+"generator and discriminator. The conversion script requires the user to "
+"name which model to export into the correct architecture. Once converted "
+"to the HuggingFace format, these checkpoints may be loaded into all "
+"available ELECTRA models, however. This means that the discriminator may "
+"be loaded in the :class:`~transformers.ElectraForMaskedLM` model, and the"
+" generator may be loaded in the "
+":class:`~transformers.ElectraForPreTraining` model (the classification "
+"head will be randomly initialized as it doesn't exist in the generator)."
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:57
+msgid ""
+"This model was contributed by `lysandre "
+"<https://huggingface.co/lysandre>`__. The original code can be found "
+"`here <https://github.com/google-research/electra>`__."
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:62
+msgid "ElectraConfig"
+msgstr ""
+
+#: of transformers.ElectraConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.ElectraModel` or a "
+":class:`~transformers.TFElectraModel`. It is used to instantiate a "
+"ELECTRA model according to the specified arguments, defining the model "
+"architecture. Instantiating a configuration with the defaults will yield "
+"a similar configuration to that of the ELECTRA `google/electra-small-"
+"discriminator <https://huggingface.co/google/electra-small-"
+"discriminator>`__ architecture."
+msgstr ""
+
+#: of transformers.ElectraConfig:7
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.ElectraConfig transformers.ElectraForMaskedLM
+#: transformers.ElectraForMaskedLM.forward
+#: transformers.ElectraForMultipleChoice
+#: transformers.ElectraForMultipleChoice.forward
+#: transformers.ElectraForPreTraining
+#: transformers.ElectraForPreTraining.forward
+#: transformers.ElectraForQuestionAnswering
+#: transformers.ElectraForQuestionAnswering.forward
+#: transformers.ElectraForSequenceClassification
+#: transformers.ElectraForSequenceClassification.forward
+#: transformers.ElectraForTokenClassification
+#: transformers.ElectraForTokenClassification.forward transformers.ElectraModel
+#: transformers.ElectraModel.forward transformers.FlaxElectraForMaskedLM
+#: transformers.FlaxElectraForMaskedLM.__call__
+#: transformers.FlaxElectraForMultipleChoice
+#: transformers.FlaxElectraForMultipleChoice.__call__
+#: transformers.FlaxElectraForPreTraining
+#: transformers.FlaxElectraForPreTraining.__call__
+#: transformers.FlaxElectraForQuestionAnswering
+#: transformers.FlaxElectraForQuestionAnswering.__call__
+#: transformers.FlaxElectraForSequenceClassification
+#: transformers.FlaxElectraForSequenceClassification.__call__
+#: transformers.FlaxElectraForTokenClassification
+#: transformers.FlaxElectraForTokenClassification.__call__
+#: transformers.FlaxElectraModel transformers.FlaxElectraModel.__call__
+#: transformers.TFElectraForMaskedLM transformers.TFElectraForMaskedLM.call
+#: transformers.TFElectraForMultipleChoice
+#: transformers.TFElectraForMultipleChoice.call
+#: transformers.TFElectraForPreTraining
+#: transformers.TFElectraForPreTraining.call
+#: transformers.TFElectraForQuestionAnswering
+#: transformers.TFElectraForQuestionAnswering.call
+#: transformers.TFElectraForSequenceClassification
+#: transformers.TFElectraForSequenceClassification.call
+#: transformers.TFElectraForTokenClassification
+#: transformers.TFElectraForTokenClassification.call
+#: transformers.TFElectraModel transformers.TFElectraModel.call
+#: transformers.models.electra.modeling_electra.ElectraForPreTrainingOutput
+#: transformers.models.electra.modeling_tf_electra.TFElectraForPreTrainingOutput
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.ElectraConfig:11
+msgid ""
+"Vocabulary size of the ELECTRA model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.ElectraModel` or "
+":class:`~transformers.TFElectraModel`."
+msgstr ""
+
+#: of transformers.ElectraConfig:15 transformers.ElectraConfig:17
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.ElectraConfig:19
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.ElectraConfig:21
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.ElectraConfig:23
+msgid ""
+"Dimensionality of the \"intermediate\" (i.e., feed-forward) layer in the "
+"Transformer encoder."
+msgstr ""
+
+#: of transformers.ElectraConfig:25
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.ElectraConfig:28
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.ElectraConfig:30
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.ElectraConfig:32
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.ElectraConfig:35
+msgid ""
+"The vocabulary size of the :obj:`token_type_ids` passed when calling "
+":class:`~transformers.ElectraModel` or "
+":class:`~transformers.TFElectraModel`."
+msgstr ""
+
+#: of transformers.ElectraConfig:38
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.ElectraConfig:40
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.ElectraConfig:42
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models.  Has to be one of the "
+"following options:      - :obj:`\"last\"`: Take the last token hidden "
+"state (like XLNet).     - :obj:`\"first\"`: Take the first token hidden "
+"state (like BERT).     - :obj:`\"mean\"`: Take the mean of all tokens "
+"hidden states.     - :obj:`\"cls_index\"`: Supply a Tensor of "
+"classification token position (like GPT/GPT-2).     - :obj:`\"attn\"`: "
+"Not implemented now, use multi-head attention."
+msgstr ""
+
+#: of transformers.ElectraConfig:42 transformers.ElectraConfig:52
+#: transformers.ElectraConfig:56 transformers.ElectraConfig:60
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models."
+msgstr ""
+
+#: of transformers.ElectraConfig:44
+msgid "Has to be one of the following options:"
+msgstr ""
+
+#: of transformers.ElectraConfig:46
+msgid ":obj:`\"last\"`: Take the last token hidden state (like XLNet)."
+msgstr ""
+
+#: of transformers.ElectraConfig:47
+msgid ":obj:`\"first\"`: Take the first token hidden state (like BERT)."
+msgstr ""
+
+#: of transformers.ElectraConfig:48
+msgid ":obj:`\"mean\"`: Take the mean of all tokens hidden states."
+msgstr ""
+
+#: of transformers.ElectraConfig:49
+msgid ""
+":obj:`\"cls_index\"`: Supply a Tensor of classification token position "
+"(like GPT/GPT-2)."
+msgstr ""
+
+#: of transformers.ElectraConfig:50
+msgid ":obj:`\"attn\"`: Not implemented now, use multi-head attention."
+msgstr ""
+
+#: of transformers.ElectraConfig:52
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models.  Whether or not to add a "
+"projection after the vector extraction."
+msgstr ""
+
+#: of transformers.ElectraConfig:54
+msgid "Whether or not to add a projection after the vector extraction."
+msgstr ""
+
+#: of transformers.ElectraConfig:56
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models.  Pass :obj:`\"gelu\"` for a "
+"gelu activation to the output, any other value will result in no "
+"activation."
+msgstr ""
+
+#: of transformers.ElectraConfig:58
+msgid ""
+"Pass :obj:`\"gelu\"` for a gelu activation to the output, any other value"
+" will result in no activation."
+msgstr ""
+
+#: of transformers.ElectraConfig:60
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models.  The dropout ratio to be used "
+"after the projection and activation."
+msgstr ""
+
+#: of transformers.ElectraConfig:62
+msgid "The dropout ratio to be used after the projection and activation."
+msgstr ""
+
+#: of transformers.ElectraConfig:64
+msgid ""
+"Type of position embedding. Choose one of :obj:`\"absolute\"`, "
+":obj:`\"relative_key\"`, :obj:`\"relative_key_query\"`. For positional "
+"embeddings use :obj:`\"absolute\"`. For more information on "
+":obj:`\"relative_key\"`, please refer to `Self-Attention with Relative "
+"Position Representations (Shaw et al.) "
+"<https://arxiv.org/abs/1803.02155>`__. For more information on "
+":obj:`\"relative_key_query\"`, please refer to `Method 4` in `Improve "
+"Transformer Models with Better Relative Position Embeddings (Huang et "
+"al.) <https://arxiv.org/abs/2009.13658>`__."
+msgstr ""
+
+#: of transformers.ElectraConfig:71
+msgid "The dropout ratio for the classification head."
+msgstr ""
+
+#: of transformers.ElectraConfig:74
+#: transformers.ElectraForPreTraining.forward:86
+#: transformers.TFElectraForPreTraining.call:69
+msgid "Examples::"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:69
+msgid "ElectraTokenizer"
+msgstr ""
+
+#: of transformers.ElectraTokenizer:1
+msgid "Construct an ELECTRA tokenizer."
+msgstr ""
+
+#: of transformers.ElectraTokenizer:3
+msgid ""
+":class:`~transformers.ElectraTokenizer` is identical to "
+":class:`~transformers.BertTokenizer` and runs end-to-end tokenization: "
+"punctuation splitting and wordpiece."
+msgstr ""
+
+#: of transformers.ElectraTokenizer:6
+msgid ""
+"Refer to superclass :class:`~transformers.BertTokenizer` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:76
+msgid "ElectraTokenizerFast"
+msgstr ""
+
+#: of transformers.ElectraTokenizerFast:1
+msgid ""
+"Construct a \"fast\" ELECTRA tokenizer (backed by HuggingFace's "
+"`tokenizers` library)."
+msgstr ""
+
+#: of transformers.ElectraTokenizerFast:3
+msgid ""
+":class:`~transformers.ElectraTokenizerFast` is identical to "
+":class:`~transformers.BertTokenizerFast` and runs end-to-end "
+"tokenization: punctuation splitting and wordpiece."
+msgstr ""
+
+#: of transformers.ElectraTokenizerFast:6
+msgid ""
+"Refer to superclass :class:`~transformers.BertTokenizerFast` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:83
+msgid "Electra specific outputs"
+msgstr ""
+
+#: of
+#: transformers.models.electra.modeling_electra.ElectraForPreTrainingOutput:1
+msgid "Output type of :class:`~transformers.ElectraForPreTraining`."
+msgstr ""
+
+#: of
+#: transformers.models.electra.modeling_electra.ElectraForPreTrainingOutput:3
+#: transformers.models.electra.modeling_tf_electra.TFElectraForPreTrainingOutput:3
+msgid "Total loss of the ELECTRA objective."
+msgstr ""
+
+#: of
+#: transformers.models.electra.modeling_electra.ElectraForPreTrainingOutput:5
+#: transformers.models.electra.modeling_tf_electra.TFElectraForPreTrainingOutput:5
+msgid "Prediction scores of the head (scores for each token before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.electra.modeling_electra.ElectraForPreTrainingOutput:7
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the model at the output"
+" of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.electra.modeling_electra.ElectraForPreTrainingOutput:7
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:76
+#: transformers.ElectraForMultipleChoice.forward:78
+#: transformers.ElectraForPreTraining.forward:78
+#: transformers.ElectraForQuestionAnswering.forward:81
+#: transformers.ElectraForSequenceClassification.forward:76
+#: transformers.ElectraForTokenClassification.forward:75
+#: transformers.ElectraModel.forward:71
+#: transformers.FlaxElectraForMaskedLM.__call__:45
+#: transformers.FlaxElectraForMultipleChoice.__call__:47
+#: transformers.FlaxElectraForPreTraining.__call__:45
+#: transformers.FlaxElectraForQuestionAnswering.__call__:46
+#: transformers.FlaxElectraForSequenceClassification.__call__:45
+#: transformers.FlaxElectraForTokenClassification.__call__:45
+#: transformers.FlaxElectraModel.__call__:45
+#: transformers.TFElectraForMaskedLM.call:65
+#: transformers.TFElectraForMultipleChoice.call:67
+#: transformers.TFElectraForPreTraining.call:61
+#: transformers.TFElectraForQuestionAnswering.call:70
+#: transformers.TFElectraForSequenceClassification.call:65
+#: transformers.TFElectraForTokenClassification.call:64
+#: transformers.TFElectraModel.call:60
+#: transformers.models.electra.modeling_electra.ElectraForPreTrainingOutput:10
+#: transformers.models.electra.modeling_tf_electra.TFElectraForPreTrainingOutput:10
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.electra.modeling_electra.ElectraForPreTrainingOutput:12
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.electra.modeling_electra.ElectraForPreTrainingOutput:12
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:80
+#: transformers.ElectraForMultipleChoice.forward:82
+#: transformers.ElectraForPreTraining.forward:82
+#: transformers.ElectraForQuestionAnswering.forward:85
+#: transformers.ElectraForSequenceClassification.forward:80
+#: transformers.ElectraForTokenClassification.forward:79
+#: transformers.ElectraModel.forward:75
+#: transformers.FlaxElectraForMaskedLM.__call__:49
+#: transformers.FlaxElectraForMultipleChoice.__call__:51
+#: transformers.FlaxElectraForPreTraining.__call__:49
+#: transformers.FlaxElectraForQuestionAnswering.__call__:50
+#: transformers.FlaxElectraForSequenceClassification.__call__:49
+#: transformers.FlaxElectraForTokenClassification.__call__:49
+#: transformers.FlaxElectraModel.__call__:49
+#: transformers.TFElectraForMaskedLM.call:69
+#: transformers.TFElectraForMultipleChoice.call:71
+#: transformers.TFElectraForPreTraining.call:65
+#: transformers.TFElectraForQuestionAnswering.call:74
+#: transformers.TFElectraForSequenceClassification.call:69
+#: transformers.TFElectraForTokenClassification.call:68
+#: transformers.TFElectraModel.call:64
+#: transformers.models.electra.modeling_electra.ElectraForPreTrainingOutput:15
+#: transformers.models.electra.modeling_tf_electra.TFElectraForPreTrainingOutput:15
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.electra.modeling_tf_electra.TFElectraForPreTrainingOutput:1
+msgid "Output type of :class:`~transformers.TFElectraForPreTraining`."
+msgstr ""
+
+#: of
+#: transformers.models.electra.modeling_tf_electra.TFElectraForPreTrainingOutput:7
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.  Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.electra.modeling_tf_electra.TFElectraForPreTrainingOutput:7
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of
+#: transformers.models.electra.modeling_tf_electra.TFElectraForPreTrainingOutput:12
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.electra.modeling_tf_electra.TFElectraForPreTrainingOutput:12
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:93
+msgid "ElectraModel"
+msgstr ""
+
+#: of transformers.ElectraModel:1 transformers.TFElectraModel:1
+msgid ""
+"The bare Electra Model transformer outputting raw hidden-states without "
+"any specific head on top. Identical to the BERT model except that it uses"
+" an additional linear layer between the embedding layer and the encoder "
+"if the hidden size and embedding size are different.Both the generator "
+"and discriminator checkpoints may be loaded into this model."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM:7 transformers.ElectraForMultipleChoice:5
+#: transformers.ElectraForPreTraining:6
+#: transformers.ElectraForQuestionAnswering:5
+#: transformers.ElectraForSequenceClassification:5
+#: transformers.ElectraForTokenClassification:6 transformers.ElectraModel:3
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM:11
+#: transformers.ElectraForMultipleChoice:9
+#: transformers.ElectraForPreTraining:10
+#: transformers.ElectraForQuestionAnswering:9
+#: transformers.ElectraForSequenceClassification:9
+#: transformers.ElectraForTokenClassification:10 transformers.ElectraModel:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM:15
+#: transformers.ElectraForMultipleChoice:13
+#: transformers.ElectraForPreTraining:14
+#: transformers.ElectraForQuestionAnswering:13
+#: transformers.ElectraForSequenceClassification:13
+#: transformers.ElectraForTokenClassification:14 transformers.ElectraModel:11
+#: transformers.FlaxElectraForMaskedLM:18
+#: transformers.FlaxElectraForMultipleChoice:20
+#: transformers.FlaxElectraForPreTraining:21
+#: transformers.FlaxElectraForQuestionAnswering:20
+#: transformers.FlaxElectraForSequenceClassification:20
+#: transformers.FlaxElectraForTokenClassification:21
+#: transformers.FlaxElectraModel:18 transformers.TFElectraForMaskedLM:34
+#: transformers.TFElectraForMultipleChoice:32
+#: transformers.TFElectraForPreTraining:34
+#: transformers.TFElectraForQuestionAnswering:32
+#: transformers.TFElectraForSequenceClassification:32
+#: transformers.TFElectraForTokenClassification:33
+#: transformers.TFElectraModel:30
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.ElectraModel.forward:1
+msgid ""
+"The :class:`~transformers.ElectraModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:4
+#: transformers.ElectraForMultipleChoice.forward:4
+#: transformers.ElectraForPreTraining.forward:4
+#: transformers.ElectraForQuestionAnswering.forward:4
+#: transformers.ElectraForSequenceClassification.forward:4
+#: transformers.ElectraForTokenClassification.forward:4
+#: transformers.ElectraModel.forward:4
+#: transformers.FlaxElectraForMaskedLM.__call__:4
+#: transformers.FlaxElectraForMultipleChoice.__call__:4
+#: transformers.FlaxElectraForPreTraining.__call__:4
+#: transformers.FlaxElectraForQuestionAnswering.__call__:4
+#: transformers.FlaxElectraForSequenceClassification.__call__:4
+#: transformers.FlaxElectraForTokenClassification.__call__:4
+#: transformers.FlaxElectraModel.__call__:4
+#: transformers.TFElectraForMaskedLM.call:4
+#: transformers.TFElectraForMultipleChoice.call:4
+#: transformers.TFElectraForPreTraining.call:4
+#: transformers.TFElectraForQuestionAnswering.call:4
+#: transformers.TFElectraForSequenceClassification.call:4
+#: transformers.TFElectraForTokenClassification.call:4
+#: transformers.TFElectraModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:8
+#: transformers.ElectraForMultipleChoice.forward:8
+#: transformers.ElectraForPreTraining.forward:8
+#: transformers.ElectraForQuestionAnswering.forward:8
+#: transformers.ElectraForSequenceClassification.forward:8
+#: transformers.ElectraForTokenClassification.forward:8
+#: transformers.ElectraModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.ElectraTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:8
+#: transformers.ElectraForMultipleChoice.forward:8
+#: transformers.ElectraForPreTraining.forward:8
+#: transformers.ElectraForQuestionAnswering.forward:8
+#: transformers.ElectraForSequenceClassification.forward:8
+#: transformers.ElectraForTokenClassification.forward:8
+#: transformers.ElectraModel.forward:8
+#: transformers.FlaxElectraForMaskedLM.__call__:8
+#: transformers.FlaxElectraForMultipleChoice.__call__:8
+#: transformers.FlaxElectraForPreTraining.__call__:8
+#: transformers.FlaxElectraForQuestionAnswering.__call__:8
+#: transformers.FlaxElectraForSequenceClassification.__call__:8
+#: transformers.FlaxElectraForTokenClassification.__call__:8
+#: transformers.FlaxElectraModel.__call__:8
+#: transformers.TFElectraForMaskedLM.call:8
+#: transformers.TFElectraForMultipleChoice.call:8
+#: transformers.TFElectraForPreTraining.call:8
+#: transformers.TFElectraForQuestionAnswering.call:8
+#: transformers.TFElectraForSequenceClassification.call:8
+#: transformers.TFElectraForTokenClassification.call:8
+#: transformers.TFElectraModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:10
+#: transformers.ElectraForMultipleChoice.forward:10
+#: transformers.ElectraForPreTraining.forward:10
+#: transformers.ElectraForQuestionAnswering.forward:10
+#: transformers.ElectraForSequenceClassification.forward:10
+#: transformers.ElectraForTokenClassification.forward:10
+#: transformers.ElectraModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.ElectraTokenizer`. "
+"See :meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:14
+#: transformers.ElectraForMultipleChoice.forward:14
+#: transformers.ElectraForPreTraining.forward:14
+#: transformers.ElectraForQuestionAnswering.forward:14
+#: transformers.ElectraForSequenceClassification.forward:14
+#: transformers.ElectraForTokenClassification.forward:14
+#: transformers.ElectraModel.forward:14
+#: transformers.FlaxElectraForMaskedLM.__call__:14
+#: transformers.FlaxElectraForMultipleChoice.__call__:14
+#: transformers.FlaxElectraForPreTraining.__call__:14
+#: transformers.FlaxElectraForQuestionAnswering.__call__:14
+#: transformers.FlaxElectraForSequenceClassification.__call__:14
+#: transformers.FlaxElectraForTokenClassification.__call__:14
+#: transformers.FlaxElectraModel.__call__:14
+#: transformers.TFElectraForMaskedLM.call:14
+#: transformers.TFElectraForMultipleChoice.call:14
+#: transformers.TFElectraForPreTraining.call:14
+#: transformers.TFElectraForQuestionAnswering.call:14
+#: transformers.TFElectraForSequenceClassification.call:14
+#: transformers.TFElectraForTokenClassification.call:14
+#: transformers.TFElectraModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:16
+#: transformers.ElectraForMultipleChoice.forward:16
+#: transformers.ElectraForPreTraining.forward:16
+#: transformers.ElectraForQuestionAnswering.forward:16
+#: transformers.ElectraForSequenceClassification.forward:16
+#: transformers.ElectraForTokenClassification.forward:16
+#: transformers.ElectraModel.forward:16
+#: transformers.FlaxElectraForMaskedLM.__call__:16
+#: transformers.FlaxElectraForMultipleChoice.__call__:16
+#: transformers.FlaxElectraForPreTraining.__call__:16
+#: transformers.FlaxElectraForQuestionAnswering.__call__:16
+#: transformers.FlaxElectraForSequenceClassification.__call__:16
+#: transformers.FlaxElectraForTokenClassification.__call__:16
+#: transformers.FlaxElectraModel.__call__:16
+#: transformers.TFElectraForMaskedLM.call:16
+#: transformers.TFElectraForMultipleChoice.call:16
+#: transformers.TFElectraForPreTraining.call:16
+#: transformers.TFElectraForQuestionAnswering.call:16
+#: transformers.TFElectraForSequenceClassification.call:16
+#: transformers.TFElectraForTokenClassification.call:16
+#: transformers.TFElectraModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:16
+#: transformers.ElectraForMultipleChoice.forward:16
+#: transformers.ElectraForPreTraining.forward:16
+#: transformers.ElectraForQuestionAnswering.forward:16
+#: transformers.ElectraForSequenceClassification.forward:16
+#: transformers.ElectraForTokenClassification.forward:16
+#: transformers.ElectraModel.forward:16
+#: transformers.FlaxElectraForMaskedLM.__call__:16
+#: transformers.FlaxElectraForMultipleChoice.__call__:16
+#: transformers.FlaxElectraForPreTraining.__call__:16
+#: transformers.FlaxElectraForQuestionAnswering.__call__:16
+#: transformers.FlaxElectraForSequenceClassification.__call__:16
+#: transformers.FlaxElectraForTokenClassification.__call__:16
+#: transformers.FlaxElectraModel.__call__:16
+#: transformers.TFElectraForMaskedLM.call:16
+#: transformers.TFElectraForMultipleChoice.call:16
+#: transformers.TFElectraForPreTraining.call:16
+#: transformers.TFElectraForQuestionAnswering.call:16
+#: transformers.TFElectraForSequenceClassification.call:16
+#: transformers.TFElectraForTokenClassification.call:16
+#: transformers.TFElectraModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:18
+#: transformers.ElectraForMultipleChoice.forward:18
+#: transformers.ElectraForPreTraining.forward:18
+#: transformers.ElectraForQuestionAnswering.forward:18
+#: transformers.ElectraForSequenceClassification.forward:18
+#: transformers.ElectraForTokenClassification.forward:18
+#: transformers.ElectraModel.forward:18
+#: transformers.FlaxElectraForMaskedLM.__call__:18
+#: transformers.FlaxElectraForMultipleChoice.__call__:18
+#: transformers.FlaxElectraForPreTraining.__call__:18
+#: transformers.FlaxElectraForQuestionAnswering.__call__:18
+#: transformers.FlaxElectraForSequenceClassification.__call__:18
+#: transformers.FlaxElectraForTokenClassification.__call__:18
+#: transformers.FlaxElectraModel.__call__:18
+#: transformers.TFElectraForMaskedLM.call:18
+#: transformers.TFElectraForMultipleChoice.call:18
+#: transformers.TFElectraForPreTraining.call:18
+#: transformers.TFElectraForQuestionAnswering.call:18
+#: transformers.TFElectraForSequenceClassification.call:18
+#: transformers.TFElectraForTokenClassification.call:18
+#: transformers.TFElectraModel.call:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:19
+#: transformers.ElectraForMultipleChoice.forward:19
+#: transformers.ElectraForPreTraining.forward:19
+#: transformers.ElectraForQuestionAnswering.forward:19
+#: transformers.ElectraForSequenceClassification.forward:19
+#: transformers.ElectraForTokenClassification.forward:19
+#: transformers.ElectraModel.forward:19
+#: transformers.FlaxElectraForMaskedLM.__call__:19
+#: transformers.FlaxElectraForMultipleChoice.__call__:19
+#: transformers.FlaxElectraForPreTraining.__call__:19
+#: transformers.FlaxElectraForQuestionAnswering.__call__:19
+#: transformers.FlaxElectraForSequenceClassification.__call__:19
+#: transformers.FlaxElectraForTokenClassification.__call__:19
+#: transformers.FlaxElectraModel.__call__:19
+#: transformers.TFElectraForMaskedLM.call:19
+#: transformers.TFElectraForMultipleChoice.call:19
+#: transformers.TFElectraForPreTraining.call:19
+#: transformers.TFElectraForQuestionAnswering.call:19
+#: transformers.TFElectraForSequenceClassification.call:19
+#: transformers.TFElectraForTokenClassification.call:19
+#: transformers.TFElectraModel.call:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:21
+#: transformers.ElectraForMultipleChoice.forward:21
+#: transformers.ElectraForPreTraining.forward:21
+#: transformers.ElectraForQuestionAnswering.forward:21
+#: transformers.ElectraForSequenceClassification.forward:21
+#: transformers.ElectraForTokenClassification.forward:21
+#: transformers.ElectraModel.forward:21
+#: transformers.FlaxElectraForMaskedLM.__call__:21
+#: transformers.FlaxElectraForMultipleChoice.__call__:21
+#: transformers.FlaxElectraForPreTraining.__call__:21
+#: transformers.FlaxElectraForQuestionAnswering.__call__:21
+#: transformers.FlaxElectraForSequenceClassification.__call__:21
+#: transformers.FlaxElectraForTokenClassification.__call__:21
+#: transformers.FlaxElectraModel.__call__:21
+#: transformers.TFElectraForMaskedLM.call:21
+#: transformers.TFElectraForMultipleChoice.call:21
+#: transformers.TFElectraForPreTraining.call:21
+#: transformers.TFElectraForQuestionAnswering.call:21
+#: transformers.TFElectraForSequenceClassification.call:21
+#: transformers.TFElectraForTokenClassification.call:21
+#: transformers.TFElectraModel.call:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:23
+#: transformers.ElectraForMultipleChoice.forward:23
+#: transformers.ElectraForPreTraining.forward:23
+#: transformers.ElectraForQuestionAnswering.forward:23
+#: transformers.ElectraForSequenceClassification.forward:23
+#: transformers.ElectraForTokenClassification.forward:23
+#: transformers.ElectraModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:23
+#: transformers.ElectraForMultipleChoice.forward:23
+#: transformers.ElectraForPreTraining.forward:23
+#: transformers.ElectraForQuestionAnswering.forward:23
+#: transformers.ElectraForSequenceClassification.forward:23
+#: transformers.ElectraForTokenClassification.forward:23
+#: transformers.ElectraModel.forward:23
+#: transformers.FlaxElectraForMaskedLM.__call__:23
+#: transformers.FlaxElectraForMultipleChoice.__call__:23
+#: transformers.FlaxElectraForPreTraining.__call__:23
+#: transformers.FlaxElectraForQuestionAnswering.__call__:23
+#: transformers.FlaxElectraForSequenceClassification.__call__:23
+#: transformers.FlaxElectraForTokenClassification.__call__:23
+#: transformers.FlaxElectraModel.__call__:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:26
+#: transformers.ElectraForMultipleChoice.forward:26
+#: transformers.ElectraForPreTraining.forward:26
+#: transformers.ElectraForQuestionAnswering.forward:26
+#: transformers.ElectraForSequenceClassification.forward:26
+#: transformers.ElectraForTokenClassification.forward:26
+#: transformers.ElectraModel.forward:26
+#: transformers.FlaxElectraForMaskedLM.__call__:26
+#: transformers.FlaxElectraForMultipleChoice.__call__:26
+#: transformers.FlaxElectraForPreTraining.__call__:26
+#: transformers.FlaxElectraForQuestionAnswering.__call__:26
+#: transformers.FlaxElectraForSequenceClassification.__call__:26
+#: transformers.FlaxElectraForTokenClassification.__call__:26
+#: transformers.FlaxElectraModel.__call__:26
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:27
+#: transformers.ElectraForMultipleChoice.forward:27
+#: transformers.ElectraForPreTraining.forward:27
+#: transformers.ElectraForQuestionAnswering.forward:27
+#: transformers.ElectraForSequenceClassification.forward:27
+#: transformers.ElectraForTokenClassification.forward:27
+#: transformers.ElectraModel.forward:27
+#: transformers.FlaxElectraForMaskedLM.__call__:27
+#: transformers.FlaxElectraForMultipleChoice.__call__:27
+#: transformers.FlaxElectraForPreTraining.__call__:27
+#: transformers.FlaxElectraForQuestionAnswering.__call__:27
+#: transformers.FlaxElectraForSequenceClassification.__call__:27
+#: transformers.FlaxElectraForTokenClassification.__call__:27
+#: transformers.FlaxElectraModel.__call__:27
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:29
+#: transformers.ElectraForMultipleChoice.forward:29
+#: transformers.ElectraForPreTraining.forward:29
+#: transformers.ElectraForQuestionAnswering.forward:29
+#: transformers.ElectraForSequenceClassification.forward:29
+#: transformers.ElectraForTokenClassification.forward:29
+#: transformers.ElectraModel.forward:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:31
+#: transformers.ElectraForMultipleChoice.forward:31
+#: transformers.ElectraForPreTraining.forward:31
+#: transformers.ElectraForQuestionAnswering.forward:31
+#: transformers.ElectraForSequenceClassification.forward:31
+#: transformers.ElectraForTokenClassification.forward:31
+#: transformers.ElectraModel.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:31
+#: transformers.ElectraForMultipleChoice.forward:31
+#: transformers.ElectraForPreTraining.forward:31
+#: transformers.ElectraForQuestionAnswering.forward:31
+#: transformers.ElectraForSequenceClassification.forward:31
+#: transformers.ElectraForTokenClassification.forward:31
+#: transformers.ElectraModel.forward:31
+#: transformers.FlaxElectraForMaskedLM.__call__:31
+#: transformers.FlaxElectraForMultipleChoice.__call__:31
+#: transformers.FlaxElectraForPreTraining.__call__:31
+#: transformers.FlaxElectraForQuestionAnswering.__call__:31
+#: transformers.FlaxElectraForSequenceClassification.__call__:31
+#: transformers.FlaxElectraForTokenClassification.__call__:31
+#: transformers.FlaxElectraModel.__call__:31
+#: transformers.TFElectraForMaskedLM.call:23
+#: transformers.TFElectraForMultipleChoice.call:23
+#: transformers.TFElectraForPreTraining.call:23
+#: transformers.TFElectraForQuestionAnswering.call:23
+#: transformers.TFElectraForSequenceClassification.call:23
+#: transformers.TFElectraForTokenClassification.call:23
+#: transformers.TFElectraModel.call:23
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:34
+#: transformers.ElectraForMultipleChoice.forward:34
+#: transformers.ElectraForPreTraining.forward:34
+#: transformers.ElectraForQuestionAnswering.forward:34
+#: transformers.ElectraForSequenceClassification.forward:34
+#: transformers.ElectraForTokenClassification.forward:34
+#: transformers.ElectraModel.forward:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:36
+#: transformers.ElectraForMultipleChoice.forward:36
+#: transformers.ElectraForPreTraining.forward:36
+#: transformers.ElectraForQuestionAnswering.forward:36
+#: transformers.ElectraForSequenceClassification.forward:36
+#: transformers.ElectraForTokenClassification.forward:36
+#: transformers.ElectraModel.forward:36
+#: transformers.TFElectraForMaskedLM.call:28
+#: transformers.TFElectraForMultipleChoice.call:28
+#: transformers.TFElectraForPreTraining.call:28
+#: transformers.TFElectraForQuestionAnswering.call:28
+#: transformers.TFElectraForSequenceClassification.call:28
+#: transformers.TFElectraForTokenClassification.call:28
+#: transformers.TFElectraModel.call:28
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:36
+#: transformers.ElectraForMultipleChoice.forward:36
+#: transformers.ElectraForPreTraining.forward:36
+#: transformers.ElectraForQuestionAnswering.forward:36
+#: transformers.ElectraForSequenceClassification.forward:36
+#: transformers.ElectraForTokenClassification.forward:36
+#: transformers.ElectraModel.forward:36
+#: transformers.TFElectraForMaskedLM.call:28
+#: transformers.TFElectraForMultipleChoice.call:28
+#: transformers.TFElectraForPreTraining.call:28
+#: transformers.TFElectraForQuestionAnswering.call:28
+#: transformers.TFElectraForSequenceClassification.call:28
+#: transformers.TFElectraForTokenClassification.call:28
+#: transformers.TFElectraModel.call:28
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:38
+#: transformers.ElectraForMaskedLM.forward:51
+#: transformers.ElectraForMultipleChoice.forward:38
+#: transformers.ElectraForMultipleChoice.forward:51
+#: transformers.ElectraForPreTraining.forward:38
+#: transformers.ElectraForPreTraining.forward:51
+#: transformers.ElectraForQuestionAnswering.forward:38
+#: transformers.ElectraForQuestionAnswering.forward:51
+#: transformers.ElectraForSequenceClassification.forward:38
+#: transformers.ElectraForSequenceClassification.forward:51
+#: transformers.ElectraForTokenClassification.forward:38
+#: transformers.ElectraForTokenClassification.forward:51
+#: transformers.ElectraModel.forward:38 transformers.ElectraModel.forward:51
+#: transformers.TFElectraForMaskedLM.call:30
+#: transformers.TFElectraForMultipleChoice.call:30
+#: transformers.TFElectraForPreTraining.call:30
+#: transformers.TFElectraForQuestionAnswering.call:30
+#: transformers.TFElectraForSequenceClassification.call:30
+#: transformers.TFElectraForTokenClassification.call:30
+#: transformers.TFElectraModel.call:30
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:39
+#: transformers.ElectraForMaskedLM.forward:52
+#: transformers.ElectraForMultipleChoice.forward:39
+#: transformers.ElectraForMultipleChoice.forward:52
+#: transformers.ElectraForPreTraining.forward:39
+#: transformers.ElectraForPreTraining.forward:52
+#: transformers.ElectraForQuestionAnswering.forward:39
+#: transformers.ElectraForQuestionAnswering.forward:52
+#: transformers.ElectraForSequenceClassification.forward:39
+#: transformers.ElectraForSequenceClassification.forward:52
+#: transformers.ElectraForTokenClassification.forward:39
+#: transformers.ElectraForTokenClassification.forward:52
+#: transformers.ElectraModel.forward:39 transformers.ElectraModel.forward:52
+#: transformers.TFElectraForMaskedLM.call:31
+#: transformers.TFElectraForMultipleChoice.call:31
+#: transformers.TFElectraForPreTraining.call:31
+#: transformers.TFElectraForQuestionAnswering.call:31
+#: transformers.TFElectraForSequenceClassification.call:31
+#: transformers.TFElectraForTokenClassification.call:31
+#: transformers.TFElectraModel.call:31
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:41
+#: transformers.ElectraForMultipleChoice.forward:41
+#: transformers.ElectraForPreTraining.forward:41
+#: transformers.ElectraForQuestionAnswering.forward:41
+#: transformers.ElectraForSequenceClassification.forward:41
+#: transformers.ElectraForTokenClassification.forward:41
+#: transformers.ElectraModel.forward:41
+#: transformers.TFElectraForMaskedLM.call:33
+#: transformers.TFElectraForMultipleChoice.call:33
+#: transformers.TFElectraForPreTraining.call:33
+#: transformers.TFElectraForQuestionAnswering.call:33
+#: transformers.TFElectraForSequenceClassification.call:33
+#: transformers.TFElectraForTokenClassification.call:33
+#: transformers.TFElectraModel.call:33
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:45
+#: transformers.ElectraForMultipleChoice.forward:45
+#: transformers.ElectraForPreTraining.forward:45
+#: transformers.ElectraForQuestionAnswering.forward:45
+#: transformers.ElectraForSequenceClassification.forward:45
+#: transformers.ElectraForTokenClassification.forward:45
+#: transformers.ElectraModel.forward:45
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the encoder."
+" Used in the cross-attention if the model is configured as a decoder."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:48
+#: transformers.ElectraForMultipleChoice.forward:48
+#: transformers.ElectraForPreTraining.forward:48
+#: transformers.ElectraForQuestionAnswering.forward:48
+#: transformers.ElectraForSequenceClassification.forward:48
+#: transformers.ElectraForTokenClassification.forward:48
+#: transformers.ElectraModel.forward:48
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:  - 1 "
+"indicates the head is **not masked**, - 0 indicates the head is "
+"**masked**."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:48
+#: transformers.ElectraForMultipleChoice.forward:48
+#: transformers.ElectraForPreTraining.forward:48
+#: transformers.ElectraForQuestionAnswering.forward:48
+#: transformers.ElectraForSequenceClassification.forward:48
+#: transformers.ElectraForTokenClassification.forward:48
+#: transformers.ElectraModel.forward:48
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:54
+#: transformers.ElectraForMultipleChoice.forward:54
+#: transformers.ElectraForPreTraining.forward:54
+#: transformers.ElectraForQuestionAnswering.forward:54
+#: transformers.ElectraForSequenceClassification.forward:54
+#: transformers.ElectraForTokenClassification.forward:54
+#: transformers.ElectraModel.forward:54
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:57
+#: transformers.ElectraForMultipleChoice.forward:57
+#: transformers.ElectraForPreTraining.forward:57
+#: transformers.ElectraForQuestionAnswering.forward:57
+#: transformers.ElectraForSequenceClassification.forward:57
+#: transformers.ElectraForTokenClassification.forward:57
+#: transformers.ElectraModel.forward:57
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:60
+#: transformers.ElectraForMultipleChoice.forward:60
+#: transformers.ElectraForPreTraining.forward:60
+#: transformers.ElectraForQuestionAnswering.forward:60
+#: transformers.ElectraForSequenceClassification.forward:60
+#: transformers.ElectraForTokenClassification.forward:60
+#: transformers.ElectraModel.forward:60
+#: transformers.FlaxElectraForMaskedLM.__call__:34
+#: transformers.FlaxElectraForMultipleChoice.__call__:34
+#: transformers.FlaxElectraForPreTraining.__call__:34
+#: transformers.FlaxElectraForQuestionAnswering.__call__:34
+#: transformers.FlaxElectraForSequenceClassification.__call__:34
+#: transformers.FlaxElectraForTokenClassification.__call__:34
+#: transformers.FlaxElectraModel.__call__:34
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward
+#: transformers.ElectraForMultipleChoice.forward
+#: transformers.ElectraForPreTraining.forward
+#: transformers.ElectraForQuestionAnswering.forward
+#: transformers.ElectraForSequenceClassification.forward
+#: transformers.ElectraForTokenClassification.forward
+#: transformers.ElectraModel.forward
+#: transformers.FlaxElectraForMaskedLM.__call__
+#: transformers.FlaxElectraForMultipleChoice.__call__
+#: transformers.FlaxElectraForPreTraining.__call__
+#: transformers.FlaxElectraForQuestionAnswering.__call__
+#: transformers.FlaxElectraForSequenceClassification.__call__
+#: transformers.FlaxElectraForTokenClassification.__call__
+#: transformers.FlaxElectraModel.__call__
+#: transformers.TFElectraForMaskedLM.call
+#: transformers.TFElectraForMultipleChoice.call
+#: transformers.TFElectraForPreTraining.call
+#: transformers.TFElectraForQuestionAnswering.call
+#: transformers.TFElectraForSequenceClassification.call
+#: transformers.TFElectraForTokenClassification.call
+#: transformers.TFElectraModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.ElectraModel.forward:63
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` and ``config.add_cross_attention=True`` is "
+"passed or when ``config.output_attentions=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for each layer) of shape :obj:`(batch_size,"
+" num_heads,   sequence_length, sequence_length)`.    Attentions weights "
+"of the decoder's cross-attention layer, after the attention softmax, used"
+" to compute the   weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.ElectraModel.forward:63
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.ElectraModel.forward:67
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:73
+#: transformers.ElectraForMultipleChoice.forward:75
+#: transformers.ElectraForPreTraining.forward:75
+#: transformers.ElectraForQuestionAnswering.forward:78
+#: transformers.ElectraForSequenceClassification.forward:73
+#: transformers.ElectraForTokenClassification.forward:72
+#: transformers.ElectraModel.forward:68
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:77
+#: transformers.ElectraForMultipleChoice.forward:79
+#: transformers.ElectraForPreTraining.forward:79
+#: transformers.ElectraForQuestionAnswering.forward:82
+#: transformers.ElectraForSequenceClassification.forward:77
+#: transformers.ElectraForTokenClassification.forward:76
+#: transformers.ElectraModel.forward:72
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.ElectraModel.forward:77
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` and "
+"``config.add_cross_attention=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.ElectraModel.forward:80
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward
+#: transformers.ElectraForMultipleChoice.forward
+#: transformers.ElectraForPreTraining.forward
+#: transformers.ElectraForQuestionAnswering.forward
+#: transformers.ElectraForSequenceClassification.forward
+#: transformers.ElectraForTokenClassification.forward
+#: transformers.ElectraModel.forward
+#: transformers.FlaxElectraForMaskedLM.__call__
+#: transformers.FlaxElectraForMultipleChoice.__call__
+#: transformers.FlaxElectraForPreTraining.__call__
+#: transformers.FlaxElectraForQuestionAnswering.__call__
+#: transformers.FlaxElectraForSequenceClassification.__call__
+#: transformers.FlaxElectraForTokenClassification.__call__
+#: transformers.FlaxElectraModel.__call__
+#: transformers.TFElectraForMaskedLM.call
+#: transformers.TFElectraForMultipleChoice.call
+#: transformers.TFElectraForPreTraining.call
+#: transformers.TFElectraForQuestionAnswering.call
+#: transformers.TFElectraForSequenceClassification.call
+#: transformers.TFElectraForTokenClassification.call
+#: transformers.TFElectraModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.ElectraModel.forward:82
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutputWithCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:84
+#: transformers.ElectraForMultipleChoice.forward:86
+#: transformers.ElectraForQuestionAnswering.forward:89
+#: transformers.ElectraForSequenceClassification.forward:84
+#: transformers.ElectraForTokenClassification.forward:83
+#: transformers.ElectraModel.forward:84
+#: transformers.FlaxElectraForMaskedLM.__call__:53
+#: transformers.FlaxElectraForMultipleChoice.__call__:55
+#: transformers.FlaxElectraForPreTraining.__call__:53
+#: transformers.FlaxElectraForQuestionAnswering.__call__:54
+#: transformers.FlaxElectraForSequenceClassification.__call__:53
+#: transformers.FlaxElectraForTokenClassification.__call__:53
+#: transformers.FlaxElectraModel.__call__:53
+#: transformers.TFElectraForMaskedLM.call:73
+#: transformers.TFElectraForMultipleChoice.call:75
+#: transformers.TFElectraForQuestionAnswering.call:78
+#: transformers.TFElectraForSequenceClassification.call:73
+#: transformers.TFElectraForTokenClassification.call:72
+#: transformers.TFElectraModel.call:68
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:100
+msgid "ElectraForPreTraining"
+msgstr ""
+
+#: of transformers.ElectraForPreTraining:1
+#: transformers.FlaxElectraForPreTraining:1
+#: transformers.TFElectraForPreTraining:1
+msgid ""
+"Electra model with a binary classification head on top as used during "
+"pretraining for identifying generated tokens."
+msgstr ""
+
+#: of transformers.ElectraForPreTraining:3
+#: transformers.FlaxElectraForPreTraining:3
+msgid "It is recommended to load the discriminator checkpoint into that model."
+msgstr ""
+
+#: of transformers.ElectraForPreTraining.forward:1
+msgid ""
+"The :class:`~transformers.ElectraForPreTraining` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.ElectraForPreTraining.forward:62
+msgid ""
+"Labels for computing the ELECTRA loss. Input should be a sequence of "
+"tokens (see :obj:`input_ids` docstring) Indices should be in ``[0, 1]``:"
+"  - 0 indicates the token is an original token, - 1 indicates the token "
+"was replaced."
+msgstr ""
+
+#: of transformers.ElectraForPreTraining.forward:62
+msgid ""
+"Labels for computing the ELECTRA loss. Input should be a sequence of "
+"tokens (see :obj:`input_ids` docstring) Indices should be in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.ElectraForPreTraining.forward:65
+msgid "0 indicates the token is an original token,"
+msgstr ""
+
+#: of transformers.ElectraForPreTraining.forward:66
+msgid "1 indicates the token was replaced."
+msgstr ""
+
+#: of transformers.ElectraForPreTraining.forward:69
+msgid ""
+"A "
+":class:`~transformers.models.electra.modeling_electra.ElectraForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs.  - **loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss of the ELECTRA "
+"objective. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Prediction scores of the head "
+"(scores for each token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Examples::      >>> from transformers import "
+"ElectraTokenizer, ElectraForPreTraining     >>> import torch      >>> "
+"tokenizer = ElectraTokenizer.from_pretrained('google/electra-small-"
+"discriminator')     >>> model = "
+"ElectraForPreTraining.from_pretrained('google/electra-small-"
+"discriminator')      >>> input_ids = "
+"torch.tensor(tokenizer.encode(\"Hello, my dog is cute\", "
+"add_special_tokens=True)).unsqueeze(0)  # Batch size 1     >>> logits = "
+"model(input_ids).logits"
+msgstr ""
+
+#: of transformers.ElectraForPreTraining.forward:69
+msgid ""
+"A "
+":class:`~transformers.models.electra.modeling_electra.ElectraForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.ElectraForPreTraining.forward:73
+msgid ""
+"**loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss of the ELECTRA "
+"objective."
+msgstr ""
+
+#: of transformers.ElectraForPreTraining.forward:74
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Prediction scores of the head (scores for each "
+"token before SoftMax)."
+msgstr ""
+
+#: of transformers.ElectraForPreTraining.forward:96
+msgid ""
+":class:`~transformers.models.electra.modeling_electra.ElectraForPreTrainingOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:107
+msgid "ElectraForMaskedLM"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM:1 transformers.TFElectraForMaskedLM:1
+msgid "Electra model with a language modeling head on top."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM:3 transformers.TFElectraForMaskedLM:3
+msgid ""
+"Even though both the discriminator and generator may be loaded into this "
+"model, the generator is the only model of the two to have been trained "
+"for the masked language modeling task."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:1
+msgid ""
+"The :class:`~transformers.ElectraForMaskedLM` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:62
+#: transformers.TFElectraForMaskedLM.call:51
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:67
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.ElectraConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:67
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.ElectraConfig`) and inputs."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:71
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:72
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.ElectraForMaskedLM.forward:82
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:114
+msgid "ElectraForSequenceClassification"
+msgstr ""
+
+#: of transformers.ElectraForSequenceClassification:1
+#: transformers.TFElectraForSequenceClassification:1
+msgid ""
+"ELECTRA Model transformer with a sequence classification/regression head "
+"on top (a linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.ElectraForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.ElectraForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.ElectraForSequenceClassification.forward:62
+#: transformers.TFElectraForSequenceClassification.call:51
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.ElectraForSequenceClassification.forward:67
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.ElectraForSequenceClassification.forward:67
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs."
+msgstr ""
+
+#: of transformers.ElectraForSequenceClassification.forward:71
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.ElectraForSequenceClassification.forward:72
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.ElectraForSequenceClassification.forward:82
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:121
+msgid "ElectraForMultipleChoice"
+msgstr ""
+
+#: of transformers.ElectraForMultipleChoice:1
+#: transformers.FlaxElectraForMultipleChoice:1
+#: transformers.TFElectraForMultipleChoice:1
+msgid ""
+"ELECTRA Model with a multiple choice classification head on top (a linear"
+" layer on top of the pooled output and a softmax) e.g. for "
+"RocStories/SWAG tasks."
+msgstr ""
+
+#: of transformers.ElectraForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.ElectraForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.ElectraForMultipleChoice.forward:62
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.ElectraForMultipleChoice.forward:67
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.ElectraForMultipleChoice.forward:67
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs."
+msgstr ""
+
+#: of transformers.ElectraForMultipleChoice.forward:71
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.ElectraForMultipleChoice.forward:72
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.ElectraForMultipleChoice.forward:74
+#: transformers.FlaxElectraForMultipleChoice.__call__:43
+#: transformers.TFElectraForMultipleChoice.call:63
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.ElectraForMultipleChoice.forward:84
+msgid ""
+":class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:128
+msgid "ElectraForTokenClassification"
+msgstr ""
+
+#: of transformers.ElectraForTokenClassification:1
+#: transformers.FlaxElectraForTokenClassification:1
+#: transformers.TFElectraForTokenClassification:1
+msgid "Electra model with a token classification head on top."
+msgstr ""
+
+#: of transformers.ElectraForTokenClassification:3
+#: transformers.FlaxElectraForTokenClassification:3
+#: transformers.TFElectraForTokenClassification:3
+msgid "Both the discriminator and generator may be loaded into this model."
+msgstr ""
+
+#: of transformers.ElectraForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.ElectraForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.ElectraForTokenClassification.forward:62
+#: transformers.TFElectraForTokenClassification.call:51
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.ElectraForTokenClassification.forward:66
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.ElectraForTokenClassification.forward:66
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs."
+msgstr ""
+
+#: of transformers.ElectraForTokenClassification.forward:70
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.ElectraForTokenClassification.forward:71
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.ElectraForTokenClassification.forward:81
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:135
+msgid "ElectraForQuestionAnswering"
+msgstr ""
+
+#: of transformers.ElectraForQuestionAnswering:1
+#: transformers.FlaxElectraForQuestionAnswering:1
+msgid ""
+"ELECTRA Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.ElectraForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.ElectraForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.ElectraForQuestionAnswering.forward:62
+#: transformers.TFElectraForQuestionAnswering.call:51
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.ElectraForQuestionAnswering.forward:66
+#: transformers.TFElectraForQuestionAnswering.call:55
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.ElectraForQuestionAnswering.forward:71
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.ElectraForQuestionAnswering.forward:71
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.ElectraForQuestionAnswering.forward:75
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.ElectraForQuestionAnswering.forward:76
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.ElectraForQuestionAnswering.forward:77
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.ElectraForQuestionAnswering.forward:87
+msgid ""
+":class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:142
+msgid "TFElectraModel"
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM:7
+#: transformers.TFElectraForMultipleChoice:5
+#: transformers.TFElectraForPreTraining:7
+#: transformers.TFElectraForQuestionAnswering:5
+#: transformers.TFElectraForSequenceClassification:5
+#: transformers.TFElectraForTokenClassification:6 transformers.TFElectraModel:3
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM:11
+#: transformers.TFElectraForMultipleChoice:9
+#: transformers.TFElectraForPreTraining:11
+#: transformers.TFElectraForQuestionAnswering:9
+#: transformers.TFElectraForSequenceClassification:9
+#: transformers.TFElectraForTokenClassification:10
+#: transformers.TFElectraModel:7
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM:17
+#: transformers.TFElectraForMultipleChoice:15
+#: transformers.TFElectraForPreTraining:17
+#: transformers.TFElectraForQuestionAnswering:15
+#: transformers.TFElectraForSequenceClassification:15
+#: transformers.TFElectraForTokenClassification:16
+#: transformers.TFElectraModel:13
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM:19
+#: transformers.TFElectraForMultipleChoice:17
+#: transformers.TFElectraForPreTraining:19
+#: transformers.TFElectraForQuestionAnswering:17
+#: transformers.TFElectraForSequenceClassification:17
+#: transformers.TFElectraForTokenClassification:18
+#: transformers.TFElectraModel:15
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM:20
+#: transformers.TFElectraForMultipleChoice:18
+#: transformers.TFElectraForPreTraining:20
+#: transformers.TFElectraForQuestionAnswering:18
+#: transformers.TFElectraForSequenceClassification:18
+#: transformers.TFElectraForTokenClassification:19
+#: transformers.TFElectraModel:16
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM:22
+#: transformers.TFElectraForMultipleChoice:20
+#: transformers.TFElectraForPreTraining:22
+#: transformers.TFElectraForQuestionAnswering:20
+#: transformers.TFElectraForSequenceClassification:20
+#: transformers.TFElectraForTokenClassification:21
+#: transformers.TFElectraModel:18
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM:25
+#: transformers.TFElectraForMultipleChoice:23
+#: transformers.TFElectraForPreTraining:25
+#: transformers.TFElectraForQuestionAnswering:23
+#: transformers.TFElectraForSequenceClassification:23
+#: transformers.TFElectraForTokenClassification:24
+#: transformers.TFElectraModel:21
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM:28
+#: transformers.TFElectraForMultipleChoice:26
+#: transformers.TFElectraForPreTraining:28
+#: transformers.TFElectraForQuestionAnswering:26
+#: transformers.TFElectraForSequenceClassification:26
+#: transformers.TFElectraForTokenClassification:27
+#: transformers.TFElectraModel:24
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM:29
+#: transformers.TFElectraForMultipleChoice:27
+#: transformers.TFElectraForPreTraining:29
+#: transformers.TFElectraForQuestionAnswering:27
+#: transformers.TFElectraForSequenceClassification:27
+#: transformers.TFElectraForTokenClassification:28
+#: transformers.TFElectraModel:25
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM:31
+#: transformers.TFElectraForMultipleChoice:29
+#: transformers.TFElectraForPreTraining:31
+#: transformers.TFElectraForQuestionAnswering:29
+#: transformers.TFElectraForSequenceClassification:29
+#: transformers.TFElectraForTokenClassification:30
+#: transformers.TFElectraModel:27
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFElectraModel.call:1
+msgid ""
+"The :class:`~transformers.TFElectraModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:8
+#: transformers.TFElectraForMultipleChoice.call:8
+#: transformers.TFElectraForPreTraining.call:8
+#: transformers.TFElectraForQuestionAnswering.call:8
+#: transformers.TFElectraForSequenceClassification.call:8
+#: transformers.TFElectraForTokenClassification.call:8
+#: transformers.TFElectraModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.ElectraTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:10
+#: transformers.TFElectraForMultipleChoice.call:10
+#: transformers.TFElectraForPreTraining.call:10
+#: transformers.TFElectraForQuestionAnswering.call:10
+#: transformers.TFElectraForSequenceClassification.call:10
+#: transformers.TFElectraForTokenClassification.call:10
+#: transformers.TFElectraModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.ElectraTokenizer`. "
+"See :func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:23
+#: transformers.TFElectraForMultipleChoice.call:23
+#: transformers.TFElectraForPreTraining.call:23
+#: transformers.TFElectraForQuestionAnswering.call:23
+#: transformers.TFElectraForSequenceClassification.call:23
+#: transformers.TFElectraForTokenClassification.call:23
+#: transformers.TFElectraModel.call:23
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:26
+#: transformers.TFElectraForMultipleChoice.call:26
+#: transformers.TFElectraForPreTraining.call:26
+#: transformers.TFElectraForQuestionAnswering.call:26
+#: transformers.TFElectraForSequenceClassification.call:26
+#: transformers.TFElectraForTokenClassification.call:26
+#: transformers.TFElectraModel.call:26
+msgid "`What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:37
+#: transformers.TFElectraForMultipleChoice.call:37
+#: transformers.TFElectraForPreTraining.call:37
+#: transformers.TFElectraForQuestionAnswering.call:37
+#: transformers.TFElectraForSequenceClassification.call:37
+#: transformers.TFElectraForTokenClassification.call:37
+#: transformers.TFElectraModel.call:37
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:41
+#: transformers.TFElectraForMultipleChoice.call:41
+#: transformers.TFElectraForPreTraining.call:41
+#: transformers.TFElectraForQuestionAnswering.call:41
+#: transformers.TFElectraForSequenceClassification.call:41
+#: transformers.TFElectraForTokenClassification.call:41
+#: transformers.TFElectraModel.call:41
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:45
+#: transformers.TFElectraForMultipleChoice.call:45
+#: transformers.TFElectraForPreTraining.call:45
+#: transformers.TFElectraForQuestionAnswering.call:45
+#: transformers.TFElectraForSequenceClassification.call:45
+#: transformers.TFElectraForTokenClassification.call:45
+#: transformers.TFElectraModel.call:45
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:48
+#: transformers.TFElectraForMultipleChoice.call:48
+#: transformers.TFElectraForPreTraining.call:48
+#: transformers.TFElectraForQuestionAnswering.call:48
+#: transformers.TFElectraForSequenceClassification.call:48
+#: transformers.TFElectraForTokenClassification.call:48
+#: transformers.TFElectraModel.call:48
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFElectraModel.call:52
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.ElectraConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(tf.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFElectraModel.call:52
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.ElectraConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFElectraModel.call:56
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.TFElectraModel.call:57
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:66
+#: transformers.TFElectraForMultipleChoice.call:68
+#: transformers.TFElectraForPreTraining.call:62
+#: transformers.TFElectraForQuestionAnswering.call:71
+#: transformers.TFElectraForSequenceClassification.call:66
+#: transformers.TFElectraForTokenClassification.call:65
+#: transformers.TFElectraModel.call:61
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFElectraModel.call:66
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:149
+msgid "TFElectraForPreTraining"
+msgstr ""
+
+#: of transformers.TFElectraForPreTraining:3
+msgid ""
+"Even though both the discriminator and generator may be loaded into this "
+"model, the discriminator is the only model of the two to have the correct"
+" classification head to be used for this model."
+msgstr ""
+
+#: of transformers.TFElectraForPreTraining.call:1
+msgid ""
+"The :class:`~transformers.TFElectraForPreTraining` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFElectraForPreTraining.call:52
+msgid ""
+"A "
+":class:`~transformers.models.electra.modeling_tf_electra.TFElectraForPreTrainingOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs.  "
+"- **loss** (`optional`, returned when ``labels`` is provided, "
+"``tf.Tensor`` of shape :obj:`(1,)`) -- Total loss of the ELECTRA "
+"objective. - **logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Prediction scores of the head (scores for each "
+"token before SoftMax). - **hidden_states** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Examples::      >>> import tensorflow as tf     >>> from transformers "
+"import ElectraTokenizer, TFElectraForPreTraining      >>> tokenizer = "
+"ElectraTokenizer.from_pretrained('google/electra-small-discriminator')"
+"     >>> model = TFElectraForPreTraining.from_pretrained('google/electra-"
+"small-discriminator')     >>> input_ids = "
+"tf.constant(tokenizer.encode(\"Hello, my dog is cute\"))[None, :]  # "
+"Batch size 1     >>> outputs = model(input_ids)     >>> scores = "
+"outputs[0]"
+msgstr ""
+
+#: of transformers.TFElectraForPreTraining.call:52
+msgid ""
+"A "
+":class:`~transformers.models.electra.modeling_tf_electra.TFElectraForPreTrainingOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFElectraForPreTraining.call:56
+msgid ""
+"**loss** (`optional`, returned when ``labels`` is provided, ``tf.Tensor``"
+" of shape :obj:`(1,)`) -- Total loss of the ELECTRA objective."
+msgstr ""
+
+#: of transformers.TFElectraForPreTraining.call:57
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Prediction scores of the head (scores for each "
+"token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:62
+#: transformers.TFElectraForMultipleChoice.call:64
+#: transformers.TFElectraForPreTraining.call:58
+#: transformers.TFElectraForQuestionAnswering.call:67
+#: transformers.TFElectraForSequenceClassification.call:62
+#: transformers.TFElectraForTokenClassification.call:61
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFElectraForPreTraining.call:79
+msgid ""
+":class:`~transformers.models.electra.modeling_tf_electra.TFElectraForPreTrainingOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:156
+msgid "TFElectraForMaskedLM"
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:1
+msgid ""
+"The :class:`~transformers.TFElectraForMaskedLM` forward method, overrides"
+" the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:56
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.ElectraConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss. - **logits** (:obj:`tf.Tensor` "
+"of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:56
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.ElectraConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:60
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss."
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:61
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFElectraForMaskedLM.call:71
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:163
+msgid "TFElectraForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFElectraForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFElectraForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFElectraForSequenceClassification.call:56
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs.  "
+"- **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, config.num_labels)`) -- Classification (or regression "
+"if config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFElectraForSequenceClassification.call:56
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFElectraForSequenceClassification.call:60
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFElectraForSequenceClassification.call:61
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFElectraForSequenceClassification.call:71
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:170
+msgid "TFElectraForMultipleChoice"
+msgstr ""
+
+#: of transformers.TFElectraForMultipleChoice.call:1
+msgid ""
+"The :class:`~transformers.TFElectraForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFElectraForMultipleChoice.call:51
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.TFElectraForMultipleChoice.call:56
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs.  "
+"- **loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss. - "
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFElectraForMultipleChoice.call:56
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFElectraForMultipleChoice.call:60
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.TFElectraForMultipleChoice.call:61
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.TFElectraForMultipleChoice.call:73
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` or"
+" :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:177
+msgid "TFElectraForTokenClassification"
+msgstr ""
+
+#: of transformers.TFElectraForTokenClassification.call:1
+msgid ""
+"The :class:`~transformers.TFElectraForTokenClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFElectraForTokenClassification.call:55
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.ElectraConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, config.num_labels)`) -- "
+"Classification scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFElectraForTokenClassification.call:55
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.ElectraConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFElectraForTokenClassification.call:59
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss."
+msgstr ""
+
+#: of transformers.TFElectraForTokenClassification.call:60
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.num_labels)`) -- Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFElectraForTokenClassification.call:70
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:184
+msgid "TFElectraForQuestionAnswering"
+msgstr ""
+
+#: of transformers.TFElectraForQuestionAnswering:1
+msgid ""
+"Electra Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.TFElectraForQuestionAnswering.call:1
+msgid ""
+"The :class:`~transformers.TFElectraForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFElectraForQuestionAnswering.call:60
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs.  "
+"- **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions. - **start_logits** (:obj:`tf.Tensor` of "
+"shape :obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFElectraForQuestionAnswering.call:60
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFElectraForQuestionAnswering.call:64
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions."
+msgstr ""
+
+#: of transformers.TFElectraForQuestionAnswering.call:65
+msgid ""
+"**start_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFElectraForQuestionAnswering.call:66
+msgid ""
+"**end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFElectraForQuestionAnswering.call:76
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:191
+msgid "FlaxElectraModel"
+msgstr ""
+
+#: of transformers.FlaxElectraModel:1
+msgid ""
+"The bare Electra Model transformer outputting raw hidden-states without "
+"any specific head on top."
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM:3
+#: transformers.FlaxElectraForMultipleChoice:5
+#: transformers.FlaxElectraForPreTraining:6
+#: transformers.FlaxElectraForQuestionAnswering:5
+#: transformers.FlaxElectraForSequenceClassification:5
+#: transformers.FlaxElectraForTokenClassification:6
+#: transformers.FlaxElectraModel:3
+msgid ""
+"This model inherits from :class:`~transformers.FlaxPreTrainedModel`. "
+"Check the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading, saving and converting "
+"weights from PyTorch models)"
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM:7
+#: transformers.FlaxElectraForMultipleChoice:9
+#: transformers.FlaxElectraForPreTraining:10
+#: transformers.FlaxElectraForQuestionAnswering:9
+#: transformers.FlaxElectraForSequenceClassification:9
+#: transformers.FlaxElectraForTokenClassification:10
+#: transformers.FlaxElectraModel:7
+msgid ""
+"This model is also a Flax Linen `flax.nn.Module "
+"<https://flax.readthedocs.io/en/latest/_autosummary/flax.nn.module.html>`__"
+" subclass. Use it as a regular Flax Module and refer to the Flax "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM:11
+#: transformers.FlaxElectraForMultipleChoice:13
+#: transformers.FlaxElectraForPreTraining:14
+#: transformers.FlaxElectraForQuestionAnswering:13
+#: transformers.FlaxElectraForSequenceClassification:13
+#: transformers.FlaxElectraForTokenClassification:14
+#: transformers.FlaxElectraModel:11
+msgid "Finally, this model supports inherent JAX features such as:"
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM:13
+#: transformers.FlaxElectraForMultipleChoice:15
+#: transformers.FlaxElectraForPreTraining:16
+#: transformers.FlaxElectraForQuestionAnswering:15
+#: transformers.FlaxElectraForSequenceClassification:15
+#: transformers.FlaxElectraForTokenClassification:16
+#: transformers.FlaxElectraModel:13
+msgid ""
+"`Just-In-Time (JIT) compilation "
+"<https://jax.readthedocs.io/en/latest/jax.html#just-in-time-compilation-"
+"jit>`__"
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM:14
+#: transformers.FlaxElectraForMultipleChoice:16
+#: transformers.FlaxElectraForPreTraining:17
+#: transformers.FlaxElectraForQuestionAnswering:16
+#: transformers.FlaxElectraForSequenceClassification:16
+#: transformers.FlaxElectraForTokenClassification:17
+#: transformers.FlaxElectraModel:14
+msgid ""
+"`Automatic Differentiation <https://jax.readthedocs.io/en/latest/jax.html"
+"#automatic-differentiation>`__"
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM:15
+#: transformers.FlaxElectraForMultipleChoice:17
+#: transformers.FlaxElectraForPreTraining:18
+#: transformers.FlaxElectraForQuestionAnswering:17
+#: transformers.FlaxElectraForSequenceClassification:17
+#: transformers.FlaxElectraForTokenClassification:18
+#: transformers.FlaxElectraModel:15
+msgid ""
+"`Vectorization <https://jax.readthedocs.io/en/latest/jax.html"
+"#vectorization-vmap>`__"
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM:16
+#: transformers.FlaxElectraForMultipleChoice:18
+#: transformers.FlaxElectraForPreTraining:19
+#: transformers.FlaxElectraForQuestionAnswering:18
+#: transformers.FlaxElectraForSequenceClassification:18
+#: transformers.FlaxElectraForTokenClassification:19
+#: transformers.FlaxElectraModel:16
+msgid ""
+"`Parallelization <https://jax.readthedocs.io/en/latest/jax.html"
+"#parallelization-pmap>`__"
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM.__call__:1
+#: transformers.FlaxElectraForMultipleChoice.__call__:1
+#: transformers.FlaxElectraForPreTraining.__call__:1
+#: transformers.FlaxElectraForQuestionAnswering.__call__:1
+#: transformers.FlaxElectraForSequenceClassification.__call__:1
+#: transformers.FlaxElectraForTokenClassification.__call__:1
+#: transformers.FlaxElectraModel.__call__:1
+msgid ""
+"The :class:`~transformers.FlaxElectraPreTrainedModel` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM.__call__:8
+#: transformers.FlaxElectraForMultipleChoice.__call__:8
+#: transformers.FlaxElectraForPreTraining.__call__:8
+#: transformers.FlaxElectraForQuestionAnswering.__call__:8
+#: transformers.FlaxElectraForSequenceClassification.__call__:8
+#: transformers.FlaxElectraForTokenClassification.__call__:8
+#: transformers.FlaxElectraModel.__call__:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.ElectraTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM.__call__:10
+#: transformers.FlaxElectraForMultipleChoice.__call__:10
+#: transformers.FlaxElectraForPreTraining.__call__:10
+#: transformers.FlaxElectraForQuestionAnswering.__call__:10
+#: transformers.FlaxElectraForSequenceClassification.__call__:10
+#: transformers.FlaxElectraForTokenClassification.__call__:10
+#: transformers.FlaxElectraModel.__call__:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.ElectraTokenizer`. "
+"See :meth:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM.__call__:23
+#: transformers.FlaxElectraForMultipleChoice.__call__:23
+#: transformers.FlaxElectraForPreTraining.__call__:23
+#: transformers.FlaxElectraForQuestionAnswering.__call__:23
+#: transformers.FlaxElectraForSequenceClassification.__call__:23
+#: transformers.FlaxElectraForTokenClassification.__call__:23
+#: transformers.FlaxElectraModel.__call__:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM.__call__:29
+#: transformers.FlaxElectraForMultipleChoice.__call__:29
+#: transformers.FlaxElectraForPreTraining.__call__:29
+#: transformers.FlaxElectraForQuestionAnswering.__call__:29
+#: transformers.FlaxElectraForSequenceClassification.__call__:29
+#: transformers.FlaxElectraForTokenClassification.__call__:29
+#: transformers.FlaxElectraModel.__call__:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.FlaxElectraModel.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs.  "
+"- **last_hidden_state** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxElectraModel.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FlaxElectraModel.__call__:41
+msgid ""
+"**last_hidden_state** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM.__call__:42
+#: transformers.FlaxElectraForMultipleChoice.__call__:44
+#: transformers.FlaxElectraForPreTraining.__call__:42
+#: transformers.FlaxElectraForQuestionAnswering.__call__:43
+#: transformers.FlaxElectraForSequenceClassification.__call__:42
+#: transformers.FlaxElectraForTokenClassification.__call__:42
+#: transformers.FlaxElectraModel.__call__:42
+msgid ""
+"**hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM.__call__:46
+#: transformers.FlaxElectraForMultipleChoice.__call__:48
+#: transformers.FlaxElectraForPreTraining.__call__:46
+#: transformers.FlaxElectraForQuestionAnswering.__call__:47
+#: transformers.FlaxElectraForSequenceClassification.__call__:46
+#: transformers.FlaxElectraForTokenClassification.__call__:46
+#: transformers.FlaxElectraModel.__call__:46
+msgid ""
+"**attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxElectraModel.__call__:51
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:198
+msgid "FlaxElectraForPreTraining"
+msgstr ""
+
+#: of transformers.FlaxElectraForPreTraining.__call__:37
+msgid ""
+"A "
+":class:`~transformers.models.electra.modeling_flax_electra.FlaxElectraForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs.  - **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxElectraForPreTraining.__call__:37
+msgid ""
+"A "
+":class:`~transformers.models.electra.modeling_flax_electra.FlaxElectraForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM.__call__:41
+#: transformers.FlaxElectraForPreTraining.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxElectraForPreTraining.__call__:51
+msgid ""
+":class:`~transformers.models.electra.modeling_flax_electra.FlaxElectraForPreTrainingOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:205
+msgid "FlaxElectraForMaskedLM"
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM:1
+msgid "Electra Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxMaskedLMOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs.  "
+"- **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxMaskedLMOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.ElectraConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FlaxElectraForMaskedLM.__call__:51
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxMaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:212
+msgid "FlaxElectraForSequenceClassification"
+msgstr ""
+
+#: of transformers.FlaxElectraForSequenceClassification:1
+msgid ""
+"Electra Model transformer with a sequence classification/regression head "
+"on top (a linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.FlaxElectraForSequenceClassification.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs.  - **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxElectraForSequenceClassification.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxElectraForSequenceClassification.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxElectraForSequenceClassification.__call__:51
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:219
+msgid "FlaxElectraForMultipleChoice"
+msgstr ""
+
+#: of transformers.FlaxElectraForMultipleChoice.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs.  - **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxElectraForMultipleChoice.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxElectraForMultipleChoice.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, num_choices)`)"
+" -- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.FlaxElectraForMultipleChoice.__call__:53
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:226
+msgid "FlaxElectraForTokenClassification"
+msgstr ""
+
+#: of transformers.FlaxElectraForTokenClassification.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxTokenClassifierOutput` "
+"or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs.  - **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxElectraForTokenClassification.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxTokenClassifierOutput` "
+"or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxElectraForTokenClassification.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxElectraForTokenClassification.__call__:51
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxTokenClassifierOutput` or"
+" :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/electra.rst:233
+msgid "FlaxElectraForQuestionAnswering"
+msgstr ""
+
+#: of transformers.FlaxElectraForQuestionAnswering.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs.  - **start_logits** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxElectraForQuestionAnswering.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ElectraConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxElectraForQuestionAnswering.__call__:41
+msgid ""
+"**start_logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxElectraForQuestionAnswering.__call__:42
+msgid ""
+"**end_logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxElectraForQuestionAnswering.__call__:52
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+

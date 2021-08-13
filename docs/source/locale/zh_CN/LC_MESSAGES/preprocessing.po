@@ -1,0 +1,466 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/preprocessing.rst:14
+msgid "Preprocessing data"
+msgstr ""
+
+#: ../../source/preprocessing.rst:16
+msgid ""
+"In this tutorial, we'll explore how to preprocess your data using 🤗 "
+"Transformers. The main tool for this is what we call a :doc:`tokenizer "
+"<main_classes/tokenizer>`. You can build one using the tokenizer class "
+"associated to the model you would like to use, or directly with the "
+":class:`~transformers.AutoTokenizer` class."
+msgstr ""
+
+#: ../../source/preprocessing.rst:20
+msgid ""
+"As we saw in the :doc:`quick tour </quicktour>`, the tokenizer will first"
+" split a given text in words (or part of words, punctuation symbols, "
+"etc.) usually called `tokens`. Then it will convert those `tokens` into "
+"numbers, to be able to build a tensor out of them and feed them to the "
+"model. It will also add any additional inputs the model might expect to "
+"work properly."
+msgstr ""
+
+#: ../../source/preprocessing.rst:27
+msgid ""
+"If you plan on using a pretrained model, it's important to use the "
+"associated pretrained tokenizer: it will split the text you give it in "
+"tokens the same way for the pretraining corpus, and it will use the same "
+"correspondence token to index (that we usually call a `vocab`) as during "
+"pretraining."
+msgstr ""
+
+#: ../../source/preprocessing.rst:31
+msgid ""
+"To automatically download the vocab used during pretraining or fine-"
+"tuning a given model, you can use the "
+":func:`~transformers.AutoTokenizer.from_pretrained` method:"
+msgstr ""
+
+#: ../../source/preprocessing.rst:40
+msgid "Base use"
+msgstr ""
+
+#: ../../source/preprocessing.rst:48
+msgid ""
+"A :class:`~transformers.PreTrainedTokenizer` has many methods, but the "
+"only one you need to remember for preprocessing is its ``__call__``: you "
+"just need to feed your sentence to your tokenizer object."
+msgstr ""
+
+#: ../../source/preprocessing.rst:59
+msgid ""
+"This returns a dictionary string to list of ints. The `input_ids "
+"<glossary.html#input-ids>`__ are the indices corresponding to each token "
+"in our sentence. We will see below what the `attention_mask "
+"<glossary.html#attention-mask>`__ is used for and in :ref:`the next "
+"section <sentence-pairs>` the goal of `token_type_ids <glossary.html"
+"#token-type-ids>`__."
+msgstr ""
+
+#: ../../source/preprocessing.rst:64
+msgid "The tokenizer can decode a list of token ids in a proper sentence:"
+msgstr ""
+
+#: ../../source/preprocessing.rst:71
+msgid ""
+"As you can see, the tokenizer automatically added some special tokens "
+"that the model expects. Not all models need special tokens; for instance,"
+" if we had used `gpt2-medium` instead of `bert-base-cased` to create our "
+"tokenizer, we would have seen the same sentence as the original one here."
+" You can disable this behavior (which is only advised if you have added "
+"those special tokens yourself) by passing ``add_special_tokens=False``."
+msgstr ""
+
+#: ../../source/preprocessing.rst:76
+msgid ""
+"If you have several sentences you want to process, you can do this "
+"efficiently by sending them as a list to the tokenizer:"
+msgstr ""
+
+#: ../../source/preprocessing.rst:96
+msgid ""
+"We get back a dictionary once again, this time with values being lists of"
+" lists of ints."
+msgstr ""
+
+#: ../../source/preprocessing.rst:98
+msgid ""
+"If the purpose of sending several sentences at a time to the tokenizer is"
+" to build a batch to feed the model, you will probably want:"
+msgstr ""
+
+#: ../../source/preprocessing.rst:101
+msgid "To pad each sentence to the maximum length there is in your batch."
+msgstr ""
+
+#: ../../source/preprocessing.rst:102
+msgid ""
+"To truncate each sentence to the maximum length the model can accept (if "
+"applicable)."
+msgstr ""
+
+#: ../../source/preprocessing.rst:103
+msgid "To return tensors."
+msgstr ""
+
+#: ../../source/preprocessing.rst:105
+msgid ""
+"You can do all of this by using the following options when feeding your "
+"list of sentences to the tokenizer:"
+msgstr ""
+
+#: ../../source/preprocessing.rst:134
+msgid ""
+"It returns a dictionary with string keys and tensor values. We can now "
+"see what the `attention_mask <glossary.html#attention-mask>`__ is all "
+"about: it points out which tokens the model should pay attention to and "
+"which ones it should not (because they represent padding in this case)."
+msgstr ""
+
+#: ../../source/preprocessing.rst:139
+msgid ""
+"Note that if your model does not have a maximum length associated to it, "
+"the command above will throw a warning. You can safely ignore it. You can"
+" also pass ``verbose=False`` to stop the tokenizer from throwing those "
+"kinds of warnings."
+msgstr ""
+
+#: ../../source/preprocessing.rst:145
+msgid "Preprocessing pairs of sentences"
+msgstr ""
+
+#: ../../source/preprocessing.rst:153
+msgid ""
+"Sometimes you need to feed a pair of sentences to your model. For "
+"instance, if you want to classify if two sentences in a pair are similar,"
+" or for question-answering models, which take a context and a question. "
+"For BERT models, the input is then represented like this: :obj:`[CLS] "
+"Sequence A [SEP] Sequence B [SEP]`"
+msgstr ""
+
+#: ../../source/preprocessing.rst:157
+msgid ""
+"You can encode a pair of sentences in the format expected by your model "
+"by supplying the two sentences as two arguments (not a list since a list "
+"of two sentences will be interpreted as a batch of two single sentences, "
+"as we saw before). This will once again return a dict string to list of "
+"ints:"
+msgstr ""
+
+#: ../../source/preprocessing.rst:169
+msgid ""
+"This shows us what the `token_type_ids <glossary.html#token-type-ids>`__ "
+"are for: they indicate to the model which part of the inputs correspond "
+"to the first sentence and which part corresponds to the second sentence. "
+"Note that `token_type_ids` are not required or handled by all models. By "
+"default, a tokenizer will only return the inputs that its associated "
+"model expects. You can force the return (or the non-return) of any of "
+"those special arguments by using ``return_input_ids`` or "
+"``return_token_type_ids``."
+msgstr ""
+
+#: ../../source/preprocessing.rst:175
+msgid ""
+"If we decode the token ids we obtained, we will see that the special "
+"tokens have been properly added."
+msgstr ""
+
+#: ../../source/preprocessing.rst:182
+msgid ""
+"If you have a list of pairs of sequences you want to process, you should "
+"feed them as two lists to your tokenizer: the list of first sentences and"
+" the list of second sentences:"
+msgstr ""
+
+#: ../../source/preprocessing.rst:205
+msgid ""
+"As we can see, it returns a dictionary where each value is a list of "
+"lists of ints."
+msgstr ""
+
+#: ../../source/preprocessing.rst:207
+msgid ""
+"To double-check what is fed to the model, we can decode each list in "
+"`input_ids` one by one:"
+msgstr ""
+
+#: ../../source/preprocessing.rst:217
+msgid ""
+"Once again, you can automatically pad your inputs to the maximum sentence"
+" length in the batch, truncate to the maximum length the model can accept"
+" and return tensors directly with the following:"
+msgstr ""
+
+#: ../../source/preprocessing.rst:228
+msgid "Everything you always wanted to know about padding and truncation"
+msgstr ""
+
+#: ../../source/preprocessing.rst:230
+msgid ""
+"We have seen the commands that will work for most cases (pad your batch "
+"to the length of the maximum sentence and truncate to the maximum length "
+"the mode can accept). However, the API supports more strategies if you "
+"need them. The three arguments you need to know for this are "
+":obj:`padding`, :obj:`truncation` and :obj:`max_length`."
+msgstr ""
+
+#: ../../source/preprocessing.rst:234
+msgid ""
+":obj:`padding` controls the padding. It can be a boolean or a string "
+"which should be:"
+msgstr ""
+
+#: ../../source/preprocessing.rst:236
+msgid ""
+":obj:`True` or :obj:`'longest'` to pad to the longest sequence in the "
+"batch (doing no padding if you only provide a single sequence)."
+msgstr ""
+
+#: ../../source/preprocessing.rst:238
+msgid ""
+":obj:`'max_length'` to pad to a length specified by the :obj:`max_length`"
+" argument or the maximum length accepted by the model if no "
+":obj:`max_length` is provided (``max_length=None``). If you only provide "
+"a single sequence, padding will still be applied to it."
+msgstr ""
+
+#: ../../source/preprocessing.rst:241
+msgid ""
+":obj:`False` or :obj:`'do_not_pad'` to not pad the sequences. As we have "
+"seen before, this is the default behavior."
+msgstr ""
+
+#: ../../source/preprocessing.rst:244
+msgid ""
+":obj:`truncation` controls the truncation. It can be a boolean or a "
+"string which should be:"
+msgstr ""
+
+#: ../../source/preprocessing.rst:246
+msgid ""
+":obj:`True` or :obj:`'only_first'` truncate to a maximum length specified"
+" by the :obj:`max_length` argument or the maximum length accepted by the "
+"model if no :obj:`max_length` is provided (``max_length=None``). This "
+"will only truncate the first sentence of a pair if a pair of sequence (or"
+" a batch of pairs of sequences) is provided."
+msgstr ""
+
+#: ../../source/preprocessing.rst:249
+msgid ""
+":obj:`'only_second'` truncate to a maximum length specified by the "
+":obj:`max_length` argument or the maximum length accepted by the model if"
+" no :obj:`max_length` is provided (``max_length=None``). This will only "
+"truncate the second sentence of a pair if a pair of sequence (or a batch "
+"of pairs of sequences) is provided."
+msgstr ""
+
+#: ../../source/preprocessing.rst:252
+msgid ""
+":obj:`'longest_first'` truncate to a maximum length specified by the "
+":obj:`max_length` argument or the maximum length accepted by the model if"
+" no :obj:`max_length` is provided (``max_length=None``). This will "
+"truncate token by token, removing a token from the longest sequence in "
+"the pair until the proper length is reached."
+msgstr ""
+
+#: ../../source/preprocessing.rst:255
+msgid ""
+":obj:`False` or :obj:`'do_not_truncate'` to not truncate the sequences. "
+"As we have seen before, this is the default behavior."
+msgstr ""
+
+#: ../../source/preprocessing.rst:258
+msgid ""
+":obj:`max_length` to control the length of the padding/truncation. It can"
+" be an integer or :obj:`None`, in which case it will default to the "
+"maximum length the model can accept. If the model has no specific maximum"
+" input length, truncation/padding to :obj:`max_length` is deactivated."
+msgstr ""
+
+#: ../../source/preprocessing.rst:262
+msgid ""
+"Here is a table summarizing the recommend way to setup padding and "
+"truncation. If you use pair of inputs sequence in any of the following "
+"examples, you can replace :obj:`truncation=True` by a :obj:`STRATEGY` "
+"selected in :obj:`['only_first', 'only_second', 'longest_first']`, i.e. "
+":obj:`truncation='only_second'` or :obj:`truncation= 'longest_first'` to "
+"control how both sequence in the pair are truncated as detailed before."
+msgstr ""
+
+#: ../../source/preprocessing.rst:268
+msgid "Truncation"
+msgstr ""
+
+#: ../../source/preprocessing.rst:268
+msgid "Padding"
+msgstr ""
+
+#: ../../source/preprocessing.rst:268
+msgid "Instruction"
+msgstr ""
+
+#: ../../source/preprocessing.rst:270
+msgid "no truncation"
+msgstr ""
+
+#: ../../source/preprocessing.rst:270 ../../source/preprocessing.rst:279
+#: ../../source/preprocessing.rst:290
+msgid "no padding"
+msgstr ""
+
+#: ../../source/preprocessing.rst:270
+msgid ":obj:`tokenizer(batch_sentences)`"
+msgstr ""
+
+#: ../../source/preprocessing.rst:272 ../../source/preprocessing.rst:282
+#: ../../source/preprocessing.rst:293
+msgid "padding to max sequence in batch"
+msgstr ""
+
+#: ../../source/preprocessing.rst:272
+msgid ""
+":obj:`tokenizer(batch_sentences, padding=True)` or "
+":obj:`tokenizer(batch_sentences, padding='longest')`"
+msgstr ""
+
+#: ../../source/preprocessing.rst:275 ../../source/preprocessing.rst:285
+#: ../../source/preprocessing.rst:296
+msgid "padding to max model input length"
+msgstr ""
+
+#: ../../source/preprocessing.rst:275
+msgid ":obj:`tokenizer(batch_sentences, padding='max_length')`"
+msgstr ""
+
+#: ../../source/preprocessing.rst:277 ../../source/preprocessing.rst:288
+#: ../../source/preprocessing.rst:298
+msgid "padding to specific length"
+msgstr ""
+
+#: ../../source/preprocessing.rst:277
+msgid ":obj:`tokenizer(batch_sentences, padding='max_length', max_length=42)`"
+msgstr ""
+
+#: ../../source/preprocessing.rst:279
+msgid "truncation to max model input length"
+msgstr ""
+
+#: ../../source/preprocessing.rst:279
+msgid ""
+":obj:`tokenizer(batch_sentences, truncation=True)` or "
+":obj:`tokenizer(batch_sentences, truncation=STRATEGY)`"
+msgstr ""
+
+#: ../../source/preprocessing.rst:282
+msgid ""
+":obj:`tokenizer(batch_sentences, padding=True, truncation=True)` or "
+":obj:`tokenizer(batch_sentences, padding=True, truncation=STRATEGY)`"
+msgstr ""
+
+#: ../../source/preprocessing.rst:285
+msgid ""
+":obj:`tokenizer(batch_sentences, padding='max_length', truncation=True)` "
+"or :obj:`tokenizer(batch_sentences, padding='max_length', "
+"truncation=STRATEGY)`"
+msgstr ""
+
+#: ../../source/preprocessing.rst:288 ../../source/preprocessing.rst:296
+msgid "Not possible"
+msgstr ""
+
+#: ../../source/preprocessing.rst:290
+msgid "truncation to specific length"
+msgstr ""
+
+#: ../../source/preprocessing.rst:290
+msgid ""
+":obj:`tokenizer(batch_sentences, truncation=True, max_length=42)` or "
+":obj:`tokenizer(batch_sentences, truncation=STRATEGY, max_length=42)`"
+msgstr ""
+
+#: ../../source/preprocessing.rst:293
+msgid ""
+":obj:`tokenizer(batch_sentences, padding=True, truncation=True, "
+"max_length=42)` or :obj:`tokenizer(batch_sentences, padding=True, "
+"truncation=STRATEGY, max_length=42)`"
+msgstr ""
+
+#: ../../source/preprocessing.rst:298
+msgid ""
+":obj:`tokenizer(batch_sentences, padding='max_length', truncation=True, "
+"max_length=42)` or :obj:`tokenizer(batch_sentences, padding='max_length',"
+" truncation=STRATEGY, max_length=42)`"
+msgstr ""
+
+#: ../../source/preprocessing.rst:303
+msgid "Pre-tokenized inputs"
+msgstr ""
+
+#: ../../source/preprocessing.rst:305
+msgid ""
+"The tokenizer also accept pre-tokenized inputs. This is particularly "
+"useful when you want to compute labels and extract predictions in `named "
+"entity recognition (NER) <https://en.wikipedia.org/wiki/Named-"
+"entity_recognition>`__ or `part-of-speech tagging (POS tagging) "
+"<https://en.wikipedia.org/wiki/Part-of-speech_tagging>`__."
+msgstr ""
+
+#: ../../source/preprocessing.rst:311
+msgid ""
+"Pre-tokenized does not mean your inputs are already tokenized (you "
+"wouldn't need to pass them through the tokenizer if that was the case) "
+"but just split into words (which is often the first step in subword "
+"tokenization algorithms like BPE)."
+msgstr ""
+
+#: ../../source/preprocessing.rst:315
+msgid ""
+"If you want to use pre-tokenized inputs, just set "
+":obj:`is_split_into_words=True` when passing your inputs to the "
+"tokenizer. For instance, we have:"
+msgstr ""
+
+#: ../../source/preprocessing.rst:326
+msgid ""
+"Note that the tokenizer still adds the ids of special tokens (if "
+"applicable) unless you pass ``add_special_tokens=False``."
+msgstr ""
+
+#: ../../source/preprocessing.rst:329
+msgid ""
+"This works exactly as before for batch of sentences or batch of pairs of "
+"sentences. You can encode a batch of sentences like this:"
+msgstr ""
+
+#: ../../source/preprocessing.rst:339
+msgid "or a batch of pair sentences like this:"
+msgstr ""
+
+#: ../../source/preprocessing.rst:348
+msgid ""
+"And you can add padding, truncation as well as directly return tensors "
+"like before:"
+msgstr ""
+

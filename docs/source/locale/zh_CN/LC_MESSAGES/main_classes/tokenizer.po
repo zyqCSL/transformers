@@ -1,0 +1,1278 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/main_classes/tokenizer.rst:14
+msgid "Tokenizer"
+msgstr ""
+
+#: ../../source/main_classes/tokenizer.rst:16
+msgid ""
+"A tokenizer is in charge of preparing the inputs for a model. The library"
+" contains tokenizers for all the models. Most of the tokenizers are "
+"available in two flavors: a full python implementation and a \"Fast\" "
+"implementation based on the Rust library `tokenizers "
+"<https://github.com/huggingface/tokenizers>`__. The \"Fast\" "
+"implementations allows:"
+msgstr ""
+
+#: ../../source/main_classes/tokenizer.rst:20
+msgid "a significant speed-up in particular when doing batched tokenization and"
+msgstr ""
+
+#: ../../source/main_classes/tokenizer.rst:21
+msgid ""
+"additional methods to map between the original string (character and "
+"words) and the token space (e.g. getting the index of the token "
+"comprising a given character or the span of characters corresponding to a"
+" given token). Currently no \"Fast\" implementation is available for the "
+"SentencePiece-based tokenizers (for T5, ALBERT, CamemBERT, XLMRoBERTa and"
+" XLNet models)."
+msgstr ""
+
+#: ../../source/main_classes/tokenizer.rst:26
+msgid ""
+"The base classes :class:`~transformers.PreTrainedTokenizer` and "
+":class:`~transformers.PreTrainedTokenizerFast` implement the common "
+"methods for encoding string inputs in model inputs (see below) and "
+"instantiating/saving python and \"Fast\" tokenizers either from a local "
+"file or directory or from a pretrained tokenizer provided by the library "
+"(downloaded from HuggingFace's AWS S3 repository). They both rely on "
+":class:`~transformers.tokenization_utils_base.PreTrainedTokenizerBase` "
+"that contains the common methods, and "
+":class:`~transformers.tokenization_utils_base.SpecialTokensMixin`."
+msgstr ""
+
+#: ../../source/main_classes/tokenizer.rst:33
+msgid ""
+":class:`~transformers.PreTrainedTokenizer` and "
+":class:`~transformers.PreTrainedTokenizerFast` thus implement the main "
+"methods for using all the tokenizers:"
+msgstr ""
+
+#: ../../source/main_classes/tokenizer.rst:36
+msgid ""
+"Tokenizing (splitting strings in sub-word token strings), converting "
+"tokens strings to ids and back, and encoding/decoding (i.e., tokenizing "
+"and converting to integers)."
+msgstr ""
+
+#: ../../source/main_classes/tokenizer.rst:38
+msgid ""
+"Adding new tokens to the vocabulary in a way that is independent of the "
+"underlying structure (BPE, SentencePiece...)."
+msgstr ""
+
+#: ../../source/main_classes/tokenizer.rst:39
+msgid ""
+"Managing special tokens (like mask, beginning-of-sentence, etc.): adding "
+"them, assigning them to attributes in the tokenizer for easy access and "
+"making sure they are not split during tokenization."
+msgstr ""
+
+#: ../../source/main_classes/tokenizer.rst:42
+msgid ""
+":class:`~transformers.BatchEncoding` holds the output of the tokenizer's "
+"encoding methods (``__call__``, ``encode_plus`` and "
+"``batch_encode_plus``) and is derived from a Python dictionary. When the "
+"tokenizer is a pure python tokenizer, this class behaves just like a "
+"standard python dictionary and holds the various model inputs computed by"
+" these methods (``input_ids``, ``attention_mask``...). When the tokenizer"
+" is a \"Fast\" tokenizer (i.e., backed by HuggingFace `tokenizers library"
+" <https://github.com/huggingface/tokenizers>`__), this class provides in "
+"addition several advanced alignment methods which can be used to map "
+"between the original string (character and words) and the token space "
+"(e.g., getting the index of the token comprising a given character or the"
+" span of characters corresponding to a given token)."
+msgstr ""
+
+#: ../../source/main_classes/tokenizer.rst:53
+msgid "PreTrainedTokenizer"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:1
+msgid "Base class for all slow tokenizers."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:3 transformers.PreTrainedTokenizerFast:3
+msgid ""
+"Inherits from "
+":class:`~transformers.tokenization_utils_base.PreTrainedTokenizerBase`."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:5
+msgid ""
+"Handle all the shared methods for tokenization and special tokens as well"
+" as methods downloading/caching/loading pretrained tokenizers as well as "
+"adding tokens to the vocabulary."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:8
+msgid ""
+"This class also contain the added tokens in a unified way on top of all "
+"tokenizers so we don't have to handle the specific vocabulary "
+"augmentation methods of the various underlying dictionary structures "
+"(BPE, sentencepiece...)."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:11
+#: transformers.PreTrainedTokenizerFast:11
+msgid "Class attributes (overridden by derived classes)"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:13
+#: transformers.PreTrainedTokenizerFast:13
+msgid ""
+"**vocab_files_names** (:obj:`Dict[str, str]`) -- A dictionary with, as "
+"keys, the ``__init__`` keyword name of each vocabulary file required by "
+"the model, and as associated values, the filename for saving the "
+"associated file (string)."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:16
+#: transformers.PreTrainedTokenizerFast:16
+msgid ""
+"**pretrained_vocab_files_map** (:obj:`Dict[str, Dict[str, str]]`) -- A "
+"dictionary of dictionaries, with the high-level keys being the "
+"``__init__`` keyword name of each vocabulary file required by the model, "
+"the low-level being the :obj:`short-cut-names` of the pretrained models "
+"with, as associated values, the :obj:`url` to the associated pretrained "
+"vocabulary file."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:20
+#: transformers.PreTrainedTokenizerFast:20
+msgid ""
+"**max_model_input_sizes** (:obj:`Dict[str, Optinal[int]]`) -- A "
+"dictionary with, as keys, the :obj:`short-cut-names` of the pretrained "
+"models, and as associated values, the maximum length of the sequence "
+"inputs of this model, or :obj:`None` if the model has no maximum input "
+"size."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:23
+#: transformers.PreTrainedTokenizerFast:23
+msgid ""
+"**pretrained_init_configuration** (:obj:`Dict[str, Dict[str, Any]]`) -- A"
+" dictionary with, as keys, the :obj:`short-cut-names` of the pretrained "
+"models, and as associated values, a dictionary of specific arguments to "
+"pass to the ``__init__`` method of the tokenizer class for this "
+"pretrained model when loading the tokenizer with the "
+":meth:`~transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained`"
+" method."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:28
+#: transformers.PreTrainedTokenizerFast:28
+msgid ""
+"**model_input_names** (:obj:`List[str]`) -- A list of inputs expected in "
+"the forward pass of the model."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:29
+#: transformers.PreTrainedTokenizerFast:29
+msgid ""
+"**padding_side** (:obj:`str`) -- The default value for the side on which "
+"the model should have padding applied. Should be :obj:`'right'` or "
+":obj:`'left'`."
+msgstr ""
+
+#: of transformers.BatchEncoding transformers.BatchEncoding.char_to_token
+#: transformers.BatchEncoding.char_to_word
+#: transformers.BatchEncoding.convert_to_tensors
+#: transformers.BatchEncoding.sequence_ids transformers.BatchEncoding.to
+#: transformers.BatchEncoding.token_to_chars
+#: transformers.BatchEncoding.token_to_sequence
+#: transformers.BatchEncoding.token_to_word transformers.BatchEncoding.tokens
+#: transformers.BatchEncoding.word_ids transformers.BatchEncoding.word_to_chars
+#: transformers.BatchEncoding.word_to_tokens transformers.BatchEncoding.words
+#: transformers.PreTrainedTokenizer
+#: transformers.PreTrainedTokenizer.convert_ids_to_tokens
+#: transformers.PreTrainedTokenizer.convert_tokens_to_ids
+#: transformers.PreTrainedTokenizer.convert_tokens_to_string
+#: transformers.PreTrainedTokenizer.get_special_tokens_mask
+#: transformers.PreTrainedTokenizer.num_special_tokens_to_add
+#: transformers.PreTrainedTokenizer.prepare_for_tokenization
+#: transformers.PreTrainedTokenizer.tokenize
+#: transformers.PreTrainedTokenizerFast
+#: transformers.PreTrainedTokenizerFast.convert_ids_to_tokens
+#: transformers.PreTrainedTokenizerFast.convert_tokens_to_ids
+#: transformers.PreTrainedTokenizerFast.convert_tokens_to_string
+#: transformers.PreTrainedTokenizerFast.num_special_tokens_to_add
+#: transformers.PreTrainedTokenizerFast.set_truncation_and_padding
+#: transformers.PreTrainedTokenizerFast.tokenize
+#: transformers.PreTrainedTokenizerFast.train_new_from_iterator
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:32
+#: transformers.PreTrainedTokenizerFast:32
+msgid ""
+"The maximum length (in number of tokens) for the inputs to the "
+"transformer model. When the tokenizer is loaded with "
+":meth:`~transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained`,"
+" this will be set to the value stored for the associated model in "
+"``max_model_input_sizes`` (see above). If no value is provided, will "
+"default to VERY_LARGE_INTEGER (:obj:`int(1e30)`)."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:37
+#: transformers.PreTrainedTokenizerFast:37
+msgid ""
+"(:obj:`str`, `optional`): The side on which the model should have padding"
+" applied. Should be selected between ['right', 'left']. Default value is "
+"picked from the class attribute of the same name."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:40
+#: transformers.PreTrainedTokenizerFast:40
+msgid ""
+"The list of inputs accepted by the forward pass of the model (like "
+":obj:`\"token_type_ids\"` or :obj:`\"attention_mask\"`). Default value is"
+" picked from the class attribute of the same name."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:43
+#: transformers.PreTrainedTokenizerFast:43
+msgid ""
+"A special token representing the beginning of a sentence. Will be "
+"associated to ``self.bos_token`` and ``self.bos_token_id``."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:46
+#: transformers.PreTrainedTokenizerFast:46
+msgid ""
+"A special token representing the end of a sentence. Will be associated to"
+" ``self.eos_token`` and ``self.eos_token_id``."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:49
+#: transformers.PreTrainedTokenizerFast:49
+msgid ""
+"A special token representing an out-of-vocabulary token. Will be "
+"associated to ``self.unk_token`` and ``self.unk_token_id``."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:52
+#: transformers.PreTrainedTokenizerFast:52
+msgid ""
+"A special token separating two different sentences in the same input "
+"(used by BERT for instance). Will be associated to ``self.sep_token`` and"
+" ``self.sep_token_id``."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:55
+#: transformers.PreTrainedTokenizerFast:55
+msgid ""
+"A special token used to make arrays of tokens the same size for batching "
+"purpose. Will then be ignored by attention mechanisms or loss "
+"computation. Will be associated to ``self.pad_token`` and "
+"``self.pad_token_id``."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:59
+#: transformers.PreTrainedTokenizerFast:59
+msgid ""
+"A special token representing the class of the input (used by BERT for "
+"instance). Will be associated to ``self.cls_token`` and "
+"``self.cls_token_id``."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:62
+#: transformers.PreTrainedTokenizerFast:62
+msgid ""
+"A special token representing a masked token (used by masked-language "
+"modeling pretraining objectives, like BERT). Will be associated to "
+"``self.mask_token`` and ``self.mask_token_id``."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer:65
+#: transformers.PreTrainedTokenizerFast:65
+msgid ""
+"A tuple or a list of additional special tokens. Add them here to ensure "
+"they won't be split by the tokenization process. Will be associated to "
+"``self.additional_special_tokens`` and "
+"``self.additional_special_tokens_ids``."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.convert_ids_to_tokens:1
+#: transformers.PreTrainedTokenizerFast.convert_ids_to_tokens:1
+msgid ""
+"Converts a single index or a sequence of indices in a token or a sequence"
+" of tokens, using the vocabulary and added tokens."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.convert_ids_to_tokens:4
+#: transformers.PreTrainedTokenizerFast.convert_ids_to_tokens:4
+msgid "The token id (or token ids) to convert to tokens."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.convert_ids_to_tokens:6
+#: transformers.PreTrainedTokenizerFast.convert_ids_to_tokens:6
+msgid "Whether or not to remove special tokens in the decoding."
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_token
+#: transformers.BatchEncoding.char_to_word
+#: transformers.BatchEncoding.sequence_ids transformers.BatchEncoding.to
+#: transformers.BatchEncoding.token_to_chars
+#: transformers.BatchEncoding.token_to_sequence
+#: transformers.BatchEncoding.token_to_word transformers.BatchEncoding.tokens
+#: transformers.BatchEncoding.word_ids transformers.BatchEncoding.word_to_chars
+#: transformers.BatchEncoding.word_to_tokens transformers.BatchEncoding.words
+#: transformers.PreTrainedTokenizer.convert_ids_to_tokens
+#: transformers.PreTrainedTokenizer.convert_tokens_to_ids
+#: transformers.PreTrainedTokenizer.convert_tokens_to_string
+#: transformers.PreTrainedTokenizer.get_added_vocab
+#: transformers.PreTrainedTokenizer.get_special_tokens_mask
+#: transformers.PreTrainedTokenizer.num_special_tokens_to_add
+#: transformers.PreTrainedTokenizer.prepare_for_tokenization
+#: transformers.PreTrainedTokenizer.tokenize
+#: transformers.PreTrainedTokenizerFast.convert_ids_to_tokens
+#: transformers.PreTrainedTokenizerFast.convert_tokens_to_ids
+#: transformers.PreTrainedTokenizerFast.convert_tokens_to_string
+#: transformers.PreTrainedTokenizerFast.get_added_vocab
+#: transformers.PreTrainedTokenizerFast.get_vocab
+#: transformers.PreTrainedTokenizerFast.num_special_tokens_to_add
+#: transformers.PreTrainedTokenizerFast.tokenize
+#: transformers.PreTrainedTokenizerFast.train_new_from_iterator
+msgid "Returns"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.convert_ids_to_tokens:9
+#: transformers.PreTrainedTokenizerFast.convert_ids_to_tokens:9
+msgid "The decoded token(s)."
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_token
+#: transformers.BatchEncoding.char_to_word
+#: transformers.BatchEncoding.sequence_ids transformers.BatchEncoding.to
+#: transformers.BatchEncoding.token_to_chars
+#: transformers.BatchEncoding.token_to_sequence
+#: transformers.BatchEncoding.token_to_word transformers.BatchEncoding.tokens
+#: transformers.BatchEncoding.word_ids transformers.BatchEncoding.word_to_chars
+#: transformers.BatchEncoding.words
+#: transformers.PreTrainedTokenizer.convert_ids_to_tokens
+#: transformers.PreTrainedTokenizer.convert_tokens_to_ids
+#: transformers.PreTrainedTokenizer.convert_tokens_to_string
+#: transformers.PreTrainedTokenizer.get_added_vocab
+#: transformers.PreTrainedTokenizer.get_special_tokens_mask
+#: transformers.PreTrainedTokenizer.num_special_tokens_to_add
+#: transformers.PreTrainedTokenizer.prepare_for_tokenization
+#: transformers.PreTrainedTokenizer.tokenize
+#: transformers.PreTrainedTokenizerFast.convert_ids_to_tokens
+#: transformers.PreTrainedTokenizerFast.convert_tokens_to_ids
+#: transformers.PreTrainedTokenizerFast.convert_tokens_to_string
+#: transformers.PreTrainedTokenizerFast.get_added_vocab
+#: transformers.PreTrainedTokenizerFast.get_vocab
+#: transformers.PreTrainedTokenizerFast.num_special_tokens_to_add
+#: transformers.PreTrainedTokenizerFast.tokenize
+#: transformers.PreTrainedTokenizerFast.train_new_from_iterator
+msgid "Return type"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.convert_ids_to_tokens:10
+#: transformers.PreTrainedTokenizerFast.convert_ids_to_tokens:10
+msgid ":obj:`str` or :obj:`List[str]`"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.convert_tokens_to_ids:1
+#: transformers.PreTrainedTokenizerFast.convert_tokens_to_ids:1
+msgid ""
+"Converts a token string (or a sequence of tokens) in a single integer id "
+"(or a sequence of ids), using the vocabulary."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.convert_tokens_to_ids:4
+#: transformers.PreTrainedTokenizerFast.convert_tokens_to_ids:4
+msgid "One or several token(s) to convert to token id(s)."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.convert_tokens_to_ids:7
+#: transformers.PreTrainedTokenizerFast.convert_tokens_to_ids:7
+msgid "The token id or list of token ids."
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_word:24
+#: transformers.PreTrainedTokenizer.convert_tokens_to_ids:8
+#: transformers.PreTrainedTokenizerFast.convert_tokens_to_ids:8
+msgid ":obj:`int` or :obj:`List[int]`"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.convert_tokens_to_string:1
+#: transformers.PreTrainedTokenizerFast.convert_tokens_to_string:1
+msgid ""
+"Converts a sequence of tokens in a single string. The most simple way to "
+"do it is ``\" \".join(tokens)`` but we often want to remove sub-word "
+"tokenization artifacts at the same time."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.convert_tokens_to_string:4
+#: transformers.PreTrainedTokenizerFast.convert_tokens_to_string:4
+msgid "The token to join in a string."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.convert_tokens_to_string:7
+#: transformers.PreTrainedTokenizerFast.convert_tokens_to_string:7
+msgid "The joined tokens."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.convert_tokens_to_string:8
+#: transformers.PreTrainedTokenizerFast.convert_tokens_to_string:8
+msgid ":obj:`str`"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.get_added_vocab:1
+#: transformers.PreTrainedTokenizerFast.get_added_vocab:1
+msgid ""
+"Returns the added tokens in the vocabulary as a dictionary of token to "
+"index."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.get_added_vocab:3
+#: transformers.PreTrainedTokenizerFast.get_added_vocab:3
+msgid "The added tokens."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.get_added_vocab:4
+#: transformers.PreTrainedTokenizerFast.get_added_vocab:4
+#: transformers.PreTrainedTokenizerFast.get_vocab:7
+msgid ":obj:`Dict[str, int]`"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieves sequence ids from a token list that has no special tokens "
+"added. This method is called when adding special tokens using the "
+"tokenizer ``prepare_for_model`` or ``encode_plus`` methods."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.get_special_tokens_mask:4
+msgid "List of ids of the first sequence."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.get_special_tokens_mask:6
+msgid "List of ids of the second sequence."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.get_special_tokens_mask:11
+msgid "1 for a special token, 0 for a sequence token."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.num_special_tokens_to_add:1
+#: transformers.PreTrainedTokenizerFast.num_special_tokens_to_add:1
+msgid ""
+"Returns the number of added tokens when encoding a sequence with special "
+"tokens."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.num_special_tokens_to_add:4
+#: transformers.PreTrainedTokenizerFast.num_special_tokens_to_add:4
+msgid ""
+"This encodes a dummy input and checks the number of added tokens, and is "
+"therefore not efficient. Do not put this inside your training loop."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.num_special_tokens_to_add:7
+#: transformers.PreTrainedTokenizerFast.num_special_tokens_to_add:7
+msgid ""
+"Whether the number of added tokens should be computed in the case of a "
+"sequence pair or a single sequence."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.num_special_tokens_to_add:11
+#: transformers.PreTrainedTokenizerFast.num_special_tokens_to_add:11
+msgid "Number of special tokens added to sequences."
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_token:24
+#: transformers.BatchEncoding.token_to_sequence:21
+#: transformers.BatchEncoding.token_to_word:20
+#: transformers.PreTrainedTokenizer.num_special_tokens_to_add:12
+#: transformers.PreTrainedTokenizer.vocab_size:3
+#: transformers.PreTrainedTokenizerFast.num_special_tokens_to_add:12
+#: transformers.PreTrainedTokenizerFast.vocab_size:3
+msgid ":obj:`int`"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.prepare_for_tokenization:1
+msgid "Performs any necessary transformations before tokenization."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.prepare_for_tokenization:3
+msgid ""
+"This method should pop the arguments from kwargs and return the remaining"
+" :obj:`kwargs` as well. We test the :obj:`kwargs` at the end of the "
+"encoding process to be sure all the arguments have been used."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.prepare_for_tokenization:6
+msgid "The text to prepare."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.prepare_for_tokenization:8
+msgid ""
+"Whether or not the input is already pre-tokenized (e.g., split into "
+"words). If set to :obj:`True`, the tokenizer assumes the input is already"
+" split into words (for instance, by splitting it on whitespace) which it "
+"will tokenize. This is useful for NER or token classification."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.prepare_for_tokenization:12
+msgid "Keyword arguments to use for the tokenization."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.prepare_for_tokenization:14
+msgid "The prepared text and the unused kwargs."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.prepare_for_tokenization:15
+msgid ":obj:`Tuple[str, Dict[str, Any]]`"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.tokenize:1
+msgid "Converts a string in a sequence of tokens, using the tokenizer."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.tokenize:3
+msgid ""
+"Split in words for word-based vocabulary or sub-words for sub-word-based "
+"vocabularies (BPE/SentencePieces/WordPieces). Takes care of added tokens."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.tokenize:6
+#: transformers.PreTrainedTokenizerFast.tokenize:3
+msgid "The sequence to be encoded."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.tokenize:8
+msgid ""
+"Passed along to the model-specific ``prepare_for_tokenization`` "
+"preprocessing method."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.tokenize:11
+#: transformers.PreTrainedTokenizerFast.tokenize:13
+msgid "The list of tokens."
+msgstr ""
+
+#: of transformers.BatchEncoding.tokens:8
+#: transformers.PreTrainedTokenizer.tokenize:12
+#: transformers.PreTrainedTokenizerFast.tokenize:14
+msgid ":obj:`List[str]`"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizer.vocab_size:1
+#: transformers.PreTrainedTokenizerFast.vocab_size:1
+msgid "Size of the base vocabulary (without the added tokens)."
+msgstr ""
+
+#: of transformers.BatchEncoding.encodings transformers.BatchEncoding.is_fast
+#: transformers.BatchEncoding.n_sequences
+#: transformers.PreTrainedTokenizer.vocab_size
+#: transformers.PreTrainedTokenizerFast.backend_tokenizer
+#: transformers.PreTrainedTokenizerFast.decoder
+#: transformers.PreTrainedTokenizerFast.vocab_size
+msgid "type"
+msgstr ""
+
+#: ../../source/main_classes/tokenizer.rst:61
+msgid "PreTrainedTokenizerFast"
+msgstr ""
+
+#: ../../source/main_classes/tokenizer.rst:63
+msgid ""
+"The :class:`~transformers.PreTrainedTokenizerFast` depend on the "
+"`tokenizers <https://huggingface.co/docs/tokenizers>`__ library. The "
+"tokenizers obtained from the 🤗 tokenizers library can be loaded very "
+"simply into 🤗 transformers. Take a look at the :doc:`Using tokenizers "
+"from 🤗 tokenizers <../fast_tokenizers>` page to understand how this is "
+"done."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast:1
+msgid ""
+"Base class for all fast tokenizers (wrapping HuggingFace tokenizers "
+"library)."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast:5
+msgid ""
+"Handles all the shared methods for tokenization and special tokens, as "
+"well as methods for downloading/caching/loading pretrained tokenizers, as"
+" well as adding tokens to the vocabulary."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast:8
+msgid ""
+"This class also contains the added tokens in a unified way on top of all "
+"tokenizers so we don't have to handle the specific vocabulary "
+"augmentation methods of the various underlying dictionary structures "
+"(BPE, sentencepiece...)."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast:69
+msgid ""
+"A :class:`tokenizers.Tokenizer` object from 🤗 tokenizers to instantiate "
+"from. See :doc:`Using tokenizers from 🤗 tokenizers <../fast_tokenizers>` "
+"for more information."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast:72
+msgid ""
+"A path to a local JSON file representing a previously serialized "
+":class:`tokenizers.Tokenizer` object from 🤗 tokenizers."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.backend_tokenizer:1
+msgid "The Rust tokenizer used as a backend."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.backend_tokenizer:3
+msgid ":obj:`tokenizers.implementations.BaseTokenizer`"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.decoder:1
+msgid "The Rust decoder for this tokenizer."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.decoder:3
+msgid ":obj:`tokenizers.decoders.Decoder`"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.get_vocab:1
+msgid "Returns the vocabulary as a dictionary of token to index."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.get_vocab:3
+msgid ""
+":obj:`tokenizer.get_vocab()[token]` is equivalent to "
+":obj:`tokenizer.convert_tokens_to_ids(token)` when :obj:`token` is in the"
+" vocab."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.get_vocab:6
+msgid "The vocabulary."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.set_truncation_and_padding:1
+msgid ""
+"Define the truncation and the padding strategies for fast tokenizers "
+"(provided by HuggingFace tokenizers library) and restore the tokenizer "
+"settings afterwards."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.set_truncation_and_padding:4
+msgid ""
+"The provided tokenizer has no padding / truncation strategy before the "
+"managed section. If your tokenizer set a padding / truncation strategy "
+"before, then it will be reset to no padding / truncation when exiting the"
+" managed section."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.set_truncation_and_padding:8
+msgid "The kind of padding that will be applied to the input"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.set_truncation_and_padding:10
+msgid "The kind of truncation that will be applied to the input"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.set_truncation_and_padding:12
+msgid "The maximum size of a sequence."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.set_truncation_and_padding:14
+msgid "The stride to use when handling overflow."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.set_truncation_and_padding:16
+msgid ""
+"If set will pad the sequence to a multiple of the provided value. This is"
+" especially useful to enable the use of Tensor Cores on NVIDIA hardware "
+"with compute capability >= 7.5 (Volta)."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.tokenize:1
+msgid ""
+"Converts a string in a sequence of tokens, replacing unknown tokens with "
+"the :obj:`unk_token`."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.tokenize:5
+msgid "A second sequence to be encoded with the first."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.tokenize:7
+msgid ""
+"Whether or not to add the special tokens associated with the "
+"corresponding model."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.tokenize:9
+msgid ""
+"Will be passed to the underlying model specific encode method. See "
+"details in :meth:`~transformers.PreTrainedTokenizerBase.__call__`"
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.train_new_from_iterator:1
+msgid ""
+"Trains a tokenizer on a new corpus with the same defaults (in terms of "
+"special tokens or tokenization pipeline) as the current one."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.train_new_from_iterator:4
+msgid ""
+"The training corpus. Should be a generator of batches of texts, for "
+"instance a list of lists of texts if you have everything in memory."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.train_new_from_iterator:7
+msgid "`int`): The size of the vocabulary you want for your tokenizer."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.train_new_from_iterator:9
+msgid "A list of new special tokens to add to the tokenizer you are training."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.train_new_from_iterator:11
+msgid ""
+"If you want to rename some of the special tokens this tokenizer uses, "
+"pass along a mapping old special token name to new special token name in "
+"this argument."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.train_new_from_iterator:14
+msgid ""
+"Additional keyword arguments passed along to the trainer from the 🤗 "
+"Tokenizers library."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.train_new_from_iterator:16
+msgid ""
+"A new tokenizer of the same type as the original one, trained on "
+":obj:`text_iterator`."
+msgstr ""
+
+#: of transformers.PreTrainedTokenizerFast.train_new_from_iterator:18
+msgid ":class:`~transformers.PreTrainedTokenizerFast`"
+msgstr ""
+
+#: ../../source/main_classes/tokenizer.rst:74
+msgid "BatchEncoding"
+msgstr ""
+
+#: of transformers.BatchEncoding:1
+msgid ""
+"Holds the output of the "
+":meth:`~transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus`"
+" and "
+":meth:`~transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode`"
+" methods (tokens, attention_masks, etc)."
+msgstr ""
+
+#: of transformers.BatchEncoding:5
+msgid ""
+"This class is derived from a python dictionary and can be used as a "
+"dictionary. In addition, this class exposes utility methods to map from "
+"word/character space to token space."
+msgstr ""
+
+#: of transformers.BatchEncoding:8
+msgid ""
+"Dictionary of lists/arrays/tensors returned by the encode/batch_encode "
+"methods ('input_ids', 'attention_mask', etc.)."
+msgstr ""
+
+#: of transformers.BatchEncoding:11
+msgid ""
+"If the tokenizer is a fast tokenizer which outputs additional information"
+" like mapping from word/character space to token space the "
+":obj:`tokenizers.Encoding` instance or list of instance (for batches) "
+"hold this information."
+msgstr ""
+
+#: of transformers.BatchEncoding:15 transformers.BatchEncoding:20
+msgid ""
+"You can give a tensor_type here to convert the lists of integers in "
+"PyTorch/TensorFlow/Numpy Tensors at initialization."
+msgstr ""
+
+#: of transformers.BatchEncoding:18
+msgid ""
+"Whether or not to add a batch axis when converting to tensors (see "
+":obj:`tensor_type` above)."
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_token:1
+msgid ""
+"Get the index of the token in the encoded output comprising a character "
+"in the original string for a sequence of the batch."
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_token:4
+#: transformers.BatchEncoding.char_to_word:4
+#: transformers.BatchEncoding.token_to_chars:9
+#: transformers.BatchEncoding.token_to_sequence:4
+#: transformers.BatchEncoding.token_to_word:3
+#: transformers.BatchEncoding.word_to_chars:8
+#: transformers.BatchEncoding.word_to_tokens:8
+msgid "Can be called as:"
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_token:6
+msgid "``self.char_to_token(char_index)`` if batch size is 1"
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_token:7
+msgid ""
+"``self.char_to_token(batch_index, char_index)`` if batch size is greater "
+"or equal to 1"
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_token:9
+#: transformers.BatchEncoding.char_to_word:9
+#: transformers.BatchEncoding.word_to_tokens:14
+msgid ""
+"This method is particularly suited when the input sequences are provided "
+"as pre-tokenized sequences (i.e. words are defined by the user). In this "
+"case it allows to easily associate encoded tokens with provided tokenized"
+" words."
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_token:13
+#: transformers.BatchEncoding.word_to_chars:13
+msgid ""
+"Index of the sequence in the batch. If the batch only comprise one "
+"sequence, this can be the index of the word in the sequence"
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_token:16
+#: transformers.BatchEncoding.word_to_chars:16
+#: transformers.BatchEncoding.word_to_tokens:21
+msgid ""
+"If a batch index is provided in `batch_or_token_index`, this can be the "
+"index of the word in the sequence."
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_token:19
+#: transformers.BatchEncoding.char_to_word:19
+msgid ""
+"If pair of sequences are encoded in the batch this can be used to specify"
+" which sequence in the pair (0 or 1) the provided character index belongs"
+" to."
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_token:23
+msgid "Index of the token."
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_word:1
+msgid ""
+"Get the word in the original string corresponding to a character in the "
+"original string of a sequence of the batch."
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_word:6
+msgid "``self.char_to_word(char_index)`` if batch size is 1"
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_word:7
+msgid ""
+"``self.char_to_word(batch_index, char_index)`` if batch size is greater "
+"than 1"
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_word:13
+msgid ""
+"Index of the sequence in the batch. If the batch only comprise one "
+"sequence, this can be the index of the character in the original string."
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_word:16
+msgid ""
+"If a batch index is provided in `batch_or_token_index`, this can be the "
+"index of the character in the original string."
+msgstr ""
+
+#: of transformers.BatchEncoding.char_to_word:23
+msgid "Index or indices of the associated encoded token(s)."
+msgstr ""
+
+#: of transformers.BatchEncoding.convert_to_tensors:1
+msgid "Convert the inner content to tensors."
+msgstr ""
+
+#: of transformers.BatchEncoding.convert_to_tensors:3
+msgid ""
+"The type of tensors to use. If :obj:`str`, should be one of the values of"
+" the enum :class:`~transformers.file_utils.TensorType`. If :obj:`None`, "
+"no modification is done."
+msgstr ""
+
+#: of transformers.BatchEncoding.convert_to_tensors:6
+msgid "Whether or not to add the batch dimension during the conversion."
+msgstr ""
+
+#: of transformers.BatchEncoding.encodings:1
+msgid ""
+"The list all encodings from the tokenization process. Returns :obj:`None`"
+" if the input was tokenized through Python (i.e., not a fast) tokenizer."
+msgstr ""
+
+#: of transformers.BatchEncoding.encodings:4
+msgid ":obj:`Optional[List[tokenizers.Encoding]]`"
+msgstr ""
+
+#: of transformers.BatchEncoding.is_fast:1
+msgid ""
+"Indicate whether this :class:`~transformers.BatchEncoding` was generated "
+"from the result of a :class:`~transformers.PreTrainedTokenizerFast` or "
+"not."
+msgstr ""
+
+#: of transformers.BatchEncoding.is_fast:4
+msgid ":obj:`bool`"
+msgstr ""
+
+#: of transformers.BatchEncoding.n_sequences:1
+msgid ""
+"The number of sequences used to generate each sample from the batch "
+"encoded in this :class:`~transformers.BatchEncoding`. Currently can be "
+"one of :obj:`None` (unknown), :obj:`1` (a single sentence) or :obj:`2` (a"
+" pair of sentences)"
+msgstr ""
+
+#: of transformers.BatchEncoding.n_sequences:5
+msgid ":obj:`Optional[int]`"
+msgstr ""
+
+#: of transformers.BatchEncoding.sequence_ids:1
+msgid "Return a list mapping the tokens to the id of their original sentences:"
+msgstr ""
+
+#: of transformers.BatchEncoding.sequence_ids:3
+msgid ":obj:`None` for special tokens added around or between sequences,"
+msgstr ""
+
+#: of transformers.BatchEncoding.sequence_ids:4
+msgid ":obj:`0` for tokens corresponding to words in the first sequence,"
+msgstr ""
+
+#: of transformers.BatchEncoding.sequence_ids:5
+msgid ""
+":obj:`1` for tokens corresponding to words in the second sequence when a "
+"pair of sequences was jointly encoded."
+msgstr ""
+
+#: of transformers.BatchEncoding.sequence_ids:8
+#: transformers.BatchEncoding.tokens:4 transformers.BatchEncoding.word_ids:3
+#: transformers.BatchEncoding.words:3
+msgid "The index to access in the batch."
+msgstr ""
+
+#: of transformers.BatchEncoding.sequence_ids:11
+msgid ""
+"A list indicating the sequence id corresponding to each token. Special "
+"tokens added by the tokenizer are mapped to :obj:`None` and other tokens "
+"are mapped to the index of their corresponding sequence."
+msgstr ""
+
+#: of transformers.BatchEncoding.sequence_ids:14
+#: transformers.BatchEncoding.word_ids:9 transformers.BatchEncoding.words:9
+msgid ":obj:`List[Optional[int]]`"
+msgstr ""
+
+#: of transformers.BatchEncoding.to:1
+msgid "Send all values to device by calling :obj:`v.to(device)` (PyTorch only)."
+msgstr ""
+
+#: of transformers.BatchEncoding.to:3
+msgid "The device to put the tensors on."
+msgstr ""
+
+#: of transformers.BatchEncoding.to:6
+msgid "The same instance after modification."
+msgstr ""
+
+#: of transformers.BatchEncoding.to:7
+msgid ":class:`~transformers.BatchEncoding`"
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_chars:1
+msgid ""
+"Get the character span corresponding to an encoded token in a sequence of"
+" the batch."
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_chars:3
+msgid ""
+"Character spans are returned as a "
+":class:`~transformers.tokenization_utils_base.CharSpan` with:"
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_chars:5
+msgid ""
+"**start** -- Index of the first character in the original string "
+"associated to the token."
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_chars:6
+msgid ""
+"**end** -- Index of the character following the last character in the "
+"original string associated to the token."
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_chars:11
+msgid "``self.token_to_chars(token_index)`` if batch size is 1"
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_chars:12
+msgid ""
+"``self.token_to_chars(batch_index, token_index)`` if batch size is "
+"greater or equal to 1"
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_chars:14
+#: transformers.BatchEncoding.token_to_word:12
+msgid ""
+"Index of the sequence in the batch. If the batch only comprise one "
+"sequence, this can be the index of the token in the sequence."
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_chars:17
+msgid ""
+"If a batch index is provided in `batch_or_token_index`, this can be the "
+"index of the token or tokens in the sequence."
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_chars:21
+msgid "Span of characters in the original string."
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_chars:22
+msgid ":class:`~transformers.tokenization_utils_base.CharSpan`"
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_sequence:1
+msgid ""
+"Get the index of the sequence represented by the given token. In the "
+"general use case, this method returns :obj:`0` for a single sequence or "
+"the first sequence of a pair, and :obj:`1` for the second sequence of a "
+"pair"
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_sequence:6
+msgid "``self.token_to_sequence(token_index)`` if batch size is 1"
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_sequence:7
+msgid ""
+"``self.token_to_sequence(batch_index, token_index)`` if batch size is "
+"greater than 1"
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_sequence:9
+#: transformers.BatchEncoding.token_to_word:8
+msgid ""
+"This method is particularly suited when the input sequences are provided "
+"as pre-tokenized sequences (i.e., words are defined by the user). In this"
+" case it allows to easily associate encoded tokens with provided "
+"tokenized words."
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_sequence:13
+msgid ""
+"Index of the sequence in the batch. If the batch only comprises one "
+"sequence, this can be the index of the token in the sequence."
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_sequence:16
+#: transformers.BatchEncoding.token_to_word:15
+msgid ""
+"If a batch index is provided in `batch_or_token_index`, this can be the "
+"index of the token in the sequence."
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_sequence:20
+#: transformers.BatchEncoding.token_to_word:19
+msgid "Index of the word in the input sequence."
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_word:1
+msgid ""
+"Get the index of the word corresponding (i.e. comprising) to an encoded "
+"token in a sequence of the batch."
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_word:5
+msgid "``self.token_to_word(token_index)`` if batch size is 1"
+msgstr ""
+
+#: of transformers.BatchEncoding.token_to_word:6
+msgid ""
+"``self.token_to_word(batch_index, token_index)`` if batch size is greater"
+" than 1"
+msgstr ""
+
+#: of transformers.BatchEncoding.tokens:1
+msgid ""
+"Return the list of tokens (sub-parts of the input strings after "
+"word/subword splitting and before conversion to integer indices) at a "
+"given batch index (only works for the output of a fast tokenizer)."
+msgstr ""
+
+#: of transformers.BatchEncoding.tokens:7
+msgid "The list of tokens at that index."
+msgstr ""
+
+#: of transformers.BatchEncoding.word_ids:1 transformers.BatchEncoding.words:1
+msgid ""
+"Return a list mapping the tokens to their actual word in the initial "
+"sentence for a fast tokenizer."
+msgstr ""
+
+#: of transformers.BatchEncoding.word_ids:6 transformers.BatchEncoding.words:6
+msgid ""
+"A list indicating the word corresponding to each token. Special tokens "
+"added by the tokenizer are mapped to :obj:`None` and other tokens are "
+"mapped to the index of their corresponding word (several tokens will be "
+"mapped to the same word index if they are parts of that word)."
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_chars:1
+msgid ""
+"Get the character span in the original string corresponding to given word"
+" in a sequence of the batch."
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_chars:3
+msgid "Character spans are returned as a CharSpan NamedTuple with:"
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_chars:5
+msgid "start: index of the first character in the original string"
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_chars:6
+msgid ""
+"end: index of the character following the last character in the original "
+"string"
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_chars:10
+msgid "``self.word_to_chars(word_index)`` if batch size is 1"
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_chars:11
+msgid ""
+"``self.word_to_chars(batch_index, word_index)`` if batch size is greater "
+"or equal to 1"
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_chars:19
+#: transformers.BatchEncoding.word_to_tokens:24
+msgid ""
+"If pair of sequences are encoded in the batch this can be used to specify"
+" which sequence in the pair (0 or 1) the provided word index belongs to."
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_chars:23
+msgid ""
+"Span(s) of the associated character or characters in the string. CharSpan"
+" are NamedTuple with:      - start: index of the first character "
+"associated to the token in the original string     - end: index of the "
+"character following the last character associated to the token in the "
+"original       string"
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_chars:23
+msgid ""
+"Span(s) of the associated character or characters in the string. CharSpan"
+" are NamedTuple with:"
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_chars:26
+msgid ""
+"start: index of the first character associated to the token in the "
+"original string"
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_chars:27
+msgid ""
+"end: index of the character following the last character associated to "
+"the token in the original string"
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_chars:29
+msgid ":obj:`CharSpan` or :obj:`List[CharSpan]`"
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_tokens:1
+msgid ""
+"Get the encoded token span corresponding to a word in a sequence of the "
+"batch."
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_tokens:3
+msgid ""
+"Token spans are returned as a "
+":class:`~transformers.tokenization_utils_base.TokenSpan` with:"
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_tokens:5
+msgid "**start** -- Index of the first token."
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_tokens:6
+msgid "**end** -- Index of the token following the last token."
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_tokens:10
+msgid ""
+"``self.word_to_tokens(word_index, sequence_index: int = 0)`` if batch "
+"size is 1"
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_tokens:11
+msgid ""
+"``self.word_to_tokens(batch_index, word_index, sequence_index: int = 0)``"
+" if batch size is greater or equal to 1"
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_tokens:18
+msgid ""
+"Index of the sequence in the batch. If the batch only comprises one "
+"sequence, this can be the index of the word in the sequence."
+msgstr ""
+
+#: of transformers.BatchEncoding.word_to_tokens:28
+msgid ""
+"Optional :class:`~transformers.tokenization_utils_base.TokenSpan` Span of"
+" tokens in the encoded sequence. Returns :obj:`None` if no tokens "
+"correspond to the word."
+msgstr ""
+

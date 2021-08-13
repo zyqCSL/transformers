@@ -1,0 +1,2109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/prophetnet.rst:14
+msgid "ProphetNet"
+msgstr ""
+
+#: ../../source/model_doc/prophetnet.rst:16
+msgid ""
+"**DISCLAIMER:** If you see something strange, file a `Github Issue "
+"<https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template"
+"=bug-report.md&title>`__ and assign @patrickvonplaten"
+msgstr ""
+
+#: ../../source/model_doc/prophetnet.rst:21
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/prophetnet.rst:23
+msgid ""
+"The ProphetNet model was proposed in `ProphetNet: Predicting Future "
+"N-gram for Sequence-to-Sequence Pre-training, "
+"<https://arxiv.org/abs/2001.04063>`__ by Yu Yan, Weizhen Qi, Yeyun Gong, "
+"Dayiheng Liu, Nan Duan, Jiusheng Chen, Ruofei Zhang, Ming Zhou on 13 Jan,"
+" 2020."
+msgstr ""
+
+#: ../../source/model_doc/prophetnet.rst:27
+msgid ""
+"ProphetNet is an encoder-decoder model and can predict n-future tokens "
+"for \"ngram\" language modeling instead of just the next token."
+msgstr ""
+
+#: ../../source/model_doc/prophetnet.rst:30
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/prophetnet.rst:32
+msgid ""
+"*In this paper, we present a new sequence-to-sequence pretraining model "
+"called ProphetNet, which introduces a novel self-supervised objective "
+"named future n-gram prediction and the proposed n-stream self-attention "
+"mechanism. Instead of the optimization of one-step ahead prediction in "
+"traditional sequence-to-sequence model, the ProphetNet is optimized by "
+"n-step ahead prediction which predicts the next n tokens simultaneously "
+"based on previous context tokens at each time step. The future n-gram "
+"prediction explicitly encourages the model to plan for the future tokens "
+"and prevent overfitting on strong local correlations. We pre-train "
+"ProphetNet using a base scale dataset (16GB) and a large scale dataset "
+"(160GB) respectively. Then we conduct experiments on CNN/DailyMail, "
+"Gigaword, and SQuAD 1.1 benchmarks for abstractive summarization and "
+"question generation tasks. Experimental results show that ProphetNet "
+"achieves new state-of-the-art results on all these datasets compared to "
+"the models using the same scale pretraining corpus.*"
+msgstr ""
+
+#: ../../source/model_doc/prophetnet.rst:42
+msgid ""
+"The Authors' code can be found `here "
+"<https://github.com/microsoft/ProphetNet>`__."
+msgstr ""
+
+#: ../../source/model_doc/prophetnet.rst:46
+msgid "ProphetNetConfig"
+msgstr ""
+
+#: of transformers.ProphetNetConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.ProphetNetModel`. It is used to instantiate a "
+"ProphetNet model according to the specified arguments, defining the model"
+" architecture."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:4
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.ProphetNetConfig transformers.ProphetNetDecoder
+#: transformers.ProphetNetDecoder.forward transformers.ProphetNetEncoder
+#: transformers.ProphetNetEncoder.forward transformers.ProphetNetForCausalLM
+#: transformers.ProphetNetForCausalLM.forward
+#: transformers.ProphetNetForConditionalGeneration
+#: transformers.ProphetNetForConditionalGeneration.forward
+#: transformers.ProphetNetModel transformers.ProphetNetModel.forward
+#: transformers.ProphetNetTokenizer
+#: transformers.ProphetNetTokenizer.build_inputs_with_special_tokens
+#: transformers.ProphetNetTokenizer.create_token_type_ids_from_sequences
+#: transformers.ProphetNetTokenizer.get_special_tokens_mask
+#: transformers.ProphetNetTokenizer.save_vocabulary
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.ProphetNetConfig:7
+msgid "The dropout ratio for activations inside the fully connected layer."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:9
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:12
+msgid ""
+"Vocabulary size of the ProphetNET model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.ProphetNetModel`."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:15
+msgid "Dimensionality of the layers and the pooler layer."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:17
+msgid ""
+"Dimensionality of the \"intermediate\" (often named feed-forward) layer "
+"in decoder."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:19
+msgid "Number of encoder layers."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:21
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:23
+msgid ""
+"Dimensionality of the ``intermediate`` (often named feed-forward) layer "
+"in decoder."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:25
+msgid "Number of decoder layers."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:27
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"decoder."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:29
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:31
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:33
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:36
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:38
+msgid "Whether cross-attention layers should be added to the model."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:40
+msgid "Whether this is an encoder/decoder model."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:42
+msgid "Padding token id."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:44
+msgid "Beginning of stream token id."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:46
+msgid "End of stream token id."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:48
+msgid ""
+"Number of future tokens to predict. Set to 1 to be same as traditional "
+"Language model to predict next first token."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:51
+msgid ""
+"The number of buckets to use for each attention layer. This is for "
+"relative position calculation. See the `T5 paper <see "
+"https://arxiv.org/abs/1910.10683>`__ for more details."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:54
+msgid ""
+"Relative distances greater than this number will be put into the last "
+"same bucket. This is for relative position calculation. See the `T5 paper"
+" <see https://arxiv.org/abs/1910.10683>`__ for more details."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:57
+msgid "Whether be trained predicting only the next first token."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:59
+msgid ""
+"Controls the ``epsilon`` parameter value for label smoothing in the loss "
+"calculation. If set to 0, no label smoothing is performed."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:62
+msgid ""
+"Whether or not the model should return the last key/values attentions "
+"(not used by all models)."
+msgstr ""
+
+#: of transformers.ProphetNetConfig:64
+msgid ""
+"If True, use gradient checkpointing to save memory at the expense of "
+"slower backward pass."
+msgstr ""
+
+#: ../../source/model_doc/prophetnet.rst:53
+msgid "ProphetNetTokenizer"
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:1
+msgid "Construct a ProphetNetTokenizer. Based on WordPiece."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:3
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:6
+msgid "File containing the vocabulary."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:8
+msgid "Whether or not to lowercase the input when tokenizing."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:10
+msgid "Whether or not to do basic tokenization before WordPiece."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:12
+msgid ""
+"Collection of tokens which will never be split during tokenization. Only "
+"has an effect when :obj:`do_basic_tokenize=True`"
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:15
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:18
+msgid ""
+"The separator token, which is used when building a sequence from multiple"
+" sequences, e.g. two sequences for sequence classification or for a text "
+"and a question for question answering. It is also used as the last token "
+"of a sequence built with special tokens."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:22
+msgid ""
+"Special second separator token, which can be generated by "
+":class:`~transformers.ProphetNetForConditionalGeneration`. It is used to "
+"separate bullet-point like sentences in summarization, *e.g.*."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:26
+msgid ""
+"The token used for padding, for example when batching sequences of "
+"different lengths."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:28
+msgid ""
+"The classifier token which is used when doing sequence classification "
+"(classification of the whole sequence instead of per-token "
+"classification). It is the first token of the sequence when built with "
+"special tokens."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:31
+msgid ""
+"The token used for masking values. This is the token used when training "
+"this model with masked language modeling. This is the token which the "
+"model will try to predict."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:34
+msgid ""
+"Whether or not to tokenize Chinese characters.  This should likely be "
+"deactivated for Japanese (see this `issue "
+"<https://github.com/huggingface/transformers/issues/328>`__)."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:34
+msgid "Whether or not to tokenize Chinese characters."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:36
+msgid ""
+"This should likely be deactivated for Japanese (see this `issue "
+"<https://github.com/huggingface/transformers/issues/328>`__)."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer:39
+msgid ""
+"(:obj:`bool`, `optional`): Whether or not to strip all accents. If this "
+"option is not specified, then it will be determined by the value for "
+":obj:`lowercase` (as in the original BERT)."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. A BERT "
+"sequence has the following format:"
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.build_inputs_with_special_tokens:4
+msgid "single sequence: ``[CLS] X [SEP]``"
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.build_inputs_with_special_tokens:5
+msgid "pair of sequences: ``[CLS] A [SEP] B [SEP]``"
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.build_inputs_with_special_tokens:9
+#: transformers.ProphetNetTokenizer.create_token_type_ids_from_sequences:13
+#: transformers.ProphetNetTokenizer.get_special_tokens_mask:6
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward
+#: transformers.ProphetNetEncoder.forward
+#: transformers.ProphetNetForCausalLM.forward
+#: transformers.ProphetNetForConditionalGeneration.forward
+#: transformers.ProphetNetModel.forward
+#: transformers.ProphetNetTokenizer.build_inputs_with_special_tokens
+#: transformers.ProphetNetTokenizer.create_token_type_ids_from_sequences
+#: transformers.ProphetNetTokenizer.get_special_tokens_mask
+#: transformers.ProphetNetTokenizer.get_vocab
+#: transformers.ProphetNetTokenizer.save_vocabulary
+msgid "Returns"
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward
+#: transformers.ProphetNetEncoder.forward
+#: transformers.ProphetNetForCausalLM.forward
+#: transformers.ProphetNetForConditionalGeneration.forward
+#: transformers.ProphetNetModel.forward
+#: transformers.ProphetNetTokenizer.build_inputs_with_special_tokens
+#: transformers.ProphetNetTokenizer.create_token_type_ids_from_sequences
+#: transformers.ProphetNetTokenizer.get_special_tokens_mask
+#: transformers.ProphetNetTokenizer.get_vocab
+#: transformers.ProphetNetTokenizer.save_vocabulary
+msgid "Return type"
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.build_inputs_with_special_tokens:13
+#: transformers.ProphetNetTokenizer.create_token_type_ids_from_sequences:18
+#: transformers.ProphetNetTokenizer.get_special_tokens_mask:12
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.convert_tokens_to_string:1
+msgid "Converts a sequence of tokens (string) in a single string."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. A ProphetNet sequence pair mask has the following "
+"format:"
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.create_token_type_ids_from_sequences:9
+msgid ""
+"If :obj:`token_ids_1` is :obj:`None`, this method only returns the first "
+"portion of the mask (0s)."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.create_token_type_ids_from_sequences:11
+#: transformers.ProphetNetTokenizer.get_special_tokens_mask:4
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.create_token_type_ids_from_sequences:16
+msgid ""
+"List of `token type IDs <../glossary.html#token-type-ids>`_ according to "
+"the given sequence(s)."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.get_vocab:1
+msgid "Returns the vocabulary as a dictionary of token to index."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.get_vocab:3
+msgid ""
+":obj:`tokenizer.get_vocab()[token]` is equivalent to "
+":obj:`tokenizer.convert_tokens_to_ids(token)` when :obj:`token` is in the"
+" vocab."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.get_vocab:6
+msgid "The vocabulary."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.get_vocab:7
+msgid ":obj:`Dict[str, int]`"
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.vocab_size:1
+msgid "Size of the base vocabulary (without the added tokens)."
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.vocab_size
+msgid "type"
+msgstr ""
+
+#: of transformers.ProphetNetTokenizer.vocab_size:3
+msgid ":obj:`int`"
+msgstr ""
+
+#: ../../source/model_doc/prophetnet.rst:60
+msgid "ProphetNet specific outputs"
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:1
+msgid "Base class for sequence-to-sequence language models outputs."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:3
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:3
+msgid "Language modeling loss."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:5
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:5
+msgid ""
+"Prediction scores of the main stream language modeling head (scores for "
+"each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:8
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:8
+msgid ""
+"Prediction scores of the predict stream language modeling head (scores "
+"for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:11
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:10
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:11
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:11
+msgid ""
+"List of :obj:`torch.FloatTensor` of length :obj:`config.n_layers`, with "
+"each tensor of shape :obj:`(2, batch_size, num_attn_heads, "
+"decoder_sequence_length, embed_size_per_head)`).  Contains pre-computed "
+"hidden-states (key and values in the attention blocks) of the decoder "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:11
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:10
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:11
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:11
+msgid ""
+"List of :obj:`torch.FloatTensor` of length :obj:`config.n_layers`, with "
+"each tensor of shape :obj:`(2, batch_size, num_attn_heads, "
+"decoder_sequence_length, embed_size_per_head)`)."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:73
+#: transformers.ProphetNetForCausalLM.forward:77
+#: transformers.ProphetNetForConditionalGeneration.forward:93
+#: transformers.ProphetNetModel.forward:89
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:14
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:13
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:14
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:14
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) of the decoder that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:17
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:16
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:17
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:17
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"decoder_sequence_length, hidden_size)`.  Hidden-states of main stream of "
+"the decoder at the output of each layer plus the initial embedding "
+"outputs."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:17
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:16
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:17
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:17
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"decoder_sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:78
+#: transformers.ProphetNetForCausalLM.forward:82
+#: transformers.ProphetNetForConditionalGeneration.forward:98
+#: transformers.ProphetNetModel.forward:94
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:20
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:19
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:20
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:20
+msgid ""
+"Hidden-states of main stream of the decoder at the output of each layer "
+"plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:22
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:21
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:22
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:22
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, ngram * "
+"decoder_sequence_length, hidden_size)`.  Hidden-states of the predict "
+"stream of the decoder at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:22
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:21
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:22
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:22
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, ngram * "
+"decoder_sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:82
+#: transformers.ProphetNetForCausalLM.forward:86
+#: transformers.ProphetNetForConditionalGeneration.forward:102
+#: transformers.ProphetNetModel.forward:98
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:25
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:24
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:25
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:25
+msgid ""
+"Hidden-states of the predict stream of the decoder at the output of each "
+"layer plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:28
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:27
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:28
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:28
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_attn_heads, decoder_sequence_length, "
+"decoder_sequence_length)`.  Attentions weights of the decoder, after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:28
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:34
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:27
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:33
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:28
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:34
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:28
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:34
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_attn_heads, decoder_sequence_length, "
+"decoder_sequence_length)`."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:87
+#: transformers.ProphetNetForCausalLM.forward:91
+#: transformers.ProphetNetForConditionalGeneration.forward:107
+#: transformers.ProphetNetModel.forward:103
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:31
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:30
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:31
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:31
+msgid ""
+"Attentions weights of the decoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:34
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_attn_heads, decoder_sequence_length, "
+"decoder_sequence_length)`.  Attentions weights of the predict stream of "
+"the decoder, after the attention softmax, used to compute the weighted "
+"average in the self-attention heads."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:112
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:37
+msgid ""
+"Attentions weights of the predict stream of the decoder, after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:40
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:39
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:40
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:40
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_attn_heads, encoder_sequence_length, "
+"decoder_sequence_length)`.  Attentions weights of the cross-attention "
+"layer of the decoder, after the attention softmax, used to compute the "
+"weighted average in the"
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:40
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:39
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:40
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:40
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_attn_heads, encoder_sequence_length, "
+"decoder_sequence_length)`."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:97
+#: transformers.ProphetNetForCausalLM.forward:101
+#: transformers.ProphetNetForConditionalGeneration.forward:117
+#: transformers.ProphetNetModel.forward:113
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:43
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:42
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:43
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:43
+msgid ""
+"Attentions weights of the cross-attention layer of the decoder, after the"
+" attention softmax, used to compute the weighted average in the"
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:46
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:46
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:48
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:48
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"encoder_sequence_length, hidden_size)`.  Hidden-states of the encoder at "
+"the output of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:48
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:48
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"encoder_sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:123
+#: transformers.ProphetNetModel.forward:119
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:51
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:51
+msgid ""
+"Hidden-states of the encoder at the output of each layer plus the initial"
+" embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput:53
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_attn_heads, encoder_sequence_length, "
+"encoder_sequence_length)`. Attentions weights of the encoder, after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:1
+msgid ""
+"Base class for model encoder's outputs that also contains : pre-computed "
+"hidden states that can speed up sequential decoding."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:3
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:4
+msgid ""
+"Sequence of main stream hidden-states at the output of the last layer of "
+"the decoder of the model.  If :obj:`past_key_values` is used only the "
+"last hidden-state of the sequences of shape :obj:`(batch_size, 1, "
+"hidden_size)` is output."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:3
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:4
+msgid ""
+"Sequence of main stream hidden-states at the output of the last layer of "
+"the decoder of the model."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:67
+#: transformers.ProphetNetModel.forward:83
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:5
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:6
+msgid ""
+"If :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size, 1, hidden_size)` is output."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:8
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:9
+msgid ""
+"Sequence of predict stream hidden-states at the output of the last layer "
+"of the decoder of the model."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:34
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:33
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:34
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_attn_heads, decoder_sequence_length, "
+"decoder_sequence_length)`.  Attentions weights of the predict stream of "
+"the decoder, after the attention softmax, used to compute the weighted "
+"average in the"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:92
+#: transformers.ProphetNetForCausalLM.forward:96
+#: transformers.ProphetNetModel.forward:108
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:37
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:36
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:37
+msgid ""
+"Attentions weights of the predict stream of the decoder, after the "
+"attention softmax, used to compute the weighted average in the"
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:53
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_attn_heads, encoder_sequence_length, "
+"encoder_sequence_length)`.  Attentions weights of the encoder, after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:53
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_attn_heads, encoder_sequence_length, "
+"encoder_sequence_length)`."
+msgstr ""
+
+#: of transformers.ProphetNetModel.forward:123
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput:56
+msgid ""
+"Attentions weights of the encoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput:1
+#: transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput:1
+msgid ""
+"Base class for model's outputs that may also contain a past key/values "
+"(to speed up sequential decoding)."
+msgstr ""
+
+#: ../../source/model_doc/prophetnet.rst:75
+msgid "ProphetNetModel"
+msgstr ""
+
+#: of transformers.ProphetNetModel:1
+msgid ""
+"The bare ProphetNet Model outputting raw hidden-states without any "
+"specific head on top. This model inherits from "
+":class:`~transformers.PreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings, "
+"pruning heads etc.)"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder:6 transformers.ProphetNetEncoder:6
+#: transformers.ProphetNetForCausalLM:6
+#: transformers.ProphetNetForConditionalGeneration:6
+#: transformers.ProphetNetModel:6
+msgid ""
+"Original ProphetNet code can be found at "
+"<https://github.com/microsoft/ProphetNet> . Checkpoints were converted "
+"from original Fairseq checkpoints. For more information on the checkpoint"
+" conversion, please take a look at the file "
+"``convert_prophetnet_original_pytorch_checkpoint_to_pytorch.py``."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder:10 transformers.ProphetNetEncoder:10
+#: transformers.ProphetNetForCausalLM:10
+#: transformers.ProphetNetForConditionalGeneration:10
+#: transformers.ProphetNetModel:10
+msgid ""
+"This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matters related to general usage and behavior."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder:14 transformers.ProphetNetEncoder:14
+#: transformers.ProphetNetForCausalLM:14
+#: transformers.ProphetNetForConditionalGeneration:14
+#: transformers.ProphetNetModel:14
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.ProphetNetModel.forward:1
+msgid ""
+"The :class:`~transformers.ProphetNetModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:4
+#: transformers.ProphetNetEncoder.forward:4
+#: transformers.ProphetNetForCausalLM.forward:4
+#: transformers.ProphetNetForConditionalGeneration.forward:4
+#: transformers.ProphetNetModel.forward:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:8
+#: transformers.ProphetNetEncoder.forward:8
+#: transformers.ProphetNetForCausalLM.forward:8
+#: transformers.ProphetNetForConditionalGeneration.forward:8
+#: transformers.ProphetNetModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary. Padding will be "
+"ignored by default should you provide it.  Indices can be obtained using "
+":class:`~transformers.ProphetNetTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:8
+#: transformers.ProphetNetEncoder.forward:8
+#: transformers.ProphetNetForCausalLM.forward:8
+#: transformers.ProphetNetForConditionalGeneration.forward:8
+#: transformers.ProphetNetModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary. Padding will be "
+"ignored by default should you provide it."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:11
+#: transformers.ProphetNetEncoder.forward:11
+#: transformers.ProphetNetForCausalLM.forward:11
+#: transformers.ProphetNetForConditionalGeneration.forward:11
+#: transformers.ProphetNetForConditionalGeneration.forward:26
+#: transformers.ProphetNetModel.forward:11
+#: transformers.ProphetNetModel.forward:26
+msgid ""
+"Indices can be obtained using :class:`~transformers.ProphetNetTokenizer`."
+" See :meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:15
+#: transformers.ProphetNetEncoder.forward:15
+#: transformers.ProphetNetForCausalLM.forward:15
+#: transformers.ProphetNetForConditionalGeneration.forward:15
+#: transformers.ProphetNetModel.forward:15
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:17
+#: transformers.ProphetNetEncoder.forward:17
+#: transformers.ProphetNetForCausalLM.forward:17
+#: transformers.ProphetNetForConditionalGeneration.forward:17
+#: transformers.ProphetNetModel.forward:17
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:17
+#: transformers.ProphetNetEncoder.forward:17
+#: transformers.ProphetNetForCausalLM.forward:17
+#: transformers.ProphetNetForConditionalGeneration.forward:17
+#: transformers.ProphetNetModel.forward:17
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:19
+#: transformers.ProphetNetDecoder.forward:57
+#: transformers.ProphetNetEncoder.forward:19
+#: transformers.ProphetNetForCausalLM.forward:19
+#: transformers.ProphetNetForCausalLM.forward:57
+#: transformers.ProphetNetForConditionalGeneration.forward:19
+#: transformers.ProphetNetModel.forward:19
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:20
+#: transformers.ProphetNetDecoder.forward:58
+#: transformers.ProphetNetEncoder.forward:20
+#: transformers.ProphetNetForCausalLM.forward:20
+#: transformers.ProphetNetForCausalLM.forward:58
+#: transformers.ProphetNetForConditionalGeneration.forward:20
+#: transformers.ProphetNetModel.forward:20
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:22
+#: transformers.ProphetNetEncoder.forward:22
+#: transformers.ProphetNetForCausalLM.forward:22
+#: transformers.ProphetNetForConditionalGeneration.forward:22
+#: transformers.ProphetNetModel.forward:22
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:24
+#: transformers.ProphetNetModel.forward:24
+msgid ""
+"Indices of decoder input sequence tokens in the vocabulary.  Indices can "
+"be obtained using :class:`~transformers.ProphetNetTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" decoder input IDs? <../glossary.html#decoder-input-ids>`__  ProphetNet "
+"uses the :obj:`eos_token_id` as the starting token for "
+":obj:`decoder_input_ids` generation. If :obj:`past_key_values` is used, "
+"optionally only the last :obj:`decoder_input_ids` have to be input (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:24
+#: transformers.ProphetNetModel.forward:24
+msgid "Indices of decoder input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:30
+#: transformers.ProphetNetModel.forward:30
+msgid "`What are decoder input IDs? <../glossary.html#decoder-input-ids>`__"
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:32
+#: transformers.ProphetNetModel.forward:32
+msgid ""
+"ProphetNet uses the :obj:`eos_token_id` as the starting token for "
+":obj:`decoder_input_ids` generation. If :obj:`past_key_values` is used, "
+"optionally only the last :obj:`decoder_input_ids` have to be input (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:36
+#: transformers.ProphetNetModel.forward:36
+msgid ""
+"Default behavior: generate a tensor that ignores pad tokens in "
+":obj:`decoder_input_ids`. Causal mask will also be used by default."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:24
+#: transformers.ProphetNetEncoder.forward:24
+#: transformers.ProphetNetForCausalLM.forward:24
+#: transformers.ProphetNetForConditionalGeneration.forward:39
+#: transformers.ProphetNetModel.forward:39
+msgid ""
+"Mask to nullify selected heads of the attention modules in the encoder. "
+"Mask values selected in ``[0, 1]``:  - 1 indicates the head is **not "
+"masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:24
+#: transformers.ProphetNetEncoder.forward:24
+#: transformers.ProphetNetForCausalLM.forward:24
+#: transformers.ProphetNetForConditionalGeneration.forward:39
+#: transformers.ProphetNetModel.forward:39
+msgid ""
+"Mask to nullify selected heads of the attention modules in the encoder. "
+"Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:26
+#: transformers.ProphetNetDecoder.forward:45
+#: transformers.ProphetNetEncoder.forward:26
+#: transformers.ProphetNetForCausalLM.forward:26
+#: transformers.ProphetNetForCausalLM.forward:45
+#: transformers.ProphetNetForConditionalGeneration.forward:41
+#: transformers.ProphetNetForConditionalGeneration.forward:46
+#: transformers.ProphetNetForConditionalGeneration.forward:51
+#: transformers.ProphetNetModel.forward:41
+#: transformers.ProphetNetModel.forward:46
+#: transformers.ProphetNetModel.forward:51
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:27
+#: transformers.ProphetNetDecoder.forward:46
+#: transformers.ProphetNetEncoder.forward:27
+#: transformers.ProphetNetForCausalLM.forward:27
+#: transformers.ProphetNetForCausalLM.forward:46
+#: transformers.ProphetNetForConditionalGeneration.forward:42
+#: transformers.ProphetNetForConditionalGeneration.forward:47
+#: transformers.ProphetNetForConditionalGeneration.forward:52
+#: transformers.ProphetNetModel.forward:42
+#: transformers.ProphetNetModel.forward:47
+#: transformers.ProphetNetModel.forward:52
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:44
+#: transformers.ProphetNetModel.forward:44
+msgid ""
+"Mask to nullify selected heads of the attention modules in the decoder. "
+"Mask values selected in ``[0, 1]``:  - 1 indicates the head is **not "
+"masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:44
+#: transformers.ProphetNetModel.forward:44
+msgid ""
+"Mask to nullify selected heads of the attention modules in the decoder. "
+"Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:43
+#: transformers.ProphetNetForCausalLM.forward:43
+#: transformers.ProphetNetForConditionalGeneration.forward:49
+#: transformers.ProphetNetModel.forward:49
+msgid ""
+"Mask to nullify selected heads of the cross-attention modules. Mask "
+"values selected in ``[0, 1]``:  - 1 indicates the head is **not masked**,"
+" - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:43
+#: transformers.ProphetNetForCausalLM.forward:43
+#: transformers.ProphetNetForConditionalGeneration.forward:49
+#: transformers.ProphetNetModel.forward:49
+msgid ""
+"Mask to nullify selected heads of the cross-attention modules. Mask "
+"values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:54
+#: transformers.ProphetNetModel.forward:54
+msgid ""
+"Tuple consists of (:obj:`last_hidden_state`, `optional`: "
+":obj:`hidden_states`, `optional`: :obj:`attentions`) "
+":obj:`last_hidden_state` of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`, `optional`) is a sequence of hidden-states at the output "
+"of the last layer of the encoder. Used in the cross-attention of the "
+"decoder."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:48
+#: transformers.ProphetNetForCausalLM.forward:48
+#: transformers.ProphetNetForConditionalGeneration.forward:59
+#: transformers.ProphetNetModel.forward:59
+msgid ""
+"Contains precomputed key and value hidden-states of the attention blocks."
+" Can be used to speed up decoding.  If :obj:`past_key_values` are used, "
+"the user can optionally input only the last ``decoder_input_ids`` (those "
+"that don't have their past key value states given to this model) of shape"
+" :obj:`(batch_size, 1)` instead of all ``decoder_input_ids`` of shape "
+":obj:`(batch_size, sequence_length)`."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:48
+#: transformers.ProphetNetForCausalLM.forward:48
+#: transformers.ProphetNetForConditionalGeneration.forward:59
+#: transformers.ProphetNetModel.forward:59
+msgid ""
+"Contains precomputed key and value hidden-states of the attention blocks."
+" Can be used to speed up decoding."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:50
+#: transformers.ProphetNetForCausalLM.forward:50
+#: transformers.ProphetNetForConditionalGeneration.forward:61
+#: transformers.ProphetNetModel.forward:61
+msgid ""
+"If :obj:`past_key_values` are used, the user can optionally input only "
+"the last ``decoder_input_ids`` (those that don't have their past key "
+"value states given to this model) of shape :obj:`(batch_size, 1)` instead"
+" of all ``decoder_input_ids`` of shape :obj:`(batch_size, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:54
+#: transformers.ProphetNetForCausalLM.forward:54
+#: transformers.ProphetNetForConditionalGeneration.forward:65
+#: transformers.ProphetNetModel.forward:65
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:29
+#: transformers.ProphetNetEncoder.forward:29
+#: transformers.ProphetNetForCausalLM.forward:29
+#: transformers.ProphetNetForConditionalGeneration.forward:68
+#: transformers.ProphetNetModel.forward:68
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:32
+#: transformers.ProphetNetEncoder.forward:32
+#: transformers.ProphetNetForCausalLM.forward:32
+#: transformers.ProphetNetForConditionalGeneration.forward:71
+#: transformers.ProphetNetModel.forward:71
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:35
+#: transformers.ProphetNetEncoder.forward:35
+#: transformers.ProphetNetForCausalLM.forward:35
+#: transformers.ProphetNetForConditionalGeneration.forward:74
+#: transformers.ProphetNetModel.forward:74
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.ProphetNetModel.forward:77
+msgid ""
+"A "
+":class:`~transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ProphenetConfig`) "
+"and inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, decoder_sequence_length, hidden_size)`) -- Sequence of"
+" main stream hidden-states at the output of the last layer of the decoder"
+" of the model.    If :obj:`past_key_values` is used only the last hidden-"
+"state of the sequences of shape :obj:`(batch_size,   1, hidden_size)` is "
+"output. - **last_hidden_state_ngram** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size,ngram * decoder_sequence_length, config.vocab_size)`) "
+"-- Sequence of predict stream hidden-states at the output of the last "
+"layer of the decoder of the model. - **past_key_values** "
+"(:obj:`List[torch.FloatTensor]`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- List "
+"of :obj:`torch.FloatTensor` of length :obj:`config.n_layers`, with each "
+"tensor of shape :obj:`(2,   batch_size, num_attn_heads, "
+"decoder_sequence_length, embed_size_per_head)`).    Contains pre-computed"
+" hidden-states (key and values in the attention blocks) of the decoder "
+"that can be   used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, "
+"decoder_sequence_length, hidden_size)`.    Hidden-states of main stream "
+"of the decoder at the output of each layer plus the initial embedding "
+"outputs. - **decoder_ngram_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, ngram * "
+"decoder_sequence_length, hidden_size)`.    Hidden-states of the predict "
+"stream of the decoder at the output of each layer plus the initial "
+"embedding   outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads,   "
+"decoder_sequence_length, decoder_sequence_length)`.    Attentions weights"
+" of the decoder, after the attention softmax, used to compute the "
+"weighted average in the   self-attention heads. - "
+"**decoder_ngram_attentions** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads,   "
+"decoder_sequence_length, decoder_sequence_length)`.    Attentions weights"
+" of the predict stream of the decoder, after the attention softmax, used "
+"to compute the   weighted average in the - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads,   "
+"encoder_sequence_length, decoder_sequence_length)`.    Attentions weights"
+" of the cross-attention layer of the decoder, after the attention "
+"softmax, used to   compute the weighted average in the - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, encoder_sequence_length, hidden_size)`, `optional`) --"
+" Sequence of hidden-states at the output of the last layer of the encoder"
+" of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, "
+"encoder_sequence_length, hidden_size)`.    Hidden-states of the encoder "
+"at the output of each layer plus the initial embedding outputs. - "
+"**encoder_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads,   "
+"encoder_sequence_length, encoder_sequence_length)`.    Attentions weights"
+" of the encoder, after the attention softmax, used to compute the "
+"weighted average in the   self-attention heads.   Example::      >>> from"
+" transformers import ProphetNetTokenizer, ProphetNetModel      >>> "
+"tokenizer = ProphetNetTokenizer.from_pretrained('microsoft/prophetnet-"
+"large-uncased')     >>> model = "
+"ProphetNetModel.from_pretrained('microsoft/prophetnet-large-uncased')"
+"      >>> input_ids = tokenizer(\"Studies have been shown that owning a "
+"dog is good for you\", return_tensors=\"pt\").input_ids  # Batch size 1"
+"     >>> decoder_input_ids = tokenizer(\"Studies show that\", "
+"return_tensors=\"pt\").input_ids  # Batch size 1     >>> outputs = "
+"model(input_ids=input_ids, decoder_input_ids=decoder_input_ids)      >>> "
+"last_hidden_states = outputs.last_hidden_state  # main stream hidden "
+"states     >>> last_hidden_states_ngram = outputs.last_hidden_state_ngram"
+"  # predict hidden states"
+msgstr ""
+
+#: of transformers.ProphetNetModel.forward:77
+msgid ""
+"A "
+":class:`~transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ProphenetConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:65
+#: transformers.ProphetNetModel.forward:81
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, decoder_sequence_length, hidden_size)`) -- Sequence of"
+" main stream hidden-states at the output of the last layer of the decoder"
+" of the model."
+msgstr ""
+
+#: of transformers.ProphetNetModel.forward:85
+msgid ""
+"**last_hidden_state_ngram** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size,ngram * decoder_sequence_length, config.vocab_size)`) "
+"-- Sequence of predict stream hidden-states at the output of the last "
+"layer of the decoder of the model."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:70
+#: transformers.ProphetNetForCausalLM.forward:74
+#: transformers.ProphetNetForConditionalGeneration.forward:90
+#: transformers.ProphetNetModel.forward:86
+msgid ""
+"**past_key_values** (:obj:`List[torch.FloatTensor]`, `optional`, returned"
+" when ``use_cache=True`` is passed or when ``config.use_cache=True``) -- "
+"List of :obj:`torch.FloatTensor` of length :obj:`config.n_layers`, with "
+"each tensor of shape :obj:`(2, batch_size, num_attn_heads, "
+"decoder_sequence_length, embed_size_per_head)`)."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:95
+#: transformers.ProphetNetModel.forward:91
+msgid ""
+"**decoder_hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, "
+"decoder_sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:99
+#: transformers.ProphetNetModel.forward:95
+msgid ""
+"**decoder_ngram_hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, ngram * "
+"decoder_sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:104
+#: transformers.ProphetNetModel.forward:100
+msgid ""
+"**decoder_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads, "
+"decoder_sequence_length, decoder_sequence_length)`."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:109
+#: transformers.ProphetNetModel.forward:105
+msgid ""
+"**decoder_ngram_attentions** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads, "
+"decoder_sequence_length, decoder_sequence_length)`."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:94
+#: transformers.ProphetNetForCausalLM.forward:98
+#: transformers.ProphetNetForConditionalGeneration.forward:114
+#: transformers.ProphetNetModel.forward:110
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads, "
+"encoder_sequence_length, decoder_sequence_length)`."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:119
+#: transformers.ProphetNetModel.forward:115
+msgid ""
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, encoder_sequence_length, hidden_size)`, `optional`) --"
+" Sequence of hidden-states at the output of the last layer of the encoder"
+" of the model."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:120
+#: transformers.ProphetNetModel.forward:116
+msgid ""
+"**encoder_hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, "
+"encoder_sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.ProphetNetModel.forward:120
+msgid ""
+"**encoder_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads, "
+"encoder_sequence_length, encoder_sequence_length)`."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:101
+#: transformers.ProphetNetEncoder.forward:54
+#: transformers.ProphetNetForCausalLM.forward:105
+#: transformers.ProphetNetForConditionalGeneration.forward:129
+#: transformers.ProphetNetModel.forward:127
+msgid "Example::"
+msgstr ""
+
+#: of transformers.ProphetNetModel.forward:140
+msgid ""
+":class:`~transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/prophetnet.rst:82
+msgid "ProphetNetEncoder"
+msgstr ""
+
+#: of transformers.ProphetNetEncoder:1
+msgid ""
+"The standalone encoder part of the ProphetNetModel. This model inherits "
+"from :class:`~transformers.PreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings, "
+"pruning heads etc.)"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder:23 transformers.ProphetNetEncoder:23
+msgid ""
+"word_embeddings  (:obj:`torch.nn.Embeddings` of shape "
+":obj:`(config.vocab_size, config.hidden_size)`, `optional`):"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder:21 transformers.ProphetNetEncoder:21
+msgid ""
+"The word embedding parameters. This can be used to initialize "
+":class:`~transformers.ProphetNetEncoder` with pre-defined word embeddings"
+" instead of randomly initialized word embeddings."
+msgstr ""
+
+#: of transformers.ProphetNetEncoder.forward:1
+msgid ""
+"The :class:`~transformers.ProphetNetEncoder` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.ProphetNetEncoder.forward:38
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.ProphenetConfig`) and inputs.  -"
+" **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Example::      >>> from transformers import "
+"ProphetNetTokenizer, ProphetNetEncoder     >>> import torch      >>> "
+"tokenizer = ProphetNetTokenizer.from_pretrained('microsoft/prophetnet-"
+"large-uncased')     >>> model = "
+"ProphetNetEncoder.from_pretrained('patrickvonplaten/prophetnet-large-"
+"uncased-standalone')     >>> inputs = tokenizer(\"Hello, my dog is "
+"cute\", return_tensors=\"pt\")     >>> outputs = model(**inputs)      >>>"
+" last_hidden_states = outputs.last_hidden_state"
+msgstr ""
+
+#: of transformers.ProphetNetEncoder.forward:38
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.ProphenetConfig`) and inputs."
+msgstr ""
+
+#: of transformers.ProphetNetEncoder.forward:42
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.ProphetNetEncoder.forward:43
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.ProphetNetEncoder.forward:46
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.ProphetNetEncoder.forward:47
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.ProphetNetEncoder.forward:50
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.ProphetNetEncoder.forward:65
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/prophetnet.rst:89
+msgid "ProphetNetDecoder"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder:1
+msgid ""
+"The standalone decoder part of the ProphetNetModel. This model inherits "
+"from :class:`~transformers.PreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings, "
+"pruning heads etc.)"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:1
+msgid ""
+"The :class:`~transformers.ProphetNetDecoder` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:37
+#: transformers.ProphetNetForCausalLM.forward:37
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the encoder."
+" Used in the cross-attention if the model is configured as a decoder."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:40
+#: transformers.ProphetNetForCausalLM.forward:40
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:54
+#: transformers.ProphetNetForCausalLM.forward:54
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`).  - 1 for tokens that are **not masked**, - 0 for"
+" tokens that are **masked**."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:61
+msgid ""
+"A "
+":class:`~transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ProphenetConfig`) "
+"and inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, decoder_sequence_length, hidden_size)`) -- Sequence of"
+" main stream hidden-states at the output of the last layer of the decoder"
+" of the model.    If :obj:`past_key_values` is used only the last hidden-"
+"state of the sequences of shape :obj:`(batch_size,   1, hidden_size)` is "
+"output. - **last_hidden_state_ngram** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, ngram * decoder_sequence_length, config.vocab_size)`) "
+"-- Sequence of predict stream hidden-states at the output of the last "
+"layer of the decoder of the model. - **past_key_values** "
+"(:obj:`List[torch.FloatTensor]`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- List "
+"of :obj:`torch.FloatTensor` of length :obj:`config.n_layers`, with each "
+"tensor of shape :obj:`(2,   batch_size, num_attn_heads, "
+"decoder_sequence_length, embed_size_per_head)`).    Contains pre-computed"
+" hidden-states (key and values in the attention blocks) of the decoder "
+"that can be   used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, "
+"decoder_sequence_length, hidden_size)`.    Hidden-states of main stream "
+"of the decoder at the output of each layer plus the initial embedding "
+"outputs. - **ngram_hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, ngram * "
+"decoder_sequence_length, hidden_size)`.    Hidden-states of the predict "
+"stream of the decoder at the output of each layer plus the initial "
+"embedding   outputs. - **attentions** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads,   "
+"decoder_sequence_length, decoder_sequence_length)`.    Attentions weights"
+" of the decoder, after the attention softmax, used to compute the "
+"weighted average in the   self-attention heads. - **ngram_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads,   "
+"decoder_sequence_length, decoder_sequence_length)`.    Attentions weights"
+" of the predict stream of the decoder, after the attention softmax, used "
+"to compute the   weighted average in the - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads,   "
+"encoder_sequence_length, decoder_sequence_length)`.    Attentions weights"
+" of the cross-attention layer of the decoder, after the attention "
+"softmax, used to   compute the weighted average in the   Example::      "
+">>> from transformers import ProphetNetTokenizer, ProphetNetDecoder     "
+">>> import torch      >>> tokenizer = "
+"ProphetNetTokenizer.from_pretrained('microsoft/prophetnet-large-uncased')"
+"     >>> model = ProphetNetDecoder.from_pretrained('microsoft/prophetnet-"
+"large-uncased', add_cross_attention=False)     >>> assert "
+"model.config.is_decoder, f\"{model.__class__} has to be configured as a "
+"decoder.\"     >>> inputs = tokenizer(\"Hello, my dog is cute\", "
+"return_tensors=\"pt\")     >>> outputs = model(**inputs)      >>> "
+"last_hidden_states = outputs.last_hidden_state"
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:61
+msgid ""
+"A "
+":class:`~transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ProphenetConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:69
+msgid ""
+"**last_hidden_state_ngram** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, ngram * decoder_sequence_length, config.vocab_size)`) "
+"-- Sequence of predict stream hidden-states at the output of the last "
+"layer of the decoder of the model."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:75
+#: transformers.ProphetNetForCausalLM.forward:79
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, "
+"decoder_sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:79
+#: transformers.ProphetNetForCausalLM.forward:83
+msgid ""
+"**ngram_hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, ngram * "
+"decoder_sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:84
+#: transformers.ProphetNetForCausalLM.forward:88
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads, "
+"decoder_sequence_length, decoder_sequence_length)`."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:89
+#: transformers.ProphetNetForCausalLM.forward:93
+msgid ""
+"**ngram_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads, "
+"decoder_sequence_length, decoder_sequence_length)`."
+msgstr ""
+
+#: of transformers.ProphetNetDecoder.forward:113
+msgid ""
+":class:`~transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/prophetnet.rst:96
+msgid "ProphetNetForConditionalGeneration"
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration:1
+msgid ""
+"The ProphetNet Model with a language modeling head. Can be used for "
+"sequence generation tasks. This model inherits from "
+":class:`~transformers.PreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings, "
+"pruning heads etc.)"
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:1
+msgid ""
+"The :class:`~transformers.ProphetNetForConditionalGeneration` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:76
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[-100, 0, ..., config.vocab_size - 1]`. All labels "
+"set to ``-100`` are ignored (masked), the loss is only computed for "
+"labels in ``[0, ..., config.vocab_size]``"
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:81
+msgid ""
+"A "
+":class:`~transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ProphenetConfig`) "
+"and inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Language modeling"
+" loss. - **logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size,"
+" decoder_sequence_length, config.vocab_size)`) -- Prediction scores of "
+"the main stream language modeling head (scores for each vocabulary token "
+"before   SoftMax). - **logits_ngram** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, ngram * decoder_sequence_length, config.vocab_size)`) "
+"-- Prediction scores of the predict stream language modeling head (scores"
+" for each vocabulary token before   SoftMax). - **past_key_values** "
+"(:obj:`List[torch.FloatTensor]`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- List "
+"of :obj:`torch.FloatTensor` of length :obj:`config.n_layers`, with each "
+"tensor of shape :obj:`(2,   batch_size, num_attn_heads, "
+"decoder_sequence_length, embed_size_per_head)`).    Contains pre-computed"
+" hidden-states (key and values in the attention blocks) of the decoder "
+"that can be   used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, "
+"decoder_sequence_length, hidden_size)`.    Hidden-states of main stream "
+"of the decoder at the output of each layer plus the initial embedding "
+"outputs. - **decoder_ngram_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, ngram * "
+"decoder_sequence_length, hidden_size)`.    Hidden-states of the predict "
+"stream of the decoder at the output of each layer plus the initial "
+"embedding   outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads,   "
+"decoder_sequence_length, decoder_sequence_length)`.    Attentions weights"
+" of the decoder, after the attention softmax, used to compute the "
+"weighted average in the   self-attention heads. - "
+"**decoder_ngram_attentions** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads,   "
+"decoder_sequence_length, decoder_sequence_length)`.    Attentions weights"
+" of the predict stream of the decoder, after the attention softmax, used "
+"to compute the   weighted average in the self-attention heads. - "
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads,   "
+"encoder_sequence_length, decoder_sequence_length)`.    Attentions weights"
+" of the cross-attention layer of the decoder, after the attention "
+"softmax, used to   compute the weighted average in the - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, encoder_sequence_length, hidden_size)`, `optional`) --"
+" Sequence of hidden-states at the output of the last layer of the encoder"
+" of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, "
+"encoder_sequence_length, hidden_size)`.    Hidden-states of the encoder "
+"at the output of each layer plus the initial embedding outputs. - "
+"**encoder_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads,   "
+"encoder_sequence_length, encoder_sequence_length)`. Attentions weights of"
+" the encoder, after the attention   softmax, used to compute the weighted"
+" average in the self-attention heads.   Example::      >>> from "
+"transformers import ProphetNetTokenizer, "
+"ProphetNetForConditionalGeneration      >>> tokenizer = "
+"ProphetNetTokenizer.from_pretrained('microsoft/prophetnet-large-uncased')"
+"     >>> model = "
+"ProphetNetForConditionalGeneration.from_pretrained('microsoft/prophetnet-"
+"large-uncased')      >>> input_ids = tokenizer(\"Studies have been shown "
+"that owning a dog is good for you\", return_tensors=\"pt\").input_ids  # "
+"Batch size 1     >>> decoder_input_ids = tokenizer(\"Studies show that\","
+" return_tensors=\"pt\").input_ids  # Batch size 1     >>> outputs = "
+"model(input_ids=input_ids, decoder_input_ids=decoder_input_ids)      >>> "
+"logits_next_token = outputs.logits  # logits to predict next token as "
+"usual     >>> logits_ngram_next_tokens = outputs.logits_ngram  # logits "
+"to predict 2nd, 3rd, ... next tokens"
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:81
+msgid ""
+"A "
+":class:`~transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ProphenetConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.ProphetNetForCausalLM.forward:69
+#: transformers.ProphetNetForConditionalGeneration.forward:85
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss."
+msgstr ""
+
+#: of transformers.ProphetNetForCausalLM.forward:70
+#: transformers.ProphetNetForConditionalGeneration.forward:86
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"decoder_sequence_length, config.vocab_size)`) -- Prediction scores of the"
+" main stream language modeling head (scores for each vocabulary token "
+"before SoftMax)."
+msgstr ""
+
+#: of transformers.ProphetNetForCausalLM.forward:72
+#: transformers.ProphetNetForConditionalGeneration.forward:88
+msgid ""
+"**logits_ngram** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"ngram * decoder_sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the predict stream language modeling head (scores for each "
+"vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:124
+msgid ""
+"**encoder_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads, "
+"encoder_sequence_length, encoder_sequence_length)`. Attentions weights of"
+" the encoder, after the attention softmax, used to compute the weighted "
+"average in the self-attention heads."
+msgstr ""
+
+#: of transformers.ProphetNetForConditionalGeneration.forward:142
+msgid ""
+":class:`~transformers.models.prophetnet.modeling_prophetnet.ProphetNetSeq2SeqLMOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/prophetnet.rst:103
+msgid "ProphetNetForCausalLM"
+msgstr ""
+
+#: of transformers.ProphetNetForCausalLM:1
+msgid ""
+"The standalone decoder part of the ProphetNetModel with a lm head on top."
+" The model can be used for causal language modeling. This model inherits "
+"from :class:`~transformers.PreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings, "
+"pruning heads etc.)"
+msgstr ""
+
+#: of transformers.ProphetNetForCausalLM.forward:1
+msgid ""
+"The :class:`~transformers.ProphetNetForCausalLM` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.ProphetNetForCausalLM.forward:60
+msgid ""
+"Labels for computing the left-to-right language modeling loss (next word "
+"prediction). Indices should be in ``[-100, 0, ..., config.vocab_size]`` "
+"(see ``input_ids`` docstring) Tokens with indices set to ``-100`` are "
+"ignored (masked), the loss is only computed for the tokens with labels n "
+"``[0, ..., config.vocab_size]``"
+msgstr ""
+
+#: of transformers.ProphetNetForCausalLM.forward:65
+msgid ""
+"A "
+":class:`~transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ProphenetConfig`) "
+"and inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Language modeling"
+" loss. - **logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size,"
+" decoder_sequence_length, config.vocab_size)`) -- Prediction scores of "
+"the main stream language modeling head (scores for each vocabulary token "
+"before   SoftMax). - **logits_ngram** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, ngram * decoder_sequence_length, config.vocab_size)`) "
+"-- Prediction scores of the predict stream language modeling head (scores"
+" for each vocabulary token before   SoftMax). - **past_key_values** "
+"(:obj:`List[torch.FloatTensor]`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- List "
+"of :obj:`torch.FloatTensor` of length :obj:`config.n_layers`, with each "
+"tensor of shape :obj:`(2,   batch_size, num_attn_heads, "
+"decoder_sequence_length, embed_size_per_head)`).    Contains pre-computed"
+" hidden-states (key and values in the attention blocks) of the decoder "
+"that can be   used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, "
+"decoder_sequence_length, hidden_size)`.    Hidden-states of main stream "
+"of the decoder at the output of each layer plus the initial embedding "
+"outputs. - **ngram_hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, ngram * "
+"decoder_sequence_length, hidden_size)`.    Hidden-states of the predict "
+"stream of the decoder at the output of each layer plus the initial "
+"embedding   outputs. - **attentions** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads,   "
+"decoder_sequence_length, decoder_sequence_length)`.    Attentions weights"
+" of the decoder, after the attention softmax, used to compute the "
+"weighted average in the   self-attention heads. - **ngram_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads,   "
+"decoder_sequence_length, decoder_sequence_length)`.    Attentions weights"
+" of the predict stream of the decoder, after the attention softmax, used "
+"to compute the   weighted average in the - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_attn_heads,   "
+"encoder_sequence_length, decoder_sequence_length)`.    Attentions weights"
+" of the cross-attention layer of the decoder, after the attention "
+"softmax, used to   compute the weighted average in the   Example::      "
+">>> from transformers import ProphetNetTokenizer, ProphetNetForCausalLM"
+"     >>> import torch      >>> tokenizer = "
+"ProphetNetTokenizer.from_pretrained('microsoft/prophetnet-large-uncased')"
+"     >>> model = ProphetNetForCausalLM.from_pretrained('microsoft"
+"/prophetnet-large-uncased')     >>> assert model.config.is_decoder, "
+"f\"{model.__class__} has to be configured as a decoder.\"     >>> inputs "
+"= tokenizer(\"Hello, my dog is cute\", return_tensors=\"pt\")     >>> "
+"outputs = model(**inputs)      >>> logits = outputs.logits      >>> # "
+"Model can also be used with EncoderDecoder framework     >>> from "
+"transformers import BertTokenizer, EncoderDecoderModel, "
+"ProphetNetTokenizer     >>> import torch      >>> tokenizer_enc = "
+"BertTokenizer.from_pretrained('bert-large-uncased')     >>> tokenizer_dec"
+" = ProphetNetTokenizer.from_pretrained('microsoft/prophetnet-large-"
+"uncased')     >>> model = "
+"EncoderDecoderModel.from_encoder_decoder_pretrained(\"bert-large-"
+"uncased\", \"microsoft/prophetnet-large-uncased\")      >>> ARTICLE = ("
+"     ... \"the us state department said wednesday it had received no \""
+"     ... \"formal word from bolivia that it was expelling the us "
+"ambassador there \"     ... \"but said the charges made against him are "
+"`` baseless .\"     ... )     >>> input_ids = tokenizer_enc(ARTICLE, "
+"return_tensors=\"pt\").input_ids     >>> labels = tokenizer_dec(\"us "
+"rejects charges against its ambassador in bolivia\", "
+"return_tensors=\"pt\").input_ids     >>> outputs = "
+"model(input_ids=input_ids, decoder_input_ids=labels[:, :-1], "
+"labels=labels[:, 1:])      >>> loss = outputs.loss"
+msgstr ""
+
+#: of transformers.ProphetNetForCausalLM.forward:65
+msgid ""
+"A "
+":class:`~transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.ProphenetConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.ProphetNetForCausalLM.forward:136
+msgid ""
+":class:`~transformers.models.prophetnet.modeling_prophetnet.ProphetNetDecoderLMOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+

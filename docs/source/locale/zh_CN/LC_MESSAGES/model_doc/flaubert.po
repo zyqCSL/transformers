@@ -1,0 +1,2544 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/flaubert.rst:14
+msgid "FlauBERT"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:19
+msgid ""
+"The FlauBERT model was proposed in the paper `FlauBERT: Unsupervised "
+"Language Model Pre-training for French "
+"<https://arxiv.org/abs/1912.05372>`__ by Hang Le et al. It's a "
+"transformer model pretrained using a masked language modeling (MLM) "
+"objective (like BERT)."
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:23
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:25
+msgid ""
+"*Language models have become a key step to achieve state-of-the art "
+"results in many different Natural Language Processing (NLP) tasks. "
+"Leveraging the huge amount of unlabeled texts nowadays available, they "
+"provide an efficient way to pre-train continuous word representations "
+"that can be fine-tuned for a downstream task, along with their "
+"contextualization at the sentence level. This has been widely "
+"demonstrated for English using contextualized representations (Dai and "
+"Le, 2015; Peters et al., 2018; Howard and Ruder, 2018; Radford et al., "
+"2018; Devlin et al., 2019; Yang et al., 2019b). In this paper, we "
+"introduce and share FlauBERT, a model learned on a very large and "
+"heterogeneous French corpus. Models of different sizes are trained using "
+"the new CNRS (French National Centre for Scientific Research) Jean Zay "
+"supercomputer. We apply our French language models to diverse NLP tasks "
+"(text classification, paraphrasing, natural language inference, parsing, "
+"word sense disambiguation) and show that most of the time they outperform"
+" other pretraining approaches. Different versions of FlauBERT as well as "
+"a unified evaluation protocol for the downstream tasks, called FLUE "
+"(French Language Understanding Evaluation), are shared to the research "
+"community for further reproducible experiments in French NLP.*"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:38
+msgid ""
+"This model was contributed by `formiel "
+"<https://huggingface.co/formiel>`__. The original code can be found `here"
+" <https://github.com/getalp/Flaubert>`__."
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:43
+msgid "FlaubertConfig"
+msgstr ""
+
+#: of transformers.FlaubertConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.FlaubertModel` or a "
+":class:`~transformers.TFFlaubertModel`. It is used to instantiate a "
+"FlauBERT model according to the specified arguments, defining the model "
+"architecture."
+msgstr ""
+
+#: of transformers.FlaubertConfig:5
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.FlaubertConfig transformers.FlaubertForMultipleChoice
+#: transformers.FlaubertForMultipleChoice.forward
+#: transformers.FlaubertForQuestionAnswering
+#: transformers.FlaubertForQuestionAnswering.forward
+#: transformers.FlaubertForQuestionAnsweringSimple
+#: transformers.FlaubertForQuestionAnsweringSimple.forward
+#: transformers.FlaubertForSequenceClassification
+#: transformers.FlaubertForSequenceClassification.forward
+#: transformers.FlaubertForTokenClassification
+#: transformers.FlaubertForTokenClassification.forward
+#: transformers.FlaubertModel transformers.FlaubertModel.forward
+#: transformers.FlaubertWithLMHeadModel
+#: transformers.FlaubertWithLMHeadModel.forward
+#: transformers.TFFlaubertForMultipleChoice
+#: transformers.TFFlaubertForMultipleChoice.call
+#: transformers.TFFlaubertForQuestionAnsweringSimple
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call
+#: transformers.TFFlaubertForSequenceClassification
+#: transformers.TFFlaubertForSequenceClassification.call
+#: transformers.TFFlaubertForTokenClassification
+#: transformers.TFFlaubertForTokenClassification.call
+#: transformers.TFFlaubertModel transformers.TFFlaubertModel.call
+#: transformers.TFFlaubertWithLMHeadModel
+#: transformers.TFFlaubertWithLMHeadModel.call
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.FlaubertConfig:8
+msgid ""
+"Whether to apply the layer normalization before or after the feed forward"
+" layer following the attention in each layer (Vaswani et al., "
+"Tensor2Tensor for Neural Machine Translation. 2018)"
+msgstr ""
+
+#: of transformers.FlaubertConfig:11
+msgid ""
+"Probability to drop layers during training (Fan et al., Reducing "
+"Transformer Depth on Demand with Structured Dropout. ICLR 2020)"
+msgstr ""
+
+#: of transformers.FlaubertConfig:14
+msgid ""
+"Vocabulary size of the FlauBERT model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.FlaubertModel` or "
+":class:`~transformers.TFFlaubertModel`."
+msgstr ""
+
+#: of transformers.FlaubertConfig:18
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.FlaubertConfig:20
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.FlaubertConfig:22
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.FlaubertConfig:24
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.FlaubertConfig:26
+msgid "The dropout probability for the attention mechanism"
+msgstr ""
+
+#: of transformers.FlaubertConfig:28
+msgid "Whether or not to use a `gelu` activation instead of `relu`."
+msgstr ""
+
+#: of transformers.FlaubertConfig:30
+msgid ""
+"Whether or not to use sinusoidal positional embeddings instead of "
+"absolute positional embeddings."
+msgstr ""
+
+#: of transformers.FlaubertConfig:32
+msgid ""
+"Whether or not the model should behave in a causal manner. Causal models "
+"use a triangular attention mask in order to only attend to the left-side "
+"context instead if a bidirectional context."
+msgstr ""
+
+#: of transformers.FlaubertConfig:35
+msgid ""
+"Whether or not to use an adaptive log softmax projection layer instead of"
+" a linear layer for the prediction layer."
+msgstr ""
+
+#: of transformers.FlaubertConfig:38
+msgid ""
+"The number of languages the model handles. Set to 1 for monolingual "
+"models."
+msgstr ""
+
+#: of transformers.FlaubertConfig:40
+msgid ""
+"Whether to use language embeddings. Some models use additional language "
+"embeddings, see `the multilingual models page "
+"<http://huggingface.co/transformers/multilingual.html#xlm-language-"
+"embeddings>`__ for information on how to use them."
+msgstr ""
+
+#: of transformers.FlaubertConfig:44
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.FlaubertConfig:47
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing the embedding matrices."
+msgstr ""
+
+#: of transformers.FlaubertConfig:49
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices except the embedding matrices."
+msgstr ""
+
+#: of transformers.FlaubertConfig:52
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.FlaubertConfig:54
+msgid "The index of the beginning of sentence token in the vocabulary."
+msgstr ""
+
+#: of transformers.FlaubertConfig:56
+msgid "The index of the end of sentence token in the vocabulary."
+msgstr ""
+
+#: of transformers.FlaubertConfig:58
+msgid "The index of the padding token in the vocabulary."
+msgstr ""
+
+#: of transformers.FlaubertConfig:60
+msgid "The index of the unknown token in the vocabulary."
+msgstr ""
+
+#: of transformers.FlaubertConfig:62
+msgid "The index of the masking token in the vocabulary."
+msgstr ""
+
+#: of transformers.FlaubertConfig:64
+msgid ""
+"Whether or not the initialized model should be a transformer encoder or "
+"decoder as seen in Vaswani et al."
+msgstr ""
+
+#: of transformers.FlaubertConfig:66
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models.  Has to be one of the "
+"following options:      - :obj:`\"last\"`: Take the last token hidden "
+"state (like XLNet).     - :obj:`\"first\"`: Take the first token hidden "
+"state (like BERT).     - :obj:`\"mean\"`: Take the mean of all tokens "
+"hidden states.     - :obj:`\"cls_index\"`: Supply a Tensor of "
+"classification token position (like GPT/GPT-2).     - :obj:`\"attn\"`: "
+"Not implemented now, use multi-head attention."
+msgstr ""
+
+#: of transformers.FlaubertConfig:66 transformers.FlaubertConfig:76
+#: transformers.FlaubertConfig:80
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models."
+msgstr ""
+
+#: of transformers.FlaubertConfig:68
+msgid "Has to be one of the following options:"
+msgstr ""
+
+#: of transformers.FlaubertConfig:70
+msgid ":obj:`\"last\"`: Take the last token hidden state (like XLNet)."
+msgstr ""
+
+#: of transformers.FlaubertConfig:71
+msgid ":obj:`\"first\"`: Take the first token hidden state (like BERT)."
+msgstr ""
+
+#: of transformers.FlaubertConfig:72
+msgid ":obj:`\"mean\"`: Take the mean of all tokens hidden states."
+msgstr ""
+
+#: of transformers.FlaubertConfig:73
+msgid ""
+":obj:`\"cls_index\"`: Supply a Tensor of classification token position "
+"(like GPT/GPT-2)."
+msgstr ""
+
+#: of transformers.FlaubertConfig:74
+msgid ":obj:`\"attn\"`: Not implemented now, use multi-head attention."
+msgstr ""
+
+#: of transformers.FlaubertConfig:76
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models.  Whether or not to add a "
+"projection after the vector extraction."
+msgstr ""
+
+#: of transformers.FlaubertConfig:78
+msgid "Whether or not to add a projection after the vector extraction."
+msgstr ""
+
+#: of transformers.FlaubertConfig:80
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models.  Pass :obj:`\"tanh\"` for a "
+"tanh activation to the output, any other value will result in no "
+"activation."
+msgstr ""
+
+#: of transformers.FlaubertConfig:82
+msgid ""
+"Pass :obj:`\"tanh\"` for a tanh activation to the output, any other value"
+" will result in no activation."
+msgstr ""
+
+#: of transformers.FlaubertConfig:84
+msgid ""
+"Used in the sequence classification and multiple choice models.  Whether "
+"the projection outputs should have :obj:`config.num_labels` or "
+":obj:`config.hidden_size` classes."
+msgstr ""
+
+#: of transformers.FlaubertConfig:84 transformers.FlaubertConfig:88
+msgid "Used in the sequence classification and multiple choice models."
+msgstr ""
+
+#: of transformers.FlaubertConfig:86
+msgid ""
+"Whether the projection outputs should have :obj:`config.num_labels` or "
+":obj:`config.hidden_size` classes."
+msgstr ""
+
+#: of transformers.FlaubertConfig:88
+msgid ""
+"Used in the sequence classification and multiple choice models.  The "
+"dropout ratio to be used after the projection and activation."
+msgstr ""
+
+#: of transformers.FlaubertConfig:90
+msgid "The dropout ratio to be used after the projection and activation."
+msgstr ""
+
+#: of transformers.FlaubertConfig:92 transformers.FlaubertConfig:94
+msgid "Used in the SQuAD evaluation script."
+msgstr ""
+
+#: of transformers.FlaubertConfig:96
+msgid ""
+"Model agnostic parameter to identify masked tokens when generating text "
+"in an MLM context."
+msgstr ""
+
+#: of transformers.FlaubertConfig:98
+msgid ""
+"The ID of the language used by the model. This parameter is used when "
+"generating text in a given language."
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:50
+msgid "FlaubertTokenizer"
+msgstr ""
+
+#: of transformers.FlaubertTokenizer:1
+msgid ""
+"Construct a Flaubert tokenizer. Based on Byte-Pair Encoding. The "
+"tokenization process is the following:"
+msgstr ""
+
+#: of transformers.FlaubertTokenizer:3
+msgid "Moses preprocessing and tokenization."
+msgstr ""
+
+#: of transformers.FlaubertTokenizer:4
+msgid "Normalizing all inputs text."
+msgstr ""
+
+#: of transformers.FlaubertTokenizer:5
+msgid ""
+"The arguments ``special_tokens`` and the function ``set_special_tokens``,"
+" can be used to add additional symbols (like \"__classify__\") to a "
+"vocabulary."
+msgstr ""
+
+#: of transformers.FlaubertTokenizer:7
+msgid ""
+"The argument :obj:`do_lowercase` controls lower casing (automatically set"
+" for pretrained vocabularies)."
+msgstr ""
+
+#: of transformers.FlaubertTokenizer:9
+msgid ""
+"This tokenizer inherits from :class:`~transformers.XLMTokenizer`. Please "
+"check the superclass for usage examples and documentation regarding "
+"arguments."
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:57
+msgid "FlaubertModel"
+msgstr ""
+
+#: of transformers.FlaubertModel:1 transformers.TFFlaubertModel:1
+msgid ""
+"The bare Flaubert Model transformer outputting raw hidden-states without "
+"any specific head on top."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice:5
+#: transformers.FlaubertForQuestionAnswering:5
+#: transformers.FlaubertForQuestionAnsweringSimple:5
+#: transformers.FlaubertForSequenceClassification:5
+#: transformers.FlaubertForTokenClassification:5 transformers.FlaubertModel:3
+#: transformers.FlaubertWithLMHeadModel:5
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice:9
+#: transformers.FlaubertForQuestionAnswering:9
+#: transformers.FlaubertForQuestionAnsweringSimple:9
+#: transformers.FlaubertForSequenceClassification:9
+#: transformers.FlaubertForTokenClassification:9 transformers.FlaubertModel:7
+#: transformers.FlaubertWithLMHeadModel:9
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice:13
+#: transformers.FlaubertForQuestionAnswering:13
+#: transformers.FlaubertForQuestionAnsweringSimple:13
+#: transformers.FlaubertForSequenceClassification:13
+#: transformers.FlaubertForTokenClassification:13 transformers.FlaubertModel:11
+#: transformers.FlaubertWithLMHeadModel:13
+#: transformers.TFFlaubertForMultipleChoice:32
+#: transformers.TFFlaubertForQuestionAnsweringSimple:32
+#: transformers.TFFlaubertForSequenceClassification:32
+#: transformers.TFFlaubertForTokenClassification:32
+#: transformers.TFFlaubertModel:30 transformers.TFFlaubertWithLMHeadModel:32
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.FlaubertModel.forward:1
+msgid ""
+"The :class:`~transformers.FlaubertModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:4
+#: transformers.FlaubertForQuestionAnswering.forward:4
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:4
+#: transformers.FlaubertForSequenceClassification.forward:4
+#: transformers.FlaubertForTokenClassification.forward:4
+#: transformers.FlaubertModel.forward:4
+#: transformers.FlaubertWithLMHeadModel.forward:4
+#: transformers.TFFlaubertForMultipleChoice.call:4
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:4
+#: transformers.TFFlaubertForSequenceClassification.call:4
+#: transformers.TFFlaubertForTokenClassification.call:4
+#: transformers.TFFlaubertModel.call:4
+#: transformers.TFFlaubertWithLMHeadModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.FlaubertModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.FlaubertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:8
+#: transformers.FlaubertForQuestionAnswering.forward:8
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:8
+#: transformers.FlaubertForSequenceClassification.forward:8
+#: transformers.FlaubertForTokenClassification.forward:8
+#: transformers.FlaubertModel.forward:8
+#: transformers.FlaubertWithLMHeadModel.forward:8
+#: transformers.TFFlaubertForMultipleChoice.call:8
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:8
+#: transformers.TFFlaubertForSequenceClassification.call:8
+#: transformers.TFFlaubertForTokenClassification.call:8
+#: transformers.TFFlaubertModel.call:8
+#: transformers.TFFlaubertWithLMHeadModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.FlaubertModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.FlaubertTokenizer`. "
+"See :meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:14
+#: transformers.FlaubertForQuestionAnswering.forward:14
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:14
+#: transformers.FlaubertForSequenceClassification.forward:14
+#: transformers.FlaubertForTokenClassification.forward:14
+#: transformers.FlaubertModel.forward:14
+#: transformers.FlaubertWithLMHeadModel.forward:14
+#: transformers.TFFlaubertForMultipleChoice.call:14
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:14
+#: transformers.TFFlaubertForSequenceClassification.call:14
+#: transformers.TFFlaubertForTokenClassification.call:14
+#: transformers.TFFlaubertModel.call:14
+#: transformers.TFFlaubertWithLMHeadModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:16
+#: transformers.FlaubertForQuestionAnswering.forward:16
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:16
+#: transformers.FlaubertForSequenceClassification.forward:16
+#: transformers.FlaubertForTokenClassification.forward:16
+#: transformers.FlaubertModel.forward:16
+#: transformers.FlaubertWithLMHeadModel.forward:16
+#: transformers.TFFlaubertForMultipleChoice.call:16
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:16
+#: transformers.TFFlaubertForSequenceClassification.call:16
+#: transformers.TFFlaubertForTokenClassification.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:16
+#: transformers.FlaubertForQuestionAnswering.forward:16
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:16
+#: transformers.FlaubertForSequenceClassification.forward:16
+#: transformers.FlaubertForTokenClassification.forward:16
+#: transformers.FlaubertModel.forward:16
+#: transformers.FlaubertWithLMHeadModel.forward:16
+#: transformers.TFFlaubertForMultipleChoice.call:16
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:16
+#: transformers.TFFlaubertForSequenceClassification.call:16
+#: transformers.TFFlaubertForTokenClassification.call:16
+#: transformers.TFFlaubertModel.call:16
+#: transformers.TFFlaubertWithLMHeadModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:18
+#: transformers.FlaubertForQuestionAnswering.forward:18
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:18
+#: transformers.FlaubertForSequenceClassification.forward:18
+#: transformers.FlaubertForTokenClassification.forward:18
+#: transformers.FlaubertModel.forward:18
+#: transformers.FlaubertWithLMHeadModel.forward:18
+#: transformers.TFFlaubertForMultipleChoice.call:18
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:18
+#: transformers.TFFlaubertForSequenceClassification.call:18
+#: transformers.TFFlaubertForTokenClassification.call:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:19
+#: transformers.FlaubertForQuestionAnswering.forward:19
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:19
+#: transformers.FlaubertForSequenceClassification.forward:19
+#: transformers.FlaubertForTokenClassification.forward:19
+#: transformers.FlaubertModel.forward:19
+#: transformers.FlaubertWithLMHeadModel.forward:19
+#: transformers.TFFlaubertForMultipleChoice.call:19
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:19
+#: transformers.TFFlaubertForSequenceClassification.call:19
+#: transformers.TFFlaubertForTokenClassification.call:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:21
+#: transformers.FlaubertForQuestionAnswering.forward:21
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:21
+#: transformers.FlaubertForSequenceClassification.forward:21
+#: transformers.FlaubertForTokenClassification.forward:21
+#: transformers.FlaubertModel.forward:21
+#: transformers.FlaubertWithLMHeadModel.forward:21
+#: transformers.TFFlaubertForMultipleChoice.call:21
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:21
+#: transformers.TFFlaubertForSequenceClassification.call:21
+#: transformers.TFFlaubertForTokenClassification.call:21
+#: transformers.TFFlaubertModel.call:21
+#: transformers.TFFlaubertWithLMHeadModel.call:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.FlaubertModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:31
+#: transformers.FlaubertForQuestionAnswering.forward:31
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:31
+#: transformers.FlaubertForSequenceClassification.forward:31
+#: transformers.FlaubertForTokenClassification.forward:31
+#: transformers.FlaubertModel.forward:23
+#: transformers.FlaubertWithLMHeadModel.forward:31
+#: transformers.TFFlaubertForMultipleChoice.call:31
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:31
+#: transformers.TFFlaubertForSequenceClassification.call:31
+#: transformers.TFFlaubertForTokenClassification.call:31
+#: transformers.TFFlaubertModel.call:31
+#: transformers.TFFlaubertWithLMHeadModel.call:31
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:34
+#: transformers.FlaubertForQuestionAnswering.forward:34
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:34
+#: transformers.FlaubertForSequenceClassification.forward:34
+#: transformers.FlaubertForTokenClassification.forward:34
+#: transformers.FlaubertModel.forward:26
+#: transformers.FlaubertWithLMHeadModel.forward:34
+#: transformers.TFFlaubertForMultipleChoice.call:34
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:34
+#: transformers.TFFlaubertForSequenceClassification.call:34
+#: transformers.TFFlaubertForTokenClassification.call:34
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:35
+#: transformers.FlaubertForQuestionAnswering.forward:35
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:35
+#: transformers.FlaubertForSequenceClassification.forward:35
+#: transformers.FlaubertForTokenClassification.forward:35
+#: transformers.FlaubertModel.forward:27
+#: transformers.FlaubertWithLMHeadModel.forward:35
+#: transformers.TFFlaubertForMultipleChoice.call:35
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:35
+#: transformers.TFFlaubertForSequenceClassification.call:35
+#: transformers.TFFlaubertForTokenClassification.call:35
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.FlaubertModel.forward:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.FlaubertModel.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:39
+#: transformers.FlaubertForQuestionAnswering.forward:39
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:39
+#: transformers.FlaubertForSequenceClassification.forward:39
+#: transformers.FlaubertForTokenClassification.forward:39
+#: transformers.FlaubertModel.forward:31
+#: transformers.FlaubertWithLMHeadModel.forward:39
+#: transformers.TFFlaubertForMultipleChoice.call:39
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:39
+#: transformers.TFFlaubertForSequenceClassification.call:39
+#: transformers.TFFlaubertForTokenClassification.call:39
+#: transformers.TFFlaubertModel.call:39
+#: transformers.TFFlaubertWithLMHeadModel.call:39
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.FlaubertModel.forward:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.FlaubertModel.forward:36
+msgid ""
+"Length of each sentence that can be used to avoid performing attention on"
+" padding token indices. You can also use :obj:`attention_mask` for the "
+"same result (see above), kept here for compatibility. Indices selected in"
+" ``[0, ..., input_ids.size(-1)]``:"
+msgstr ""
+
+#: of transformers.FlaubertModel.forward:40
+msgid ""
+"Dictionary strings to ``torch.FloatTensor`` that contains precomputed "
+"hidden-states (key and values in the attention blocks) as computed by the"
+" model (see :obj:`cache` output below). Can be used to speed up "
+"sequential decoding. The dictionary object will be modified in-place "
+"during the forward pass to add newly computed hidden-states."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:55
+#: transformers.FlaubertForQuestionAnswering.forward:55
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:55
+#: transformers.FlaubertForSequenceClassification.forward:55
+#: transformers.FlaubertForTokenClassification.forward:55
+#: transformers.FlaubertModel.forward:45
+#: transformers.FlaubertWithLMHeadModel.forward:55
+#: transformers.TFFlaubertForMultipleChoice.call:55
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:55
+#: transformers.TFFlaubertForSequenceClassification.call:55
+#: transformers.TFFlaubertForTokenClassification.call:55
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:55
+#: transformers.FlaubertForQuestionAnswering.forward:55
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:55
+#: transformers.FlaubertForSequenceClassification.forward:55
+#: transformers.FlaubertForTokenClassification.forward:55
+#: transformers.FlaubertModel.forward:45
+#: transformers.FlaubertWithLMHeadModel.forward:55
+#: transformers.TFFlaubertForMultipleChoice.call:55
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:55
+#: transformers.TFFlaubertForSequenceClassification.call:55
+#: transformers.TFFlaubertForTokenClassification.call:55
+#: transformers.TFFlaubertModel.call:55
+#: transformers.TFFlaubertWithLMHeadModel.call:55
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:57
+#: transformers.FlaubertForQuestionAnswering.forward:57
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:57
+#: transformers.FlaubertForSequenceClassification.forward:57
+#: transformers.FlaubertForTokenClassification.forward:57
+#: transformers.FlaubertModel.forward:47
+#: transformers.FlaubertWithLMHeadModel.forward:57
+#: transformers.TFFlaubertForMultipleChoice.call:57
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:57
+#: transformers.TFFlaubertForSequenceClassification.call:57
+#: transformers.TFFlaubertForTokenClassification.call:57
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:58
+#: transformers.FlaubertForQuestionAnswering.forward:58
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:58
+#: transformers.FlaubertForSequenceClassification.forward:58
+#: transformers.FlaubertForTokenClassification.forward:58
+#: transformers.FlaubertModel.forward:48
+#: transformers.FlaubertWithLMHeadModel.forward:58
+#: transformers.TFFlaubertForMultipleChoice.call:58
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:58
+#: transformers.TFFlaubertForSequenceClassification.call:58
+#: transformers.TFFlaubertForTokenClassification.call:58
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:60
+#: transformers.FlaubertForQuestionAnswering.forward:60
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:60
+#: transformers.FlaubertForSequenceClassification.forward:60
+#: transformers.FlaubertForTokenClassification.forward:60
+#: transformers.FlaubertModel.forward:50
+#: transformers.FlaubertWithLMHeadModel.forward:60
+#: transformers.TFFlaubertForMultipleChoice.call:60
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:60
+#: transformers.TFFlaubertForSequenceClassification.call:60
+#: transformers.TFFlaubertForTokenClassification.call:60
+#: transformers.TFFlaubertModel.call:60
+#: transformers.TFFlaubertWithLMHeadModel.call:60
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:64
+#: transformers.FlaubertForQuestionAnswering.forward:64
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:64
+#: transformers.FlaubertForSequenceClassification.forward:64
+#: transformers.FlaubertForTokenClassification.forward:64
+#: transformers.FlaubertModel.forward:54
+#: transformers.FlaubertWithLMHeadModel.forward:64
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:67
+#: transformers.FlaubertForQuestionAnswering.forward:67
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:67
+#: transformers.FlaubertForSequenceClassification.forward:67
+#: transformers.FlaubertForTokenClassification.forward:67
+#: transformers.FlaubertModel.forward:57
+#: transformers.FlaubertWithLMHeadModel.forward:67
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:70
+#: transformers.FlaubertForQuestionAnswering.forward:70
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:70
+#: transformers.FlaubertForSequenceClassification.forward:70
+#: transformers.FlaubertForTokenClassification.forward:70
+#: transformers.FlaubertModel.forward:60
+#: transformers.FlaubertWithLMHeadModel.forward:70
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward
+#: transformers.FlaubertForQuestionAnswering.forward
+#: transformers.FlaubertForQuestionAnsweringSimple.forward
+#: transformers.FlaubertForSequenceClassification.forward
+#: transformers.FlaubertForTokenClassification.forward
+#: transformers.FlaubertModel.forward
+#: transformers.FlaubertWithLMHeadModel.forward
+#: transformers.TFFlaubertForMultipleChoice.call
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call
+#: transformers.TFFlaubertForSequenceClassification.call
+#: transformers.TFFlaubertForTokenClassification.call
+#: transformers.TFFlaubertModel.call
+#: transformers.TFFlaubertWithLMHeadModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.FlaubertModel.forward:63
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FlaubertConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.FlaubertModel.forward:63
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FlaubertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FlaubertModel.forward:67
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:85
+#: transformers.FlaubertForQuestionAnswering.forward:101
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:88
+#: transformers.FlaubertForSequenceClassification.forward:83
+#: transformers.FlaubertForTokenClassification.forward:82
+#: transformers.FlaubertModel.forward:68
+#: transformers.FlaubertWithLMHeadModel.forward:83
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:88
+#: transformers.FlaubertForQuestionAnswering.forward:104
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:91
+#: transformers.FlaubertForSequenceClassification.forward:86
+#: transformers.FlaubertForTokenClassification.forward:85
+#: transformers.FlaubertModel.forward:71
+#: transformers.FlaubertWithLMHeadModel.forward:86
+#: transformers.TFFlaubertForMultipleChoice.call:90
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:97
+#: transformers.TFFlaubertForSequenceClassification.call:92
+#: transformers.TFFlaubertForTokenClassification.call:91
+#: transformers.TFFlaubertModel.call:87
+#: transformers.TFFlaubertWithLMHeadModel.call:87
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:89
+#: transformers.FlaubertForQuestionAnswering.forward:105
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:92
+#: transformers.FlaubertForSequenceClassification.forward:87
+#: transformers.FlaubertForTokenClassification.forward:86
+#: transformers.FlaubertModel.forward:72
+#: transformers.FlaubertWithLMHeadModel.forward:87
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:92
+#: transformers.FlaubertForQuestionAnswering.forward:108
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:95
+#: transformers.FlaubertForSequenceClassification.forward:90
+#: transformers.FlaubertForTokenClassification.forward:89
+#: transformers.FlaubertModel.forward:75
+#: transformers.FlaubertWithLMHeadModel.forward:90
+#: transformers.TFFlaubertForMultipleChoice.call:94
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:101
+#: transformers.TFFlaubertForSequenceClassification.call:96
+#: transformers.TFFlaubertForTokenClassification.call:95
+#: transformers.TFFlaubertModel.call:91
+#: transformers.TFFlaubertWithLMHeadModel.call:91
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward
+#: transformers.FlaubertForQuestionAnswering.forward
+#: transformers.FlaubertForQuestionAnsweringSimple.forward
+#: transformers.FlaubertForSequenceClassification.forward
+#: transformers.FlaubertForTokenClassification.forward
+#: transformers.FlaubertModel.forward
+#: transformers.FlaubertWithLMHeadModel.forward
+#: transformers.TFFlaubertForMultipleChoice.call
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call
+#: transformers.TFFlaubertForSequenceClassification.call
+#: transformers.TFFlaubertForTokenClassification.call
+#: transformers.TFFlaubertModel.call
+#: transformers.TFFlaubertWithLMHeadModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.FlaubertModel.forward:77
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:96
+#: transformers.FlaubertForQuestionAnswering.forward:112
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:99
+#: transformers.FlaubertForSequenceClassification.forward:94
+#: transformers.FlaubertForTokenClassification.forward:93
+#: transformers.FlaubertModel.forward:79
+#: transformers.FlaubertWithLMHeadModel.forward:94
+#: transformers.TFFlaubertForMultipleChoice.call:98
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:105
+#: transformers.TFFlaubertForSequenceClassification.call:100
+#: transformers.TFFlaubertForTokenClassification.call:99
+#: transformers.TFFlaubertModel.call:95
+#: transformers.TFFlaubertWithLMHeadModel.call:95
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:64
+msgid "FlaubertWithLMHeadModel"
+msgstr ""
+
+#: of transformers.FlaubertWithLMHeadModel:1
+#: transformers.TFFlaubertWithLMHeadModel:1
+msgid ""
+"The Flaubert Model transformer with a language modeling head on top "
+"(linear layer with weights tied to the input embeddings)."
+msgstr ""
+
+#: of transformers.FlaubertWithLMHeadModel:19
+msgid ""
+"This class overrides :class:`~transformers.XLMWithLMHeadModel`. Please "
+"check the superclass for the appropriate documentation alongside usage "
+"examples."
+msgstr ""
+
+#: of transformers.FlaubertWithLMHeadModel.forward:1
+msgid ""
+"The :class:`~transformers.XLMWithLMHeadModel` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:8
+#: transformers.FlaubertForQuestionAnswering.forward:8
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:8
+#: transformers.FlaubertForSequenceClassification.forward:8
+#: transformers.FlaubertForTokenClassification.forward:8
+#: transformers.FlaubertWithLMHeadModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.XLMTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:10
+#: transformers.FlaubertForQuestionAnswering.forward:10
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:10
+#: transformers.FlaubertForSequenceClassification.forward:10
+#: transformers.FlaubertForTokenClassification.forward:10
+#: transformers.FlaubertWithLMHeadModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.XLMTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:23
+#: transformers.FlaubertForQuestionAnswering.forward:23
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:23
+#: transformers.FlaubertForSequenceClassification.forward:23
+#: transformers.FlaubertForTokenClassification.forward:23
+#: transformers.FlaubertWithLMHeadModel.forward:23
+#: transformers.TFFlaubertForMultipleChoice.call:23
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:23
+#: transformers.TFFlaubertForSequenceClassification.call:23
+#: transformers.TFFlaubertForTokenClassification.call:23
+#: transformers.TFFlaubertModel.call:23
+#: transformers.TFFlaubertWithLMHeadModel.call:23
+msgid ""
+"A parallel sequence of tokens to be used to indicate the language of each"
+" token in the input. Indices are languages ids which can be obtained from"
+" the language names by using two conversion mappings provided in the "
+"configuration of the model (only provided for multilingual models). More "
+"precisely, the `language name to language id` mapping is in "
+":obj:`model.config.lang2id` (which is a dictionary string to int) and the"
+" `language id to language name` mapping is in :obj:`model.config.id2lang`"
+" (dictionary int to string).  See usage examples detailed in the "
+":doc:`multilingual documentation <../multilingual>`."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:23
+#: transformers.FlaubertForQuestionAnswering.forward:23
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:23
+#: transformers.FlaubertForSequenceClassification.forward:23
+#: transformers.FlaubertForTokenClassification.forward:23
+#: transformers.FlaubertWithLMHeadModel.forward:23
+#: transformers.TFFlaubertForMultipleChoice.call:23
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:23
+#: transformers.TFFlaubertForSequenceClassification.call:23
+#: transformers.TFFlaubertForTokenClassification.call:23
+#: transformers.TFFlaubertModel.call:23
+#: transformers.TFFlaubertWithLMHeadModel.call:23
+msgid ""
+"A parallel sequence of tokens to be used to indicate the language of each"
+" token in the input. Indices are languages ids which can be obtained from"
+" the language names by using two conversion mappings provided in the "
+"configuration of the model (only provided for multilingual models). More "
+"precisely, the `language name to language id` mapping is in "
+":obj:`model.config.lang2id` (which is a dictionary string to int) and the"
+" `language id to language name` mapping is in :obj:`model.config.id2lang`"
+" (dictionary int to string)."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:29
+#: transformers.FlaubertForQuestionAnswering.forward:29
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:29
+#: transformers.FlaubertForSequenceClassification.forward:29
+#: transformers.FlaubertForTokenClassification.forward:29
+#: transformers.FlaubertWithLMHeadModel.forward:29
+#: transformers.TFFlaubertForMultipleChoice.call:29
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:29
+#: transformers.TFFlaubertForSequenceClassification.call:29
+#: transformers.TFFlaubertForTokenClassification.call:29
+#: transformers.TFFlaubertModel.call:29
+#: transformers.TFFlaubertWithLMHeadModel.call:29
+msgid ""
+"See usage examples detailed in the :doc:`multilingual documentation "
+"<../multilingual>`."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:31
+#: transformers.FlaubertForQuestionAnswering.forward:31
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:31
+#: transformers.FlaubertForSequenceClassification.forward:31
+#: transformers.FlaubertForTokenClassification.forward:31
+#: transformers.FlaubertWithLMHeadModel.forward:31
+#: transformers.TFFlaubertForMultipleChoice.call:31
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:31
+#: transformers.TFFlaubertForSequenceClassification.call:31
+#: transformers.TFFlaubertForTokenClassification.call:31
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:37
+#: transformers.FlaubertForQuestionAnswering.forward:37
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:37
+#: transformers.FlaubertForSequenceClassification.forward:37
+#: transformers.FlaubertForTokenClassification.forward:37
+#: transformers.FlaubertWithLMHeadModel.forward:37
+#: transformers.TFFlaubertForMultipleChoice.call:37
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:37
+#: transformers.TFFlaubertForSequenceClassification.call:37
+#: transformers.TFFlaubertForTokenClassification.call:37
+#: transformers.TFFlaubertModel.call:37
+#: transformers.TFFlaubertWithLMHeadModel.call:37
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:39
+#: transformers.FlaubertForQuestionAnswering.forward:39
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:39
+#: transformers.FlaubertForSequenceClassification.forward:39
+#: transformers.FlaubertForTokenClassification.forward:39
+#: transformers.FlaubertWithLMHeadModel.forward:39
+#: transformers.TFFlaubertForMultipleChoice.call:39
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:39
+#: transformers.TFFlaubertForSequenceClassification.call:39
+#: transformers.TFFlaubertForTokenClassification.call:39
+#: transformers.TFFlaubertModel.call:39
+#: transformers.TFFlaubertWithLMHeadModel.call:39
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:42
+#: transformers.FlaubertForQuestionAnswering.forward:42
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:42
+#: transformers.FlaubertForSequenceClassification.forward:42
+#: transformers.FlaubertForTokenClassification.forward:42
+#: transformers.FlaubertWithLMHeadModel.forward:42
+#: transformers.TFFlaubertForMultipleChoice.call:42
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:42
+#: transformers.TFFlaubertForSequenceClassification.call:42
+#: transformers.TFFlaubertForTokenClassification.call:42
+#: transformers.TFFlaubertModel.call:42
+#: transformers.TFFlaubertWithLMHeadModel.call:42
+msgid "`What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:44
+#: transformers.FlaubertForQuestionAnswering.forward:44
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:44
+#: transformers.FlaubertForSequenceClassification.forward:44
+#: transformers.FlaubertForTokenClassification.forward:44
+#: transformers.FlaubertWithLMHeadModel.forward:44
+#: transformers.TFFlaubertForMultipleChoice.call:44
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:44
+#: transformers.TFFlaubertForSequenceClassification.call:44
+#: transformers.TFFlaubertForTokenClassification.call:44
+msgid ""
+"Length of each sentence that can be used to avoid performing attention on"
+" padding token indices. You can also use `attention_mask` for the same "
+"result (see above), kept here for compatibility. Indices selected in "
+"``[0, ..., input_ids.size(-1)]``."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:48
+#: transformers.FlaubertForQuestionAnswering.forward:48
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:48
+#: transformers.FlaubertForSequenceClassification.forward:48
+#: transformers.FlaubertForTokenClassification.forward:48
+#: transformers.FlaubertWithLMHeadModel.forward:48
+#: transformers.TFFlaubertForMultipleChoice.call:48
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:48
+#: transformers.TFFlaubertForSequenceClassification.call:48
+#: transformers.TFFlaubertForTokenClassification.call:48
+msgid ""
+"Dictionary string to ``torch.FloatTensor`` that contains precomputed "
+"hidden states (key and values in the attention blocks) as computed by the"
+" model (see :obj:`cache` output below). Can be used to speed up "
+"sequential decoding.  The dictionary object will be modified in-place "
+"during the forward pass to add newly computed hidden-states."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:48
+#: transformers.FlaubertForQuestionAnswering.forward:48
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:48
+#: transformers.FlaubertForSequenceClassification.forward:48
+#: transformers.FlaubertForTokenClassification.forward:48
+#: transformers.FlaubertWithLMHeadModel.forward:48
+#: transformers.TFFlaubertForMultipleChoice.call:48
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:48
+#: transformers.TFFlaubertForSequenceClassification.call:48
+#: transformers.TFFlaubertForTokenClassification.call:48
+msgid ""
+"Dictionary string to ``torch.FloatTensor`` that contains precomputed "
+"hidden states (key and values in the attention blocks) as computed by the"
+" model (see :obj:`cache` output below). Can be used to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:52
+#: transformers.FlaubertForQuestionAnswering.forward:52
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:52
+#: transformers.FlaubertForSequenceClassification.forward:52
+#: transformers.FlaubertForTokenClassification.forward:52
+#: transformers.FlaubertWithLMHeadModel.forward:52
+#: transformers.TFFlaubertForMultipleChoice.call:52
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:52
+#: transformers.TFFlaubertForSequenceClassification.call:52
+#: transformers.TFFlaubertForTokenClassification.call:52
+#: transformers.TFFlaubertModel.call:52
+#: transformers.TFFlaubertWithLMHeadModel.call:52
+msgid ""
+"The dictionary object will be modified in-place during the forward pass "
+"to add newly computed hidden-states."
+msgstr ""
+
+#: of transformers.FlaubertWithLMHeadModel.forward:72
+msgid ""
+"Labels for language modeling. Note that the labels **are shifted** inside"
+" the model, i.e. you can set ``labels = input_ids`` Indices are selected "
+"in ``[-100, 0, ..., config.vocab_size]`` All labels set to ``-100`` are "
+"ignored (masked), the loss is only computed for labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.FlaubertWithLMHeadModel.forward:77
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.FlaubertWithLMHeadModel.forward:77
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FlaubertWithLMHeadModel.forward:81
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.FlaubertWithLMHeadModel.forward:82
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaubertWithLMHeadModel.forward:92
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:71
+msgid "FlaubertForSequenceClassification"
+msgstr ""
+
+#: of transformers.FlaubertForSequenceClassification:1
+#: transformers.TFFlaubertForSequenceClassification:1
+msgid ""
+"Flaubert Model with a sequence classification/regression head on top (a "
+"linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.FlaubertForSequenceClassification:19
+msgid ""
+"This class overrides :class:`~transformers.XLMForSequenceClassification`."
+" Please check the superclass for the appropriate documentation alongside "
+"usage examples."
+msgstr ""
+
+#: of transformers.FlaubertForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.XLMForSequenceClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaubertForSequenceClassification.forward:72
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.FlaubertForSequenceClassification.forward:77
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.FlaubertForSequenceClassification.forward:77
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FlaubertForSequenceClassification.forward:81
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.FlaubertForSequenceClassification.forward:82
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaubertForSequenceClassification.forward:92
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:78
+msgid "FlaubertForMultipleChoice"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice:1
+#: transformers.TFFlaubertForMultipleChoice:1
+msgid ""
+"Flaubert Model with a multiple choice classification head on top (a "
+"linear layer on top of the pooled output and a softmax) e.g. for "
+"RocStories/SWAG tasks."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice:19
+msgid ""
+"This class overrides :class:`~transformers.XLMForMultipleChoice`. Please "
+"check the superclass for the appropriate documentation alongside usage "
+"examples."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.XLMForMultipleChoice` forward method, overrides"
+" the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:72
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:77
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss. - **logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, num_choices)`) -- "
+"`num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:77
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:81
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:82
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:84
+#: transformers.TFFlaubertForMultipleChoice.call:86
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaubertForMultipleChoice.forward:94
+msgid ""
+":class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:85
+msgid "FlaubertForTokenClassification"
+msgstr ""
+
+#: of transformers.FlaubertForTokenClassification:1
+#: transformers.TFFlaubertForTokenClassification:1
+msgid ""
+"Flaubert Model with a token classification head on top (a linear layer on"
+" top of the hidden-states output) e.g. for Named-Entity-Recognition (NER)"
+" tasks."
+msgstr ""
+
+#: of transformers.FlaubertForTokenClassification:19
+msgid ""
+"This class overrides :class:`~transformers.XLMForTokenClassification`. "
+"Please check the superclass for the appropriate documentation alongside "
+"usage examples."
+msgstr ""
+
+#: of transformers.FlaubertForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.XLMForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaubertForTokenClassification.forward:72
+#: transformers.TFFlaubertForTokenClassification.call:78
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.FlaubertForTokenClassification.forward:76
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.FlaubertForTokenClassification.forward:76
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FlaubertForTokenClassification.forward:80
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.FlaubertForTokenClassification.forward:81
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.FlaubertForTokenClassification.forward:91
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:92
+msgid "FlaubertForQuestionAnsweringSimple"
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnsweringSimple:1
+msgid ""
+"Flaubert Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnsweringSimple:19
+msgid ""
+"This class overrides "
+":class:`~transformers.XLMForQuestionAnsweringSimple`. Please check the "
+"superclass for the appropriate documentation alongside usage examples."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnsweringSimple.forward:1
+msgid ""
+"The :class:`~transformers.XLMForQuestionAnsweringSimple` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering.forward:72
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:72
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:78
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering.forward:76
+#: transformers.FlaubertForQuestionAnsweringSimple.forward:76
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:82
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnsweringSimple.forward:81
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLMConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnsweringSimple.forward:81
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLMConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnsweringSimple.forward:85
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnsweringSimple.forward:86
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnsweringSimple.forward:87
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnsweringSimple.forward:97
+msgid ""
+":class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:99
+msgid "FlaubertForQuestionAnswering"
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering:1
+msgid ""
+"Flaubert Model with a beam-search span classification head on top for "
+"extractive question-answering tasks like SQuAD (a linear layers on top of"
+" the hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering:19
+msgid ""
+"This class overrides :class:`~transformers.XLMForQuestionAnswering`. "
+"Please check the superclass for the appropriate documentation alongside "
+"usage examples."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.XLMForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering.forward:80
+msgid "Labels whether a question has an answer or no answer (SQuAD 2.0)"
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering.forward:82
+msgid ""
+"Labels for position (index) of the classification token to use as input "
+"for computing plausibility of the answer."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering.forward:85
+msgid ""
+"Optional mask of tokens which can't be in answers (e.g. [CLS], [PAD], "
+"...). 1.0 means token should be masked. 0.0 mean token is not masked."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering.forward:89
+msgid ""
+"A "
+":class:`~transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLMConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned if both :obj:`start_positions` and "
+":obj:`end_positions` are provided) -- Classification loss as the sum of "
+"start token, end token (and is_impossible if provided) classification   "
+"losses. - **start_top_log_probs** (``torch.FloatTensor`` of shape "
+"``(batch_size, config.start_n_top)``, `optional`, returned if "
+"``start_positions`` or ``end_positions`` is not provided) -- Log "
+"probabilities for the top config.start_n_top start token possibilities "
+"(beam-search). - **start_top_index** (``torch.LongTensor`` of shape "
+"``(batch_size, config.start_n_top)``, `optional`, returned if "
+"``start_positions`` or ``end_positions`` is not provided) -- Indices for "
+"the top config.start_n_top start token possibilities (beam-search). - "
+"**end_top_log_probs** (``torch.FloatTensor`` of shape ``(batch_size, "
+"config.start_n_top * config.end_n_top)``, `optional`, returned if "
+"``start_positions`` or ``end_positions`` is not provided) -- Log "
+"probabilities for the top ``config.start_n_top * config.end_n_top`` end "
+"token possibilities   (beam-search). - **end_top_index** "
+"(``torch.LongTensor`` of shape ``(batch_size, config.start_n_top * "
+"config.end_n_top)``, `optional`, returned if ``start_positions`` or "
+"``end_positions`` is not provided) -- Indices for the top "
+"``config.start_n_top * config.end_n_top`` end token possibilities (beam-"
+"search). - **cls_logits** (``torch.FloatTensor`` of shape "
+"``(batch_size,)``, `optional`, returned if ``start_positions`` or "
+"``end_positions`` is not provided) -- Log probabilities for the "
+"``is_impossible`` label of the answers. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Example::      >>> from transformers import "
+"XLMTokenizer, XLMForQuestionAnswering     >>> import torch      >>> "
+"tokenizer = XLMTokenizer.from_pretrained('xlm-mlm-en-2048')     >>> model"
+" = XLMForQuestionAnswering.from_pretrained('xlm-mlm-en-2048')      >>> "
+"input_ids = torch.tensor(tokenizer.encode(\"Hello, my dog is cute\", "
+"add_special_tokens=True)).unsqueeze(0)  # Batch size 1     >>> "
+"start_positions = torch.tensor([1])     >>> end_positions = "
+"torch.tensor([3])      >>> outputs = model(input_ids, "
+"start_positions=start_positions, end_positions=end_positions)     >>> "
+"loss = outputs.loss"
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering.forward:89
+msgid ""
+"A "
+":class:`~transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLMConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering.forward:93
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned if both :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Classification loss as the sum of start token, end token "
+"(and is_impossible if provided) classification losses."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering.forward:95
+msgid ""
+"**start_top_log_probs** (``torch.FloatTensor`` of shape ``(batch_size, "
+"config.start_n_top)``, `optional`, returned if ``start_positions`` or "
+"``end_positions`` is not provided) -- Log probabilities for the top "
+"config.start_n_top start token possibilities (beam-search)."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering.forward:96
+msgid ""
+"**start_top_index** (``torch.LongTensor`` of shape ``(batch_size, "
+"config.start_n_top)``, `optional`, returned if ``start_positions`` or "
+"``end_positions`` is not provided) -- Indices for the top "
+"config.start_n_top start token possibilities (beam-search)."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering.forward:97
+msgid ""
+"**end_top_log_probs** (``torch.FloatTensor`` of shape ``(batch_size, "
+"config.start_n_top * config.end_n_top)``, `optional`, returned if "
+"``start_positions`` or ``end_positions`` is not provided) -- Log "
+"probabilities for the top ``config.start_n_top * config.end_n_top`` end "
+"token possibilities (beam-search)."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering.forward:99
+msgid ""
+"**end_top_index** (``torch.LongTensor`` of shape ``(batch_size, "
+"config.start_n_top * config.end_n_top)``, `optional`, returned if "
+"``start_positions`` or ``end_positions`` is not provided) -- Indices for "
+"the top ``config.start_n_top * config.end_n_top`` end token possibilities"
+" (beam-search)."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering.forward:100
+msgid ""
+"**cls_logits** (``torch.FloatTensor`` of shape ``(batch_size,)``, "
+"`optional`, returned if ``start_positions`` or ``end_positions`` is not "
+"provided) -- Log probabilities for the ``is_impossible`` label of the "
+"answers."
+msgstr ""
+
+#: of transformers.FlaubertForQuestionAnswering.forward:126
+msgid ""
+":class:`~transformers.models.xlm.modeling_xlm.XLMForQuestionAnsweringOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:106
+msgid "TFFlaubertModel"
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice:5
+#: transformers.TFFlaubertForQuestionAnsweringSimple:5
+#: transformers.TFFlaubertForSequenceClassification:5
+#: transformers.TFFlaubertForTokenClassification:5
+#: transformers.TFFlaubertModel:3 transformers.TFFlaubertWithLMHeadModel:5
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice:9
+#: transformers.TFFlaubertForQuestionAnsweringSimple:9
+#: transformers.TFFlaubertForSequenceClassification:9
+#: transformers.TFFlaubertForTokenClassification:9
+#: transformers.TFFlaubertModel:7 transformers.TFFlaubertWithLMHeadModel:9
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice:15
+#: transformers.TFFlaubertForQuestionAnsweringSimple:15
+#: transformers.TFFlaubertForSequenceClassification:15
+#: transformers.TFFlaubertForTokenClassification:15
+#: transformers.TFFlaubertModel:13 transformers.TFFlaubertWithLMHeadModel:15
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice:17
+#: transformers.TFFlaubertForQuestionAnsweringSimple:17
+#: transformers.TFFlaubertForSequenceClassification:17
+#: transformers.TFFlaubertForTokenClassification:17
+#: transformers.TFFlaubertModel:15 transformers.TFFlaubertWithLMHeadModel:17
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice:18
+#: transformers.TFFlaubertForQuestionAnsweringSimple:18
+#: transformers.TFFlaubertForSequenceClassification:18
+#: transformers.TFFlaubertForTokenClassification:18
+#: transformers.TFFlaubertModel:16 transformers.TFFlaubertWithLMHeadModel:18
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice:20
+#: transformers.TFFlaubertForQuestionAnsweringSimple:20
+#: transformers.TFFlaubertForSequenceClassification:20
+#: transformers.TFFlaubertForTokenClassification:20
+#: transformers.TFFlaubertModel:18 transformers.TFFlaubertWithLMHeadModel:20
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice:23
+#: transformers.TFFlaubertForQuestionAnsweringSimple:23
+#: transformers.TFFlaubertForSequenceClassification:23
+#: transformers.TFFlaubertForTokenClassification:23
+#: transformers.TFFlaubertModel:21 transformers.TFFlaubertWithLMHeadModel:23
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice:26
+#: transformers.TFFlaubertForQuestionAnsweringSimple:26
+#: transformers.TFFlaubertForSequenceClassification:26
+#: transformers.TFFlaubertForTokenClassification:26
+#: transformers.TFFlaubertModel:24 transformers.TFFlaubertWithLMHeadModel:26
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice:27
+#: transformers.TFFlaubertForQuestionAnsweringSimple:27
+#: transformers.TFFlaubertForSequenceClassification:27
+#: transformers.TFFlaubertForTokenClassification:27
+#: transformers.TFFlaubertModel:25 transformers.TFFlaubertWithLMHeadModel:27
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice:29
+#: transformers.TFFlaubertForQuestionAnsweringSimple:29
+#: transformers.TFFlaubertForSequenceClassification:29
+#: transformers.TFFlaubertForTokenClassification:29
+#: transformers.TFFlaubertModel:27 transformers.TFFlaubertWithLMHeadModel:29
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:1
+msgid ""
+"The :class:`~transformers.TFFlaubertModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:8
+#: transformers.TFFlaubertWithLMHeadModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.FlaubertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:10
+#: transformers.TFFlaubertWithLMHeadModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.FlaubertTokenizer`. "
+"See :func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:16
+#: transformers.TFFlaubertWithLMHeadModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - ``1`` for tokens that are **not masked**, - "
+"``0`` for tokens that are **masked**.  `What are attention masks? "
+"<../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:18
+#: transformers.TFFlaubertWithLMHeadModel.call:18
+msgid "``1`` for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:19
+#: transformers.TFFlaubertWithLMHeadModel.call:19
+msgid "``0`` for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:31
+#: transformers.TFFlaubertWithLMHeadModel.call:31
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - ``0`` corresponds to a "
+"`sentence A` token, - ``1`` corresponds to a `sentence B` token.  `What "
+"are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:34
+#: transformers.TFFlaubertWithLMHeadModel.call:34
+msgid "``0`` corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:35
+#: transformers.TFFlaubertWithLMHeadModel.call:35
+msgid "``1`` corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:44
+#: transformers.TFFlaubertWithLMHeadModel.call:44
+msgid ""
+"Length of each sentence that can be used to avoid performing attention on"
+" padding token indices. You can also use `attention_mask` for the same "
+"result (see above), kept here for compatibility Indices selected in ``[0,"
+" ..., input_ids.size(-1)]``:"
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:48
+#: transformers.TFFlaubertWithLMHeadModel.call:48
+msgid ""
+"Dictionary string to ``tf.FloatTensor`` that contains precomputed hidden "
+"states (key and values in the attention blocks) as computed by the model "
+"(see :obj:`cache` output below). Can be used to speed up sequential "
+"decoding.  The dictionary object will be modified in-place during the "
+"forward pass to add newly computed hidden-states."
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:48
+#: transformers.TFFlaubertWithLMHeadModel.call:48
+msgid ""
+"Dictionary string to ``tf.FloatTensor`` that contains precomputed hidden "
+"states (key and values in the attention blocks) as computed by the model "
+"(see :obj:`cache` output below). Can be used to speed up sequential "
+"decoding."
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:55
+#: transformers.TFFlaubertWithLMHeadModel.call:55
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - ``1`` indicates the head is **not masked**, -"
+" ``0`` indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:57
+#: transformers.TFFlaubertWithLMHeadModel.call:57
+msgid "``1`` indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:58
+#: transformers.TFFlaubertWithLMHeadModel.call:58
+msgid "``0`` indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice.call:64
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:64
+#: transformers.TFFlaubertForSequenceClassification.call:64
+#: transformers.TFFlaubertForTokenClassification.call:64
+#: transformers.TFFlaubertModel.call:64
+#: transformers.TFFlaubertWithLMHeadModel.call:64
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice.call:68
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:68
+#: transformers.TFFlaubertForSequenceClassification.call:68
+#: transformers.TFFlaubertForTokenClassification.call:68
+#: transformers.TFFlaubertModel.call:68
+#: transformers.TFFlaubertWithLMHeadModel.call:68
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice.call:72
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:72
+#: transformers.TFFlaubertForSequenceClassification.call:72
+#: transformers.TFFlaubertForTokenClassification.call:72
+#: transformers.TFFlaubertModel.call:72
+#: transformers.TFFlaubertWithLMHeadModel.call:72
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice.call:75
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:75
+#: transformers.TFFlaubertForSequenceClassification.call:75
+#: transformers.TFFlaubertForTokenClassification.call:75
+#: transformers.TFFlaubertModel.call:75
+#: transformers.TFFlaubertWithLMHeadModel.call:75
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:79
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FlaubertConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(tf.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:79
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FlaubertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:83
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:84
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice.call:91
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:98
+#: transformers.TFFlaubertForSequenceClassification.call:93
+#: transformers.TFFlaubertForTokenClassification.call:92
+#: transformers.TFFlaubertModel.call:88
+#: transformers.TFFlaubertWithLMHeadModel.call:88
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFFlaubertModel.call:93
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:113
+msgid "TFFlaubertWithLMHeadModel"
+msgstr ""
+
+#: of transformers.TFFlaubertWithLMHeadModel.call:1
+msgid ""
+"The :class:`~transformers.TFFlaubertWithLMHeadModel` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFFlaubertWithLMHeadModel.call:79
+msgid ""
+"A "
+":class:`~transformers.models.flaubert.modeling_tf_flaubert.TFFlaubertWithLMHeadModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FlaubertConfig`) and inputs."
+"  - **logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFFlaubertWithLMHeadModel.call:79
+msgid ""
+"A "
+":class:`~transformers.models.flaubert.modeling_tf_flaubert.TFFlaubertWithLMHeadModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.FlaubertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFFlaubertWithLMHeadModel.call:83
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice.call:87
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:94
+#: transformers.TFFlaubertForSequenceClassification.call:89
+#: transformers.TFFlaubertForTokenClassification.call:88
+#: transformers.TFFlaubertWithLMHeadModel.call:84
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFFlaubertWithLMHeadModel.call:93
+msgid ""
+":class:`~transformers.models.flaubert.modeling_tf_flaubert.TFFlaubertWithLMHeadModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:120
+msgid "TFFlaubertForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFFlaubertForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFXLMForSequenceClassification` forward method,"
+" overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice.call:8
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:8
+#: transformers.TFFlaubertForSequenceClassification.call:8
+#: transformers.TFFlaubertForTokenClassification.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.BertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice.call:10
+#: transformers.TFFlaubertForQuestionAnsweringSimple.call:10
+#: transformers.TFFlaubertForSequenceClassification.call:10
+#: transformers.TFFlaubertForTokenClassification.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.BertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFFlaubertForSequenceClassification.call:78
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in ``[0, ..., config.num_labels - 1]``. If ``config.num_labels"
+" == 1`` a regression loss is computed (Mean-Square loss), If "
+"``config.num_labels > 1`` a classification loss is computed (Cross-"
+"Entropy)."
+msgstr ""
+
+#: of transformers.TFFlaubertForSequenceClassification.call:83
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, config.num_labels)`) -- Classification (or regression "
+"if config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFFlaubertForSequenceClassification.call:83
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFFlaubertForSequenceClassification.call:87
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFFlaubertForSequenceClassification.call:88
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFFlaubertForSequenceClassification.call:98
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:127
+msgid "TFFlaubertForMultipleChoice"
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice.call:1
+msgid ""
+"The :class:`~transformers.TFXLMForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice.call:79
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss. - "
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice.call:79
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice.call:83
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice.call:84
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.TFFlaubertForMultipleChoice.call:96
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` or"
+" :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:134
+msgid "TFFlaubertForTokenClassification"
+msgstr ""
+
+#: of transformers.TFFlaubertForTokenClassification.call:1
+msgid ""
+"The :class:`~transformers.TFXLMForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFFlaubertForTokenClassification.call:82
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, config.num_labels)`) -- "
+"Classification scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFFlaubertForTokenClassification.call:82
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFFlaubertForTokenClassification.call:86
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss."
+msgstr ""
+
+#: of transformers.TFFlaubertForTokenClassification.call:87
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.num_labels)`) -- Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFFlaubertForTokenClassification.call:97
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/flaubert.rst:141
+msgid "TFFlaubertForQuestionAnsweringSimple"
+msgstr ""
+
+#: of transformers.TFFlaubertForQuestionAnsweringSimple:1
+msgid ""
+"Flaubert Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layer on top of the hidden-"
+"states output to compute `span start logits` and `span end logits`)."
+msgstr ""
+
+#: of transformers.TFFlaubertForQuestionAnsweringSimple.call:1
+msgid ""
+"The :class:`~transformers.TFXLMForQuestionAnsweringSimple` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFFlaubertForQuestionAnsweringSimple.call:87
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions. - **start_logits** (:obj:`tf.Tensor` of "
+"shape :obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFFlaubertForQuestionAnsweringSimple.call:87
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFFlaubertForQuestionAnsweringSimple.call:91
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions."
+msgstr ""
+
+#: of transformers.TFFlaubertForQuestionAnsweringSimple.call:92
+msgid ""
+"**start_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFFlaubertForQuestionAnsweringSimple.call:93
+msgid ""
+"**end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFFlaubertForQuestionAnsweringSimple.call:103
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+

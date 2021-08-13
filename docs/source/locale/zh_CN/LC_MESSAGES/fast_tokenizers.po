@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/fast_tokenizers.rst:2
+msgid "Using tokenizers from 🤗 Tokenizers"
+msgstr ""
+
+#: ../../source/fast_tokenizers.rst:4
+msgid ""
+"The :class:`~transformers.PreTrainedTokenizerFast` depends on the "
+"`tokenizers <https://huggingface.co/docs/tokenizers>`__ library. The "
+"tokenizers obtained from the 🤗 Tokenizers library can be loaded very "
+"simply into 🤗 Transformers."
+msgstr ""
+
+#: ../../source/fast_tokenizers.rst:8
+msgid ""
+"Before getting in the specifics, let's first start by creating a dummy "
+"tokenizer in a few lines:"
+msgstr ""
+
+#: ../../source/fast_tokenizers.rst:24
+msgid ""
+"We now have a tokenizer trained on the files we defined. We can either "
+"continue using it in that runtime, or save it to a JSON file for future "
+"re-use."
+msgstr ""
+
+#: ../../source/fast_tokenizers.rst:28
+msgid "Loading directly from the tokenizer object"
+msgstr ""
+
+#: ../../source/fast_tokenizers.rst:30
+msgid ""
+"Let's see how to leverage this tokenizer object in the 🤗 Transformers "
+"library. The :class:`~transformers.PreTrainedTokenizerFast` class allows "
+"for easy instantiation, by accepting the instantiated `tokenizer` object "
+"as an argument:"
+msgstr ""
+
+#: ../../source/fast_tokenizers.rst:40 ../../source/fast_tokenizers.rst:61
+msgid ""
+"This object can now be used with all the methods shared by the 🤗 "
+"Transformers tokenizers! Head to :doc:`the tokenizer page "
+"<main_classes/tokenizer>` for more information."
+msgstr ""
+
+#: ../../source/fast_tokenizers.rst:44
+msgid "Loading from a JSON file"
+msgstr ""
+
+#: ../../source/fast_tokenizers.rst:46
+msgid ""
+"In order to load a tokenizer from a JSON file, let's first start by "
+"saving our tokenizer:"
+msgstr ""
+
+#: ../../source/fast_tokenizers.rst:52
+msgid ""
+"The path to which we saved this file can be passed to the "
+":class:`~transformers.PreTrainedTokenizerFast` initialization method "
+"using the :obj:`tokenizer_file` parameter:"
+msgstr ""
+

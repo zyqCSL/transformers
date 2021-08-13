@@ -1,0 +1,1604 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/pretrained_models.rst:14
+msgid "Pretrained models"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:16
+msgid ""
+"Here is a partial list of some of the available pretrained models "
+"together with a short presentation of each model."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:18
+msgid ""
+"For the full list, refer to `https://huggingface.co/models "
+"<https://huggingface.co/models>`__."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:21
+msgid "Architecture"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:21
+msgid "Model id"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:21
+msgid "Details of the model"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:23
+msgid "BERT"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:23
+msgid "``bert-base-uncased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 768-hidden, 12-heads, 110M parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on lower-cased English text."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:26
+msgid "``bert-large-uncased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1024-hidden, 16-heads, 336M parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:29
+msgid "``bert-base-cased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 768-hidden, 12-heads, 109M parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on cased English text."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:32
+msgid "``bert-large-cased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1024-hidden, 16-heads, 335M parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:35
+msgid "``bert-base-multilingual-uncased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"(Original, not recommended) 12-layer, 768-hidden, 12-heads, 168M "
+"parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"Trained on lower-cased text in the top 102 languages with the largest "
+"Wikipedias"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:38 ../../source/pretrained_models.rst:43
+msgid ""
+"(see `details <https://github.com/google-"
+"research/bert/blob/master/multilingual.md>`__)."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:40
+msgid "``bert-base-multilingual-cased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "(New, **recommended**) 12-layer, 768-hidden, 12-heads, 179M parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on cased text in the top 104 languages with the largest Wikipedias"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:45
+msgid "``bert-base-chinese``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 768-hidden, 12-heads, 103M parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on cased Chinese Simplified and Traditional text."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:48
+msgid "``bert-base-german-cased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on cased German text by Deepset.ai"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:51
+msgid "(see `details on deepset.ai website <https://deepset.ai/german-bert>`__)."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:53
+msgid "``bert-large-uncased-whole-word-masking``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on lower-cased English text using Whole-Word-Masking"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:56 ../../source/pretrained_models.rst:61
+msgid "(see `details <https://github.com/google-research/bert/#bert>`__)."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:58
+msgid "``bert-large-cased-whole-word-masking``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on cased English text using Whole-Word-Masking"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:63
+msgid "``bert-large-uncased-whole-word-masking-finetuned-squad``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "The ``bert-large-uncased-whole-word-masking`` model fine-tuned on SQuAD"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:66
+msgid ""
+"(see details of fine-tuning in the `example section "
+"<https://github.com/huggingface/transformers/tree/master/examples>`__)."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:68
+msgid "``bert-large-cased-whole-word-masking-finetuned-squad``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1024-hidden, 16-heads, 335M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "The ``bert-large-cased-whole-word-masking`` model fine-tuned on SQuAD"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:71 ../../source/pretrained_models.rst:76
+msgid ""
+"(see `details of fine-tuning in the example section "
+"<https://huggingface.co/transformers/examples.html>`__)"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:73
+msgid "``bert-base-cased-finetuned-mrpc``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "The ``bert-base-cased`` model fine-tuned on MRPC"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:78
+msgid "``bert-base-german-dbmdz-cased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on cased German text by DBMDZ"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:81 ../../source/pretrained_models.rst:86
+msgid ""
+"(see `details on dbmdz repository <https://github.com/dbmdz/german-"
+"bert>`__)."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:83
+msgid "``bert-base-german-dbmdz-uncased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on uncased German text by DBMDZ"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:88
+msgid "``cl-tohoku/bert-base-japanese``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 768-hidden, 12-heads, 111M parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"Trained on Japanese text. Text is tokenized with MeCab and WordPiece and "
+"this requires some extra dependencies,"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"`fugashi <https://github.com/polm/fugashi>`__ which is a wrapper around "
+"`MeCab <https://taku910.github.io/mecab/>`__."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"Use ``pip install transformers[\"ja\"]`` (or ``pip install -e .[\"ja\"]``"
+" if you install from source) to install them."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:93 ../../source/pretrained_models.rst:100
+#: ../../source/pretrained_models.rst:105
+#: ../../source/pretrained_models.rst:110
+msgid ""
+"(see `details on cl-tohoku repository <https://github.com/cl-tohoku/bert-"
+"japanese>`__)."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:95
+msgid "``cl-tohoku/bert-base-japanese-whole-word-masking``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:102
+msgid "``cl-tohoku/bert-base-japanese-char``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 768-hidden, 12-heads, 90M parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on Japanese text. Text is tokenized into characters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:107
+msgid "``cl-tohoku/bert-base-japanese-char-whole-word-masking``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"Trained on Japanese text using Whole-Word-Masking. Text is tokenized into"
+" characters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:112
+msgid "``TurkuNLP/bert-base-finnish-cased-v1``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 768-hidden, 12-heads, 125M parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on cased Finnish text."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:115
+#: ../../source/pretrained_models.rst:120
+msgid "(see `details on turkunlp.org <http://turkunlp.org/FinBERT/>`__)."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:117
+msgid "``TurkuNLP/bert-base-finnish-uncased-v1``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on uncased Finnish text."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:122
+msgid "``wietsedv/bert-base-dutch-cased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on cased Dutch text."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:125
+msgid ""
+"(see `details on wietsedv repository "
+"<https://github.com/wietsedv/bertje/>`__)."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:127
+msgid "GPT"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:127
+msgid "``openai-gpt``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "OpenAI GPT English model"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:130
+msgid "GPT-2"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:130
+msgid "``gpt2``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 768-hidden, 12-heads, 117M parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "OpenAI GPT-2 English model"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:133
+msgid "``gpt2-medium``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1024-hidden, 16-heads, 345M parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "OpenAI's Medium-sized GPT-2 English model"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:136
+msgid "``gpt2-large``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "36-layer, 1280-hidden, 20-heads, 774M parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "OpenAI's Large-sized GPT-2 English model"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:139
+msgid "``gpt2-xl``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "48-layer, 1600-hidden, 25-heads, 1558M parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "OpenAI's XL-sized GPT-2 English model"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:142
+msgid "GPTNeo"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:142
+msgid "``EleutherAI/gpt-neo-1.3B``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 2048-hidden, 16-heads, 1.3B parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "EleutherAI's GPT-3 like language model."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:145
+msgid "``EleutherAI/gpt-neo-2.7B``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "32-layer, 2560-hidden, 20-heads, 2.7B parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:148
+msgid "Transformer-XL"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:148
+msgid "``transfo-xl-wt103``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "18-layer, 1024-hidden, 16-heads, 257M parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "English model trained on wikitext-103"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:151
+msgid "XLNet"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:151
+msgid "``xlnet-base-cased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "XLNet English model"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:154
+msgid "``xlnet-large-cased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1024-hidden, 16-heads, 340M parameters."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "XLNet Large English model"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:157
+msgid "XLM"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:157
+msgid "``xlm-mlm-en-2048``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 2048-hidden, 16-heads"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "XLM English model"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:160
+msgid "``xlm-mlm-ende-1024``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "6-layer, 1024-hidden, 8-heads"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"XLM English-German model trained on the concatenation of English and "
+"German wikipedia"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:163
+msgid "``xlm-mlm-enfr-1024``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"XLM English-French model trained on the concatenation of English and "
+"French wikipedia"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:166
+msgid "``xlm-mlm-enro-1024``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "XLM English-Romanian Multi-language model"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:169
+msgid "``xlm-mlm-xnli15-1024``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 1024-hidden, 8-heads"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"XLM Model pre-trained with MLM on the `15 XNLI languages "
+"<https://github.com/facebookresearch/XNLI>`__."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:172
+msgid "``xlm-mlm-tlm-xnli15-1024``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"XLM Model pre-trained with MLM + TLM on the `15 XNLI languages "
+"<https://github.com/facebookresearch/XNLI>`__."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:175
+msgid "``xlm-clm-enfr-1024``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"XLM English-French model trained with CLM (Causal Language Modeling) on "
+"the concatenation of English and French wikipedia"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:178
+msgid "``xlm-clm-ende-1024``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"XLM English-German model trained with CLM (Causal Language Modeling) on "
+"the concatenation of English and German wikipedia"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:181
+msgid "``xlm-mlm-17-1280``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "16-layer, 1280-hidden, 16-heads"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "XLM model trained with MLM (Masked Language Modeling) on 17 languages."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:184
+msgid "``xlm-mlm-100-1280``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "XLM model trained with MLM (Masked Language Modeling) on 100 languages."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:187
+msgid "RoBERTa"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:187
+msgid "``roberta-base``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 768-hidden, 12-heads, 125M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "RoBERTa using the BERT-base architecture"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:190
+#: ../../source/pretrained_models.rst:195
+#: ../../source/pretrained_models.rst:200
+msgid ""
+"(see `details "
+"<https://github.com/pytorch/fairseq/tree/master/examples/roberta>`__)"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:192
+msgid "``roberta-large``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1024-hidden, 16-heads, 355M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "RoBERTa using the BERT-large architecture"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:197
+msgid "``roberta-large-mnli``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"``roberta-large`` fine-tuned on `MNLI "
+"<http://www.nyu.edu/projects/bowman/multinli/>`__."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:202
+msgid "``distilroberta-base``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "6-layer, 768-hidden, 12-heads, 82M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"The DistilRoBERTa model distilled from the RoBERTa model `roberta-base` "
+"checkpoint."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:205
+#: ../../source/pretrained_models.rst:220
+#: ../../source/pretrained_models.rst:225
+#: ../../source/pretrained_models.rst:230
+#: ../../source/pretrained_models.rst:235
+#: ../../source/pretrained_models.rst:240
+#: ../../source/pretrained_models.rst:245
+#: ../../source/pretrained_models.rst:250
+msgid ""
+"(see `details "
+"<https://github.com/huggingface/transformers/tree/master/examples/distillation>`__)"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:207
+msgid "``roberta-base-openai-detector``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"``roberta-base`` fine-tuned by OpenAI on the outputs of the 1.5B-"
+"parameter GPT-2 model."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:210
+#: ../../source/pretrained_models.rst:215
+msgid ""
+"(see `details <https://github.com/openai/gpt-2-output-"
+"dataset/tree/master/detector>`__)"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:212
+msgid "``roberta-large-openai-detector``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"``roberta-large`` fine-tuned by OpenAI on the outputs of the 1.5B-"
+"parameter GPT-2 model."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:217
+msgid "DistilBERT"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:217
+msgid "``distilbert-base-uncased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "6-layer, 768-hidden, 12-heads, 66M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"The DistilBERT model distilled from the BERT model `bert-base-uncased` "
+"checkpoint"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:222
+msgid "``distilbert-base-uncased-distilled-squad``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"The DistilBERT model distilled from the BERT model `bert-base-uncased` "
+"checkpoint, with an additional linear layer."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:227
+msgid "``distilbert-base-cased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "6-layer, 768-hidden, 12-heads, 65M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"The DistilBERT model distilled from the BERT model `bert-base-cased` "
+"checkpoint"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:232
+msgid "``distilbert-base-cased-distilled-squad``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"The DistilBERT model distilled from the BERT model `bert-base-cased` "
+"checkpoint, with an additional question answering layer."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:237
+msgid "``distilgpt2``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "The DistilGPT2 model distilled from the GPT2 model `gpt2` checkpoint."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:242
+msgid "``distilbert-base-german-cased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"The German DistilBERT model distilled from the German DBMDZ BERT model "
+"`bert-base-german-dbmdz-cased` checkpoint."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:247
+msgid "``distilbert-base-multilingual-cased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "6-layer, 768-hidden, 12-heads, 134M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"The multilingual DistilBERT model distilled from the Multilingual BERT "
+"model `bert-base-multilingual-cased` checkpoint."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:252
+msgid "CTRL"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:252
+msgid "``ctrl``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "48-layer, 1280-hidden, 16-heads, 1.6B parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Salesforce's Large-sized CTRL English model"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:255
+msgid "CamemBERT"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:255
+msgid "``camembert-base``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 768-hidden, 12-heads, 110M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "CamemBERT using the BERT-base architecture"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:258
+msgid ""
+"(see `details "
+"<https://github.com/pytorch/fairseq/tree/master/examples/camembert>`__)"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:260
+msgid "ALBERT"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:260
+msgid "``albert-base-v1``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12 repeating layers, 128 embedding, 768-hidden, 12-heads, 11M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "ALBERT base model"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:263
+#: ../../source/pretrained_models.rst:268
+#: ../../source/pretrained_models.rst:273
+#: ../../source/pretrained_models.rst:278
+#: ../../source/pretrained_models.rst:283
+#: ../../source/pretrained_models.rst:288
+#: ../../source/pretrained_models.rst:293
+#: ../../source/pretrained_models.rst:298
+msgid "(see `details <https://github.com/google-research/ALBERT>`__)"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:265
+msgid "``albert-large-v1``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24 repeating layers, 128 embedding, 1024-hidden, 16-heads, 17M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "ALBERT large model"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:270
+msgid "``albert-xlarge-v1``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24 repeating layers, 128 embedding, 2048-hidden, 16-heads, 58M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "ALBERT xlarge model"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:275
+msgid "``albert-xxlarge-v1``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12 repeating layer, 128 embedding, 4096-hidden, 64-heads, 223M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "ALBERT xxlarge model"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:280
+msgid "``albert-base-v2``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"ALBERT base model with no dropout, additional training data and longer "
+"training"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:285
+msgid "``albert-large-v2``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"ALBERT large model with no dropout, additional training data and longer "
+"training"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:290
+msgid "``albert-xlarge-v2``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"ALBERT xlarge model with no dropout, additional training data and longer "
+"training"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:295
+msgid "``albert-xxlarge-v2``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"ALBERT xxlarge model with no dropout, additional training data and longer"
+" training"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:300
+msgid "T5"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:300
+msgid "``t5-small``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"~60M parameters with 6-layers, 512-hidden-state, 2048 feed-forward "
+"hidden-state, 8-heads,"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on English text: the Colossal Clean Crawled Corpus (C4)"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:303
+msgid "``t5-base``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"~220M parameters with 12-layers, 768-hidden-state, 3072 feed-forward "
+"hidden-state, 12-heads,"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:306
+msgid "``t5-large``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"~770M parameters with 24-layers, 1024-hidden-state, 4096 feed-forward "
+"hidden-state, 16-heads,"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:309
+msgid "``t5-3B``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"~2.8B parameters with 24-layers, 1024-hidden-state, 16384 feed-forward "
+"hidden-state, 32-heads,"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:312
+msgid "``t5-11B``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"~11B parameters with 24-layers, 1024-hidden-state, 65536 feed-forward "
+"hidden-state, 128-heads,"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:315
+msgid "XLM-RoBERTa"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:315
+msgid "``xlm-roberta-base``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"~270M parameters with 12-layers, 768-hidden-state, 3072 feed-forward "
+"hidden-state, 8-heads,"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"Trained on on 2.5 TB of newly created clean CommonCrawl data in 100 "
+"languages"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:318
+msgid "``xlm-roberta-large``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"~550M parameters with 24-layers, 1024-hidden-state, 4096 feed-forward "
+"hidden-state, 16-heads,"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on 2.5 TB of newly created clean CommonCrawl data in 100 languages"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:321
+msgid "FlauBERT"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:321
+msgid "``flaubert/flaubert_small_cased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "6-layer, 512-hidden, 8-heads, 54M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "FlauBERT small architecture"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:324
+#: ../../source/pretrained_models.rst:329
+#: ../../source/pretrained_models.rst:334
+#: ../../source/pretrained_models.rst:339
+msgid "(see `details <https://github.com/getalp/Flaubert>`__)"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:326
+msgid "``flaubert/flaubert_base_uncased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 768-hidden, 12-heads, 137M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "FlauBERT base architecture with uncased vocabulary"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:331
+msgid "``flaubert/flaubert_base_cased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 768-hidden, 12-heads, 138M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "FlauBERT base architecture with cased vocabulary"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:336
+msgid "``flaubert/flaubert_large_cased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1024-hidden, 16-heads, 373M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "FlauBERT large architecture"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:341
+msgid "Bart"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:341
+msgid "``facebook/bart-large``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1024-hidden, 16-heads, 406M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:343
+msgid ""
+"(see `details "
+"<https://github.com/pytorch/fairseq/tree/master/examples/bart>`_)"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:345
+msgid "``facebook/bart-base``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 768-hidden, 16-heads, 139M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:347
+msgid "``facebook/bart-large-mnli``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Adds a 2 layer classification head with 1 million parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "bart-large base architecture with a classification head, finetuned on MNLI"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:350
+msgid "``facebook/bart-large-cnn``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1024-hidden, 16-heads, 406M parameters       (same as large)"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "bart-large base architecture finetuned on cnn summarization task"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:353
+msgid "BARThez"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:353
+msgid "``moussaKam/barthez``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer,  768-hidden, 12-heads, 216M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:355
+msgid "(see `details <https://github.com/moussaKam/BARThez>`__)"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:357
+msgid "``moussaKam/mbarthez``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1024-hidden, 16-heads, 561M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:359
+msgid "DialoGPT"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:359
+msgid "``DialoGPT-small``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 768-hidden, 12-heads, 124M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"Trained on English text: 147M conversation-like exchanges extracted from "
+"Reddit."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:362
+msgid "``DialoGPT-medium``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:365
+msgid "``DialoGPT-large``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "36-layer, 1280-hidden, 20-heads, 774M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:368
+msgid "Reformer"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:368
+msgid "``reformer-enwik8``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 1024-hidden, 8-heads, 149M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on English Wikipedia data - enwik8."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:371
+msgid "``reformer-crime-and-punishment``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "6-layer, 256-hidden, 2-heads, 3M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "Trained on English text: Crime and Punishment novel by Fyodor Dostoyevsky."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:374
+msgid "M2M100"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:374
+msgid "``facebook/m2m100_418M``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1024-hidden, 16-heads, 418M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "multilingual machine translation model for 100 languages"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:377
+msgid "``facebook/m2m100_1.2B``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "48-layer, 1024-hidden, 16-heads, 1.2B parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:380
+msgid "MarianMT"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:380
+msgid "``Helsinki-NLP/opus-mt-{src}-{tgt}``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"12-layer, 512-hidden, 8-heads, ~74M parameter Machine translation models."
+" Parameter counts vary depending on vocab size."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "(see `model list <https://huggingface.co/Helsinki-NLP>`_)"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:383
+msgid "Pegasus"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:383
+msgid "``google/pegasus-{dataset}``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"16-layer, 1024-hidden, 16-heads, ~568M parameter, 2.2 GB for summary. "
+"`model list <https://huggingface.co/models?search=pegasus>`__"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:385
+msgid "Longformer"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:385
+msgid "``allenai/longformer-base-4096``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 768-hidden, 12-heads, ~149M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"Starting from RoBERTa-base checkpoint, trained on documents of max length"
+" 4,096"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:388
+msgid "``allenai/longformer-large-4096``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1024-hidden, 16-heads, ~435M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"Starting from RoBERTa-large checkpoint, trained on documents of max "
+"length 4,096"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:391
+msgid "MBart"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:391
+msgid "``facebook/mbart-large-cc25``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1024-hidden, 16-heads, 610M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"mBART (bart-large architecture) model trained on 25 languages' "
+"monolingual corpus"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:394
+msgid "``facebook/mbart-large-en-ro``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "mbart-large-cc25 model finetuned on WMT english romanian translation."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:397
+msgid "``facebook/mbart-large-50``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1024-hidden, 16-heads,"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "mBART model trained on 50 languages' monolingual corpus."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:400
+msgid "``facebook/mbart-large-50-one-to-many-mmt``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"mbart-50-large model finetuned for one (English) to many multilingual "
+"machine translation covering 50 languages."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:403
+msgid "``facebook/mbart-large-50-many-to-many-mmt``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"mbart-50-large model finetuned for many to many multilingual machine "
+"translation covering 50 languages."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:406
+msgid "Lxmert"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:406
+msgid "``lxmert-base-uncased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "9-language layers, 9-relationship layers, and 12-cross-modality layers"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "768-hidden, 12-heads (for each layer) ~ 228M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"Starting from lxmert-base checkpoint, trained on over 9 million image-"
+"text couplets from COCO, VisualGenome, GQA, VQA"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:410
+msgid "Funnel Transformer"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:410
+msgid "``funnel-transformer/small``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"14 layers: 3 blocks of 4 layers then 2 layers decoder, 768-hidden, "
+"12-heads, 130M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:412
+#: ../../source/pretrained_models.rst:416
+#: ../../source/pretrained_models.rst:420
+#: ../../source/pretrained_models.rst:424
+#: ../../source/pretrained_models.rst:428
+#: ../../source/pretrained_models.rst:432
+#: ../../source/pretrained_models.rst:436
+#: ../../source/pretrained_models.rst:440
+#: ../../source/pretrained_models.rst:444
+#: ../../source/pretrained_models.rst:448
+msgid "(see `details <https://github.com/laiguokun/Funnel-Transformer>`__)"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:414
+msgid "``funnel-transformer/small-base``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"12 layers: 3 blocks of 4 layers (no decoder), 768-hidden, 12-heads, 115M "
+"parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:418
+msgid "``funnel-transformer/medium``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"14 layers: 3 blocks 6, 3x2, 3x2 layers then 2 layers decoder, 768-hidden,"
+" 12-heads, 130M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:422
+msgid "``funnel-transformer/medium-base``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"12 layers: 3 blocks 6, 3x2, 3x2 layers(no decoder), 768-hidden, 12-heads,"
+" 115M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:426
+msgid "``funnel-transformer/intermediate``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"20 layers: 3 blocks of 6 layers then 2 layers decoder, 768-hidden, "
+"12-heads, 177M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:430
+msgid "``funnel-transformer/intermediate-base``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"18 layers: 3 blocks of 6 layers (no decoder), 768-hidden, 12-heads, 161M "
+"parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:434
+msgid "``funnel-transformer/large``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"26 layers: 3 blocks of 8 layers then 2 layers decoder, 1024-hidden, "
+"12-heads, 386M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:438
+msgid "``funnel-transformer/large-base``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"24 layers: 3 blocks of 8 layers (no decoder), 1024-hidden, 12-heads, 358M"
+" parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:442
+msgid "``funnel-transformer/xlarge``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"32 layers: 3 blocks of 10 layers then 2 layers decoder, 1024-hidden, "
+"12-heads, 468M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:446
+msgid "``funnel-transformer/xlarge-base``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"30 layers: 3 blocks of 10 layers (no decoder), 1024-hidden, 12-heads, "
+"440M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:450
+msgid "LayoutLM"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:450
+msgid "``microsoft/layoutlm-base-uncased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12 layers, 768-hidden, 12-heads, 113M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:452
+#: ../../source/pretrained_models.rst:456
+msgid ""
+"(see `details "
+"<https://github.com/microsoft/unilm/tree/master/layoutlm>`__)"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:454
+msgid "``microsoft/layoutlm-large-uncased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24 layers, 1024-hidden, 16-heads, 343M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:458
+msgid "DeBERTa"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:458
+msgid "``microsoft/deberta-base``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "12-layer, 768-hidden, 12-heads, ~140M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "DeBERTa using the BERT-base architecture"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:461
+#: ../../source/pretrained_models.rst:466
+#: ../../source/pretrained_models.rst:471
+#: ../../source/pretrained_models.rst:476
+#: ../../source/pretrained_models.rst:481
+msgid "(see `details <https://github.com/microsoft/DeBERTa>`__)"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:463
+msgid "``microsoft/deberta-large``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1024-hidden, 16-heads, ~400M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "DeBERTa using the BERT-large architecture"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:468
+msgid "``microsoft/deberta-xlarge``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "48-layer, 1024-hidden, 16-heads, ~750M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "DeBERTa XLarge with similar BERT architecture"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:473
+msgid "``microsoft/deberta-xlarge-v2``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "24-layer, 1536-hidden, 24-heads, ~900M parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "DeBERTa XLarge V2 with similar BERT architecture"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:478
+msgid "``microsoft/deberta-xxlarge-v2``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "48-layer, 1536-hidden, 24-heads, ~1.5B parameters"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid "DeBERTa XXLarge V2 with similar BERT architecture"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:483
+msgid "SqueezeBERT"
+msgstr ""
+
+#: ../../source/pretrained_models.rst:483
+msgid "``squeezebert/squeezebert-uncased``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"12-layer, 768-hidden, 12-heads, 51M parameters, 4.3x faster than bert-"
+"base-uncased on a smartphone."
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"SqueezeBERT architecture pretrained from scratch on masked language model"
+" (MLM) and sentence order prediction (SOP) tasks."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:486
+msgid "``squeezebert/squeezebert-mnli``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"This is the squeezebert-uncased model finetuned on MNLI sentence pair "
+"classification task with distillation from electra-base."
+msgstr ""
+
+#: ../../source/pretrained_models.rst:489
+msgid "``squeezebert/squeezebert-mnli-headless``"
+msgstr ""
+
+#: ../../source/pretrained_models.rst
+msgid ""
+"The final classification layer is removed, so when you finetune, the "
+"final layer will be reinitialized."
+msgstr ""
+

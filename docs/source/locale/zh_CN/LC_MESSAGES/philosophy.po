@@ -1,0 +1,211 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/philosophy.rst:14
+msgid "Philosophy"
+msgstr ""
+
+#: ../../source/philosophy.rst:16
+msgid "🤗 Transformers is an opinionated library built for:"
+msgstr ""
+
+#: ../../source/philosophy.rst:18
+msgid ""
+"NLP researchers and educators seeking to use/study/extend large-scale "
+"transformers models"
+msgstr ""
+
+#: ../../source/philosophy.rst:19
+msgid ""
+"hands-on practitioners who want to fine-tune those models and/or serve "
+"them in production"
+msgstr ""
+
+#: ../../source/philosophy.rst:20
+msgid ""
+"engineers who just want to download a pretrained model and use it to "
+"solve a given NLP task."
+msgstr ""
+
+#: ../../source/philosophy.rst:22
+msgid "The library was designed with two strong goals in mind:"
+msgstr ""
+
+#: ../../source/philosophy.rst:24
+msgid "Be as easy and fast to use as possible:"
+msgstr ""
+
+#: ../../source/philosophy.rst:26
+msgid ""
+"We strongly limited the number of user-facing abstractions to learn, in "
+"fact, there are almost no abstractions, just three standard classes "
+"required to use each model: :doc:`configuration "
+"<main_classes/configuration>`, :doc:`models <main_classes/model>` and "
+":doc:`tokenizer <main_classes/tokenizer>`."
+msgstr ""
+
+#: ../../source/philosophy.rst:29
+msgid ""
+"All of these classes can be initialized in a simple and unified way from "
+"pretrained instances by using a common :obj:`from_pretrained()` "
+"instantiation method which will take care of downloading (if needed), "
+"caching and loading the related class instance and associated data "
+"(configurations' hyper-parameters, tokenizers' vocabulary, and models' "
+"weights) from a pretrained checkpoint provided on `Hugging Face Hub "
+"<https://huggingface.co/models>`__ or your own saved checkpoint."
+msgstr ""
+
+#: ../../source/philosophy.rst:34
+msgid ""
+"On top of those three base classes, the library provides two APIs: "
+":func:`~transformers.pipeline` for quickly using a model (plus its "
+"associated tokenizer and configuration) on a given task and "
+":func:`~transformers.Trainer`/:func:`~transformers.TFTrainer` to quickly "
+"train or fine-tune a given model."
+msgstr ""
+
+#: ../../source/philosophy.rst:37
+msgid ""
+"As a consequence, this library is NOT a modular toolbox of building "
+"blocks for neural nets. If you want to extend/build-upon the library, "
+"just use regular Python/PyTorch/TensorFlow/Keras modules and inherit from"
+" the base classes of the library to reuse functionalities like model "
+"loading/saving."
+msgstr ""
+
+#: ../../source/philosophy.rst:41
+msgid ""
+"Provide state-of-the-art models with performances as close as possible to"
+" the original models:"
+msgstr ""
+
+#: ../../source/philosophy.rst:43
+msgid ""
+"We provide at least one example for each architecture which reproduces a "
+"result provided by the official authors of said architecture."
+msgstr ""
+
+#: ../../source/philosophy.rst:45
+msgid ""
+"The code is usually as close to the original code base as possible which "
+"means some PyTorch code may be not as *pytorchic* as it could be as a "
+"result of being converted TensorFlow code and vice versa."
+msgstr ""
+
+#: ../../source/philosophy.rst:48
+msgid "A few other goals:"
+msgstr ""
+
+#: ../../source/philosophy.rst:50
+msgid "Expose the models' internals as consistently as possible:"
+msgstr ""
+
+#: ../../source/philosophy.rst:52
+msgid ""
+"We give access, using a single API, to the full hidden-states and "
+"attention weights."
+msgstr ""
+
+#: ../../source/philosophy.rst:53
+msgid ""
+"Tokenizer and base model's API are standardized to easily switch between "
+"models."
+msgstr ""
+
+#: ../../source/philosophy.rst:55
+msgid ""
+"Incorporate a subjective selection of promising tools for fine-"
+"tuning/investigating these models:"
+msgstr ""
+
+#: ../../source/philosophy.rst:57
+msgid ""
+"A simple/consistent way to add new tokens to the vocabulary and "
+"embeddings for fine-tuning."
+msgstr ""
+
+#: ../../source/philosophy.rst:58
+msgid "Simple ways to mask and prune transformer heads."
+msgstr ""
+
+#: ../../source/philosophy.rst:60
+msgid ""
+"Switch easily between PyTorch and TensorFlow 2.0, allowing training using"
+" one framework and inference using another."
+msgstr ""
+
+#: ../../source/philosophy.rst:63
+msgid "Main concepts"
+msgstr ""
+
+#: ../../source/philosophy.rst:65
+msgid "The library is built around three types of classes for each model:"
+msgstr ""
+
+#: ../../source/philosophy.rst:67
+msgid ""
+"**Model classes** such as :class:`~transformers.BertModel`, which are 30+"
+" PyTorch models (`torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__) or Keras "
+"models (`tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__) that work"
+" with the pretrained weights provided in the library."
+msgstr ""
+
+#: ../../source/philosophy.rst:71
+msgid ""
+"**Configuration classes** such as :class:`~transformers.BertConfig`, "
+"which store all the parameters required to build a model. You don't "
+"always need to instantiate these yourself. In particular, if you are "
+"using a pretrained model without any modification, creating the model "
+"will automatically take care of instantiating the configuration (which is"
+" part of the model)."
+msgstr ""
+
+#: ../../source/philosophy.rst:75
+msgid ""
+"**Tokenizer classes** such as :class:`~transformers.BertTokenizer`, which"
+" store the vocabulary for each model and provide methods for "
+"encoding/decoding strings in a list of token embeddings indices to be fed"
+" to a model."
+msgstr ""
+
+#: ../../source/philosophy.rst:78
+msgid ""
+"All these classes can be instantiated from pretrained instances and saved"
+" locally using two methods:"
+msgstr ""
+
+#: ../../source/philosophy.rst:80
+msgid ""
+":obj:`from_pretrained()` lets you instantiate a "
+"model/configuration/tokenizer from a pretrained version either provided "
+"by the library itself (the supported models are provided in the list "
+":doc:`here <pretrained_models>`) or stored locally (or on a server) by "
+"the user,"
+msgstr ""
+
+#: ../../source/philosophy.rst:83
+msgid ""
+":obj:`save_pretrained()` lets you save a model/configuration/tokenizer "
+"locally so that it can be reloaded using :obj:`from_pretrained()`."
+msgstr ""
+

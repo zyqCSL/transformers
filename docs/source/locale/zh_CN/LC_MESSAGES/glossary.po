@@ -1,0 +1,465 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/glossary.rst:14
+msgid "Glossary"
+msgstr ""
+
+#: ../../source/glossary.rst:17
+msgid "General terms"
+msgstr ""
+
+#: ../../source/glossary.rst:19
+msgid "autoencoding models: see MLM"
+msgstr ""
+
+#: ../../source/glossary.rst:20
+msgid "autoregressive models: see CLM"
+msgstr ""
+
+#: ../../source/glossary.rst:21
+msgid ""
+"CLM: causal language modeling, a pretraining task where the model reads "
+"the texts in order and has to predict the next word. It's usually done by"
+" reading the whole sentence but using a mask inside the model to hide the"
+" future tokens at a certain timestep."
+msgstr ""
+
+#: ../../source/glossary.rst:24
+msgid ""
+"deep learning: machine learning algorithms which uses neural networks "
+"with several layers."
+msgstr ""
+
+#: ../../source/glossary.rst:25
+msgid ""
+"MLM: masked language modeling, a pretraining task where the model sees a "
+"corrupted version of the texts, usually done by masking some tokens "
+"randomly, and has to predict the original text."
+msgstr ""
+
+#: ../../source/glossary.rst:27
+msgid ""
+"multimodal: a task that combines texts with another kind of inputs (for "
+"instance images)."
+msgstr ""
+
+#: ../../source/glossary.rst:28
+msgid ""
+"NLG: natural language generation, all tasks related to generating text "
+"(for instance talk with transformers, translation)."
+msgstr ""
+
+#: ../../source/glossary.rst:30
+msgid ""
+"NLP: natural language processing, a generic way to say \"deal with "
+"texts\"."
+msgstr ""
+
+#: ../../source/glossary.rst:31
+msgid ""
+"NLU: natural language understanding, all tasks related to understanding "
+"what is in a text (for instance classifying the whole text, individual "
+"words)."
+msgstr ""
+
+#: ../../source/glossary.rst:33
+msgid ""
+"pretrained model: a model that has been pretrained on some data (for "
+"instance all of Wikipedia). Pretraining methods involve a self-supervised"
+" objective, which can be reading the text and trying to predict the next "
+"word (see CLM) or masking some words and trying to predict them (see "
+"MLM)."
+msgstr ""
+
+#: ../../source/glossary.rst:36
+msgid ""
+"RNN: recurrent neural network, a type of model that uses a loop over a "
+"layer to process texts."
+msgstr ""
+
+#: ../../source/glossary.rst:37
+msgid ""
+"self-attention: each element of the input finds out which other elements "
+"of the input they should attend to."
+msgstr ""
+
+#: ../../source/glossary.rst:38
+msgid ""
+"seq2seq or sequence-to-sequence: models that generate a new sequence from"
+" an input, like translation models, or summarization models (such as "
+":doc:`Bart </model_doc/bart>` or :doc:`T5 </model_doc/t5>`)."
+msgstr ""
+
+#: ../../source/glossary.rst:40
+msgid ""
+"token: a part of a sentence, usually a word, but can also be a subword "
+"(non-common words are often split in subwords) or a punctuation symbol."
+msgstr ""
+
+#: ../../source/glossary.rst:42
+msgid "transformer: self-attention based deep learning model architecture."
+msgstr ""
+
+#: ../../source/glossary.rst:45
+msgid "Model inputs"
+msgstr ""
+
+#: ../../source/glossary.rst:47
+msgid ""
+"Every model is different yet bears similarities with the others. "
+"Therefore most models use the same inputs, which are detailed here "
+"alongside usage examples."
+msgstr ""
+
+#: ../../source/glossary.rst:53
+msgid "Input IDs"
+msgstr ""
+
+#: ../../source/glossary.rst:55
+msgid ""
+"The input ids are often the only required parameters to be passed to the "
+"model as input. *They are token indices, numerical representations of "
+"tokens building the sequences that will be used as input by the model*."
+msgstr ""
+
+#: ../../source/glossary.rst:64
+msgid ""
+"Each tokenizer works differently but the underlying mechanism remains the"
+" same. Here's an example using the BERT tokenizer, which is a `WordPiece "
+"<https://arxiv.org/pdf/1609.08144.pdf>`__ tokenizer:"
+msgstr ""
+
+#: ../../source/glossary.rst:74
+msgid ""
+"The tokenizer takes care of splitting the sequence into tokens available "
+"in the tokenizer vocabulary."
+msgstr ""
+
+#: ../../source/glossary.rst:80
+msgid ""
+"The tokens are either words or subwords. Here for instance, \"VRAM\" "
+"wasn't in the model vocabulary, so it's been split in \"V\", \"RA\" and "
+"\"M\". To indicate those tokens are not separate words but parts of the "
+"same word, a double-hash prefix is added for \"RA\" and \"M\":"
+msgstr ""
+
+#: ../../source/glossary.rst:89
+msgid ""
+"These tokens can then be converted into IDs which are understandable by "
+"the model. This can be done by directly feeding the sentence to the "
+"tokenizer, which leverages the Rust implementation of "
+"`huggingface/tokenizers <https://github.com/huggingface/tokenizers>`__ "
+"for peak performance."
+msgstr ""
+
+#: ../../source/glossary.rst:97
+msgid ""
+"The tokenizer returns a dictionary with all the arguments necessary for "
+"its corresponding model to work properly. The token indices are under the"
+" key \"input_ids\":"
+msgstr ""
+
+#: ../../source/glossary.rst:106
+msgid ""
+"Note that the tokenizer automatically adds \"special tokens\" (if the "
+"associated model relies on them) which are special IDs the model "
+"sometimes uses."
+msgstr ""
+
+#: ../../source/glossary.rst:109
+msgid "If we decode the previous sequence of ids,"
+msgstr ""
+
+#: ../../source/glossary.rst:115
+msgid "we will see"
+msgstr ""
+
+#: ../../source/glossary.rst:122
+msgid ""
+"because this is the way a :class:`~transformers.BertModel` is going to "
+"expect its inputs."
+msgstr ""
+
+#: ../../source/glossary.rst:127
+msgid "Attention mask"
+msgstr ""
+
+#: ../../source/glossary.rst:129
+msgid ""
+"The attention mask is an optional argument used when batching sequences "
+"together."
+msgstr ""
+
+#: ../../source/glossary.rst:137
+msgid ""
+"This argument indicates to the model which tokens should be attended to, "
+"and which should not."
+msgstr ""
+
+#: ../../source/glossary.rst:139
+msgid "For example, consider these two sequences:"
+msgstr ""
+
+#: ../../source/glossary.rst:152
+msgid "The encoded versions have different lengths:"
+msgstr ""
+
+#: ../../source/glossary.rst:159
+msgid ""
+"Therefore, we can't put them together in the same tensor as-is. The first"
+" sequence needs to be padded up to the length of the second one, or the "
+"second one needs to be truncated down to the length of the first one."
+msgstr ""
+
+#: ../../source/glossary.rst:162
+msgid ""
+"In the first case, the list of IDs will be extended by the padding "
+"indices. We can pass a list to the tokenizer and ask it to pad like this:"
+msgstr ""
+
+#: ../../source/glossary.rst:169
+msgid ""
+"We can see that 0s have been added on the right of the first sentence to "
+"make it the same length as the second one:"
+msgstr ""
+
+#: ../../source/glossary.rst:176
+msgid ""
+"This can then be converted into a tensor in PyTorch or TensorFlow. The "
+"attention mask is a binary tensor indicating the position of the padded "
+"indices so that the model does not attend to them. For the "
+":class:`~transformers.BertTokenizer`, :obj:`1` indicates a value that "
+"should be attended to, while :obj:`0` indicates a padded value. This "
+"attention mask is in the dictionary returned by the tokenizer under the "
+"key \"attention_mask\":"
+msgstr ""
+
+#: ../../source/glossary.rst:189
+msgid "Token Type IDs"
+msgstr ""
+
+#: ../../source/glossary.rst:191
+msgid ""
+"Some models' purpose is to do classification on pairs of sentences or "
+"question answering."
+msgstr ""
+
+#: ../../source/glossary.rst:199
+msgid ""
+"These require two different sequences to be joined in a single "
+"\"input_ids\" entry, which usually is performed with the help of special "
+"tokens, such as the classifier (``[CLS]``) and separator (``[SEP]``) "
+"tokens. For example, the BERT model builds its two sequence input as "
+"such:"
+msgstr ""
+
+#: ../../source/glossary.rst:207
+msgid ""
+"We can use our tokenizer to automatically generate such a sentence by "
+"passing the two sequences to ``tokenizer`` as two arguments (and not a "
+"list, like before) like this:"
+msgstr ""
+
+#: ../../source/glossary.rst:220
+msgid "which will return:"
+msgstr ""
+
+#: ../../source/glossary.rst:227
+msgid ""
+"This is enough for some models to understand where one sequence ends and "
+"where another begins. However, other models, such as BERT, also deploy "
+"token type IDs (also called segment IDs). They are represented as a "
+"binary mask identifying the two types of sequence in the model."
+msgstr ""
+
+#: ../../source/glossary.rst:231
+msgid "The tokenizer returns this mask as the \"token_type_ids\" entry:"
+msgstr ""
+
+#: ../../source/glossary.rst:238
+msgid ""
+"The first sequence, the \"context\" used for the question, has all its "
+"tokens represented by a :obj:`0`, whereas the second sequence, "
+"corresponding to the \"question\", has all its tokens represented by a "
+":obj:`1`."
+msgstr ""
+
+#: ../../source/glossary.rst:241
+msgid ""
+"Some models, like :class:`~transformers.XLNetModel` use an additional "
+"token represented by a :obj:`2`."
+msgstr ""
+
+#: ../../source/glossary.rst:246
+msgid "Position IDs"
+msgstr ""
+
+#: ../../source/glossary.rst:248
+msgid ""
+"Contrary to RNNs that have the position of each token embedded within "
+"them, transformers are unaware of the position of each token. Therefore, "
+"the position IDs (``position_ids``) are used by the model to identify "
+"each token's position in the list of tokens."
+msgstr ""
+
+#: ../../source/glossary.rst:252
+msgid ""
+"They are an optional parameter. If no ``position_ids`` are passed to the "
+"model, the IDs are automatically created as absolute positional "
+"embeddings."
+msgstr ""
+
+#: ../../source/glossary.rst:255
+msgid ""
+"Absolute positional embeddings are selected in the range ``[0, "
+"config.max_position_embeddings - 1]``. Some models use other types of "
+"positional embeddings, such as sinusoidal position embeddings or relative"
+" position embeddings."
+msgstr ""
+
+#: ../../source/glossary.rst:261
+msgid "Labels"
+msgstr ""
+
+#: ../../source/glossary.rst:263
+msgid ""
+"The labels are an optional argument which can be passed in order for the "
+"model to compute the loss itself. These labels should be the expected "
+"prediction of the model: it will use the standard loss in order to "
+"compute the loss between its predictions and the expected value (the "
+"label)."
+msgstr ""
+
+#: ../../source/glossary.rst:267
+msgid "These labels are different according to the model head, for example:"
+msgstr ""
+
+#: ../../source/glossary.rst:269
+msgid ""
+"For sequence classification models (e.g., "
+":class:`~transformers.BertForSequenceClassification`), the model expects "
+"a tensor of dimension :obj:`(batch_size)` with each value of the batch "
+"corresponding to the expected label of the entire sequence."
+msgstr ""
+
+#: ../../source/glossary.rst:272
+msgid ""
+"For token classification models (e.g., "
+":class:`~transformers.BertForTokenClassification`), the model expects a "
+"tensor of dimension :obj:`(batch_size, seq_length)` with each value "
+"corresponding to the expected label of each individual token."
+msgstr ""
+
+#: ../../source/glossary.rst:275
+msgid ""
+"For masked language modeling (e.g., "
+":class:`~transformers.BertForMaskedLM`), the model expects a tensor of "
+"dimension :obj:`(batch_size, seq_length)` with each value corresponding "
+"to the expected label of each individual token: the labels being the "
+"token ID for the masked token, and values to be ignored for the rest "
+"(usually -100)."
+msgstr ""
+
+#: ../../source/glossary.rst:278
+msgid ""
+"For sequence to sequence tasks,(e.g., "
+":class:`~transformers.BartForConditionalGeneration`, "
+":class:`~transformers.MBartForConditionalGeneration`), the model expects "
+"a tensor of dimension :obj:`(batch_size, tgt_seq_length)` with each value"
+" corresponding to the target sequences associated with each input "
+"sequence. During training, both `BART` and `T5` will make the appropriate"
+" `decoder_input_ids` and decoder attention masks internally. They usually"
+" do not need to be supplied. This does not apply to models leveraging the"
+" Encoder-Decoder framework. See the documentation of each model for more "
+"information on each specific model's labels."
+msgstr ""
+
+#: ../../source/glossary.rst:285
+msgid ""
+"The base models (e.g., :class:`~transformers.BertModel`) do not accept "
+"labels, as these are the base transformer models, simply outputting "
+"features."
+msgstr ""
+
+#: ../../source/glossary.rst:291
+msgid "Decoder input IDs"
+msgstr ""
+
+#: ../../source/glossary.rst:293
+msgid ""
+"This input is specific to encoder-decoder models, and contains the input "
+"IDs that will be fed to the decoder. These inputs should be used for "
+"sequence to sequence tasks, such as translation or summarization, and are"
+" usually built in a way specific to each model."
+msgstr ""
+
+#: ../../source/glossary.rst:297
+msgid ""
+"Most encoder-decoder models (BART, T5) create their "
+":obj:`decoder_input_ids` on their own from the :obj:`labels`. In such "
+"models, passing the :obj:`labels` is the preferred way to handle "
+"training."
+msgstr ""
+
+#: ../../source/glossary.rst:300
+msgid ""
+"Please check each model's docs to see how they handle these input IDs for"
+" sequence to sequence training."
+msgstr ""
+
+#: ../../source/glossary.rst:305
+msgid "Feed Forward Chunking"
+msgstr ""
+
+#: ../../source/glossary.rst:307
+msgid ""
+"In each residual attention block in transformers the self-attention layer"
+" is usually followed by 2 feed forward layers. The intermediate embedding"
+" size of the feed forward layers is often bigger than the hidden size of "
+"the model (e.g., for ``bert-base-uncased``)."
+msgstr ""
+
+#: ../../source/glossary.rst:311
+msgid ""
+"For an input of size ``[batch_size, sequence_length]``, the memory "
+"required to store the intermediate feed forward embeddings ``[batch_size,"
+" sequence_length, config.intermediate_size]`` can account for a large "
+"fraction of the memory use. The authors of `Reformer: The Efficient "
+"Transformer <https://arxiv.org/abs/2001.04451>`_ noticed that since the "
+"computation is independent of the ``sequence_length`` dimension, it is "
+"mathematically equivalent to compute the output embeddings of both feed "
+"forward layers ``[batch_size, config.hidden_size]_0, ..., [batch_size, "
+"config.hidden_size]_n`` individually and concat them afterward to "
+"``[batch_size, sequence_length, config.hidden_size]`` with ``n = "
+"sequence_length``, which trades increased computation time against "
+"reduced memory use, but yields a mathematically **equivalent** result."
+msgstr ""
+
+#: ../../source/glossary.rst:320
+msgid ""
+"For models employing the function "
+":func:`~.transformers.apply_chunking_to_forward`, the ``chunk_size`` "
+"defines the number of output embeddings that are computed in parallel and"
+" thus defines the trade-off between memory and time complexity. If "
+"``chunk_size`` is set to 0, no feed forward chunking is done."
+msgstr ""
+

@@ -1,0 +1,2305 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/main_classes/model.rst:14
+msgid "Models"
+msgstr ""
+
+#: ../../source/main_classes/model.rst:16
+msgid ""
+"The base classes :class:`~transformers.PreTrainedModel`, "
+":class:`~transformers.TFPreTrainedModel`, and "
+":class:`~transformers.FlaxPreTrainedModel` implement the common methods "
+"for loading/saving a model either from a local file or directory, or from"
+" a pretrained model configuration provided by the library (downloaded "
+"from HuggingFace's AWS S3 repository)."
+msgstr ""
+
+#: ../../source/main_classes/model.rst:21
+msgid ""
+":class:`~transformers.PreTrainedModel` and "
+":class:`~transformers.TFPreTrainedModel` also implement a few methods "
+"which are common among all the models to:"
+msgstr ""
+
+#: ../../source/main_classes/model.rst:24
+msgid ""
+"resize the input token embeddings when new tokens are added to the "
+"vocabulary"
+msgstr ""
+
+#: ../../source/main_classes/model.rst:25
+msgid "prune the attention heads of the model."
+msgstr ""
+
+#: ../../source/main_classes/model.rst:27
+msgid ""
+"The other methods that are common to each model are defined in "
+":class:`~transformers.modeling_utils.ModuleUtilsMixin` (for the PyTorch "
+"models) and :class:`~transformers.modeling_tf_utils.TFModuleUtilsMixin` "
+"(for the TensorFlow models) or for text generation, "
+":class:`~transformers.generation_utils.GenerationMixin` (for the PyTorch "
+"models), :class:`~transformers.generation_tf_utils.TFGenerationMixin` "
+"(for the TensorFlow models) and "
+":class:`~transformers.generation_flax_utils.FlaxGenerationMixin` (for the"
+" Flax/JAX models)."
+msgstr ""
+
+#: ../../source/main_classes/model.rst:35
+msgid "PreTrainedModel"
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel:1 transformers.PreTrainedModel:1
+msgid "Base class for all models."
+msgstr ""
+
+#: of transformers.PreTrainedModel:3
+msgid ""
+":class:`~transformers.PreTrainedModel` takes care of storing the "
+"configuration of the models and handles methods for loading, downloading "
+"and saving models as well as a few methods common to all models to:"
+msgstr ""
+
+#: of transformers.PreTrainedModel:6 transformers.TFPreTrainedModel:6
+msgid "resize the input embeddings,"
+msgstr ""
+
+#: of transformers.PreTrainedModel:7 transformers.TFPreTrainedModel:7
+msgid "prune heads in the self-attention heads."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel:6 transformers.PreTrainedModel:9
+#: transformers.TFPreTrainedModel:9
+msgid "Class attributes (overridden by derived classes):"
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel:8 transformers.PreTrainedModel:11
+#: transformers.TFPreTrainedModel:11
+msgid ""
+"**config_class** (:class:`~transformers.PretrainedConfig`) -- A subclass "
+"of :class:`~transformers.PretrainedConfig` to use as configuration class "
+"for this model architecture."
+msgstr ""
+
+#: of transformers.PreTrainedModel:13
+msgid ""
+"**load_tf_weights** (:obj:`Callable`) -- A python `method` for loading a "
+"TensorFlow checkpoint in a PyTorch model, taking as arguments:"
+msgstr ""
+
+#: of transformers.PreTrainedModel:16
+msgid ""
+"**model** (:class:`~transformers.PreTrainedModel`) -- An instance of the "
+"model on which to load the TensorFlow checkpoint."
+msgstr ""
+
+#: of transformers.PreTrainedModel:18
+msgid ""
+"**config** (:class:`~transformers.PreTrainedConfig`) -- An instance of "
+"the configuration associated to the model."
+msgstr ""
+
+#: of transformers.PreTrainedModel:20
+msgid "**path** (:obj:`str`) -- A path to the TensorFlow checkpoint."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel:10 transformers.PreTrainedModel:22
+#: transformers.TFPreTrainedModel:13
+msgid ""
+"**base_model_prefix** (:obj:`str`) -- A string indicating the attribute "
+"associated to the base model in derived classes of the same architecture "
+"adding modules on top of the base model."
+msgstr ""
+
+#: of transformers.PreTrainedModel:24
+msgid ""
+"**is_parallelizable** (:obj:`bool`) -- A flag indicating whether this "
+"model supports model parallelization."
+msgstr ""
+
+#: of transformers.PreTrainedModel.base_model:1
+msgid "The main body of the model."
+msgstr ""
+
+#: of transformers.PreTrainedModel.base_model
+#: transformers.PreTrainedModel.dummy_inputs
+#: transformers.modeling_utils.ModuleUtilsMixin.device
+#: transformers.modeling_utils.ModuleUtilsMixin.dtype
+msgid "type"
+msgstr ""
+
+#: of transformers.PreTrainedModel.base_model:3
+msgid ":obj:`torch.nn.Module`"
+msgstr ""
+
+#: of transformers.PreTrainedModel.dummy_inputs:1
+msgid "Dummy inputs to do a forward pass in the network."
+msgstr ""
+
+#: of transformers.PreTrainedModel.dummy_inputs:3
+msgid ":obj:`Dict[str, torch.Tensor]`"
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:1
+msgid ""
+"Instantiate a pretrained pytorch model from a pre-trained model "
+"configuration."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:3
+msgid ""
+"The model is set in evaluation mode by default using ``model.eval()`` "
+"(Dropout modules are deactivated). To train the model, you should first "
+"set it back in training mode with ``model.train()``."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:3
+#: transformers.PreTrainedModel.from_pretrained:6
+#: transformers.TFPreTrainedModel.from_pretrained:3
+msgid ""
+"The warning `Weights from XXX not initialized from pretrained model` "
+"means that the weights of XXX do not come pretrained with the rest of the"
+" model. It is up to you to train those weights with a downstream fine-"
+"tuning task."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:7
+#: transformers.PreTrainedModel.from_pretrained:10
+#: transformers.TFPreTrainedModel.from_pretrained:7
+msgid ""
+"The warning `Weights from XXX not used in YYY` means that the layer XXX "
+"is not used by YYY, therefore those weights are discarded."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained
+#: transformers.FlaxPreTrainedModel.push_to_hub
+#: transformers.FlaxPreTrainedModel.save_pretrained
+#: transformers.PreTrainedModel.from_pretrained
+#: transformers.PreTrainedModel.prune_heads
+#: transformers.PreTrainedModel.push_to_hub
+#: transformers.PreTrainedModel.resize_token_embeddings
+#: transformers.PreTrainedModel.save_pretrained
+#: transformers.PreTrainedModel.set_input_embeddings
+#: transformers.TFPreTrainedModel.from_pretrained
+#: transformers.TFPreTrainedModel.prune_heads
+#: transformers.TFPreTrainedModel.push_to_hub
+#: transformers.TFPreTrainedModel.resize_token_embeddings
+#: transformers.TFPreTrainedModel.save_pretrained
+#: transformers.TFPreTrainedModel.serving
+#: transformers.TFPreTrainedModel.serving_output
+#: transformers.TFPreTrainedModel.set_bias
+#: transformers.TFPreTrainedModel.set_input_embeddings
+#: transformers.TFPreTrainedModel.set_output_embeddings
+#: transformers.file_utils.PushToHubMixin.push_to_hub
+#: transformers.generation_flax_utils.FlaxGenerationMixin.generate
+#: transformers.generation_tf_utils.TFGenerationMixin.generate
+#: transformers.generation_utils.GenerationMixin.beam_sample
+#: transformers.generation_utils.GenerationMixin.beam_search
+#: transformers.generation_utils.GenerationMixin.generate
+#: transformers.generation_utils.GenerationMixin.greedy_search
+#: transformers.generation_utils.GenerationMixin.group_beam_search
+#: transformers.generation_utils.GenerationMixin.sample
+#: transformers.modeling_tf_utils.TFModelUtilsMixin.num_parameters
+#: transformers.modeling_utils.ModuleUtilsMixin.estimate_tokens
+#: transformers.modeling_utils.ModuleUtilsMixin.floating_point_ops
+#: transformers.modeling_utils.ModuleUtilsMixin.get_extended_attention_mask
+#: transformers.modeling_utils.ModuleUtilsMixin.get_head_mask
+#: transformers.modeling_utils.ModuleUtilsMixin.invert_attention_mask
+#: transformers.modeling_utils.ModuleUtilsMixin.num_parameters
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:13
+msgid ""
+"Can be either:      - A string, the `model id` of a pretrained model "
+"hosted inside a model repo on huggingface.co.       Valid model ids can "
+"be located at the root-level, like ``bert-base-uncased``, or namespaced "
+"under       a user or organization name, like ``dbmdz/bert-base-german-"
+"cased``.     - A path to a `directory` containing model weights saved "
+"using       :func:`~transformers.PreTrainedModel.save_pretrained`, e.g., "
+"``./my_model_directory/``.     - A path or url to a `tensorflow index "
+"checkpoint file` (e.g, ``./tf_model/model.ckpt.index``). In       this "
+"case, ``from_tf`` should be set to :obj:`True` and a configuration object"
+" should be provided       as ``config`` argument. This loading path is "
+"slower than converting the TensorFlow checkpoint in       a PyTorch model"
+" using the provided conversion scripts and loading the PyTorch model "
+"afterwards.     - A path or url to a model folder containing a `flax "
+"checkpoint file` in `.msgpack` format (e.g,       ``./flax_model/`` "
+"containing ``flax_model.msgpack``). In this case, ``from_flax`` should be"
+" set       to :obj:`True`.     - :obj:`None` if you are both providing "
+"the configuration and state dictionary (resp. with keyword       "
+"arguments ``config`` and ``state_dict``)."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:11
+#: transformers.FlaxPreTrainedModel.from_pretrained:24
+#: transformers.PreTrainedModel.from_pretrained:14
+#: transformers.PreTrainedModel.from_pretrained:34
+#: transformers.TFPreTrainedModel.from_pretrained:11
+#: transformers.TFPreTrainedModel.from_pretrained:29
+msgid "Can be either:"
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:13
+#: transformers.PreTrainedModel.from_pretrained:16
+#: transformers.TFPreTrainedModel.from_pretrained:13
+msgid ""
+"A string, the `model id` of a pretrained model hosted inside a model repo"
+" on huggingface.co. Valid model ids can be located at the root-level, "
+"like ``bert-base-uncased``, or namespaced under a user or organization "
+"name, like ``dbmdz/bert-base-german-cased``."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:19
+msgid ""
+"A path to a `directory` containing model weights saved using "
+":func:`~transformers.PreTrainedModel.save_pretrained`, e.g., "
+"``./my_model_directory/``."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:21
+msgid ""
+"A path or url to a `tensorflow index checkpoint file` (e.g, "
+"``./tf_model/model.ckpt.index``). In this case, ``from_tf`` should be set"
+" to :obj:`True` and a configuration object should be provided as "
+"``config`` argument. This loading path is slower than converting the "
+"TensorFlow checkpoint in a PyTorch model using the provided conversion "
+"scripts and loading the PyTorch model afterwards."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:25
+msgid ""
+"A path or url to a model folder containing a `flax checkpoint file` in "
+"`.msgpack` format (e.g, ``./flax_model/`` containing "
+"``flax_model.msgpack``). In this case, ``from_flax`` should be set to "
+":obj:`True`."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:28
+#: transformers.TFPreTrainedModel.from_pretrained:23
+msgid ""
+":obj:`None` if you are both providing the configuration and state "
+"dictionary (resp. with keyword arguments ``config`` and ``state_dict``)."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:21
+#: transformers.PreTrainedModel.from_pretrained:31
+#: transformers.TFPreTrainedModel.from_pretrained:26
+msgid ""
+"All remaning positional arguments will be passed to the underlying "
+"model's ``__init__`` method."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:23
+#: transformers.PreTrainedModel.from_pretrained:33
+msgid ""
+"Can be either:      - an instance of a class derived from "
+":class:`~transformers.PretrainedConfig`,     - a string or path valid as "
+"input to :func:`~transformers.PretrainedConfig.from_pretrained`.  "
+"Configuration for the model to use instead of an automatically loaded "
+"configuation. Configuration can be automatically loaded when:      - The "
+"model is a model provided by the library (loaded with the `model id` "
+"string of a pretrained       model).     - The model was saved using "
+":func:`~transformers.PreTrainedModel.save_pretrained` and is reloaded"
+"       by supplying the save directory.     - The model is loaded by "
+"supplying a local directory as ``pretrained_model_name_or_path`` and a"
+"       configuration JSON file named `config.json` is found in the "
+"directory."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:26
+#: transformers.PreTrainedModel.from_pretrained:36
+#: transformers.TFPreTrainedModel.from_pretrained:31
+msgid ""
+"an instance of a class derived from "
+":class:`~transformers.PretrainedConfig`,"
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:27
+#: transformers.PreTrainedModel.from_pretrained:37
+msgid ""
+"a string or path valid as input to "
+":func:`~transformers.PretrainedConfig.from_pretrained`."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:29
+#: transformers.PreTrainedModel.from_pretrained:39
+#: transformers.TFPreTrainedModel.from_pretrained:34
+msgid ""
+"Configuration for the model to use instead of an automatically loaded "
+"configuation. Configuration can be automatically loaded when:"
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:32
+#: transformers.PreTrainedModel.from_pretrained:42
+#: transformers.TFPreTrainedModel.from_pretrained:37
+msgid ""
+"The model is a model provided by the library (loaded with the `model id` "
+"string of a pretrained model)."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:34
+#: transformers.PreTrainedModel.from_pretrained:44
+msgid ""
+"The model was saved using "
+":func:`~transformers.PreTrainedModel.save_pretrained` and is reloaded by "
+"supplying the save directory."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:36
+#: transformers.PreTrainedModel.from_pretrained:46
+#: transformers.TFPreTrainedModel.from_pretrained:41
+msgid ""
+"The model is loaded by supplying a local directory as "
+"``pretrained_model_name_or_path`` and a configuration JSON file named "
+"`config.json` is found in the directory."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:49
+msgid ""
+"A state dictionary to use instead of a state dictionary loaded from saved"
+" weights file.  This option can be used if you want to create a model "
+"from a pretrained configuration but load your own weights. In this case "
+"though, you should check if using "
+":func:`~transformers.PreTrainedModel.save_pretrained` and "
+":func:`~transformers.PreTrainedModel.from_pretrained` is not a simpler "
+"option."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:49
+msgid ""
+"A state dictionary to use instead of a state dictionary loaded from saved"
+" weights file."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:51
+msgid ""
+"This option can be used if you want to create a model from a pretrained "
+"configuration but load your own weights. In this case though, you should "
+"check if using :func:`~transformers.PreTrainedModel.save_pretrained` and "
+":func:`~transformers.PreTrainedModel.from_pretrained` is not a simpler "
+"option."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:39
+#: transformers.PreTrainedModel.from_pretrained:56
+#: transformers.TFPreTrainedModel.from_pretrained:51
+msgid ""
+"Path to a directory in which a downloaded pretrained model configuration "
+"should be cached if the standard cache should not be used."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:59
+msgid ""
+"Load the model weights from a TensorFlow checkpoint save file (see "
+"docstring of ``pretrained_model_name_or_path`` argument)."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:62
+msgid ""
+"Load the model weights from a Flax checkpoint save file (see docstring of"
+" ``pretrained_model_name_or_path`` argument)."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:45
+#: transformers.PreTrainedModel.from_pretrained:65
+#: transformers.TFPreTrainedModel.from_pretrained:47
+msgid ""
+"Whether or not to raise an error if some of the weights from the "
+"checkpoint do not have the same size as the weights of the model (if for "
+"instance, you are instantiating a model with 10 labels from a checkpoint "
+"with 3 labels)."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:49
+#: transformers.PreTrainedModel.from_pretrained:69
+#: transformers.TFPreTrainedModel.from_pretrained:54
+msgid ""
+"Whether or not to force the (re-)download of the model weights and "
+"configuration files, overriding the cached versions if they exist."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:52
+#: transformers.PreTrainedModel.from_pretrained:72
+#: transformers.TFPreTrainedModel.from_pretrained:57
+msgid ""
+"Whether or not to delete incompletely received files. Will attempt to "
+"resume the download if such a file exists."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:55
+#: transformers.PreTrainedModel.from_pretrained:75
+msgid ""
+"A dictionary of proxy servers to use by protocol or endpoint, e.g., "
+":obj:`{'http': 'foo.bar:3128', 'http://hostname': 'foo.bar:4012'}`. The "
+"proxies are used on each request."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:78
+#: transformers.TFPreTrainedModel.from_pretrained:63
+msgid ""
+"Whether ot not to also return a dictionary containing missing keys, "
+"unexpected keys and error messages."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:58
+#: transformers.PreTrainedModel.from_pretrained:80
+msgid ""
+"Whether or not to only look at local files (i.e., do not try to download "
+"the model)."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:82
+#: transformers.TFPreTrainedModel.from_pretrained:67
+msgid ""
+"The token to use as HTTP bearer authorization for remote files. If "
+":obj:`True`, will use the token generated when running :obj"
+":`transformers-cli login` (stored in :obj:`~/.huggingface`)."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:60
+#: transformers.PreTrainedModel.from_pretrained:85
+#: transformers.TFPreTrainedModel.from_pretrained:70
+msgid ""
+"The specific model version to use. It can be a branch name, a tag name, "
+"or a commit id, since we use a git-based system for storing models and "
+"other artifacts on huggingface.co, so ``revision`` can be any identifier "
+"allowed by git."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:89
+#: transformers.TFPreTrainedModel.from_pretrained:74
+msgid ""
+"Mirror source to accelerate downloads in China. If you are from China and"
+" have an accessibility problem, you can set this option to resolve it. "
+"Note that we do not guarantee the timeliness or safety. Please refer to "
+"the mirror site for more information."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:93
+msgid "Whether or not to disable fast initialization."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:95
+msgid ""
+"Override the default ``torch.dtype`` and load the model under this dtype."
+" If ``\"auto\"`` is passed the dtype will be automatically derived from "
+"the model's weights.  .. warning::      One should only disable "
+"`_fast_init` to ensure backwards compatibility with     "
+"``transformers.__version__ < 4.6.0`` for seeded model initialization. "
+"This argument will be removed     at the next major version. See `pull "
+"request 11471     "
+"<https://github.com/huggingface/transformers/pull/11471>`__ for more "
+"information."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:95
+msgid ""
+"Override the default ``torch.dtype`` and load the model under this dtype."
+" If ``\"auto\"`` is passed the dtype will be automatically derived from "
+"the model's weights."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:100
+msgid ""
+"One should only disable `_fast_init` to ensure backwards compatibility "
+"with ``transformers.__version__ < 4.6.0`` for seeded model "
+"initialization. This argument will be removed at the next major version. "
+"See `pull request 11471 "
+"<https://github.com/huggingface/transformers/pull/11471>`__ for more "
+"information."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:64
+#: transformers.PreTrainedModel.from_pretrained:105
+#: transformers.TFPreTrainedModel.from_pretrained:78
+msgid ""
+"Can be used to update the configuration object (after it being loaded) "
+"and initiate the model (e.g., :obj:`output_attentions=True`). Behaves "
+"differently depending on whether a ``config`` is provided or "
+"automatically loaded:      - If a configuration is provided with "
+"``config``, ``**kwargs`` will be directly passed to the       underlying "
+"model's ``__init__`` method (we assume all relevant updates to the "
+"configuration have       already been done)     - If a configuration is "
+"not provided, ``kwargs`` will be first passed to the configuration class"
+"       initialization function "
+"(:func:`~transformers.PretrainedConfig.from_pretrained`). Each key of"
+"       ``kwargs`` that corresponds to a configuration attribute will be "
+"used to override said attribute       with the supplied ``kwargs`` value."
+" Remaining keys that do not correspond to any configuration       "
+"attribute will be passed to the underlying model's ``__init__`` function."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:64
+#: transformers.PreTrainedModel.from_pretrained:105
+#: transformers.TFPreTrainedModel.from_pretrained:78
+msgid ""
+"Can be used to update the configuration object (after it being loaded) "
+"and initiate the model (e.g., :obj:`output_attentions=True`). Behaves "
+"differently depending on whether a ``config`` is provided or "
+"automatically loaded:"
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:68
+#: transformers.PreTrainedModel.from_pretrained:109
+#: transformers.TFPreTrainedModel.from_pretrained:82
+msgid ""
+"If a configuration is provided with ``config``, ``**kwargs`` will be "
+"directly passed to the underlying model's ``__init__`` method (we assume "
+"all relevant updates to the configuration have already been done)"
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:71
+#: transformers.PreTrainedModel.from_pretrained:112
+#: transformers.TFPreTrainedModel.from_pretrained:85
+msgid ""
+"If a configuration is not provided, ``kwargs`` will be first passed to "
+"the configuration class initialization function "
+"(:func:`~transformers.PretrainedConfig.from_pretrained`). Each key of "
+"``kwargs`` that corresponds to a configuration attribute will be used to "
+"override said attribute with the supplied ``kwargs`` value. Remaining "
+"keys that do not correspond to any configuration attribute will be passed"
+" to the underlying model's ``__init__`` function."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:121
+#: transformers.TFPreTrainedModel.from_pretrained:94
+msgid ""
+"Passing :obj:`use_auth_token=True` is required when you want to use a "
+"private model."
+msgstr ""
+
+#: of transformers.PreTrainedModel.from_pretrained:125
+msgid ""
+"Activate the special `\"offline-mode\" "
+"<https://huggingface.co/transformers/installation.html#offline-mode>`__ "
+"to use this method in a firewalled environment."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:78
+#: transformers.FlaxPreTrainedModel.push_to_hub:30
+#: transformers.PreTrainedModel.from_pretrained:129
+#: transformers.PreTrainedModel.push_to_hub:30
+#: transformers.TFPreTrainedModel.from_pretrained:96
+#: transformers.TFPreTrainedModel.push_to_hub:30
+#: transformers.file_utils.PushToHubMixin.push_to_hub:30
+#: transformers.generation_flax_utils.FlaxGenerationMixin.generate:52
+#: transformers.generation_tf_utils.TFGenerationMixin.generate:106
+#: transformers.generation_utils.GenerationMixin.beam_sample:51
+#: transformers.generation_utils.GenerationMixin.beam_search:47
+#: transformers.generation_utils.GenerationMixin.generate:179
+#: transformers.generation_utils.GenerationMixin.greedy_search:43
+#: transformers.generation_utils.GenerationMixin.group_beam_search:48
+#: transformers.generation_utils.GenerationMixin.sample:47
+msgid "Examples::"
+msgstr ""
+
+#: of transformers.PreTrainedModel.get_input_embeddings:1
+msgid "Returns the model's input embeddings."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.push_to_hub
+#: transformers.PreTrainedModel.get_input_embeddings
+#: transformers.PreTrainedModel.get_output_embeddings
+#: transformers.PreTrainedModel.push_to_hub
+#: transformers.PreTrainedModel.resize_token_embeddings
+#: transformers.TFPreTrainedModel.dummy_inputs
+#: transformers.TFPreTrainedModel.get_bias
+#: transformers.TFPreTrainedModel.get_input_embeddings
+#: transformers.TFPreTrainedModel.get_lm_head
+#: transformers.TFPreTrainedModel.get_output_embeddings
+#: transformers.TFPreTrainedModel.get_output_layer_with_bias
+#: transformers.TFPreTrainedModel.get_prefix_bias_name
+#: transformers.TFPreTrainedModel.push_to_hub
+#: transformers.TFPreTrainedModel.resize_token_embeddings
+#: transformers.file_utils.PushToHubMixin.push_to_hub
+#: transformers.generation_flax_utils.FlaxGenerationMixin.generate
+#: transformers.generation_tf_utils.TFGenerationMixin.generate
+#: transformers.generation_utils.GenerationMixin.beam_sample
+#: transformers.generation_utils.GenerationMixin.beam_search
+#: transformers.generation_utils.GenerationMixin.generate
+#: transformers.generation_utils.GenerationMixin.greedy_search
+#: transformers.generation_utils.GenerationMixin.group_beam_search
+#: transformers.generation_utils.GenerationMixin.sample
+#: transformers.modeling_tf_utils.TFModelUtilsMixin.num_parameters
+#: transformers.modeling_utils.ModuleUtilsMixin.estimate_tokens
+#: transformers.modeling_utils.ModuleUtilsMixin.floating_point_ops
+#: transformers.modeling_utils.ModuleUtilsMixin.get_extended_attention_mask
+#: transformers.modeling_utils.ModuleUtilsMixin.get_head_mask
+#: transformers.modeling_utils.ModuleUtilsMixin.invert_attention_mask
+#: transformers.modeling_utils.ModuleUtilsMixin.num_parameters
+msgid "Returns"
+msgstr ""
+
+#: of transformers.PreTrainedModel.get_input_embeddings:3
+msgid "A torch module mapping vocabulary to hidden states."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.push_to_hub
+#: transformers.PreTrainedModel.get_input_embeddings
+#: transformers.PreTrainedModel.get_output_embeddings
+#: transformers.PreTrainedModel.push_to_hub
+#: transformers.PreTrainedModel.resize_token_embeddings
+#: transformers.TFPreTrainedModel.dummy_inputs
+#: transformers.TFPreTrainedModel.get_bias
+#: transformers.TFPreTrainedModel.get_input_embeddings
+#: transformers.TFPreTrainedModel.get_lm_head
+#: transformers.TFPreTrainedModel.get_output_embeddings
+#: transformers.TFPreTrainedModel.get_output_layer_with_bias
+#: transformers.TFPreTrainedModel.get_prefix_bias_name
+#: transformers.TFPreTrainedModel.push_to_hub
+#: transformers.TFPreTrainedModel.resize_token_embeddings
+#: transformers.file_utils.PushToHubMixin.push_to_hub
+#: transformers.generation_tf_utils.TFGenerationMixin.generate
+#: transformers.generation_utils.GenerationMixin.generate
+#: transformers.modeling_tf_utils.TFModelUtilsMixin.num_parameters
+#: transformers.modeling_utils.ModuleUtilsMixin.estimate_tokens
+#: transformers.modeling_utils.ModuleUtilsMixin.floating_point_ops
+#: transformers.modeling_utils.ModuleUtilsMixin.invert_attention_mask
+#: transformers.modeling_utils.ModuleUtilsMixin.num_parameters
+msgid "Return type"
+msgstr ""
+
+#: of transformers.PreTrainedModel.get_input_embeddings:4
+#: transformers.PreTrainedModel.get_output_embeddings:4
+msgid ":obj:`nn.Module`"
+msgstr ""
+
+#: of transformers.PreTrainedModel.get_output_embeddings:1
+msgid "Returns the model's output embeddings."
+msgstr ""
+
+#: of transformers.PreTrainedModel.get_output_embeddings:3
+msgid "A torch module mapping hidden states to vocabulary."
+msgstr ""
+
+#: of transformers.PreTrainedModel.init_weights:1
+msgid "If needed prunes and maybe initializes weights."
+msgstr ""
+
+#: of transformers.PreTrainedModel.prune_heads:1
+#: transformers.TFPreTrainedModel.prune_heads:1
+msgid "Prunes heads of the base model."
+msgstr ""
+
+#: of transformers.PreTrainedModel.prune_heads:3
+#: transformers.TFPreTrainedModel.prune_heads:3
+msgid ""
+"Dictionary with keys being selected layer indices (:obj:`int`) and "
+"associated values being the list of heads to prune in said layer (list of"
+" :obj:`int`). For instance {1: [0, 2], 2: [2, 3]} will prune heads 0 and "
+"2 on layer 1 and heads 2 and 3 on layer 2."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.push_to_hub:1
+#: transformers.PreTrainedModel.push_to_hub:1
+#: transformers.TFPreTrainedModel.push_to_hub:1
+msgid ""
+"Upload the model checkpoint to the 🤗 Model Hub while synchronizing a "
+"local clone of the repo in :obj:`repo_path_or_name`."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.push_to_hub:4
+#: transformers.PreTrainedModel.push_to_hub:4
+#: transformers.TFPreTrainedModel.push_to_hub:4
+msgid ""
+"Can either be a repository name for your model in the Hub or a path to a "
+"local folder (in which case the repository will have the name of that "
+"local folder). If not specified, will default to the name given by "
+":obj:`repo_url` and a local directory with that name will be created."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.push_to_hub:8
+#: transformers.PreTrainedModel.push_to_hub:8
+#: transformers.TFPreTrainedModel.push_to_hub:8
+#: transformers.file_utils.PushToHubMixin.push_to_hub:8
+msgid ""
+"Specify this in case you want to push to an existing repository in the "
+"hub. If unspecified, a new repository will be created in your namespace "
+"(unless you specify an :obj:`organization`) with :obj:`repo_name`."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.push_to_hub:12
+#: transformers.PreTrainedModel.push_to_hub:12
+#: transformers.TFPreTrainedModel.push_to_hub:12
+#: transformers.file_utils.PushToHubMixin.push_to_hub:12
+msgid ""
+"Whether or not to clone the distant repo in a temporary directory or in "
+":obj:`repo_path_or_name` inside the current working directory. This will "
+"slow things down if you are making changes in an existing repo since you "
+"will need to clone the repo before every push."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.push_to_hub:16
+#: transformers.PreTrainedModel.push_to_hub:16
+#: transformers.TFPreTrainedModel.push_to_hub:16
+msgid "Message to commit while pushing. Will default to :obj:`\"add model\"`."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.push_to_hub:18
+#: transformers.PreTrainedModel.push_to_hub:18
+#: transformers.TFPreTrainedModel.push_to_hub:18
+msgid ""
+"Organization in which you want to push your model (you must be a member "
+"of this organization)."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.push_to_hub:20
+#: transformers.PreTrainedModel.push_to_hub:20
+#: transformers.TFPreTrainedModel.push_to_hub:20
+#: transformers.file_utils.PushToHubMixin.push_to_hub:20
+msgid ""
+"Whether or not the repository created should be private (requires a "
+"paying subscription)."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.push_to_hub:22
+#: transformers.PreTrainedModel.push_to_hub:22
+#: transformers.TFPreTrainedModel.push_to_hub:22
+#: transformers.file_utils.PushToHubMixin.push_to_hub:22
+msgid ""
+"The token to use as HTTP bearer authorization for remote files. If "
+":obj:`True`, will use the token generated when running :obj"
+":`transformers-cli login` (stored in :obj:`~/.huggingface`). Will default"
+" to :obj:`True` if :obj:`repo_url` is not specified."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.push_to_hub:27
+#: transformers.PreTrainedModel.push_to_hub:27
+#: transformers.TFPreTrainedModel.push_to_hub:27
+msgid "The url of the commit of your model in the given repository."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.push_to_hub:28
+#: transformers.PreTrainedModel.push_to_hub:28
+#: transformers.TFPreTrainedModel.get_prefix_bias_name:4
+#: transformers.TFPreTrainedModel.push_to_hub:28
+#: transformers.file_utils.PushToHubMixin.push_to_hub:28
+msgid ":obj:`str`"
+msgstr ""
+
+#: of transformers.PreTrainedModel.resize_token_embeddings:1
+#: transformers.TFPreTrainedModel.resize_token_embeddings:1
+msgid ""
+"Resizes input token embeddings matrix of the model if "
+":obj:`new_num_tokens != config.vocab_size`."
+msgstr ""
+
+#: of transformers.PreTrainedModel.resize_token_embeddings:3
+#: transformers.TFPreTrainedModel.resize_token_embeddings:3
+msgid ""
+"Takes care of tying weights embeddings afterwards if the model class has "
+"a :obj:`tie_weights()` method."
+msgstr ""
+
+#: of transformers.PreTrainedModel.resize_token_embeddings:5
+msgid ""
+"The number of new tokens in the embedding matrix. Increasing the size "
+"will add newly initialized vectors at the end. Reducing the size will "
+"remove vectors from the end. If not provided or :obj:`None`, just returns"
+" a pointer to the input tokens :obj:`torch.nn.Embedding` module of the "
+"model without doing anything."
+msgstr ""
+
+#: of transformers.PreTrainedModel.resize_token_embeddings:11
+#: transformers.TFPreTrainedModel.resize_token_embeddings:11
+msgid "Pointer to the input tokens Embeddings Module of the model."
+msgstr ""
+
+#: of transformers.PreTrainedModel.resize_token_embeddings:12
+msgid ":obj:`torch.nn.Embedding`"
+msgstr ""
+
+#: of transformers.PreTrainedModel.save_pretrained:1
+msgid ""
+"Save a model and its configuration file to a directory, so that it can be"
+" re-loaded using the "
+"`:func:`~transformers.PreTrainedModel.from_pretrained`` class method."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.save_pretrained:4
+#: transformers.PreTrainedModel.save_pretrained:4
+#: transformers.TFPreTrainedModel.save_pretrained:4
+msgid "Directory to which to save. Will be created if it doesn't exist."
+msgstr ""
+
+#: of transformers.PreTrainedModel.save_pretrained:6
+msgid ""
+"Whether or not to save the config of the model. Useful when in "
+"distributed training like TPUs and need to call this function on all "
+"processes. In this case, set :obj:`save_config=True` only on the main "
+"process to avoid race conditions."
+msgstr ""
+
+#: of transformers.PreTrainedModel.save_pretrained:10
+msgid ""
+"The state dictionary of the model to save. Will default to "
+":obj:`self.state_dict()`, but can be used to only save parts of the model"
+" or if special precautions need to be taken when recovering the state "
+"dictionary of a model (like when using model parallelism)."
+msgstr ""
+
+#: of transformers.PreTrainedModel.save_pretrained:14
+msgid ""
+"The function to use to save the state dictionary. Useful on distributed "
+"training like TPUs when one need to replace :obj:`torch.save` by another "
+"method."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.save_pretrained:6
+#: transformers.PreTrainedModel.save_pretrained:17
+#: transformers.TFPreTrainedModel.save_pretrained:12
+msgid ""
+"Whether or not to push your model to the Hugging Face model hub after "
+"saving it.  .. warning::      Using :obj:`push_to_hub=True` will "
+"synchronize the repository you are pushing to with     "
+":obj:`save_directory`, which requires :obj:`save_directory` to be a local"
+" clone of the repo you are     pushing to if it's an existing folder. "
+"Pass along :obj:`temp_dir=True` to use a temporary directory     instead."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.save_pretrained:6
+#: transformers.PreTrainedModel.save_pretrained:17
+#: transformers.TFPreTrainedModel.save_pretrained:12
+msgid ""
+"Whether or not to push your model to the Hugging Face model hub after "
+"saving it."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.save_pretrained:10
+#: transformers.PreTrainedModel.save_pretrained:21
+#: transformers.TFPreTrainedModel.save_pretrained:16
+msgid ""
+"Using :obj:`push_to_hub=True` will synchronize the repository you are "
+"pushing to with :obj:`save_directory`, which requires "
+":obj:`save_directory` to be a local clone of the repo you are pushing to "
+"if it's an existing folder. Pass along :obj:`temp_dir=True` to use a "
+"temporary directory instead."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.save_pretrained:15
+#: transformers.PreTrainedModel.save_pretrained:26
+#: transformers.TFPreTrainedModel.save_pretrained:21
+msgid ""
+"Additional key word arguments passed along to the "
+":meth:`~transformers.file_utils.PushToHubMixin.push_to_hub` method."
+msgstr ""
+
+#: of transformers.PreTrainedModel.set_input_embeddings:1
+msgid "Set model's input embeddings."
+msgstr ""
+
+#: of transformers.PreTrainedModel.set_input_embeddings:3
+msgid "A module mapping vocabulary to hidden states."
+msgstr ""
+
+#: of transformers.PreTrainedModel.tie_weights:1
+msgid "Tie the weights between the input embeddings and the output embeddings."
+msgstr ""
+
+#: of transformers.PreTrainedModel.tie_weights:3
+msgid ""
+"If the :obj:`torchscript` flag is set in the configuration, can't handle "
+"parameter sharing so we are cloning the weights instead."
+msgstr ""
+
+#: ../../source/main_classes/model.rst:45
+msgid "Model Instantiation dtype"
+msgstr ""
+
+#: ../../source/main_classes/model.rst:47
+msgid ""
+"Under Pytorch a model normally gets instantiated with ``torch.float32`` "
+"format. This can be an issue if one tries to load a model whose weights "
+"are in fp16, since it'd require twice as much memory. To overcome this "
+"limitation, you can either explicitly pass the desired ``dtype`` using "
+"``torch_dtype`` argument:"
+msgstr ""
+
+#: ../../source/main_classes/model.rst:55
+msgid ""
+"or, if you want the model to always load in the most optimal memory "
+"pattern, you can use the special value ``\"auto\"``, and then ``dtype`` "
+"will be automatically derived from the model's weights:"
+msgstr ""
+
+#: ../../source/main_classes/model.rst:62
+msgid ""
+"Models instantiated from scratch can also be told which ``dtype`` to use "
+"with:"
+msgstr ""
+
+#: ../../source/main_classes/model.rst:69
+msgid ""
+"Due to Pytorch design, this functionality is only available for floating "
+"dtypes."
+msgstr ""
+
+#: ../../source/main_classes/model.rst:74
+msgid "ModuleUtilsMixin"
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin:1
+msgid "A few utilities for :obj:`torch.nn.Modules`, to be used as a mixin."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.add_memory_hooks:1
+msgid ""
+"Add a memory hook before and after each sub-module forward pass to record"
+" increase in memory consumption."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.add_memory_hooks:3
+msgid ""
+"Increase in memory consumption is stored in a :obj:`mem_rss_diff` "
+"attribute for each module and can be reset to zero with "
+":obj:`model.reset_memory_hooks_state()`."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.device:1
+msgid ""
+"The device on which the module is (assuming that all the module "
+"parameters are on the same device)."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.device:4
+msgid ":obj:`torch.device`"
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.dtype:1
+msgid ""
+"The dtype of the module (assuming that all the module parameters have the"
+" same dtype)."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.dtype:3
+msgid ":obj:`torch.dtype`"
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.estimate_tokens:1
+msgid ""
+"Helper function to estimate the total number of tokens from the model "
+"inputs."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.estimate_tokens:3
+msgid "The model inputs."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.estimate_tokens:6
+msgid "The total number of tokens."
+msgstr ""
+
+#: of transformers.modeling_tf_utils.TFModelUtilsMixin.num_parameters:7
+#: transformers.modeling_utils.ModuleUtilsMixin.estimate_tokens:7
+#: transformers.modeling_utils.ModuleUtilsMixin.floating_point_ops:15
+#: transformers.modeling_utils.ModuleUtilsMixin.num_parameters:9
+msgid ":obj:`int`"
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.floating_point_ops:1
+msgid ""
+"Get number of (optionally, non-embeddings) floating-point operations for "
+"the forward and backward passes of a batch with this transformer model. "
+"Default approximation neglects the quadratic dependency on the number of "
+"tokens (valid if :obj:`12 * d_model << sequence_length`) as laid out in "
+"`this paper <https://arxiv.org/pdf/2001.08361.pdf>`__ section 2.1. Should"
+" be overridden for transformers with parameter re-use e.g. Albert or "
+"Universal Transformers, or if doing long-range modeling with very high "
+"sequence lengths."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.floating_point_ops:7
+msgid "The batch size for the forward pass."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.floating_point_ops:9
+msgid "The number of tokens in each line of the batch."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.floating_point_ops:11
+msgid "Whether or not to count embedding and softmax operations."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.floating_point_ops:14
+msgid "The number of floating-point operations."
+msgstr ""
+
+#: of
+#: transformers.modeling_utils.ModuleUtilsMixin.get_extended_attention_mask:1
+msgid ""
+"Makes broadcastable attention and causal masks so that future and masked "
+"tokens are ignored."
+msgstr ""
+
+#: of
+#: transformers.modeling_utils.ModuleUtilsMixin.get_extended_attention_mask:3
+msgid "Mask with ones indicating tokens to attend to, zeros for tokens to ignore."
+msgstr ""
+
+#: of
+#: transformers.modeling_utils.ModuleUtilsMixin.get_extended_attention_mask:5
+msgid "The shape of the input to the model."
+msgstr ""
+
+#: of
+#: transformers.modeling_utils.ModuleUtilsMixin.get_extended_attention_mask:7
+msgid "(:obj:`torch.device`): The device of the input to the model."
+msgstr ""
+
+#: of
+#: transformers.modeling_utils.ModuleUtilsMixin.get_extended_attention_mask:10
+msgid ""
+":obj:`torch.Tensor` The extended attention mask, with a the same dtype as"
+" :obj:`attention_mask.dtype`."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.get_head_mask:1
+msgid "Prepare the head mask if needed."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.get_head_mask:3
+msgid ""
+"The mask indicating if we should keep the heads or not (1.0 for keep, 0.0"
+" for discard)."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.get_head_mask:5
+msgid "The number of hidden layers in the model."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.get_head_mask:7
+msgid ""
+"(:obj:`bool`, `optional`, defaults to :obj:`False`): Whether or not the "
+"attentions scores are computed by chunks or not."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.get_head_mask:10
+msgid ""
+":obj:`torch.Tensor` with shape :obj:`[num_hidden_layers x batch x "
+"num_heads x seq_length x seq_length]` or list with :obj:`[None]` for each"
+" layer."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.invert_attention_mask:1
+msgid "Invert an attention mask (e.g., switches 0. and 1.)."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.invert_attention_mask:3
+msgid "An attention mask."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.invert_attention_mask:6
+msgid "The inverted attention mask."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.invert_attention_mask:7
+msgid ":obj:`torch.Tensor`"
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.num_parameters:1
+msgid ""
+"Get number of (optionally, trainable or non-embeddings) parameters in the"
+" module."
+msgstr ""
+
+#: of transformers.modeling_tf_utils.TFModelUtilsMixin.num_parameters:3
+#: transformers.modeling_utils.ModuleUtilsMixin.num_parameters:3
+msgid "Whether or not to return only the number of trainable parameters"
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.num_parameters:5
+msgid "Whether or not to return only the number of non-embeddings parameters"
+msgstr ""
+
+#: of transformers.modeling_tf_utils.TFModelUtilsMixin.num_parameters:6
+#: transformers.modeling_utils.ModuleUtilsMixin.num_parameters:8
+msgid "The number of parameters."
+msgstr ""
+
+#: of transformers.modeling_utils.ModuleUtilsMixin.reset_memory_hooks_state:1
+msgid ""
+"Reset the :obj:`mem_rss_diff` attribute of each module (see "
+":func:`~transformers.modeling_utils.ModuleUtilsMixin.add_memory_hooks`)."
+msgstr ""
+
+#: ../../source/main_classes/model.rst:81
+msgid "TFPreTrainedModel"
+msgstr ""
+
+#: of transformers.TFPreTrainedModel:1
+msgid "Base class for all TF models."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel:3
+msgid ""
+":class:`~transformers.TFPreTrainedModel` takes care of storing the "
+"configuration of the models and handles methods for loading, downloading "
+"and saving models as well as a few methods common to all models to:"
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.dummy_inputs:1
+msgid "Dummy inputs to build the network."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.dummy_inputs:3
+msgid "The dummy inputs."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.dummy_inputs:4
+msgid ":obj:`Dict[str, tf.Tensor]`"
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.from_pretrained:1
+msgid ""
+"Instantiate a pretrained TF 2.0 model from a pre-trained model "
+"configuration."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.from_pretrained:10
+msgid ""
+"Can be either:      - A string, the `model id` of a pretrained model "
+"hosted inside a model repo on huggingface.co.       Valid model ids can "
+"be located at the root-level, like ``bert-base-uncased``, or namespaced "
+"under       a user or organization name, like ``dbmdz/bert-base-german-"
+"cased``.     - A path to a `directory` containing model weights saved "
+"using       :func:`~transformers.TFPreTrainedModel.save_pretrained`, "
+"e.g., ``./my_model_directory/``.     - A path or url to a `PyTorch "
+"state_dict save file` (e.g, ``./pt_model/pytorch_model.bin``). In       "
+"this case, ``from_pt`` should be set to :obj:`True` and a configuration "
+"object should be provided       as ``config`` argument. This loading path"
+" is slower than converting the PyTorch model in a       TensorFlow model "
+"using the provided conversion scripts and loading the TensorFlow model"
+"       afterwards.     - :obj:`None` if you are both providing the "
+"configuration and state dictionary (resp. with keyword       arguments "
+"``config`` and ``state_dict``)."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.from_pretrained:16
+msgid ""
+"A path to a `directory` containing model weights saved using "
+":func:`~transformers.TFPreTrainedModel.save_pretrained`, e.g., "
+"``./my_model_directory/``."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.from_pretrained:18
+msgid ""
+"A path or url to a `PyTorch state_dict save file` (e.g, "
+"``./pt_model/pytorch_model.bin``). In this case, ``from_pt`` should be "
+"set to :obj:`True` and a configuration object should be provided as "
+"``config`` argument. This loading path is slower than converting the "
+"PyTorch model in a TensorFlow model using the provided conversion scripts"
+" and loading the TensorFlow model afterwards."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.from_pretrained:28
+msgid ""
+"Can be either:      - an instance of a class derived from "
+":class:`~transformers.PretrainedConfig`,     - a string valid as input to"
+" :func:`~transformers.PretrainedConfig.from_pretrained`.  Configuration "
+"for the model to use instead of an automatically loaded configuation. "
+"Configuration can be automatically loaded when:      - The model is a "
+"model provided by the library (loaded with the `model id` string of a "
+"pretrained       model).     - The model was saved using "
+":func:`~transformers.TFPreTrainedModel.save_pretrained` and is reloaded"
+"       by supplying the save directory.     - The model is loaded by "
+"supplying a local directory as ``pretrained_model_name_or_path`` and a"
+"       configuration JSON file named `config.json` is found in the "
+"directory."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.from_pretrained:32
+msgid ""
+"a string valid as input to "
+":func:`~transformers.PretrainedConfig.from_pretrained`."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.from_pretrained:39
+msgid ""
+"The model was saved using "
+":func:`~transformers.TFPreTrainedModel.save_pretrained` and is reloaded "
+"by supplying the save directory."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.from_pretrained:44
+msgid ""
+"(:obj:`bool`, `optional`, defaults to :obj:`False`): Load the model "
+"weights from a PyTorch state_dict save file (see docstring of "
+"``pretrained_model_name_or_path`` argument)."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.from_pretrained:60
+msgid ""
+"(:obj:`Dict[str, str], `optional`): A dictionary of proxy servers to use "
+"by protocol or endpoint, e.g., :obj:`{'http': 'foo.bar:3128', "
+"'http://hostname': 'foo.bar:4012'}`. The proxies are used on each "
+"request."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.from_pretrained:65
+msgid ""
+"Whether or not to only look at local files (e.g., not try doanloading the"
+" model)."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.get_bias:1
+msgid ""
+"Dict of bias attached to an LM head. The key represents the name of the "
+"bias attribute."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.get_bias:3
+msgid "The weights representing the bias, None if not an LM model."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.get_bias:4
+#: transformers.TFPreTrainedModel.get_input_embeddings:4
+#: transformers.TFPreTrainedModel.get_output_embeddings:4
+#: transformers.TFPreTrainedModel.resize_token_embeddings:12
+msgid ":obj:`tf.Variable`"
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.get_input_embeddings:1
+msgid "Returns the model's input embeddings layer."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.get_input_embeddings:3
+msgid "The embeddings layer mapping vocabulary to hidden states."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.get_lm_head:1
+msgid ""
+"The LM Head layer. This method must be overwritten by all the models that"
+" have a lm head."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.get_lm_head:3
+msgid "The LM head layer if the model has one, None if not."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.get_lm_head:4
+#: transformers.TFPreTrainedModel.get_output_layer_with_bias:5
+msgid ":obj:`tf.keras.layers.Layer`"
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.get_output_embeddings:1
+msgid "Returns the model's output embeddings"
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.get_output_embeddings:3
+msgid "The new weights mapping vocabulary to hidden states."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.get_output_layer_with_bias:1
+msgid ""
+"Get the layer that handles a bias attribute in case the model has an LM "
+"head with weights tied to the embeddings"
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.get_output_layer_with_bias:4
+msgid "The layer that handles the bias, None if not an LM model."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.get_prefix_bias_name:1
+msgid ""
+"Get the concatenated _prefix name of the bias from the model name to the "
+"parent layer"
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.get_prefix_bias_name:3
+msgid "The _prefix name of the bias."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.resize_token_embeddings:5
+msgid ""
+"The number of new tokens in the embedding matrix. Increasing the size "
+"will add newly initialized vectors at the end. Reducing the size will "
+"remove vectors from the end. If not provided or :obj:`None`, just returns"
+" a pointer to the input tokens :obj:`tf.Variable` module of the model "
+"without doing anything."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.save_pretrained:1
+msgid ""
+"Save a model and its configuration file to a directory, so that it can be"
+" re-loaded using the "
+":func:`~transformers.TFPreTrainedModel.from_pretrained` class method."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.save_pretrained:6
+msgid "If the model has to be saved in saved model format as well or not."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.save_pretrained:8
+msgid ""
+"The version of the saved model. A saved model needs to be versioned in "
+"order to be properly loaded by TensorFlow Serving as detailed in the "
+"official documentation "
+"https://www.tensorflow.org/tfx/serving/serving_basic"
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.serving:1
+msgid "Method used for serving the model."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.serving:3
+msgid "The input of the saved model as a dictionary of tensors."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.serving_output:1
+msgid ""
+"Prepare the output of the saved model. Each model must implement this "
+"function."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.serving_output:3
+msgid "The output returned by the model."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.set_bias:1
+msgid "Set all the bias in the LM head."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.set_bias:3
+msgid "All the new bias attached to an LM head."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.set_input_embeddings:1
+msgid "Set model's input embeddings"
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.set_input_embeddings:3
+#: transformers.TFPreTrainedModel.set_output_embeddings:3
+msgid "The new weights mapping hidden states to vocabulary."
+msgstr ""
+
+#: of transformers.TFPreTrainedModel.set_output_embeddings:1
+msgid "Set model's output embeddings"
+msgstr ""
+
+#: ../../source/main_classes/model.rst:89
+msgid "TFModelUtilsMixin"
+msgstr ""
+
+#: of transformers.modeling_tf_utils.TFModelUtilsMixin:1
+msgid "A few utilities for :obj:`tf.keras.Model`, to be used as a mixin."
+msgstr ""
+
+#: of transformers.modeling_tf_utils.TFModelUtilsMixin.num_parameters:1
+msgid "Get the number of (optionally, trainable) parameters in the model."
+msgstr ""
+
+#: ../../source/main_classes/model.rst:96
+msgid "FlaxPreTrainedModel"
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel:3
+msgid ""
+":class:`~transformers.FlaxPreTrainedModel` takes care of storing the "
+"configuration of the models and handles methods for loading, downloading "
+"and saving models."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:1
+msgid ""
+"Instantiate a pretrained flax model from a pre-trained model "
+"configuration."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:10
+msgid ""
+"Can be either:      - A string, the `model id` of a pretrained model "
+"hosted inside a model repo on huggingface.co.       Valid model ids can "
+"be located at the root-level, like ``bert-base-uncased``, or namespaced "
+"under       a user or organization name, like ``dbmdz/bert-base-german-"
+"cased``.     - A path to a `directory` containing model weights saved "
+"using       :func:`~transformers.FlaxPreTrainedModel.save_pretrained`, "
+"e.g., ``./my_model_directory/``.     - A path or url to a `pt index "
+"checkpoint file` (e.g, ``./tf_model/model.ckpt.index``). In this       "
+"case, ``from_pt`` should be set to :obj:`True`."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:16
+msgid ""
+"A path to a `directory` containing model weights saved using "
+":func:`~transformers.FlaxPreTrainedModel.save_pretrained`, e.g., "
+"``./my_model_directory/``."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:18
+msgid ""
+"A path or url to a `pt index checkpoint file` (e.g, "
+"``./tf_model/model.ckpt.index``). In this case, ``from_pt`` should be set"
+" to :obj:`True`."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.from_pretrained:42
+msgid ""
+"Load the model weights from a PyTorch checkpoint save file (see docstring"
+" of ``pretrained_model_name_or_path`` argument)."
+msgstr ""
+
+#: of transformers.FlaxPreTrainedModel.save_pretrained:1
+msgid ""
+"Save a model and its configuration file to a directory, so that it can be"
+" re-loaded using the "
+"`:func:`~transformers.FlaxPreTrainedModel.from_pretrained`` class method"
+msgstr ""
+
+#: ../../source/main_classes/model.rst:104
+msgid "Generation"
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin:1
+msgid ""
+"A class containing all of the functions supporting generation, to be used"
+" as a mixin in :class:`~transformers.PreTrainedModel`."
+msgstr ""
+
+#: of
+#: transformers.generation_tf_utils.TFGenerationMixin.adjust_logits_during_generation:1
+#: transformers.generation_utils.GenerationMixin.adjust_logits_during_generation:1
+msgid ""
+"Implement in subclasses of :class:`~transformers.PreTrainedModel` for "
+"custom behavior to adjust the logits in the generate method."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.beam_sample:1
+msgid ""
+"Generates sequences for models with a language modeling head using beam "
+"search with multinomial sampling."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.beam_sample:3
+#: transformers.generation_utils.GenerationMixin.beam_search:3
+#: transformers.generation_utils.GenerationMixin.generate:11
+#: transformers.generation_utils.GenerationMixin.greedy_search:3
+#: transformers.generation_utils.GenerationMixin.group_beam_search:3
+#: transformers.generation_utils.GenerationMixin.sample:3
+msgid ""
+"The sequence used as a prompt for the generation. If :obj:`None` the "
+"method initializes it as an empty :obj:`torch.LongTensor` of shape "
+":obj:`(1,)`."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.beam_sample:6
+msgid ""
+"A derived instance of :class:`~transformers.BeamScorer` that defines how "
+"beam hypotheses are constructed, stored and sorted during generation. For"
+" more information, the documentation of :class:`~transformers.BeamScorer`"
+" should be read."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.beam_sample:10
+#: transformers.generation_utils.GenerationMixin.beam_search:10
+#: transformers.generation_utils.GenerationMixin.greedy_search:6
+#: transformers.generation_utils.GenerationMixin.group_beam_search:10
+#: transformers.generation_utils.GenerationMixin.sample:6
+msgid ""
+"An instance of :class:`~transformers.LogitsProcessorList`. List of "
+"instances of class derived from :class:`~transformers.LogitsProcessor` "
+"used to modify the prediction scores of the language modeling head "
+"applied at each generation step."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.beam_sample:14
+#: transformers.generation_utils.GenerationMixin.beam_search:14
+#: transformers.generation_utils.GenerationMixin.greedy_search:10
+#: transformers.generation_utils.GenerationMixin.group_beam_search:14
+#: transformers.generation_utils.GenerationMixin.sample:10
+msgid ""
+"An instance of :class:`~transformers.StoppingCriteriaList`. List of "
+"instances of class derived from :class:`~transformers.StoppingCriteria` "
+"used to tell if the generation loop should stop."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.beam_sample:17
+#: transformers.generation_utils.GenerationMixin.sample:13
+msgid ""
+"An instance of :class:`~transformers.LogitsProcessorList`. List of "
+"instances of class derived from :class:`~transformers.LogitsWarper` used "
+"to warp the prediction score distribution of the language modeling head "
+"applied before multinomial sampling at each generation step."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.beam_sample:21
+#: transformers.generation_utils.GenerationMixin.beam_search:17
+#: transformers.generation_utils.GenerationMixin.greedy_search:13
+#: transformers.generation_utils.GenerationMixin.group_beam_search:17
+#: transformers.generation_utils.GenerationMixin.sample:17
+msgid ""
+"**DEPRECATED**. Use :obj:`logits_processor` or :obj:`stopping_criteria` "
+"directly to cap the number of generated tokens. The maximum length of the"
+" sequence to be generated."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:24
+#: transformers.generation_tf_utils.TFGenerationMixin.generate:37
+#: transformers.generation_utils.GenerationMixin.beam_sample:24
+#: transformers.generation_utils.GenerationMixin.beam_search:20
+#: transformers.generation_utils.GenerationMixin.generate:37
+#: transformers.generation_utils.GenerationMixin.greedy_search:16
+#: transformers.generation_utils.GenerationMixin.group_beam_search:20
+#: transformers.generation_utils.GenerationMixin.sample:20
+msgid "The id of the `padding` token."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:28
+#: transformers.generation_tf_utils.TFGenerationMixin.generate:41
+#: transformers.generation_utils.GenerationMixin.beam_sample:26
+#: transformers.generation_utils.GenerationMixin.beam_search:22
+#: transformers.generation_utils.GenerationMixin.generate:41
+#: transformers.generation_utils.GenerationMixin.greedy_search:18
+#: transformers.generation_utils.GenerationMixin.group_beam_search:22
+#: transformers.generation_utils.GenerationMixin.sample:22
+msgid "The id of the `end-of-sequence` token."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:67
+#: transformers.generation_utils.GenerationMixin.beam_sample:28
+#: transformers.generation_utils.GenerationMixin.beam_search:24
+#: transformers.generation_utils.GenerationMixin.generate:85
+#: transformers.generation_utils.GenerationMixin.greedy_search:20
+#: transformers.generation_utils.GenerationMixin.group_beam_search:24
+#: transformers.generation_utils.GenerationMixin.sample:24
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more details."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:70
+#: transformers.generation_utils.GenerationMixin.beam_sample:31
+#: transformers.generation_utils.GenerationMixin.beam_search:27
+#: transformers.generation_utils.GenerationMixin.generate:88
+#: transformers.generation_utils.GenerationMixin.greedy_search:23
+#: transformers.generation_utils.GenerationMixin.group_beam_search:27
+#: transformers.generation_utils.GenerationMixin.sample:27
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more details."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:73
+#: transformers.generation_utils.GenerationMixin.beam_sample:34
+#: transformers.generation_utils.GenerationMixin.beam_search:30
+#: transformers.generation_utils.GenerationMixin.generate:91
+#: transformers.generation_utils.GenerationMixin.greedy_search:26
+#: transformers.generation_utils.GenerationMixin.group_beam_search:30
+#: transformers.generation_utils.GenerationMixin.sample:30
+msgid ""
+"Whether or not to return the prediction scores. See ``scores`` under "
+"returned tensors for more details."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:75
+#: transformers.generation_utils.GenerationMixin.beam_sample:36
+#: transformers.generation_utils.GenerationMixin.beam_search:32
+#: transformers.generation_utils.GenerationMixin.generate:93
+#: transformers.generation_utils.GenerationMixin.greedy_search:28
+#: transformers.generation_utils.GenerationMixin.group_beam_search:32
+#: transformers.generation_utils.GenerationMixin.sample:32
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.beam_sample:38
+#: transformers.generation_utils.GenerationMixin.beam_search:34
+#: transformers.generation_utils.GenerationMixin.generate:104
+#: transformers.generation_utils.GenerationMixin.greedy_search:30
+#: transformers.generation_utils.GenerationMixin.group_beam_search:34
+#: transformers.generation_utils.GenerationMixin.sample:34
+msgid ""
+"Whether to continue running the while loop until max_length (needed for "
+"ZeRO stage 3)"
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.beam_sample:40
+#: transformers.generation_utils.GenerationMixin.beam_search:36
+#: transformers.generation_utils.GenerationMixin.sample:36
+msgid ""
+"Additional model specific kwargs will be forwarded to the :obj:`forward` "
+"function of the model. If model is an encoder-decoder model the kwargs "
+"should include :obj:`encoder_outputs`."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.beam_sample:43
+msgid ""
+":class:`~transformers.generation_utils.BeamSampleDecoderOnlyOutput`, "
+":class:`~transformers.generation_utils.BeamSampleEncoderDecoderOutput` or"
+" obj:`torch.LongTensor`: A :obj:`torch.LongTensor` containing the "
+"generated tokens (default behaviour) or a "
+":class:`~transformers.generation_utils.BeamSampleDecoderOnlyOutput` if "
+"``model.config.is_encoder_decoder=False`` and "
+"``return_dict_in_generate=True`` or a "
+":class:`~transformers.generation_utils.BeamSampleEncoderDecoderOutput` if"
+" ``model.config.is_encoder_decoder=True``."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.beam_search:1
+#: transformers.generation_utils.GenerationMixin.group_beam_search:1
+msgid ""
+"Generates sequences for models with a language modeling head using beam "
+"search decoding."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.beam_search:6
+#: transformers.generation_utils.GenerationMixin.group_beam_search:6
+msgid ""
+"An derived instance of :class:`~transformers.BeamScorer` that defines how"
+" beam hypotheses are constructed, stored and sorted during generation. "
+"For more information, the documentation of "
+":class:`~transformers.BeamScorer` should be read."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.beam_search:39
+msgid ""
+":class:`~transformers.generation_utilsBeamSearchDecoderOnlyOutput`, "
+":class:`~transformers.generation_utils.BeamSearchEncoderDecoderOutput` or"
+" obj:`torch.LongTensor`: A :obj:`torch.LongTensor` containing the "
+"generated tokens (default behaviour) or a "
+":class:`~transformers.generation_utils.BeamSearchDecoderOnlyOutput` if "
+"``model.config.is_encoder_decoder=False`` and "
+"``return_dict_in_generate=True`` or a "
+":class:`~transformers.generation_utils.BeamSearchEncoderDecoderOutput` if"
+" ``model.config.is_encoder_decoder=True``."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:1
+msgid ""
+"Generates sequences for models with a language modeling head. The method "
+"currently supports greedy decoding, multinomial sampling, beam-search "
+"decoding, and beam-search multinomial sampling."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:7
+#: transformers.generation_utils.GenerationMixin.generate:4
+msgid ""
+"Apart from :obj:`input_ids` and :obj:`attention_mask`, all the arguments "
+"below will default to the value of the attribute of the same name inside "
+"the :class:`~transformers.PretrainedConfig` of the model. The default "
+"values indicated are the default values of those config."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:8
+#: transformers.generation_tf_utils.TFGenerationMixin.generate:11
+#: transformers.generation_utils.GenerationMixin.generate:8
+msgid ""
+"Most of these parameters are explained in more detail in `this blog post "
+"<https://huggingface.co/blog/how-to-generate>`__."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:13
+#: transformers.generation_tf_utils.TFGenerationMixin.generate:17
+#: transformers.generation_utils.GenerationMixin.generate:14
+msgid "The maximum length of the sequence to be generated."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:16
+msgid ""
+"The maximum numbers of tokens to generate, ignore the current number of "
+"tokens. Use either :obj:`max_new_tokens` or :obj:`max_length` but not "
+"both, they serve the same purpose."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:19
+#: transformers.generation_utils.GenerationMixin.generate:19
+msgid "The minimum length of the sequence to be generated."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:15
+#: transformers.generation_tf_utils.TFGenerationMixin.generate:21
+#: transformers.generation_utils.GenerationMixin.generate:21
+msgid "Whether or not to use sampling ; use greedy decoding otherwise."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:23
+#: transformers.generation_utils.GenerationMixin.generate:23
+msgid ""
+"Whether to stop the beam search when at least ``num_beams`` sentences are"
+" finished per batch or not."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:30
+#: transformers.generation_tf_utils.TFGenerationMixin.generate:25
+#: transformers.generation_utils.GenerationMixin.generate:25
+msgid "Number of beams for beam search. 1 means no beam search."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:17
+#: transformers.generation_tf_utils.TFGenerationMixin.generate:27
+#: transformers.generation_utils.GenerationMixin.generate:27
+msgid "The value used to module the next token probabilities."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:19
+#: transformers.generation_tf_utils.TFGenerationMixin.generate:29
+#: transformers.generation_utils.GenerationMixin.generate:29
+msgid ""
+"The number of highest probability vocabulary tokens to keep for "
+"top-k-filtering."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:21
+#: transformers.generation_utils.GenerationMixin.generate:31
+msgid ""
+"If set to float < 1, only the most probable tokens with probabilities "
+"that add up to :obj:`top_p` or higher are kept for generation."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:34
+#: transformers.generation_utils.GenerationMixin.generate:34
+msgid ""
+"The parameter for repetition penalty. 1.0 means no penalty. See `this "
+"paper <https://arxiv.org/pdf/1909.05858.pdf>`__ for more details."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:26
+#: transformers.generation_tf_utils.TFGenerationMixin.generate:39
+#: transformers.generation_utils.GenerationMixin.generate:39
+msgid "The id of the `beginning-of-sequence` token."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:43
+msgid ""
+"Exponential penalty to the length. 1.0 means no penalty. Set to values < "
+"1.0 in order to encourage the model to generate shorter sequences, to a "
+"value > 1.0 in order to encourage the model to produce longer sequences."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:48
+#: transformers.generation_utils.GenerationMixin.generate:47
+msgid "If set to int > 0, all ngrams of that size can only occur once."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:49
+msgid ""
+"If set to int > 0, all ngrams of that size that occur in the "
+"``encoder_input_ids`` cannot occur in the ``decoder_input_ids``."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:52
+msgid ""
+"List of token ids that are not allowed to be generated. In order to get "
+"the tokens of the words that should not appear in the generated text, use"
+" :obj:`tokenizer(bad_word, add_prefix_space=True).input_ids`."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:53
+#: transformers.generation_utils.GenerationMixin.generate:56
+msgid ""
+"The number of independently computed returned sequences for each element "
+"in the batch."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:58
+msgid ""
+"The maximum amount of time you allow the computation to run for in "
+"seconds. generation will still finish the current pass after allocated "
+"time has been passed."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:61
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"are in ``[0, 1]``, 1 for tokens that are not masked, and 0 for masked "
+"tokens. If not provided, will default to a tensor the same shape as "
+":obj:`input_ids` that masks the pad token. `What are attention masks? "
+"<../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:32
+#: transformers.generation_tf_utils.TFGenerationMixin.generate:62
+#: transformers.generation_utils.GenerationMixin.generate:66
+msgid ""
+"If an encoder-decoder model starts decoding with a different token than "
+"`bos`, the id of that token."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:64
+#: transformers.generation_utils.GenerationMixin.generate:68
+msgid ""
+"(:obj:`bool`, `optional`, defaults to :obj:`True`): Whether or not the "
+"model should use the past last key/values attentions (if applicable to "
+"the model) to speed up decoding."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:71
+msgid ""
+"Number of groups to divide :obj:`num_beams` into in order to ensure "
+"diversity among different groups of beams. `this paper "
+"<https://arxiv.org/pdf/1610.02424.pdf>`__ for more details."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:74
+msgid ""
+"This value is subtracted from a beam's score if it generates a token same"
+" as any beam from other group at a particular time. Note that "
+":obj:`diversity_penalty` is only effective if ``group beam search`` is "
+"enabled."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:78
+msgid ""
+"(:obj:`Callable[[int, torch.Tensor], List[int]]`, `optional`): If "
+"provided, this function constraints the beam search to allowed tokens "
+"only at each step. If not provided no constraint is applied. This "
+"function takes 2 arguments: the batch ID :obj:`batch_id` and "
+":obj:`input_ids`. It has to return a list with the allowed tokens for the"
+" next generation step conditioned on the batch ID :obj:`batch_id` and the"
+" previously generated tokens :obj:`inputs_ids`. This argument is useful "
+"for constrained generation conditioned on the prefix, as described in "
+"`Autoregressive Entity Retrieval <https://arxiv.org/abs/2010.00904>`__."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:77
+#: transformers.generation_utils.GenerationMixin.generate:95
+msgid ""
+"The id of the token to force as the first generated token after the "
+":obj:`decoder_start_token_id`. Useful for multilingual models like "
+":doc:`mBART <../model_doc/mbart>` where the first generated token needs "
+"to be the target language token."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:81
+#: transformers.generation_utils.GenerationMixin.generate:99
+msgid ""
+"The id of the token to force as the last generated token when "
+":obj:`max_length` is reached."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:101
+msgid ""
+"Whether to remove possible `nan` and `inf` outputs of the model to "
+"prevent the generation method to crash. Note that using "
+"``remove_invalid_values`` can slow down generation."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:106
+msgid ""
+"Additional model specific kwargs will be forwarded to the :obj:`forward` "
+"function of the model. If the model is an encoder-decoder model, encoder "
+"specific kwargs should not be prefixed and decoder specific kwargs should"
+" be prefixed with `decoder_`."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:110
+msgid ""
+"A :class:`~transformers.file_utils.ModelOutput` (if "
+"``return_dict_in_generate=True`` or when "
+"``config.return_dict_in_generate=True``) or a :obj:`torch.FloatTensor`."
+"      If the model is `not` an encoder-decoder model "
+"(``model.config.is_encoder_decoder=False``), the     possible "
+":class:`~transformers.file_utils.ModelOutput` types are:          - "
+":class:`~transformers.generation_utils.GreedySearchDecoderOnlyOutput`,"
+"         - "
+":class:`~transformers.generation_utils.SampleDecoderOnlyOutput`,         "
+"- :class:`~transformers.generation_utils.BeamSearchDecoderOnlyOutput`,"
+"         - "
+":class:`~transformers.generation_utils.BeamSampleDecoderOnlyOutput`      "
+"If the model is an encoder-decoder model "
+"(``model.config.is_encoder_decoder=True``), the possible     "
+":class:`~transformers.file_utils.ModelOutput` types are:          - "
+":class:`~transformers.generation_utils.GreedySearchEncoderDecoderOutput`,"
+"         - "
+":class:`~transformers.generation_utils.SampleEncoderDecoderOutput`,"
+"         - "
+":class:`~transformers.generation_utils.BeamSearchEncoderDecoderOutput`,"
+"         - "
+":class:`~transformers.generation_utils.BeamSampleEncoderDecoderOutput`"
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:110
+msgid ""
+"A :class:`~transformers.file_utils.ModelOutput` (if "
+"``return_dict_in_generate=True`` or when "
+"``config.return_dict_in_generate=True``) or a :obj:`torch.FloatTensor`."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:89
+#: transformers.generation_utils.GenerationMixin.generate:114
+msgid ""
+"If the model is `not` an encoder-decoder model "
+"(``model.config.is_encoder_decoder=False``), the possible "
+":class:`~transformers.file_utils.ModelOutput` types are:"
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:117
+msgid ":class:`~transformers.generation_utils.GreedySearchDecoderOnlyOutput`,"
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:118
+msgid ":class:`~transformers.generation_utils.SampleDecoderOnlyOutput`,"
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:119
+msgid ":class:`~transformers.generation_utils.BeamSearchDecoderOnlyOutput`,"
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:120
+msgid ":class:`~transformers.generation_utils.BeamSampleDecoderOnlyOutput`"
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:97
+#: transformers.generation_utils.GenerationMixin.generate:122
+msgid ""
+"If the model is an encoder-decoder model "
+"(``model.config.is_encoder_decoder=True``), the possible "
+":class:`~transformers.file_utils.ModelOutput` types are:"
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:125
+msgid ":class:`~transformers.generation_utils.GreedySearchEncoderDecoderOutput`,"
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:126
+msgid ":class:`~transformers.generation_utils.SampleEncoderDecoderOutput`,"
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:127
+msgid ":class:`~transformers.generation_utils.BeamSearchEncoderDecoderOutput`,"
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:128
+msgid ":class:`~transformers.generation_utils.BeamSampleEncoderDecoderOutput`"
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.generate:129
+msgid ":class:`~transformers.file_utils.ModelOutput` or :obj:`torch.LongTensor`"
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.greedy_search:1
+msgid ""
+"Generates sequences for models with a language modeling head using greedy"
+" decoding."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.greedy_search:32
+msgid ""
+"Additional model specific keyword arguments will be forwarded to the "
+":obj:`forward` function of the model. If model is an encoder-decoder "
+"model the kwargs should include :obj:`encoder_outputs`."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.greedy_search:35
+msgid ""
+":class:`~transformers.generation_utils.GreedySearchDecoderOnlyOutput`, "
+":class:`~transformers.generation_utils.GreedySearchEncoderDecoderOutput` "
+"or obj:`torch.LongTensor`: A :obj:`torch.LongTensor` containing the "
+"generated tokens (default behaviour) or a "
+":class:`~transformers.generation_utils.GreedySearchDecoderOnlyOutput` if "
+"``model.config.is_encoder_decoder=False`` and "
+"``return_dict_in_generate=True`` or a "
+":class:`~transformers.generation_utils.GreedySearchEncoderDecoderOutput` "
+"if ``model.config.is_encoder_decoder=True``."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.group_beam_search:36
+msgid ""
+"Additional model specific kwargs that will be forwarded to the "
+":obj:`forward` function of the model. If model is an encoder-decoder "
+"model the kwargs should include :obj:`encoder_outputs`."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.group_beam_search:39
+msgid ""
+":class:`~transformers.generation_utils.BeamSearchDecoderOnlyOutput`, "
+":class:`~transformers.generation_utils.BeamSearchEncoderDecoderOutput` or"
+" obj:`torch.LongTensor`: A :obj:`torch.LongTensor` containing the "
+"generated tokens (default behaviour) or a "
+":class:`~transformers.generation_utils.BeamSearchDecoderOnlyOutput` if "
+":class:`~transformers.generation_utils.BeamSearchDecoderOnlyOutput` if "
+"``model.config.is_encoder_decoder=False`` and "
+"``return_dict_in_generate=True`` or a "
+":class:`~transformers.generation_utils.BeamSearchEncoderDecoderOutput` if"
+" ``model.config.is_encoder_decoder=True``."
+msgstr ""
+
+#: of
+#: transformers.generation_utils.GenerationMixin.prepare_inputs_for_generation:1
+msgid ""
+"Implement in subclasses of :class:`~transformers.PreTrainedModel` for "
+"custom behavior to prepare inputs in the generate method."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.sample:1
+msgid ""
+"Generates sequences for models with a language modeling head using "
+"multinomial sampling."
+msgstr ""
+
+#: of transformers.generation_utils.GenerationMixin.sample:39
+msgid ""
+":class:`~transformers.generation_utils.SampleDecoderOnlyOutput`, "
+":class:`~transformers.generation_utils.SampleEncoderDecoderOutput` or "
+"obj:`torch.LongTensor`: A :obj:`torch.LongTensor` containing the "
+"generated tokens (default behaviour) or a "
+":class:`~transformers.generation_utils.SampleDecoderOnlyOutput` if "
+"``model.config.is_encoder_decoder=False`` and "
+"``return_dict_in_generate=True`` or a "
+":class:`~transformers.generation_utils.SampleEncoderDecoderOutput` if "
+"``model.config.is_encoder_decoder=True``."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin:1
+msgid ""
+"A class containing all of the functions supporting generation, to be used"
+" as a mixin in :class:`~transformers.TFPreTrainedModel`."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:1
+msgid ""
+"Generates sequences for models with a language modeling head. The method "
+"currently supports greedy decoding, beam-search decoding, sampling with "
+"temperature, sampling with top-k or nucleus sampling."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:4
+msgid ""
+"Adapted in part from `Facebook's XLM beam search code "
+"<https://github.com/facebookresearch/XLM/blob/9e6f6814d17be4fe5b15f2e6c43eb2b2d76daeb4/src/model/transformer.py#L529>`__."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:14
+msgid ""
+"The sequence used as a prompt for the generation. If :obj:`None` the "
+"method initializes it as an empty :obj:`tf.Tensor` of shape :obj:`(1,)`."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:31
+msgid ""
+"If set to float < 1, only the most probable tokens with probabilities "
+"that add up to ``top_p`` or higher are kept for generation."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:43
+msgid ""
+"Exponential penalty to the length. 1.0 means no penalty.  Set to values <"
+" 1.0 in order to encourage the model to generate shorter sequences, to a "
+"value > 1.0 in order to encourage the model to produce longer sequences."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:43
+msgid "Exponential penalty to the length. 1.0 means no penalty."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:45
+msgid ""
+"Set to values < 1.0 in order to encourage the model to generate shorter "
+"sequences, to a value > 1.0 in order to encourage the model to produce "
+"longer sequences."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:50
+msgid ""
+"List of token ids that are not allowed to be generated. In order to get "
+"the tokens of the words that should not appear in the generated text, use"
+" :obj:`tokenizer.encode(bad_word, add_prefix_space=True)`."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:55
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"are in ``[0, 1]``, 1 for tokens that are not masked, and 0 for masked "
+"tokens.  If not provided, will default to a tensor the same shape as "
+":obj:`input_ids` that masks the pad token.  `What are attention masks? "
+"<../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:55
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"are in ``[0, 1]``, 1 for tokens that are not masked, and 0 for masked "
+"tokens."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:58
+msgid ""
+"If not provided, will default to a tensor the same shape as "
+":obj:`input_ids` that masks the pad token."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:60
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:39
+#: transformers.generation_tf_utils.TFGenerationMixin.generate:83
+msgid ""
+"Additional model specific kwargs will be forwarded to the :obj:`forward` "
+"function of the model."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:85
+msgid ""
+"A :class:`~transformers.file_utils.ModelOutput` (if "
+"``return_dict_in_generate=True`` or when "
+"``config.return_dict_in_generate=True``) or a :obj:`tf.Tensor`.      If "
+"the model is `not` an encoder-decoder model "
+"(``model.config.is_encoder_decoder=False``), the     possible "
+":class:`~transformers.file_utils.ModelOutput` types are:          - "
+":class:`~transformers.generation_utils.TFGreedySearchDecoderOnlyOutput`,"
+"         - "
+":class:`~transformers.generation_utils.TFSampleDecoderOnlyOutput`,"
+"         - "
+":class:`~transformers.generation_utils.TFBeamSearchDecoderOnlyOutput`,"
+"         - "
+":class:`~transformers.generation_utils.TFBeamSampleDecoderOnlyOutput`"
+"      If the model is an encoder-decoder model "
+"(``model.config.is_encoder_decoder=True``), the possible     "
+":class:`~transformers.file_utils.ModelOutput` types are:          - "
+":class:`~transformers.generation_utils.TFGreedySearchEncoderDecoderOutput`,"
+"         - "
+":class:`~transformers.generation_utils.TFSampleEncoderDecoderOutput`,"
+"         - "
+":class:`~transformers.generation_utils.TFBeamSearchEncoderDecoderOutput`,"
+"         - "
+":class:`~transformers.generation_utils.TFBeamSampleEncoderDecoderOutput`"
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:85
+msgid ""
+"A :class:`~transformers.file_utils.ModelOutput` (if "
+"``return_dict_in_generate=True`` or when "
+"``config.return_dict_in_generate=True``) or a :obj:`tf.Tensor`."
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:92
+msgid ":class:`~transformers.generation_utils.TFGreedySearchDecoderOnlyOutput`,"
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:93
+msgid ":class:`~transformers.generation_utils.TFSampleDecoderOnlyOutput`,"
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:94
+msgid ":class:`~transformers.generation_utils.TFBeamSearchDecoderOnlyOutput`,"
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:95
+msgid ":class:`~transformers.generation_utils.TFBeamSampleDecoderOnlyOutput`"
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:100
+msgid ":class:`~transformers.generation_utils.TFGreedySearchEncoderDecoderOutput`,"
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:101
+msgid ":class:`~transformers.generation_utils.TFSampleEncoderDecoderOutput`,"
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:102
+msgid ":class:`~transformers.generation_utils.TFBeamSearchEncoderDecoderOutput`,"
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:103
+msgid ":class:`~transformers.generation_utils.TFBeamSampleEncoderDecoderOutput`"
+msgstr ""
+
+#: of transformers.generation_tf_utils.TFGenerationMixin.generate:104
+msgid ":class:`~transformers.file_utils.ModelOutput` or :obj:`tf.Tensor`"
+msgstr ""
+
+#: of
+#: transformers.generation_tf_utils.TFGenerationMixin.prepare_inputs_for_generation:1
+msgid ""
+"Implement in subclasses of :class:`~transformers.TFPreTrainedModel` for "
+"custom behavior to prepare inputs in the generate method."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin:1
+msgid ""
+"A class containing all of the functions supporting generation, to be used"
+" as a mixin in :class:`~transformers.FlaxPreTrainedModel`."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:1
+msgid ""
+"Generates sequences for models with a language modeling head. The method "
+"currently supports greedy decoding, and, multinomial sampling."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:4
+msgid ""
+"Apart from :obj:`input_ids`, all the arguments below will default to the "
+"value of the attribute of the same name inside the "
+":class:`~transformers.PretrainedConfig` of the model. The default values "
+"indicated are the default values of those config."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:11
+msgid "The sequence used as a prompt for the generation."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:34
+msgid ""
+"Whether to trace generation. Setting ``trace=False`` should only be used "
+"for debugging and will lead to a considerably slower runtime."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:37
+msgid ""
+"Optionally the model parameters can be passed. Can be useful for "
+"parallelized generation."
+msgstr ""
+
+#: of transformers.generation_flax_utils.FlaxGenerationMixin.generate:41
+msgid ":class:`~transformers.file_utils.ModelOutput`."
+msgstr ""
+
+#: ../../source/main_classes/model.rst:117
+msgid "Pushing to the Hub"
+msgstr ""
+
+#: of transformers.file_utils.PushToHubMixin:1
+msgid ""
+"A Mixin containing the functionality to push a model or tokenizer to the "
+"hub."
+msgstr ""
+
+#: of transformers.file_utils.PushToHubMixin.push_to_hub:1
+msgid ""
+"Upload the {object_files} to the 🤗 Model Hub while synchronizing a local "
+"clone of the repo in :obj:`repo_path_or_name`."
+msgstr ""
+
+#: of transformers.file_utils.PushToHubMixin.push_to_hub:4
+msgid ""
+"Can either be a repository name for your {object} in the Hub or a path to"
+" a local folder (in which case the repository will have the name of that "
+"local folder). If not specified, will default to the name given by "
+":obj:`repo_url` and a local directory with that name will be created."
+msgstr ""
+
+#: of transformers.file_utils.PushToHubMixin.push_to_hub:16
+msgid "Message to commit while pushing. Will default to :obj:`\"add {object}\"`."
+msgstr ""
+
+#: of transformers.file_utils.PushToHubMixin.push_to_hub:18
+msgid ""
+"Organization in which you want to push your {object} (you must be a "
+"member of this organization)."
+msgstr ""
+
+#: of transformers.file_utils.PushToHubMixin.push_to_hub:27
+msgid "The url of the commit of your {object} in the given repository."
+msgstr ""
+

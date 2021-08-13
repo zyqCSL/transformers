@@ -1,0 +1,1847 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/gpt.rst:14
+msgid "OpenAI GPT"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:19
+msgid ""
+"OpenAI GPT model was proposed in `Improving Language Understanding by "
+"Generative Pre-Training <https://s3-us-west-2.amazonaws.com/openai-assets"
+"/research-covers/language-"
+"unsupervised/language_understanding_paper.pdf>`__ by Alec Radford, "
+"Karthik Narasimhan, Tim Salimans and Ilya Sutskever. It's a causal "
+"(unidirectional) transformer pre-trained using language modeling on a "
+"large corpus will long range dependencies, the Toronto Book Corpus."
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:24
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:26
+msgid ""
+"*Natural language understanding comprises a wide range of diverse tasks "
+"such as textual entailment, question answering, semantic similarity "
+"assessment, and document classification. Although large unlabeled text "
+"corpora are abundant, labeled data for learning these specific tasks is "
+"scarce, making it challenging for discriminatively trained models to "
+"perform adequately. We demonstrate that large gains on these tasks can be"
+" realized by generative pretraining of a language model on a diverse "
+"corpus of unlabeled text, followed by discriminative fine-tuning on each "
+"specific task. In contrast to previous approaches, we make use of task-"
+"aware input transformations during fine-tuning to achieve effective "
+"transfer while requiring minimal changes to the model architecture. We "
+"demonstrate the effectiveness of our approach on a wide range of "
+"benchmarks for natural language understanding. Our general task-agnostic "
+"model outperforms discriminatively trained models that use architectures "
+"specifically crafted for each task, significantly improving upon the "
+"state of the art in 9 out of the 12 tasks studied.*"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:37
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:39
+msgid ""
+"GPT is a model with absolute position embeddings so it's usually advised "
+"to pad the inputs on the right rather than the left."
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:41
+msgid ""
+"GPT was trained with a causal language modeling (CLM) objective and is "
+"therefore powerful at predicting the next token in a sequence. Leveraging"
+" this feature allows GPT-2 to generate syntactically coherent text as it "
+"can be observed in the `run_generation.py` example script."
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:45
+msgid ""
+"`Write With Transformer <https://transformer.huggingface.co/doc/gpt>`__ "
+"is a webapp created and hosted by Hugging Face showcasing the generative "
+"capabilities of several models. GPT is one of them."
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:48
+msgid ""
+"This model was contributed by `thomwolf "
+"<https://huggingface.co/thomwolf>`__. The original code can be found "
+"`here <https://github.com/openai/finetune-transformer-lm>`__."
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:51
+msgid "Note:"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:53
+msgid ""
+"If you want to reproduce the original tokenization process of the `OpenAI"
+" GPT` paper, you will need to install ``ftfy`` and ``SpaCy``:"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:61
+msgid ""
+"If you don't install ``ftfy`` and ``SpaCy``, the "
+":class:`~transformers.OpenAIGPTTokenizer` will default to tokenize using "
+"BERT's :obj:`BasicTokenizer` followed by Byte-Pair Encoding (which should"
+" be fine for most usage, don't worry)."
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:65
+msgid "OpenAIGPTConfig"
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.OpenAIGPTModel` or a "
+":class:`~transformers.TFOpenAIGPTModel`. It is used to instantiate a GPT "
+"model according to the specified arguments, defining the model "
+"architecture. Instantiating a configuration with the defaults will yield "
+"a similar configuration to that of the `GPT <https://huggingface.co"
+"/openai-gpt>`__ architecture from OpenAI."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig
+#: transformers.OpenAIGPTDoubleHeadsModel.forward
+#: transformers.OpenAIGPTForSequenceClassification
+#: transformers.OpenAIGPTForSequenceClassification.forward
+#: transformers.OpenAIGPTLMHeadModel transformers.OpenAIGPTLMHeadModel.forward
+#: transformers.OpenAIGPTModel transformers.OpenAIGPTModel.forward
+#: transformers.OpenAIGPTTokenizer
+#: transformers.OpenAIGPTTokenizer.save_vocabulary
+#: transformers.OpenAIGPTTokenizerFast
+#: transformers.OpenAIGPTTokenizerFast.save_vocabulary
+#: transformers.TFOpenAIGPTDoubleHeadsModel
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call
+#: transformers.TFOpenAIGPTForSequenceClassification
+#: transformers.TFOpenAIGPTForSequenceClassification.call
+#: transformers.TFOpenAIGPTLMHeadModel transformers.TFOpenAIGPTLMHeadModel.call
+#: transformers.TFOpenAIGPTModel transformers.TFOpenAIGPTModel.call
+#: transformers.models.openai.modeling_openai.OpenAIGPTDoubleHeadsModelOutput
+#: transformers.models.openai.modeling_tf_openai.TFOpenAIGPTDoubleHeadsModelOutput
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:9
+msgid ""
+"Vocabulary size of the GPT-2 model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.OpenAIGPTModel` or "
+":class:`~transformers.TFOpenAIGPTModel`."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:13
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:16
+msgid "Dimensionality of the causal mask (usually same as n_positions)."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:18
+msgid "Dimensionality of the embeddings and hidden states."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:20
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:22
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:24
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:27
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:29
+msgid "The dropout ratio for the embeddings."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:31
+msgid "The dropout ratio for the attention."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:33
+msgid "The epsilon to use in the layer normalization layers"
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:35
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:37
+msgid ""
+"Whether or not special tokens should be predicted when the model has a "
+"language modeling head."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:39
+msgid ""
+"Argument used when doing sequence summary, used in the models "
+":class:`~transformers.OpenAIGPTDoubleHeadsModel` and "
+":class:`~transformers.OpenAIGPTDoubleHeadsModel`.  Has to be one of the "
+"following options:      - :obj:`\"last\"`: Take the last token hidden "
+"state (like XLNet).     - :obj:`\"first\"`: Take the first token hidden "
+"state (like BERT).     - :obj:`\"mean\"`: Take the mean of all tokens "
+"hidden states.     - :obj:`\"cls_index\"`: Supply a Tensor of "
+"classification token position (like GPT/GPT-2).     - :obj:`\"attn\"`: "
+"Not implemented now, use multi-head attention."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:39 transformers.OpenAIGPTConfig:50
+#: transformers.OpenAIGPTConfig:55 transformers.OpenAIGPTConfig:60
+#: transformers.OpenAIGPTConfig:65
+msgid ""
+"Argument used when doing sequence summary, used in the models "
+":class:`~transformers.OpenAIGPTDoubleHeadsModel` and "
+":class:`~transformers.OpenAIGPTDoubleHeadsModel`."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:42
+msgid "Has to be one of the following options:"
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:44
+msgid ":obj:`\"last\"`: Take the last token hidden state (like XLNet)."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:45
+msgid ":obj:`\"first\"`: Take the first token hidden state (like BERT)."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:46
+msgid ":obj:`\"mean\"`: Take the mean of all tokens hidden states."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:47
+msgid ""
+":obj:`\"cls_index\"`: Supply a Tensor of classification token position "
+"(like GPT/GPT-2)."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:48
+msgid ":obj:`\"attn\"`: Not implemented now, use multi-head attention."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:50
+msgid ""
+"Argument used when doing sequence summary, used in the models "
+":class:`~transformers.OpenAIGPTDoubleHeadsModel` and "
+":class:`~transformers.OpenAIGPTDoubleHeadsModel`.  Whether or not to add "
+"a projection after the vector extraction."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:53
+msgid "Whether or not to add a projection after the vector extraction."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:55
+msgid ""
+"Argument used when doing sequence summary, used in the models "
+":class:`~transformers.OpenAIGPTDoubleHeadsModel` and "
+":class:`~transformers.OpenAIGPTDoubleHeadsModel`.  Pass :obj:`\"tanh\"` "
+"for a tanh activation to the output, any other value will result in no "
+"activation."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:58
+msgid ""
+"Pass :obj:`\"tanh\"` for a tanh activation to the output, any other value"
+" will result in no activation."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:60
+msgid ""
+"Argument used when doing sequence summary, used in the models "
+":class:`~transformers.OpenAIGPTDoubleHeadsModel` and "
+":class:`~transformers.OpenAIGPTDoubleHeadsModel`.  Whether the projection"
+" outputs should have :obj:`config.num_labels` or "
+":obj:`config.hidden_size` classes."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:63
+msgid ""
+"Whether the projection outputs should have :obj:`config.num_labels` or "
+":obj:`config.hidden_size` classes."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:65
+msgid ""
+"Argument used when doing sequence summary, used in the models "
+":class:`~transformers.OpenAIGPTDoubleHeadsModel` and "
+":class:`~transformers.OpenAIGPTDoubleHeadsModel`.  The dropout ratio to "
+"be used after the projection and activation."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:68
+msgid "The dropout ratio to be used after the projection and activation."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:70
+msgid ""
+"Whether or not the model should return the last key/values attentions "
+"(not used by all models)."
+msgstr ""
+
+#: of transformers.OpenAIGPTConfig:73
+#: transformers.OpenAIGPTDoubleHeadsModel.forward:84
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:80
+msgid "Examples::"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:72
+msgid "OpenAIGPTTokenizer"
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizer:1
+msgid ""
+"Construct a GPT Tokenizer. Based on Byte-Pair-Encoding with the following"
+" peculiarities:"
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizer:3
+msgid "lowercases all inputs,"
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizer:4
+msgid ""
+"uses :obj:`SpaCy` tokenizer and :obj:`ftfy` for pre-BPE tokenization if "
+"they are installed, fallback to BERT's :obj:`BasicTokenizer` if not."
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizer:7
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizer:10 transformers.OpenAIGPTTokenizerFast:10
+msgid "Path to the vocabulary file."
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizer:12 transformers.OpenAIGPTTokenizerFast:12
+msgid "Path to the merges file."
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizer:14 transformers.OpenAIGPTTokenizerFast:14
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizer.save_vocabulary:1
+#: transformers.OpenAIGPTTokenizerFast.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizer.save_vocabulary:3
+#: transformers.OpenAIGPTTokenizerFast.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizer.save_vocabulary:6
+#: transformers.OpenAIGPTTokenizerFast.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizer.save_vocabulary:8
+#: transformers.OpenAIGPTTokenizerFast.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward
+#: transformers.OpenAIGPTForSequenceClassification.forward
+#: transformers.OpenAIGPTLMHeadModel.forward
+#: transformers.OpenAIGPTModel.forward
+#: transformers.OpenAIGPTTokenizer.save_vocabulary
+#: transformers.OpenAIGPTTokenizerFast.save_vocabulary
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call
+#: transformers.TFOpenAIGPTForSequenceClassification.call
+#: transformers.TFOpenAIGPTLMHeadModel.call transformers.TFOpenAIGPTModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizer.save_vocabulary:11
+#: transformers.OpenAIGPTTokenizerFast.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward
+#: transformers.OpenAIGPTForSequenceClassification.forward
+#: transformers.OpenAIGPTLMHeadModel.forward
+#: transformers.OpenAIGPTModel.forward
+#: transformers.OpenAIGPTTokenizer.save_vocabulary
+#: transformers.OpenAIGPTTokenizerFast.save_vocabulary
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call
+#: transformers.TFOpenAIGPTForSequenceClassification.call
+#: transformers.TFOpenAIGPTLMHeadModel.call transformers.TFOpenAIGPTModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizer.save_vocabulary:12
+#: transformers.OpenAIGPTTokenizerFast.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:79
+msgid "OpenAIGPTTokenizerFast"
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizerFast:1
+msgid ""
+"Construct a \"fast\" GPT Tokenizer (backed by HuggingFace's `tokenizers` "
+"library). Based on Byte-Pair-Encoding with the following peculiarities:"
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizerFast:4
+msgid "lower case all inputs"
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizerFast:5
+msgid "uses BERT's BasicTokenizer for pre-BPE tokenization"
+msgstr ""
+
+#: of transformers.OpenAIGPTTokenizerFast:7
+msgid ""
+"This tokenizer inherits from "
+":class:`~transformers.PreTrainedTokenizerFast` which contains most of the"
+" main methods. Users should refer to this superclass for more information"
+" regarding those methods."
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:86
+msgid "OpenAI specific outputs"
+msgstr ""
+
+#: of
+#: transformers.models.openai.modeling_openai.OpenAIGPTDoubleHeadsModelOutput:1
+#: transformers.models.openai.modeling_tf_openai.TFOpenAIGPTDoubleHeadsModelOutput:1
+msgid ""
+"Base class for outputs of models predicting if two sentences are "
+"consecutive or not."
+msgstr ""
+
+#: of
+#: transformers.models.openai.modeling_openai.OpenAIGPTDoubleHeadsModelOutput:3
+msgid "Language modeling loss."
+msgstr ""
+
+#: of
+#: transformers.models.openai.modeling_openai.OpenAIGPTDoubleHeadsModelOutput:5
+msgid "Multiple choice classification loss."
+msgstr ""
+
+#: of
+#: transformers.models.openai.modeling_openai.OpenAIGPTDoubleHeadsModelOutput:7
+#: transformers.models.openai.modeling_tf_openai.TFOpenAIGPTDoubleHeadsModelOutput:3
+msgid ""
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.openai.modeling_openai.OpenAIGPTDoubleHeadsModelOutput:9
+#: transformers.models.openai.modeling_tf_openai.TFOpenAIGPTDoubleHeadsModelOutput:5
+msgid ""
+"Prediction scores of the multiple choice classification head (scores for "
+"each choice before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.openai.modeling_openai.OpenAIGPTDoubleHeadsModelOutput:11
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the model at the output"
+" of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.openai.modeling_openai.OpenAIGPTDoubleHeadsModelOutput:11
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:76
+#: transformers.OpenAIGPTForSequenceClassification.forward:67
+#: transformers.OpenAIGPTLMHeadModel.forward:67
+#: transformers.OpenAIGPTModel.forward:62
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:72
+#: transformers.TFOpenAIGPTForSequenceClassification.call:72
+#: transformers.TFOpenAIGPTLMHeadModel.call:72
+#: transformers.TFOpenAIGPTModel.call:68
+#: transformers.models.openai.modeling_openai.OpenAIGPTDoubleHeadsModelOutput:14
+#: transformers.models.openai.modeling_tf_openai.TFOpenAIGPTDoubleHeadsModelOutput:10
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.openai.modeling_openai.OpenAIGPTDoubleHeadsModelOutput:16
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.openai.modeling_openai.OpenAIGPTDoubleHeadsModelOutput:16
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:80
+#: transformers.OpenAIGPTForSequenceClassification.forward:71
+#: transformers.OpenAIGPTLMHeadModel.forward:71
+#: transformers.OpenAIGPTModel.forward:66
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:76
+#: transformers.TFOpenAIGPTForSequenceClassification.call:76
+#: transformers.TFOpenAIGPTLMHeadModel.call:76
+#: transformers.TFOpenAIGPTModel.call:72
+#: transformers.models.openai.modeling_openai.OpenAIGPTDoubleHeadsModelOutput:19
+#: transformers.models.openai.modeling_tf_openai.TFOpenAIGPTDoubleHeadsModelOutput:15
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.openai.modeling_tf_openai.TFOpenAIGPTDoubleHeadsModelOutput:7
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.  Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.openai.modeling_tf_openai.TFOpenAIGPTDoubleHeadsModelOutput:7
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of
+#: transformers.models.openai.modeling_tf_openai.TFOpenAIGPTDoubleHeadsModelOutput:12
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.openai.modeling_tf_openai.TFOpenAIGPTDoubleHeadsModelOutput:12
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:96
+msgid "OpenAIGPTModel"
+msgstr ""
+
+#: of transformers.OpenAIGPTModel:1 transformers.TFOpenAIGPTModel:1
+msgid ""
+"The bare OpenAI GPT transformer model outputting raw hidden-states "
+"without any specific head on top."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel:7
+#: transformers.OpenAIGPTForSequenceClassification:10
+#: transformers.OpenAIGPTLMHeadModel:5 transformers.OpenAIGPTModel:3
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel:11
+#: transformers.OpenAIGPTForSequenceClassification:14
+#: transformers.OpenAIGPTLMHeadModel:9 transformers.OpenAIGPTModel:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.OpenAIGPTForSequenceClassification:18
+#: transformers.OpenAIGPTLMHeadModel:13 transformers.OpenAIGPTModel:11
+#: transformers.TFOpenAIGPTDoubleHeadsModel:35
+#: transformers.TFOpenAIGPTForSequenceClassification:41
+#: transformers.TFOpenAIGPTLMHeadModel:33 transformers.TFOpenAIGPTModel:31
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.OpenAIGPTModel.forward:1
+msgid ""
+"The :class:`~transformers.OpenAIGPTModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:4
+#: transformers.OpenAIGPTForSequenceClassification.forward:4
+#: transformers.OpenAIGPTLMHeadModel.forward:4
+#: transformers.OpenAIGPTModel.forward:4
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:4
+#: transformers.TFOpenAIGPTForSequenceClassification.call:4
+#: transformers.TFOpenAIGPTLMHeadModel.call:4
+#: transformers.TFOpenAIGPTModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:8
+#: transformers.OpenAIGPTForSequenceClassification.forward:8
+#: transformers.OpenAIGPTLMHeadModel.forward:8
+#: transformers.OpenAIGPTModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.OpenAIGPTTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:8
+#: transformers.OpenAIGPTForSequenceClassification.forward:8
+#: transformers.OpenAIGPTLMHeadModel.forward:8
+#: transformers.OpenAIGPTModel.forward:8
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:8
+#: transformers.TFOpenAIGPTForSequenceClassification.call:8
+#: transformers.TFOpenAIGPTLMHeadModel.call:8
+#: transformers.TFOpenAIGPTModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:10
+#: transformers.OpenAIGPTForSequenceClassification.forward:10
+#: transformers.OpenAIGPTLMHeadModel.forward:10
+#: transformers.OpenAIGPTModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.OpenAIGPTTokenizer`. "
+"See :meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:14
+#: transformers.OpenAIGPTForSequenceClassification.forward:14
+#: transformers.OpenAIGPTLMHeadModel.forward:14
+#: transformers.OpenAIGPTModel.forward:14
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:14
+#: transformers.TFOpenAIGPTForSequenceClassification.call:14
+#: transformers.TFOpenAIGPTLMHeadModel.call:14
+#: transformers.TFOpenAIGPTModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:16
+#: transformers.OpenAIGPTForSequenceClassification.forward:16
+#: transformers.OpenAIGPTLMHeadModel.forward:16
+#: transformers.OpenAIGPTModel.forward:16
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:16
+#: transformers.TFOpenAIGPTForSequenceClassification.call:16
+#: transformers.TFOpenAIGPTLMHeadModel.call:16
+#: transformers.TFOpenAIGPTModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:16
+#: transformers.OpenAIGPTForSequenceClassification.forward:16
+#: transformers.OpenAIGPTLMHeadModel.forward:16
+#: transformers.OpenAIGPTModel.forward:16
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:16
+#: transformers.TFOpenAIGPTForSequenceClassification.call:16
+#: transformers.TFOpenAIGPTLMHeadModel.call:16
+#: transformers.TFOpenAIGPTModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:18
+#: transformers.OpenAIGPTForSequenceClassification.forward:18
+#: transformers.OpenAIGPTLMHeadModel.forward:18
+#: transformers.OpenAIGPTModel.forward:18
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:18
+#: transformers.TFOpenAIGPTForSequenceClassification.call:18
+#: transformers.TFOpenAIGPTLMHeadModel.call:18
+#: transformers.TFOpenAIGPTModel.call:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:19
+#: transformers.OpenAIGPTForSequenceClassification.forward:19
+#: transformers.OpenAIGPTLMHeadModel.forward:19
+#: transformers.OpenAIGPTModel.forward:19
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:19
+#: transformers.TFOpenAIGPTForSequenceClassification.call:19
+#: transformers.TFOpenAIGPTLMHeadModel.call:19
+#: transformers.TFOpenAIGPTModel.call:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:21
+#: transformers.OpenAIGPTForSequenceClassification.forward:21
+#: transformers.OpenAIGPTLMHeadModel.forward:21
+#: transformers.OpenAIGPTModel.forward:21
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:21
+#: transformers.TFOpenAIGPTForSequenceClassification.call:21
+#: transformers.TFOpenAIGPTLMHeadModel.call:21
+#: transformers.TFOpenAIGPTModel.call:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:23
+#: transformers.OpenAIGPTForSequenceClassification.forward:23
+#: transformers.OpenAIGPTLMHeadModel.forward:23
+#: transformers.OpenAIGPTModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:23
+#: transformers.OpenAIGPTForSequenceClassification.forward:23
+#: transformers.OpenAIGPTLMHeadModel.forward:23
+#: transformers.OpenAIGPTModel.forward:23
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:23
+#: transformers.TFOpenAIGPTForSequenceClassification.call:23
+#: transformers.TFOpenAIGPTLMHeadModel.call:23
+#: transformers.TFOpenAIGPTModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:26
+#: transformers.OpenAIGPTForSequenceClassification.forward:26
+#: transformers.OpenAIGPTLMHeadModel.forward:26
+#: transformers.OpenAIGPTModel.forward:26
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:26
+#: transformers.TFOpenAIGPTForSequenceClassification.call:26
+#: transformers.TFOpenAIGPTLMHeadModel.call:26
+#: transformers.TFOpenAIGPTModel.call:26
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:27
+#: transformers.OpenAIGPTForSequenceClassification.forward:27
+#: transformers.OpenAIGPTLMHeadModel.forward:27
+#: transformers.OpenAIGPTModel.forward:27
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:27
+#: transformers.TFOpenAIGPTForSequenceClassification.call:27
+#: transformers.TFOpenAIGPTLMHeadModel.call:27
+#: transformers.TFOpenAIGPTModel.call:27
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:29
+#: transformers.OpenAIGPTForSequenceClassification.forward:29
+#: transformers.OpenAIGPTLMHeadModel.forward:29
+#: transformers.OpenAIGPTModel.forward:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:31
+#: transformers.OpenAIGPTForSequenceClassification.forward:31
+#: transformers.OpenAIGPTLMHeadModel.forward:31
+#: transformers.OpenAIGPTModel.forward:31
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:31
+#: transformers.TFOpenAIGPTForSequenceClassification.call:31
+#: transformers.TFOpenAIGPTLMHeadModel.call:31
+#: transformers.TFOpenAIGPTModel.call:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:31
+#: transformers.OpenAIGPTForSequenceClassification.forward:31
+#: transformers.OpenAIGPTLMHeadModel.forward:31
+#: transformers.OpenAIGPTModel.forward:31
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:31
+#: transformers.TFOpenAIGPTForSequenceClassification.call:31
+#: transformers.TFOpenAIGPTLMHeadModel.call:31
+#: transformers.TFOpenAIGPTModel.call:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:34
+#: transformers.OpenAIGPTForSequenceClassification.forward:34
+#: transformers.OpenAIGPTLMHeadModel.forward:34
+#: transformers.OpenAIGPTModel.forward:34
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:34
+#: transformers.TFOpenAIGPTForSequenceClassification.call:34
+#: transformers.TFOpenAIGPTLMHeadModel.call:34
+#: transformers.TFOpenAIGPTModel.call:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:36
+#: transformers.OpenAIGPTForSequenceClassification.forward:36
+#: transformers.OpenAIGPTLMHeadModel.forward:36
+#: transformers.OpenAIGPTModel.forward:36
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:36
+#: transformers.TFOpenAIGPTForSequenceClassification.call:36
+#: transformers.TFOpenAIGPTLMHeadModel.call:36
+#: transformers.TFOpenAIGPTModel.call:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:36
+#: transformers.OpenAIGPTForSequenceClassification.forward:36
+#: transformers.OpenAIGPTLMHeadModel.forward:36
+#: transformers.OpenAIGPTModel.forward:36
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:36
+#: transformers.TFOpenAIGPTForSequenceClassification.call:36
+#: transformers.TFOpenAIGPTLMHeadModel.call:36
+#: transformers.TFOpenAIGPTModel.call:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:38
+#: transformers.OpenAIGPTForSequenceClassification.forward:38
+#: transformers.OpenAIGPTLMHeadModel.forward:38
+#: transformers.OpenAIGPTModel.forward:38
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:38
+#: transformers.TFOpenAIGPTForSequenceClassification.call:38
+#: transformers.TFOpenAIGPTLMHeadModel.call:38
+#: transformers.TFOpenAIGPTModel.call:38
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:39
+#: transformers.OpenAIGPTForSequenceClassification.forward:39
+#: transformers.OpenAIGPTLMHeadModel.forward:39
+#: transformers.OpenAIGPTModel.forward:39
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:39
+#: transformers.TFOpenAIGPTForSequenceClassification.call:39
+#: transformers.TFOpenAIGPTLMHeadModel.call:39
+#: transformers.TFOpenAIGPTModel.call:39
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:41
+#: transformers.OpenAIGPTForSequenceClassification.forward:41
+#: transformers.OpenAIGPTLMHeadModel.forward:41
+#: transformers.OpenAIGPTModel.forward:41
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:41
+#: transformers.TFOpenAIGPTForSequenceClassification.call:41
+#: transformers.TFOpenAIGPTLMHeadModel.call:41
+#: transformers.TFOpenAIGPTModel.call:41
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:45
+#: transformers.OpenAIGPTForSequenceClassification.forward:45
+#: transformers.OpenAIGPTLMHeadModel.forward:45
+#: transformers.OpenAIGPTModel.forward:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:48
+#: transformers.OpenAIGPTForSequenceClassification.forward:48
+#: transformers.OpenAIGPTLMHeadModel.forward:48
+#: transformers.OpenAIGPTModel.forward:48
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:51
+#: transformers.OpenAIGPTForSequenceClassification.forward:51
+#: transformers.OpenAIGPTLMHeadModel.forward:51
+#: transformers.OpenAIGPTModel.forward:51
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.OpenAIGPTModel.forward:54
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.OpenAIGPTConfig`) and inputs.  -"
+" **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.OpenAIGPTModel.forward:54
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.OpenAIGPTConfig`) and inputs."
+msgstr ""
+
+#: of transformers.OpenAIGPTModel.forward:58
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:73
+#: transformers.OpenAIGPTForSequenceClassification.forward:64
+#: transformers.OpenAIGPTLMHeadModel.forward:64
+#: transformers.OpenAIGPTModel.forward:59
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:77
+#: transformers.OpenAIGPTForSequenceClassification.forward:68
+#: transformers.OpenAIGPTLMHeadModel.forward:68
+#: transformers.OpenAIGPTModel.forward:63
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.OpenAIGPTModel.forward:68
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.OpenAIGPTForSequenceClassification.forward:75
+#: transformers.OpenAIGPTLMHeadModel.forward:75
+#: transformers.OpenAIGPTModel.forward:70
+#: transformers.TFOpenAIGPTForSequenceClassification.call:80
+#: transformers.TFOpenAIGPTLMHeadModel.call:80
+#: transformers.TFOpenAIGPTModel.call:76
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:103
+msgid "OpenAIGPTLMHeadModel"
+msgstr ""
+
+#: of transformers.OpenAIGPTLMHeadModel:1 transformers.TFOpenAIGPTLMHeadModel:1
+msgid ""
+"OpenAI GPT Model transformer with a language modeling head on top (linear"
+" layer with weights tied to the input embeddings)."
+msgstr ""
+
+#: of transformers.OpenAIGPTLMHeadModel.forward:1
+msgid ""
+"The :class:`~transformers.OpenAIGPTLMHeadModel` forward method, overrides"
+" the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.OpenAIGPTLMHeadModel.forward:53
+msgid ""
+"Labels for language modeling. Note that the labels **are shifted** inside"
+" the model, i.e. you can set ``labels = input_ids`` Indices are selected "
+"in ``[-100, 0, ..., config.vocab_size]`` All labels set to ``-100`` are "
+"ignored (masked), the loss is only computed for labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.OpenAIGPTLMHeadModel.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.CausalLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.OpenAIGPTConfig`) and inputs.  -"
+" **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss (for "
+"next-token prediction). - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.OpenAIGPTLMHeadModel.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.CausalLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.OpenAIGPTConfig`) and inputs."
+msgstr ""
+
+#: of transformers.OpenAIGPTLMHeadModel.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss (for "
+"next-token prediction)."
+msgstr ""
+
+#: of transformers.OpenAIGPTLMHeadModel.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.OpenAIGPTLMHeadModel.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.CausalLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:110
+msgid "OpenAIGPTDoubleHeadsModel"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel:1
+#: transformers.TFOpenAIGPTDoubleHeadsModel:1
+msgid ""
+"OpenAI GPT Model transformer with a language modeling and a multiple-"
+"choice classification head on top e.g. for RocStories/SWAG tasks. The two"
+" heads are two linear layers. The language modeling head has its weights "
+"tied to the input embeddings, the classification head takes as input the "
+"input of a specified classification token index in the input sequence)."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel:20
+msgid "Parameters:"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel:20
+msgid ""
+"config (:class:`~transformers.OpenAIGPTConfig`): Model configuration "
+"class with all the parameters of the model."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel:17
+msgid ""
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:1
+msgid ""
+"The :class:`~transformers.OpenAIGPTDoubleHeadsModel` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:53
+#: transformers.TFOpenAIGPTDoubleHeadsModel.call:59
+msgid ""
+"Index of the classification token in each input sequence. Selected in the"
+" range ``[0, input_ids.size(-1) - 1]``."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:56
+msgid ""
+"Labels for language modeling. Note that the labels **are shifted** inside"
+" the model, i.e. you can set ``labels = input_ids`` Indices are selected "
+"in ``[-1, 0, ..., config.vocab_size]`` All labels set to ``-100`` are "
+"ignored (masked), the loss is only computed for labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:60
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices]`` where `num_choices` is the size of"
+" the second dimension of the input tensors. (see `input_ids` above)"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:65
+msgid ""
+"A "
+":class:`~transformers.models.openai.modeling_openai.OpenAIGPTDoubleHeadsModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.OpenAIGPTConfig`) "
+"and inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when ``labels`` is provided) -- Language modeling "
+"loss. - **mc_loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`mc_labels` is provided) -- Multiple "
+"choice classification loss. - **logits** (:obj:`torch.FloatTensor` of "
+"shape :obj:`(batch_size, num_choices, sequence_length, "
+"config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax). - **mc_logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, num_choices)`) -- "
+"Prediction scores of the multiple choice classification head (scores for "
+"each choice before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Examples::      >>> from transformers import "
+"OpenAIGPTTokenizer, OpenAIGPTDoubleHeadsModel     >>> import torch      "
+">>> tokenizer = OpenAIGPTTokenizer.from_pretrained('openai-gpt')     >>> "
+"model = OpenAIGPTDoubleHeadsModel.from_pretrained('openai-gpt')     >>> "
+"tokenizer.add_special_tokens({'cls_token': '[CLS]'})  # Add a [CLS] to "
+"the vocabulary (we should train it also!)     >>> "
+"model.resize_token_embeddings(len(tokenizer))      >>> choices = "
+"[\"Hello, my dog is cute [CLS]\", \"Hello, my cat is cute [CLS]\"]     "
+">>> input_ids = torch.tensor([tokenizer.encode(s) for s in "
+"choices]).unsqueeze(0)  # Batch size 1, 2 choices     >>> mc_token_ids = "
+"torch.tensor([input_ids.size(-1)-1, input_ids.size(-1)-1]).unsqueeze(0)  "
+"# Batch size 1      >>> outputs = model(input_ids, "
+"mc_token_ids=mc_token_ids)     >>> lm_logits = outputs.lm_logits     >>> "
+"mc_logits = outputs.mc_logits"
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:65
+msgid ""
+"A "
+":class:`~transformers.models.openai.modeling_openai.OpenAIGPTDoubleHeadsModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.OpenAIGPTConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:69
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided) -- Language modeling loss."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:70
+msgid ""
+"**mc_loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`mc_labels` is provided) -- Multiple choice "
+"classification loss."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:71
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices, sequence_length, config.vocab_size)`) -- Prediction scores "
+"of the language modeling head (scores for each vocabulary token before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:72
+msgid ""
+"**mc_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- Prediction scores of the multiple choice classification"
+" head (scores for each choice before SoftMax)."
+msgstr ""
+
+#: of transformers.OpenAIGPTDoubleHeadsModel.forward:101
+msgid ""
+":class:`~transformers.models.openai.modeling_openai.OpenAIGPTDoubleHeadsModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:117
+msgid "OpenAIGPTForSequenceClassification"
+msgstr ""
+
+#: of transformers.OpenAIGPTForSequenceClassification:1
+msgid ""
+"The Original OpenAI GPT Model transformer with a sequence classification "
+"head on top (linear layer). "
+":class:`~transformers.OpenAIGPTForSequenceClassification` uses the last "
+"token in order to do the classification, as other causal models (e.g. "
+"GPT-2) do. Since it does classification on the last token, it requires to"
+" know the position of the last token. If a :obj:`pad_token_id` is defined"
+" in the configuration, it finds the last token that is not a padding "
+"token in each row. If no :obj:`pad_token_id` is defined, it simply takes "
+"the last value in each row of the batch. Since it cannot guess the "
+"padding tokens when :obj:`inputs_embeds` are passed instead of "
+":obj:`input_ids`, it does the same (take the last value in each row of "
+"the batch)."
+msgstr ""
+
+#: of transformers.OpenAIGPTForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.OpenAIGPTForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.OpenAIGPTForSequenceClassification.forward:53
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.OpenAIGPTForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.OpenAIGPTConfig`) and inputs."
+"  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.OpenAIGPTForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.OpenAIGPTConfig`) and inputs."
+msgstr ""
+
+#: of transformers.OpenAIGPTForSequenceClassification.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.OpenAIGPTForSequenceClassification.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.OpenAIGPTForSequenceClassification.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:124
+msgid "TFOpenAIGPTModel"
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel:7
+#: transformers.TFOpenAIGPTForSequenceClassification:13
+#: transformers.TFOpenAIGPTLMHeadModel:5 transformers.TFOpenAIGPTModel:3
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel:11
+#: transformers.TFOpenAIGPTForSequenceClassification:17
+#: transformers.TFOpenAIGPTLMHeadModel:9 transformers.TFOpenAIGPTModel:7
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel:17
+#: transformers.TFOpenAIGPTForSequenceClassification:23
+#: transformers.TFOpenAIGPTLMHeadModel:15 transformers.TFOpenAIGPTModel:13
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel:19
+#: transformers.TFOpenAIGPTForSequenceClassification:25
+#: transformers.TFOpenAIGPTLMHeadModel:17 transformers.TFOpenAIGPTModel:15
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel:20
+#: transformers.TFOpenAIGPTForSequenceClassification:26
+#: transformers.TFOpenAIGPTLMHeadModel:18 transformers.TFOpenAIGPTModel:16
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel:22
+#: transformers.TFOpenAIGPTForSequenceClassification:28
+#: transformers.TFOpenAIGPTLMHeadModel:20 transformers.TFOpenAIGPTModel:18
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel:25
+#: transformers.TFOpenAIGPTForSequenceClassification:31
+#: transformers.TFOpenAIGPTLMHeadModel:23 transformers.TFOpenAIGPTModel:21
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel:28
+#: transformers.TFOpenAIGPTForSequenceClassification:34
+#: transformers.TFOpenAIGPTLMHeadModel:26 transformers.TFOpenAIGPTModel:24
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel:29
+#: transformers.TFOpenAIGPTForSequenceClassification:35
+#: transformers.TFOpenAIGPTLMHeadModel:27 transformers.TFOpenAIGPTModel:25
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel:31
+#: transformers.TFOpenAIGPTForSequenceClassification:37
+#: transformers.TFOpenAIGPTLMHeadModel:29 transformers.TFOpenAIGPTModel:27
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFOpenAIGPTModel.call:1
+msgid ""
+"The :class:`~transformers.TFOpenAIGPTModel` forward method, overrides the"
+" :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:8
+#: transformers.TFOpenAIGPTForSequenceClassification.call:8
+#: transformers.TFOpenAIGPTLMHeadModel.call:8
+#: transformers.TFOpenAIGPTModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.OpenAIGPTTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:10
+#: transformers.TFOpenAIGPTForSequenceClassification.call:10
+#: transformers.TFOpenAIGPTLMHeadModel.call:10
+#: transformers.TFOpenAIGPTModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.OpenAIGPTTokenizer`. "
+"See :func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:23
+#: transformers.TFOpenAIGPTForSequenceClassification.call:23
+#: transformers.TFOpenAIGPTLMHeadModel.call:23
+#: transformers.TFOpenAIGPTModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:29
+#: transformers.TFOpenAIGPTForSequenceClassification.call:29
+#: transformers.TFOpenAIGPTLMHeadModel.call:29
+#: transformers.TFOpenAIGPTModel.call:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:45
+#: transformers.TFOpenAIGPTForSequenceClassification.call:45
+#: transformers.TFOpenAIGPTLMHeadModel.call:45
+#: transformers.TFOpenAIGPTModel.call:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:49
+#: transformers.TFOpenAIGPTForSequenceClassification.call:49
+#: transformers.TFOpenAIGPTLMHeadModel.call:49
+#: transformers.TFOpenAIGPTModel.call:49
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:53
+#: transformers.TFOpenAIGPTForSequenceClassification.call:53
+#: transformers.TFOpenAIGPTLMHeadModel.call:53
+#: transformers.TFOpenAIGPTModel.call:53
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:56
+#: transformers.TFOpenAIGPTForSequenceClassification.call:56
+#: transformers.TFOpenAIGPTLMHeadModel.call:56
+#: transformers.TFOpenAIGPTModel.call:56
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTModel.call:60
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.OpenAIGPTConfig`) and inputs.  -"
+" **last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(tf.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTModel.call:60
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.OpenAIGPTConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTModel.call:64
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTModel.call:65
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:73
+#: transformers.TFOpenAIGPTForSequenceClassification.call:73
+#: transformers.TFOpenAIGPTLMHeadModel.call:73
+#: transformers.TFOpenAIGPTModel.call:69
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTModel.call:74
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:131
+msgid "TFOpenAIGPTLMHeadModel"
+msgstr ""
+
+#: of transformers.TFOpenAIGPTLMHeadModel.call:1
+msgid ""
+"The :class:`~transformers.TFOpenAIGPTLMHeadModel` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTForSequenceClassification.call:59
+#: transformers.TFOpenAIGPTLMHeadModel.call:59
+msgid ""
+"Labels for computing the cross entropy classification loss. Indices "
+"should be in ``[0, ..., config.vocab_size - 1]``."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTLMHeadModel.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFCausalLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.OpenAIGPTConfig`) and inputs.  -"
+" **loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Language modeling loss (for next-token prediction). - **logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length, "
+"config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTLMHeadModel.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFCausalLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.OpenAIGPTConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTLMHeadModel.call:67
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Language modeling loss (for next-token prediction)."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTLMHeadModel.call:68
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:69
+#: transformers.TFOpenAIGPTForSequenceClassification.call:69
+#: transformers.TFOpenAIGPTLMHeadModel.call:69
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTLMHeadModel.call:78
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFCausalLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:138
+msgid "TFOpenAIGPTDoubleHeadsModel"
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:1
+msgid ""
+"The :class:`~transformers.TFOpenAIGPTDoubleHeadsModel` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:63
+msgid ""
+"A "
+":class:`~transformers.models.openai.modeling_tf_openai.TFOpenAIGPTDoubleHeadsModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.OpenAIGPTConfig`) and inputs."
+"  - **logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices,"
+" sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **mc_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- Prediction scores of the multiple choice classification"
+" head (scores for each choice before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Examples::      >>> import tensorflow as tf     >>> from transformers "
+"import OpenAIGPTTokenizer, TFOpenAIGPTDoubleHeadsModel      >>> tokenizer"
+" = OpenAIGPTTokenizer.from_pretrained('openai-gpt')     >>> model = "
+"TFOpenAIGPTDoubleHeadsModel.from_pretrained('openai-gpt')      >>> # Add "
+"a [CLS] to the vocabulary (we should train it also!)     >>> "
+"tokenizer.add_special_tokens({'cls_token': '[CLS]'})     >>> "
+"model.resize_token_embeddings(len(tokenizer))  # Update the model "
+"embeddings with the new vocabulary size     >>> "
+"print(tokenizer.cls_token_id, len(tokenizer))  # The newly token the last"
+" token of the vocabulary      >>> choices = [\"Hello, my dog is cute "
+"[CLS]\", \"Hello, my cat is cute [CLS]\"]     >>> encoding = "
+"tokenizer(choices, return_tensors=\"tf\")     >>> inputs = {k: "
+"tf.expand_dims(v, 0) for k, v in encoding.items()}     >>> "
+"inputs[\"mc_token_ids\"]= tf.constant([inputs[\"input_ids\"].shape[-1] - "
+"1, inputs[\"input_ids\"].shape[-1] - 1])[None, :]  # Batch size 1     >>>"
+" outputs = model(inputs)     >>> lm_prediction_scores, "
+"mc_prediction_scores = outputs[:2]"
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:63
+msgid ""
+"A "
+":class:`~transformers.models.openai.modeling_tf_openai.TFOpenAIGPTDoubleHeadsModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.OpenAIGPTConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:67
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:68
+msgid ""
+"**mc_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- Prediction scores of the multiple choice classification"
+" head (scores for each choice before SoftMax)."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTDoubleHeadsModel.call:99
+msgid ""
+":class:`~transformers.models.openai.modeling_tf_openai.TFOpenAIGPTDoubleHeadsModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/gpt.rst:144
+msgid "TFOpenAIGPTForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFOpenAIGPTForSequenceClassification:1
+msgid ""
+"The OpenAI GPT Model transformer with a sequence classification head on "
+"top (linear layer)."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTForSequenceClassification:3
+msgid ""
+":class:`~transformers.TFOpenAIGPTForSequenceClassification` uses the last"
+" token in order to do the classification, as other causal models (e.g. "
+"GPT-2) do."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTForSequenceClassification:6
+msgid ""
+"Since it does classification on the last token, it requires to know the "
+"position of the last token. If a :obj:`pad_token_id` is defined in the "
+"configuration, it finds the last token that is not a padding token in "
+"each row. If no :obj:`pad_token_id` is defined, it simply takes the last "
+"value in each row of the batch. Since it cannot guess the padding tokens "
+"when :obj:`inputs_embeds` are passed instead of :obj:`input_ids`, it does"
+" the same (take the last value in each row of the batch)."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFOpenAIGPTForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTForSequenceClassification.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.OpenAIGPTConfig`) and inputs."
+"  - **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"(or regression if config.num_labels==1) loss. - **logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, config.num_labels)`) -- "
+"Classification (or regression if config.num_labels==1) scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTForSequenceClassification.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.OpenAIGPTConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTForSequenceClassification.call:67
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTForSequenceClassification.call:68
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFOpenAIGPTForSequenceClassification.call:78
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+

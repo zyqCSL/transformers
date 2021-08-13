@@ -1,0 +1,560 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/main_classes/optimizer_schedules.rst:14
+msgid "Optimization"
+msgstr ""
+
+#: ../../source/main_classes/optimizer_schedules.rst:16
+msgid "The ``.optimization`` module provides:"
+msgstr ""
+
+#: ../../source/main_classes/optimizer_schedules.rst:18
+msgid ""
+"an optimizer with weight decay fixed that can be used to fine-tuned "
+"models, and"
+msgstr ""
+
+#: ../../source/main_classes/optimizer_schedules.rst:19
+msgid ""
+"several schedules in the form of schedule objects that inherit from "
+"``_LRSchedule``:"
+msgstr ""
+
+#: ../../source/main_classes/optimizer_schedules.rst:20
+msgid ""
+"a gradient accumulation class to accumulate the gradients of multiple "
+"batches"
+msgstr ""
+
+#: ../../source/main_classes/optimizer_schedules.rst:23
+msgid "AdamW (PyTorch)"
+msgstr ""
+
+#: of transformers.AdamW:1
+msgid ""
+"Implements Adam algorithm with weight decay fix as introduced in "
+"`Decoupled Weight Decay Regularization "
+"<https://arxiv.org/abs/1711.05101>`__."
+msgstr ""
+
+#: of transformers.Adafactor transformers.AdamW transformers.AdamW.step
+#: transformers.AdamWeightDecay transformers.WarmUp
+#: transformers.create_optimizer transformers.get_constant_schedule
+#: transformers.get_constant_schedule_with_warmup
+#: transformers.get_cosine_schedule_with_warmup
+#: transformers.get_cosine_with_hard_restarts_schedule_with_warmup
+#: transformers.get_linear_schedule_with_warmup
+#: transformers.get_polynomial_decay_schedule_with_warmup
+#: transformers.get_scheduler
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.Adafactor:9 transformers.AdamW:4
+msgid ""
+"Iterable of parameters to optimize or dictionaries defining parameter "
+"groups."
+msgstr ""
+
+#: of transformers.AdamW:6
+msgid "The learning rate to use."
+msgstr ""
+
+#: of transformers.AdamW:8
+msgid "Adam's betas parameters (b1, b2)."
+msgstr ""
+
+#: of transformers.AdamW:10
+msgid "Adam's epsilon for numerical stability."
+msgstr ""
+
+#: of transformers.AdamW:12
+msgid "Decoupled weight decay to apply."
+msgstr ""
+
+#: of transformers.AdamW:14
+msgid ""
+"Whether or not to correct bias in Adam (for instance, in Bert TF "
+"repository they use :obj:`False`)."
+msgstr ""
+
+#: of transformers.AdamW.step:1
+msgid "Performs a single optimization step."
+msgstr ""
+
+#: of transformers.AdamW.step:3
+msgid "A closure that reevaluates the model and returns the loss."
+msgstr ""
+
+#: ../../source/main_classes/optimizer_schedules.rst:29
+msgid "AdaFactor (PyTorch)"
+msgstr ""
+
+#: of transformers.Adafactor:1
+msgid ""
+"AdaFactor pytorch implementation can be used as a drop in replacement for"
+" Adam original fairseq code: "
+"https://github.com/pytorch/fairseq/blob/master/fairseq/optim/adafactor.py"
+msgstr ""
+
+#: of transformers.Adafactor:4
+msgid ""
+"Paper: `Adafactor: Adaptive Learning Rates with Sublinear Memory Cost` "
+"https://arxiv.org/abs/1804.04235 Note that this optimizer internally "
+"adjusts the learning rate depending on the *scale_parameter*, "
+"*relative_step* and *warmup_init* options. To use a manual (external) "
+"learning rate schedule you should set `scale_parameter=False` and "
+"`relative_step=False`."
+msgstr ""
+
+#: of transformers.Adafactor:11
+msgid "The external learning rate."
+msgstr ""
+
+#: of transformers.Adafactor:13
+msgid ""
+"Regularization constants for square gradient and parameter scale "
+"respectively"
+msgstr ""
+
+#: of transformers.Adafactor:15
+msgid "Threshold of root mean square of final gradient update"
+msgstr ""
+
+#: of transformers.Adafactor:17
+msgid "Coefficient used to compute running averages of square"
+msgstr ""
+
+#: of transformers.Adafactor:19
+msgid "Coefficient used for computing running averages of gradient"
+msgstr ""
+
+#: of transformers.Adafactor:21
+msgid "Weight decay (L2 penalty)"
+msgstr ""
+
+#: of transformers.Adafactor:23
+msgid "If True, learning rate is scaled by root mean square"
+msgstr ""
+
+#: of transformers.Adafactor:25
+msgid ""
+"If True, time-dependent learning rate is computed instead of external "
+"learning rate"
+msgstr ""
+
+#: of transformers.Adafactor:27
+msgid ""
+"Time-dependent learning rate computation depends on whether warm-up "
+"initialization is being used"
+msgstr ""
+
+#: of transformers.Adafactor:30
+msgid ""
+"This implementation handles low-precision (FP16, bfloat) values, but we "
+"have not thoroughly tested."
+msgstr ""
+
+#: of transformers.Adafactor:32
+msgid ""
+"Recommended T5 finetuning settings (https://discuss.huggingface.co/t/t5"
+"-finetuning-tips/684/3):"
+msgstr ""
+
+#: of transformers.Adafactor:34
+msgid "Training without LR warmup or clip_threshold is not recommended."
+msgstr ""
+
+#: of transformers.Adafactor:36
+msgid "use scheduled LR warm-up to fixed LR"
+msgstr ""
+
+#: of transformers.Adafactor:37
+msgid "use clip_threshold=1.0 (https://arxiv.org/abs/1804.04235)"
+msgstr ""
+
+#: of transformers.Adafactor:38
+msgid "Disable relative updates"
+msgstr ""
+
+#: of transformers.Adafactor:39
+msgid "Use scale_parameter=False"
+msgstr ""
+
+#: of transformers.Adafactor:40
+msgid ""
+"Additional optimizer operations like gradient clipping should not be used"
+" alongside Adafactor"
+msgstr ""
+
+#: of transformers.Adafactor:42
+msgid "Example::"
+msgstr ""
+
+#: of transformers.Adafactor:46
+msgid "Others reported the following combination to work well::"
+msgstr ""
+
+#: of transformers.Adafactor:50
+msgid ""
+"When using ``lr=None`` with :class:`~transformers.Trainer` you will most "
+"likely need to use :class:`~transformers.optimization.AdafactorSchedule` "
+"scheduler as following::"
+msgstr ""
+
+#: of transformers.Adafactor:57
+msgid "Usage::"
+msgstr ""
+
+#: ../../source/main_classes/optimizer_schedules.rst:34
+msgid "AdamWeightDecay (TensorFlow)"
+msgstr ""
+
+#: of transformers.AdamWeightDecay:1
+msgid ""
+"Adam enables L2 weight decay and clip_by_global_norm on gradients. Just "
+"adding the square of the weights to the loss function is *not* the "
+"correct way of using L2 regularization/weight decay with Adam, since that"
+" will interact with the m and v parameters in strange ways as shown in "
+"`Decoupled Weight Decay Regularization "
+"<https://arxiv.org/abs/1711.05101>`__."
+msgstr ""
+
+#: of transformers.AdamWeightDecay:6
+msgid ""
+"Instead we want ot decay the weights in a manner that doesn't interact "
+"with the m/v parameters. This is equivalent to adding the square of the "
+"weights to the loss with plain (non-momentum) SGD."
+msgstr ""
+
+#: of transformers.AdamWeightDecay:9
+msgid "The learning rate to use or a schedule."
+msgstr ""
+
+#: of transformers.AdamWeightDecay:11
+msgid ""
+"The beta1 parameter in Adam, which is the exponential decay rate for the "
+"1st momentum estimates."
+msgstr ""
+
+#: of transformers.AdamWeightDecay:13
+msgid ""
+"The beta2 parameter in Adam, which is the exponential decay rate for the "
+"2nd momentum estimates."
+msgstr ""
+
+#: of transformers.AdamWeightDecay:15
+msgid ""
+"The epsilon parameter in Adam, which is a small constant for numerical "
+"stability."
+msgstr ""
+
+#: of transformers.AdamWeightDecay:17
+msgid ""
+"Whether to apply AMSGrad variant of this algorithm or not, see `On the "
+"Convergence of Adam and Beyond <https://arxiv.org/abs/1904.09237>`__."
+msgstr ""
+
+#: of transformers.AdamWeightDecay:20
+msgid "The weight decay to apply."
+msgstr ""
+
+#: of transformers.AdamWeightDecay:22
+msgid ""
+"List of the parameter names (or re patterns) to apply weight decay to. If"
+" none is passed, weight decay is applied to all parameters by default "
+"(unless they are in :obj:`exclude_from_weight_decay`)."
+msgstr ""
+
+#: of transformers.AdamWeightDecay:25
+msgid ""
+"List of the parameter names (or re patterns) to exclude from applying "
+"weight decay to. If a :obj:`include_in_weight_decay` is passed, the names"
+" in it will supersede this list."
+msgstr ""
+
+#: of transformers.AdamWeightDecay:28
+msgid "Optional name for the operations created when applying gradients."
+msgstr ""
+
+#: of transformers.AdamWeightDecay:30
+msgid ""
+"Keyword arguments. Allowed to be {``clipnorm``, ``clipvalue``, ``lr``, "
+"``decay``}. ``clipnorm`` is clip gradients by norm; ``clipvalue`` is clip"
+" gradients by value, ``decay`` is included for backward compatibility to "
+"allow time inverse decay of learning rate. ``lr`` is included for "
+"backward compatibility, recommended to use ``learning_rate`` instead."
+msgstr ""
+
+#: of transformers.create_optimizer:1
+msgid ""
+"Creates an optimizer with a learning rate schedule using a warmup phase "
+"followed by a linear decay."
+msgstr ""
+
+#: of transformers.create_optimizer:3
+msgid "The desired learning rate at the end of the warmup phase."
+msgstr ""
+
+#: of transformers.create_optimizer:5
+#: transformers.get_cosine_schedule_with_warmup:9
+#: transformers.get_cosine_with_hard_restarts_schedule_with_warmup:9
+#: transformers.get_linear_schedule_with_warmup:8
+#: transformers.get_polynomial_decay_schedule_with_warmup:9
+msgid "The total number of training steps."
+msgstr ""
+
+#: of transformers.create_optimizer:7
+msgid "The number of warmup steps."
+msgstr ""
+
+#: of transformers.create_optimizer:9
+msgid ""
+"The final learning rate at the end of the linear decay will be "
+":obj:`init_lr * min_lr_ratio`."
+msgstr ""
+
+#: of transformers.create_optimizer:11
+msgid "The beta1 to use in Adam."
+msgstr ""
+
+#: of transformers.create_optimizer:13
+msgid "The beta2 to use in Adam."
+msgstr ""
+
+#: of transformers.create_optimizer:15
+msgid "The epsilon to use in Adam."
+msgstr ""
+
+#: of transformers.create_optimizer:17
+msgid "The weight decay to use."
+msgstr ""
+
+#: of transformers.create_optimizer:19
+msgid "The power to use for PolynomialDecay."
+msgstr ""
+
+#: of transformers.create_optimizer:21
+msgid ""
+"List of the parameter names (or re patterns) to apply weight decay to. If"
+" none is passed, weight decay is applied to all parameters except bias "
+"and layer norm parameters."
+msgstr ""
+
+#: ../../source/main_classes/optimizer_schedules.rst:41
+msgid "Schedules"
+msgstr ""
+
+#: ../../source/main_classes/optimizer_schedules.rst:44
+msgid "Learning Rate Schedules (Pytorch)"
+msgstr ""
+
+#: of transformers.SchedulerType:1
+msgid "An enumeration."
+msgstr ""
+
+#: of transformers.get_scheduler:1
+msgid "Unified API to get any scheduler from its name."
+msgstr ""
+
+#: of transformers.get_scheduler:3
+msgid "The name of the scheduler to use."
+msgstr ""
+
+#: of transformers.get_scheduler:5
+msgid "The optimizer that will be used during training."
+msgstr ""
+
+#: of transformers.get_scheduler:7
+msgid ""
+"The number of warmup steps to do. This is not required by all schedulers "
+"(hence the argument being optional), the function will raise an error if "
+"it's unset and the scheduler type requires it."
+msgstr ""
+
+#: of transformers.get_scheduler:10
+msgid ""
+"The number of training steps to do. This is not required by all "
+"schedulers (hence the argument being optional), the function will raise "
+"an error if it's unset and the scheduler type requires it."
+msgstr ""
+
+#: of transformers.get_constant_schedule:1
+msgid ""
+"Create a schedule with a constant learning rate, using the learning rate "
+"set in optimizer."
+msgstr ""
+
+#: of transformers.get_constant_schedule:3
+#: transformers.get_constant_schedule_with_warmup:4
+#: transformers.get_cosine_schedule_with_warmup:5
+#: transformers.get_cosine_with_hard_restarts_schedule_with_warmup:5
+#: transformers.get_linear_schedule_with_warmup:4
+#: transformers.get_polynomial_decay_schedule_with_warmup:5
+msgid "The optimizer for which to schedule the learning rate."
+msgstr ""
+
+#: of transformers.get_constant_schedule:5
+#: transformers.get_constant_schedule_with_warmup:8
+#: transformers.get_cosine_schedule_with_warmup:14
+#: transformers.get_cosine_with_hard_restarts_schedule_with_warmup:13
+#: transformers.get_linear_schedule_with_warmup:10
+#: transformers.get_polynomial_decay_schedule_with_warmup:15
+msgid "The index of the last epoch when resuming training."
+msgstr ""
+
+#: of transformers.get_constant_schedule
+#: transformers.get_constant_schedule_with_warmup
+#: transformers.get_cosine_schedule_with_warmup
+#: transformers.get_cosine_with_hard_restarts_schedule_with_warmup
+#: transformers.get_linear_schedule_with_warmup
+#: transformers.get_polynomial_decay_schedule_with_warmup
+msgid "Returns"
+msgstr ""
+
+#: of transformers.get_constant_schedule:8
+#: transformers.get_constant_schedule_with_warmup:11
+#: transformers.get_cosine_schedule_with_warmup:17
+#: transformers.get_cosine_with_hard_restarts_schedule_with_warmup:16
+#: transformers.get_linear_schedule_with_warmup:13
+#: transformers.get_polynomial_decay_schedule_with_warmup:22
+msgid ":obj:`torch.optim.lr_scheduler.LambdaLR` with the appropriate schedule."
+msgstr ""
+
+#: of transformers.get_constant_schedule_with_warmup:1
+msgid ""
+"Create a schedule with a constant learning rate preceded by a warmup "
+"period during which the learning rate increases linearly between 0 and "
+"the initial lr set in the optimizer."
+msgstr ""
+
+#: of transformers.get_constant_schedule_with_warmup:6
+#: transformers.get_cosine_schedule_with_warmup:7
+#: transformers.get_cosine_with_hard_restarts_schedule_with_warmup:7
+#: transformers.get_linear_schedule_with_warmup:6
+#: transformers.get_polynomial_decay_schedule_with_warmup:7
+msgid "The number of steps for the warmup phase."
+msgstr ""
+
+#: of transformers.get_cosine_schedule_with_warmup:1
+msgid ""
+"Create a schedule with a learning rate that decreases following the "
+"values of the cosine function between the initial lr set in the optimizer"
+" to 0, after a warmup period during which it increases linearly between 0"
+" and the initial lr set in the optimizer."
+msgstr ""
+
+#: of transformers.get_cosine_schedule_with_warmup:11
+msgid ""
+"The number of waves in the cosine schedule (the defaults is to just "
+"decrease from the max value to 0 following a half-cosine)."
+msgstr ""
+
+#: of transformers.get_cosine_with_hard_restarts_schedule_with_warmup:1
+msgid ""
+"Create a schedule with a learning rate that decreases following the "
+"values of the cosine function between the initial lr set in the optimizer"
+" to 0, with several hard restarts, after a warmup period during which it "
+"increases linearly between 0 and the initial lr set in the optimizer."
+msgstr ""
+
+#: of transformers.get_cosine_with_hard_restarts_schedule_with_warmup:11
+msgid "The number of hard restarts to use."
+msgstr ""
+
+#: of transformers.get_linear_schedule_with_warmup:1
+msgid ""
+"Create a schedule with a learning rate that decreases linearly from the "
+"initial lr set in the optimizer to 0, after a warmup period during which "
+"it increases linearly from 0 to the initial lr set in the optimizer."
+msgstr ""
+
+#: of transformers.get_polynomial_decay_schedule_with_warmup:1
+msgid ""
+"Create a schedule with a learning rate that decreases as a polynomial "
+"decay from the initial lr set in the optimizer to end lr defined by "
+"`lr_end`, after a warmup period during which it increases linearly from 0"
+" to the initial lr set in the optimizer."
+msgstr ""
+
+#: of transformers.get_polynomial_decay_schedule_with_warmup:11
+msgid "The end LR."
+msgstr ""
+
+#: of transformers.get_polynomial_decay_schedule_with_warmup:13
+msgid "Power factor."
+msgstr ""
+
+#: of transformers.get_polynomial_decay_schedule_with_warmup:18
+msgid ""
+"Note: `power` defaults to 1.0 as in the fairseq implementation, which in "
+"turn is based on the original BERT implementation at https://github.com"
+"/google-"
+"research/bert/blob/f39e881b169b9d53bea03d2d341b31707a6c052b/optimization.py#L37"
+msgstr ""
+
+#: ../../source/main_classes/optimizer_schedules.rst:86
+msgid "Warmup (TensorFlow)"
+msgstr ""
+
+#: of transformers.WarmUp:1
+msgid "Applies a warmup schedule on a given learning rate decay schedule."
+msgstr ""
+
+#: of transformers.WarmUp:3
+msgid ""
+"The initial learning rate for the schedule after the warmup (so this will"
+" be the learning rate at the end of the warmup)."
+msgstr ""
+
+#: of transformers.WarmUp:6
+msgid "The schedule function to apply after the warmup for the rest of training."
+msgstr ""
+
+#: of transformers.WarmUp:8
+msgid "The number of steps for the warmup part of training."
+msgstr ""
+
+#: of transformers.WarmUp:10
+msgid "The power to use for the polynomial warmup (defaults is a linear warmup)."
+msgstr ""
+
+#: of transformers.WarmUp:12
+msgid "Optional name prefix for the returned tensors during the schedule."
+msgstr ""
+
+#: ../../source/main_classes/optimizer_schedules.rst:92
+msgid "Gradient Strategies"
+msgstr ""
+
+#: ../../source/main_classes/optimizer_schedules.rst:95
+msgid "GradientAccumulator (TensorFlow)"
+msgstr ""
+
+#: of transformers.GradientAccumulator:1
+msgid ""
+"Gradient accumulation utility. When used with a distribution strategy, "
+"the accumulator should be called in a replica context. Gradients will be "
+"accumulated locally on each replica and without synchronization. Users "
+"should then call ``.gradients``, scale the gradients if required, and "
+"pass the result to ``apply_gradients``."
+msgstr ""
+

@@ -1,0 +1,2685 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/mobilebert.rst:14
+msgid "MobileBERT"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:19
+msgid ""
+"The MobileBERT model was proposed in `MobileBERT: a Compact Task-Agnostic"
+" BERT for Resource-Limited Devices <https://arxiv.org/abs/2004.02984>`__ "
+"by Zhiqing Sun, Hongkun Yu, Xiaodan Song, Renjie Liu, Yiming Yang, and "
+"Denny Zhou. It's a bidirectional transformer based on the BERT model, "
+"which is compressed and accelerated using several approaches."
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:24
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:26
+msgid ""
+"*Natural Language Processing (NLP) has recently achieved great success by"
+" using huge pre-trained models with hundreds of millions of parameters. "
+"However, these models suffer from heavy model sizes and high latency such"
+" that they cannot be deployed to resource-limited mobile devices. In this"
+" paper, we propose MobileBERT for compressing and accelerating the "
+"popular BERT model. Like the original BERT, MobileBERT is task-agnostic, "
+"that is, it can be generically applied to various downstream NLP tasks "
+"via simple fine-tuning. Basically, MobileBERT is a thin version of "
+"BERT_LARGE, while equipped with bottleneck structures and a carefully "
+"designed balance between self-attentions and feed-forward networks. To "
+"train MobileBERT, we first train a specially designed teacher model, an "
+"inverted-bottleneck incorporated BERT_LARGE model. Then, we conduct "
+"knowledge transfer from this teacher to MobileBERT. Empirical studies "
+"show that MobileBERT is 4.3x smaller and 5.5x faster than BERT_BASE while"
+" achieving competitive results on well-known benchmarks. On the natural "
+"language inference tasks of GLUE, MobileBERT achieves a GLUEscore o 77.7 "
+"(0.6 lower than BERT_BASE), and 62 ms latency on a Pixel 4 phone. On the "
+"SQuAD v1.1/v2.0 question answering task, MobileBERT achieves a dev F1 "
+"score of 90.0/79.2 (1.5/2.1 higher than BERT_BASE).*"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:39
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:41
+msgid ""
+"MobileBERT is a model with absolute position embeddings so it's usually "
+"advised to pad the inputs on the right rather than the left."
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:43
+msgid ""
+"MobileBERT is similar to BERT and therefore relies on the masked language"
+" modeling (MLM) objective. It is therefore efficient at predicting masked"
+" tokens and at NLU in general, but is not optimal for text generation. "
+"Models trained with a causal language modeling (CLM) objective are better"
+" in that regard."
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:47
+msgid ""
+"This model was contributed by `vshampor "
+"<https://huggingface.co/vshampor>`__. The original code can be found "
+"`here <https://github.com/google-research/mobilebert>`__."
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:51
+msgid "MobileBertConfig"
+msgstr ""
+
+#: of transformers.MobileBertConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.MobileBertModel` or a "
+":class:`~transformers.TFMobileBertModel`. It is used to instantiate a "
+"MobileBERT model according to the specified arguments, defining the model"
+" architecture."
+msgstr ""
+
+#: of transformers.MobileBertConfig:5
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.MobileBertConfig transformers.MobileBertForMaskedLM
+#: transformers.MobileBertForMaskedLM.forward
+#: transformers.MobileBertForMultipleChoice
+#: transformers.MobileBertForMultipleChoice.forward
+#: transformers.MobileBertForNextSentencePrediction
+#: transformers.MobileBertForNextSentencePrediction.forward
+#: transformers.MobileBertForPreTraining
+#: transformers.MobileBertForPreTraining.forward
+#: transformers.MobileBertForQuestionAnswering
+#: transformers.MobileBertForQuestionAnswering.forward
+#: transformers.MobileBertForSequenceClassification
+#: transformers.MobileBertForSequenceClassification.forward
+#: transformers.MobileBertForTokenClassification
+#: transformers.MobileBertForTokenClassification.forward
+#: transformers.MobileBertModel transformers.MobileBertModel.forward
+#: transformers.TFMobileBertForMaskedLM
+#: transformers.TFMobileBertForMaskedLM.call
+#: transformers.TFMobileBertForMultipleChoice
+#: transformers.TFMobileBertForMultipleChoice.call
+#: transformers.TFMobileBertForNextSentencePrediction
+#: transformers.TFMobileBertForNextSentencePrediction.call
+#: transformers.TFMobileBertForPreTraining
+#: transformers.TFMobileBertForPreTraining.call
+#: transformers.TFMobileBertForQuestionAnswering
+#: transformers.TFMobileBertForQuestionAnswering.call
+#: transformers.TFMobileBertForSequenceClassification
+#: transformers.TFMobileBertForSequenceClassification.call
+#: transformers.TFMobileBertForTokenClassification
+#: transformers.TFMobileBertForTokenClassification.call
+#: transformers.TFMobileBertModel transformers.TFMobileBertModel.call
+#: transformers.models.mobilebert.modeling_mobilebert.MobileBertForPreTrainingOutput
+#: transformers.models.mobilebert.modeling_tf_mobilebert.TFMobileBertForPreTrainingOutput
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.MobileBertConfig:9
+msgid ""
+"Vocabulary size of the MobileBERT model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.MobileBertModel` or "
+":class:`~transformers.TFMobileBertModel`."
+msgstr ""
+
+#: of transformers.MobileBertConfig:13
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.MobileBertConfig:15
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.MobileBertConfig:17
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.MobileBertConfig:19
+msgid ""
+"Dimensionality of the \"intermediate\" (often named feed-forward) layer "
+"in the Transformer encoder."
+msgstr ""
+
+#: of transformers.MobileBertConfig:21
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.MobileBertConfig:24
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.MobileBertConfig:26
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.MobileBertConfig:28
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.MobileBertConfig:31
+msgid ""
+"The vocabulary size of the :obj:`token_type_ids` passed when calling "
+":class:`~transformers.MobileBertModel` or "
+":class:`~transformers.TFMobileBertModel`."
+msgstr ""
+
+#: of transformers.MobileBertConfig:34
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.MobileBertConfig:36
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.MobileBertConfig:38
+msgid "The ID of the token in the word embedding to use as padding."
+msgstr ""
+
+#: of transformers.MobileBertConfig:40
+msgid "The dimension of the word embedding vectors."
+msgstr ""
+
+#: of transformers.MobileBertConfig:42
+msgid "Use a convolution of trigram as input."
+msgstr ""
+
+#: of transformers.MobileBertConfig:44
+msgid "Whether to use bottleneck in BERT."
+msgstr ""
+
+#: of transformers.MobileBertConfig:46
+msgid "Size of bottleneck layer output."
+msgstr ""
+
+#: of transformers.MobileBertConfig:48
+msgid "Whether to use attention inputs from the bottleneck transformation."
+msgstr ""
+
+#: of transformers.MobileBertConfig:50
+msgid ""
+"Whether to use the same linear transformation for query&key in the "
+"bottleneck."
+msgstr ""
+
+#: of transformers.MobileBertConfig:52
+msgid "Number of FFNs in a block."
+msgstr ""
+
+#: of transformers.MobileBertConfig:54
+msgid "The normalization type in MobileBERT."
+msgstr ""
+
+#: of transformers.MobileBertConfig:56
+msgid "The dropout ratio for the classification head."
+msgstr ""
+
+#: of transformers.MobileBertConfig:59
+#: transformers.MobileBertForNextSentencePrediction.forward:78
+#: transformers.MobileBertForPreTraining.forward:84
+#: transformers.TFMobileBertForNextSentencePrediction.call:78
+#: transformers.TFMobileBertForPreTraining.call:78
+msgid "Examples::"
+msgstr ""
+
+#: of transformers.MobileBertConfig:72
+msgid ""
+"Attributes: pretrained_config_archive_map (Dict[str, str]): A dictionary "
+"containing all the available pre-trained checkpoints."
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:58
+msgid "MobileBertTokenizer"
+msgstr ""
+
+#: of transformers.MobileBertTokenizer:1
+msgid "Construct a MobileBERT tokenizer."
+msgstr ""
+
+#: of transformers.MobileBertTokenizer:3
+msgid ""
+":class:`~transformers.MobileBertTokenizer is identical to "
+":class:`~transformers.BertTokenizer` and runs end-to-end tokenization: "
+"punctuation splitting and wordpiece."
+msgstr ""
+
+#: of transformers.MobileBertTokenizer:6
+msgid ""
+"Refer to superclass :class:`~transformers.BertTokenizer` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:65
+msgid "MobileBertTokenizerFast"
+msgstr ""
+
+#: of transformers.MobileBertTokenizerFast:1
+msgid ""
+"Construct a \"fast\" MobileBERT tokenizer (backed by HuggingFace's "
+"`tokenizers` library)."
+msgstr ""
+
+#: of transformers.MobileBertTokenizerFast:3
+msgid ""
+":class:`~transformers.MobileBertTokenizerFast` is identical to "
+":class:`~transformers.BertTokenizerFast` and runs end-to-end "
+"tokenization: punctuation splitting and wordpiece."
+msgstr ""
+
+#: of transformers.MobileBertTokenizerFast:6
+msgid ""
+"Refer to superclass :class:`~transformers.BertTokenizerFast` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:72
+msgid "MobileBert specific outputs"
+msgstr ""
+
+#: of
+#: transformers.models.mobilebert.modeling_mobilebert.MobileBertForPreTrainingOutput:1
+msgid "Output type of :class:`~transformers.MobileBertForPreTraining`."
+msgstr ""
+
+#: of
+#: transformers.models.mobilebert.modeling_mobilebert.MobileBertForPreTrainingOutput:3
+msgid ""
+"Total loss as the sum of the masked language modeling loss and the next "
+"sequence prediction (classification) loss."
+msgstr ""
+
+#: of
+#: transformers.models.mobilebert.modeling_mobilebert.MobileBertForPreTrainingOutput:6
+#: transformers.models.mobilebert.modeling_tf_mobilebert.TFMobileBertForPreTrainingOutput:3
+msgid ""
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.mobilebert.modeling_mobilebert.MobileBertForPreTrainingOutput:8
+#: transformers.models.mobilebert.modeling_tf_mobilebert.TFMobileBertForPreTrainingOutput:5
+msgid ""
+"Prediction scores of the next sequence prediction (classification) head "
+"(scores of True/False continuation before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.mobilebert.modeling_mobilebert.MobileBertForPreTrainingOutput:11
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the model at the output"
+" of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.mobilebert.modeling_mobilebert.MobileBertForPreTrainingOutput:11
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:67
+#: transformers.MobileBertForMultipleChoice.forward:69
+#: transformers.MobileBertForNextSentencePrediction.forward:70
+#: transformers.MobileBertForPreTraining.forward:76
+#: transformers.MobileBertForQuestionAnswering.forward:72
+#: transformers.MobileBertForSequenceClassification.forward:67
+#: transformers.MobileBertForTokenClassification.forward:66
+#: transformers.MobileBertModel.forward:65
+#: transformers.TFMobileBertForMaskedLM.call:73
+#: transformers.TFMobileBertForMultipleChoice.call:75
+#: transformers.TFMobileBertForNextSentencePrediction.call:70
+#: transformers.TFMobileBertForPreTraining.call:70
+#: transformers.TFMobileBertForQuestionAnswering.call:78
+#: transformers.TFMobileBertForSequenceClassification.call:73
+#: transformers.TFMobileBertForTokenClassification.call:72
+#: transformers.TFMobileBertModel.call:74
+#: transformers.models.mobilebert.modeling_mobilebert.MobileBertForPreTrainingOutput:14
+#: transformers.models.mobilebert.modeling_tf_mobilebert.TFMobileBertForPreTrainingOutput:11
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.mobilebert.modeling_mobilebert.MobileBertForPreTrainingOutput:16
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.mobilebert.modeling_mobilebert.MobileBertForPreTrainingOutput:16
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:71
+#: transformers.MobileBertForMultipleChoice.forward:73
+#: transformers.MobileBertForNextSentencePrediction.forward:74
+#: transformers.MobileBertForPreTraining.forward:80
+#: transformers.MobileBertForQuestionAnswering.forward:76
+#: transformers.MobileBertForSequenceClassification.forward:71
+#: transformers.MobileBertForTokenClassification.forward:70
+#: transformers.MobileBertModel.forward:69
+#: transformers.TFMobileBertForMaskedLM.call:77
+#: transformers.TFMobileBertForMultipleChoice.call:79
+#: transformers.TFMobileBertForNextSentencePrediction.call:74
+#: transformers.TFMobileBertForPreTraining.call:74
+#: transformers.TFMobileBertForQuestionAnswering.call:82
+#: transformers.TFMobileBertForSequenceClassification.call:77
+#: transformers.TFMobileBertForTokenClassification.call:76
+#: transformers.TFMobileBertModel.call:78
+#: transformers.models.mobilebert.modeling_mobilebert.MobileBertForPreTrainingOutput:19
+#: transformers.models.mobilebert.modeling_tf_mobilebert.TFMobileBertForPreTrainingOutput:16
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.mobilebert.modeling_tf_mobilebert.TFMobileBertForPreTrainingOutput:1
+msgid "Output type of :class:`~transformers.TFMobileBertForPreTraining`."
+msgstr ""
+
+#: of
+#: transformers.models.mobilebert.modeling_tf_mobilebert.TFMobileBertForPreTrainingOutput:8
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.  Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.mobilebert.modeling_tf_mobilebert.TFMobileBertForPreTrainingOutput:8
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of
+#: transformers.models.mobilebert.modeling_tf_mobilebert.TFMobileBertForPreTrainingOutput:13
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.mobilebert.modeling_tf_mobilebert.TFMobileBertForPreTrainingOutput:13
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:82
+msgid "MobileBertModel"
+msgstr ""
+
+#: of transformers.MobileBertModel:1 transformers.TFMobileBertModel:1
+msgid ""
+"The bare MobileBert Model transformer outputting raw hidden-states "
+"without any specific head on top."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM:3
+#: transformers.MobileBertForMultipleChoice:5
+#: transformers.MobileBertForNextSentencePrediction:3
+#: transformers.MobileBertForPreTraining:5
+#: transformers.MobileBertForQuestionAnswering:5
+#: transformers.MobileBertForSequenceClassification:5
+#: transformers.MobileBertForTokenClassification:5
+#: transformers.MobileBertModel:3
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM:7
+#: transformers.MobileBertForMultipleChoice:9
+#: transformers.MobileBertForNextSentencePrediction:7
+#: transformers.MobileBertForPreTraining:9
+#: transformers.MobileBertForQuestionAnswering:9
+#: transformers.MobileBertForSequenceClassification:9
+#: transformers.MobileBertForTokenClassification:9
+#: transformers.MobileBertModel:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM:11
+#: transformers.MobileBertForMultipleChoice:13
+#: transformers.MobileBertForNextSentencePrediction:11
+#: transformers.MobileBertForPreTraining:13
+#: transformers.MobileBertForQuestionAnswering:13
+#: transformers.MobileBertForSequenceClassification:13
+#: transformers.MobileBertForTokenClassification:13
+#: transformers.MobileBertModel:11 transformers.TFMobileBertForMaskedLM:30
+#: transformers.TFMobileBertForMultipleChoice:32
+#: transformers.TFMobileBertForNextSentencePrediction:30
+#: transformers.TFMobileBertForPreTraining:32
+#: transformers.TFMobileBertForQuestionAnswering:32
+#: transformers.TFMobileBertForSequenceClassification:32
+#: transformers.TFMobileBertForTokenClassification:32
+#: transformers.TFMobileBertModel:30
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.MobileBertModel:17
+msgid "https://arxiv.org/pdf/2004.02984.pdf"
+msgstr ""
+
+#: of transformers.MobileBertModel.forward:1
+msgid ""
+"The :class:`~transformers.MobileBertModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:4
+#: transformers.MobileBertForMultipleChoice.forward:4
+#: transformers.MobileBertForNextSentencePrediction.forward:4
+#: transformers.MobileBertForPreTraining.forward:4
+#: transformers.MobileBertForQuestionAnswering.forward:4
+#: transformers.MobileBertForSequenceClassification.forward:4
+#: transformers.MobileBertForTokenClassification.forward:4
+#: transformers.MobileBertModel.forward:4
+#: transformers.TFMobileBertForMaskedLM.call:4
+#: transformers.TFMobileBertForMultipleChoice.call:4
+#: transformers.TFMobileBertForNextSentencePrediction.call:4
+#: transformers.TFMobileBertForPreTraining.call:4
+#: transformers.TFMobileBertForQuestionAnswering.call:4
+#: transformers.TFMobileBertForSequenceClassification.call:4
+#: transformers.TFMobileBertForTokenClassification.call:4
+#: transformers.TFMobileBertModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:8
+#: transformers.MobileBertForMultipleChoice.forward:8
+#: transformers.MobileBertForNextSentencePrediction.forward:8
+#: transformers.MobileBertForPreTraining.forward:8
+#: transformers.MobileBertForQuestionAnswering.forward:8
+#: transformers.MobileBertForSequenceClassification.forward:8
+#: transformers.MobileBertForTokenClassification.forward:8
+#: transformers.MobileBertModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.BertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:8
+#: transformers.MobileBertForMultipleChoice.forward:8
+#: transformers.MobileBertForNextSentencePrediction.forward:8
+#: transformers.MobileBertForPreTraining.forward:8
+#: transformers.MobileBertForQuestionAnswering.forward:8
+#: transformers.MobileBertForSequenceClassification.forward:8
+#: transformers.MobileBertForTokenClassification.forward:8
+#: transformers.MobileBertModel.forward:8
+#: transformers.TFMobileBertForMaskedLM.call:8
+#: transformers.TFMobileBertForMultipleChoice.call:8
+#: transformers.TFMobileBertForNextSentencePrediction.call:8
+#: transformers.TFMobileBertForPreTraining.call:8
+#: transformers.TFMobileBertForQuestionAnswering.call:8
+#: transformers.TFMobileBertForSequenceClassification.call:8
+#: transformers.TFMobileBertForTokenClassification.call:8
+#: transformers.TFMobileBertModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:10
+#: transformers.MobileBertForMultipleChoice.forward:10
+#: transformers.MobileBertForNextSentencePrediction.forward:10
+#: transformers.MobileBertForPreTraining.forward:10
+#: transformers.MobileBertForQuestionAnswering.forward:10
+#: transformers.MobileBertForSequenceClassification.forward:10
+#: transformers.MobileBertForTokenClassification.forward:10
+#: transformers.MobileBertModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.BertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:14
+#: transformers.MobileBertForMultipleChoice.forward:14
+#: transformers.MobileBertForNextSentencePrediction.forward:14
+#: transformers.MobileBertForPreTraining.forward:14
+#: transformers.MobileBertForQuestionAnswering.forward:14
+#: transformers.MobileBertForSequenceClassification.forward:14
+#: transformers.MobileBertForTokenClassification.forward:14
+#: transformers.MobileBertModel.forward:14
+#: transformers.TFMobileBertForMaskedLM.call:14
+#: transformers.TFMobileBertForMultipleChoice.call:14
+#: transformers.TFMobileBertForNextSentencePrediction.call:14
+#: transformers.TFMobileBertForPreTraining.call:14
+#: transformers.TFMobileBertForQuestionAnswering.call:14
+#: transformers.TFMobileBertForSequenceClassification.call:14
+#: transformers.TFMobileBertForTokenClassification.call:14
+#: transformers.TFMobileBertModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:16
+#: transformers.MobileBertForMultipleChoice.forward:16
+#: transformers.MobileBertForNextSentencePrediction.forward:16
+#: transformers.MobileBertForPreTraining.forward:16
+#: transformers.MobileBertForQuestionAnswering.forward:16
+#: transformers.MobileBertForSequenceClassification.forward:16
+#: transformers.MobileBertForTokenClassification.forward:16
+#: transformers.MobileBertModel.forward:16
+#: transformers.TFMobileBertForMaskedLM.call:16
+#: transformers.TFMobileBertForMultipleChoice.call:16
+#: transformers.TFMobileBertForNextSentencePrediction.call:16
+#: transformers.TFMobileBertForPreTraining.call:16
+#: transformers.TFMobileBertForQuestionAnswering.call:16
+#: transformers.TFMobileBertForSequenceClassification.call:16
+#: transformers.TFMobileBertForTokenClassification.call:16
+#: transformers.TFMobileBertModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:16
+#: transformers.MobileBertForMultipleChoice.forward:16
+#: transformers.MobileBertForNextSentencePrediction.forward:16
+#: transformers.MobileBertForPreTraining.forward:16
+#: transformers.MobileBertForQuestionAnswering.forward:16
+#: transformers.MobileBertForSequenceClassification.forward:16
+#: transformers.MobileBertForTokenClassification.forward:16
+#: transformers.MobileBertModel.forward:16
+#: transformers.TFMobileBertForMaskedLM.call:16
+#: transformers.TFMobileBertForMultipleChoice.call:16
+#: transformers.TFMobileBertForNextSentencePrediction.call:16
+#: transformers.TFMobileBertForPreTraining.call:16
+#: transformers.TFMobileBertForQuestionAnswering.call:16
+#: transformers.TFMobileBertForSequenceClassification.call:16
+#: transformers.TFMobileBertForTokenClassification.call:16
+#: transformers.TFMobileBertModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:18
+#: transformers.MobileBertForMultipleChoice.forward:18
+#: transformers.MobileBertForNextSentencePrediction.forward:18
+#: transformers.MobileBertForPreTraining.forward:18
+#: transformers.MobileBertForQuestionAnswering.forward:18
+#: transformers.MobileBertForSequenceClassification.forward:18
+#: transformers.MobileBertForTokenClassification.forward:18
+#: transformers.MobileBertModel.forward:18
+#: transformers.TFMobileBertForMaskedLM.call:18
+#: transformers.TFMobileBertForMultipleChoice.call:18
+#: transformers.TFMobileBertForNextSentencePrediction.call:18
+#: transformers.TFMobileBertForPreTraining.call:18
+#: transformers.TFMobileBertForQuestionAnswering.call:18
+#: transformers.TFMobileBertForSequenceClassification.call:18
+#: transformers.TFMobileBertForTokenClassification.call:18
+#: transformers.TFMobileBertModel.call:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:19
+#: transformers.MobileBertForMultipleChoice.forward:19
+#: transformers.MobileBertForNextSentencePrediction.forward:19
+#: transformers.MobileBertForPreTraining.forward:19
+#: transformers.MobileBertForQuestionAnswering.forward:19
+#: transformers.MobileBertForSequenceClassification.forward:19
+#: transformers.MobileBertForTokenClassification.forward:19
+#: transformers.MobileBertModel.forward:19
+#: transformers.TFMobileBertForMaskedLM.call:19
+#: transformers.TFMobileBertForMultipleChoice.call:19
+#: transformers.TFMobileBertForNextSentencePrediction.call:19
+#: transformers.TFMobileBertForPreTraining.call:19
+#: transformers.TFMobileBertForQuestionAnswering.call:19
+#: transformers.TFMobileBertForSequenceClassification.call:19
+#: transformers.TFMobileBertForTokenClassification.call:19
+#: transformers.TFMobileBertModel.call:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:21
+#: transformers.MobileBertForMultipleChoice.forward:21
+#: transformers.MobileBertForNextSentencePrediction.forward:21
+#: transformers.MobileBertForPreTraining.forward:21
+#: transformers.MobileBertForQuestionAnswering.forward:21
+#: transformers.MobileBertForSequenceClassification.forward:21
+#: transformers.MobileBertForTokenClassification.forward:21
+#: transformers.MobileBertModel.forward:21
+#: transformers.TFMobileBertForMaskedLM.call:21
+#: transformers.TFMobileBertForMultipleChoice.call:21
+#: transformers.TFMobileBertForNextSentencePrediction.call:21
+#: transformers.TFMobileBertForPreTraining.call:21
+#: transformers.TFMobileBertForQuestionAnswering.call:21
+#: transformers.TFMobileBertForSequenceClassification.call:21
+#: transformers.TFMobileBertForTokenClassification.call:21
+#: transformers.TFMobileBertModel.call:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:23
+#: transformers.MobileBertForMultipleChoice.forward:23
+#: transformers.MobileBertForNextSentencePrediction.forward:23
+#: transformers.MobileBertForPreTraining.forward:23
+#: transformers.MobileBertForQuestionAnswering.forward:23
+#: transformers.MobileBertForSequenceClassification.forward:23
+#: transformers.MobileBertForTokenClassification.forward:23
+#: transformers.MobileBertModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:23
+#: transformers.MobileBertForMultipleChoice.forward:23
+#: transformers.MobileBertForNextSentencePrediction.forward:23
+#: transformers.MobileBertForPreTraining.forward:23
+#: transformers.MobileBertForQuestionAnswering.forward:23
+#: transformers.MobileBertForSequenceClassification.forward:23
+#: transformers.MobileBertForTokenClassification.forward:23
+#: transformers.MobileBertModel.forward:23
+#: transformers.TFMobileBertForMaskedLM.call:23
+#: transformers.TFMobileBertForMultipleChoice.call:23
+#: transformers.TFMobileBertForNextSentencePrediction.call:23
+#: transformers.TFMobileBertForPreTraining.call:23
+#: transformers.TFMobileBertForQuestionAnswering.call:23
+#: transformers.TFMobileBertForSequenceClassification.call:23
+#: transformers.TFMobileBertForTokenClassification.call:23
+#: transformers.TFMobileBertModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:26
+#: transformers.MobileBertForMultipleChoice.forward:26
+#: transformers.MobileBertForNextSentencePrediction.forward:26
+#: transformers.MobileBertForPreTraining.forward:26
+#: transformers.MobileBertForQuestionAnswering.forward:26
+#: transformers.MobileBertForSequenceClassification.forward:26
+#: transformers.MobileBertForTokenClassification.forward:26
+#: transformers.MobileBertModel.forward:26
+#: transformers.TFMobileBertForMaskedLM.call:26
+#: transformers.TFMobileBertForMultipleChoice.call:26
+#: transformers.TFMobileBertForNextSentencePrediction.call:26
+#: transformers.TFMobileBertForPreTraining.call:26
+#: transformers.TFMobileBertForQuestionAnswering.call:26
+#: transformers.TFMobileBertForSequenceClassification.call:26
+#: transformers.TFMobileBertForTokenClassification.call:26
+#: transformers.TFMobileBertModel.call:26
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:27
+#: transformers.MobileBertForMultipleChoice.forward:27
+#: transformers.MobileBertForNextSentencePrediction.forward:27
+#: transformers.MobileBertForPreTraining.forward:27
+#: transformers.MobileBertForQuestionAnswering.forward:27
+#: transformers.MobileBertForSequenceClassification.forward:27
+#: transformers.MobileBertForTokenClassification.forward:27
+#: transformers.MobileBertModel.forward:27
+#: transformers.TFMobileBertForMaskedLM.call:27
+#: transformers.TFMobileBertForMultipleChoice.call:27
+#: transformers.TFMobileBertForNextSentencePrediction.call:27
+#: transformers.TFMobileBertForPreTraining.call:27
+#: transformers.TFMobileBertForQuestionAnswering.call:27
+#: transformers.TFMobileBertForSequenceClassification.call:27
+#: transformers.TFMobileBertForTokenClassification.call:27
+#: transformers.TFMobileBertModel.call:27
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:29
+#: transformers.MobileBertForMultipleChoice.forward:29
+#: transformers.MobileBertForNextSentencePrediction.forward:29
+#: transformers.MobileBertForPreTraining.forward:29
+#: transformers.MobileBertForQuestionAnswering.forward:29
+#: transformers.MobileBertForSequenceClassification.forward:29
+#: transformers.MobileBertForTokenClassification.forward:29
+#: transformers.MobileBertModel.forward:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:31
+#: transformers.MobileBertForMultipleChoice.forward:31
+#: transformers.MobileBertForNextSentencePrediction.forward:31
+#: transformers.MobileBertForPreTraining.forward:31
+#: transformers.MobileBertForQuestionAnswering.forward:31
+#: transformers.MobileBertForSequenceClassification.forward:31
+#: transformers.MobileBertForTokenClassification.forward:31
+#: transformers.MobileBertModel.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:31
+#: transformers.MobileBertForMultipleChoice.forward:31
+#: transformers.MobileBertForNextSentencePrediction.forward:31
+#: transformers.MobileBertForPreTraining.forward:31
+#: transformers.MobileBertForQuestionAnswering.forward:31
+#: transformers.MobileBertForSequenceClassification.forward:31
+#: transformers.MobileBertForTokenClassification.forward:31
+#: transformers.MobileBertModel.forward:31
+#: transformers.TFMobileBertForMaskedLM.call:31
+#: transformers.TFMobileBertForMultipleChoice.call:31
+#: transformers.TFMobileBertForNextSentencePrediction.call:31
+#: transformers.TFMobileBertForPreTraining.call:31
+#: transformers.TFMobileBertForQuestionAnswering.call:31
+#: transformers.TFMobileBertForSequenceClassification.call:31
+#: transformers.TFMobileBertForTokenClassification.call:31
+#: transformers.TFMobileBertModel.call:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:34
+#: transformers.MobileBertForMultipleChoice.forward:34
+#: transformers.MobileBertForNextSentencePrediction.forward:34
+#: transformers.MobileBertForPreTraining.forward:34
+#: transformers.MobileBertForQuestionAnswering.forward:34
+#: transformers.MobileBertForSequenceClassification.forward:34
+#: transformers.MobileBertForTokenClassification.forward:34
+#: transformers.MobileBertModel.forward:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:36
+#: transformers.MobileBertForMultipleChoice.forward:36
+#: transformers.MobileBertForNextSentencePrediction.forward:36
+#: transformers.MobileBertForPreTraining.forward:36
+#: transformers.MobileBertForQuestionAnswering.forward:36
+#: transformers.MobileBertForSequenceClassification.forward:36
+#: transformers.MobileBertForTokenClassification.forward:36
+#: transformers.MobileBertModel.forward:36
+#: transformers.TFMobileBertForMaskedLM.call:36
+#: transformers.TFMobileBertForMultipleChoice.call:36
+#: transformers.TFMobileBertForNextSentencePrediction.call:36
+#: transformers.TFMobileBertForPreTraining.call:36
+#: transformers.TFMobileBertForQuestionAnswering.call:36
+#: transformers.TFMobileBertForSequenceClassification.call:36
+#: transformers.TFMobileBertForTokenClassification.call:36
+#: transformers.TFMobileBertModel.call:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:36
+#: transformers.MobileBertForMultipleChoice.forward:36
+#: transformers.MobileBertForNextSentencePrediction.forward:36
+#: transformers.MobileBertForPreTraining.forward:36
+#: transformers.MobileBertForQuestionAnswering.forward:36
+#: transformers.MobileBertForSequenceClassification.forward:36
+#: transformers.MobileBertForTokenClassification.forward:36
+#: transformers.MobileBertModel.forward:36
+#: transformers.TFMobileBertForMaskedLM.call:36
+#: transformers.TFMobileBertForMultipleChoice.call:36
+#: transformers.TFMobileBertForNextSentencePrediction.call:36
+#: transformers.TFMobileBertForPreTraining.call:36
+#: transformers.TFMobileBertForQuestionAnswering.call:36
+#: transformers.TFMobileBertForSequenceClassification.call:36
+#: transformers.TFMobileBertForTokenClassification.call:36
+#: transformers.TFMobileBertModel.call:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:38
+#: transformers.MobileBertForMultipleChoice.forward:38
+#: transformers.MobileBertForNextSentencePrediction.forward:38
+#: transformers.MobileBertForPreTraining.forward:38
+#: transformers.MobileBertForQuestionAnswering.forward:38
+#: transformers.MobileBertForSequenceClassification.forward:38
+#: transformers.MobileBertForTokenClassification.forward:38
+#: transformers.MobileBertModel.forward:38
+#: transformers.TFMobileBertForMaskedLM.call:38
+#: transformers.TFMobileBertForMultipleChoice.call:38
+#: transformers.TFMobileBertForNextSentencePrediction.call:38
+#: transformers.TFMobileBertForPreTraining.call:38
+#: transformers.TFMobileBertForQuestionAnswering.call:38
+#: transformers.TFMobileBertForSequenceClassification.call:38
+#: transformers.TFMobileBertForTokenClassification.call:38
+#: transformers.TFMobileBertModel.call:38
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:39
+#: transformers.MobileBertForMultipleChoice.forward:39
+#: transformers.MobileBertForNextSentencePrediction.forward:39
+#: transformers.MobileBertForPreTraining.forward:39
+#: transformers.MobileBertForQuestionAnswering.forward:39
+#: transformers.MobileBertForSequenceClassification.forward:39
+#: transformers.MobileBertForTokenClassification.forward:39
+#: transformers.MobileBertModel.forward:39
+#: transformers.TFMobileBertForMaskedLM.call:39
+#: transformers.TFMobileBertForMultipleChoice.call:39
+#: transformers.TFMobileBertForNextSentencePrediction.call:39
+#: transformers.TFMobileBertForPreTraining.call:39
+#: transformers.TFMobileBertForQuestionAnswering.call:39
+#: transformers.TFMobileBertForSequenceClassification.call:39
+#: transformers.TFMobileBertForTokenClassification.call:39
+#: transformers.TFMobileBertModel.call:39
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:41
+#: transformers.MobileBertForMultipleChoice.forward:41
+#: transformers.MobileBertForNextSentencePrediction.forward:41
+#: transformers.MobileBertForPreTraining.forward:41
+#: transformers.MobileBertForQuestionAnswering.forward:41
+#: transformers.MobileBertForSequenceClassification.forward:41
+#: transformers.MobileBertForTokenClassification.forward:41
+#: transformers.MobileBertModel.forward:41
+#: transformers.TFMobileBertForMaskedLM.call:41
+#: transformers.TFMobileBertForMultipleChoice.call:41
+#: transformers.TFMobileBertForNextSentencePrediction.call:41
+#: transformers.TFMobileBertForPreTraining.call:41
+#: transformers.TFMobileBertForQuestionAnswering.call:41
+#: transformers.TFMobileBertForSequenceClassification.call:41
+#: transformers.TFMobileBertForTokenClassification.call:41
+#: transformers.TFMobileBertModel.call:41
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:45
+#: transformers.MobileBertForMultipleChoice.forward:45
+#: transformers.MobileBertForNextSentencePrediction.forward:45
+#: transformers.MobileBertForPreTraining.forward:45
+#: transformers.MobileBertForQuestionAnswering.forward:45
+#: transformers.MobileBertForSequenceClassification.forward:45
+#: transformers.MobileBertForTokenClassification.forward:45
+#: transformers.MobileBertModel.forward:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:48
+#: transformers.MobileBertForMultipleChoice.forward:48
+#: transformers.MobileBertForNextSentencePrediction.forward:48
+#: transformers.MobileBertForPreTraining.forward:48
+#: transformers.MobileBertForQuestionAnswering.forward:48
+#: transformers.MobileBertForSequenceClassification.forward:48
+#: transformers.MobileBertForTokenClassification.forward:48
+#: transformers.MobileBertModel.forward:48
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:51
+#: transformers.MobileBertForMultipleChoice.forward:51
+#: transformers.MobileBertForNextSentencePrediction.forward:51
+#: transformers.MobileBertForPreTraining.forward:51
+#: transformers.MobileBertForQuestionAnswering.forward:51
+#: transformers.MobileBertForSequenceClassification.forward:51
+#: transformers.MobileBertForTokenClassification.forward:51
+#: transformers.MobileBertModel.forward:51
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward
+#: transformers.MobileBertForMultipleChoice.forward
+#: transformers.MobileBertForNextSentencePrediction.forward
+#: transformers.MobileBertForPreTraining.forward
+#: transformers.MobileBertForQuestionAnswering.forward
+#: transformers.MobileBertForSequenceClassification.forward
+#: transformers.MobileBertForTokenClassification.forward
+#: transformers.MobileBertModel.forward
+#: transformers.TFMobileBertForMaskedLM.call
+#: transformers.TFMobileBertForMultipleChoice.call
+#: transformers.TFMobileBertForNextSentencePrediction.call
+#: transformers.TFMobileBertForPreTraining.call
+#: transformers.TFMobileBertForQuestionAnswering.call
+#: transformers.TFMobileBertForSequenceClassification.call
+#: transformers.TFMobileBertForTokenClassification.call
+#: transformers.TFMobileBertModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.MobileBertModel.forward:54
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutputWithPooling` or a"
+" tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or"
+" when ``config.return_dict=False``) comprising various elements depending"
+" on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, hidden_size)`) -- "
+"Last layer hidden-state of the first token of the sequence "
+"(classification token) further processed by a   Linear layer and a Tanh "
+"activation function. The Linear layer weights are trained from the next "
+"sentence   prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.MobileBertModel.forward:54
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutputWithPooling` or a"
+" tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or"
+" when ``config.return_dict=False``) comprising various elements depending"
+" on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.MobileBertModel.forward:58
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.MobileBertModel.forward:59
+msgid ""
+"**pooler_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:64
+#: transformers.MobileBertForMultipleChoice.forward:66
+#: transformers.MobileBertForNextSentencePrediction.forward:67
+#: transformers.MobileBertForPreTraining.forward:73
+#: transformers.MobileBertForQuestionAnswering.forward:69
+#: transformers.MobileBertForSequenceClassification.forward:64
+#: transformers.MobileBertForTokenClassification.forward:63
+#: transformers.MobileBertModel.forward:62
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:68
+#: transformers.MobileBertForMultipleChoice.forward:70
+#: transformers.MobileBertForNextSentencePrediction.forward:71
+#: transformers.MobileBertForPreTraining.forward:77
+#: transformers.MobileBertForQuestionAnswering.forward:73
+#: transformers.MobileBertForSequenceClassification.forward:68
+#: transformers.MobileBertForTokenClassification.forward:67
+#: transformers.MobileBertModel.forward:66
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward
+#: transformers.MobileBertForMultipleChoice.forward
+#: transformers.MobileBertForNextSentencePrediction.forward
+#: transformers.MobileBertForPreTraining.forward
+#: transformers.MobileBertForQuestionAnswering.forward
+#: transformers.MobileBertForSequenceClassification.forward
+#: transformers.MobileBertForTokenClassification.forward
+#: transformers.MobileBertModel.forward
+#: transformers.TFMobileBertForMaskedLM.call
+#: transformers.TFMobileBertForMultipleChoice.call
+#: transformers.TFMobileBertForNextSentencePrediction.call
+#: transformers.TFMobileBertForPreTraining.call
+#: transformers.TFMobileBertForQuestionAnswering.call
+#: transformers.TFMobileBertForSequenceClassification.call
+#: transformers.TFMobileBertForTokenClassification.call
+#: transformers.TFMobileBertModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.MobileBertModel.forward:71
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPooling` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:75
+#: transformers.MobileBertForMultipleChoice.forward:77
+#: transformers.MobileBertForQuestionAnswering.forward:80
+#: transformers.MobileBertForSequenceClassification.forward:75
+#: transformers.MobileBertForTokenClassification.forward:74
+#: transformers.MobileBertModel.forward:73
+#: transformers.TFMobileBertForMaskedLM.call:81
+#: transformers.TFMobileBertForMultipleChoice.call:83
+#: transformers.TFMobileBertForQuestionAnswering.call:86
+#: transformers.TFMobileBertForSequenceClassification.call:81
+#: transformers.TFMobileBertForTokenClassification.call:80
+#: transformers.TFMobileBertModel.call:82
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:89
+msgid "MobileBertForPreTraining"
+msgstr ""
+
+#: of transformers.MobileBertForPreTraining:1
+#: transformers.TFMobileBertForPreTraining:1
+msgid ""
+"MobileBert Model with two heads on top as done during the pretraining: a "
+"`masked language modeling` head and a `next sentence prediction "
+"(classification)` head."
+msgstr ""
+
+#: of transformers.MobileBertForPreTraining.forward:1
+msgid ""
+"The :class:`~transformers.MobileBertForPreTraining` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:53
+#: transformers.MobileBertForPreTraining.forward:53
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.MobileBertForPreTraining.forward:57
+msgid ""
+"Labels for computing the next sequence prediction (classification) loss. "
+"Input should be a sequence pair (see :obj:`input_ids` docstring) Indices "
+"should be in ``[0, 1]``:  - 0 indicates sequence B is a continuation of "
+"sequence A, - 1 indicates sequence B is a random sequence."
+msgstr ""
+
+#: of transformers.MobileBertForPreTraining.forward:57
+msgid ""
+"Labels for computing the next sequence prediction (classification) loss. "
+"Input should be a sequence pair (see :obj:`input_ids` docstring) Indices "
+"should be in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.MobileBertForNextSentencePrediction.forward:56
+#: transformers.MobileBertForPreTraining.forward:60
+msgid "0 indicates sequence B is a continuation of sequence A,"
+msgstr ""
+
+#: of transformers.MobileBertForNextSentencePrediction.forward:57
+#: transformers.MobileBertForPreTraining.forward:61
+msgid "1 indicates sequence B is a random sequence."
+msgstr ""
+
+#: of transformers.MobileBertForPreTraining.forward:64
+msgid ""
+"A "
+":class:`~transformers.models.mobilebert.modeling_mobilebert.MobileBertForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.MobileBertConfig`) "
+"and inputs.  - **loss** (`optional`, returned when ``labels`` is "
+"provided, ``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss as "
+"the sum of the masked language modeling loss and the next sequence "
+"prediction   (classification) loss. - **prediction_logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, sequence_length, "
+"config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax). - "
+"**seq_relationship_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, 2)`) -- Prediction scores of the next sequence "
+"prediction (classification) head (scores of True/False continuation   "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Examples::      >>> from transformers import "
+"MobileBertTokenizer, MobileBertForPreTraining     >>> import torch      "
+">>> tokenizer = MobileBertTokenizer.from_pretrained(\"google/mobilebert-"
+"uncased\")     >>> model = "
+"MobileBertForPreTraining.from_pretrained(\"google/mobilebert-uncased\")"
+"      >>> input_ids = torch.tensor(tokenizer.encode(\"Hello, my dog is "
+"cute\", add_special_tokens=True)).unsqueeze(0)  # Batch size 1     >>> "
+"outputs = model(input_ids)      >>> prediction_logits = "
+"outputs.prediction_logits     >>> seq_relationship_logits = "
+"outputs.seq_relationship_logits"
+msgstr ""
+
+#: of transformers.MobileBertForPreTraining.forward:64
+msgid ""
+"A "
+":class:`~transformers.models.mobilebert.modeling_mobilebert.MobileBertForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.MobileBertConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.MobileBertForPreTraining.forward:68
+msgid ""
+"**loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss as the sum of "
+"the masked language modeling loss and the next sequence prediction "
+"(classification) loss."
+msgstr ""
+
+#: of transformers.MobileBertForPreTraining.forward:70
+msgid ""
+"**prediction_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax)."
+msgstr ""
+
+#: of transformers.MobileBertForPreTraining.forward:71
+msgid ""
+"**seq_relationship_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, 2)`) -- Prediction scores of the next sequence "
+"prediction (classification) head (scores of True/False continuation "
+"before SoftMax)."
+msgstr ""
+
+#: of transformers.MobileBertForPreTraining.forward:97
+msgid ""
+":class:`~transformers.models.mobilebert.modeling_mobilebert.MobileBertForPreTrainingOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:96
+msgid "MobileBertForMaskedLM"
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM:1
+#: transformers.TFMobileBertForMaskedLM:1
+msgid "MobileBert Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:1
+msgid ""
+"The :class:`~transformers.MobileBertForMaskedLM` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.MobileBertConfig`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.MobileBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.MobileBertForMaskedLM.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:103
+msgid "MobileBertForNextSentencePrediction"
+msgstr ""
+
+#: of transformers.MobileBertForNextSentencePrediction:1
+#: transformers.TFMobileBertForNextSentencePrediction:1
+msgid ""
+"MobileBert Model with a `next sentence prediction (classification)` head "
+"on top."
+msgstr ""
+
+#: of transformers.MobileBertForNextSentencePrediction.forward:1
+msgid ""
+"The :class:`~transformers.MobileBertForNextSentencePrediction` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MobileBertForNextSentencePrediction.forward:53
+msgid ""
+"Labels for computing the next sequence prediction (classification) loss. "
+"Input should be a sequence pair (see ``input_ids`` docstring) Indices "
+"should be in ``[0, 1]``.  - 0 indicates sequence B is a continuation of "
+"sequence A, - 1 indicates sequence B is a random sequence."
+msgstr ""
+
+#: of transformers.MobileBertForNextSentencePrediction.forward:53
+msgid ""
+"Labels for computing the next sequence prediction (classification) loss. "
+"Input should be a sequence pair (see ``input_ids`` docstring) Indices "
+"should be in ``[0, 1]``."
+msgstr ""
+
+#: of transformers.MobileBertForNextSentencePrediction.forward:60
+msgid ""
+"A :class:`~transformers.modeling_outputs.NextSentencePredictorOutput` or "
+"a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.MobileBertConfig`) "
+"and inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`next_sentence_label` is provided) -- Next"
+" sequence prediction (classification) loss. - **logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, 2)`) -- Prediction "
+"scores of the next sequence prediction (classification) head (scores of "
+"True/False continuation   before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Examples::      >>> from transformers import "
+"MobileBertTokenizer, MobileBertForNextSentencePrediction     >>> import "
+"torch      >>> tokenizer = MobileBertTokenizer.from_pretrained('google"
+"/mobilebert-uncased')     >>> model = "
+"MobileBertForNextSentencePrediction.from_pretrained('google/mobilebert-"
+"uncased')      >>> prompt = \"In Italy, pizza served in formal settings, "
+"such as at a restaurant, is presented unsliced.\"     >>> next_sentence ="
+" \"The sky is blue due to the shorter wavelength of blue light.\"     >>>"
+" encoding = tokenizer(prompt, next_sentence, return_tensors='pt')      "
+">>> outputs = model(**encoding, labels=torch.LongTensor([1]))     >>> "
+"loss = outputs.loss     >>> logits = outputs.logits"
+msgstr ""
+
+#: of transformers.MobileBertForNextSentencePrediction.forward:60
+msgid ""
+"A :class:`~transformers.modeling_outputs.NextSentencePredictorOutput` or "
+"a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.MobileBertConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.MobileBertForNextSentencePrediction.forward:64
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`next_sentence_label` is provided) -- Next sequence "
+"prediction (classification) loss."
+msgstr ""
+
+#: of transformers.MobileBertForNextSentencePrediction.forward:65
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, 2)`) -- "
+"Prediction scores of the next sequence prediction (classification) head "
+"(scores of True/False continuation before SoftMax)."
+msgstr ""
+
+#: of transformers.MobileBertForNextSentencePrediction.forward:93
+msgid ""
+":class:`~transformers.modeling_outputs.NextSentencePredictorOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:110
+msgid "MobileBertForSequenceClassification"
+msgstr ""
+
+#: of transformers.MobileBertForSequenceClassification:1
+#: transformers.TFMobileBertForSequenceClassification:1
+msgid ""
+"MobileBert Model transformer with a sequence classification/regression "
+"head on top (a linear layer on top of the pooled output) e.g. for GLUE "
+"tasks."
+msgstr ""
+
+#: of transformers.MobileBertForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.MobileBertForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MobileBertForSequenceClassification.forward:53
+#: transformers.TFMobileBertForSequenceClassification.call:59
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.MobileBertForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"(or regression if config.num_labels==1) loss. - **logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.MobileBertForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.MobileBertForSequenceClassification.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.MobileBertForSequenceClassification.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.MobileBertForSequenceClassification.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:117
+msgid "MobileBertForMultipleChoice"
+msgstr ""
+
+#: of transformers.MobileBertForMultipleChoice:1
+#: transformers.TFMobileBertForMultipleChoice:1
+msgid ""
+"MobileBert Model with a multiple choice classification head on top (a "
+"linear layer on top of the pooled output and a softmax) e.g. for "
+"RocStories/SWAG tasks."
+msgstr ""
+
+#: of transformers.MobileBertForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.MobileBertForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MobileBertForMultipleChoice.forward:53
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.MobileBertForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape `(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"loss. - **logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.MobileBertForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.MobileBertForMultipleChoice.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.MobileBertForMultipleChoice.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.MobileBertForMultipleChoice.forward:65
+#: transformers.TFMobileBertForMultipleChoice.call:71
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.MobileBertForMultipleChoice.forward:75
+msgid ""
+":class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:124
+msgid "MobileBertForTokenClassification"
+msgstr ""
+
+#: of transformers.MobileBertForTokenClassification:1
+#: transformers.TFMobileBertForTokenClassification:1
+msgid ""
+"MobileBert Model with a token classification head on top (a linear layer "
+"on top of the hidden-states output) e.g. for Named-Entity-Recognition "
+"(NER) tasks."
+msgstr ""
+
+#: of transformers.MobileBertForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.MobileBertForTokenClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MobileBertForTokenClassification.forward:53
+#: transformers.TFMobileBertForTokenClassification.call:59
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.MobileBertForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when ``labels`` is provided)  -- Classification "
+"loss. - **logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.MobileBertForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.MobileBertForTokenClassification.forward:61
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.MobileBertForTokenClassification.forward:62
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.MobileBertForTokenClassification.forward:72
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:131
+msgid "MobileBertForQuestionAnswering"
+msgstr ""
+
+#: of transformers.MobileBertForQuestionAnswering:1
+#: transformers.TFMobileBertForQuestionAnswering:1
+msgid ""
+"MobileBert Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.MobileBertForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.MobileBertForQuestionAnswering` forward method,"
+" overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MobileBertForQuestionAnswering.forward:53
+#: transformers.TFMobileBertForQuestionAnswering.call:59
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.MobileBertForQuestionAnswering.forward:57
+#: transformers.TFMobileBertForQuestionAnswering.call:63
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.MobileBertForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.MobileBertConfig`) "
+"and inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.MobileBertForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.MobileBertConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.MobileBertForQuestionAnswering.forward:66
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.MobileBertForQuestionAnswering.forward:67
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.MobileBertForQuestionAnswering.forward:68
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.MobileBertForQuestionAnswering.forward:78
+msgid ""
+":class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:138
+msgid "TFMobileBertModel"
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM:3
+#: transformers.TFMobileBertForMultipleChoice:5
+#: transformers.TFMobileBertForNextSentencePrediction:3
+#: transformers.TFMobileBertForPreTraining:5
+#: transformers.TFMobileBertForQuestionAnswering:5
+#: transformers.TFMobileBertForSequenceClassification:5
+#: transformers.TFMobileBertForTokenClassification:5
+#: transformers.TFMobileBertModel:3
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM:7
+#: transformers.TFMobileBertForMultipleChoice:9
+#: transformers.TFMobileBertForNextSentencePrediction:7
+#: transformers.TFMobileBertForPreTraining:9
+#: transformers.TFMobileBertForQuestionAnswering:9
+#: transformers.TFMobileBertForSequenceClassification:9
+#: transformers.TFMobileBertForTokenClassification:9
+#: transformers.TFMobileBertModel:7
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM:13
+#: transformers.TFMobileBertForMultipleChoice:15
+#: transformers.TFMobileBertForNextSentencePrediction:13
+#: transformers.TFMobileBertForPreTraining:15
+#: transformers.TFMobileBertForQuestionAnswering:15
+#: transformers.TFMobileBertForSequenceClassification:15
+#: transformers.TFMobileBertForTokenClassification:15
+#: transformers.TFMobileBertModel:13
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM:15
+#: transformers.TFMobileBertForMultipleChoice:17
+#: transformers.TFMobileBertForNextSentencePrediction:15
+#: transformers.TFMobileBertForPreTraining:17
+#: transformers.TFMobileBertForQuestionAnswering:17
+#: transformers.TFMobileBertForSequenceClassification:17
+#: transformers.TFMobileBertForTokenClassification:17
+#: transformers.TFMobileBertModel:15
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM:16
+#: transformers.TFMobileBertForMultipleChoice:18
+#: transformers.TFMobileBertForNextSentencePrediction:16
+#: transformers.TFMobileBertForPreTraining:18
+#: transformers.TFMobileBertForQuestionAnswering:18
+#: transformers.TFMobileBertForSequenceClassification:18
+#: transformers.TFMobileBertForTokenClassification:18
+#: transformers.TFMobileBertModel:16
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM:18
+#: transformers.TFMobileBertForMultipleChoice:20
+#: transformers.TFMobileBertForNextSentencePrediction:18
+#: transformers.TFMobileBertForPreTraining:20
+#: transformers.TFMobileBertForQuestionAnswering:20
+#: transformers.TFMobileBertForSequenceClassification:20
+#: transformers.TFMobileBertForTokenClassification:20
+#: transformers.TFMobileBertModel:18
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM:21
+#: transformers.TFMobileBertForMultipleChoice:23
+#: transformers.TFMobileBertForNextSentencePrediction:21
+#: transformers.TFMobileBertForPreTraining:23
+#: transformers.TFMobileBertForQuestionAnswering:23
+#: transformers.TFMobileBertForSequenceClassification:23
+#: transformers.TFMobileBertForTokenClassification:23
+#: transformers.TFMobileBertModel:21
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM:24
+#: transformers.TFMobileBertForMultipleChoice:26
+#: transformers.TFMobileBertForNextSentencePrediction:24
+#: transformers.TFMobileBertForPreTraining:26
+#: transformers.TFMobileBertForQuestionAnswering:26
+#: transformers.TFMobileBertForSequenceClassification:26
+#: transformers.TFMobileBertForTokenClassification:26
+#: transformers.TFMobileBertModel:24
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM:25
+#: transformers.TFMobileBertForMultipleChoice:27
+#: transformers.TFMobileBertForNextSentencePrediction:25
+#: transformers.TFMobileBertForPreTraining:27
+#: transformers.TFMobileBertForQuestionAnswering:27
+#: transformers.TFMobileBertForSequenceClassification:27
+#: transformers.TFMobileBertForTokenClassification:27
+#: transformers.TFMobileBertModel:25
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM:27
+#: transformers.TFMobileBertForMultipleChoice:29
+#: transformers.TFMobileBertForNextSentencePrediction:27
+#: transformers.TFMobileBertForPreTraining:29
+#: transformers.TFMobileBertForQuestionAnswering:29
+#: transformers.TFMobileBertForSequenceClassification:29
+#: transformers.TFMobileBertForTokenClassification:29
+#: transformers.TFMobileBertModel:27
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFMobileBertModel.call:1
+msgid ""
+"The :class:`~transformers.TFMobileBertModel` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:8
+#: transformers.TFMobileBertForMultipleChoice.call:8
+#: transformers.TFMobileBertForNextSentencePrediction.call:8
+#: transformers.TFMobileBertForPreTraining.call:8
+#: transformers.TFMobileBertForQuestionAnswering.call:8
+#: transformers.TFMobileBertForSequenceClassification.call:8
+#: transformers.TFMobileBertForTokenClassification.call:8
+#: transformers.TFMobileBertModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.MobileBertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:10
+#: transformers.TFMobileBertForMultipleChoice.call:10
+#: transformers.TFMobileBertForNextSentencePrediction.call:10
+#: transformers.TFMobileBertForPreTraining.call:10
+#: transformers.TFMobileBertForQuestionAnswering.call:10
+#: transformers.TFMobileBertForSequenceClassification.call:10
+#: transformers.TFMobileBertForTokenClassification.call:10
+#: transformers.TFMobileBertModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.MobileBertTokenizer`."
+" See :func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:23
+#: transformers.TFMobileBertForMultipleChoice.call:23
+#: transformers.TFMobileBertForNextSentencePrediction.call:23
+#: transformers.TFMobileBertForPreTraining.call:23
+#: transformers.TFMobileBertForQuestionAnswering.call:23
+#: transformers.TFMobileBertForSequenceClassification.call:23
+#: transformers.TFMobileBertForTokenClassification.call:23
+#: transformers.TFMobileBertModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:29
+#: transformers.TFMobileBertForMultipleChoice.call:29
+#: transformers.TFMobileBertForNextSentencePrediction.call:29
+#: transformers.TFMobileBertForPreTraining.call:29
+#: transformers.TFMobileBertForQuestionAnswering.call:29
+#: transformers.TFMobileBertForSequenceClassification.call:29
+#: transformers.TFMobileBertForTokenClassification.call:29
+#: transformers.TFMobileBertModel.call:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:31
+#: transformers.TFMobileBertForMultipleChoice.call:31
+#: transformers.TFMobileBertForNextSentencePrediction.call:31
+#: transformers.TFMobileBertForPreTraining.call:31
+#: transformers.TFMobileBertForQuestionAnswering.call:31
+#: transformers.TFMobileBertForSequenceClassification.call:31
+#: transformers.TFMobileBertForTokenClassification.call:31
+#: transformers.TFMobileBertModel.call:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:34
+#: transformers.TFMobileBertForMultipleChoice.call:34
+#: transformers.TFMobileBertForNextSentencePrediction.call:34
+#: transformers.TFMobileBertForPreTraining.call:34
+#: transformers.TFMobileBertForQuestionAnswering.call:34
+#: transformers.TFMobileBertForSequenceClassification.call:34
+#: transformers.TFMobileBertForTokenClassification.call:34
+#: transformers.TFMobileBertModel.call:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:45
+#: transformers.TFMobileBertForMultipleChoice.call:45
+#: transformers.TFMobileBertForNextSentencePrediction.call:45
+#: transformers.TFMobileBertForPreTraining.call:45
+#: transformers.TFMobileBertForQuestionAnswering.call:45
+#: transformers.TFMobileBertForSequenceClassification.call:45
+#: transformers.TFMobileBertForTokenClassification.call:45
+#: transformers.TFMobileBertModel.call:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:49
+#: transformers.TFMobileBertForMultipleChoice.call:49
+#: transformers.TFMobileBertForNextSentencePrediction.call:49
+#: transformers.TFMobileBertForPreTraining.call:49
+#: transformers.TFMobileBertForQuestionAnswering.call:49
+#: transformers.TFMobileBertForSequenceClassification.call:49
+#: transformers.TFMobileBertForTokenClassification.call:49
+#: transformers.TFMobileBertModel.call:49
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:53
+#: transformers.TFMobileBertForMultipleChoice.call:53
+#: transformers.TFMobileBertForNextSentencePrediction.call:53
+#: transformers.TFMobileBertForPreTraining.call:53
+#: transformers.TFMobileBertForQuestionAnswering.call:53
+#: transformers.TFMobileBertForSequenceClassification.call:53
+#: transformers.TFMobileBertForTokenClassification.call:53
+#: transformers.TFMobileBertModel.call:53
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:56
+#: transformers.TFMobileBertForMultipleChoice.call:56
+#: transformers.TFMobileBertForNextSentencePrediction.call:56
+#: transformers.TFMobileBertForPreTraining.call:56
+#: transformers.TFMobileBertForQuestionAnswering.call:56
+#: transformers.TFMobileBertForSequenceClassification.call:56
+#: transformers.TFMobileBertForTokenClassification.call:56
+#: transformers.TFMobileBertModel.call:56
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFMobileBertModel.call:60
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs.  - **last_hidden_state** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, hidden_size)`) -- Last "
+"layer hidden-state of the first token of the sequence (classification "
+"token) further processed by a   Linear layer and a Tanh activation "
+"function. The Linear layer weights are trained from the next sentence   "
+"prediction (classification) objective during pretraining.    This output "
+"is usually *not* a good summary of the semantic content of the input, "
+"you're often better with   averaging or pooling the sequence of hidden-"
+"states for the whole input sequence. - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFMobileBertModel.call:60
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.TFMobileBertModel.call:64
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.TFMobileBertModel.call:65
+msgid ""
+"**pooler_output** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.TFMobileBertModel.call:69
+msgid ""
+"This output is usually *not* a good summary of the semantic content of "
+"the input, you're often better with averaging or pooling the sequence of "
+"hidden-states for the whole input sequence."
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:70
+#: transformers.TFMobileBertForMultipleChoice.call:72
+#: transformers.TFMobileBertForNextSentencePrediction.call:67
+#: transformers.TFMobileBertForPreTraining.call:67
+#: transformers.TFMobileBertForQuestionAnswering.call:75
+#: transformers.TFMobileBertForSequenceClassification.call:70
+#: transformers.TFMobileBertForTokenClassification.call:69
+#: transformers.TFMobileBertModel.call:71
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:74
+#: transformers.TFMobileBertForMultipleChoice.call:76
+#: transformers.TFMobileBertForNextSentencePrediction.call:71
+#: transformers.TFMobileBertForPreTraining.call:71
+#: transformers.TFMobileBertForQuestionAnswering.call:79
+#: transformers.TFMobileBertForSequenceClassification.call:74
+#: transformers.TFMobileBertForTokenClassification.call:73
+#: transformers.TFMobileBertModel.call:75
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFMobileBertModel.call:80
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling` "
+"or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:145
+msgid "TFMobileBertForPreTraining"
+msgstr ""
+
+#: of transformers.TFMobileBertForPreTraining.call:1
+msgid ""
+"The :class:`~transformers.TFMobileBertForPreTraining` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFMobileBertForPreTraining.call:60
+msgid ""
+"A "
+":class:`~transformers.models.mobilebert.modeling_tf_mobilebert.TFMobileBertForPreTrainingOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs.  - **prediction_logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **seq_relationship_logits** (:obj:`tf.Tensor` of shape"
+" :obj:`(batch_size, 2)`) -- Prediction scores of the next sequence "
+"prediction (classification) head (scores of True/False continuation   "
+"before SoftMax). - **hidden_states** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Examples::      >>> import tensorflow as tf     >>> from transformers "
+"import MobileBertTokenizer, TFMobileBertForPreTraining      >>> tokenizer"
+" = MobileBertTokenizer.from_pretrained('google/mobilebert-uncased')     "
+">>> model = TFMobileBertForPreTraining.from_pretrained('google"
+"/mobilebert-uncased')     >>> input_ids = "
+"tf.constant(tokenizer.encode(\"Hello, my dog is cute\"))[None, :]  # "
+"Batch size 1     >>> outputs = model(input_ids)     >>> "
+"prediction_scores, seq_relationship_scores = outputs[:2]"
+msgstr ""
+
+#: of transformers.TFMobileBertForPreTraining.call:60
+msgid ""
+"A "
+":class:`~transformers.models.mobilebert.modeling_tf_mobilebert.TFMobileBertForPreTrainingOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.TFMobileBertForPreTraining.call:64
+msgid ""
+"**prediction_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFMobileBertForPreTraining.call:65
+msgid ""
+"**seq_relationship_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size,"
+" 2)`) -- Prediction scores of the next sequence prediction "
+"(classification) head (scores of True/False continuation before SoftMax)."
+msgstr ""
+
+#: of transformers.TFMobileBertForPreTraining.call:88
+msgid ""
+":class:`~transformers.models.mobilebert.modeling_tf_mobilebert.TFMobileBertForPreTrainingOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:152
+msgid "TFMobileBertForMaskedLM"
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:1
+msgid ""
+"The :class:`~transformers.TFMobileBertForMaskedLM` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:59
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels"
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.MobileBertConfig`) and inputs.  "
+"- **loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is"
+" the number of non-masked labels, returned when :obj:`labels` is "
+"provided) -- Masked language modeling (MLM) loss. - **logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length, "
+"config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.MobileBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss."
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFMobileBertForMaskedLM.call:79
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:159
+msgid "TFMobileBertForNextSentencePrediction"
+msgstr ""
+
+#: of transformers.TFMobileBertForNextSentencePrediction.call:1
+msgid ""
+"The :class:`~transformers.TFMobileBertForNextSentencePrediction` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFMobileBertForNextSentencePrediction.call:60
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFNextSentencePredictorOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs.  - **loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, "
+"where n is the number of non-masked labels, returned when "
+":obj:`next_sentence_label` is provided) -- Next sentence prediction loss."
+" - **logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, 2)`) -- "
+"Prediction scores of the next sequence prediction (classification) head "
+"(scores of True/False continuation   before SoftMax). - **hidden_states**"
+" (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Examples::      >>> import tensorflow as tf     >>> from transformers "
+"import MobileBertTokenizer, TFMobileBertForNextSentencePrediction      "
+">>> tokenizer = MobileBertTokenizer.from_pretrained('google/mobilebert-"
+"uncased')     >>> model = "
+"TFMobileBertForNextSentencePrediction.from_pretrained('google/mobilebert-"
+"uncased')      >>> prompt = \"In Italy, pizza served in formal settings, "
+"such as at a restaurant, is presented unsliced.\"     >>> next_sentence ="
+" \"The sky is blue due to the shorter wavelength of blue light.\"     >>>"
+" encoding = tokenizer(prompt, next_sentence, return_tensors='tf')      "
+">>> logits = model(encoding['input_ids'], "
+"token_type_ids=encoding['token_type_ids'])[0]"
+msgstr ""
+
+#: of transformers.TFMobileBertForNextSentencePrediction.call:60
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFNextSentencePredictorOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.TFMobileBertForNextSentencePrediction.call:64
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`next_sentence_label`"
+" is provided) -- Next sentence prediction loss."
+msgstr ""
+
+#: of transformers.TFMobileBertForNextSentencePrediction.call:65
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, 2)`) -- "
+"Prediction scores of the next sequence prediction (classification) head "
+"(scores of True/False continuation before SoftMax)."
+msgstr ""
+
+#: of transformers.TFMobileBertForNextSentencePrediction.call:91
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFNextSentencePredictorOutput` "
+"or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:166
+msgid "TFMobileBertForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFMobileBertForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFMobileBertForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFMobileBertForSequenceClassification.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs.  - **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"(or regression if config.num_labels==1) loss. - **logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, config.num_labels)`) -- "
+"Classification (or regression if config.num_labels==1) scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFMobileBertForSequenceClassification.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.TFMobileBertForSequenceClassification.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFMobileBertForSequenceClassification.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFMobileBertForSequenceClassification.call:79
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:173
+msgid "TFMobileBertForMultipleChoice"
+msgstr ""
+
+#: of transformers.TFMobileBertForMultipleChoice.call:1
+msgid ""
+"The :class:`~transformers.TFMobileBertForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFMobileBertForMultipleChoice.call:59
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.TFMobileBertForMultipleChoice.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs.  - **loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"loss. - **logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFMobileBertForMultipleChoice.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.TFMobileBertForMultipleChoice.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.TFMobileBertForMultipleChoice.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.TFMobileBertForMultipleChoice.call:81
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` or"
+" :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:180
+msgid "TFMobileBertForTokenClassification"
+msgstr ""
+
+#: of transformers.TFMobileBertForTokenClassification.call:1
+msgid ""
+"The :class:`~transformers.TFMobileBertForTokenClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFMobileBertForTokenClassification.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.MobileBertConfig`) and inputs.  "
+"- **loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is"
+" the number of unmasked labels, returned when ``labels`` is provided)  --"
+" Classification loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, config.num_labels)`) -- "
+"Classification scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFMobileBertForTokenClassification.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.MobileBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFMobileBertForTokenClassification.call:67
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss."
+msgstr ""
+
+#: of transformers.TFMobileBertForTokenClassification.call:68
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.num_labels)`) -- Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFMobileBertForTokenClassification.call:78
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/mobilebert.rst:187
+msgid "TFMobileBertForQuestionAnswering"
+msgstr ""
+
+#: of transformers.TFMobileBertForQuestionAnswering.call:1
+msgid ""
+"The :class:`~transformers.TFMobileBertForQuestionAnswering` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFMobileBertForQuestionAnswering.call:68
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs.  - **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, "
+"`optional`, returned when :obj:`start_positions` and :obj:`end_positions`"
+" are provided) -- Total span extraction loss is the sum of a Cross-"
+"Entropy for the start and end positions. - **start_logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length)`) -- Span-"
+"start scores (before SoftMax). - **end_logits** (:obj:`tf.Tensor` of "
+"shape :obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFMobileBertForQuestionAnswering.call:68
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MobileBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.TFMobileBertForQuestionAnswering.call:72
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions."
+msgstr ""
+
+#: of transformers.TFMobileBertForQuestionAnswering.call:73
+msgid ""
+"**start_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFMobileBertForQuestionAnswering.call:74
+msgid ""
+"**end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFMobileBertForQuestionAnswering.call:84
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+

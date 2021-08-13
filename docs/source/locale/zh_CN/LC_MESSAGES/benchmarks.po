@@ -1,0 +1,199 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/benchmarks.rst:14
+msgid "Benchmarks"
+msgstr ""
+
+#: ../../source/benchmarks.rst:16
+msgid ""
+"Let's take a look at how 🤗 Transformer models can be benchmarked, best "
+"practices, and already available benchmarks."
+msgstr ""
+
+#: ../../source/benchmarks.rst:18
+msgid ""
+"A notebook explaining in more detail how to benchmark 🤗 Transformer "
+"models can be found :prefix_link:`here <notebooks/05-benchmark.ipynb>`."
+msgstr ""
+
+#: ../../source/benchmarks.rst:22
+msgid "How to benchmark 🤗 Transformer models"
+msgstr ""
+
+#: ../../source/benchmarks.rst:24
+msgid ""
+"The classes :class:`~transformers.PyTorchBenchmark` and "
+":class:`~transformers.TensorFlowBenchmark` allow to flexibly benchmark 🤗 "
+"Transformer models. The benchmark classes allow us to measure the `peak "
+"memory usage` and `required time` for both `inference` and `training`."
+msgstr ""
+
+#: ../../source/benchmarks.rst:30
+msgid ""
+"Hereby, `inference` is defined by a single forward pass, and `training` "
+"is defined by a single forward pass and backward pass."
+msgstr ""
+
+#: ../../source/benchmarks.rst:33
+msgid ""
+"The benchmark classes :class:`~transformers.PyTorchBenchmark` and "
+":class:`~transformers.TensorFlowBenchmark` expect an object of type "
+":class:`~transformers.PyTorchBenchmarkArguments` and "
+":class:`~transformers.TensorFlowBenchmarkArguments`, respectively, for "
+"instantiation. :class:`~transformers.PyTorchBenchmarkArguments` and "
+":class:`~transformers.TensorFlowBenchmarkArguments` are data classes and "
+"contain all relevant configurations for their corresponding benchmark "
+"class. In the following example, it is shown how a BERT model of type "
+"`bert-base-cased` can be benchmarked."
+msgstr ""
+
+#: ../../source/benchmarks.rst:55
+msgid ""
+"Here, three arguments are given to the benchmark argument data classes, "
+"namely ``models``, ``batch_sizes``, and ``sequence_lengths``. The "
+"argument ``models`` is required and expects a :obj:`list` of model "
+"identifiers from the `model hub <https://huggingface.co/models>`__ The "
+":obj:`list` arguments ``batch_sizes`` and ``sequence_lengths`` define the"
+" size of the ``input_ids`` on which the model is benchmarked. There are "
+"many more parameters that can be configured via the benchmark argument "
+"data classes. For more detail on these one can either directly consult "
+"the files ``src/transformers/benchmark/benchmark_args_utils.py``, "
+"``src/transformers/benchmark/benchmark_args.py`` (for PyTorch) and "
+"``src/transformers/benchmark/benchmark_args_tf.py`` (for Tensorflow). "
+"Alternatively, running the following shell commands from root will print "
+"out a descriptive list of all configurable parameters for PyTorch and "
+"Tensorflow respectively."
+msgstr ""
+
+#: ../../source/benchmarks.rst:74
+msgid ""
+"An instantiated benchmark object can then simply be run by calling "
+"``benchmark.run()``."
+msgstr ""
+
+#: ../../source/benchmarks.rst:172
+msgid ""
+"By default, the `time` and the `required memory` for `inference` are "
+"benchmarked. In the example output above the first two sections show the "
+"result corresponding to `inference time` and `inference memory`. In "
+"addition, all relevant information about the computing environment, "
+"`e.g.` the GPU type, the system, the library versions, etc... are printed"
+" out in the third section under `ENVIRONMENT INFORMATION`. This "
+"information can optionally be saved in a `.csv` file when adding the "
+"argument :obj:`save_to_csv=True` to "
+":class:`~transformers.PyTorchBenchmarkArguments` and "
+":class:`~transformers.TensorFlowBenchmarkArguments` respectively. In this"
+" case, every section is saved in a separate `.csv` file. The path to each"
+" `.csv` file can optionally be defined via the argument data classes."
+msgstr ""
+
+#: ../../source/benchmarks.rst:180
+msgid ""
+"Instead of benchmarking pre-trained models via their model identifier, "
+"`e.g.` `bert-base-uncased`, the user can alternatively benchmark an "
+"arbitrary configuration of any available model class. In this case, a "
+":obj:`list` of configurations must be inserted with the benchmark args as"
+" follows."
+msgstr ""
+
+#: ../../source/benchmarks.rst:327
+msgid ""
+"Again, `inference time` and `required memory` for `inference` are "
+"measured, but this time for customized configurations of the "
+":obj:`BertModel` class. This feature can especially be helpful when "
+"deciding for which configuration the model should be trained."
+msgstr ""
+
+#: ../../source/benchmarks.rst:333
+msgid "Benchmark best practices"
+msgstr ""
+
+#: ../../source/benchmarks.rst:335
+msgid ""
+"This section lists a couple of best practices one should be aware of when"
+" benchmarking a model."
+msgstr ""
+
+#: ../../source/benchmarks.rst:337
+msgid ""
+"Currently, only single device benchmarking is supported. When "
+"benchmarking on GPU, it is recommended that the user specifies on which "
+"device the code should be run by setting the ``CUDA_VISIBLE_DEVICES`` "
+"environment variable in the shell, `e.g.` ``export "
+"CUDA_VISIBLE_DEVICES=0`` before running the code."
+msgstr ""
+
+#: ../../source/benchmarks.rst:340
+msgid ""
+"The option :obj:`no_multi_processing` should only be set to :obj:`True` "
+"for testing and debugging. To ensure accurate memory measurement it is "
+"recommended to run each memory benchmark in a separate process by making "
+"sure :obj:`no_multi_processing` is set to :obj:`True`."
+msgstr ""
+
+#: ../../source/benchmarks.rst:343
+msgid ""
+"One should always state the environment information when sharing the "
+"results of a model benchmark. Results can vary heavily between different "
+"GPU devices, library versions, etc., so that benchmark results on their "
+"own are not very useful for the community."
+msgstr ""
+
+#: ../../source/benchmarks.rst:349
+msgid "Sharing your benchmark"
+msgstr ""
+
+#: ../../source/benchmarks.rst:351
+msgid ""
+"Previously all available core models (10 at the time) have been "
+"benchmarked for `inference time`, across many different settings: using "
+"PyTorch, with and without TorchScript, using TensorFlow, with and without"
+" XLA. All of those tests were done across CPUs (except for TensorFlow "
+"XLA) and GPUs."
+msgstr ""
+
+#: ../../source/benchmarks.rst:355
+msgid ""
+"The approach is detailed in the `following blogpost "
+"<https://medium.com/huggingface/benchmarking-transformers-pytorch-and-"
+"tensorflow-e2917fb891c2>`__ and the results are available `here "
+"<https://docs.google.com/spreadsheets/d/1sryqufw2D0XlUH4sq3e9Wnxu5EAQkaohzrJbd5HdQ_w/edit?usp=sharing>`__."
+msgstr ""
+
+#: ../../source/benchmarks.rst:360
+msgid ""
+"With the new `benchmark` tools, it is easier than ever to share your "
+"benchmark results with the community"
+msgstr ""
+
+#: ../../source/benchmarks.rst:362
+msgid ""
+":prefix_link:`PyTorch Benchmarking "
+"Results<examples/pytorch/benchmarking/README.md>`."
+msgstr ""
+
+#: ../../source/benchmarks.rst:363
+msgid ""
+":prefix_link:`TensorFlow Benchmarking "
+"Results<examples/tensorflow/benchmarking/README.md>`."
+msgstr ""
+

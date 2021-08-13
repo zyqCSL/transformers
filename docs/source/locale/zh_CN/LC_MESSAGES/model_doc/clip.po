@@ -1,0 +1,1647 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-10 04:49+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/clip.rst:14
+msgid "CLIP"
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:19
+msgid ""
+"The CLIP model was proposed in `Learning Transferable Visual Models From "
+"Natural Language Supervision <https://arxiv.org/abs/2103.00020>`__ by "
+"Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, "
+"Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack "
+"Clark, Gretchen Krueger, Ilya Sutskever. CLIP (Contrastive Language-Image"
+" Pre-Training) is a neural network trained on a variety of (image, text) "
+"pairs. It can be instructed in natural language to predict the most "
+"relevant text snippet, given an image, without directly optimizing for "
+"the task, similarly to the zero-shot capabilities of GPT-2 and 3."
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:26
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:28
+msgid ""
+"*State-of-the-art computer vision systems are trained to predict a fixed "
+"set of predetermined object categories. This restricted form of "
+"supervision limits their generality and usability since additional "
+"labeled data is needed to specify any other visual concept. Learning "
+"directly from raw text about images is a promising alternative which "
+"leverages a much broader source of supervision. We demonstrate that the "
+"simple pre-training task of predicting which caption goes with which "
+"image is an efficient and scalable way to learn SOTA image "
+"representations from scratch on a dataset of 400 million (image, text) "
+"pairs collected from the internet. After pre-training, natural language "
+"is used to reference learned visual concepts (or describe new ones) "
+"enabling zero-shot transfer of the model to downstream tasks. We study "
+"the performance of this approach by benchmarking on over 30 different "
+"existing computer vision datasets, spanning tasks such as OCR, action "
+"recognition in videos, geo-localization, and many types of fine-grained "
+"object classification. The model transfers non-trivially to most tasks "
+"and is often competitive with a fully supervised baseline without the "
+"need for any dataset specific training. For instance, we match the "
+"accuracy of the original ResNet-50 on ImageNet zero-shot without needing "
+"to use any of the 1.28 million training examples it was trained on. We "
+"release our code and pre-trained model weights at this https URL.*"
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:43
+msgid "Usage"
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:45
+msgid ""
+"CLIP is a multi-modal vision and language model. It can be used for "
+"image-text similarity and for zero-shot image classification. CLIP uses a"
+" ViT like transformer to get visual features and a causal language model "
+"to get the text features. Both the text and visual features are then "
+"projected to a latent space with identical dimension. The dot product "
+"between the projected image and text features is then used as a similar "
+"score."
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:50
+msgid ""
+"To feed images to the Transformer encoder, each image is split into a "
+"sequence of fixed-size non-overlapping patches, which are then linearly "
+"embedded. A [CLS] token is added to serve as representation of an entire "
+"image. The authors also add absolute position embeddings, and feed the "
+"resulting sequence of vectors to a standard Transformer encoder. The "
+":class:`~transformers.CLIPFeatureExtractor` can be used to resize (or "
+"rescale) and normalize images for the model."
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:55
+msgid ""
+"The :class:`~transformers.CLIPTokenizer` is used to encode the text. The "
+":class:`~transformers.CLIPProcessor` wraps "
+":class:`~transformers.CLIPFeatureExtractor` and "
+":class:`~transformers.CLIPTokenizer` into a single instance to both "
+"encode the text and prepare the images. The following example shows how "
+"to get the image-text similarity scores using "
+":class:`~transformers.CLIPProcessor` and "
+":class:`~transformers.CLIPModel`."
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:81
+msgid ""
+"This model was contributed by `valhalla "
+"<https://huggingface.co/valhalla>`__. The original code can be found "
+"`here <https://github.com/openai/CLIP>`__."
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:85
+msgid "CLIPConfig"
+msgstr ""
+
+#: of transformers.CLIPConfig:1
+msgid ""
+":class:`~transformers.CLIPConfig` is the configuration class to store the"
+" configuration of a :class:`~transformers.CLIPModel`. It is used to "
+"instantiate CLIP model according to the specified arguments, defining the"
+" text model and vision model configs."
+msgstr ""
+
+#: of transformers.CLIPConfig:5 transformers.CLIPTextConfig:6
+#: transformers.CLIPVisionConfig:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.CLIPConfig transformers.CLIPFeatureExtractor
+#: transformers.CLIPFeatureExtractor.center_crop
+#: transformers.CLIPFeatureExtractor.resize transformers.CLIPModel
+#: transformers.CLIPModel.forward transformers.CLIPModel.get_image_features
+#: transformers.CLIPModel.get_text_features transformers.CLIPProcessor
+#: transformers.CLIPProcessor.from_pretrained
+#: transformers.CLIPProcessor.save_pretrained transformers.CLIPTextConfig
+#: transformers.CLIPTextModel.forward transformers.CLIPTokenizer
+#: transformers.CLIPTokenizer.build_inputs_with_special_tokens
+#: transformers.CLIPTokenizer.create_token_type_ids_from_sequences
+#: transformers.CLIPTokenizer.get_special_tokens_mask
+#: transformers.CLIPTokenizer.save_vocabulary transformers.CLIPTokenizerFast
+#: transformers.CLIPTokenizerFast.save_vocabulary transformers.CLIPVisionConfig
+#: transformers.CLIPVisionModel.forward transformers.FlaxCLIPModel
+#: transformers.FlaxCLIPModel.__call__
+#: transformers.FlaxCLIPModel.get_image_features
+#: transformers.FlaxCLIPModel.get_text_features
+#: transformers.FlaxCLIPTextModel.__call__
+#: transformers.FlaxCLIPVisionModel.__call__
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.CLIPConfig:8
+msgid ""
+"Dictionary of configuration options used to initialize "
+":class:`~transformers.CLIPTextConfig`."
+msgstr ""
+
+#: of transformers.CLIPConfig:10
+msgid ""
+"Dictionary of configuration options used to initialize "
+":class:`~transformers.CLIPVisionConfig`."
+msgstr ""
+
+#: of transformers.CLIPConfig:12
+msgid "Dimentionality of text and vision projection layers."
+msgstr ""
+
+#: of transformers.CLIPConfig:14
+msgid "Dictionary of keyword arguments."
+msgstr ""
+
+#: of transformers.CLIPConfig.from_text_vision_configs:1
+msgid ""
+"Instantiate a :class:`~transformers.CLIPConfig` (or a derived class) from"
+" clip text model configuration and clip vision model configuration."
+msgstr ""
+
+#: of transformers.CLIPConfig.from_text_vision_configs
+#: transformers.CLIPModel.forward transformers.CLIPTextModel.forward
+#: transformers.CLIPTokenizer.build_inputs_with_special_tokens
+#: transformers.CLIPTokenizer.create_token_type_ids_from_sequences
+#: transformers.CLIPTokenizer.get_special_tokens_mask
+#: transformers.CLIPTokenizer.save_vocabulary
+#: transformers.CLIPTokenizerFast.save_vocabulary
+#: transformers.CLIPVisionModel.forward transformers.FlaxCLIPModel.__call__
+#: transformers.FlaxCLIPModel.get_image_features
+#: transformers.FlaxCLIPModel.get_text_features
+#: transformers.FlaxCLIPTextModel.__call__
+#: transformers.FlaxCLIPVisionModel.__call__
+msgid "Returns"
+msgstr ""
+
+#: of transformers.CLIPConfig.from_text_vision_configs:4
+msgid "An instance of a configuration object"
+msgstr ""
+
+#: of transformers.CLIPConfig.from_text_vision_configs
+#: transformers.CLIPModel.forward transformers.CLIPTextModel.forward
+#: transformers.CLIPTokenizer.build_inputs_with_special_tokens
+#: transformers.CLIPTokenizer.create_token_type_ids_from_sequences
+#: transformers.CLIPTokenizer.get_special_tokens_mask
+#: transformers.CLIPTokenizer.save_vocabulary
+#: transformers.CLIPTokenizerFast.save_vocabulary
+#: transformers.CLIPVisionModel.forward transformers.FlaxCLIPModel.__call__
+#: transformers.FlaxCLIPModel.get_image_features
+#: transformers.FlaxCLIPModel.get_text_features
+#: transformers.FlaxCLIPTextModel.__call__
+#: transformers.FlaxCLIPVisionModel.__call__
+msgid "Return type"
+msgstr ""
+
+#: of transformers.CLIPConfig.from_text_vision_configs:5
+msgid ":class:`CLIPConfig`"
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:92
+msgid "CLIPTextConfig"
+msgstr ""
+
+#: of transformers.CLIPTextConfig:1 transformers.CLIPVisionConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.CLIPModel`. It is used to instantiate an CLIP model"
+" according to the specified arguments, defining the model architecture. "
+"Instantiating a configuration with the defaults will yield a similar "
+"configuration to that of the CLIP `openai/clip-vit-base-patch32 "
+"<https://huggingface.co/openai/clip-vit-base-patch32>`__ architecture."
+msgstr ""
+
+#: of transformers.CLIPTextConfig:10
+msgid ""
+"Vocabulary size of the CLIP text model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.CLIPModel`."
+msgstr ""
+
+#: of transformers.CLIPTextConfig:13 transformers.CLIPVisionConfig:10
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.CLIPTextConfig:15 transformers.CLIPVisionConfig:12
+msgid ""
+"Dimensionality of the \"intermediate\" (i.e., feed-forward) layer in the "
+"Transformer encoder."
+msgstr ""
+
+#: of transformers.CLIPTextConfig:17 transformers.CLIPVisionConfig:14
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.CLIPTextConfig:19 transformers.CLIPVisionConfig:16
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.CLIPTextConfig:21
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.CLIPTextConfig:24 transformers.CLIPVisionConfig:22
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"selu\"` "
+"and :obj:`\"gelu_new\"` :obj:`\"quick_gelu\"` are supported."
+msgstr ""
+
+#: of transformers.CLIPTextConfig:27 transformers.CLIPVisionConfig:25
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.CLIPTextConfig:29 transformers.CLIPVisionConfig:29
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.CLIPTextConfig:31 transformers.CLIPVisionConfig:27
+msgid ""
+"The dropout probabilitiy for all fully connected layers in the "
+"embeddings, encoder, and pooler."
+msgstr ""
+
+#: of transformers.CLIPTextConfig:33 transformers.CLIPVisionConfig:31
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.CLIPTextConfig:35 transformers.CLIPVisionConfig:33
+msgid ""
+"A factor for initializing all weight matrices (should be kept to 1, used "
+"internally for initialization testing)."
+msgstr ""
+
+#: of transformers.CLIPTextConfig:38 transformers.CLIPVisionConfig:36
+msgid ""
+"If True, use gradient checkpointing to save memory at the expense of "
+"slower backward pass."
+msgstr ""
+
+#: of transformers.CLIPTextConfig:41 transformers.CLIPVisionConfig:39
+#: transformers.FlaxCLIPModel.__call__:62
+#: transformers.FlaxCLIPTextModel.__call__:57
+#: transformers.FlaxCLIPVisionModel.__call__:40
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:99
+msgid "CLIPVisionConfig"
+msgstr ""
+
+#: of transformers.CLIPVisionConfig:18
+msgid "The size (resolution) of each image."
+msgstr ""
+
+#: of transformers.CLIPVisionConfig:20
+msgid "The size (resolution) of each patch."
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:107
+msgid "CLIPTokenizer"
+msgstr ""
+
+#: of transformers.CLIPTokenizer:1
+msgid "Construct a CLIP tokenizer. Based on byte-level Byte-Pair-Encoding."
+msgstr ""
+
+#: of transformers.CLIPTokenizer:3 transformers.CLIPTokenizerFast:4
+msgid ""
+"This tokenizer has been trained to treat spaces like parts of the tokens "
+"(a bit like sentencepiece) so a word will be encoded differently whether "
+"it is at the beginning of the sentence (without space) or not:"
+msgstr ""
+
+#: of transformers.CLIPTokenizer:7 transformers.CLIPTokenizerFast:16
+msgid ""
+"You can get around that behavior by passing ``add_prefix_space=True`` "
+"when instantiating this tokenizer or when you call it on some text, but "
+"since the model was not pretrained this way, it might yield a decrease in"
+" performance."
+msgstr ""
+
+#: of transformers.CLIPTokenizer:12
+msgid ""
+"When used with ``is_split_into_words=True``, this tokenizer will add a "
+"space before each word (even the first one)."
+msgstr ""
+
+#: of transformers.CLIPTokenizer:15
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.CLIPTokenizer:18 transformers.CLIPTokenizerFast:27
+msgid "Path to the vocabulary file."
+msgstr ""
+
+#: of transformers.CLIPTokenizer:20 transformers.CLIPTokenizerFast:29
+msgid "Path to the merges file."
+msgstr ""
+
+#: of transformers.CLIPTokenizer:22 transformers.CLIPTokenizerFast:31
+msgid ""
+"Paradigm to follow when decoding bytes to UTF-8. See `bytes.decode "
+"<https://docs.python.org/3/library/stdtypes.html#bytes.decode>`__ for "
+"more information."
+msgstr ""
+
+#: of transformers.CLIPTokenizer:25 transformers.CLIPTokenizerFast:34
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.CLIPTokenizer:28 transformers.CLIPTokenizerFast:37
+msgid "The beginning of sequence token."
+msgstr ""
+
+#: of transformers.CLIPTokenizer:30 transformers.CLIPTokenizerFast:39
+msgid "The end of sequence token."
+msgstr ""
+
+#: of transformers.CLIPTokenizer:32 transformers.CLIPTokenizerFast:41
+msgid ""
+"Whether or not to add an initial space to the input. This allows to treat"
+" the leading word just as any other word. (CLIP tokenizer detect "
+"beginning of words by the preceding space)."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. A CLIP "
+"sequence has the following format:"
+msgstr ""
+
+#: of transformers.CLIPTokenizer.build_inputs_with_special_tokens:4
+msgid "single sequence: ``<|startoftext|> X <|endoftext|>``"
+msgstr ""
+
+#: of transformers.CLIPTokenizer.build_inputs_with_special_tokens:6
+msgid ""
+"Pairs of sequences are not the expected use case, but they will be "
+"handled without a separator."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.build_inputs_with_special_tokens:8
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.build_inputs_with_special_tokens:10
+#: transformers.CLIPTokenizer.get_special_tokens_mask:6
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.build_inputs_with_special_tokens:13
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.build_inputs_with_special_tokens:14
+#: transformers.CLIPTokenizer.create_token_type_ids_from_sequences:12
+#: transformers.CLIPTokenizer.get_special_tokens_mask:12
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.CLIPTokenizer.create_token_type_ids_from_sequences:1
+msgid ""
+"Create the token type IDs corresponding to the sequences passed. `What "
+"are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.CLIPTokenizer.create_token_type_ids_from_sequences:4
+msgid ""
+"Should be overridden in a subclass if the model has a special way of "
+"building those."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.create_token_type_ids_from_sequences:6
+msgid "The first tokenized sequence."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.create_token_type_ids_from_sequences:8
+msgid "The second tokenized sequence."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.create_token_type_ids_from_sequences:11
+msgid "The token type ids."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.get_special_tokens_mask:4
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.save_vocabulary:1
+#: transformers.CLIPTokenizerFast.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.save_vocabulary:3
+#: transformers.CLIPTokenizerFast.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.save_vocabulary:6
+#: transformers.CLIPTokenizerFast.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.save_vocabulary:8
+#: transformers.CLIPTokenizerFast.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.save_vocabulary:11
+#: transformers.CLIPTokenizerFast.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.CLIPTokenizer.save_vocabulary:12
+#: transformers.CLIPTokenizerFast.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:114
+msgid "CLIPTokenizerFast"
+msgstr ""
+
+#: of transformers.CLIPTokenizerFast:1
+msgid ""
+"Construct a \"fast\" CLIP tokenizer (backed by HuggingFace's `tokenizers`"
+" library). Based on byte-level Byte-Pair-Encoding."
+msgstr ""
+
+#: of transformers.CLIPTokenizerFast:21
+msgid ""
+"When used with ``is_split_into_words=True``, this tokenizer needs to be "
+"instantiated with ``add_prefix_space=True``."
+msgstr ""
+
+#: of transformers.CLIPTokenizerFast:24
+msgid ""
+"This tokenizer inherits from "
+":class:`~transformers.PreTrainedTokenizerFast` which contains most of the"
+" main methods. Users should refer to this superclass for more information"
+" regarding those methods."
+msgstr ""
+
+#: of transformers.CLIPTokenizerFast:44
+msgid ""
+"Whether or not the post-processing step should trim offsets to avoid "
+"including whitespaces."
+msgstr ""
+
+#: of transformers.CLIPTokenizerFast.pad_token_id:1
+msgid ""
+"Id of the padding token in the vocabulary. Returns :obj:`None` if the "
+"token has not been set."
+msgstr ""
+
+#: of transformers.CLIPTokenizerFast.pad_token_id
+msgid "type"
+msgstr ""
+
+#: of transformers.CLIPTokenizerFast.pad_token_id:4
+msgid ":obj:`Optional[int]`"
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:121
+msgid "CLIPFeatureExtractor"
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor:1
+msgid "Constructs a CLIP feature extractor."
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor:3
+msgid ""
+"This feature extractor inherits from "
+":class:`~transformers.FeatureExtractionMixin` which contains most of the "
+"main methods. Users should refer to this superclass for more information "
+"regarding those methods."
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor:6
+msgid "Whether to resize the input to a certain :obj:`size`."
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor:8
+msgid ""
+"Resize the input to the given size. Only has an effect if "
+":obj:`do_resize` is set to :obj:`True`."
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor:10
+msgid ""
+"An optional resampling filter. This can be one of "
+":obj:`PIL.Image.NEAREST`, :obj:`PIL.Image.BOX`, "
+":obj:`PIL.Image.BILINEAR`, :obj:`PIL.Image.HAMMING`, "
+":obj:`PIL.Image.BICUBIC` or :obj:`PIL.Image.LANCZOS`. Only has an effect "
+"if :obj:`do_resize` is set to :obj:`True`."
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor:14
+msgid ""
+"Whether to crop the input at the center. If the input size is smaller "
+"than :obj:`crop_size` along any edge, the image is padded with 0's and "
+"then center cropped."
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor:17
+msgid ""
+"Desired output size when applying center-cropping. Only has an effect if "
+":obj:`do_center_crop` is set to :obj:`True`."
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor:20
+msgid ""
+"Whether or not to normalize the input with :obj:`image_mean` and "
+":obj:`image_std`."
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor:22
+msgid ""
+"The sequence of means for each channel, to be used when normalizing "
+"images."
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor:24
+msgid ""
+"The sequence of standard deviations for each channel, to be used when "
+"normalizing images."
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor.center_crop:1
+msgid ""
+"Crops :obj:`image` to the given size using a center crop. Note that if "
+"the image is too small to be cropped to the size is given, it will be "
+"padded (so the returned result has the size asked)."
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor.center_crop:4
+#: transformers.CLIPFeatureExtractor.resize:3
+msgid "The image to resize."
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor.center_crop:6
+msgid "The size to which crop the image."
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor.resize:1
+msgid ""
+"Resizes :obj:`image`. Note that this will trigger a conversion of "
+":obj:`image` to a PIL Image."
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor.resize:5
+msgid ""
+"The size to use for resizing the image. If :obj:`int` it will be resized "
+"to match the shorter side"
+msgstr ""
+
+#: of transformers.CLIPFeatureExtractor.resize:7
+msgid "The filter to user for resampling."
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:128
+msgid "CLIPProcessor"
+msgstr ""
+
+#: of transformers.CLIPProcessor:1
+msgid ""
+"Constructs a CLIP processor which wraps a CLIP feature extractor and a "
+"CLIP tokenizer into a single processor."
+msgstr ""
+
+#: of transformers.CLIPProcessor:3
+msgid ""
+":class:`~transformers.CLIPProcessor` offers all the functionalities of "
+":class:`~transformers.CLIPFeatureExtractor` and "
+":class:`~transformers.CLIPTokenizer`. See the "
+":meth:`~transformers.CLIPProcessor.__call__` and "
+":meth:`~transformers.CLIPProcessor.decode` for more information."
+msgstr ""
+
+#: of transformers.CLIPProcessor:7
+msgid "The feature extractor is a required input."
+msgstr ""
+
+#: of transformers.CLIPProcessor:9
+msgid "The tokenizer is a required input."
+msgstr ""
+
+#: of transformers.CLIPProcessor.batch_decode:1
+msgid ""
+"This method forwards all its arguments to CLIPTokenizer's "
+":meth:`~transformers.PreTrainedTokenizer.batch_decode`. Please refer to "
+"the docstring of this method for more information."
+msgstr ""
+
+#: of transformers.CLIPProcessor.decode:1
+msgid ""
+"This method forwards all its arguments to CLIPTokenizer's "
+":meth:`~transformers.PreTrainedTokenizer.decode`. Please refer to the "
+"docstring of this method for more information."
+msgstr ""
+
+#: of transformers.CLIPProcessor.from_pretrained:1
+msgid ""
+"Instantiate a :class:`~transformers.CLIPProcessor` from a pretrained CLIP"
+" processor."
+msgstr ""
+
+#: of transformers.CLIPProcessor.from_pretrained:5
+msgid ""
+"This class method is simply calling CLIPFeatureExtractor's "
+":meth:`~transformers.PreTrainedFeatureExtractor.from_pretrained` and "
+"CLIPTokenizer's "
+":meth:`~transformers.tokenization_utils_base.PreTrainedTokenizer.from_pretrained`."
+" Please refer to the docstrings of the methods above for more "
+"information."
+msgstr ""
+
+#: of transformers.CLIPProcessor.from_pretrained:10
+msgid ""
+"This can be either:  - a string, the `model id` of a pretrained "
+"feature_extractor hosted inside a model repo on   huggingface.co. Valid "
+"model ids can be located at the root-level, like ``clip-vit-base-"
+"patch32``, or   namespaced under a user or organization name, like "
+"``openai/clip-vit-base-patch32``. - a path to a `directory` containing a "
+"feature extractor file saved using the   "
+":meth:`~transformers.PreTrainedFeatureExtractor.save_pretrained` method, "
+"e.g.,   ``./my_model_directory/``. - a path or url to a saved feature "
+"extractor JSON `file`, e.g.,   "
+"``./my_model_directory/preprocessor_config.json``."
+msgstr ""
+
+#: of transformers.CLIPProcessor.from_pretrained:10
+msgid "This can be either:"
+msgstr ""
+
+#: of transformers.CLIPProcessor.from_pretrained:12
+msgid ""
+"a string, the `model id` of a pretrained feature_extractor hosted inside "
+"a model repo on huggingface.co. Valid model ids can be located at the "
+"root-level, like ``clip-vit-base-patch32``, or namespaced under a user or"
+" organization name, like ``openai/clip-vit-base-patch32``."
+msgstr ""
+
+#: of transformers.CLIPProcessor.from_pretrained:15
+msgid ""
+"a path to a `directory` containing a feature extractor file saved using "
+"the :meth:`~transformers.PreTrainedFeatureExtractor.save_pretrained` "
+"method, e.g., ``./my_model_directory/``."
+msgstr ""
+
+#: of transformers.CLIPProcessor.from_pretrained:18
+msgid ""
+"a path or url to a saved feature extractor JSON `file`, e.g., "
+"``./my_model_directory/preprocessor_config.json``."
+msgstr ""
+
+#: of transformers.CLIPProcessor.from_pretrained:21
+msgid ""
+"Additional keyword arguments passed along to both "
+":class:`~transformers.PreTrainedFeatureExtractor` and "
+":class:`~transformers.PreTrainedTokenizer`"
+msgstr ""
+
+#: of transformers.CLIPProcessor.save_pretrained:1
+msgid ""
+"Save a CLIP feature extractor object and CLIP tokenizer object to the "
+"directory ``save_directory``, so that it can be re-loaded using the "
+":func:`~transformers.CLIPProcessor.from_pretrained` class method."
+msgstr ""
+
+#: of transformers.CLIPProcessor.save_pretrained:6
+msgid ""
+"This class method is simply calling "
+":meth:`~transformers.PreTrainedFeatureExtractor.save_pretrained` and "
+":meth:`~transformers.tokenization_utils_base.PreTrainedTokenizer.save_pretrained`."
+" Please refer to the docstrings of the methods above for more "
+"information."
+msgstr ""
+
+#: of transformers.CLIPProcessor.save_pretrained:10
+msgid ""
+"Directory where the feature extractor JSON file and the tokenizer files "
+"will be saved (directory will be created if it does not exist)."
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:136
+msgid "CLIPModel"
+msgstr ""
+
+#: of transformers.CLIPModel:1
+msgid ""
+"This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ subclass. Use"
+" it as a regular PyTorch Module and refer to the PyTorch documentation "
+"for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.CLIPModel:5
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:1
+#: transformers.CLIPModel.get_image_features:1
+#: transformers.CLIPModel.get_text_features:1
+msgid ""
+"The :class:`~transformers.CLIPModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:4
+#: transformers.CLIPModel.get_image_features:4
+#: transformers.CLIPModel.get_text_features:4
+#: transformers.CLIPTextModel.forward:4 transformers.CLIPVisionModel.forward:4
+#: transformers.FlaxCLIPModel.__call__:4
+#: transformers.FlaxCLIPTextModel.__call__:4
+#: transformers.FlaxCLIPVisionModel.__call__:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:8
+#: transformers.CLIPModel.get_text_features:8
+#: transformers.CLIPTextModel.forward:8 transformers.FlaxCLIPModel.__call__:8
+#: transformers.FlaxCLIPModel.get_text_features:1
+#: transformers.FlaxCLIPTextModel.__call__:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary. Padding will be "
+"ignored by default should you provide it.  Indices can be obtained using "
+":class:`~transformers.CLIPTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.CLIPModel.forward:8
+#: transformers.CLIPModel.get_text_features:8
+#: transformers.CLIPTextModel.forward:8 transformers.FlaxCLIPModel.__call__:8
+#: transformers.FlaxCLIPModel.get_text_features:1
+#: transformers.FlaxCLIPTextModel.__call__:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary. Padding will be "
+"ignored by default should you provide it."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:11
+#: transformers.CLIPModel.get_text_features:11
+#: transformers.CLIPTextModel.forward:11 transformers.FlaxCLIPModel.__call__:11
+#: transformers.FlaxCLIPModel.get_text_features:4
+#: transformers.FlaxCLIPTextModel.__call__:11
+msgid ""
+"Indices can be obtained using :class:`~transformers.CLIPTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:15
+#: transformers.CLIPModel.get_text_features:15
+#: transformers.CLIPTextModel.forward:15 transformers.FlaxCLIPModel.__call__:15
+#: transformers.FlaxCLIPModel.get_text_features:8
+#: transformers.FlaxCLIPTextModel.__call__:15
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.CLIPModel.forward:17
+#: transformers.CLIPModel.get_text_features:17
+#: transformers.CLIPTextModel.forward:17 transformers.FlaxCLIPModel.__call__:17
+#: transformers.FlaxCLIPTextModel.__call__:17
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.CLIPModel.forward:17
+#: transformers.CLIPModel.get_text_features:17
+#: transformers.CLIPTextModel.forward:17 transformers.FlaxCLIPModel.__call__:17
+#: transformers.FlaxCLIPTextModel.__call__:17
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.CLIPModel.forward:19
+#: transformers.CLIPModel.get_text_features:19
+#: transformers.CLIPTextModel.forward:19 transformers.FlaxCLIPModel.__call__:19
+#: transformers.FlaxCLIPTextModel.__call__:19
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.CLIPModel.forward:20
+#: transformers.CLIPModel.get_text_features:20
+#: transformers.CLIPTextModel.forward:20 transformers.FlaxCLIPModel.__call__:20
+#: transformers.FlaxCLIPTextModel.__call__:20
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:22
+#: transformers.CLIPModel.get_text_features:22
+#: transformers.CLIPTextModel.forward:22 transformers.FlaxCLIPModel.__call__:22
+#: transformers.FlaxCLIPTextModel.__call__:22
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.CLIPModel.forward:24
+#: transformers.CLIPModel.get_text_features:24
+#: transformers.CLIPTextModel.forward:24 transformers.FlaxCLIPModel.__call__:24
+#: transformers.FlaxCLIPTextModel.__call__:24
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.CLIPModel.forward:24
+#: transformers.CLIPModel.get_text_features:24
+#: transformers.CLIPTextModel.forward:24 transformers.FlaxCLIPModel.__call__:24
+#: transformers.FlaxCLIPTextModel.__call__:24
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:27
+#: transformers.CLIPModel.get_text_features:27
+#: transformers.CLIPTextModel.forward:27 transformers.FlaxCLIPModel.__call__:27
+#: transformers.FlaxCLIPTextModel.__call__:27
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.CLIPModel.forward:29
+#: transformers.CLIPModel.get_image_features:8
+#: transformers.CLIPVisionModel.forward:8
+#: transformers.FlaxCLIPModel.__call__:29
+#: transformers.FlaxCLIPModel.get_image_features:1
+#: transformers.FlaxCLIPVisionModel.__call__:8
+msgid ""
+"Pixel values. Padding will be ignored by default should you provide it. "
+"Pixel values can be obtained using "
+":class:`~transformers.CLIPFeatureExtractor`. See "
+":meth:`transformers.CLIPFeatureExtractor.__call__` for details."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:33 transformers.FlaxCLIPModel.__call__:33
+msgid "Whether or not to return the contrastive loss."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:35
+#: transformers.CLIPModel.get_image_features:12
+#: transformers.CLIPModel.get_text_features:29
+#: transformers.CLIPTextModel.forward:29
+#: transformers.CLIPVisionModel.forward:12
+#: transformers.FlaxCLIPModel.__call__:35
+#: transformers.FlaxCLIPTextModel.__call__:29
+#: transformers.FlaxCLIPVisionModel.__call__:12
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:38
+#: transformers.CLIPModel.get_image_features:15
+#: transformers.CLIPModel.get_text_features:32
+#: transformers.CLIPTextModel.forward:32
+#: transformers.CLIPVisionModel.forward:15
+#: transformers.FlaxCLIPModel.__call__:38
+#: transformers.FlaxCLIPTextModel.__call__:32
+#: transformers.FlaxCLIPVisionModel.__call__:15
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:41
+#: transformers.CLIPModel.get_image_features:18
+#: transformers.CLIPModel.get_text_features:35
+#: transformers.CLIPTextModel.forward:35
+#: transformers.CLIPVisionModel.forward:18
+#: transformers.FlaxCLIPModel.__call__:41
+#: transformers.FlaxCLIPTextModel.__call__:35
+#: transformers.FlaxCLIPVisionModel.__call__:18
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:44
+msgid ""
+"A :class:`~transformers.models.clip.modeling_clip.CLIPOutput` or a tuple "
+"of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.<class "
+"'transformers.models.clip.configuration_clip.CLIPConfig'>`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`return_loss` is :obj:`True`) -- Contrastive loss for "
+"image-text similarity. - **logits_per_image:(:obj:`torch.FloatTensor`** "
+"of shape :obj:`(image_batch_size, text_batch_size)`) -- The scaled dot "
+"product scores between :obj:`image_embeds` and :obj:`text_embeds`. This "
+"represents the   image-text similarity scores. - "
+"**logits_per_text:(:obj:`torch.FloatTensor`** of shape "
+":obj:`(text_batch_size, image_batch_size)`) -- The scaled dot product "
+"scores between :obj:`text_embeds` and :obj:`image_embeds`. This "
+"represents the   text-image similarity scores. - "
+"**text_embeds(:obj:`torch.FloatTensor`** of shape :obj:`(batch_size, "
+"output_dim`) -- The text embeddings obtained by applying the projection "
+"layer to the pooled output of   :class:`~transformers.CLIPTextModel`. - "
+"**image_embeds(:obj:`torch.FloatTensor`** of shape :obj:`(batch_size, "
+"output_dim`) -- The image embeddings obtained by applying the projection "
+"layer to the pooled output of   :class:`~transformers.CLIPVisionModel`. -"
+" **text_model_output(:obj:`BaseModelOutputWithPooling`):**   The output "
+"of the :class:`~transformers.CLIPTextModel`. - "
+"**vision_model_output(:obj:`BaseModelOutputWithPooling`):**   The output "
+"of the :class:`~transformers.CLIPVisionModel`.   Examples::      >>> from"
+" PIL import Image     >>> import requests     >>> from transformers "
+"import CLIPProcessor, CLIPModel      >>> model = "
+"CLIPModel.from_pretrained(\"openai/clip-vit-base-patch32\")     >>> "
+"processor = CLIPProcessor.from_pretrained(\"openai/clip-vit-base-"
+"patch32\")      >>> url = "
+"\"http://images.cocodataset.org/val2017/000000039769.jpg\"     >>> image "
+"= Image.open(requests.get(url, stream=True).raw)      >>> inputs = "
+"processor(text=[\"a photo of a cat\", \"a photo of a dog\"], "
+"images=image, return_tensors=\"pt\", padding=True)      >>> outputs = "
+"model(**inputs)     >>> logits_per_image = outputs.logits_per_image # "
+"this is the image-text similarity score     >>> probs = "
+"logits_per_image.softmax(dim=1) # we can take the softmax to get the "
+"label probabilities"
+msgstr ""
+
+#: of transformers.CLIPModel.forward:44
+msgid ""
+"A :class:`~transformers.models.clip.modeling_clip.CLIPOutput` or a tuple "
+"of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.<class "
+"'transformers.models.clip.configuration_clip.CLIPConfig'>`) and inputs."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:48
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`return_loss` is :obj:`True`) -- Contrastive loss for "
+"image-text similarity."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:49
+msgid ""
+"**logits_per_image:(:obj:`torch.FloatTensor`** of shape "
+":obj:`(image_batch_size, text_batch_size)`) -- The scaled dot product "
+"scores between :obj:`image_embeds` and :obj:`text_embeds`. This "
+"represents the image-text similarity scores."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:51
+msgid ""
+"**logits_per_text:(:obj:`torch.FloatTensor`** of shape "
+":obj:`(text_batch_size, image_batch_size)`) -- The scaled dot product "
+"scores between :obj:`text_embeds` and :obj:`image_embeds`. This "
+"represents the text-image similarity scores."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:53
+msgid ""
+"**text_embeds(:obj:`torch.FloatTensor`** of shape :obj:`(batch_size, "
+"output_dim`) -- The text embeddings obtained by applying the projection "
+"layer to the pooled output of :class:`~transformers.CLIPTextModel`."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:55
+msgid ""
+"**image_embeds(:obj:`torch.FloatTensor`** of shape :obj:`(batch_size, "
+"output_dim`) -- The image embeddings obtained by applying the projection "
+"layer to the pooled output of :class:`~transformers.CLIPVisionModel`."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:57
+msgid ""
+"**text_model_output(:obj:`BaseModelOutputWithPooling`):** The output of "
+"the :class:`~transformers.CLIPTextModel`."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:59
+msgid ""
+"**vision_model_output(:obj:`BaseModelOutputWithPooling`):** The output of"
+" the :class:`~transformers.CLIPVisionModel`."
+msgstr ""
+
+#: of transformers.CLIPModel.forward:63 transformers.CLIPTextModel.forward:57
+#: transformers.CLIPVisionModel.forward:40
+#: transformers.FlaxCLIPModel.get_image_features:10
+#: transformers.FlaxCLIPModel.get_text_features:15
+msgid "Examples::"
+msgstr ""
+
+#: of transformers.CLIPModel.forward:80
+msgid ""
+":class:`~transformers.models.clip.modeling_clip.CLIPOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.CLIPModel.get_image_features:20
+msgid ""
+"image_features (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"output_dim`): The image embeddings obtained by applying the projection "
+"layer to the pooled output of :class:`~transformers.CLIPVisionModel`."
+msgstr ""
+
+#: of transformers.CLIPModel.get_image_features:22
+msgid ""
+">>> from PIL import Image >>> import requests >>> from transformers "
+"import CLIPProcessor, CLIPModel  >>> model = "
+"CLIPModel.from_pretrained(\"openai/clip-vit-base-patch32\") >>> processor"
+" = CLIPProcessor.from_pretrained(\"openai/clip-vit-base-patch32\")  >>> "
+"url = \"http://images.cocodataset.org/val2017/000000039769.jpg\" >>> "
+"image = Image.open(requests.get(url, stream=True).raw)  >>> inputs = "
+"processor(images=image, return_tensors=\"pt\")  >>> image_features = "
+"model.get_image_features(**inputs)"
+msgstr ""
+
+#: of transformers.CLIPModel.get_text_features:37
+msgid ""
+"text_features (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"output_dim`): The text embeddings obtained by applying the projection "
+"layer to the pooled output of :class:`~transformers.CLIPTextModel`."
+msgstr ""
+
+#: of transformers.CLIPModel.get_text_features:39
+msgid ""
+">>> from transformers import CLIPTokenizer, CLIPModel  >>> model = "
+"CLIPModel.from_pretrained(\"openai/clip-vit-base-patch32\") >>> tokenizer"
+" = CLIPTokenizer.from_pretrained(\"openai/clip-vit-base-patch32\")  >>> "
+"inputs = tokenizer([\"a photo of a cat\", \"a photo of a dog\"],  "
+"padding=True, return_tensors=\"pt\") >>> text_features = "
+"model.get_text_features(**inputs)"
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:143
+msgid "CLIPTextModel"
+msgstr ""
+
+#: of transformers.CLIPTextModel.forward:1
+msgid ""
+"The :class:`~transformers.CLIPTextModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.CLIPTextModel.forward:38
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutputWithPooling` or a"
+" tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or"
+" when ``config.return_dict=False``) comprising various elements depending"
+" on the configuration (:class:`~transformers.<class "
+"'transformers.models.clip.configuration_clip.CLIPTextConfig'>`) and "
+"inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, hidden_size)`) -- "
+"Last layer hidden-state of the first token of the sequence "
+"(classification token) further processed by a   Linear layer and a Tanh "
+"activation function. The Linear layer weights are trained from the next "
+"sentence   prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Examples::      >>> from transformers import "
+"CLIPTokenizer, CLIPTextModel      >>> model = "
+"CLIPTextModel.from_pretrained(\"openai/clip-vit-base-patch32\")     >>> "
+"tokenizer = CLIPTokenizer.from_pretrained(\"openai/clip-vit-base-"
+"patch32\")      >>> inputs = tokenizer([\"a photo of a cat\", \"a photo "
+"of a dog\"],  padding=True, return_tensors=\"pt\")      >>> outputs = "
+"model(**inputs)     >>> last_hidden_state = outputs.last_hidden_state"
+"     >>> pooled_output = outputs.pooled_output # pooled (EOS token) "
+"states"
+msgstr ""
+
+#: of transformers.CLIPTextModel.forward:38
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutputWithPooling` or a"
+" tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or"
+" when ``config.return_dict=False``) comprising various elements depending"
+" on the configuration (:class:`~transformers.<class "
+"'transformers.models.clip.configuration_clip.CLIPTextConfig'>`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.CLIPTextModel.forward:42
+#: transformers.CLIPVisionModel.forward:25
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.CLIPTextModel.forward:43
+#: transformers.CLIPVisionModel.forward:26
+msgid ""
+"**pooler_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.CLIPTextModel.forward:46
+#: transformers.CLIPVisionModel.forward:29
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.CLIPTextModel.forward:49
+#: transformers.CLIPVisionModel.forward:32
+#: transformers.FlaxCLIPTextModel.__call__:49
+#: transformers.FlaxCLIPVisionModel.__call__:32
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.CLIPTextModel.forward:50
+#: transformers.CLIPVisionModel.forward:33
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.CLIPTextModel.forward:53
+#: transformers.CLIPVisionModel.forward:36
+#: transformers.FlaxCLIPTextModel.__call__:53
+#: transformers.FlaxCLIPVisionModel.__call__:36
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.CLIPTextModel.forward:69
+#: transformers.CLIPVisionModel.forward:57
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPooling` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:150
+msgid "CLIPVisionModel"
+msgstr ""
+
+#: of transformers.CLIPVisionModel.forward:1
+msgid ""
+"The :class:`~transformers.CLIPVisionModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.CLIPVisionModel.forward:21
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutputWithPooling` or a"
+" tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or"
+" when ``config.return_dict=False``) comprising various elements depending"
+" on the configuration (:class:`~transformers.<class "
+"'transformers.models.clip.configuration_clip.CLIPVisionConfig'>`) and "
+"inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, hidden_size)`) -- "
+"Last layer hidden-state of the first token of the sequence "
+"(classification token) further processed by a   Linear layer and a Tanh "
+"activation function. The Linear layer weights are trained from the next "
+"sentence   prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Examples::      >>> from PIL import Image     >>> "
+"import requests     >>> from transformers import CLIPProcessor, "
+"CLIPVisionModel      >>> model = CLIPVisionModel.from_pretrained(\"openai"
+"/clip-vit-base-patch32\")     >>> processor = "
+"CLIPProcessor.from_pretrained(\"openai/clip-vit-base-patch32\")      >>> "
+"url = \"http://images.cocodataset.org/val2017/000000039769.jpg\"     >>> "
+"image = Image.open(requests.get(url, stream=True).raw)      >>> inputs = "
+"processor(images=image, return_tensors=\"pt\")      >>> outputs = "
+"model(**inputs)     >>> last_hidden_state = outputs.last_hidden_state"
+"     >>> pooled_output = outputs.pooled_output # pooled CLS states"
+msgstr ""
+
+#: of transformers.CLIPVisionModel.forward:21
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutputWithPooling` or a"
+" tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or"
+" when ``config.return_dict=False``) comprising various elements depending"
+" on the configuration (:class:`~transformers.<class "
+"'transformers.models.clip.configuration_clip.CLIPVisionConfig'>`) and "
+"inputs."
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:157
+msgid "FlaxCLIPModel"
+msgstr ""
+
+#: of transformers.FlaxCLIPModel:1
+msgid ""
+"This model inherits from :class:`~transformers.FlaxPreTrainedModel`. "
+"Check the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading, saving and converting "
+"weights from PyTorch models)"
+msgstr ""
+
+#: of transformers.FlaxCLIPModel:5
+msgid ""
+"This model is also a Flax Linen `flax.linen.Module "
+"<https://flax.readthedocs.io/en/latest/flax.linen.html#module>`__ "
+"subclass. Use it as a regular Flax linen Module and refer to the Flax "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.FlaxCLIPModel:9
+msgid "Finally, this model supports inherent JAX features such as:"
+msgstr ""
+
+#: of transformers.FlaxCLIPModel:11
+msgid ""
+"`Just-In-Time (JIT) compilation "
+"<https://jax.readthedocs.io/en/latest/jax.html#just-in-time-compilation-"
+"jit>`__"
+msgstr ""
+
+#: of transformers.FlaxCLIPModel:12
+msgid ""
+"`Automatic Differentiation <https://jax.readthedocs.io/en/latest/jax.html"
+"#automatic-differentiation>`__"
+msgstr ""
+
+#: of transformers.FlaxCLIPModel:13
+msgid ""
+"`Vectorization <https://jax.readthedocs.io/en/latest/jax.html"
+"#vectorization-vmap>`__"
+msgstr ""
+
+#: of transformers.FlaxCLIPModel:14
+msgid ""
+"`Parallelization <https://jax.readthedocs.io/en/latest/jax.html"
+"#parallelization-pmap>`__"
+msgstr ""
+
+#: of transformers.FlaxCLIPModel:16
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.FlaxPreTrainedModel.from_pretrained` method to load "
+"the model weights."
+msgstr ""
+
+#: of transformers.FlaxCLIPModel.__call__:1
+msgid ""
+"The :class:`~transformers.FlaxCLIPPreTrainedModel` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaxCLIPModel.__call__:44
+msgid ""
+"A :class:`~transformers.models.clip.modeling_flax_clip.FlaxCLIPOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.<class "
+"'transformers.models.clip.configuration_clip.CLIPConfig'>`) and inputs.  "
+"- **logits_per_image:(:obj:`jnp.ndarray`** of shape "
+":obj:`(image_batch_size, text_batch_size)`) -- The scaled dot product "
+"scores between :obj:`image_embeds` and :obj:`text_embeds`. This "
+"represents the   image-text similarity scores. - "
+"**logits_per_text:(:obj:`jnp.ndarray`** of shape :obj:`(text_batch_size, "
+"image_batch_size)`) -- The scaled dot product scores between "
+":obj:`text_embeds` and :obj:`image_embeds`. This represents the   text-"
+"image similarity scores. - **text_embeds(:obj:`jnp.ndarray`** of shape "
+":obj:`(batch_size, output_dim`) -- The text embeddings obtained by "
+"applying the projection layer to the pooled output of   "
+":class:`~transformers.FlaxCLIPTextModel`. - "
+"**image_embeds(:obj:`jnp.ndarray`** of shape :obj:`(batch_size, "
+"output_dim`) -- The image embeddings obtained by applying the projection "
+"layer to the pooled output of   "
+":class:`~transformers.FlaxCLIPVisionModel`. - "
+"**text_model_output(:obj:`FlaxBaseModelOutputWithPooling`):**   The "
+"output of the :class:`~transformers.FlaxCLIPTextModel`. - "
+"**vision_model_output(:obj:`FlaxBaseModelOutputWithPooling`):**   The "
+"output of the :class:`~transformers.FlaxCLIPVisionModel`."
+msgstr ""
+
+#: of transformers.FlaxCLIPModel.__call__:44
+msgid ""
+"A :class:`~transformers.models.clip.modeling_flax_clip.FlaxCLIPOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.<class "
+"'transformers.models.clip.configuration_clip.CLIPConfig'>`) and inputs."
+msgstr ""
+
+#: of transformers.FlaxCLIPModel.__call__:48
+msgid ""
+"**logits_per_image:(:obj:`jnp.ndarray`** of shape "
+":obj:`(image_batch_size, text_batch_size)`) -- The scaled dot product "
+"scores between :obj:`image_embeds` and :obj:`text_embeds`. This "
+"represents the image-text similarity scores."
+msgstr ""
+
+#: of transformers.FlaxCLIPModel.__call__:50
+msgid ""
+"**logits_per_text:(:obj:`jnp.ndarray`** of shape :obj:`(text_batch_size, "
+"image_batch_size)`) -- The scaled dot product scores between "
+":obj:`text_embeds` and :obj:`image_embeds`. This represents the text-"
+"image similarity scores."
+msgstr ""
+
+#: of transformers.FlaxCLIPModel.__call__:52
+msgid ""
+"**text_embeds(:obj:`jnp.ndarray`** of shape :obj:`(batch_size, "
+"output_dim`) -- The text embeddings obtained by applying the projection "
+"layer to the pooled output of :class:`~transformers.FlaxCLIPTextModel`."
+msgstr ""
+
+#: of transformers.FlaxCLIPModel.__call__:54
+msgid ""
+"**image_embeds(:obj:`jnp.ndarray`** of shape :obj:`(batch_size, "
+"output_dim`) -- The image embeddings obtained by applying the projection "
+"layer to the pooled output of :class:`~transformers.FlaxCLIPVisionModel`."
+msgstr ""
+
+#: of transformers.FlaxCLIPModel.__call__:56
+msgid ""
+"**text_model_output(:obj:`FlaxBaseModelOutputWithPooling`):** The output "
+"of the :class:`~transformers.FlaxCLIPTextModel`."
+msgstr ""
+
+#: of transformers.FlaxCLIPModel.__call__:58
+msgid ""
+"**vision_model_output(:obj:`FlaxBaseModelOutputWithPooling`):** The "
+"output of the :class:`~transformers.FlaxCLIPVisionModel`."
+msgstr ""
+
+#: of transformers.FlaxCLIPModel.__call__:60
+msgid ""
+":class:`~transformers.models.clip.modeling_flax_clip.FlaxCLIPOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.FlaxCLIPModel.get_image_features:6
+msgid ""
+"The image embeddings obtained by applying the projection layer to the "
+"pooled output of :class:`~transformers.FlaxCLIPVisionModel`"
+msgstr ""
+
+#: of transformers.FlaxCLIPModel.get_image_features:8
+msgid ""
+"image_features (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"output_dim`)"
+msgstr ""
+
+#: of transformers.FlaxCLIPModel.get_text_features:11
+msgid ""
+"The text embeddings obtained by applying the projection layer to the "
+"pooled output of :class:`~transformers.FlaxCLIPTextModel`."
+msgstr ""
+
+#: of transformers.FlaxCLIPModel.get_text_features:13
+msgid "text_features (:obj:`jnp.ndarray` of shape :obj:`(batch_size, output_dim`)"
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:164
+msgid "FlaxCLIPTextModel"
+msgstr ""
+
+#: of transformers.FlaxCLIPTextModel.__call__:1
+msgid ""
+"The :class:`~transformers.FlaxCLIPTextPreTrainedModel` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaxCLIPTextModel.__call__:38
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.<class "
+"'transformers.models.clip.configuration_clip.CLIPTextConfig'>`) and "
+"inputs.  - **last_hidden_state** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`jnp.ndarray` of shape :obj:`(batch_size, hidden_size)`) -- Last "
+"layer hidden-state of the first token of the sequence (classification "
+"token) further processed by a   Linear layer and a Tanh activation "
+"function. The Linear layer weights are trained from the next sentence   "
+"prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxCLIPTextModel.__call__:38
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.<class "
+"'transformers.models.clip.configuration_clip.CLIPTextConfig'>`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.FlaxCLIPTextModel.__call__:42
+#: transformers.FlaxCLIPVisionModel.__call__:25
+msgid ""
+"**last_hidden_state** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.FlaxCLIPTextModel.__call__:43
+#: transformers.FlaxCLIPVisionModel.__call__:26
+msgid ""
+"**pooler_output** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.FlaxCLIPTextModel.__call__:46
+#: transformers.FlaxCLIPVisionModel.__call__:29
+msgid ""
+"**hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaxCLIPTextModel.__call__:50
+#: transformers.FlaxCLIPVisionModel.__call__:33
+msgid ""
+"**attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxCLIPTextModel.__call__:55
+#: transformers.FlaxCLIPVisionModel.__call__:38
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/clip.rst:171
+msgid "FlaxCLIPVisionModel"
+msgstr ""
+
+#: of transformers.FlaxCLIPVisionModel.__call__:1
+msgid ""
+"The :class:`~transformers.FlaxCLIPVisionPreTrainedModel` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaxCLIPVisionModel.__call__:21
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.<class "
+"'transformers.models.clip.configuration_clip.CLIPVisionConfig'>`) and "
+"inputs.  - **last_hidden_state** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`jnp.ndarray` of shape :obj:`(batch_size, hidden_size)`) -- Last "
+"layer hidden-state of the first token of the sequence (classification "
+"token) further processed by a   Linear layer and a Tanh activation "
+"function. The Linear layer weights are trained from the next sentence   "
+"prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxCLIPVisionModel.__call__:21
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.<class "
+"'transformers.models.clip.configuration_clip.CLIPVisionConfig'>`) and "
+"inputs."
+msgstr ""
+

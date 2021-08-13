@@ -1,0 +1,2514 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/roformer.rst:14
+msgid "RoFormer"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:19
+msgid ""
+"The RoFormer model was proposed in `RoFormer: Enhanced Transformer with "
+"Rotary Position Embedding <https://arxiv.org/pdf/2104.09864v1.pdf>`__ by "
+"Jianlin Su and Yu Lu and Shengfeng Pan and Bo Wen and Yunfeng Liu."
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:22
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:24
+msgid ""
+"*Position encoding in transformer architecture provides supervision for "
+"dependency modeling between elements at different positions in the "
+"sequence. We investigate various methods to encode positional information"
+" in transformer-based language models and propose a novel implementation "
+"named Rotary Position Embedding(RoPE). The proposed RoPE encodes absolute"
+" positional information with rotation matrix and naturally incorporates "
+"explicit relative position dependency in self-attention formulation. "
+"Notably, RoPE comes with valuable properties such as flexibility of being"
+" expand to any sequence lengths, decaying inter-token dependency with "
+"increasing relative distances, and capability of equipping the linear "
+"self-attention with relative position encoding. As a result, the enhanced"
+" transformer with rotary position embedding, or RoFormer, achieves "
+"superior performance in tasks with long texts. We release the theoretical"
+" analysis along with some preliminary experiment results on Chinese data."
+" The undergoing experiment for English benchmark will soon be updated.*"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:35
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:37
+msgid ""
+"RoFormer is a BERT-like autoencoding model with rotary position "
+"embeddings. Rotary position embeddings have shown improved performance on"
+" classification tasks with long texts."
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:41
+msgid ""
+"This model was contributed by `junnyu <https://huggingface.co/junnyu>`__."
+" The original code can be found `here "
+"<https://github.com/ZhuiyiTechnology/roformer>`__."
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:45
+msgid "RoFormerConfig"
+msgstr ""
+
+#: of transformers.RoFormerConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.RoFormerModel`. It is used to instantiate an "
+"RoFormer model according to the specified arguments, defining the model "
+"architecture. Instantiating a configuration with the defaults will yield "
+"a similar configuration to that of the RoFormer "
+"`junnyu/roformer_chinese_base "
+"<https://huggingface.co/junnyu/roformer_chinese_base>`__ architecture."
+msgstr ""
+
+#: of transformers.RoFormerConfig:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.RoFormerConfig transformers.RoFormerForCausalLM
+#: transformers.RoFormerForCausalLM.forward transformers.RoFormerForMaskedLM
+#: transformers.RoFormerForMaskedLM.forward
+#: transformers.RoFormerForMultipleChoice
+#: transformers.RoFormerForMultipleChoice.forward
+#: transformers.RoFormerForQuestionAnswering
+#: transformers.RoFormerForQuestionAnswering.forward
+#: transformers.RoFormerForSequenceClassification
+#: transformers.RoFormerForSequenceClassification.forward
+#: transformers.RoFormerForTokenClassification
+#: transformers.RoFormerForTokenClassification.forward
+#: transformers.RoFormerModel transformers.RoFormerModel.forward
+#: transformers.RoFormerTokenizer
+#: transformers.RoFormerTokenizer.build_inputs_with_special_tokens
+#: transformers.RoFormerTokenizer.create_token_type_ids_from_sequences
+#: transformers.RoFormerTokenizer.get_special_tokens_mask
+#: transformers.RoFormerTokenizer.save_vocabulary
+#: transformers.RoFormerTokenizerFast.build_inputs_with_special_tokens
+#: transformers.TFRoFormerForCausalLM transformers.TFRoFormerForMaskedLM
+#: transformers.TFRoFormerForMaskedLM.call
+#: transformers.TFRoFormerForMultipleChoice
+#: transformers.TFRoFormerForMultipleChoice.call
+#: transformers.TFRoFormerForQuestionAnswering
+#: transformers.TFRoFormerForQuestionAnswering.call
+#: transformers.TFRoFormerForSequenceClassification
+#: transformers.TFRoFormerForSequenceClassification.call
+#: transformers.TFRoFormerForTokenClassification
+#: transformers.TFRoFormerForTokenClassification.call
+#: transformers.TFRoFormerModel transformers.TFRoFormerModel.call
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.RoFormerConfig:10
+msgid ""
+"Vocabulary size of the RoFormer model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.RoFormerModel` or "
+":class:`~transformers.TFRoFormerModel`."
+msgstr ""
+
+#: of transformers.RoFormerConfig:14
+msgid ""
+"Dimensionality of the encoder layers and the pooler layer. Defaults to "
+"the :obj:`hidden_size` if not provided."
+msgstr ""
+
+#: of transformers.RoFormerConfig:17
+msgid "Dimension of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.RoFormerConfig:19
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.RoFormerConfig:21
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.RoFormerConfig:23
+msgid ""
+"Dimension of the \"intermediate\" (i.e., feed-forward) layer in the "
+"Transformer encoder."
+msgstr ""
+
+#: of transformers.RoFormerConfig:25
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"selu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.RoFormerConfig:28
+msgid ""
+"The dropout probabilitiy for all fully connected layers in the "
+"embeddings, encoder, and pooler."
+msgstr ""
+
+#: of transformers.RoFormerConfig:30
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.RoFormerConfig:32
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"1536)."
+msgstr ""
+
+#: of transformers.RoFormerConfig:35
+msgid ""
+"The vocabulary size of the :obj:`token_type_ids` passed when calling "
+":class:`~transformers.RoFormerModel` or "
+":class:`~transformers.TFRoFormerModel`."
+msgstr ""
+
+#: of transformers.RoFormerConfig:38
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.RoFormerConfig:40
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.RoFormerConfig:42
+msgid ""
+"Whether or not the model should return the last key/values attentions "
+"(not used by all models). Only relevant if ``config.is_decoder=True``."
+msgstr ""
+
+#: of transformers.RoFormerConfig:45
+msgid "Whether or not apply rotary position embeddings on value layer."
+msgstr ""
+
+#: of transformers.RoFormerConfig:47
+msgid ""
+"If :obj:`True`, use gradient checkpointing to save memory at the expense "
+"of slower backward pass."
+msgstr ""
+
+#: of transformers.RoFormerConfig:50
+#: transformers.RoFormerForCausalLM.forward:98
+#: transformers.RoFormerForMaskedLM.forward:70
+#: transformers.RoFormerForMultipleChoice.forward:72
+#: transformers.RoFormerForQuestionAnswering.forward:75
+#: transformers.RoFormerForSequenceClassification.forward:70
+#: transformers.RoFormerForTokenClassification.forward:69
+#: transformers.RoFormerModel.forward:98 transformers.RoFormerTokenizer:39
+#: transformers.RoFormerTokenizerFast:10
+#: transformers.TFRoFormerForCausalLM.call:22
+#: transformers.TFRoFormerForMaskedLM.call:76
+#: transformers.TFRoFormerForMultipleChoice.call:78
+#: transformers.TFRoFormerForQuestionAnswering.call:81
+#: transformers.TFRoFormerForSequenceClassification.call:76
+#: transformers.TFRoFormerForTokenClassification.call:75
+#: transformers.TFRoFormerModel.call:77
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:52
+msgid "RoFormerTokenizer"
+msgstr ""
+
+#: of transformers.RoFormerTokenizer:1
+msgid ""
+"Construct a RoFormer tokenizer. Based on `Rust Jieba "
+"<https://pypi.org/project/rjieba/>`."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer:3
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer:6
+msgid "File containing the vocabulary."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer:8
+msgid "Whether or not to lowercase the input when tokenizing."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer:10
+msgid "Whether or not to do basic tokenization before WordPiece."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer:12
+msgid ""
+"Collection of tokens which will never be split during tokenization. Only "
+"has an effect when :obj:`do_basic_tokenize=True`"
+msgstr ""
+
+#: of transformers.RoFormerTokenizer:15
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer:18
+msgid ""
+"The separator token, which is used when building a sequence from multiple"
+" sequences, e.g. two sequences for sequence classification or for a text "
+"and a question for question answering. It is also used as the last token "
+"of a sequence built with special tokens."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer:22
+msgid ""
+"The token used for padding, for example when batching sequences of "
+"different lengths."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer:24
+msgid ""
+"The classifier token which is used when doing sequence classification "
+"(classification of the whole sequence instead of per-token "
+"classification). It is the first token of the sequence when built with "
+"special tokens."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer:27
+msgid ""
+"The token used for masking values. This is the token used when training "
+"this model with masked language modeling. This is the token which the "
+"model will try to predict."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer:30
+msgid ""
+"Whether or not to tokenize Chinese characters.  This should likely be "
+"deactivated for Japanese (see this `issue "
+"<https://github.com/huggingface/transformers/issues/328>`__)."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer:30
+msgid "Whether or not to tokenize Chinese characters."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer:32
+msgid ""
+"This should likely be deactivated for Japanese (see this `issue "
+"<https://github.com/huggingface/transformers/issues/328>`__)."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer:35
+msgid ""
+"(:obj:`bool`, `optional`): Whether or not to strip all accents. If this "
+"option is not specified, then it will be determined by the value for "
+":obj:`lowercase` (as in the original BERT)."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.build_inputs_with_special_tokens:1
+#: transformers.RoFormerTokenizerFast.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. A "
+"RoFormer sequence has the following format:"
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.build_inputs_with_special_tokens:4
+#: transformers.RoFormerTokenizerFast.build_inputs_with_special_tokens:4
+msgid "single sequence: ``[CLS] X [SEP]``"
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.build_inputs_with_special_tokens:5
+#: transformers.RoFormerTokenizerFast.build_inputs_with_special_tokens:5
+msgid "pair of sequences: ``[CLS] A [SEP] B [SEP]``"
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.build_inputs_with_special_tokens:7
+#: transformers.RoFormerTokenizerFast.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.build_inputs_with_special_tokens:9
+#: transformers.RoFormerTokenizer.create_token_type_ids_from_sequences:13
+#: transformers.RoFormerTokenizer.get_special_tokens_mask:6
+#: transformers.RoFormerTokenizerFast.build_inputs_with_special_tokens:9
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward
+#: transformers.RoFormerForMaskedLM.forward
+#: transformers.RoFormerForMultipleChoice.forward
+#: transformers.RoFormerForQuestionAnswering.forward
+#: transformers.RoFormerForSequenceClassification.forward
+#: transformers.RoFormerForTokenClassification.forward
+#: transformers.RoFormerModel.forward
+#: transformers.RoFormerTokenizer.build_inputs_with_special_tokens
+#: transformers.RoFormerTokenizer.create_token_type_ids_from_sequences
+#: transformers.RoFormerTokenizer.get_special_tokens_mask
+#: transformers.RoFormerTokenizer.save_vocabulary
+#: transformers.RoFormerTokenizerFast.build_inputs_with_special_tokens
+#: transformers.TFRoFormerForCausalLM.call
+#: transformers.TFRoFormerForMaskedLM.call
+#: transformers.TFRoFormerForMultipleChoice.call
+#: transformers.TFRoFormerForQuestionAnswering.call
+#: transformers.TFRoFormerForSequenceClassification.call
+#: transformers.TFRoFormerForTokenClassification.call
+#: transformers.TFRoFormerModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.build_inputs_with_special_tokens:12
+#: transformers.RoFormerTokenizerFast.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward
+#: transformers.RoFormerForMaskedLM.forward
+#: transformers.RoFormerForMultipleChoice.forward
+#: transformers.RoFormerForQuestionAnswering.forward
+#: transformers.RoFormerForSequenceClassification.forward
+#: transformers.RoFormerForTokenClassification.forward
+#: transformers.RoFormerModel.forward
+#: transformers.RoFormerTokenizer.build_inputs_with_special_tokens
+#: transformers.RoFormerTokenizer.create_token_type_ids_from_sequences
+#: transformers.RoFormerTokenizer.get_special_tokens_mask
+#: transformers.RoFormerTokenizer.save_vocabulary
+#: transformers.RoFormerTokenizerFast.build_inputs_with_special_tokens
+#: transformers.TFRoFormerForCausalLM.call
+#: transformers.TFRoFormerForMaskedLM.call
+#: transformers.TFRoFormerForMultipleChoice.call
+#: transformers.TFRoFormerForQuestionAnswering.call
+#: transformers.TFRoFormerForSequenceClassification.call
+#: transformers.TFRoFormerForTokenClassification.call
+#: transformers.TFRoFormerModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.build_inputs_with_special_tokens:13
+#: transformers.RoFormerTokenizer.create_token_type_ids_from_sequences:18
+#: transformers.RoFormerTokenizer.get_special_tokens_mask:12
+#: transformers.RoFormerTokenizerFast.build_inputs_with_special_tokens:13
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. A RoFormer sequence pair mask has the following "
+"format:"
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.create_token_type_ids_from_sequences:9
+msgid ""
+"If :obj:`token_ids_1` is :obj:`None`, this method only returns the first "
+"portion of the mask (0s)."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.create_token_type_ids_from_sequences:11
+#: transformers.RoFormerTokenizer.get_special_tokens_mask:4
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.create_token_type_ids_from_sequences:16
+msgid ""
+"List of `token type IDs <../glossary.html#token-type-ids>`_ according to "
+"the given sequence(s)."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.RoFormerTokenizer.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:60
+msgid "RoFormerTokenizerFast"
+msgstr ""
+
+#: of transformers.RoFormerTokenizerFast:1
+msgid ""
+"Construct a \"fast\" RoFormer tokenizer (backed by HuggingFace's "
+"`tokenizers` library)."
+msgstr ""
+
+#: of transformers.RoFormerTokenizerFast:3
+msgid ""
+":class:`~transformers.RoFormerTokenizerFast` is almost identical to "
+":class:`~transformers.BertTokenizerFast` and runs end-to-end "
+"tokenization: punctuation splitting and wordpiece. There are some "
+"difference between them when tokenizing Chinese."
+msgstr ""
+
+#: of transformers.RoFormerTokenizerFast:7
+msgid ""
+"This tokenizer inherits from "
+":class:`~transformers.PreTrainedTokenizerFast` which contains most of the"
+" main methods. Users should refer to this superclass for more information"
+" regarding those methods."
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:67
+msgid "RoFormerModel"
+msgstr ""
+
+#: of transformers.RoFormerModel:1
+msgid ""
+"The bare RoFormer Model transformer outputting raw hidden-states without "
+"any specific head on top. This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM:6 transformers.RoFormerForMaskedLM:6
+#: transformers.RoFormerForMultipleChoice:8
+#: transformers.RoFormerForQuestionAnswering:8
+#: transformers.RoFormerForSequenceClassification:8
+#: transformers.RoFormerForTokenClassification:8 transformers.RoFormerModel:6
+#: transformers.TFRoFormerForCausalLM:30 transformers.TFRoFormerForMaskedLM:30
+#: transformers.TFRoFormerForMultipleChoice:32
+#: transformers.TFRoFormerForQuestionAnswering:32
+#: transformers.TFRoFormerForSequenceClassification:31
+#: transformers.TFRoFormerForTokenClassification:32
+#: transformers.TFRoFormerModel:30
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.RoFormerModel:12
+msgid ""
+"The model can behave as an encoder (with only self-attention) as well as "
+"a decoder, in which case a layer of cross-attention is added between the "
+"self-attention layers, following the architecture described in `Attention"
+" is all you need <https://arxiv.org/abs/1706.03762>`__ by Ashish Vaswani,"
+" Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez,"
+" Lukasz Kaiser and Illia Polosukhin."
+msgstr ""
+
+#: of transformers.RoFormerModel:17
+msgid ""
+"To behave as an decoder the model needs to be initialized with the "
+":obj:`is_decoder` argument of the configuration set to :obj:`True`. To be"
+" used in a Seq2Seq model, the model needs to initialized with both "
+":obj:`is_decoder` argument and :obj:`add_cross_attention` set to "
+":obj:`True`; an :obj:`encoder_hidden_states` is then expected as an input"
+" to the forward pass."
+msgstr ""
+
+#: of transformers.RoFormerModel.forward:1
+msgid ""
+"The :class:`~transformers.RoFormerModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:4
+#: transformers.RoFormerForMaskedLM.forward:4
+#: transformers.RoFormerForMultipleChoice.forward:4
+#: transformers.RoFormerForQuestionAnswering.forward:4
+#: transformers.RoFormerForSequenceClassification.forward:4
+#: transformers.RoFormerForTokenClassification.forward:4
+#: transformers.RoFormerModel.forward:4
+#: transformers.TFRoFormerForMaskedLM.call:4
+#: transformers.TFRoFormerForMultipleChoice.call:4
+#: transformers.TFRoFormerForQuestionAnswering.call:4
+#: transformers.TFRoFormerForSequenceClassification.call:4
+#: transformers.TFRoFormerForTokenClassification.call:4
+#: transformers.TFRoFormerModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:8
+#: transformers.RoFormerForMaskedLM.forward:8
+#: transformers.RoFormerForMultipleChoice.forward:8
+#: transformers.RoFormerForQuestionAnswering.forward:8
+#: transformers.RoFormerForSequenceClassification.forward:8
+#: transformers.RoFormerForTokenClassification.forward:8
+#: transformers.RoFormerModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`transformers.RoFormerTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:8
+#: transformers.RoFormerForMaskedLM.forward:8
+#: transformers.RoFormerForMultipleChoice.forward:8
+#: transformers.RoFormerForQuestionAnswering.forward:8
+#: transformers.RoFormerForSequenceClassification.forward:8
+#: transformers.RoFormerForTokenClassification.forward:8
+#: transformers.RoFormerModel.forward:8
+#: transformers.TFRoFormerForMaskedLM.call:8
+#: transformers.TFRoFormerForMultipleChoice.call:8
+#: transformers.TFRoFormerForQuestionAnswering.call:8
+#: transformers.TFRoFormerForSequenceClassification.call:8
+#: transformers.TFRoFormerForTokenClassification.call:8
+#: transformers.TFRoFormerModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:10
+#: transformers.RoFormerForMaskedLM.forward:10
+#: transformers.RoFormerForMultipleChoice.forward:10
+#: transformers.RoFormerForQuestionAnswering.forward:10
+#: transformers.RoFormerForSequenceClassification.forward:10
+#: transformers.RoFormerForTokenClassification.forward:10
+#: transformers.RoFormerModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`transformers.RoFormerTokenizer`. "
+"See :func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:14
+#: transformers.RoFormerForMaskedLM.forward:14
+#: transformers.RoFormerForMultipleChoice.forward:14
+#: transformers.RoFormerForQuestionAnswering.forward:14
+#: transformers.RoFormerForSequenceClassification.forward:14
+#: transformers.RoFormerForTokenClassification.forward:14
+#: transformers.RoFormerModel.forward:14
+#: transformers.TFRoFormerForMaskedLM.call:14
+#: transformers.TFRoFormerForMultipleChoice.call:14
+#: transformers.TFRoFormerForQuestionAnswering.call:14
+#: transformers.TFRoFormerForSequenceClassification.call:14
+#: transformers.TFRoFormerForTokenClassification.call:14
+#: transformers.TFRoFormerModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:16
+#: transformers.RoFormerForMaskedLM.forward:16
+#: transformers.RoFormerForMultipleChoice.forward:16
+#: transformers.RoFormerForQuestionAnswering.forward:16
+#: transformers.RoFormerForSequenceClassification.forward:16
+#: transformers.RoFormerForTokenClassification.forward:16
+#: transformers.RoFormerModel.forward:16
+#: transformers.TFRoFormerForMaskedLM.call:16
+#: transformers.TFRoFormerForMultipleChoice.call:16
+#: transformers.TFRoFormerForQuestionAnswering.call:16
+#: transformers.TFRoFormerForSequenceClassification.call:16
+#: transformers.TFRoFormerForTokenClassification.call:16
+#: transformers.TFRoFormerModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:16
+#: transformers.RoFormerForMaskedLM.forward:16
+#: transformers.RoFormerForMultipleChoice.forward:16
+#: transformers.RoFormerForQuestionAnswering.forward:16
+#: transformers.RoFormerForSequenceClassification.forward:16
+#: transformers.RoFormerForTokenClassification.forward:16
+#: transformers.RoFormerModel.forward:16
+#: transformers.TFRoFormerForMaskedLM.call:16
+#: transformers.TFRoFormerForMultipleChoice.call:16
+#: transformers.TFRoFormerForQuestionAnswering.call:16
+#: transformers.TFRoFormerForSequenceClassification.call:16
+#: transformers.TFRoFormerForTokenClassification.call:16
+#: transformers.TFRoFormerModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:18
+#: transformers.RoFormerForCausalLM.forward:54
+#: transformers.RoFormerForMaskedLM.forward:18
+#: transformers.RoFormerForMultipleChoice.forward:18
+#: transformers.RoFormerForQuestionAnswering.forward:18
+#: transformers.RoFormerForSequenceClassification.forward:18
+#: transformers.RoFormerForTokenClassification.forward:18
+#: transformers.RoFormerModel.forward:18 transformers.RoFormerModel.forward:54
+#: transformers.TFRoFormerForMaskedLM.call:18
+#: transformers.TFRoFormerForMultipleChoice.call:18
+#: transformers.TFRoFormerForQuestionAnswering.call:18
+#: transformers.TFRoFormerForSequenceClassification.call:18
+#: transformers.TFRoFormerForTokenClassification.call:18
+#: transformers.TFRoFormerModel.call:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:19
+#: transformers.RoFormerForCausalLM.forward:55
+#: transformers.RoFormerForMaskedLM.forward:19
+#: transformers.RoFormerForMultipleChoice.forward:19
+#: transformers.RoFormerForQuestionAnswering.forward:19
+#: transformers.RoFormerForSequenceClassification.forward:19
+#: transformers.RoFormerForTokenClassification.forward:19
+#: transformers.RoFormerModel.forward:19 transformers.RoFormerModel.forward:55
+#: transformers.TFRoFormerForMaskedLM.call:19
+#: transformers.TFRoFormerForMultipleChoice.call:19
+#: transformers.TFRoFormerForQuestionAnswering.call:19
+#: transformers.TFRoFormerForSequenceClassification.call:19
+#: transformers.TFRoFormerForTokenClassification.call:19
+#: transformers.TFRoFormerModel.call:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:21
+#: transformers.RoFormerForMaskedLM.forward:21
+#: transformers.RoFormerForMultipleChoice.forward:21
+#: transformers.RoFormerForQuestionAnswering.forward:21
+#: transformers.RoFormerForSequenceClassification.forward:21
+#: transformers.RoFormerForTokenClassification.forward:21
+#: transformers.RoFormerModel.forward:21
+#: transformers.TFRoFormerForMaskedLM.call:21
+#: transformers.TFRoFormerForMultipleChoice.call:21
+#: transformers.TFRoFormerForQuestionAnswering.call:21
+#: transformers.TFRoFormerForSequenceClassification.call:21
+#: transformers.TFRoFormerForTokenClassification.call:21
+#: transformers.TFRoFormerModel.call:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:23
+#: transformers.RoFormerForMaskedLM.forward:23
+#: transformers.RoFormerForMultipleChoice.forward:23
+#: transformers.RoFormerForQuestionAnswering.forward:23
+#: transformers.RoFormerForSequenceClassification.forward:23
+#: transformers.RoFormerForTokenClassification.forward:23
+#: transformers.RoFormerModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:23
+#: transformers.RoFormerForMaskedLM.forward:23
+#: transformers.RoFormerForMultipleChoice.forward:23
+#: transformers.RoFormerForQuestionAnswering.forward:23
+#: transformers.RoFormerForSequenceClassification.forward:23
+#: transformers.RoFormerForTokenClassification.forward:23
+#: transformers.RoFormerModel.forward:23
+#: transformers.TFRoFormerForMaskedLM.call:23
+#: transformers.TFRoFormerForMultipleChoice.call:23
+#: transformers.TFRoFormerForQuestionAnswering.call:23
+#: transformers.TFRoFormerForSequenceClassification.call:23
+#: transformers.TFRoFormerForTokenClassification.call:23
+#: transformers.TFRoFormerModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:26
+#: transformers.RoFormerForMaskedLM.forward:26
+#: transformers.RoFormerForMultipleChoice.forward:26
+#: transformers.RoFormerForQuestionAnswering.forward:26
+#: transformers.RoFormerForSequenceClassification.forward:26
+#: transformers.RoFormerForTokenClassification.forward:26
+#: transformers.RoFormerModel.forward:26
+#: transformers.TFRoFormerForMaskedLM.call:26
+#: transformers.TFRoFormerForMultipleChoice.call:26
+#: transformers.TFRoFormerForQuestionAnswering.call:26
+#: transformers.TFRoFormerForSequenceClassification.call:26
+#: transformers.TFRoFormerForTokenClassification.call:26
+#: transformers.TFRoFormerModel.call:26
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:27
+#: transformers.RoFormerForMaskedLM.forward:27
+#: transformers.RoFormerForMultipleChoice.forward:27
+#: transformers.RoFormerForQuestionAnswering.forward:27
+#: transformers.RoFormerForSequenceClassification.forward:27
+#: transformers.RoFormerForTokenClassification.forward:27
+#: transformers.RoFormerModel.forward:27
+#: transformers.TFRoFormerForMaskedLM.call:27
+#: transformers.TFRoFormerForMultipleChoice.call:27
+#: transformers.TFRoFormerForQuestionAnswering.call:27
+#: transformers.TFRoFormerForSequenceClassification.call:27
+#: transformers.TFRoFormerForTokenClassification.call:27
+#: transformers.TFRoFormerModel.call:27
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:29
+#: transformers.RoFormerForMaskedLM.forward:29
+#: transformers.RoFormerForMultipleChoice.forward:29
+#: transformers.RoFormerForQuestionAnswering.forward:29
+#: transformers.RoFormerForSequenceClassification.forward:29
+#: transformers.RoFormerForTokenClassification.forward:29
+#: transformers.RoFormerModel.forward:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:31
+#: transformers.RoFormerForMaskedLM.forward:31
+#: transformers.RoFormerForMultipleChoice.forward:31
+#: transformers.RoFormerForQuestionAnswering.forward:31
+#: transformers.RoFormerForSequenceClassification.forward:31
+#: transformers.RoFormerForTokenClassification.forward:31
+#: transformers.RoFormerModel.forward:31
+#: transformers.TFRoFormerForMaskedLM.call:31
+#: transformers.TFRoFormerForMultipleChoice.call:31
+#: transformers.TFRoFormerForQuestionAnswering.call:31
+#: transformers.TFRoFormerForSequenceClassification.call:31
+#: transformers.TFRoFormerForTokenClassification.call:31
+#: transformers.TFRoFormerModel.call:31
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:31
+#: transformers.RoFormerForMaskedLM.forward:31
+#: transformers.RoFormerForMultipleChoice.forward:31
+#: transformers.RoFormerForQuestionAnswering.forward:31
+#: transformers.RoFormerForSequenceClassification.forward:31
+#: transformers.RoFormerForTokenClassification.forward:31
+#: transformers.RoFormerModel.forward:31
+#: transformers.TFRoFormerForMaskedLM.call:31
+#: transformers.TFRoFormerForMultipleChoice.call:31
+#: transformers.TFRoFormerForQuestionAnswering.call:31
+#: transformers.TFRoFormerForSequenceClassification.call:31
+#: transformers.TFRoFormerForTokenClassification.call:31
+#: transformers.TFRoFormerModel.call:31
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:33
+#: transformers.RoFormerForMaskedLM.forward:33
+#: transformers.RoFormerForMultipleChoice.forward:33
+#: transformers.RoFormerForQuestionAnswering.forward:33
+#: transformers.RoFormerForSequenceClassification.forward:33
+#: transformers.RoFormerForTokenClassification.forward:33
+#: transformers.RoFormerModel.forward:33
+#: transformers.TFRoFormerForMaskedLM.call:33
+#: transformers.TFRoFormerForMultipleChoice.call:33
+#: transformers.TFRoFormerForQuestionAnswering.call:33
+#: transformers.TFRoFormerForSequenceClassification.call:33
+#: transformers.TFRoFormerForTokenClassification.call:33
+#: transformers.TFRoFormerModel.call:33
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:34
+#: transformers.RoFormerForMaskedLM.forward:34
+#: transformers.RoFormerForMultipleChoice.forward:34
+#: transformers.RoFormerForQuestionAnswering.forward:34
+#: transformers.RoFormerForSequenceClassification.forward:34
+#: transformers.RoFormerForTokenClassification.forward:34
+#: transformers.RoFormerModel.forward:34
+#: transformers.TFRoFormerForMaskedLM.call:34
+#: transformers.TFRoFormerForMultipleChoice.call:34
+#: transformers.TFRoFormerForQuestionAnswering.call:34
+#: transformers.TFRoFormerForSequenceClassification.call:34
+#: transformers.TFRoFormerForTokenClassification.call:34
+#: transformers.TFRoFormerModel.call:34
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:36
+#: transformers.RoFormerForMaskedLM.forward:36
+#: transformers.RoFormerForMultipleChoice.forward:36
+#: transformers.RoFormerForQuestionAnswering.forward:36
+#: transformers.RoFormerForSequenceClassification.forward:36
+#: transformers.RoFormerForTokenClassification.forward:36
+#: transformers.RoFormerModel.forward:36
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert `input_ids` indices into associated vectors "
+"than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:40
+#: transformers.RoFormerForMaskedLM.forward:40
+#: transformers.RoFormerForMultipleChoice.forward:40
+#: transformers.RoFormerForQuestionAnswering.forward:40
+#: transformers.RoFormerForSequenceClassification.forward:40
+#: transformers.RoFormerForTokenClassification.forward:40
+#: transformers.RoFormerModel.forward:40
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:43
+#: transformers.RoFormerForMaskedLM.forward:43
+#: transformers.RoFormerForMultipleChoice.forward:43
+#: transformers.RoFormerForQuestionAnswering.forward:43
+#: transformers.RoFormerForSequenceClassification.forward:43
+#: transformers.RoFormerForTokenClassification.forward:43
+#: transformers.RoFormerModel.forward:43
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:46
+#: transformers.RoFormerForMaskedLM.forward:46
+#: transformers.RoFormerForMultipleChoice.forward:46
+#: transformers.RoFormerForQuestionAnswering.forward:46
+#: transformers.RoFormerForSequenceClassification.forward:46
+#: transformers.RoFormerForTokenClassification.forward:46
+#: transformers.RoFormerModel.forward:46
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:48
+#: transformers.RoFormerModel.forward:48
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the encoder."
+" Used in the cross-attention if the model is configured as a decoder."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:51
+#: transformers.RoFormerModel.forward:51
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:  - 1 for "
+"tokens that are **not masked**, - 0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:51
+#: transformers.RoFormerModel.forward:51
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:57
+#: transformers.RoFormerModel.forward:57
+msgid ""
+"Contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding. If :obj:`past_key_values` are used, "
+"the user can optionally input only the last :obj:`decoder_input_ids` "
+"(those that don't have their past key value states given to this model) "
+"of shape :obj:`(batch_size, 1)` instead of all :obj:`decoder_input_ids` "
+"of shape :obj:`(batch_size, sequence_length)`."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:66
+#: transformers.RoFormerModel.forward:62
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.RoFormerModel.forward:66
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RoFormerConfig`) "
+"and inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model.    If "
+":obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size,   1, hidden_size)` is output. - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and optionally if   "
+"``config.is_encoder_decoder=True`` 2 additional tensors of shape "
+":obj:`(batch_size, num_heads,   encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and optionally if   "
+"``config.is_encoder_decoder=True`` in the cross-attention blocks) that "
+"can be used (see   :obj:`past_key_values` input) to speed up sequential "
+"decoding. - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` and ``config.add_cross_attention=True`` is "
+"passed or when ``config.output_attentions=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for each layer) of shape :obj:`(batch_size,"
+" num_heads,   sequence_length, sequence_length)`.    Attentions weights "
+"of the decoder's cross-attention layer, after the attention softmax, used"
+" to compute the   weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.RoFormerModel.forward:66
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RoFormerConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.RoFormerModel.forward:70
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.RoFormerModel.forward:72
+msgid ""
+"If :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size, 1, hidden_size)` is output."
+msgstr ""
+
+#: of transformers.RoFormerModel.forward:74
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) "
+"and optionally if ``config.is_encoder_decoder=True`` 2 additional tensors"
+" of shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.RoFormerModel.forward:79
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and optionally if ``config.is_encoder_decoder=True`` in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:76
+#: transformers.RoFormerForMaskedLM.forward:59
+#: transformers.RoFormerForMultipleChoice.forward:61
+#: transformers.RoFormerForQuestionAnswering.forward:64
+#: transformers.RoFormerForSequenceClassification.forward:59
+#: transformers.RoFormerForTokenClassification.forward:58
+#: transformers.RoFormerModel.forward:82
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:79
+#: transformers.RoFormerForMaskedLM.forward:62
+#: transformers.RoFormerForMultipleChoice.forward:64
+#: transformers.RoFormerForQuestionAnswering.forward:67
+#: transformers.RoFormerForSequenceClassification.forward:62
+#: transformers.RoFormerForTokenClassification.forward:61
+#: transformers.RoFormerModel.forward:85
+#: transformers.TFRoFormerForCausalLM.call:14
+#: transformers.TFRoFormerForMaskedLM.call:68
+#: transformers.TFRoFormerForMultipleChoice.call:70
+#: transformers.TFRoFormerForQuestionAnswering.call:73
+#: transformers.TFRoFormerForSequenceClassification.call:68
+#: transformers.TFRoFormerForTokenClassification.call:67
+#: transformers.TFRoFormerModel.call:69
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:80
+#: transformers.RoFormerForMaskedLM.forward:63
+#: transformers.RoFormerForMultipleChoice.forward:65
+#: transformers.RoFormerForQuestionAnswering.forward:68
+#: transformers.RoFormerForSequenceClassification.forward:63
+#: transformers.RoFormerForTokenClassification.forward:62
+#: transformers.RoFormerModel.forward:86
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:83
+#: transformers.RoFormerForMaskedLM.forward:66
+#: transformers.RoFormerForMultipleChoice.forward:68
+#: transformers.RoFormerForQuestionAnswering.forward:71
+#: transformers.RoFormerForSequenceClassification.forward:66
+#: transformers.RoFormerForTokenClassification.forward:65
+#: transformers.RoFormerModel.forward:89
+#: transformers.TFRoFormerForCausalLM.call:18
+#: transformers.TFRoFormerForMaskedLM.call:72
+#: transformers.TFRoFormerForMultipleChoice.call:74
+#: transformers.TFRoFormerForQuestionAnswering.call:77
+#: transformers.TFRoFormerForSequenceClassification.call:72
+#: transformers.TFRoFormerForTokenClassification.call:71
+#: transformers.TFRoFormerModel.call:73
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.RoFormerModel.forward:91
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` and "
+"``config.add_cross_attention=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.RoFormerModel.forward:94
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.RoFormerModel.forward:96
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:74
+msgid "RoFormerForCausalLM"
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM:1
+msgid ""
+"RoFormer Model with a `language modeling` head on top for CLM fine-"
+"tuning. This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:1
+msgid ""
+"The :class:`~transformers.RoFormerForCausalLM` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:62
+msgid ""
+"Labels for computing the left-to-right language modeling loss (next word "
+"prediction). Indices should be in ``[-100, 0, ..., config.vocab_size]`` "
+"(see ``input_ids`` docstring) Tokens with indices set to ``-100`` are "
+"ignored (masked), the loss is only computed for the tokens with labels n "
+"``[0, ..., config.vocab_size]``."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:70
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RoFormerConfig`) "
+"and inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Language modeling"
+" loss (for next-token prediction). - **logits** (:obj:`torch.FloatTensor`"
+" of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Cross attentions weights after the"
+" attention softmax, used to compute the weighted average in the   cross-"
+"attention heads. - **past_key_values** "
+"(:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`torch.FloatTensor` tuples of length :obj:`config.n_layers`, with"
+" each tuple containing the   cached key, value states of the self-"
+"attention and the cross-attention layers if model is used in   encoder-"
+"decoder setting. Only relevant if ``config.is_decoder = True``.    "
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see   :obj:`past_key_values` input) to speed up"
+" sequential decoding.   Example::      >>> from transformers import "
+"RoFormerTokenizer, RoFormerForCausalLM, RoFormerConfig     >>> import "
+"torch      >>> tokenizer = "
+"RoFormerTokenizer.from_pretrained('junnyu/roformer_chinese_base')     >>>"
+" config = "
+"RoFormerConfig.from_pretrained(\"junnyu/roformer_chinese_base\")     >>> "
+"config.is_decoder = True     >>> model = "
+"RoFormerForCausalLM.from_pretrained('junnyu/roformer_chinese_base', "
+"config=config)      >>> inputs = tokenizer(\"今天天气非常好。\", "
+"return_tensors=\"pt\")     >>> outputs = model(**inputs)      >>> "
+"prediction_logits = outputs.logits"
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:70
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RoFormerConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:74
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss (for "
+"next-token prediction)."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:75
+#: transformers.RoFormerForMaskedLM.forward:58
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:85
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:88
+msgid ""
+"Cross attentions weights after the attention softmax, used to compute the"
+" weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:90
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`torch.FloatTensor` tuples of"
+" length :obj:`config.n_layers`, with each tuple containing the cached "
+"key, value states of the self-attention and the cross-attention layers if"
+" model is used in encoder-decoder setting. Only relevant if "
+"``config.is_decoder = True``."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:94
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.RoFormerForCausalLM.forward:112
+msgid ""
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:81
+msgid "RoFormerForMaskedLM"
+msgstr ""
+
+#: of transformers.RoFormerForMaskedLM:1
+msgid ""
+"RoFormer Model with a `language modeling` head on top. This model is a "
+"PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.RoFormerForMaskedLM.forward:1
+msgid ""
+"The :class:`~transformers.RoFormerForMaskedLM` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RoFormerForMaskedLM.forward:48
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``."
+msgstr ""
+
+#: of transformers.RoFormerForMaskedLM.forward:53
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RoFormerConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.RoFormerForMaskedLM.forward:53
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+msgstr ""
+
+#: of transformers.RoFormerForMaskedLM.forward:57
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.RoFormerForMaskedLM.forward:68
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:88
+msgid "RoFormerForSequenceClassification"
+msgstr ""
+
+#: of transformers.RoFormerForSequenceClassification:1
+msgid ""
+"RoFormer Model transformer with a sequence classification/regression head"
+" on top (a linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.RoFormerForMultipleChoice:4
+#: transformers.RoFormerForQuestionAnswering:4
+#: transformers.RoFormerForSequenceClassification:4
+#: transformers.RoFormerForTokenClassification:4
+msgid ""
+"This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.RoFormerForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.RoFormerForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RoFormerForSequenceClassification.forward:48
+#: transformers.TFRoFormerForSequenceClassification.call:54
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.RoFormerForSequenceClassification.forward:53
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+"  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.RoFormerForSequenceClassification.forward:53
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+msgstr ""
+
+#: of transformers.RoFormerForSequenceClassification.forward:57
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.RoFormerForSequenceClassification.forward:58
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.RoFormerForSequenceClassification.forward:68
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:95
+msgid "RoFormerForMultipleChoice"
+msgstr ""
+
+#: of transformers.RoFormerForMultipleChoice:1
+#: transformers.TFRoFormerForMultipleChoice:1
+msgid ""
+"RoFormer Model with a multiple choice classification head on top (a "
+"linear layer on top of the pooled output and a softmax) e.g. for "
+"RocStories/SWAG tasks."
+msgstr ""
+
+#: of transformers.RoFormerForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.RoFormerForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RoFormerForMultipleChoice.forward:48
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.RoFormerForMultipleChoice.forward:53
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+"  - **loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.RoFormerForMultipleChoice.forward:53
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+msgstr ""
+
+#: of transformers.RoFormerForMultipleChoice.forward:57
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.RoFormerForMultipleChoice.forward:58
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.RoFormerForMultipleChoice.forward:60
+#: transformers.TFRoFormerForMultipleChoice.call:66
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.RoFormerForMultipleChoice.forward:70
+msgid ""
+":class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:102
+msgid "RoFormerForTokenClassification"
+msgstr ""
+
+#: of transformers.RoFormerForTokenClassification:1
+#: transformers.TFRoFormerForTokenClassification:1
+msgid ""
+"RoFormer Model with a token classification head on top (a linear layer on"
+" top of the hidden-states output) e.g. for Named-Entity-Recognition (NER)"
+" tasks."
+msgstr ""
+
+#: of transformers.RoFormerForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.RoFormerForTokenClassification` forward method,"
+" overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RoFormerForTokenClassification.forward:48
+#: transformers.TFRoFormerForTokenClassification.call:54
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.RoFormerForTokenClassification.forward:52
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+"  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.RoFormerForTokenClassification.forward:52
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+msgstr ""
+
+#: of transformers.RoFormerForTokenClassification.forward:56
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.RoFormerForTokenClassification.forward:57
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.RoFormerForTokenClassification.forward:67
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:109
+msgid "RoFormerForQuestionAnswering"
+msgstr ""
+
+#: of transformers.RoFormerForQuestionAnswering:1
+msgid ""
+"RoFormer Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.RoFormerForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.RoFormerForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RoFormerForQuestionAnswering.forward:48
+#: transformers.TFRoFormerForQuestionAnswering.call:54
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.RoFormerForQuestionAnswering.forward:52
+#: transformers.TFRoFormerForQuestionAnswering.call:58
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.RoFormerForQuestionAnswering.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RoFormerConfig`) "
+"and inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.RoFormerForQuestionAnswering.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RoFormerConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.RoFormerForQuestionAnswering.forward:61
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.RoFormerForQuestionAnswering.forward:62
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.RoFormerForQuestionAnswering.forward:63
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.RoFormerForQuestionAnswering.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:116
+msgid "TFRoFormerModel"
+msgstr ""
+
+#: of transformers.TFRoFormerModel:1
+msgid ""
+"The bare RoFormer Model transformer outputing raw hidden-states without "
+"any specific head on top."
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM:3 transformers.TFRoFormerForMaskedLM:3
+#: transformers.TFRoFormerForMultipleChoice:5
+#: transformers.TFRoFormerForQuestionAnswering:5
+#: transformers.TFRoFormerForSequenceClassification:4
+#: transformers.TFRoFormerForTokenClassification:5
+#: transformers.TFRoFormerModel:3
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM:7 transformers.TFRoFormerForMaskedLM:7
+#: transformers.TFRoFormerForMultipleChoice:9
+#: transformers.TFRoFormerForQuestionAnswering:9
+#: transformers.TFRoFormerForSequenceClassification:8
+#: transformers.TFRoFormerForTokenClassification:9
+#: transformers.TFRoFormerModel:7
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM:13
+#: transformers.TFRoFormerForMaskedLM:13
+#: transformers.TFRoFormerForMultipleChoice:15
+#: transformers.TFRoFormerForQuestionAnswering:15
+#: transformers.TFRoFormerForSequenceClassification:14
+#: transformers.TFRoFormerForTokenClassification:15
+#: transformers.TFRoFormerModel:13
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM:15
+#: transformers.TFRoFormerForMaskedLM:15
+#: transformers.TFRoFormerForMultipleChoice:17
+#: transformers.TFRoFormerForQuestionAnswering:17
+#: transformers.TFRoFormerForSequenceClassification:16
+#: transformers.TFRoFormerForTokenClassification:17
+#: transformers.TFRoFormerModel:15
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM:16
+#: transformers.TFRoFormerForMaskedLM:16
+#: transformers.TFRoFormerForMultipleChoice:18
+#: transformers.TFRoFormerForQuestionAnswering:18
+#: transformers.TFRoFormerForSequenceClassification:17
+#: transformers.TFRoFormerForTokenClassification:18
+#: transformers.TFRoFormerModel:16
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM:18
+#: transformers.TFRoFormerForMaskedLM:18
+#: transformers.TFRoFormerForMultipleChoice:20
+#: transformers.TFRoFormerForQuestionAnswering:20
+#: transformers.TFRoFormerForSequenceClassification:19
+#: transformers.TFRoFormerForTokenClassification:20
+#: transformers.TFRoFormerModel:18
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM:21
+#: transformers.TFRoFormerForMaskedLM:21
+#: transformers.TFRoFormerForMultipleChoice:23
+#: transformers.TFRoFormerForQuestionAnswering:23
+#: transformers.TFRoFormerForSequenceClassification:22
+#: transformers.TFRoFormerForTokenClassification:23
+#: transformers.TFRoFormerModel:21
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM:24
+#: transformers.TFRoFormerForMaskedLM:24
+#: transformers.TFRoFormerForMultipleChoice:26
+#: transformers.TFRoFormerForQuestionAnswering:26
+#: transformers.TFRoFormerForSequenceClassification:25
+#: transformers.TFRoFormerForTokenClassification:26
+#: transformers.TFRoFormerModel:24
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM:25
+#: transformers.TFRoFormerForMaskedLM:25
+#: transformers.TFRoFormerForMultipleChoice:27
+#: transformers.TFRoFormerForQuestionAnswering:27
+#: transformers.TFRoFormerForSequenceClassification:26
+#: transformers.TFRoFormerForTokenClassification:27
+#: transformers.TFRoFormerModel:25
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM:27
+#: transformers.TFRoFormerForMaskedLM:27
+#: transformers.TFRoFormerForMultipleChoice:29
+#: transformers.TFRoFormerForQuestionAnswering:29
+#: transformers.TFRoFormerForSequenceClassification:28
+#: transformers.TFRoFormerForTokenClassification:29
+#: transformers.TFRoFormerModel:27
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFRoFormerModel.call:1
+msgid ""
+"The :class:`~transformers.TFRoFormerModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM.call:8
+#: transformers.TFRoFormerForMultipleChoice.call:8
+#: transformers.TFRoFormerForQuestionAnswering.call:8
+#: transformers.TFRoFormerForSequenceClassification.call:8
+#: transformers.TFRoFormerForTokenClassification.call:8
+#: transformers.TFRoFormerModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.RoFormerTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM.call:10
+#: transformers.TFRoFormerForMultipleChoice.call:10
+#: transformers.TFRoFormerForQuestionAnswering.call:10
+#: transformers.TFRoFormerForSequenceClassification.call:10
+#: transformers.TFRoFormerForTokenClassification.call:10
+#: transformers.TFRoFormerModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.RoFormerTokenizer`. "
+"See :func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM.call:23
+#: transformers.TFRoFormerForMultipleChoice.call:23
+#: transformers.TFRoFormerForQuestionAnswering.call:23
+#: transformers.TFRoFormerForSequenceClassification.call:23
+#: transformers.TFRoFormerForTokenClassification.call:23
+#: transformers.TFRoFormerModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM.call:29
+#: transformers.TFRoFormerForMultipleChoice.call:29
+#: transformers.TFRoFormerForQuestionAnswering.call:29
+#: transformers.TFRoFormerForSequenceClassification.call:29
+#: transformers.TFRoFormerForTokenClassification.call:29
+#: transformers.TFRoFormerModel.call:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM.call:36
+#: transformers.TFRoFormerForMultipleChoice.call:36
+#: transformers.TFRoFormerForQuestionAnswering.call:36
+#: transformers.TFRoFormerForSequenceClassification.call:36
+#: transformers.TFRoFormerForTokenClassification.call:36
+#: transformers.TFRoFormerModel.call:36
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM.call:40
+#: transformers.TFRoFormerForMultipleChoice.call:40
+#: transformers.TFRoFormerForQuestionAnswering.call:40
+#: transformers.TFRoFormerForSequenceClassification.call:40
+#: transformers.TFRoFormerForTokenClassification.call:40
+#: transformers.TFRoFormerModel.call:40
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM.call:44
+#: transformers.TFRoFormerForMultipleChoice.call:44
+#: transformers.TFRoFormerForQuestionAnswering.call:44
+#: transformers.TFRoFormerForSequenceClassification.call:44
+#: transformers.TFRoFormerForTokenClassification.call:44
+#: transformers.TFRoFormerModel.call:44
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM.call:48
+#: transformers.TFRoFormerForMultipleChoice.call:48
+#: transformers.TFRoFormerForQuestionAnswering.call:48
+#: transformers.TFRoFormerForSequenceClassification.call:48
+#: transformers.TFRoFormerForTokenClassification.call:48
+#: transformers.TFRoFormerModel.call:48
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM.call:51
+#: transformers.TFRoFormerForMultipleChoice.call:51
+#: transformers.TFRoFormerForQuestionAnswering.call:51
+#: transformers.TFRoFormerForSequenceClassification.call:51
+#: transformers.TFRoFormerForTokenClassification.call:51
+#: transformers.TFRoFormerModel.call:51
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFRoFormerModel.call:55
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+"  - **last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **pooler_output** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, hidden_size)`) -- Last "
+"layer hidden-state of the first token of the sequence (classification "
+"token) further processed by a   Linear layer and a Tanh activation "
+"function. The Linear layer weights are trained from the next sentence   "
+"prediction (classification) objective during pretraining.    This output "
+"is usually *not* a good summary of the semantic content of the input, "
+"you're often better with   averaging or pooling the sequence of hidden-"
+"states for the whole input sequence. - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRoFormerModel.call:55
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRoFormerModel.call:59
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.TFRoFormerModel.call:60
+msgid ""
+"**pooler_output** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.TFRoFormerModel.call:64
+msgid ""
+"This output is usually *not* a good summary of the semantic content of "
+"the input, you're often better with averaging or pooling the sequence of "
+"hidden-states for the whole input sequence."
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM.call:11
+#: transformers.TFRoFormerForMaskedLM.call:65
+#: transformers.TFRoFormerForMultipleChoice.call:67
+#: transformers.TFRoFormerForQuestionAnswering.call:70
+#: transformers.TFRoFormerForSequenceClassification.call:65
+#: transformers.TFRoFormerForTokenClassification.call:64
+#: transformers.TFRoFormerModel.call:66
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM.call:15
+#: transformers.TFRoFormerForMaskedLM.call:69
+#: transformers.TFRoFormerForMultipleChoice.call:71
+#: transformers.TFRoFormerForQuestionAnswering.call:74
+#: transformers.TFRoFormerForSequenceClassification.call:69
+#: transformers.TFRoFormerForTokenClassification.call:68
+#: transformers.TFRoFormerModel.call:70
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFRoFormerModel.call:75
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling` "
+"or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:123
+msgid "TFRoFormerForMaskedLM"
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM:1
+msgid "RoFormer Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM.call:1
+msgid ""
+"The :class:`~transformers.TFRoFormerForMaskedLM` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM.call:54
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM.call:59
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RoFormerConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss. - **logits** (:obj:`tf.Tensor` "
+"of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM.call:59
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM.call:63
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss."
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM.call:10
+#: transformers.TFRoFormerForMaskedLM.call:64
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFRoFormerForMaskedLM.call:74
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:130
+msgid "TFRoFormerForCausalLM"
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM:1
+msgid "RoFormer Model with a `language modeling` head on top for CLM fine-tuning."
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM.call:3
+msgid ""
+"labels (:obj:`tf.Tensor` or :obj:`np.ndarray` of shape :obj:`(batch_size,"
+" sequence_length)`, `optional`):"
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM.call:2
+msgid ""
+"Labels for computing the cross entropy classification loss. Indices "
+"should be in ``[0, ..., config.vocab_size - 1]``."
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM.call:5
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFCausalLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RoFormerConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Language modeling loss (for next-token prediction). - **logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length, "
+"config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM.call:5
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFCausalLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM.call:9
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Language modeling loss (for next-token prediction)."
+msgstr ""
+
+#: of transformers.TFRoFormerForCausalLM.call:20
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFCausalLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:137
+msgid "TFRoFormerForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFRoFormerForSequenceClassification:1
+msgid ""
+"RoFormer Model transformer with a sequence classification/regression head"
+" on top e.g., for GLUE tasks."
+msgstr ""
+
+#: of transformers.TFRoFormerForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFRoFormerForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRoFormerForSequenceClassification.call:59
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+"  - **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"(or regression if config.num_labels==1) loss. - **logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, config.num_labels)`) -- "
+"Classification (or regression if config.num_labels==1) scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRoFormerForSequenceClassification.call:59
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRoFormerForSequenceClassification.call:63
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFRoFormerForSequenceClassification.call:64
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFRoFormerForSequenceClassification.call:74
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:144
+msgid "TFRoFormerForMultipleChoice"
+msgstr ""
+
+#: of transformers.TFRoFormerForMultipleChoice.call:1
+msgid ""
+"The :class:`~transformers.TFRoFormerForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRoFormerForMultipleChoice.call:54
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.TFRoFormerForMultipleChoice.call:59
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+"  - **loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss. - "
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRoFormerForMultipleChoice.call:59
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRoFormerForMultipleChoice.call:63
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.TFRoFormerForMultipleChoice.call:64
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.TFRoFormerForMultipleChoice.call:76
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` or"
+" :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:151
+msgid "TFRoFormerForTokenClassification"
+msgstr ""
+
+#: of transformers.TFRoFormerForTokenClassification.call:1
+msgid ""
+"The :class:`~transformers.TFRoFormerForTokenClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRoFormerForTokenClassification.call:58
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RoFormerConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, config.num_labels)`) -- "
+"Classification scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRoFormerForTokenClassification.call:58
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRoFormerForTokenClassification.call:62
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss."
+msgstr ""
+
+#: of transformers.TFRoFormerForTokenClassification.call:63
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.num_labels)`) -- Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFRoFormerForTokenClassification.call:73
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roformer.rst:158
+msgid "TFRoFormerForQuestionAnswering"
+msgstr ""
+
+#: of transformers.TFRoFormerForQuestionAnswering:1
+msgid ""
+"RoFormer Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layer on top of the hidden-"
+"states output to compute `span start logits` and `span end logits`)."
+msgstr ""
+
+#: of transformers.TFRoFormerForQuestionAnswering.call:1
+msgid ""
+"The :class:`~transformers.TFRoFormerForQuestionAnswering` forward method,"
+" overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRoFormerForQuestionAnswering.call:63
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+"  - **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, "
+"`optional`, returned when :obj:`start_positions` and :obj:`end_positions`"
+" are provided) -- Total span extraction loss is the sum of a Cross-"
+"Entropy for the start and end positions. - **start_logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length)`) -- Span-"
+"start scores (before SoftMax). - **end_logits** (:obj:`tf.Tensor` of "
+"shape :obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRoFormerForQuestionAnswering.call:63
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RoFormerConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRoFormerForQuestionAnswering.call:67
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions."
+msgstr ""
+
+#: of transformers.TFRoFormerForQuestionAnswering.call:68
+msgid ""
+"**start_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFRoFormerForQuestionAnswering.call:69
+msgid ""
+"**end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFRoFormerForQuestionAnswering.call:79
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+

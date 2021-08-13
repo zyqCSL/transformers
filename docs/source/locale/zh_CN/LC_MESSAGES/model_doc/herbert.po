@@ -1,0 +1,262 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/herbert.rst:14
+msgid "herBERT"
+msgstr ""
+
+#: ../../source/model_doc/herbert.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/herbert.rst:19
+msgid ""
+"The herBERT model was proposed in `KLEJ: Comprehensive Benchmark for "
+"Polish Language Understanding <https://www.aclweb.org/anthology/2020.acl-"
+"main.111.pdf>`__ by Piotr Rybak, Robert Mroczkowski, Janusz Tracz, and "
+"Ireneusz Gawlik. It is a BERT-based Language Model trained on Polish "
+"Corpora using only MLM objective with dynamic masking of whole words."
+msgstr ""
+
+#: ../../source/model_doc/herbert.rst:24
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/herbert.rst:26
+msgid ""
+"*In recent years, a series of Transformer-based models unlocked major "
+"improvements in general natural language understanding (NLU) tasks. Such "
+"a fast pace of research would not be possible without general NLU "
+"benchmarks, which allow for a fair comparison of the proposed methods. "
+"However, such benchmarks are available only for a handful of languages. "
+"To alleviate this issue, we introduce a comprehensive multi-task "
+"benchmark for the Polish language understanding, accompanied by an online"
+" leaderboard. It consists of a diverse set of tasks, adopted from "
+"existing datasets for named entity recognition, question-answering, "
+"textual entailment, and others. We also introduce a new sentiment "
+"analysis task for the e-commerce domain, named Allegro Reviews (AR). To "
+"ensure a common evaluation scheme and promote models that generalize to "
+"different NLU tasks, the benchmark includes datasets from varying domains"
+" and applications. Additionally, we release HerBERT, a Transformer-based "
+"model trained specifically for the Polish language, which has the best "
+"average performance and obtains the best results for three out of nine "
+"tasks. Finally, we provide an extensive evaluation, including several "
+"standard baselines and recently proposed, multilingual Transformer-based "
+"models.*"
+msgstr ""
+
+#: ../../source/model_doc/herbert.rst:39
+msgid "Examples of use:"
+msgstr ""
+
+#: ../../source/model_doc/herbert.rst:59
+msgid ""
+"This model was contributed by `rmroczkowski "
+"<https://huggingface.co/rmroczkowski>`__. The original code can be found "
+"`here <https://github.com/allegro/HerBERT>`__."
+msgstr ""
+
+#: ../../source/model_doc/herbert.rst:64
+msgid "HerbertTokenizer"
+msgstr ""
+
+#: of transformers.HerbertTokenizer:1
+msgid "Construct a BPE tokenizer for HerBERT."
+msgstr ""
+
+#: of transformers.HerbertTokenizer:3 transformers.HerbertTokenizerFast:3
+msgid "Peculiarities:"
+msgstr ""
+
+#: of transformers.HerbertTokenizer:5
+msgid ""
+"uses BERT's pre-tokenizer: BaseTokenizer splits tokens on spaces, and "
+"also on punctuation. Each occurrence of a punctuation character will be "
+"treated separately."
+msgstr ""
+
+#: of transformers.HerbertTokenizer:8
+msgid "Such pretokenized input is BPE subtokenized"
+msgstr ""
+
+#: of transformers.HerbertTokenizer:10
+msgid ""
+"This tokenizer inherits from :class:`~transformers.XLMTokenizer` which "
+"contains most of the methods. Users should refer to the superclass for "
+"more information regarding methods."
+msgstr ""
+
+#: ../../source/model_doc/herbert.rst:70
+msgid "HerbertTokenizerFast"
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast:1
+msgid ""
+"Construct a \"Fast\" BPE tokenizer for HerBERT (backed by HuggingFace's "
+"`tokenizers` library)."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast:5
+msgid ""
+"uses BERT's pre-tokenizer: BertPreTokenizer splits tokens on spaces, and "
+"also on punctuation. Each occurrence of a punctuation character will be "
+"treated separately."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast:8
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the methods. Users should refer to the superclass "
+"for more information regarding methods."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast
+#: transformers.HerbertTokenizerFast.build_inputs_with_special_tokens
+#: transformers.HerbertTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.HerbertTokenizerFast.get_special_tokens_mask
+#: transformers.HerbertTokenizerFast.save_vocabulary
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast:11
+msgid "Path to the vocabulary file."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast:13
+msgid "Path to the merges file."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. An "
+"HerBERT, like BERT sequence has the following format:"
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.build_inputs_with_special_tokens:4
+msgid "single sequence: ``<s> X </s>``"
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.build_inputs_with_special_tokens:5
+msgid "pair of sequences: ``<s> A </s> B </s>``"
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.build_inputs_with_special_tokens:9
+#: transformers.HerbertTokenizerFast.create_token_type_ids_from_sequences:11
+#: transformers.HerbertTokenizerFast.get_special_tokens_mask:6
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.build_inputs_with_special_tokens
+#: transformers.HerbertTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.HerbertTokenizerFast.get_special_tokens_mask
+#: transformers.HerbertTokenizerFast.save_vocabulary
+msgid "Returns"
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.build_inputs_with_special_tokens
+#: transformers.HerbertTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.HerbertTokenizerFast.get_special_tokens_mask
+#: transformers.HerbertTokenizerFast.save_vocabulary
+msgid "Return type"
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.build_inputs_with_special_tokens:13
+#: transformers.HerbertTokenizerFast.create_token_type_ids_from_sequences:16
+#: transformers.HerbertTokenizerFast.get_special_tokens_mask:12
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. HerBERT, like BERT sequence pair mask has the "
+"following format:"
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.create_token_type_ids_from_sequences:9
+#: transformers.HerbertTokenizerFast.get_special_tokens_mask:4
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.create_token_type_ids_from_sequences:14
+msgid ""
+"List of `token type IDs <../glossary.html#token-type-ids>`_ according to "
+"the given sequence(s)."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.HerbertTokenizerFast.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+

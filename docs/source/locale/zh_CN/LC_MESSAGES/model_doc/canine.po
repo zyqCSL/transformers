@@ -1,0 +1,1233 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/canine.rst:14
+msgid "CANINE"
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:19
+msgid ""
+"The CANINE model was proposed in `CANINE: Pre-training an Efficient "
+"Tokenization-Free Encoder for Language Representation "
+"<https://arxiv.org/abs/2103.06874>`__ by Jonathan H. Clark, Dan Garrette,"
+" Iulia Turc, John Wieting. It's among the first papers that trains a "
+"Transformer without using an explicit tokenization step (such as Byte "
+"Pair Encoding (BPE), WordPiece or SentencePiece). Instead, the model is "
+"trained directly at a Unicode character-level. Training at a character-"
+"level inevitably comes with a longer sequence length, which CANINE solves"
+" with an efficient downsampling strategy, before applying a deep "
+"Transformer encoder."
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:26
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:28
+#, python-format
+msgid ""
+"*Pipelined NLP systems have largely been superseded by end-to-end neural "
+"modeling, yet nearly all commonly-used models still require an explicit "
+"tokenization step. While recent tokenization approaches based on data-"
+"derived subword lexicons are less brittle than manually engineered "
+"tokenizers, these techniques are not equally suited to all languages, and"
+" the use of any fixed vocabulary may limit a model's ability to adapt. In"
+" this paper, we present CANINE, a neural encoder that operates directly "
+"on character sequences, without explicit tokenization or vocabulary, and "
+"a pre-training strategy that operates either directly on characters or "
+"optionally uses subwords as a soft inductive bias. To use its finer-"
+"grained input effectively and efficiently, CANINE combines downsampling, "
+"which reduces the input sequence length, with a deep transformer stack, "
+"which encodes context. CANINE outperforms a comparable mBERT model by 2.8"
+" F1 on TyDi QA, a challenging multilingual benchmark, despite having 28% "
+"fewer model parameters.*"
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:38
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:40
+msgid ""
+"CANINE uses no less than 3 Transformer encoders internally: 2 \"shallow\""
+" encoders (which only consist of a single layer) and 1 \"deep\" encoder "
+"(which is a regular BERT encoder). First, a \"shallow\" encoder is used "
+"to contextualize the character embeddings, using local attention. Next, "
+"after downsampling, a \"deep\" encoder is applied. Finally, after "
+"upsampling, a \"shallow\" encoder is used to create the final character "
+"embeddings. Details regarding up- and downsampling can be found in the "
+"paper."
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:45
+msgid ""
+"CANINE uses a max sequence length of 2048 characters by default. One can "
+"use :class:`~transformers.CanineTokenizer` to prepare text for the model."
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:47
+msgid ""
+"Classification can be done by placing a linear layer on top of the final "
+"hidden state of the special [CLS] token (which has a predefined Unicode "
+"code point). For token classification tasks however, the downsampled "
+"sequence of tokens needs to be upsampled again to match the length of the"
+" original character sequence (which is 2048). The details for this can be"
+" found in the paper."
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:51
+msgid "Models:"
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:53
+msgid ""
+"`google/canine-c <https://huggingface.co/google/canine-c>`__: Pre-trained"
+" with autoregressive character loss, 12-layer, 768-hidden, 12-heads, 121M"
+" parameters (size ~500 MB)."
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:55
+msgid ""
+"`google/canine-s <https://huggingface.co/google/canine-s>`__: Pre-trained"
+" with subword loss, 12-layer, 768-hidden, 12-heads, 121M parameters (size"
+" ~500 MB)."
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:58
+msgid ""
+"This model was contributed by `nielsr <https://huggingface.co/nielsr>`__."
+" The original code can be found `here <https://github.com/google-"
+"research/language/tree/master/language/canine>`__."
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:63
+msgid "Example"
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:65
+msgid "CANINE works on raw characters, so it can be used without a tokenizer:"
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:83
+msgid ""
+"For batched inference and training, it is however recommended to make use"
+" of the tokenizer (to pad/truncate all sequences to the same length):"
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:102
+msgid "CANINE specific outputs"
+msgstr ""
+
+#: of transformers.models.canine.modeling_canine.CanineModelOutputWithPooling:1
+msgid ""
+"Output type of :class:`~transformers.CanineModel`. Based on "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPooling`, but "
+"with slightly different :obj:`hidden_states` and :obj:`attentions`, as "
+"these also include the hidden states and attentions of the shallow "
+"Transformer encoders."
+msgstr ""
+
+#: of transformers.CanineConfig transformers.CanineForMultipleChoice
+#: transformers.CanineForMultipleChoice.forward
+#: transformers.CanineForQuestionAnswering
+#: transformers.CanineForQuestionAnswering.forward
+#: transformers.CanineForSequenceClassification
+#: transformers.CanineForSequenceClassification.forward
+#: transformers.CanineForTokenClassification
+#: transformers.CanineForTokenClassification.forward transformers.CanineModel
+#: transformers.CanineModel.forward transformers.CanineTokenizer
+#: transformers.CanineTokenizer.build_inputs_with_special_tokens
+#: transformers.CanineTokenizer.create_token_type_ids_from_sequences
+#: transformers.CanineTokenizer.get_special_tokens_mask
+#: transformers.models.canine.modeling_canine.CanineModelOutputWithPooling
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.models.canine.modeling_canine.CanineModelOutputWithPooling:6
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the model "
+"(i.e. the output of the final shallow Transformer encoder)."
+msgstr ""
+
+#: of transformers.models.canine.modeling_canine.CanineModelOutputWithPooling:9
+msgid ""
+"Hidden-state of the first token of the sequence (classification token) at"
+" the last layer of the deep Transformer encoder, further processed by a "
+"Linear layer and a Tanh activation function. The Linear layer weights are"
+" trained from the next sentence prediction (classification) objective "
+"during pretraining."
+msgstr ""
+
+#: of
+#: transformers.models.canine.modeling_canine.CanineModelOutputWithPooling:13
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the input to each encoder + "
+"one for the output of each layer of each encoder) of shape "
+":obj:`(batch_size, sequence_length, hidden_size)` and :obj:`(batch_size, "
+"sequence_length // config.downsampling_rate, hidden_size)`. Hidden-states"
+" of the model at the output of each layer plus the initial input to each "
+"Transformer encoder. The hidden states of the shallow encoders have "
+"length :obj:`sequence_length`, but the hidden states of the deep encoder "
+"have length :obj:`sequence_length` // :obj:`config.downsampling_rate`."
+msgstr ""
+
+#: of
+#: transformers.models.canine.modeling_canine.CanineModelOutputWithPooling:20
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of the 3 "
+"Transformer encoders of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)` and :obj:`(batch_size, num_heads, "
+"sequence_length // config.downsampling_rate, sequence_length // "
+"config.downsampling_rate)`. Attentions weights after the attention "
+"softmax, used to compute the weighted average in the self-attention "
+"heads."
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:109
+msgid "CanineConfig"
+msgstr ""
+
+#: of transformers.CanineConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.CanineModel`. It is used to instantiate an CANINE "
+"model according to the specified arguments, defining the model "
+"architecture. Instantiating a configuration with the defaults will yield "
+"a similar configuration to that of the CANINE `google/canine-s "
+"<https://huggingface.co/google/canine-s>`__ architecture."
+msgstr ""
+
+#: of transformers.CanineConfig:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.CanineConfig:10
+msgid "Dimension of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.CanineConfig:12
+msgid "Number of hidden layers in the deep Transformer encoder."
+msgstr ""
+
+#: of transformers.CanineConfig:14
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoders."
+msgstr ""
+
+#: of transformers.CanineConfig:16
+msgid ""
+"Dimension of the \"intermediate\" (i.e., feed-forward) layer in the "
+"Transformer encoders."
+msgstr ""
+
+#: of transformers.CanineConfig:18
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"selu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.CanineConfig:21
+msgid ""
+"The dropout probabilitiy for all fully connected layers in the "
+"embeddings, encoders, and pooler."
+msgstr ""
+
+#: of transformers.CanineConfig:23
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.CanineConfig:25
+msgid "The maximum sequence length that this model might ever be used with."
+msgstr ""
+
+#: of transformers.CanineConfig:27
+msgid ""
+"The vocabulary size of the :obj:`token_type_ids` passed when calling "
+":class:`~transformers.CanineModel`."
+msgstr ""
+
+#: of transformers.CanineConfig:29
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.CanineConfig:31
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.CanineConfig:33
+msgid ""
+"If :obj:`True`, use gradient checkpointing to save memory at the expense "
+"of slower backward pass."
+msgstr ""
+
+#: of transformers.CanineConfig:35
+msgid ""
+"The rate at which to downsample the original character sequence length "
+"before applying the deep Transformer encoder."
+msgstr ""
+
+#: of transformers.CanineConfig:38
+msgid ""
+"The kernel size (i.e. the number of characters in each window) of the "
+"convolutional projection layer when projecting back from "
+":obj:`hidden_size`*2 to :obj:`hidden_size`."
+msgstr ""
+
+#: of transformers.CanineConfig:41
+msgid ""
+"The number of hash functions to use. Each hash function has its own "
+"embedding matrix."
+msgstr ""
+
+#: of transformers.CanineConfig:43
+msgid "The number of hash buckets to use."
+msgstr ""
+
+#: of transformers.CanineConfig:45
+msgid ""
+"The stride of the local attention of the first shallow Transformer "
+"encoder. Defaults to 128 for good TPU/XLA memory alignment."
+msgstr ""
+
+#: of transformers.CanineConfig:49
+#: transformers.CanineForMultipleChoice.forward:77
+#: transformers.CanineForQuestionAnswering.forward:80
+#: transformers.CanineForSequenceClassification.forward:75
+#: transformers.CanineForTokenClassification.forward:74
+#: transformers.CanineModel.forward:75
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:116
+msgid "CanineTokenizer"
+msgstr ""
+
+#: of transformers.CanineTokenizer:1
+msgid ""
+"Construct a CANINE tokenizer (i.e. a character splitter). It turns text "
+"into a sequence of characters, and then converts each character into its "
+"Unicode code point."
+msgstr ""
+
+#: of transformers.CanineTokenizer:4
+msgid ""
+":class:`~transformers.CanineTokenizer` inherits from "
+":class:`~transformers.PreTrainedTokenizer`."
+msgstr ""
+
+#: of transformers.CanineTokenizer:6
+msgid ""
+"Refer to superclass :class:`~transformers.PreTrainedTokenizer` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: of transformers.CanineTokenizer:9
+msgid "The maximum sentence length the model accepts."
+msgstr ""
+
+#: of transformers.CanineTokenizer.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. A CANINE"
+" sequence has the following format:"
+msgstr ""
+
+#: of transformers.CanineTokenizer.build_inputs_with_special_tokens:4
+msgid "single sequence: ``[CLS] X [SEP]``"
+msgstr ""
+
+#: of transformers.CanineTokenizer.build_inputs_with_special_tokens:5
+msgid "pair of sequences: ``[CLS] A [SEP] B [SEP]``"
+msgstr ""
+
+#: of transformers.CanineTokenizer.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.CanineTokenizer.build_inputs_with_special_tokens:9
+#: transformers.CanineTokenizer.create_token_type_ids_from_sequences:13
+#: transformers.CanineTokenizer.get_special_tokens_mask:6
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward
+#: transformers.CanineForQuestionAnswering.forward
+#: transformers.CanineForSequenceClassification.forward
+#: transformers.CanineForTokenClassification.forward
+#: transformers.CanineModel.forward
+#: transformers.CanineTokenizer.build_inputs_with_special_tokens
+#: transformers.CanineTokenizer.create_token_type_ids_from_sequences
+#: transformers.CanineTokenizer.get_special_tokens_mask
+msgid "Returns"
+msgstr ""
+
+#: of transformers.CanineTokenizer.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward
+#: transformers.CanineForQuestionAnswering.forward
+#: transformers.CanineForSequenceClassification.forward
+#: transformers.CanineForTokenClassification.forward
+#: transformers.CanineModel.forward
+#: transformers.CanineTokenizer.build_inputs_with_special_tokens
+#: transformers.CanineTokenizer.create_token_type_ids_from_sequences
+#: transformers.CanineTokenizer.get_special_tokens_mask
+msgid "Return type"
+msgstr ""
+
+#: of transformers.CanineTokenizer.build_inputs_with_special_tokens:13
+#: transformers.CanineTokenizer.create_token_type_ids_from_sequences:18
+#: transformers.CanineTokenizer.get_special_tokens_mask:12
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.CanineTokenizer.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. A CANINE sequence pair mask has the following "
+"format:"
+msgstr ""
+
+#: of transformers.CanineTokenizer.create_token_type_ids_from_sequences:9
+msgid ""
+"If :obj:`token_ids_1` is :obj:`None`, this method only returns the first "
+"portion of the mask (0s)."
+msgstr ""
+
+#: of transformers.CanineTokenizer.create_token_type_ids_from_sequences:11
+#: transformers.CanineTokenizer.get_special_tokens_mask:4
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.CanineTokenizer.create_token_type_ids_from_sequences:16
+msgid ""
+"List of `token type IDs <../glossary.html#token-type-ids>`_ according to "
+"the given sequence(s)."
+msgstr ""
+
+#: of transformers.CanineTokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.CanineTokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.CanineTokenizer.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:124
+msgid "CanineModel"
+msgstr ""
+
+#: of transformers.CanineModel:1
+msgid ""
+"The bare CANINE Model transformer outputting raw hidden-states without "
+"any specific head on top. This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice:8
+#: transformers.CanineForQuestionAnswering:8
+#: transformers.CanineForSequenceClassification:8
+#: transformers.CanineForTokenClassification:8 transformers.CanineModel:6
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.CanineModel.forward:1
+msgid ""
+"The :class:`~transformers.CanineModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:4
+#: transformers.CanineForQuestionAnswering.forward:4
+#: transformers.CanineForSequenceClassification.forward:4
+#: transformers.CanineForTokenClassification.forward:4
+#: transformers.CanineModel.forward:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:8
+#: transformers.CanineForQuestionAnswering.forward:8
+#: transformers.CanineForSequenceClassification.forward:8
+#: transformers.CanineForTokenClassification.forward:8
+#: transformers.CanineModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`transformers.CanineTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:8
+#: transformers.CanineForQuestionAnswering.forward:8
+#: transformers.CanineForSequenceClassification.forward:8
+#: transformers.CanineForTokenClassification.forward:8
+#: transformers.CanineModel.forward:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:10
+#: transformers.CanineForQuestionAnswering.forward:10
+#: transformers.CanineForSequenceClassification.forward:10
+#: transformers.CanineForTokenClassification.forward:10
+#: transformers.CanineModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`transformers.CanineTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:14
+#: transformers.CanineForQuestionAnswering.forward:14
+#: transformers.CanineForSequenceClassification.forward:14
+#: transformers.CanineForTokenClassification.forward:14
+#: transformers.CanineModel.forward:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:16
+#: transformers.CanineForQuestionAnswering.forward:16
+#: transformers.CanineForSequenceClassification.forward:16
+#: transformers.CanineForTokenClassification.forward:16
+#: transformers.CanineModel.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:16
+#: transformers.CanineForQuestionAnswering.forward:16
+#: transformers.CanineForSequenceClassification.forward:16
+#: transformers.CanineForTokenClassification.forward:16
+#: transformers.CanineModel.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:18
+#: transformers.CanineForQuestionAnswering.forward:18
+#: transformers.CanineForSequenceClassification.forward:18
+#: transformers.CanineForTokenClassification.forward:18
+#: transformers.CanineModel.forward:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:19
+#: transformers.CanineForQuestionAnswering.forward:19
+#: transformers.CanineForSequenceClassification.forward:19
+#: transformers.CanineForTokenClassification.forward:19
+#: transformers.CanineModel.forward:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:21
+#: transformers.CanineForQuestionAnswering.forward:21
+#: transformers.CanineForSequenceClassification.forward:21
+#: transformers.CanineForTokenClassification.forward:21
+#: transformers.CanineModel.forward:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:23
+#: transformers.CanineForQuestionAnswering.forward:23
+#: transformers.CanineForSequenceClassification.forward:23
+#: transformers.CanineForTokenClassification.forward:23
+#: transformers.CanineModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:23
+#: transformers.CanineForQuestionAnswering.forward:23
+#: transformers.CanineForSequenceClassification.forward:23
+#: transformers.CanineForTokenClassification.forward:23
+#: transformers.CanineModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:26
+#: transformers.CanineForQuestionAnswering.forward:26
+#: transformers.CanineForSequenceClassification.forward:26
+#: transformers.CanineForTokenClassification.forward:26
+#: transformers.CanineModel.forward:26
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:27
+#: transformers.CanineForQuestionAnswering.forward:27
+#: transformers.CanineForSequenceClassification.forward:27
+#: transformers.CanineForTokenClassification.forward:27
+#: transformers.CanineModel.forward:27
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:29
+#: transformers.CanineForQuestionAnswering.forward:29
+#: transformers.CanineForSequenceClassification.forward:29
+#: transformers.CanineForTokenClassification.forward:29
+#: transformers.CanineModel.forward:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:31
+#: transformers.CanineForQuestionAnswering.forward:31
+#: transformers.CanineForSequenceClassification.forward:31
+#: transformers.CanineForTokenClassification.forward:31
+#: transformers.CanineModel.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:31
+#: transformers.CanineForQuestionAnswering.forward:31
+#: transformers.CanineForSequenceClassification.forward:31
+#: transformers.CanineForTokenClassification.forward:31
+#: transformers.CanineModel.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:34
+#: transformers.CanineForQuestionAnswering.forward:34
+#: transformers.CanineForSequenceClassification.forward:34
+#: transformers.CanineForTokenClassification.forward:34
+#: transformers.CanineModel.forward:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:36
+#: transformers.CanineForQuestionAnswering.forward:36
+#: transformers.CanineForSequenceClassification.forward:36
+#: transformers.CanineForTokenClassification.forward:36
+#: transformers.CanineModel.forward:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:36
+#: transformers.CanineForQuestionAnswering.forward:36
+#: transformers.CanineForSequenceClassification.forward:36
+#: transformers.CanineForTokenClassification.forward:36
+#: transformers.CanineModel.forward:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:38
+#: transformers.CanineForQuestionAnswering.forward:38
+#: transformers.CanineForSequenceClassification.forward:38
+#: transformers.CanineForTokenClassification.forward:38
+#: transformers.CanineModel.forward:38
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:39
+#: transformers.CanineForQuestionAnswering.forward:39
+#: transformers.CanineForSequenceClassification.forward:39
+#: transformers.CanineForTokenClassification.forward:39
+#: transformers.CanineModel.forward:39
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:41
+#: transformers.CanineForQuestionAnswering.forward:41
+#: transformers.CanineForSequenceClassification.forward:41
+#: transformers.CanineForTokenClassification.forward:41
+#: transformers.CanineModel.forward:41
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert `input_ids` indices into associated vectors "
+"than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:45
+#: transformers.CanineForQuestionAnswering.forward:45
+#: transformers.CanineForSequenceClassification.forward:45
+#: transformers.CanineForTokenClassification.forward:45
+#: transformers.CanineModel.forward:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:48
+#: transformers.CanineForQuestionAnswering.forward:48
+#: transformers.CanineForSequenceClassification.forward:48
+#: transformers.CanineForTokenClassification.forward:48
+#: transformers.CanineModel.forward:48
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:51
+#: transformers.CanineForQuestionAnswering.forward:51
+#: transformers.CanineForSequenceClassification.forward:51
+#: transformers.CanineForTokenClassification.forward:51
+#: transformers.CanineModel.forward:51
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.CanineModel.forward:54
+msgid ""
+"A "
+":class:`~transformers.models.canine.modeling_canine.CanineModelOutputWithPooling`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.CanineConfig`) and "
+"inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model (i.e. the output of "
+"the final   shallow Transformer encoder). - **pooler_output** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, hidden_size)`) -- "
+"Hidden-state of the first token of the sequence (classification token) at"
+" the last layer of the deep   Transformer encoder, further processed by a"
+" Linear layer and a Tanh activation function. The Linear layer   weights "
+"are trained from the next sentence prediction (classification) objective "
+"during pretraining. - **hidden_states** (:obj:`tuple(torch.FloatTensor)`,"
+" `optional`, returned when ``output_hidden_states=True`` is passed or "
+"when ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the input to each encoder + one for the"
+" output of each layer of   each encoder) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)` and :obj:`(batch_size,   sequence_length "
+"// config.downsampling_rate, hidden_size)`. Hidden-states of the model at"
+" the output of   each layer plus the initial input to each Transformer "
+"encoder. The hidden states of the shallow encoders   have length "
+":obj:`sequence_length`, but the hidden states of the deep encoder have "
+"length   :obj:`sequence_length` // :obj:`config.downsampling_rate`. - "
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of the 3 Transformer encoders of shape   "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)` and "
+":obj:`(batch_size, num_heads,   sequence_length // "
+"config.downsampling_rate, sequence_length // config.downsampling_rate)`. "
+"Attentions   weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.CanineModel.forward:54
+msgid ""
+"A "
+":class:`~transformers.models.canine.modeling_canine.CanineModelOutputWithPooling`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.CanineConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.CanineModel.forward:58
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model (i.e. the output of "
+"the final shallow Transformer encoder)."
+msgstr ""
+
+#: of transformers.CanineModel.forward:60
+msgid ""
+"**pooler_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Hidden-state of the first token of the sequence "
+"(classification token) at the last layer of the deep Transformer encoder,"
+" further processed by a Linear layer and a Tanh activation function. The "
+"Linear layer weights are trained from the next sentence prediction "
+"(classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.CanineModel.forward:63
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the input to each encoder + one for the"
+" output of each layer of each encoder) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)` and :obj:`(batch_size, sequence_length // "
+"config.downsampling_rate, hidden_size)`. Hidden-states of the model at "
+"the output of each layer plus the initial input to each Transformer "
+"encoder. The hidden states of the shallow encoders have length "
+":obj:`sequence_length`, but the hidden states of the deep encoder have "
+"length :obj:`sequence_length` // :obj:`config.downsampling_rate`."
+msgstr ""
+
+#: of transformers.CanineModel.forward:69
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of the 3 Transformer encoders of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)` and "
+":obj:`(batch_size, num_heads, sequence_length // "
+"config.downsampling_rate, sequence_length // config.downsampling_rate)`. "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.CanineModel.forward:73
+msgid ""
+":class:`~transformers.models.canine.modeling_canine.CanineModelOutputWithPooling`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:131
+msgid "CanineForSequenceClassification"
+msgstr ""
+
+#: of transformers.CanineForSequenceClassification:1
+msgid ""
+"CANINE Model transformer with a sequence classification/regression head "
+"on top (a linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice:4
+#: transformers.CanineForQuestionAnswering:4
+#: transformers.CanineForSequenceClassification:4
+#: transformers.CanineForTokenClassification:4
+msgid ""
+"This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.CanineForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.CanineForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.CanineForSequenceClassification.forward:53
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.CanineForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.CanineConfig`) and inputs.  -"
+" **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.CanineForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.CanineConfig`) and inputs."
+msgstr ""
+
+#: of transformers.CanineForSequenceClassification.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.CanineForSequenceClassification.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:66
+#: transformers.CanineForQuestionAnswering.forward:69
+#: transformers.CanineForSequenceClassification.forward:64
+#: transformers.CanineForTokenClassification.forward:63
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:69
+#: transformers.CanineForQuestionAnswering.forward:72
+#: transformers.CanineForSequenceClassification.forward:67
+#: transformers.CanineForTokenClassification.forward:66
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:70
+#: transformers.CanineForQuestionAnswering.forward:73
+#: transformers.CanineForSequenceClassification.forward:68
+#: transformers.CanineForTokenClassification.forward:67
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:73
+#: transformers.CanineForQuestionAnswering.forward:76
+#: transformers.CanineForSequenceClassification.forward:71
+#: transformers.CanineForTokenClassification.forward:70
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.CanineForSequenceClassification.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:138
+msgid "CanineForMultipleChoice"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice:1
+msgid ""
+"CANINE Model with a multiple choice classification head on top (a linear "
+"layer on top of the pooled output and a softmax) e.g. for RocStories/SWAG"
+" tasks."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.CanineForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:53
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.CanineConfig`) and inputs.  -"
+" **loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned"
+" when :obj:`labels` is provided) -- Classification loss. - **logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, num_choices)`) -- "
+"`num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.CanineConfig`) and inputs."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:65
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.CanineForMultipleChoice.forward:75
+msgid ""
+":class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:145
+msgid "CanineForTokenClassification"
+msgstr ""
+
+#: of transformers.CanineForTokenClassification:1
+msgid ""
+"CANINE Model with a token classification head on top (a linear layer on "
+"top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) "
+"tasks."
+msgstr ""
+
+#: of transformers.CanineForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.CanineForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.CanineForTokenClassification.forward:53
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.CanineForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.CanineConfig`) and inputs.  -"
+" **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.CanineForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.CanineConfig`) and inputs."
+msgstr ""
+
+#: of transformers.CanineForTokenClassification.forward:61
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.CanineForTokenClassification.forward:62
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.CanineForTokenClassification.forward:72
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/canine.rst:152
+msgid "CanineForQuestionAnswering"
+msgstr ""
+
+#: of transformers.CanineForQuestionAnswering:1
+msgid ""
+"CANINE Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.CanineForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.CanineForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.CanineForQuestionAnswering.forward:53
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.CanineForQuestionAnswering.forward:57
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.CanineForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.CanineConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.CanineForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.CanineConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.CanineForQuestionAnswering.forward:66
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.CanineForQuestionAnswering.forward:67
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.CanineForQuestionAnswering.forward:68
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.CanineForQuestionAnswering.forward:78
+msgid ""
+":class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+

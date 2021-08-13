@@ -1,0 +1,1879 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/layoutlm.rst:14
+msgid "LayoutLM"
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:19
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:21
+msgid ""
+"The LayoutLM model was proposed in the paper `LayoutLM: Pre-training of "
+"Text and Layout for Document Image Understanding "
+"<https://arxiv.org/abs/1912.13318>`__ by Yiheng Xu, Minghao Li, Lei Cui, "
+"Shaohan Huang, Furu Wei, and Ming Zhou. It's a simple but effective "
+"pretraining method of text and layout for document image understanding "
+"and information extraction tasks, such as form understanding and receipt "
+"understanding. It obtains state-of-the-art results on several downstream "
+"tasks:"
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:27
+msgid ""
+"form understanding: the `FUNSD "
+"<https://guillaumejaume.github.io/FUNSD/>`__ dataset (a collection of 199"
+" annotated forms comprising more than 30,000 words)."
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:29
+msgid ""
+"receipt understanding: the `SROIE <https://rrc.cvc.uab.es/?ch=13>`__ "
+"dataset (a collection of 626 receipts for training and 347 receipts for "
+"testing)."
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:31
+msgid ""
+"document image classification: the `RVL-CDIP "
+"<https://www.cs.cmu.edu/~aharley/rvl-cdip/>`__ dataset (a collection of "
+"400,000 images belonging to one of 16 classes)."
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:34
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:36
+msgid ""
+"*Pre-training techniques have been verified successfully in a variety of "
+"NLP tasks in recent years. Despite the widespread use of pretraining "
+"models for NLP applications, they almost exclusively focus on text-level "
+"manipulation, while neglecting layout and style information that is vital"
+" for document image understanding. In this paper, we propose the LayoutLM"
+" to jointly model interactions between text and layout information across"
+" scanned document images, which is beneficial for a great number of real-"
+"world document image understanding tasks such as information extraction "
+"from scanned documents. Furthermore, we also leverage image features to "
+"incorporate words' visual information into LayoutLM. To the best of our "
+"knowledge, this is the first time that text and layout are jointly "
+"learned in a single framework for document-level pretraining. It achieves"
+" new state-of-the-art results in several downstream tasks, including form"
+" understanding (from 70.72 to 79.27), receipt understanding (from 94.02 "
+"to 95.24) and document image classification (from 93.07 to 94.42).*"
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:47
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:49
+msgid ""
+"In addition to `input_ids`, :meth:`~transformer.LayoutLMModel.forward` "
+"also expects the input :obj:`bbox`, which are the bounding boxes (i.e. "
+"2D-positions) of the input tokens. These can be obtained using an "
+"external OCR engine such as Google's `Tesseract <https://github.com"
+"/tesseract-ocr/tesseract>`__ (there's a `Python wrapper "
+"<https://pypi.org/project/pytesseract/>`__ available). Each bounding box "
+"should be in (x0, y0, x1, y1) format, where (x0, y0) corresponds to the "
+"position of the upper left corner in the bounding box, and (x1, y1) "
+"represents the position of the lower right corner. Note that one first "
+"needs to normalize the bounding boxes to be on a 0-1000 scale. To "
+"normalize, you can use the following function:"
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:67
+msgid ""
+"Here, :obj:`width` and :obj:`height` correspond to the width and height "
+"of the original document in which the token occurs. Those can be obtained"
+" using the Python Image Library (PIL) library for example, as follows:"
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:78
+msgid ""
+"For a demo which shows how to fine-tune "
+":class:`LayoutLMForTokenClassification` on the `FUNSD dataset "
+"<https://guillaumejaume.github.io/FUNSD/>`__ (a collection of annotated "
+"forms), see `this notebook <https://github.com/NielsRogge/Transformers-"
+"Tutorials/blob/master/LayoutLM/Fine_tuning_LayoutLMForTokenClassification_on_FUNSD.ipynb>`__."
+" It includes an inference part, which shows how to use Google's Tesseract"
+" on a new document."
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:83
+msgid ""
+"This model was contributed by `liminghao1630 "
+"<https://huggingface.co/liminghao1630>`__. The original code can be found"
+" `here <https://github.com/microsoft/unilm/tree/master/layoutlm>`_."
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:88
+msgid "LayoutLMConfig"
+msgstr ""
+
+#: of transformers.LayoutLMConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.LayoutLMModel`. It is used to instantiate a "
+"LayoutLM model according to the specified arguments, defining the model "
+"architecture. Instantiating a configuration with the defaults will yield "
+"a similar configuration to that of the LayoutLM `layoutlm-base-uncased "
+"<https://huggingface.co/microsoft/layoutlm-base-uncased>`__ architecture."
+msgstr ""
+
+#: of transformers.LayoutLMConfig:6
+msgid ""
+"Configuration objects inherit from :class:`~transformers.BertConfig` and "
+"can be used to control the model outputs. Read the documentation from "
+":class:`~transformers.BertConfig` for more information."
+msgstr ""
+
+#: of transformers.LayoutLMConfig transformers.LayoutLMForMaskedLM
+#: transformers.LayoutLMForMaskedLM.forward
+#: transformers.LayoutLMForSequenceClassification
+#: transformers.LayoutLMForSequenceClassification.forward
+#: transformers.LayoutLMForTokenClassification
+#: transformers.LayoutLMForTokenClassification.forward
+#: transformers.LayoutLMModel transformers.LayoutLMModel.forward
+#: transformers.LayoutLMModel.set_input_embeddings
+#: transformers.TFLayoutLMForMaskedLM transformers.TFLayoutLMForMaskedLM.call
+#: transformers.TFLayoutLMForMaskedLM.serving_output
+#: transformers.TFLayoutLMForSequenceClassification
+#: transformers.TFLayoutLMForSequenceClassification.call
+#: transformers.TFLayoutLMForSequenceClassification.serving_output
+#: transformers.TFLayoutLMForTokenClassification
+#: transformers.TFLayoutLMForTokenClassification.call
+#: transformers.TFLayoutLMForTokenClassification.serving_output
+#: transformers.TFLayoutLMModel transformers.TFLayoutLMModel.call
+#: transformers.TFLayoutLMModel.serving_output
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.LayoutLMConfig:10
+msgid ""
+"Vocabulary size of the LayoutLM model. Defines the different tokens that "
+"can be represented by the `inputs_ids` passed to the forward method of "
+":class:`~transformers.LayoutLMModel`."
+msgstr ""
+
+#: of transformers.LayoutLMConfig:13
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.LayoutLMConfig:15
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.LayoutLMConfig:17
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.LayoutLMConfig:19
+msgid ""
+"Dimensionality of the \"intermediate\" (i.e., feed-forward) layer in the "
+"Transformer encoder."
+msgstr ""
+
+#: of transformers.LayoutLMConfig:21
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.LayoutLMConfig:24
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.LayoutLMConfig:26
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.LayoutLMConfig:28
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.LayoutLMConfig:31
+msgid ""
+"The vocabulary size of the :obj:`token_type_ids` passed into "
+":class:`~transformers.LayoutLMModel`."
+msgstr ""
+
+#: of transformers.LayoutLMConfig:33
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.LayoutLMConfig:35
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.LayoutLMConfig:37
+msgid ""
+"If True, use gradient checkpointing to save memory at the expense of "
+"slower backward pass."
+msgstr ""
+
+#: of transformers.LayoutLMConfig:39
+msgid ""
+"The maximum value that the 2D position embedding might ever used. "
+"Typically set this to something large just in case (e.g., 1024)."
+msgstr ""
+
+#: of transformers.LayoutLMConfig:43
+#: transformers.LayoutLMForMaskedLM.forward:74
+#: transformers.LayoutLMForSequenceClassification.forward:74
+#: transformers.LayoutLMForTokenClassification.forward:73
+#: transformers.LayoutLMModel.forward:85
+#: transformers.TFLayoutLMForMaskedLM.call:81
+#: transformers.TFLayoutLMForSequenceClassification.call:81
+#: transformers.TFLayoutLMForTokenClassification.call:80
+#: transformers.TFLayoutLMModel.call:82
+msgid "Examples::"
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:95
+msgid "LayoutLMTokenizer"
+msgstr ""
+
+#: of transformers.LayoutLMTokenizer:1
+msgid "Constructs a LayoutLM tokenizer."
+msgstr ""
+
+#: of transformers.LayoutLMTokenizer:3
+msgid ""
+":class:`~transformers.LayoutLMTokenizer is identical to "
+":class:`~transformers.BertTokenizer` and runs end-to-end tokenization: "
+"punctuation splitting + wordpiece."
+msgstr ""
+
+#: of transformers.LayoutLMTokenizer:6
+msgid ""
+"Refer to superclass :class:`~transformers.BertTokenizer` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:102
+msgid "LayoutLMTokenizerFast"
+msgstr ""
+
+#: of transformers.LayoutLMTokenizerFast:1
+msgid "Constructs a \"Fast\" LayoutLMTokenizer."
+msgstr ""
+
+#: of transformers.LayoutLMTokenizerFast:3
+msgid ""
+":class:`~transformers.LayoutLMTokenizerFast` is identical to "
+":class:`~transformers.BertTokenizerFast` and runs end-to-end "
+"tokenization: punctuation splitting + wordpiece."
+msgstr ""
+
+#: of transformers.LayoutLMTokenizerFast:6
+msgid ""
+"Refer to superclass :class:`~transformers.BertTokenizerFast` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:109
+msgid "LayoutLMModel"
+msgstr ""
+
+#: of transformers.LayoutLMModel:1
+msgid ""
+"The bare LayoutLM Model transformer outputting raw hidden-states without "
+"any specific head on top. The LayoutLM model was proposed in `LayoutLM: "
+"Pre-training of Text and Layout for Document Image Understanding "
+"<https://arxiv.org/abs/1912.13318>`__ by Yiheng Xu, Minghao Li, Lei Cui, "
+"Shaohan Huang, Furu Wei and Ming Zhou."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM:5
+#: transformers.LayoutLMForSequenceClassification:7
+#: transformers.LayoutLMForTokenClassification:8 transformers.LayoutLMModel:5
+msgid ""
+"This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM:9
+#: transformers.LayoutLMForSequenceClassification:11
+#: transformers.LayoutLMForTokenClassification:12 transformers.LayoutLMModel:9
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.LayoutLMModel.forward:1
+msgid ""
+"The :class:`~transformers.LayoutLMModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:4
+#: transformers.LayoutLMForSequenceClassification.forward:4
+#: transformers.LayoutLMForTokenClassification.forward:4
+#: transformers.LayoutLMModel.forward:4
+#: transformers.TFLayoutLMForMaskedLM.call:4
+#: transformers.TFLayoutLMForSequenceClassification.call:4
+#: transformers.TFLayoutLMForTokenClassification.call:4
+#: transformers.TFLayoutLMModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:8
+#: transformers.LayoutLMForSequenceClassification.forward:8
+#: transformers.LayoutLMForTokenClassification.forward:8
+#: transformers.LayoutLMModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`transformers.LayoutLMTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:8
+#: transformers.LayoutLMForSequenceClassification.forward:8
+#: transformers.LayoutLMForTokenClassification.forward:8
+#: transformers.LayoutLMModel.forward:8
+#: transformers.TFLayoutLMForMaskedLM.call:8
+#: transformers.TFLayoutLMForSequenceClassification.call:8
+#: transformers.TFLayoutLMForTokenClassification.call:8
+#: transformers.TFLayoutLMModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:10
+#: transformers.LayoutLMForSequenceClassification.forward:10
+#: transformers.LayoutLMForTokenClassification.forward:10
+#: transformers.LayoutLMModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`transformers.LayoutLMTokenizer`. "
+"See :func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:14
+#: transformers.LayoutLMForSequenceClassification.forward:14
+#: transformers.LayoutLMForTokenClassification.forward:14
+#: transformers.LayoutLMModel.forward:14
+#: transformers.TFLayoutLMForMaskedLM.call:14
+#: transformers.TFLayoutLMForSequenceClassification.call:14
+#: transformers.TFLayoutLMForTokenClassification.call:14
+#: transformers.TFLayoutLMModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:16
+#: transformers.LayoutLMForSequenceClassification.forward:16
+#: transformers.LayoutLMForTokenClassification.forward:16
+#: transformers.LayoutLMModel.forward:16
+msgid ""
+"Bounding boxes of each input sequence tokens. Selected in the range ``[0,"
+" config.max_2d_position_embeddings-1]``. Each bounding box should be a "
+"normalized version in (x0, y0, x1, y1) format, where (x0, y0) corresponds"
+" to the position of the upper left corner in the bounding box, and (x1, "
+"y1) represents the position of the lower right corner. See "
+":ref:`Overview` for normalization."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:21
+#: transformers.LayoutLMForSequenceClassification.forward:21
+#: transformers.LayoutLMForTokenClassification.forward:21
+#: transformers.LayoutLMModel.forward:21
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``: ``1`` for tokens that are NOT MASKED, ``0`` for "
+"MASKED tokens.  `What are attention masks? <../glossary.html#attention-"
+"mask>`__"
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:21
+#: transformers.LayoutLMForSequenceClassification.forward:21
+#: transformers.LayoutLMForTokenClassification.forward:21
+#: transformers.LayoutLMModel.forward:21
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``: ``1`` for tokens that are NOT MASKED, ``0`` for "
+"MASKED tokens."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:24
+#: transformers.LayoutLMForSequenceClassification.forward:24
+#: transformers.LayoutLMForTokenClassification.forward:24
+#: transformers.LayoutLMModel.forward:24
+#: transformers.TFLayoutLMForMaskedLM.call:24
+#: transformers.TFLayoutLMForSequenceClassification.call:24
+#: transformers.TFLayoutLMForTokenClassification.call:24
+#: transformers.TFLayoutLMModel.call:24
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:26
+#: transformers.LayoutLMForSequenceClassification.forward:26
+#: transformers.LayoutLMForTokenClassification.forward:26
+#: transformers.LayoutLMModel.forward:26
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``: ``0`` corresponds to a "
+"`sentence A` token, ``1`` corresponds to a `sentence B` token  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:26
+#: transformers.LayoutLMForSequenceClassification.forward:26
+#: transformers.LayoutLMForTokenClassification.forward:26
+#: transformers.LayoutLMModel.forward:26
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``: ``0`` corresponds to a "
+"`sentence A` token, ``1`` corresponds to a `sentence B` token"
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:29
+#: transformers.LayoutLMForSequenceClassification.forward:29
+#: transformers.LayoutLMForTokenClassification.forward:29
+#: transformers.LayoutLMModel.forward:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:31
+#: transformers.LayoutLMForSequenceClassification.forward:31
+#: transformers.LayoutLMForTokenClassification.forward:31
+#: transformers.LayoutLMModel.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:31
+#: transformers.LayoutLMForSequenceClassification.forward:31
+#: transformers.LayoutLMForTokenClassification.forward:31
+#: transformers.LayoutLMModel.forward:31
+#: transformers.TFLayoutLMForMaskedLM.call:34
+#: transformers.TFLayoutLMForSequenceClassification.call:34
+#: transformers.TFLayoutLMForTokenClassification.call:34
+#: transformers.TFLayoutLMModel.call:34
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:34
+#: transformers.LayoutLMForSequenceClassification.forward:34
+#: transformers.LayoutLMForTokenClassification.forward:34
+#: transformers.LayoutLMModel.forward:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:36
+#: transformers.LayoutLMForSequenceClassification.forward:36
+#: transformers.LayoutLMForTokenClassification.forward:36
+#: transformers.LayoutLMModel.forward:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``: :obj:`1` indicates the head is **not masked**, "
+":obj:`0` indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:39
+#: transformers.LayoutLMForSequenceClassification.forward:39
+#: transformers.LayoutLMForTokenClassification.forward:39
+#: transformers.LayoutLMModel.forward:39
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert `input_ids` indices into associated vectors "
+"than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:43
+#: transformers.LayoutLMForSequenceClassification.forward:43
+#: transformers.LayoutLMForTokenClassification.forward:43
+#: transformers.LayoutLMModel.forward:43
+msgid ""
+"If set to ``True``, the attentions tensors of all attention layers are "
+"returned. See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:46
+#: transformers.LayoutLMForSequenceClassification.forward:46
+#: transformers.LayoutLMForTokenClassification.forward:46
+#: transformers.LayoutLMModel.forward:46
+msgid ""
+"If set to ``True``, the hidden states of all layers are returned. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:49
+#: transformers.LayoutLMForSequenceClassification.forward:49
+#: transformers.LayoutLMForTokenClassification.forward:49
+#: transformers.LayoutLMModel.forward:49
+msgid ""
+"If set to ``True``, the model will return a "
+":class:`~transformers.file_utils.ModelOutput` instead of a plain tuple."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward
+#: transformers.LayoutLMForMaskedLM.get_input_embeddings
+#: transformers.LayoutLMForMaskedLM.get_output_embeddings
+#: transformers.LayoutLMForSequenceClassification.forward
+#: transformers.LayoutLMForSequenceClassification.get_input_embeddings
+#: transformers.LayoutLMForTokenClassification.forward
+#: transformers.LayoutLMForTokenClassification.get_input_embeddings
+#: transformers.LayoutLMModel.forward
+#: transformers.LayoutLMModel.get_input_embeddings
+#: transformers.TFLayoutLMForMaskedLM.call
+#: transformers.TFLayoutLMForMaskedLM.get_lm_head
+#: transformers.TFLayoutLMForMaskedLM.get_prefix_bias_name
+#: transformers.TFLayoutLMForSequenceClassification.call
+#: transformers.TFLayoutLMForTokenClassification.call
+#: transformers.TFLayoutLMModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.LayoutLMModel.forward:53
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LayoutLMConfig`) "
+"and inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, hidden_size)`) -- "
+"Last layer hidden-state of the first token of the sequence "
+"(classification token) further processed by a   Linear layer and a Tanh "
+"activation function. The Linear layer weights are trained from the next "
+"sentence   prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` and ``config.add_cross_attention=True`` is "
+"passed or when ``config.output_attentions=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for each layer) of shape :obj:`(batch_size,"
+" num_heads,   sequence_length, sequence_length)`.    Attentions weights "
+"of the decoder's cross-attention layer, after the attention softmax, used"
+" to compute the   weighted average in the cross-attention heads. - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and optionally if   "
+"``config.is_encoder_decoder=True`` 2 additional tensors of shape "
+":obj:`(batch_size, num_heads,   encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and optionally if   "
+"``config.is_encoder_decoder=True`` in the cross-attention blocks) that "
+"can be used (see   :obj:`past_key_values` input) to speed up sequential "
+"decoding.   Examples::      >>> from transformers import "
+"LayoutLMTokenizer, LayoutLMModel     >>> import torch      >>> tokenizer "
+"= LayoutLMTokenizer.from_pretrained('microsoft/layoutlm-base-uncased')"
+"     >>> model = LayoutLMModel.from_pretrained('microsoft/layoutlm-base-"
+"uncased')      >>> words = [\"Hello\", \"world\"]     >>> "
+"normalized_word_boxes = [637, 773, 693, 782], [698, 773, 733, 782]      "
+">>> token_boxes = []     >>> for word, box in zip(words, "
+"normalized_word_boxes):     ...     word_tokens = "
+"tokenizer.tokenize(word)     ...     token_boxes.extend([box] * "
+"len(word_tokens))     >>> # add bounding boxes of cls + sep tokens     "
+">>> token_boxes = [[0, 0, 0, 0]] + token_boxes + [[1000, 1000, 1000, "
+"1000]]      >>> encoding = tokenizer(' '.join(words), "
+"return_tensors=\"pt\")     >>> input_ids = encoding[\"input_ids\"]     "
+">>> attention_mask = encoding[\"attention_mask\"]     >>> token_type_ids "
+"= encoding[\"token_type_ids\"]     >>> bbox = torch.tensor([token_boxes])"
+"      >>> outputs = model(input_ids=input_ids, bbox=bbox, "
+"attention_mask=attention_mask, token_type_ids=token_type_ids)      >>> "
+"last_hidden_states = outputs.last_hidden_state"
+msgstr ""
+
+#: of transformers.LayoutLMModel.forward:53
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LayoutLMConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.LayoutLMModel.forward:57
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.LayoutLMModel.forward:58
+msgid ""
+"**pooler_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:63
+#: transformers.LayoutLMForSequenceClassification.forward:63
+#: transformers.LayoutLMForTokenClassification.forward:62
+#: transformers.LayoutLMModel.forward:61
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:66
+#: transformers.LayoutLMForSequenceClassification.forward:66
+#: transformers.LayoutLMForTokenClassification.forward:65
+#: transformers.LayoutLMModel.forward:64
+#: transformers.TFLayoutLMForMaskedLM.call:73
+#: transformers.TFLayoutLMForSequenceClassification.call:73
+#: transformers.TFLayoutLMForTokenClassification.call:72
+#: transformers.TFLayoutLMModel.call:74
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:67
+#: transformers.LayoutLMForSequenceClassification.forward:67
+#: transformers.LayoutLMForTokenClassification.forward:66
+#: transformers.LayoutLMModel.forward:65
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:70
+#: transformers.LayoutLMForSequenceClassification.forward:70
+#: transformers.LayoutLMForTokenClassification.forward:69
+#: transformers.LayoutLMModel.forward:68
+#: transformers.TFLayoutLMForMaskedLM.call:77
+#: transformers.TFLayoutLMForSequenceClassification.call:77
+#: transformers.TFLayoutLMForTokenClassification.call:76
+#: transformers.TFLayoutLMModel.call:78
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.LayoutLMModel.forward:70
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` and "
+"``config.add_cross_attention=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.LayoutLMModel.forward:73
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.LayoutLMModel.forward:75
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) "
+"and optionally if ``config.is_encoder_decoder=True`` 2 additional tensors"
+" of shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.LayoutLMModel.forward:80
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and optionally if ``config.is_encoder_decoder=True`` in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward
+#: transformers.LayoutLMForMaskedLM.get_input_embeddings
+#: transformers.LayoutLMForMaskedLM.get_output_embeddings
+#: transformers.LayoutLMForSequenceClassification.forward
+#: transformers.LayoutLMForSequenceClassification.get_input_embeddings
+#: transformers.LayoutLMForTokenClassification.forward
+#: transformers.LayoutLMForTokenClassification.get_input_embeddings
+#: transformers.LayoutLMModel.forward
+#: transformers.LayoutLMModel.get_input_embeddings
+#: transformers.TFLayoutLMForMaskedLM.call
+#: transformers.TFLayoutLMForMaskedLM.get_lm_head
+#: transformers.TFLayoutLMForMaskedLM.get_prefix_bias_name
+#: transformers.TFLayoutLMForSequenceClassification.call
+#: transformers.TFLayoutLMForTokenClassification.call
+#: transformers.TFLayoutLMModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.LayoutLMModel.forward:112
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.get_input_embeddings:1
+#: transformers.LayoutLMForSequenceClassification.get_input_embeddings:1
+#: transformers.LayoutLMForTokenClassification.get_input_embeddings:1
+#: transformers.LayoutLMModel.get_input_embeddings:1
+msgid "Returns the model's input embeddings."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.get_input_embeddings:3
+#: transformers.LayoutLMForSequenceClassification.get_input_embeddings:3
+#: transformers.LayoutLMForTokenClassification.get_input_embeddings:3
+#: transformers.LayoutLMModel.get_input_embeddings:3
+msgid "A torch module mapping vocabulary to hidden states."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.get_input_embeddings:4
+#: transformers.LayoutLMForMaskedLM.get_output_embeddings:4
+#: transformers.LayoutLMForSequenceClassification.get_input_embeddings:4
+#: transformers.LayoutLMForTokenClassification.get_input_embeddings:4
+#: transformers.LayoutLMModel.get_input_embeddings:4
+msgid ":obj:`nn.Module`"
+msgstr ""
+
+#: of transformers.LayoutLMModel.set_input_embeddings:1
+msgid "Set model's input embeddings."
+msgstr ""
+
+#: of transformers.LayoutLMModel.set_input_embeddings:3
+msgid "A module mapping vocabulary to hidden states."
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:116
+msgid "LayoutLMForMaskedLM"
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM:1
+msgid ""
+"LayoutLM Model with a `language modeling` head on top. The LayoutLM model"
+" was proposed in `LayoutLM: Pre-training of Text and Layout for Document "
+"Image Understanding <https://arxiv.org/abs/1912.13318>`__ by Yiheng Xu, "
+"Minghao Li, Lei Cui, Shaohan Huang, Furu Wei and Ming Zhou."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:1
+msgid ""
+"The :class:`~transformers.LayoutLMForMaskedLM` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:52
+#: transformers.TFLayoutLMForMaskedLM.call:59
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.LayoutLMConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Examples::      >>> from transformers import "
+"LayoutLMTokenizer, LayoutLMForMaskedLM     >>> import torch      >>> "
+"tokenizer = LayoutLMTokenizer.from_pretrained('microsoft/layoutlm-base-"
+"uncased')     >>> model = LayoutLMForMaskedLM.from_pretrained('microsoft"
+"/layoutlm-base-uncased')      >>> words = [\"Hello\", \"[MASK]\"]     >>>"
+" normalized_word_boxes = [637, 773, 693, 782], [698, 773, 733, 782]      "
+">>> token_boxes = []     >>> for word, box in zip(words, "
+"normalized_word_boxes):     ...     word_tokens = "
+"tokenizer.tokenize(word)     ...     token_boxes.extend([box] * "
+"len(word_tokens))     >>> # add bounding boxes of cls + sep tokens     "
+">>> token_boxes = [[0, 0, 0, 0]] + token_boxes + [[1000, 1000, 1000, "
+"1000]]      >>> encoding = tokenizer(' '.join(words), "
+"return_tensors=\"pt\")     >>> input_ids = encoding[\"input_ids\"]     "
+">>> attention_mask = encoding[\"attention_mask\"]     >>> token_type_ids "
+"= encoding[\"token_type_ids\"]     >>> bbox = torch.tensor([token_boxes])"
+"      >>> labels = tokenizer(\"Hello world\", "
+"return_tensors=\"pt\")[\"input_ids\"]      >>> outputs = "
+"model(input_ids=input_ids, bbox=bbox, attention_mask=attention_mask, "
+"token_type_ids=token_type_ids,     ...                 labels=labels)"
+"      >>> loss = outputs.loss"
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.LayoutLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:61
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:62
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.forward:104
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.get_output_embeddings:1
+msgid "Returns the model's output embeddings."
+msgstr ""
+
+#: of transformers.LayoutLMForMaskedLM.get_output_embeddings:3
+msgid "A torch module mapping hidden states to vocabulary."
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:123
+msgid "LayoutLMForSequenceClassification"
+msgstr ""
+
+#: of transformers.LayoutLMForSequenceClassification:1
+msgid ""
+"LayoutLM Model with a sequence classification head on top (a linear layer"
+" on top of the pooled output) e.g. for document image classification "
+"tasks such as the `RVL-CDIP <https://www.cs.cmu.edu/~aharley/rvl-"
+"cdip/>`__ dataset."
+msgstr ""
+
+#: of transformers.LayoutLMForSequenceClassification:4
+#: transformers.LayoutLMForTokenClassification:5
+msgid ""
+"The LayoutLM model was proposed in `LayoutLM: Pre-training of Text and "
+"Layout for Document Image Understanding "
+"<https://arxiv.org/abs/1912.13318>`__ by Yiheng Xu, Minghao Li, Lei Cui, "
+"Shaohan Huang, Furu Wei and Ming Zhou."
+msgstr ""
+
+#: of transformers.LayoutLMForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.LayoutLMForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.LayoutLMForSequenceClassification.forward:52
+#: transformers.TFLayoutLMForSequenceClassification.call:59
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.LayoutLMForSequenceClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LayoutLMConfig`) and inputs."
+"  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Examples::      >>> from transformers import "
+"LayoutLMTokenizer, LayoutLMForSequenceClassification     >>> import torch"
+"      >>> tokenizer = LayoutLMTokenizer.from_pretrained('microsoft"
+"/layoutlm-base-uncased')     >>> model = "
+"LayoutLMForSequenceClassification.from_pretrained('microsoft/layoutlm-"
+"base-uncased')      >>> words = [\"Hello\", \"world\"]     >>> "
+"normalized_word_boxes = [637, 773, 693, 782], [698, 773, 733, 782]      "
+">>> token_boxes = []     >>> for word, box in zip(words, "
+"normalized_word_boxes):     ...     word_tokens = "
+"tokenizer.tokenize(word)     ...     token_boxes.extend([box] * "
+"len(word_tokens))     >>> # add bounding boxes of cls + sep tokens     "
+">>> token_boxes = [[0, 0, 0, 0]] + token_boxes + [[1000, 1000, 1000, "
+"1000]]      >>> encoding = tokenizer(' '.join(words), "
+"return_tensors=\"pt\")     >>> input_ids = encoding[\"input_ids\"]     "
+">>> attention_mask = encoding[\"attention_mask\"]     >>> token_type_ids "
+"= encoding[\"token_type_ids\"]     >>> bbox = torch.tensor([token_boxes])"
+"     >>> sequence_label = torch.tensor([1])      >>> outputs = "
+"model(input_ids=input_ids, bbox=bbox, attention_mask=attention_mask, "
+"token_type_ids=token_type_ids,     ...                 "
+"labels=sequence_label)      >>> loss = outputs.loss     >>> logits = "
+"outputs.logits"
+msgstr ""
+
+#: of transformers.LayoutLMForSequenceClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LayoutLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.LayoutLMForSequenceClassification.forward:61
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.LayoutLMForSequenceClassification.forward:62
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.LayoutLMForSequenceClassification.forward:104
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:130
+msgid "LayoutLMForTokenClassification"
+msgstr ""
+
+#: of transformers.LayoutLMForTokenClassification:1
+msgid ""
+"LayoutLM Model with a token classification head on top (a linear layer on"
+" top of the hidden-states output) e.g. for sequence labeling (information"
+" extraction) tasks such as the `FUNSD "
+"<https://guillaumejaume.github.io/FUNSD/>`__ dataset and the `SROIE "
+"<https://rrc.cvc.uab.es/?ch=13>`__ dataset."
+msgstr ""
+
+#: of transformers.LayoutLMForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.LayoutLMForTokenClassification` forward method,"
+" overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.LayoutLMForTokenClassification.forward:52
+#: transformers.TFLayoutLMForTokenClassification.call:59
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.LayoutLMForTokenClassification.forward:56
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LayoutLMConfig`) and inputs."
+"  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Examples::      >>> from transformers import "
+"LayoutLMTokenizer, LayoutLMForTokenClassification     >>> import torch"
+"      >>> tokenizer = LayoutLMTokenizer.from_pretrained('microsoft"
+"/layoutlm-base-uncased')     >>> model = "
+"LayoutLMForTokenClassification.from_pretrained('microsoft/layoutlm-base-"
+"uncased')      >>> words = [\"Hello\", \"world\"]     >>> "
+"normalized_word_boxes = [637, 773, 693, 782], [698, 773, 733, 782]      "
+">>> token_boxes = []     >>> for word, box in zip(words, "
+"normalized_word_boxes):     ...     word_tokens = "
+"tokenizer.tokenize(word)     ...     token_boxes.extend([box] * "
+"len(word_tokens))     >>> # add bounding boxes of cls + sep tokens     "
+">>> token_boxes = [[0, 0, 0, 0]] + token_boxes + [[1000, 1000, 1000, "
+"1000]]      >>> encoding = tokenizer(' '.join(words), "
+"return_tensors=\"pt\")     >>> input_ids = encoding[\"input_ids\"]     "
+">>> attention_mask = encoding[\"attention_mask\"]     >>> token_type_ids "
+"= encoding[\"token_type_ids\"]     >>> bbox = torch.tensor([token_boxes])"
+"     >>> token_labels = torch.tensor([1,1,0,0]).unsqueeze(0) # batch size"
+" of 1      >>> outputs = model(input_ids=input_ids, bbox=bbox, "
+"attention_mask=attention_mask, token_type_ids=token_type_ids,     ..."
+"                 labels=token_labels)      >>> loss = outputs.loss     "
+">>> logits = outputs.logits"
+msgstr ""
+
+#: of transformers.LayoutLMForTokenClassification.forward:56
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LayoutLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.LayoutLMForTokenClassification.forward:60
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.LayoutLMForTokenClassification.forward:61
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.LayoutLMForTokenClassification.forward:103
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:137
+msgid "TFLayoutLMModel"
+msgstr ""
+
+#: of transformers.TFLayoutLMModel:1
+msgid ""
+"The bare LayoutLM Model transformer outputting raw hidden-states without "
+"any specific head on top."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM:3
+#: transformers.TFLayoutLMForSequenceClassification:5
+#: transformers.TFLayoutLMForTokenClassification:5
+#: transformers.TFLayoutLMModel:3
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM:7
+#: transformers.TFLayoutLMForSequenceClassification:9
+#: transformers.TFLayoutLMForTokenClassification:9
+#: transformers.TFLayoutLMModel:7
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM:13
+#: transformers.TFLayoutLMForSequenceClassification:15
+#: transformers.TFLayoutLMForTokenClassification:15
+#: transformers.TFLayoutLMModel:13
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM:15
+#: transformers.TFLayoutLMForSequenceClassification:17
+#: transformers.TFLayoutLMForTokenClassification:17
+#: transformers.TFLayoutLMModel:15
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM:16
+#: transformers.TFLayoutLMForSequenceClassification:18
+#: transformers.TFLayoutLMForTokenClassification:18
+#: transformers.TFLayoutLMModel:16
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM:18
+#: transformers.TFLayoutLMForSequenceClassification:20
+#: transformers.TFLayoutLMForTokenClassification:20
+#: transformers.TFLayoutLMModel:18
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM:21
+#: transformers.TFLayoutLMForSequenceClassification:23
+#: transformers.TFLayoutLMForTokenClassification:23
+#: transformers.TFLayoutLMModel:21
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM:24
+#: transformers.TFLayoutLMForSequenceClassification:26
+#: transformers.TFLayoutLMForTokenClassification:26
+#: transformers.TFLayoutLMModel:24
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM:25
+#: transformers.TFLayoutLMForSequenceClassification:27
+#: transformers.TFLayoutLMForTokenClassification:27
+#: transformers.TFLayoutLMModel:25
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM:27
+#: transformers.TFLayoutLMForSequenceClassification:29
+#: transformers.TFLayoutLMForTokenClassification:29
+#: transformers.TFLayoutLMModel:27
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM:30
+#: transformers.TFLayoutLMForSequenceClassification:32
+#: transformers.TFLayoutLMForTokenClassification:32
+#: transformers.TFLayoutLMModel:30
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.TFPreTrainedModel.from_pretrained` method to load "
+"the model weights."
+msgstr ""
+
+#: of transformers.TFLayoutLMModel.call:1
+msgid ""
+"The :class:`~transformers.TFLayoutLMModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:8
+#: transformers.TFLayoutLMForSequenceClassification.call:8
+#: transformers.TFLayoutLMForTokenClassification.call:8
+#: transformers.TFLayoutLMModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.LayoutLMTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:10
+#: transformers.TFLayoutLMForSequenceClassification.call:10
+#: transformers.TFLayoutLMForTokenClassification.call:10
+#: transformers.TFLayoutLMModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.LayoutLMTokenizer`. "
+"See :func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:16
+#: transformers.TFLayoutLMForSequenceClassification.call:16
+#: transformers.TFLayoutLMForTokenClassification.call:16
+#: transformers.TFLayoutLMModel.call:16
+msgid ""
+"Bounding Boxes of each input sequence tokens. Selected in the range ``[0,"
+" config.max_2d_position_embeddings- 1]``."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:19
+#: transformers.TFLayoutLMForSequenceClassification.call:19
+#: transformers.TFLayoutLMForTokenClassification.call:19
+#: transformers.TFLayoutLMModel.call:19
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:19
+#: transformers.TFLayoutLMForSequenceClassification.call:19
+#: transformers.TFLayoutLMForTokenClassification.call:19
+#: transformers.TFLayoutLMModel.call:19
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:21
+#: transformers.TFLayoutLMForSequenceClassification.call:21
+#: transformers.TFLayoutLMForTokenClassification.call:21
+#: transformers.TFLayoutLMModel.call:21
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:22
+#: transformers.TFLayoutLMForSequenceClassification.call:22
+#: transformers.TFLayoutLMForTokenClassification.call:22
+#: transformers.TFLayoutLMModel.call:22
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:26
+#: transformers.TFLayoutLMForSequenceClassification.call:26
+#: transformers.TFLayoutLMForTokenClassification.call:26
+#: transformers.TFLayoutLMModel.call:26
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:26
+#: transformers.TFLayoutLMForSequenceClassification.call:26
+#: transformers.TFLayoutLMForTokenClassification.call:26
+#: transformers.TFLayoutLMModel.call:26
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:29
+#: transformers.TFLayoutLMForSequenceClassification.call:29
+#: transformers.TFLayoutLMForTokenClassification.call:29
+#: transformers.TFLayoutLMModel.call:29
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:30
+#: transformers.TFLayoutLMForSequenceClassification.call:30
+#: transformers.TFLayoutLMForTokenClassification.call:30
+#: transformers.TFLayoutLMModel.call:30
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:32
+#: transformers.TFLayoutLMForSequenceClassification.call:32
+#: transformers.TFLayoutLMForTokenClassification.call:32
+#: transformers.TFLayoutLMModel.call:32
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:34
+#: transformers.TFLayoutLMForSequenceClassification.call:34
+#: transformers.TFLayoutLMForTokenClassification.call:34
+#: transformers.TFLayoutLMModel.call:34
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:37
+#: transformers.TFLayoutLMForSequenceClassification.call:37
+#: transformers.TFLayoutLMForTokenClassification.call:37
+#: transformers.TFLayoutLMModel.call:37
+msgid "`What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:39
+#: transformers.TFLayoutLMForSequenceClassification.call:39
+#: transformers.TFLayoutLMForTokenClassification.call:39
+#: transformers.TFLayoutLMModel.call:39
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:39
+#: transformers.TFLayoutLMForSequenceClassification.call:39
+#: transformers.TFLayoutLMForTokenClassification.call:39
+#: transformers.TFLayoutLMModel.call:39
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:41
+#: transformers.TFLayoutLMForSequenceClassification.call:41
+#: transformers.TFLayoutLMForTokenClassification.call:41
+#: transformers.TFLayoutLMModel.call:41
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:42
+#: transformers.TFLayoutLMForSequenceClassification.call:42
+#: transformers.TFLayoutLMForTokenClassification.call:42
+#: transformers.TFLayoutLMModel.call:42
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:44
+#: transformers.TFLayoutLMForSequenceClassification.call:44
+#: transformers.TFLayoutLMForTokenClassification.call:44
+#: transformers.TFLayoutLMModel.call:44
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:48
+#: transformers.TFLayoutLMForSequenceClassification.call:48
+#: transformers.TFLayoutLMForTokenClassification.call:48
+#: transformers.TFLayoutLMModel.call:48
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:51
+#: transformers.TFLayoutLMForSequenceClassification.call:51
+#: transformers.TFLayoutLMForTokenClassification.call:51
+#: transformers.TFLayoutLMModel.call:51
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:54
+#: transformers.TFLayoutLMForSequenceClassification.call:54
+#: transformers.TFLayoutLMForTokenClassification.call:54
+#: transformers.TFLayoutLMModel.call:54
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:56
+#: transformers.TFLayoutLMForSequenceClassification.call:56
+#: transformers.TFLayoutLMForTokenClassification.call:56
+#: transformers.TFLayoutLMModel.call:56
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFLayoutLMModel.call:60
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LayoutLMConfig`) and inputs."
+"  - **last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **pooler_output** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, hidden_size)`) -- Last "
+"layer hidden-state of the first token of the sequence (classification "
+"token) further processed by a   Linear layer and a Tanh activation "
+"function. The Linear layer weights are trained from the next sentence   "
+"prediction (classification) objective during pretraining.    This output "
+"is usually *not* a good summary of the semantic content of the input, "
+"you're often better with   averaging or pooling the sequence of hidden-"
+"states for the whole input sequence. - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Examples::      >>> from transformers import LayoutLMTokenizer, "
+"TFLayoutLMModel     >>> import tensorflow as tf      >>> tokenizer = "
+"LayoutLMTokenizer.from_pretrained('microsoft/layoutlm-base-uncased')     "
+">>> model = TFLayoutLMModel.from_pretrained('microsoft/layoutlm-base-"
+"uncased')      >>> words = [\"Hello\", \"world\"]     >>> "
+"normalized_word_boxes = [637, 773, 693, 782], [698, 773, 733, 782]      "
+">>> token_boxes = []     >>> for word, box in zip(words, "
+"normalized_word_boxes):     ...     word_tokens = "
+"tokenizer.tokenize(word)     ...     token_boxes.extend([box] * "
+"len(word_tokens))     >>> # add bounding boxes of cls + sep tokens     "
+">>> token_boxes = [[0, 0, 0, 0]] + token_boxes + [[1000, 1000, 1000, "
+"1000]]      >>> encoding = tokenizer(' '.join(words), "
+"return_tensors=\"tf\")     >>> input_ids = encoding[\"input_ids\"]     "
+">>> attention_mask = encoding[\"attention_mask\"]     >>> token_type_ids "
+"= encoding[\"token_type_ids\"]     >>> bbox = "
+"tf.convert_to_tensor([token_boxes])      >>> outputs = "
+"model(input_ids=input_ids, bbox=bbox, attention_mask=attention_mask, "
+"token_type_ids=token_type_ids)      >>> last_hidden_states = "
+"outputs.last_hidden_state"
+msgstr ""
+
+#: of transformers.TFLayoutLMModel.call:60
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LayoutLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFLayoutLMModel.call:64
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.TFLayoutLMModel.call:65
+msgid ""
+"**pooler_output** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.TFLayoutLMModel.call:69
+msgid ""
+"This output is usually *not* a good summary of the semantic content of "
+"the input, you're often better with averaging or pooling the sequence of "
+"hidden-states for the whole input sequence."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:70
+#: transformers.TFLayoutLMForSequenceClassification.call:70
+#: transformers.TFLayoutLMForTokenClassification.call:69
+#: transformers.TFLayoutLMModel.call:71
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:74
+#: transformers.TFLayoutLMForSequenceClassification.call:74
+#: transformers.TFLayoutLMForTokenClassification.call:73
+#: transformers.TFLayoutLMModel.call:75
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFLayoutLMModel.call:109
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling` "
+"or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.serving_output:1
+#: transformers.TFLayoutLMForSequenceClassification.serving_output:1
+#: transformers.TFLayoutLMForTokenClassification.serving_output:1
+#: transformers.TFLayoutLMModel.serving_output:1
+msgid ""
+"Prepare the output of the saved model. Each model must implement this "
+"function."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.serving_output:3
+#: transformers.TFLayoutLMForSequenceClassification.serving_output:3
+#: transformers.TFLayoutLMForTokenClassification.serving_output:3
+#: transformers.TFLayoutLMModel.serving_output:3
+msgid "The output returned by the model."
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:144
+msgid "TFLayoutLMForMaskedLM"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM:1
+msgid "LayoutLM Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:1
+msgid ""
+"The :class:`~transformers.TFLayoutLMForMaskedLM` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.LayoutLMConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss. - **logits** (:obj:`tf.Tensor` "
+"of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Examples::      >>> from transformers import LayoutLMTokenizer, "
+"TFLayoutLMForMaskedLM     >>> import tensorflow as tf      >>> tokenizer "
+"= LayoutLMTokenizer.from_pretrained('microsoft/layoutlm-base-uncased')"
+"     >>> model = TFLayoutLMForMaskedLM.from_pretrained('microsoft"
+"/layoutlm-base-uncased')      >>> words = [\"Hello\", \"[MASK]\"]     >>>"
+" normalized_word_boxes = [637, 773, 693, 782], [698, 773, 733, 782]      "
+">>> token_boxes = []     >>> for word, box in zip(words, "
+"normalized_word_boxes):     ...     word_tokens = "
+"tokenizer.tokenize(word)     ...     token_boxes.extend([box] * "
+"len(word_tokens))     >>> # add bounding boxes of cls + sep tokens     "
+">>> token_boxes = [[0, 0, 0, 0]] + token_boxes + [[1000, 1000, 1000, "
+"1000]]      >>> encoding = tokenizer(' '.join(words), "
+"return_tensors=\"tf\")     >>> input_ids = encoding[\"input_ids\"]     "
+">>> attention_mask = encoding[\"attention_mask\"]     >>> token_type_ids "
+"= encoding[\"token_type_ids\"]     >>> bbox = "
+"tf.convert_to_tensor([token_boxes])      >>> labels = tokenizer(\"Hello "
+"world\", return_tensors=\"tf\")[\"input_ids\"]      >>> outputs = "
+"model(input_ids=input_ids, bbox=bbox, attention_mask=attention_mask, "
+"token_type_ids=token_type_ids,     ...                 labels=labels)"
+"      >>> loss = outputs.loss"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.LayoutLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.call:111
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.get_lm_head:1
+msgid ""
+"The LM Head layer. This method must be overwritten by all the models that"
+" have a lm head."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.get_lm_head:3
+msgid "The LM head layer if the model has one, None if not."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.get_lm_head:4
+msgid ":obj:`tf.keras.layers.Layer`"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.get_prefix_bias_name:1
+msgid ""
+"Get the concatenated _prefix name of the bias from the model name to the "
+"parent layer"
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.get_prefix_bias_name:3
+msgid "The _prefix name of the bias."
+msgstr ""
+
+#: of transformers.TFLayoutLMForMaskedLM.get_prefix_bias_name:4
+msgid ":obj:`str`"
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:151
+msgid "TFLayoutLMForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFLayoutLMForSequenceClassification:1
+msgid ""
+"LayoutLM Model transformer with a sequence classification/regression head"
+" on top (a linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.TFLayoutLMForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFLayoutLMForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFLayoutLMForSequenceClassification.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LayoutLMConfig`) and inputs."
+"  - **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"(or regression if config.num_labels==1) loss. - **logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, config.num_labels)`) -- "
+"Classification (or regression if config.num_labels==1) scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Examples::      >>> from transformers import LayoutLMTokenizer, "
+"TFLayoutLMForSequenceClassification     >>> import tensorflow as tf      "
+">>> tokenizer = LayoutLMTokenizer.from_pretrained('microsoft/layoutlm-"
+"base-uncased')     >>> model = "
+"TFLayoutLMForSequenceClassification.from_pretrained('microsoft/layoutlm-"
+"base-uncased')      >>> words = [\"Hello\", \"world\"]     >>> "
+"normalized_word_boxes = [637, 773, 693, 782], [698, 773, 733, 782]      "
+">>> token_boxes = []     >>> for word, box in zip(words, "
+"normalized_word_boxes):     ...     word_tokens = "
+"tokenizer.tokenize(word)     ...     token_boxes.extend([box] * "
+"len(word_tokens))     >>> # add bounding boxes of cls + sep tokens     "
+">>> token_boxes = [[0, 0, 0, 0]] + token_boxes + [[1000, 1000, 1000, "
+"1000]]      >>> encoding = tokenizer(' '.join(words), "
+"return_tensors=\"tf\")     >>> input_ids = encoding[\"input_ids\"]     "
+">>> attention_mask = encoding[\"attention_mask\"]     >>> token_type_ids "
+"= encoding[\"token_type_ids\"]     >>> bbox = "
+"tf.convert_to_tensor([token_boxes])     >>> sequence_label = "
+"tf.convert_to_tensor([1])      >>> outputs = model(input_ids=input_ids, "
+"bbox=bbox, attention_mask=attention_mask, token_type_ids=token_type_ids,"
+"     ...                 labels=sequence_label)      >>> loss = "
+"outputs.loss     >>> logits = outputs.logits"
+msgstr ""
+
+#: of transformers.TFLayoutLMForSequenceClassification.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LayoutLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFLayoutLMForSequenceClassification.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFLayoutLMForSequenceClassification.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFLayoutLMForSequenceClassification.call:111
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/layoutlm.rst:158
+msgid "TFLayoutLMForTokenClassification"
+msgstr ""
+
+#: of transformers.TFLayoutLMForTokenClassification:1
+msgid ""
+"LayoutLM Model with a token classification head on top (a linear layer on"
+" top of the hidden-states output) e.g. for Named-Entity-Recognition (NER)"
+" tasks."
+msgstr ""
+
+#: of transformers.TFLayoutLMForTokenClassification.call:1
+msgid ""
+"The :class:`~transformers.TFLayoutLMForTokenClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFLayoutLMForTokenClassification.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.LayoutLMConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, config.num_labels)`) -- "
+"Classification scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Examples::      >>> from transformers import LayoutLMTokenizer, "
+"TFLayoutLMForTokenClassification     >>> import torch      >>> tokenizer "
+"= LayoutLMTokenizer.from_pretrained('microsoft/layoutlm-base-uncased')"
+"     >>> model = "
+"TFLayoutLMForTokenClassification.from_pretrained('microsoft/layoutlm-"
+"base-uncased')      >>> words = [\"Hello\", \"world\"]     >>> "
+"normalized_word_boxes = [637, 773, 693, 782], [698, 773, 733, 782]      "
+">>> token_boxes = []     >>> for word, box in zip(words, "
+"normalized_word_boxes):     ...     word_tokens = "
+"tokenizer.tokenize(word)     ...     token_boxes.extend([box] * "
+"len(word_tokens))     >>> # add bounding boxes of cls + sep tokens     "
+">>> token_boxes = [[0, 0, 0, 0]] + token_boxes + [[1000, 1000, 1000, "
+"1000]]      >>> encoding = tokenizer(' '.join(words), "
+"return_tensors=\"tf\")     >>> input_ids = encoding[\"input_ids\"]     "
+">>> attention_mask = encoding[\"attention_mask\"]     >>> token_type_ids "
+"= encoding[\"token_type_ids\"]     >>> bbox = "
+"tf.convert_to_tensor([token_boxes])     >>> token_labels = "
+"tf.convert_to_tensor([1,1,0,0])      >>> outputs = "
+"model(input_ids=input_ids, bbox=bbox, attention_mask=attention_mask, "
+"token_type_ids=token_type_ids,     ...                 "
+"labels=token_labels)      >>> loss = outputs.loss     >>> logits = "
+"outputs.logits"
+msgstr ""
+
+#: of transformers.TFLayoutLMForTokenClassification.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.LayoutLMConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFLayoutLMForTokenClassification.call:67
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss."
+msgstr ""
+
+#: of transformers.TFLayoutLMForTokenClassification.call:68
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.num_labels)`) -- Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFLayoutLMForTokenClassification.call:110
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+

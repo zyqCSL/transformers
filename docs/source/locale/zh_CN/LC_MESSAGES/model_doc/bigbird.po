@@ -1,0 +1,2778 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-10 04:49+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/bigbird.rst:14
+msgid "BigBird"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:19
+msgid ""
+"The BigBird model was proposed in `Big Bird: Transformers for Longer "
+"Sequences <https://arxiv.org/abs/2007.14062>`__ by Zaheer, Manzil and "
+"Guruganesh, Guru and Dubey, Kumar Avinava and Ainslie, Joshua and "
+"Alberti, Chris and Ontanon, Santiago and Pham, Philip and Ravula, Anirudh"
+" and Wang, Qifan and Yang, Li and others. BigBird, is a sparse-attention "
+"based transformer which extends Transformer based models, such as BERT to"
+" much longer sequences. In addition to sparse attention, BigBird also "
+"applies global attention as well as random attention to the input "
+"sequence. Theoretically, it has been shown that applying sparse, global, "
+"and random attention approximates full attention, while being "
+"computationally much more efficient for longer sequences. As a "
+"consequence of the capability to handle longer context, BigBird has shown"
+" improved performance on various long document NLP tasks, such as "
+"question answering and summarization, compared to BERT or RoBERTa."
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:29
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:31
+msgid ""
+"*Transformers-based models, such as BERT, have been one of the most "
+"successful deep learning models for NLP. Unfortunately, one of their core"
+" limitations is the quadratic dependency (mainly in terms of memory) on "
+"the sequence length due to their full attention mechanism. To remedy "
+"this, we propose, BigBird, a sparse attention mechanism that reduces this"
+" quadratic dependency to linear. We show that BigBird is a universal "
+"approximator of sequence functions and is Turing complete, thereby "
+"preserving these properties of the quadratic, full attention model. Along"
+" the way, our theoretical analysis reveals some of the benefits of having"
+" O(1) global tokens (such as CLS), that attend to the entire sequence as "
+"part of the sparse attention mechanism. The proposed sparse attention can"
+" handle sequences of length up to 8x of what was previously possible "
+"using similar hardware. As a consequence of the capability to handle "
+"longer context, BigBird drastically improves performance on various NLP "
+"tasks such as question answering and summarization. We also propose novel"
+" applications to genomics data.*"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:42
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:44
+msgid ""
+"For an in-detail explanation on how BigBird's attention works, see `this "
+"blog post <https://huggingface.co/blog/big-bird>`__."
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:46
+msgid ""
+"BigBird comes with 2 implementations: **original_full** & "
+"**block_sparse**. For the sequence length < 1024, using **original_full**"
+" is advised as there is no benefit in using **block_sparse** attention."
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:48
+msgid "The code currently uses window size of 3 blocks and 2 global blocks."
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:49
+msgid "Sequence length must be divisible by block size."
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:50
+msgid "Current implementation supports only **ITC**."
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:51
+msgid "Current implementation doesn't support **num_random_blocks = 0**"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:53
+msgid ""
+"This model was contributed by `vasudevgupta "
+"<https://huggingface.co/vasudevgupta>`__. The original code can be found "
+"`here <https://github.com/google-research/bigbird>`__."
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:57
+msgid "BigBirdConfig"
+msgstr ""
+
+#: of transformers.BigBirdConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.BigBirdModel`. It is used to instantiate an BigBird"
+" model according to the specified arguments, defining the model "
+"architecture. Instantiating a configuration with the defaults will yield "
+"a similar configuration to that of the BigBird `google/bigbird-roberta-"
+"base <https://huggingface.co/google/bigbird-roberta-base>`__ "
+"architecture."
+msgstr ""
+
+#: of transformers.BigBirdConfig:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.BigBirdConfig transformers.BigBirdForCausalLM
+#: transformers.BigBirdForCausalLM.forward transformers.BigBirdForMaskedLM
+#: transformers.BigBirdForMaskedLM.forward
+#: transformers.BigBirdForMultipleChoice
+#: transformers.BigBirdForMultipleChoice.forward
+#: transformers.BigBirdForPreTraining.forward
+#: transformers.BigBirdForQuestionAnswering
+#: transformers.BigBirdForQuestionAnswering.forward
+#: transformers.BigBirdForSequenceClassification
+#: transformers.BigBirdForSequenceClassification.forward
+#: transformers.BigBirdForTokenClassification
+#: transformers.BigBirdForTokenClassification.forward transformers.BigBirdModel
+#: transformers.BigBirdModel.forward transformers.BigBirdTokenizer
+#: transformers.BigBirdTokenizer.build_inputs_with_special_tokens
+#: transformers.BigBirdTokenizer.create_token_type_ids_from_sequences
+#: transformers.BigBirdTokenizer.get_special_tokens_mask
+#: transformers.BigBirdTokenizer.save_vocabulary
+#: transformers.BigBirdTokenizerFast
+#: transformers.BigBirdTokenizerFast.build_inputs_with_special_tokens
+#: transformers.BigBirdTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.BigBirdTokenizerFast.get_special_tokens_mask
+#: transformers.BigBirdTokenizerFast.save_vocabulary
+#: transformers.FlaxBigBirdForMaskedLM
+#: transformers.FlaxBigBirdForMaskedLM.__call__
+#: transformers.FlaxBigBirdForMultipleChoice
+#: transformers.FlaxBigBirdForMultipleChoice.__call__
+#: transformers.FlaxBigBirdForPreTraining
+#: transformers.FlaxBigBirdForPreTraining.__call__
+#: transformers.FlaxBigBirdForQuestionAnswering
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__
+#: transformers.FlaxBigBirdForSequenceClassification
+#: transformers.FlaxBigBirdForSequenceClassification.__call__
+#: transformers.FlaxBigBirdForTokenClassification
+#: transformers.FlaxBigBirdForTokenClassification.__call__
+#: transformers.FlaxBigBirdModel transformers.FlaxBigBirdModel.__call__
+#: transformers.models.big_bird.modeling_big_bird.BigBirdForPreTrainingOutput
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.BigBirdConfig:10
+msgid ""
+"Vocabulary size of the BigBird model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.BigBirdModel`."
+msgstr ""
+
+#: of transformers.BigBirdConfig:13
+msgid "Dimension of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.BigBirdConfig:15
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.BigBirdConfig:17
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.BigBirdConfig:19
+msgid ""
+"Dimension of the \"intermediate\" (i.e., feed-forward) layer in the "
+"Transformer encoder."
+msgstr ""
+
+#: of transformers.BigBirdConfig:21
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"selu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.BigBirdConfig:24
+msgid ""
+"The dropout probabilitiy for all fully connected layers in the "
+"embeddings, encoder, and pooler."
+msgstr ""
+
+#: of transformers.BigBirdConfig:26
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.BigBirdConfig:28
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 1024 or 2048 or"
+" 4096)."
+msgstr ""
+
+#: of transformers.BigBirdConfig:31
+msgid ""
+"The vocabulary size of the :obj:`token_type_ids` passed when calling "
+":class:`~transformers.BigBirdModel`."
+msgstr ""
+
+#: of transformers.BigBirdConfig:33
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.BigBirdConfig:35
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.BigBirdConfig:37
+msgid ""
+"Whether or not the model should return the last key/values attentions "
+"(not used by all models). Only relevant if ``config.is_decoder=True``."
+msgstr ""
+
+#: of transformers.BigBirdConfig:40
+msgid ""
+"Whether to use block sparse attention (with n complexity) as introduced "
+"in paper or original attention layer (with n^2 complexity). Possible "
+"values are :obj:`\"original_full\"` and :obj:`\"block_sparse\"`."
+msgstr ""
+
+#: of transformers.BigBirdConfig:43
+msgid "Whether to use bias in query, key, value."
+msgstr ""
+
+#: of transformers.BigBirdConfig:45
+msgid "Whether to rescale embeddings with (hidden_size ** 0.5)."
+msgstr ""
+
+#: of transformers.BigBirdConfig:47
+msgid ""
+"Size of each block. Useful only when :obj:`attention_type == "
+"\"block_sparse\"`."
+msgstr ""
+
+#: of transformers.BigBirdConfig:49
+msgid ""
+"Each query is going to attend these many number of random blocks. Useful "
+"only when :obj:`attention_type == \"block_sparse\"`."
+msgstr ""
+
+#: of transformers.BigBirdConfig:52
+msgid ""
+"If True, use gradient checkpointing to save memory at the expense of "
+"slower backward pass."
+msgstr ""
+
+#: of transformers.BigBirdConfig:54
+msgid "The dropout ratio for the classification head."
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:64
+msgid "BigBirdTokenizer"
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:1
+msgid ""
+"Construct a BigBird tokenizer. Based on `SentencePiece "
+"<https://github.com/google/sentencepiece>`__."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:3
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:6 transformers.BigBirdTokenizerFast:6
+msgid ""
+"`SentencePiece <https://github.com/google/sentencepiece>`__ file "
+"(generally has a `.spm` extension) that contains the vocabulary necessary"
+" to instantiate a tokenizer."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:9
+msgid "The end of sequence token."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:11
+msgid "The begin of sequence token."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:13 transformers.BigBirdTokenizerFast:19
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:16 transformers.BigBirdTokenizerFast:26
+msgid ""
+"The token used for padding, for example when batching sequences of "
+"different lengths."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:18 transformers.BigBirdTokenizerFast:22
+msgid ""
+"The separator token, which is used when building a sequence from multiple"
+" sequences, e.g. two sequences for sequence classification or for a text "
+"and a question for question answering. It is also used as the last token "
+"of a sequence built with special tokens."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:22 transformers.BigBirdTokenizerFast:28
+msgid ""
+"The classifier token which is used when doing sequence classification "
+"(classification of the whole sequence instead of per-token "
+"classification). It is the first token of the sequence when built with "
+"special tokens."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:25 transformers.BigBirdTokenizerFast:31
+msgid ""
+"The token used for masking values. This is the token used when training "
+"this model with masked language modeling. This is the token which the "
+"model will try to predict."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:28
+msgid ""
+"Will be passed to the ``SentencePieceProcessor.__init__()`` method. The "
+"`Python wrapper for SentencePiece "
+"<https://github.com/google/sentencepiece/tree/master/python>`__ can be "
+"used, among other things, to set:  - ``enable_sampling``: Enable subword "
+"regularization. - ``nbest_size``: Sampling parameters for unigram. "
+"Invalid for BPE-Dropout.    - ``nbest_size = {0,1}``: No sampling is "
+"performed.   - ``nbest_size > 1``: samples from the nbest_size results."
+"   - ``nbest_size < 0``: assuming that nbest_size is infinite and samples"
+" from the all hypothesis (lattice)     using forward-filtering-and-"
+"backward-sampling algorithm.  - ``alpha``: Smoothing parameter for "
+"unigram sampling, and dropout probability of merge operations for   BPE-"
+"dropout."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:28
+msgid ""
+"Will be passed to the ``SentencePieceProcessor.__init__()`` method. The "
+"`Python wrapper for SentencePiece "
+"<https://github.com/google/sentencepiece/tree/master/python>`__ can be "
+"used, among other things, to set:"
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:31
+msgid "``enable_sampling``: Enable subword regularization."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:32
+msgid "``nbest_size``: Sampling parameters for unigram. Invalid for BPE-Dropout."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:34
+msgid "``nbest_size = {0,1}``: No sampling is performed."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:35
+msgid "``nbest_size > 1``: samples from the nbest_size results."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:36
+msgid ""
+"``nbest_size < 0``: assuming that nbest_size is infinite and samples from"
+" the all hypothesis (lattice) using forward-filtering-and-backward-"
+"sampling algorithm."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer:39
+msgid ""
+"``alpha``: Smoothing parameter for unigram sampling, and dropout "
+"probability of merge operations for BPE-dropout."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. A Big "
+"Bird sequence has the following format:"
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.build_inputs_with_special_tokens:4
+#: transformers.BigBirdTokenizerFast.build_inputs_with_special_tokens:4
+msgid "single sequence: ``[CLS] X [SEP]``"
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.build_inputs_with_special_tokens:5
+#: transformers.BigBirdTokenizerFast.build_inputs_with_special_tokens:5
+msgid "pair of sequences: ``[CLS] A [SEP] B [SEP]``"
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.build_inputs_with_special_tokens:9
+#: transformers.BigBirdTokenizer.create_token_type_ids_from_sequences:7
+#: transformers.BigBirdTokenizer.get_special_tokens_mask:6
+#: transformers.BigBirdTokenizerFast.build_inputs_with_special_tokens:9
+#: transformers.BigBirdTokenizerFast.create_token_type_ids_from_sequences:13
+#: transformers.BigBirdTokenizerFast.get_special_tokens_mask:6
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward
+#: transformers.BigBirdForMaskedLM.forward
+#: transformers.BigBirdForMultipleChoice.forward
+#: transformers.BigBirdForPreTraining.forward
+#: transformers.BigBirdForQuestionAnswering.forward
+#: transformers.BigBirdForSequenceClassification.forward
+#: transformers.BigBirdForTokenClassification.forward
+#: transformers.BigBirdModel.forward
+#: transformers.BigBirdTokenizer.build_inputs_with_special_tokens
+#: transformers.BigBirdTokenizer.create_token_type_ids_from_sequences
+#: transformers.BigBirdTokenizer.get_special_tokens_mask
+#: transformers.BigBirdTokenizer.save_vocabulary
+#: transformers.BigBirdTokenizerFast.build_inputs_with_special_tokens
+#: transformers.BigBirdTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.BigBirdTokenizerFast.get_special_tokens_mask
+#: transformers.BigBirdTokenizerFast.save_vocabulary
+#: transformers.FlaxBigBirdForMaskedLM.__call__
+#: transformers.FlaxBigBirdForMultipleChoice.__call__
+#: transformers.FlaxBigBirdForPreTraining.__call__
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__
+#: transformers.FlaxBigBirdForSequenceClassification.__call__
+#: transformers.FlaxBigBirdForTokenClassification.__call__
+#: transformers.FlaxBigBirdModel.__call__
+msgid "Returns"
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward
+#: transformers.BigBirdForMaskedLM.forward
+#: transformers.BigBirdForMultipleChoice.forward
+#: transformers.BigBirdForPreTraining.forward
+#: transformers.BigBirdForQuestionAnswering.forward
+#: transformers.BigBirdForSequenceClassification.forward
+#: transformers.BigBirdForTokenClassification.forward
+#: transformers.BigBirdModel.forward
+#: transformers.BigBirdTokenizer.build_inputs_with_special_tokens
+#: transformers.BigBirdTokenizer.create_token_type_ids_from_sequences
+#: transformers.BigBirdTokenizer.get_special_tokens_mask
+#: transformers.BigBirdTokenizer.save_vocabulary
+#: transformers.BigBirdTokenizerFast.build_inputs_with_special_tokens
+#: transformers.BigBirdTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.BigBirdTokenizerFast.get_special_tokens_mask
+#: transformers.BigBirdTokenizerFast.save_vocabulary
+#: transformers.FlaxBigBirdForMaskedLM.__call__
+#: transformers.FlaxBigBirdForMultipleChoice.__call__
+#: transformers.FlaxBigBirdForPreTraining.__call__
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__
+#: transformers.FlaxBigBirdForSequenceClassification.__call__
+#: transformers.FlaxBigBirdForTokenClassification.__call__
+#: transformers.FlaxBigBirdModel.__call__
+msgid "Return type"
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.build_inputs_with_special_tokens:13
+#: transformers.BigBirdTokenizer.create_token_type_ids_from_sequences:12
+#: transformers.BigBirdTokenizer.get_special_tokens_mask:12
+#: transformers.BigBirdTokenizerFast.build_inputs_with_special_tokens:13
+#: transformers.BigBirdTokenizerFast.create_token_type_ids_from_sequences:18
+#: transformers.BigBirdTokenizerFast.get_special_tokens_mask:12
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. A BERT sequence pair mask has the following format:"
+" :: 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 | first sequence | second "
+"sequence | If :obj:`token_ids_1` is :obj:`None`, this method only returns"
+" the first portion of the mask (0s)."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.create_token_type_ids_from_sequences:5
+#: transformers.BigBirdTokenizer.get_special_tokens_mask:4
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.create_token_type_ids_from_sequences:10
+#: transformers.BigBirdTokenizerFast.create_token_type_ids_from_sequences:16
+msgid ""
+"List of `token type IDs <../glossary.html#token-type-ids>`_ according to "
+"the given sequence(s)."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.get_special_tokens_mask:11
+#: transformers.BigBirdTokenizerFast.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.save_vocabulary:1
+#: transformers.BigBirdTokenizerFast.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.save_vocabulary:3
+#: transformers.BigBirdTokenizerFast.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.save_vocabulary:6
+#: transformers.BigBirdTokenizerFast.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.save_vocabulary:8
+#: transformers.BigBirdTokenizerFast.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.save_vocabulary:11
+#: transformers.BigBirdTokenizerFast.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.BigBirdTokenizer.save_vocabulary:12
+#: transformers.BigBirdTokenizerFast.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:71
+msgid "BigBirdTokenizerFast"
+msgstr ""
+
+#: of transformers.BigBirdTokenizerFast:1
+msgid ""
+"Construct a \"fast\" BigBird tokenizer (backed by HuggingFace's "
+"`tokenizers` library). Based on `Unigram "
+"<https://huggingface.co/docs/tokenizers/python/latest/components.html?highlight=unigram#models>`__."
+" This tokenizer inherits from "
+":class:`~transformers.PreTrainedTokenizerFast` which contains most of the"
+" main methods. Users should refer to this superclass for more information"
+" regarding those methods"
+msgstr ""
+
+#: of transformers.BigBirdTokenizerFast:9
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token.  .. note::     When building a sequence"
+" using special tokens, this is not the token that is used for the "
+"beginning of    sequence. The token used is the :obj:`cls_token`."
+msgstr ""
+
+#: of transformers.BigBirdTokenizerFast:9
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token."
+msgstr ""
+
+#: of transformers.BigBirdTokenizerFast:13
+msgid ""
+"When building a sequence using special tokens, this is not the token that"
+" is used for the beginning of sequence. The token used is the "
+":obj:`cls_token`."
+msgstr ""
+
+#: of transformers.BigBirdTokenizerFast:16
+msgid ""
+"The end of sequence token. .. note:: When building a sequence using "
+"special tokens, this is not the token that is used for the end of "
+"sequence. The token used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.BigBirdTokenizerFast.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. An "
+"BigBird sequence has the following format:"
+msgstr ""
+
+#: of transformers.BigBirdTokenizerFast.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added"
+msgstr ""
+
+#: of transformers.BigBirdTokenizerFast.build_inputs_with_special_tokens:12
+msgid ""
+"list of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.BigBirdTokenizerFast.create_token_type_ids_from_sequences:1
+msgid ""
+"Creates a mask from the two sequences passed to be used in a sequence-"
+"pair classification task. An ALBERT sequence pair mask has the following "
+"format:"
+msgstr ""
+
+#: of transformers.BigBirdTokenizerFast.create_token_type_ids_from_sequences:9
+msgid "if token_ids_1 is None, only returns the first portion of the mask (0s)."
+msgstr ""
+
+#: of transformers.BigBirdTokenizerFast.create_token_type_ids_from_sequences:11
+#: transformers.BigBirdTokenizerFast.get_special_tokens_mask:4
+msgid "List of ids."
+msgstr ""
+
+#: of transformers.BigBirdTokenizerFast.get_special_tokens_mask:1
+msgid ""
+"Retrieves sequence ids from a token list that has no special tokens "
+"added. This method is called when adding special tokens using the "
+"tokenizer ``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.BigBirdTokenizerFast.get_special_tokens_mask:8
+msgid ""
+"Set to True if the token list is already formatted with special tokens "
+"for the model"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:77
+msgid "BigBird specific outputs"
+msgstr ""
+
+#: of
+#: transformers.models.big_bird.modeling_big_bird.BigBirdForPreTrainingOutput:1
+msgid "Output type of :class:`~transformers.BigBirdForPreTraining`."
+msgstr ""
+
+#: of
+#: transformers.models.big_bird.modeling_big_bird.BigBirdForPreTrainingOutput:3
+msgid ""
+"Total loss as the sum of the masked language modeling loss and the next "
+"sequence prediction (classification) loss."
+msgstr ""
+
+#: of
+#: transformers.models.big_bird.modeling_big_bird.BigBirdForPreTrainingOutput:6
+msgid ""
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.big_bird.modeling_big_bird.BigBirdForPreTrainingOutput:8
+msgid ""
+"Prediction scores of the next sequence prediction (classification) head "
+"(scores of True/False continuation before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.big_bird.modeling_big_bird.BigBirdForPreTrainingOutput:11
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the model at the output"
+" of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.big_bird.modeling_big_bird.BigBirdForPreTrainingOutput:11
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:84
+#: transformers.BigBirdForMaskedLM.forward:67
+#: transformers.BigBirdForMultipleChoice.forward:69
+#: transformers.BigBirdForPreTraining.forward:79
+#: transformers.BigBirdForQuestionAnswering.forward:73
+#: transformers.BigBirdForSequenceClassification.forward:67
+#: transformers.BigBirdForTokenClassification.forward:66
+#: transformers.BigBirdModel.forward:82
+#: transformers.FlaxBigBirdForMaskedLM.__call__:45
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:47
+#: transformers.FlaxBigBirdForPreTraining.__call__:47
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:47
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:45
+#: transformers.FlaxBigBirdForTokenClassification.__call__:45
+#: transformers.FlaxBigBirdModel.__call__:48
+#: transformers.models.big_bird.modeling_big_bird.BigBirdForPreTrainingOutput:14
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.big_bird.modeling_big_bird.BigBirdForPreTrainingOutput:16
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.big_bird.modeling_big_bird.BigBirdForPreTrainingOutput:16
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:88
+#: transformers.BigBirdForMaskedLM.forward:71
+#: transformers.BigBirdForMultipleChoice.forward:73
+#: transformers.BigBirdForPreTraining.forward:83
+#: transformers.BigBirdForQuestionAnswering.forward:77
+#: transformers.BigBirdForSequenceClassification.forward:71
+#: transformers.BigBirdForTokenClassification.forward:70
+#: transformers.BigBirdModel.forward:86
+#: transformers.FlaxBigBirdForMaskedLM.__call__:49
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:51
+#: transformers.FlaxBigBirdForPreTraining.__call__:51
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:51
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:49
+#: transformers.FlaxBigBirdForTokenClassification.__call__:49
+#: transformers.FlaxBigBirdModel.__call__:52
+#: transformers.models.big_bird.modeling_big_bird.BigBirdForPreTrainingOutput:19
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:84
+msgid "BigBirdModel"
+msgstr ""
+
+#: of transformers.BigBirdModel:1
+msgid ""
+"The bare BigBird Model transformer outputting raw hidden-states without "
+"any specific head on top. This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM:6 transformers.BigBirdForMaskedLM:6
+#: transformers.BigBirdForMultipleChoice:8
+#: transformers.BigBirdForQuestionAnswering:8
+#: transformers.BigBirdForSequenceClassification:8
+#: transformers.BigBirdForTokenClassification:8 transformers.BigBirdModel:6
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.BigBirdModel:12
+msgid ""
+"The model can behave as an encoder (with only self-attention) as well as "
+"a decoder, in which case a layer of cross-attention is added between the "
+"self-attention layers, following the architecture described in `Attention"
+" is all you need <https://arxiv.org/abs/1706.03762>`__ by Ashish Vaswani,"
+" Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez,"
+" Lukasz Kaiser and Illia Polosukhin."
+msgstr ""
+
+#: of transformers.BigBirdModel:17
+msgid ""
+"To behave as an decoder the model needs to be initialized with the "
+":obj:`is_decoder` argument of the configuration set to :obj:`True`. To be"
+" used in a Seq2Seq model, the model needs to initialized with both "
+":obj:`is_decoder` argument and :obj:`add_cross_attention` set to "
+":obj:`True`; an :obj:`encoder_hidden_states` is then expected as an input"
+" to the forward pass."
+msgstr ""
+
+#: of transformers.BigBirdModel.forward:1
+msgid ""
+"The :class:`~transformers.BigBirdModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:4
+#: transformers.BigBirdForMaskedLM.forward:4
+#: transformers.BigBirdForMultipleChoice.forward:4
+#: transformers.BigBirdForPreTraining.forward:4
+#: transformers.BigBirdForQuestionAnswering.forward:4
+#: transformers.BigBirdForSequenceClassification.forward:4
+#: transformers.BigBirdForTokenClassification.forward:4
+#: transformers.BigBirdModel.forward:4
+#: transformers.FlaxBigBirdForMaskedLM.__call__:4
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:4
+#: transformers.FlaxBigBirdForPreTraining.__call__:4
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:4
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:4
+#: transformers.FlaxBigBirdForTokenClassification.__call__:4
+#: transformers.FlaxBigBirdModel.__call__:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:8
+#: transformers.BigBirdForMaskedLM.forward:8
+#: transformers.BigBirdForMultipleChoice.forward:8
+#: transformers.BigBirdForPreTraining.forward:8
+#: transformers.BigBirdForQuestionAnswering.forward:8
+#: transformers.BigBirdForSequenceClassification.forward:8
+#: transformers.BigBirdForTokenClassification.forward:8
+#: transformers.BigBirdModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`transformers.BigBirdTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:8
+#: transformers.BigBirdForMaskedLM.forward:8
+#: transformers.BigBirdForMultipleChoice.forward:8
+#: transformers.BigBirdForPreTraining.forward:8
+#: transformers.BigBirdForQuestionAnswering.forward:8
+#: transformers.BigBirdForSequenceClassification.forward:8
+#: transformers.BigBirdForTokenClassification.forward:8
+#: transformers.BigBirdModel.forward:8
+#: transformers.FlaxBigBirdForMaskedLM.__call__:8
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:8
+#: transformers.FlaxBigBirdForPreTraining.__call__:8
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:8
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:8
+#: transformers.FlaxBigBirdForTokenClassification.__call__:8
+#: transformers.FlaxBigBirdModel.__call__:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:10
+#: transformers.BigBirdForMaskedLM.forward:10
+#: transformers.BigBirdForMultipleChoice.forward:10
+#: transformers.BigBirdForPreTraining.forward:10
+#: transformers.BigBirdForQuestionAnswering.forward:10
+#: transformers.BigBirdForSequenceClassification.forward:10
+#: transformers.BigBirdForTokenClassification.forward:10
+#: transformers.BigBirdModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`transformers.BigBirdTokenizer`. See"
+" :func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:14
+#: transformers.BigBirdForMaskedLM.forward:14
+#: transformers.BigBirdForMultipleChoice.forward:14
+#: transformers.BigBirdForPreTraining.forward:14
+#: transformers.BigBirdForQuestionAnswering.forward:14
+#: transformers.BigBirdForSequenceClassification.forward:14
+#: transformers.BigBirdForTokenClassification.forward:14
+#: transformers.BigBirdModel.forward:14
+#: transformers.FlaxBigBirdForMaskedLM.__call__:14
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:14
+#: transformers.FlaxBigBirdForPreTraining.__call__:14
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:14
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:14
+#: transformers.FlaxBigBirdForTokenClassification.__call__:14
+#: transformers.FlaxBigBirdModel.__call__:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:16
+#: transformers.BigBirdForMaskedLM.forward:16
+#: transformers.BigBirdForMultipleChoice.forward:16
+#: transformers.BigBirdForPreTraining.forward:16
+#: transformers.BigBirdForQuestionAnswering.forward:16
+#: transformers.BigBirdForSequenceClassification.forward:16
+#: transformers.BigBirdForTokenClassification.forward:16
+#: transformers.BigBirdModel.forward:16
+#: transformers.FlaxBigBirdForMaskedLM.__call__:16
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:16
+#: transformers.FlaxBigBirdForPreTraining.__call__:16
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:16
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:16
+#: transformers.FlaxBigBirdForTokenClassification.__call__:16
+#: transformers.FlaxBigBirdModel.__call__:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:16
+#: transformers.BigBirdForMaskedLM.forward:16
+#: transformers.BigBirdForMultipleChoice.forward:16
+#: transformers.BigBirdForPreTraining.forward:16
+#: transformers.BigBirdForQuestionAnswering.forward:16
+#: transformers.BigBirdForSequenceClassification.forward:16
+#: transformers.BigBirdForTokenClassification.forward:16
+#: transformers.BigBirdModel.forward:16
+#: transformers.FlaxBigBirdForMaskedLM.__call__:16
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:16
+#: transformers.FlaxBigBirdForPreTraining.__call__:16
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:16
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:16
+#: transformers.FlaxBigBirdForTokenClassification.__call__:16
+#: transformers.FlaxBigBirdModel.__call__:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:18
+#: transformers.BigBirdForCausalLM.forward:59
+#: transformers.BigBirdForMaskedLM.forward:18
+#: transformers.BigBirdForMultipleChoice.forward:18
+#: transformers.BigBirdForPreTraining.forward:18
+#: transformers.BigBirdForQuestionAnswering.forward:18
+#: transformers.BigBirdForSequenceClassification.forward:18
+#: transformers.BigBirdForTokenClassification.forward:18
+#: transformers.BigBirdModel.forward:18 transformers.BigBirdModel.forward:59
+#: transformers.FlaxBigBirdForMaskedLM.__call__:18
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:18
+#: transformers.FlaxBigBirdForPreTraining.__call__:18
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:18
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:18
+#: transformers.FlaxBigBirdForTokenClassification.__call__:18
+#: transformers.FlaxBigBirdModel.__call__:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:19
+#: transformers.BigBirdForCausalLM.forward:60
+#: transformers.BigBirdForMaskedLM.forward:19
+#: transformers.BigBirdForMultipleChoice.forward:19
+#: transformers.BigBirdForPreTraining.forward:19
+#: transformers.BigBirdForQuestionAnswering.forward:19
+#: transformers.BigBirdForSequenceClassification.forward:19
+#: transformers.BigBirdForTokenClassification.forward:19
+#: transformers.BigBirdModel.forward:19 transformers.BigBirdModel.forward:60
+#: transformers.FlaxBigBirdForMaskedLM.__call__:19
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:19
+#: transformers.FlaxBigBirdForPreTraining.__call__:19
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:19
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:19
+#: transformers.FlaxBigBirdForTokenClassification.__call__:19
+#: transformers.FlaxBigBirdModel.__call__:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:21
+#: transformers.BigBirdForMaskedLM.forward:21
+#: transformers.BigBirdForMultipleChoice.forward:21
+#: transformers.BigBirdForPreTraining.forward:21
+#: transformers.BigBirdForQuestionAnswering.forward:21
+#: transformers.BigBirdForSequenceClassification.forward:21
+#: transformers.BigBirdForTokenClassification.forward:21
+#: transformers.BigBirdModel.forward:21
+#: transformers.FlaxBigBirdForMaskedLM.__call__:21
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:21
+#: transformers.FlaxBigBirdForPreTraining.__call__:21
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:21
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:21
+#: transformers.FlaxBigBirdForTokenClassification.__call__:21
+#: transformers.FlaxBigBirdModel.__call__:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:23
+#: transformers.BigBirdForMaskedLM.forward:23
+#: transformers.BigBirdForMultipleChoice.forward:23
+#: transformers.BigBirdForPreTraining.forward:23
+#: transformers.BigBirdForQuestionAnswering.forward:23
+#: transformers.BigBirdForSequenceClassification.forward:23
+#: transformers.BigBirdForTokenClassification.forward:23
+#: transformers.BigBirdModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:23
+#: transformers.BigBirdForMaskedLM.forward:23
+#: transformers.BigBirdForMultipleChoice.forward:23
+#: transformers.BigBirdForPreTraining.forward:23
+#: transformers.BigBirdForQuestionAnswering.forward:23
+#: transformers.BigBirdForSequenceClassification.forward:23
+#: transformers.BigBirdForTokenClassification.forward:23
+#: transformers.BigBirdModel.forward:23
+#: transformers.FlaxBigBirdForMaskedLM.__call__:23
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:23
+#: transformers.FlaxBigBirdForPreTraining.__call__:23
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:23
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:23
+#: transformers.FlaxBigBirdForTokenClassification.__call__:23
+#: transformers.FlaxBigBirdModel.__call__:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:26
+#: transformers.BigBirdForMaskedLM.forward:26
+#: transformers.BigBirdForMultipleChoice.forward:26
+#: transformers.BigBirdForPreTraining.forward:26
+#: transformers.BigBirdForQuestionAnswering.forward:26
+#: transformers.BigBirdForSequenceClassification.forward:26
+#: transformers.BigBirdForTokenClassification.forward:26
+#: transformers.BigBirdModel.forward:26
+#: transformers.FlaxBigBirdForMaskedLM.__call__:26
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:26
+#: transformers.FlaxBigBirdForPreTraining.__call__:26
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:26
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:26
+#: transformers.FlaxBigBirdForTokenClassification.__call__:26
+#: transformers.FlaxBigBirdModel.__call__:26
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:27
+#: transformers.BigBirdForMaskedLM.forward:27
+#: transformers.BigBirdForMultipleChoice.forward:27
+#: transformers.BigBirdForPreTraining.forward:27
+#: transformers.BigBirdForQuestionAnswering.forward:27
+#: transformers.BigBirdForSequenceClassification.forward:27
+#: transformers.BigBirdForTokenClassification.forward:27
+#: transformers.BigBirdModel.forward:27
+#: transformers.FlaxBigBirdForMaskedLM.__call__:27
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:27
+#: transformers.FlaxBigBirdForPreTraining.__call__:27
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:27
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:27
+#: transformers.FlaxBigBirdForTokenClassification.__call__:27
+#: transformers.FlaxBigBirdModel.__call__:27
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:29
+#: transformers.BigBirdForMaskedLM.forward:29
+#: transformers.BigBirdForMultipleChoice.forward:29
+#: transformers.BigBirdForPreTraining.forward:29
+#: transformers.BigBirdForQuestionAnswering.forward:29
+#: transformers.BigBirdForSequenceClassification.forward:29
+#: transformers.BigBirdForTokenClassification.forward:29
+#: transformers.BigBirdModel.forward:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:31
+#: transformers.BigBirdForMaskedLM.forward:31
+#: transformers.BigBirdForMultipleChoice.forward:31
+#: transformers.BigBirdForPreTraining.forward:31
+#: transformers.BigBirdForQuestionAnswering.forward:31
+#: transformers.BigBirdForSequenceClassification.forward:31
+#: transformers.BigBirdForTokenClassification.forward:31
+#: transformers.BigBirdModel.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:31
+#: transformers.BigBirdForMaskedLM.forward:31
+#: transformers.BigBirdForMultipleChoice.forward:31
+#: transformers.BigBirdForPreTraining.forward:31
+#: transformers.BigBirdForQuestionAnswering.forward:31
+#: transformers.BigBirdForSequenceClassification.forward:31
+#: transformers.BigBirdForTokenClassification.forward:31
+#: transformers.BigBirdModel.forward:31
+#: transformers.FlaxBigBirdForMaskedLM.__call__:31
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:31
+#: transformers.FlaxBigBirdForPreTraining.__call__:31
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:31
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:31
+#: transformers.FlaxBigBirdForTokenClassification.__call__:31
+#: transformers.FlaxBigBirdModel.__call__:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:34
+#: transformers.BigBirdForMaskedLM.forward:34
+#: transformers.BigBirdForMultipleChoice.forward:34
+#: transformers.BigBirdForPreTraining.forward:34
+#: transformers.BigBirdForQuestionAnswering.forward:34
+#: transformers.BigBirdForSequenceClassification.forward:34
+#: transformers.BigBirdForTokenClassification.forward:34
+#: transformers.BigBirdModel.forward:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:36
+#: transformers.BigBirdForMaskedLM.forward:36
+#: transformers.BigBirdForMultipleChoice.forward:36
+#: transformers.BigBirdForPreTraining.forward:36
+#: transformers.BigBirdForQuestionAnswering.forward:36
+#: transformers.BigBirdForSequenceClassification.forward:36
+#: transformers.BigBirdForTokenClassification.forward:36
+#: transformers.BigBirdModel.forward:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:36
+#: transformers.BigBirdForMaskedLM.forward:36
+#: transformers.BigBirdForMultipleChoice.forward:36
+#: transformers.BigBirdForPreTraining.forward:36
+#: transformers.BigBirdForQuestionAnswering.forward:36
+#: transformers.BigBirdForSequenceClassification.forward:36
+#: transformers.BigBirdForTokenClassification.forward:36
+#: transformers.BigBirdModel.forward:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:38
+#: transformers.BigBirdForMaskedLM.forward:38
+#: transformers.BigBirdForMultipleChoice.forward:38
+#: transformers.BigBirdForPreTraining.forward:38
+#: transformers.BigBirdForQuestionAnswering.forward:38
+#: transformers.BigBirdForSequenceClassification.forward:38
+#: transformers.BigBirdForTokenClassification.forward:38
+#: transformers.BigBirdModel.forward:38
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:39
+#: transformers.BigBirdForMaskedLM.forward:39
+#: transformers.BigBirdForMultipleChoice.forward:39
+#: transformers.BigBirdForPreTraining.forward:39
+#: transformers.BigBirdForQuestionAnswering.forward:39
+#: transformers.BigBirdForSequenceClassification.forward:39
+#: transformers.BigBirdForTokenClassification.forward:39
+#: transformers.BigBirdModel.forward:39
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:41
+#: transformers.BigBirdForMaskedLM.forward:41
+#: transformers.BigBirdForMultipleChoice.forward:41
+#: transformers.BigBirdForPreTraining.forward:41
+#: transformers.BigBirdForQuestionAnswering.forward:41
+#: transformers.BigBirdForSequenceClassification.forward:41
+#: transformers.BigBirdForTokenClassification.forward:41
+#: transformers.BigBirdModel.forward:41
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert `input_ids` indices into associated vectors "
+"than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:45
+#: transformers.BigBirdForMaskedLM.forward:45
+#: transformers.BigBirdForMultipleChoice.forward:45
+#: transformers.BigBirdForPreTraining.forward:45
+#: transformers.BigBirdForQuestionAnswering.forward:45
+#: transformers.BigBirdForSequenceClassification.forward:45
+#: transformers.BigBirdForTokenClassification.forward:45
+#: transformers.BigBirdModel.forward:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:48
+#: transformers.BigBirdForMaskedLM.forward:48
+#: transformers.BigBirdForMultipleChoice.forward:48
+#: transformers.BigBirdForPreTraining.forward:48
+#: transformers.BigBirdForQuestionAnswering.forward:48
+#: transformers.BigBirdForSequenceClassification.forward:48
+#: transformers.BigBirdForTokenClassification.forward:48
+#: transformers.BigBirdModel.forward:48
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:51
+#: transformers.BigBirdForMaskedLM.forward:51
+#: transformers.BigBirdForMultipleChoice.forward:51
+#: transformers.BigBirdForPreTraining.forward:51
+#: transformers.BigBirdForQuestionAnswering.forward:51
+#: transformers.BigBirdForSequenceClassification.forward:51
+#: transformers.BigBirdForTokenClassification.forward:51
+#: transformers.BigBirdModel.forward:51
+#: transformers.FlaxBigBirdForMaskedLM.__call__:34
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:34
+#: transformers.FlaxBigBirdForPreTraining.__call__:34
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:34
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:34
+#: transformers.FlaxBigBirdForTokenClassification.__call__:34
+#: transformers.FlaxBigBirdModel.__call__:34
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:53
+#: transformers.BigBirdModel.forward:53
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the encoder."
+" Used in the cross-attention if the model is configured as a decoder."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:56
+#: transformers.BigBirdModel.forward:56
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:  - 1 for "
+"tokens that are **not masked**, - 0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:56
+#: transformers.BigBirdModel.forward:56
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:62
+#: transformers.BigBirdModel.forward:62
+msgid ""
+"Contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding. If :obj:`past_key_values` are used, "
+"the user can optionally input only the last :obj:`decoder_input_ids` "
+"(those that don't have their past key value states given to this model) "
+"of shape :obj:`(batch_size, 1)` instead of all :obj:`decoder_input_ids` "
+"of shape :obj:`(batch_size, sequence_length)`."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:71
+#: transformers.BigBirdModel.forward:67
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.BigBirdModel.forward:71
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, hidden_size)`) -- "
+"Last layer hidden-state of the first token of the sequence "
+"(classification token) further processed by a   Linear layer and a Tanh "
+"activation function. The Linear layer weights are trained from the next "
+"sentence   prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` and ``config.add_cross_attention=True`` is "
+"passed or when ``config.output_attentions=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for each layer) of shape :obj:`(batch_size,"
+" num_heads,   sequence_length, sequence_length)`.    Attentions weights "
+"of the decoder's cross-attention layer, after the attention softmax, used"
+" to compute the   weighted average in the cross-attention heads. - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and optionally if   "
+"``config.is_encoder_decoder=True`` 2 additional tensors of shape "
+":obj:`(batch_size, num_heads,   encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and optionally if   "
+"``config.is_encoder_decoder=True`` in the cross-attention blocks) that "
+"can be used (see   :obj:`past_key_values` input) to speed up sequential "
+"decoding."
+msgstr ""
+
+#: of transformers.BigBirdModel.forward:71
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.BigBirdModel.forward:75
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.BigBirdModel.forward:76
+msgid ""
+"**pooler_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:81
+#: transformers.BigBirdForMaskedLM.forward:64
+#: transformers.BigBirdForMultipleChoice.forward:66
+#: transformers.BigBirdForPreTraining.forward:76
+#: transformers.BigBirdForQuestionAnswering.forward:70
+#: transformers.BigBirdForSequenceClassification.forward:64
+#: transformers.BigBirdForTokenClassification.forward:63
+#: transformers.BigBirdModel.forward:79
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:85
+#: transformers.BigBirdForMaskedLM.forward:68
+#: transformers.BigBirdForMultipleChoice.forward:70
+#: transformers.BigBirdForPreTraining.forward:80
+#: transformers.BigBirdForQuestionAnswering.forward:74
+#: transformers.BigBirdForSequenceClassification.forward:68
+#: transformers.BigBirdForTokenClassification.forward:67
+#: transformers.BigBirdModel.forward:83
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BigBirdModel.forward:88
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` and "
+"``config.add_cross_attention=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BigBirdModel.forward:91
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.BigBirdModel.forward:93
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) "
+"and optionally if ``config.is_encoder_decoder=True`` 2 additional tensors"
+" of shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.BigBirdModel.forward:98
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and optionally if ``config.is_encoder_decoder=True`` in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.BigBirdModel.forward:101
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:103
+#: transformers.BigBirdForMaskedLM.forward:75
+#: transformers.BigBirdForMultipleChoice.forward:77
+#: transformers.BigBirdForPreTraining.forward:87
+#: transformers.BigBirdForQuestionAnswering.forward:81
+#: transformers.BigBirdForSequenceClassification.forward:75
+#: transformers.BigBirdForTokenClassification.forward:74
+#: transformers.BigBirdModel.forward:103
+#: transformers.FlaxBigBirdForMaskedLM.__call__:53
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:55
+#: transformers.FlaxBigBirdForPreTraining.__call__:55
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:55
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:53
+#: transformers.FlaxBigBirdForTokenClassification.__call__:53
+#: transformers.FlaxBigBirdModel.__call__:56
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:91
+msgid "BigBirdForPreTraining"
+msgstr ""
+
+#: of transformers.BigBirdForPreTraining.forward:1
+msgid ""
+"The :class:`~transformers.BigBirdForPreTraining` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BigBirdForPreTraining.forward:53
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.BigBirdForPreTraining.forward:57
+msgid ""
+"Labels for computing the next sequence prediction (classification) loss. "
+"If specified, nsp loss will be added to masked_lm loss. Input should be a"
+" sequence pair (see :obj:`input_ids` docstring) Indices should be in "
+"``[0, 1]``:  - 0 indicates sequence B is a continuation of sequence A, - "
+"1 indicates sequence B is a random sequence."
+msgstr ""
+
+#: of transformers.BigBirdForPreTraining.forward:57
+msgid ""
+"Labels for computing the next sequence prediction (classification) loss. "
+"If specified, nsp loss will be added to masked_lm loss. Input should be a"
+" sequence pair (see :obj:`input_ids` docstring) Indices should be in "
+"``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BigBirdForPreTraining.forward:61
+msgid "0 indicates sequence B is a continuation of sequence A,"
+msgstr ""
+
+#: of transformers.BigBirdForPreTraining.forward:62
+msgid "1 indicates sequence B is a random sequence."
+msgstr ""
+
+#: of transformers.BigBirdForPreTraining.forward:64
+msgid "Used to hide legacy arguments that have been deprecated."
+msgstr ""
+
+#: of transformers.BigBirdForPreTraining.forward:67
+msgid ""
+"A "
+":class:`~transformers.models.big_bird.modeling_big_bird.BigBirdForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs.  - **loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss as the sum of "
+"the masked language modeling loss and the next sequence prediction   "
+"(classification) loss. - **prediction_logits** (:obj:`torch.FloatTensor` "
+"of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **seq_relationship_logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, 2)`) -- Prediction "
+"scores of the next sequence prediction (classification) head (scores of "
+"True/False continuation   before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Example::      >>> from transformers import "
+"BigBirdTokenizer, BigBirdForPreTraining     >>> import torch      >>> "
+"tokenizer = BigBirdTokenizer.from_pretrained('bigbird-roberta-base')     "
+">>> model = BigBirdForPreTraining.from_pretrained('bigbird-roberta-base')"
+"      >>> inputs = tokenizer(\"Hello, my dog is cute\", "
+"return_tensors=\"pt\")     >>> outputs = model(**inputs)      >>> "
+"prediction_logits = outputs.prediction_logits     >>> "
+"seq_relationship_logits = outputs.seq_relationship_logits"
+msgstr ""
+
+#: of transformers.BigBirdForPreTraining.forward:67
+msgid ""
+"A "
+":class:`~transformers.models.big_bird.modeling_big_bird.BigBirdForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.BigBirdForPreTraining.forward:71
+msgid ""
+"**loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss as the sum of "
+"the masked language modeling loss and the next sequence prediction "
+"(classification) loss."
+msgstr ""
+
+#: of transformers.BigBirdForPreTraining.forward:73
+msgid ""
+"**prediction_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax)."
+msgstr ""
+
+#: of transformers.BigBirdForPreTraining.forward:74
+msgid ""
+"**seq_relationship_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, 2)`) -- Prediction scores of the next sequence "
+"prediction (classification) head (scores of True/False continuation "
+"before SoftMax)."
+msgstr ""
+
+#: of transformers.BigBirdForPreTraining.forward:100
+msgid ""
+":class:`~transformers.models.big_bird.modeling_big_bird.BigBirdForPreTrainingOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:98
+msgid "BigBirdForCausalLM"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM:1
+msgid ""
+"BigBird Model with a `language modeling` head on top for CLM fine-tuning."
+" This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:1
+msgid ""
+"The :class:`~transformers.BigBirdForCausalLM` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:67
+msgid ""
+"Labels for computing the left-to-right language modeling loss (next word "
+"prediction). Indices should be in ``[-100, 0, ..., config.vocab_size]`` "
+"(see ``input_ids`` docstring) Tokens with indices set to ``-100`` are "
+"ignored (masked), the loss is only computed for the tokens with labels n "
+"``[0, ..., config.vocab_size]``."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:75
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Language modeling"
+" loss (for next-token prediction). - **logits** (:obj:`torch.FloatTensor`"
+" of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Cross attentions weights after the"
+" attention softmax, used to compute the weighted average in the   cross-"
+"attention heads. - **past_key_values** "
+"(:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`torch.FloatTensor` tuples of length :obj:`config.n_layers`, with"
+" each tuple containing the   cached key, value states of the self-"
+"attention and the cross-attention layers if model is used in   encoder-"
+"decoder setting. Only relevant if ``config.is_decoder = True``.    "
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see   :obj:`past_key_values` input) to speed up"
+" sequential decoding.   Example::      >>> from transformers import "
+"BigBirdTokenizer, BigBirdForCausalLM, BigBirdConfig     >>> import torch"
+"      >>> tokenizer = BigBirdTokenizer.from_pretrained('google/bigbird-"
+"roberta-base')     >>> config = BigBirdConfig.from_pretrained(\"google"
+"/bigbird-base\")     >>> config.is_decoder = True     >>> model = "
+"BigBirdForCausalLM.from_pretrained('google/bigbird-roberta-base', "
+"config=config)      >>> inputs = tokenizer(\"Hello, my dog is cute\", "
+"return_tensors=\"pt\")     >>> outputs = model(**inputs)      >>> "
+"prediction_logits = outputs.logits"
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:75
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:79
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss (for "
+"next-token prediction)."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:80
+#: transformers.BigBirdForMaskedLM.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:90
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:93
+msgid ""
+"Cross attentions weights after the attention softmax, used to compute the"
+" weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:95
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`torch.FloatTensor` tuples of"
+" length :obj:`config.n_layers`, with each tuple containing the cached "
+"key, value states of the self-attention and the cross-attention layers if"
+" model is used in encoder-decoder setting. Only relevant if "
+"``config.is_decoder = True``."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:99
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.BigBirdForCausalLM.forward:117
+msgid ""
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:105
+msgid "BigBirdForMaskedLM"
+msgstr ""
+
+#: of transformers.BigBirdForMaskedLM:1
+msgid ""
+"BigBird Model with a `language modeling` head on top. This model is a "
+"PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.BigBirdForMaskedLM.forward:1
+msgid ""
+"The :class:`~transformers.BigBirdForMaskedLM` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BigBirdForMaskedLM.forward:53
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``."
+msgstr ""
+
+#: of transformers.BigBirdForMaskedLM.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BigBirdConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.BigBirdForMaskedLM.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BigBirdConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BigBirdForMaskedLM.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.BigBirdForMaskedLM.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:112
+msgid "BigBirdForSequenceClassification"
+msgstr ""
+
+#: of transformers.BigBirdForSequenceClassification:1
+#: transformers.FlaxBigBirdForSequenceClassification:1
+msgid ""
+"BigBird Model transformer with a sequence classification/regression head "
+"on top (a linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.BigBirdForMultipleChoice:4
+#: transformers.BigBirdForQuestionAnswering:4
+#: transformers.BigBirdForSequenceClassification:4
+#: transformers.BigBirdForTokenClassification:4
+msgid ""
+"This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.BigBirdForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.BigBirdForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BigBirdForSequenceClassification.forward:53
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.BigBirdForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BigBirdConfig`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.BigBirdForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BigBirdConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BigBirdForSequenceClassification.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.BigBirdForSequenceClassification.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.BigBirdForSequenceClassification.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:119
+msgid "BigBirdForMultipleChoice"
+msgstr ""
+
+#: of transformers.BigBirdForMultipleChoice:1
+#: transformers.FlaxBigBirdForMultipleChoice:1
+msgid ""
+"BigBird Model with a multiple choice classification head on top (a linear"
+" layer on top of the pooled output and a softmax) e.g. for "
+"RocStories/SWAG tasks."
+msgstr ""
+
+#: of transformers.BigBirdForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.BigBirdForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BigBirdForMultipleChoice.forward:53
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.BigBirdForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BigBirdConfig`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.BigBirdForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BigBirdConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BigBirdForMultipleChoice.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.BigBirdForMultipleChoice.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.BigBirdForMultipleChoice.forward:65
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:43
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.BigBirdForMultipleChoice.forward:75
+msgid ""
+":class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:126
+msgid "BigBirdForTokenClassification"
+msgstr ""
+
+#: of transformers.BigBirdForTokenClassification:1
+#: transformers.FlaxBigBirdForTokenClassification:1
+msgid ""
+"BigBird Model with a token classification head on top (a linear layer on "
+"top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) "
+"tasks."
+msgstr ""
+
+#: of transformers.BigBirdForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.BigBirdForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BigBirdForTokenClassification.forward:53
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.BigBirdForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BigBirdConfig`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.BigBirdForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BigBirdConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BigBirdForTokenClassification.forward:61
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.BigBirdForTokenClassification.forward:62
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.BigBirdForTokenClassification.forward:72
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:133
+msgid "BigBirdForQuestionAnswering"
+msgstr ""
+
+#: of transformers.BigBirdForQuestionAnswering:1
+#: transformers.FlaxBigBirdForQuestionAnswering:1
+msgid ""
+"BigBird Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.BigBirdForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.BigBirdForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BigBirdForQuestionAnswering.forward:53
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.BigBirdForQuestionAnswering.forward:57
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.BigBirdForQuestionAnswering.forward:62
+msgid ""
+"A "
+":class:`~transformers.models.big_bird.modeling_big_bird.BigBirdForQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **pooler_output** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, 1)`) -- pooler output from BigBigModel - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.BigBirdForQuestionAnswering.forward:62
+msgid ""
+"A "
+":class:`~transformers.models.big_bird.modeling_big_bird.BigBirdForQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.BigBirdForQuestionAnswering.forward:66
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.BigBirdForQuestionAnswering.forward:67
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.BigBirdForQuestionAnswering.forward:68
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.BigBirdForQuestionAnswering.forward:69
+msgid ""
+"**pooler_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"1)`) -- pooler output from BigBigModel"
+msgstr ""
+
+#: of transformers.BigBirdForQuestionAnswering.forward:79
+msgid ""
+":class:`~transformers.models.big_bird.modeling_big_bird.BigBirdForQuestionAnsweringModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:140
+msgid "FlaxBigBirdModel"
+msgstr ""
+
+#: of transformers.FlaxBigBirdModel:1
+msgid ""
+"The bare BigBird Model transformer outputting raw hidden-states without "
+"any specific head on top."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM:3
+#: transformers.FlaxBigBirdForMultipleChoice:5
+#: transformers.FlaxBigBirdForPreTraining:5
+#: transformers.FlaxBigBirdForQuestionAnswering:5
+#: transformers.FlaxBigBirdForSequenceClassification:5
+#: transformers.FlaxBigBirdForTokenClassification:5
+#: transformers.FlaxBigBirdModel:3
+msgid ""
+"This model inherits from :class:`~transformers.FlaxPreTrainedModel`. "
+"Check the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading, saving and converting "
+"weights from PyTorch models)"
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM:7
+#: transformers.FlaxBigBirdForMultipleChoice:9
+#: transformers.FlaxBigBirdForPreTraining:9
+#: transformers.FlaxBigBirdForQuestionAnswering:9
+#: transformers.FlaxBigBirdForSequenceClassification:9
+#: transformers.FlaxBigBirdForTokenClassification:9
+#: transformers.FlaxBigBirdModel:7
+msgid ""
+"This model is also a Flax Linen `flax.linen.Module "
+"<https://flax.readthedocs.io/en/latest/flax.linen.html#module>`__ "
+"subclass. Use it as a regular Flax linen Module and refer to the Flax "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM:11
+#: transformers.FlaxBigBirdForMultipleChoice:13
+#: transformers.FlaxBigBirdForPreTraining:13
+#: transformers.FlaxBigBirdForQuestionAnswering:13
+#: transformers.FlaxBigBirdForSequenceClassification:13
+#: transformers.FlaxBigBirdForTokenClassification:13
+#: transformers.FlaxBigBirdModel:11
+msgid "Finally, this model supports inherent JAX features such as:"
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM:13
+#: transformers.FlaxBigBirdForMultipleChoice:15
+#: transformers.FlaxBigBirdForPreTraining:15
+#: transformers.FlaxBigBirdForQuestionAnswering:15
+#: transformers.FlaxBigBirdForSequenceClassification:15
+#: transformers.FlaxBigBirdForTokenClassification:15
+#: transformers.FlaxBigBirdModel:13
+msgid ""
+"`Just-In-Time (JIT) compilation "
+"<https://jax.readthedocs.io/en/latest/jax.html#just-in-time-compilation-"
+"jit>`__"
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM:14
+#: transformers.FlaxBigBirdForMultipleChoice:16
+#: transformers.FlaxBigBirdForPreTraining:16
+#: transformers.FlaxBigBirdForQuestionAnswering:16
+#: transformers.FlaxBigBirdForSequenceClassification:16
+#: transformers.FlaxBigBirdForTokenClassification:16
+#: transformers.FlaxBigBirdModel:14
+msgid ""
+"`Automatic Differentiation <https://jax.readthedocs.io/en/latest/jax.html"
+"#automatic-differentiation>`__"
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM:15
+#: transformers.FlaxBigBirdForMultipleChoice:17
+#: transformers.FlaxBigBirdForPreTraining:17
+#: transformers.FlaxBigBirdForQuestionAnswering:17
+#: transformers.FlaxBigBirdForSequenceClassification:17
+#: transformers.FlaxBigBirdForTokenClassification:17
+#: transformers.FlaxBigBirdModel:15
+msgid ""
+"`Vectorization <https://jax.readthedocs.io/en/latest/jax.html"
+"#vectorization-vmap>`__"
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM:16
+#: transformers.FlaxBigBirdForMultipleChoice:18
+#: transformers.FlaxBigBirdForPreTraining:18
+#: transformers.FlaxBigBirdForQuestionAnswering:18
+#: transformers.FlaxBigBirdForSequenceClassification:18
+#: transformers.FlaxBigBirdForTokenClassification:18
+#: transformers.FlaxBigBirdModel:16
+msgid ""
+"`Parallelization <https://jax.readthedocs.io/en/latest/jax.html"
+"#parallelization-pmap>`__"
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM:18
+#: transformers.FlaxBigBirdForMultipleChoice:20
+#: transformers.FlaxBigBirdForPreTraining:20
+#: transformers.FlaxBigBirdForQuestionAnswering:20
+#: transformers.FlaxBigBirdForSequenceClassification:20
+#: transformers.FlaxBigBirdForTokenClassification:20
+#: transformers.FlaxBigBirdModel:18
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.FlaxPreTrainedModel.from_pretrained` method to load "
+"the model weights."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM.__call__:1
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:1
+#: transformers.FlaxBigBirdForPreTraining.__call__:1
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:1
+#: transformers.FlaxBigBirdForTokenClassification.__call__:1
+#: transformers.FlaxBigBirdModel.__call__:1
+msgid ""
+"The :class:`~transformers.FlaxBigBirdPreTrainedModel` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM.__call__:8
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:8
+#: transformers.FlaxBigBirdForPreTraining.__call__:8
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:8
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:8
+#: transformers.FlaxBigBirdForTokenClassification.__call__:8
+#: transformers.FlaxBigBirdModel.__call__:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.BigBirdTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM.__call__:10
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:10
+#: transformers.FlaxBigBirdForPreTraining.__call__:10
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:10
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:10
+#: transformers.FlaxBigBirdForTokenClassification.__call__:10
+#: transformers.FlaxBigBirdModel.__call__:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.BigBirdTokenizer`. "
+"See :meth:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM.__call__:23
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:23
+#: transformers.FlaxBigBirdForPreTraining.__call__:23
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:23
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:23
+#: transformers.FlaxBigBirdForTokenClassification.__call__:23
+#: transformers.FlaxBigBirdModel.__call__:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM.__call__:29
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:29
+#: transformers.FlaxBigBirdForPreTraining.__call__:29
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:29
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:29
+#: transformers.FlaxBigBirdForTokenClassification.__call__:29
+#: transformers.FlaxBigBirdModel.__call__:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.FlaxBigBirdModel.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs.  - **last_hidden_state** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`jnp.ndarray` of shape :obj:`(batch_size, hidden_size)`) -- Last "
+"layer hidden-state of the first token of the sequence (classification "
+"token) further processed by a   Linear layer and a Tanh activation "
+"function. The Linear layer weights are trained from the next sentence   "
+"prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxBigBirdModel.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxBigBirdModel.__call__:41
+msgid ""
+"**last_hidden_state** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.FlaxBigBirdModel.__call__:42
+msgid ""
+"**pooler_output** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM.__call__:42
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:44
+#: transformers.FlaxBigBirdForPreTraining.__call__:44
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:44
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:42
+#: transformers.FlaxBigBirdForTokenClassification.__call__:42
+#: transformers.FlaxBigBirdModel.__call__:45
+msgid ""
+"**hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM.__call__:46
+#: transformers.FlaxBigBirdForMultipleChoice.__call__:48
+#: transformers.FlaxBigBirdForPreTraining.__call__:48
+#: transformers.FlaxBigBirdForQuestionAnswering.__call__:48
+#: transformers.FlaxBigBirdForSequenceClassification.__call__:46
+#: transformers.FlaxBigBirdForTokenClassification.__call__:46
+#: transformers.FlaxBigBirdModel.__call__:49
+msgid ""
+"**attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxBigBirdModel.__call__:54
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:147
+msgid "FlaxBigBirdForPreTraining"
+msgstr ""
+
+#: of transformers.FlaxBigBirdForPreTraining:1
+msgid ""
+"BigBird Model with two heads on top as done during the pretraining: a "
+"`masked language modeling` head and a `next sentence prediction "
+"(classification)` head."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForPreTraining.__call__:37
+msgid ""
+"A "
+":class:`~transformers.models.big_bird.modeling_flax_big_bird.FlaxBigBirdForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs.  - **prediction_logits** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **seq_relationship_logits** (:obj:`jnp.ndarray` of "
+"shape :obj:`(batch_size, 2)`) -- Prediction scores of the next sequence "
+"prediction (classification) head (scores of True/False continuation   "
+"before SoftMax). - **hidden_states** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` "
+"(one for the output of the embeddings + one for the output of each layer)"
+" of   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForPreTraining.__call__:37
+msgid ""
+"A "
+":class:`~transformers.models.big_bird.modeling_flax_big_bird.FlaxBigBirdForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForPreTraining.__call__:41
+msgid ""
+"**prediction_logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForPreTraining.__call__:42
+msgid ""
+"**seq_relationship_logits** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, 2)`) -- Prediction scores of the next sequence "
+"prediction (classification) head (scores of True/False continuation "
+"before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForPreTraining.__call__:53
+msgid ""
+":class:`~transformers.models.big_bird.modeling_flax_big_bird.FlaxBigBirdForPreTrainingOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:154
+msgid "FlaxBigBirdForMaskedLM"
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM:1
+msgid "BigBird Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxMaskedLMOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BigBirdConfig`) and inputs.  "
+"- **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxMaskedLMOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BigBirdConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMaskedLM.__call__:51
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxMaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:161
+msgid "FlaxBigBirdForSequenceClassification"
+msgstr ""
+
+#: of transformers.FlaxBigBirdForSequenceClassification.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs.  - **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForSequenceClassification.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForSequenceClassification.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForSequenceClassification.__call__:51
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:168
+msgid "FlaxBigBirdForMultipleChoice"
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMultipleChoice.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs.  - **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMultipleChoice.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMultipleChoice.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, num_choices)`)"
+" -- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForMultipleChoice.__call__:53
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:175
+msgid "FlaxBigBirdForTokenClassification"
+msgstr ""
+
+#: of transformers.FlaxBigBirdForTokenClassification.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxTokenClassifierOutput` "
+"or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs.  - **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForTokenClassification.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxTokenClassifierOutput` "
+"or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForTokenClassification.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForTokenClassification.__call__:51
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxTokenClassifierOutput` or"
+" :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird.rst:182
+msgid "FlaxBigBirdForQuestionAnswering"
+msgstr ""
+
+#: of transformers.FlaxBigBirdForQuestionAnswering.__call__:1
+msgid ""
+"The :class:`~transformers.FlaxBigBirdForQuestionAnswering` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForQuestionAnswering.__call__:37
+msgid ""
+"A "
+":class:`~transformers.models.big_bird.modeling_flax_big_bird.FlaxBigBirdForQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs.  - **start_logits** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **pooled_output** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, hidden_size)`) -- pooled_output returned by "
+"FlaxBigBirdModel. - **hidden_states** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` "
+"(one for the output of the embeddings + one for the output of each layer)"
+" of   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForQuestionAnswering.__call__:37
+msgid ""
+"A "
+":class:`~transformers.models.big_bird.modeling_flax_big_bird.FlaxBigBirdForQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BigBirdConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForQuestionAnswering.__call__:41
+msgid ""
+"**start_logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForQuestionAnswering.__call__:42
+msgid ""
+"**end_logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForQuestionAnswering.__call__:43
+msgid ""
+"**pooled_output** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"hidden_size)`) -- pooled_output returned by FlaxBigBirdModel."
+msgstr ""
+
+#: of transformers.FlaxBigBirdForQuestionAnswering.__call__:53
+msgid ""
+":class:`~transformers.models.big_bird.modeling_flax_big_bird.FlaxBigBirdForQuestionAnsweringModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+

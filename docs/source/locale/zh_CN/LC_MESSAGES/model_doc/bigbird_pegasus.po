@@ -1,0 +1,1556 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/bigbird_pegasus.rst:14
+msgid "BigBirdPegasus"
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:19
+msgid ""
+"The BigBird model was proposed in `Big Bird: Transformers for Longer "
+"Sequences <https://arxiv.org/abs/2007.14062>`__ by Zaheer, Manzil and "
+"Guruganesh, Guru and Dubey, Kumar Avinava and Ainslie, Joshua and "
+"Alberti, Chris and Ontanon, Santiago and Pham, Philip and Ravula, Anirudh"
+" and Wang, Qifan and Yang, Li and others. BigBird, is a sparse-attention "
+"based transformer which extends Transformer based models, such as BERT to"
+" much longer sequences. In addition to sparse attention, BigBird also "
+"applies global attention as well as random attention to the input "
+"sequence. Theoretically, it has been shown that applying sparse, global, "
+"and random attention approximates full attention, while being "
+"computationally much more efficient for longer sequences. As a "
+"consequence of the capability to handle longer context, BigBird has shown"
+" improved performance on various long document NLP tasks, such as "
+"question answering and summarization, compared to BERT or RoBERTa."
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:29
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:31
+msgid ""
+"*Transformers-based models, such as BERT, have been one of the most "
+"successful deep learning models for NLP. Unfortunately, one of their core"
+" limitations is the quadratic dependency (mainly in terms of memory) on "
+"the sequence length due to their full attention mechanism. To remedy "
+"this, we propose, BigBird, a sparse attention mechanism that reduces this"
+" quadratic dependency to linear. We show that BigBird is a universal "
+"approximator of sequence functions and is Turing complete, thereby "
+"preserving these properties of the quadratic, full attention model. Along"
+" the way, our theoretical analysis reveals some of the benefits of having"
+" O(1) global tokens (such as CLS), that attend to the entire sequence as "
+"part of the sparse attention mechanism. The proposed sparse attention can"
+" handle sequences of length up to 8x of what was previously possible "
+"using similar hardware. As a consequence of the capability to handle "
+"longer context, BigBird drastically improves performance on various NLP "
+"tasks such as question answering and summarization. We also propose novel"
+" applications to genomics data.*"
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:42
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:44
+msgid ""
+"For an in-detail explanation on how BigBird's attention works, see `this "
+"blog post <https://huggingface.co/blog/big-bird>`__."
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:46
+msgid ""
+"BigBird comes with 2 implementations: **original_full** & "
+"**block_sparse**. For the sequence length < 1024, using **original_full**"
+" is advised as there is no benefit in using **block_sparse** attention."
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:48
+msgid "The code currently uses window size of 3 blocks and 2 global blocks."
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:49
+msgid "Sequence length must be divisible by block size."
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:50
+msgid "Current implementation supports only **ITC**."
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:51
+msgid "Current implementation doesn't support **num_random_blocks = 0**."
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:52
+msgid ""
+"BigBirdPegasus uses the `PegasusTokenizer "
+"<https://github.com/huggingface/transformers/blob/master/src/transformers/models/pegasus/tokenization_pegasus.py>`__."
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:55
+msgid ""
+"The original code can be found `here <https://github.com/google-"
+"research/bigbird>`__."
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:58
+msgid "BigBirdPegasusConfig"
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.BigBirdPegasusModel`. It is used to instantiate an "
+"BigBirdPegasus model according to the specified arguments, defining the "
+"model architecture. Instantiating a configuration with the defaults will "
+"yield a similar configuration to that of the BigBirdPegasus `google"
+"/bigbird-pegasus-large-arxiv <https://huggingface.co/google/bigbird-"
+"pegasus-large-arxiv>`__ architecture."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig
+#: transformers.BigBirdPegasusForConditionalGeneration
+#: transformers.BigBirdPegasusForConditionalGeneration.forward
+#: transformers.BigBirdPegasusForQuestionAnswering
+#: transformers.BigBirdPegasusForQuestionAnswering.forward
+#: transformers.BigBirdPegasusForSequenceClassification
+#: transformers.BigBirdPegasusForSequenceClassification.forward
+#: transformers.BigBirdPegasusModel transformers.BigBirdPegasusModel.forward
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:10
+msgid ""
+"Vocabulary size of the BigBirdPegasus model. Defines the number of "
+"different tokens that can be represented by the :obj:`inputs_ids` passed "
+"when calling :class:`~transformers.BigBirdPegasusModel`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:13
+msgid "Dimension of the layers and the pooler layer."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:15
+msgid "Number of encoder layers."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:17
+msgid "Number of decoder layers."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:19
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:21
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"decoder."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:23 transformers.BigBirdPegasusConfig:25
+msgid ""
+"Dimension of the \"intermediate\" (often named feed-forward) layer in "
+"decoder."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:27
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:30
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:32
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:34
+msgid "The dropout ratio for activations inside the fully connected layer."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:36
+msgid "The dropout ratio for classifier."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:38
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 1024 or 2048 or"
+" 4096)."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:41
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:43
+msgid ""
+"(:obj:`float`, `optional`, defaults to 0.0): The LayerDrop probability "
+"for the encoder. See the `LayerDrop paper <see "
+"https://arxiv.org/abs/1909.11556>`__ for more details."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:46
+msgid ""
+"(:obj:`float`, `optional`, defaults to 0.0): The LayerDrop probability "
+"for the decoder. See the `LayerDrop paper <see "
+"https://arxiv.org/abs/1909.11556>`__ for more details."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:49
+msgid ""
+"Whether or not the model should return the last key/values attentions "
+"(not used by all models)."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:51
+msgid ""
+"Whether to use block sparse attention (with n complexity) as introduced "
+"in paper or original attention layer (with n^2 complexity) in encoder. "
+"Possible values are :obj:`\"original_full\"` and :obj:`\"block_sparse\"`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:55
+msgid "Whether to use bias in query, key, value."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:57
+msgid ""
+"Size of each block. Useful only when :obj:`attention_type == "
+"\"block_sparse\"`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:59
+msgid ""
+"Each query is going to attend these many number of random blocks. Useful "
+"only when :obj:`attention_type == \"block_sparse\"`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:62
+msgid "Whether to rescale embeddings with (hidden_size ** 0.5)."
+msgstr ""
+
+#: of transformers.BigBirdPegasusConfig:64
+msgid ""
+"If True, use gradient checkpointing to save memory at the expense of "
+"slower backward pass."
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:65
+msgid "BigBirdPegasusModel"
+msgstr ""
+
+#: of transformers.BigBirdPegasusModel:1
+msgid ""
+"The bare BigBirdPegasus Model outputting raw hidden-states without any "
+"specific head on top. This model inherits from "
+":class:`~transformers.PreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings etc.)"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration:6
+#: transformers.BigBirdPegasusForQuestionAnswering:8
+#: transformers.BigBirdPegasusForSequenceClassification:8
+#: transformers.BigBirdPegasusModel:6
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration:10
+#: transformers.BigBirdPegasusForQuestionAnswering:12
+#: transformers.BigBirdPegasusForSequenceClassification:12
+#: transformers.BigBirdPegasusModel:10
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.BigBirdPegasusModel.forward:1
+msgid ""
+"The :class:`~transformers.BigBirdPegasusModel` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:4
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:4
+#: transformers.BigBirdPegasusForSequenceClassification.forward:4
+#: transformers.BigBirdPegasusModel.forward:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:8
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:8
+#: transformers.BigBirdPegasusForSequenceClassification.forward:8
+#: transformers.BigBirdPegasusModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary. Padding will be "
+"ignored by default should you provide it.  Indices can be obtained using "
+":class:`~transformers.PegasusTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:3
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:8
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:8
+#: transformers.BigBirdPegasusForSequenceClassification.forward:8
+#: transformers.BigBirdPegasusModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary. Padding will be "
+"ignored by default should you provide it."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:11
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:11
+#: transformers.BigBirdPegasusForSequenceClassification.forward:11
+#: transformers.BigBirdPegasusModel.forward:11
+msgid ""
+"Indices can be obtained using :class:`~transformers.PegasusTokenizer`. "
+"See :meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:10
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:15
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:15
+#: transformers.BigBirdPegasusForSequenceClassification.forward:15
+#: transformers.BigBirdPegasusModel.forward:15
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:17
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:17
+#: transformers.BigBirdPegasusForSequenceClassification.forward:17
+#: transformers.BigBirdPegasusModel.forward:17
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:12
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:17
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:17
+#: transformers.BigBirdPegasusForSequenceClassification.forward:17
+#: transformers.BigBirdPegasusModel.forward:17
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:14
+#: transformers.BigBirdPegasusForCausalLM.forward:59
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:19
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:19
+#: transformers.BigBirdPegasusForSequenceClassification.forward:19
+#: transformers.BigBirdPegasusModel.forward:19
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:15
+#: transformers.BigBirdPegasusForCausalLM.forward:60
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:20
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:20
+#: transformers.BigBirdPegasusForSequenceClassification.forward:20
+#: transformers.BigBirdPegasusModel.forward:20
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:17
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:22
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:22
+#: transformers.BigBirdPegasusForSequenceClassification.forward:22
+#: transformers.BigBirdPegasusModel.forward:22
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:24
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:24
+#: transformers.BigBirdPegasusForSequenceClassification.forward:24
+#: transformers.BigBirdPegasusModel.forward:24
+msgid ""
+"Provide for translation and summarization training. By default, the model"
+" will create this tensor by shifting the :obj:`input_ids` to the right, "
+"following the paper."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:27
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:27
+#: transformers.BigBirdPegasusForSequenceClassification.forward:27
+#: transformers.BigBirdPegasusModel.forward:27
+msgid ""
+"Default behavior: generate a tensor that ignores pad tokens in "
+":obj:`decoder_input_ids`. Causal mask will also be used by default.  If "
+"you want to change padding behavior, you should read "
+":func:`modeling_bigbird_pegasus._prepare_decoder_inputs` and modify to "
+"your needs. See diagram 1 in `the paper "
+"<https://arxiv.org/abs/1910.13461>`__ for more information on the default"
+" strategy."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:27
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:27
+#: transformers.BigBirdPegasusForSequenceClassification.forward:27
+#: transformers.BigBirdPegasusModel.forward:27
+msgid ""
+"Default behavior: generate a tensor that ignores pad tokens in "
+":obj:`decoder_input_ids`. Causal mask will also be used by default."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:30
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:30
+#: transformers.BigBirdPegasusForSequenceClassification.forward:30
+#: transformers.BigBirdPegasusModel.forward:30
+msgid ""
+"If you want to change padding behavior, you should read "
+":func:`modeling_bigbird_pegasus._prepare_decoder_inputs` and modify to "
+"your needs. See diagram 1 in `the paper "
+"<https://arxiv.org/abs/1910.13461>`__ for more information on the default"
+" strategy."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:34
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:34
+#: transformers.BigBirdPegasusForSequenceClassification.forward:34
+#: transformers.BigBirdPegasusModel.forward:34
+msgid ""
+"Mask to nullify selected heads of the attention modules in the decoder. "
+"Mask values selected in ``[0, 1]``:  - 1 indicates the head is **not "
+"masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:34
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:34
+#: transformers.BigBirdPegasusForSequenceClassification.forward:34
+#: transformers.BigBirdPegasusModel.forward:34
+msgid ""
+"Mask to nullify selected heads of the attention modules in the decoder. "
+"Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:27
+#: transformers.BigBirdPegasusForCausalLM.forward:33
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:36
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:36
+#: transformers.BigBirdPegasusForSequenceClassification.forward:36
+#: transformers.BigBirdPegasusModel.forward:36
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:28
+#: transformers.BigBirdPegasusForCausalLM.forward:34
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:37
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:37
+#: transformers.BigBirdPegasusForSequenceClassification.forward:37
+#: transformers.BigBirdPegasusModel.forward:37
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:39
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:39
+#: transformers.BigBirdPegasusForSequenceClassification.forward:39
+#: transformers.BigBirdPegasusModel.forward:39
+msgid ""
+"Tuple consists of (:obj:`last_hidden_state`, `optional`: "
+":obj:`hidden_states`, `optional`: :obj:`attentions`) "
+":obj:`last_hidden_state` of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`, `optional`) is a sequence of hidden-states at the output "
+"of the last layer of the encoder. Used in the cross-attention of the "
+"decoder."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:44
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:44
+#: transformers.BigBirdPegasusForSequenceClassification.forward:44
+#: transformers.BigBirdPegasusModel.forward:44
+msgid ""
+"Tuple of :obj:`tuple(torch.FloatTensor)` of length "
+":obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`.  Contains pre-computed "
+"hidden-states (key and values in the self-attention blocks and in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding.  If :obj:`past_key_values` are "
+"used, the user can optionally input only the last "
+":obj:`decoder_input_ids` (those that don't have their past key value "
+"states given to this model) of shape :obj:`(batch_size, 1)` instead of "
+"all :obj:`decoder_input_ids`` of shape :obj:`(batch_size, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:44
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:44
+#: transformers.BigBirdPegasusForSequenceClassification.forward:44
+#: transformers.BigBirdPegasusModel.forward:44
+msgid ""
+"Tuple of :obj:`tuple(torch.FloatTensor)` of length "
+":obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:43
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:48
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:93
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:48
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:98
+#: transformers.BigBirdPegasusForSequenceClassification.forward:48
+#: transformers.BigBirdPegasusForSequenceClassification.forward:92
+#: transformers.BigBirdPegasusModel.forward:48
+#: transformers.BigBirdPegasusModel.forward:91
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and in the cross-attention blocks) that can be used (see "
+":obj:`past_key_values` input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:51
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:51
+#: transformers.BigBirdPegasusForSequenceClassification.forward:51
+#: transformers.BigBirdPegasusModel.forward:51
+msgid ""
+"If :obj:`past_key_values` are used, the user can optionally input only "
+"the last :obj:`decoder_input_ids` (those that don't have their past key "
+"value states given to this model) of shape :obj:`(batch_size, 1)` instead"
+" of all :obj:`decoder_input_ids`` of shape :obj:`(batch_size, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:55
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:55
+#: transformers.BigBirdPegasusForSequenceClassification.forward:55
+#: transformers.BigBirdPegasusModel.forward:55
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:59
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:59
+#: transformers.BigBirdPegasusForSequenceClassification.forward:59
+#: transformers.BigBirdPegasusModel.forward:59
+msgid ""
+"Optionally, instead of passing :obj:`decoder_input_ids` you can choose to"
+" directly pass an embedded representation. If :obj:`past_key_values` is "
+"used, optionally only the last :obj:`decoder_inputs_embeds` have to be "
+"input (see :obj:`past_key_values`). This is useful if you want more "
+"control over how to convert :obj:`decoder_input_ids` indices into "
+"associated vectors than the model's internal embedding lookup matrix.  If"
+" :obj:`decoder_input_ids` and :obj:`decoder_inputs_embeds` are both "
+"unset, :obj:`decoder_inputs_embeds` takes the value of "
+":obj:`inputs_embeds`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:59
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:59
+#: transformers.BigBirdPegasusForSequenceClassification.forward:59
+#: transformers.BigBirdPegasusModel.forward:59
+msgid ""
+"Optionally, instead of passing :obj:`decoder_input_ids` you can choose to"
+" directly pass an embedded representation. If :obj:`past_key_values` is "
+"used, optionally only the last :obj:`decoder_inputs_embeds` have to be "
+"input (see :obj:`past_key_values`). This is useful if you want more "
+"control over how to convert :obj:`decoder_input_ids` indices into "
+"associated vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:64
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:64
+#: transformers.BigBirdPegasusForSequenceClassification.forward:64
+#: transformers.BigBirdPegasusModel.forward:64
+msgid ""
+"If :obj:`decoder_input_ids` and :obj:`decoder_inputs_embeds` are both "
+"unset, :obj:`decoder_inputs_embeds` takes the value of "
+":obj:`inputs_embeds`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:56
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:67
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:67
+#: transformers.BigBirdPegasusForSequenceClassification.forward:67
+#: transformers.BigBirdPegasusModel.forward:67
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:62
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:70
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:70
+#: transformers.BigBirdPegasusForSequenceClassification.forward:70
+#: transformers.BigBirdPegasusModel.forward:70
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:65
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:73
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:73
+#: transformers.BigBirdPegasusForSequenceClassification.forward:73
+#: transformers.BigBirdPegasusModel.forward:73
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:68
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:76
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:76
+#: transformers.BigBirdPegasusForSequenceClassification.forward:76
+#: transformers.BigBirdPegasusModel.forward:76
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward
+#: transformers.BigBirdPegasusForConditionalGeneration.forward
+#: transformers.BigBirdPegasusForQuestionAnswering.forward
+#: transformers.BigBirdPegasusForSequenceClassification.forward
+#: transformers.BigBirdPegasusModel.forward
+msgid "Returns"
+msgstr ""
+
+#: of transformers.BigBirdPegasusModel.forward:79
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqModelOutput` or a tuple "
+"of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BigBirdPegasusConfig`) and "
+"inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the decoder of the model.    If"
+" :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size,   1, hidden_size)` is output. - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the decoder at the output of each "
+"layer plus the initial embedding outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the decoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the "
+"decoder's cross-attention layer, after the attention softmax, used to "
+"compute the   weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the encoder at the output of each "
+"layer plus the initial embedding outputs. - **encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the encoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads."
+msgstr ""
+
+#: of transformers.BigBirdPegasusModel.forward:79
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqModelOutput` or a tuple "
+"of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BigBirdPegasusConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.BigBirdPegasusModel.forward:83
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the decoder of the model."
+msgstr ""
+
+#: of transformers.BigBirdPegasusModel.forward:85
+msgid ""
+"If :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size, 1, hidden_size)` is output."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:89
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:94
+#: transformers.BigBirdPegasusForSequenceClassification.forward:88
+#: transformers.BigBirdPegasusModel.forward:87
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) "
+"and 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:95
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:100
+#: transformers.BigBirdPegasusForSequenceClassification.forward:94
+#: transformers.BigBirdPegasusModel.forward:93
+msgid ""
+"**decoder_hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:98
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:103
+#: transformers.BigBirdPegasusForSequenceClassification.forward:97
+#: transformers.BigBirdPegasusModel.forward:96
+msgid ""
+"Hidden-states of the decoder at the output of each layer plus the initial"
+" embedding outputs."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:99
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:104
+#: transformers.BigBirdPegasusForSequenceClassification.forward:98
+#: transformers.BigBirdPegasusModel.forward:97
+msgid ""
+"**decoder_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:102
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:107
+#: transformers.BigBirdPegasusForSequenceClassification.forward:101
+#: transformers.BigBirdPegasusModel.forward:100
+msgid ""
+"Attentions weights of the decoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:86
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:104
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:109
+#: transformers.BigBirdPegasusForSequenceClassification.forward:103
+#: transformers.BigBirdPegasusModel.forward:102
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:107
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:112
+#: transformers.BigBirdPegasusForSequenceClassification.forward:106
+#: transformers.BigBirdPegasusModel.forward:105
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:109
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:114
+#: transformers.BigBirdPegasusForSequenceClassification.forward:108
+#: transformers.BigBirdPegasusModel.forward:107
+msgid ""
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:110
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:115
+#: transformers.BigBirdPegasusForSequenceClassification.forward:109
+#: transformers.BigBirdPegasusModel.forward:108
+msgid ""
+"**encoder_hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:113
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:118
+#: transformers.BigBirdPegasusForSequenceClassification.forward:112
+#: transformers.BigBirdPegasusModel.forward:111
+msgid ""
+"Hidden-states of the encoder at the output of each layer plus the initial"
+" embedding outputs."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:114
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:119
+#: transformers.BigBirdPegasusForSequenceClassification.forward:113
+#: transformers.BigBirdPegasusModel.forward:112
+msgid ""
+"**encoder_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:117
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:122
+#: transformers.BigBirdPegasusForSequenceClassification.forward:116
+#: transformers.BigBirdPegasusModel.forward:115
+msgid ""
+"Attentions weights of the encoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward
+#: transformers.BigBirdPegasusForConditionalGeneration.forward
+#: transformers.BigBirdPegasusForQuestionAnswering.forward
+#: transformers.BigBirdPegasusForSequenceClassification.forward
+#: transformers.BigBirdPegasusModel.forward
+msgid "Return type"
+msgstr ""
+
+#: of transformers.BigBirdPegasusModel.forward:117
+msgid ""
+":class:`~transformers.modeling_outputs.Seq2SeqModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:99
+#: transformers.BigBirdPegasusForQuestionAnswering.forward:126
+#: transformers.BigBirdPegasusForSequenceClassification.forward:120
+#: transformers.BigBirdPegasusModel.forward:119
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:72
+msgid "BigBirdPegasusForConditionalGeneration"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration:1
+msgid ""
+"The BigBirdPegasus Model with a language modeling head. Can be used for "
+"summarization. This model inherits from "
+":class:`~transformers.PreTrainedModel`. Check the superclass "
+"documentation for the generic methods the library implements for all its "
+"model (such as downloading or saving, resizing the input embeddings etc.)"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:1
+msgid ""
+"The :class:`~transformers.BigBirdPegasusForConditionalGeneration` forward"
+" method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:51
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:78
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should "
+"either be in ``[0, ..., config.vocab_size]`` or -100 (see ``input_ids`` "
+"docstring). Tokens with indices set to ``-100`` are ignored (masked), the"
+" loss is only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:83
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BigBirdPegasusConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Language modeling"
+" loss. - **logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size,"
+" sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, "
+"`optional`, returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the decoder at the output of each "
+"layer plus the initial embedding outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the decoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the "
+"decoder's cross-attention layer, after the attention softmax, used to "
+"compute the   weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the encoder at the output of each "
+"layer plus the initial embedding outputs. - **encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the encoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:83
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BigBirdPegasusConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:87
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:76
+#: transformers.BigBirdPegasusForConditionalGeneration.forward:88
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:119
+msgid ""
+":class:`~transformers.modeling_outputs.Seq2SeqLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForConditionalGeneration.forward:121
+msgid "Summarization example::"
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:79
+msgid "BigBirdPegasusForSequenceClassification"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForSequenceClassification:1
+msgid ""
+"BigBirdPegasus model with a sequence classification/head on top (a linear"
+" layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForQuestionAnswering:4
+#: transformers.BigBirdPegasusForSequenceClassification:4
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings etc.)"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.BigBirdPegasusForSequenceClassification` "
+"forward method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForSequenceClassification.forward:78
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels > 1` a classification loss is computed (Cross-"
+"Entropy)."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForSequenceClassification.forward:82
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.BigBirdPegasusConfig`) and inputs.  - **loss** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, returned when"
+" :obj:`label` is provided) -- Classification (or regression if "
+"config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of "
+"shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the decoder at the output of each "
+"layer plus the initial embedding outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the decoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the "
+"decoder's cross-attention layer, after the attention softmax, used to "
+"compute the   weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the encoder at the output of each "
+"layer plus the initial embedding outputs. - **encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the encoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForSequenceClassification.forward:82
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.BigBirdPegasusConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForSequenceClassification.forward:86
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`label` is provided) -- Classification (or regression "
+"if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForSequenceClassification.forward:87
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForSequenceClassification.forward:118
+msgid ""
+":class:`~transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput` "
+"or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:86
+msgid "BigBirdPegasusForQuestionAnswering"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForQuestionAnswering:1
+msgid ""
+"BigBirdPegasus Model with a span classification head on top for "
+"extractive question-answering tasks like SQuAD (a linear layer on top of "
+"the hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.BigBirdPegasusForQuestionAnswering` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForQuestionAnswering.forward:78
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForQuestionAnswering.forward:82
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (`sequence_length`). Position outside of the sequence are "
+"not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForQuestionAnswering.forward:87
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.BigBirdPegasusConfig`) and inputs.  - **loss** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, returned when"
+" :obj:`labels` is provided) -- Total span extraction loss is the sum of a"
+" Cross-Entropy for the start and end positions. - **start_logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, sequence_length)`) "
+"-- Span-start scores (before SoftMax). - **end_logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, sequence_length)`) "
+"-- Span-end scores (before SoftMax). - **past_key_values** "
+"(:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`tuple(torch.FloatTensor)` of length :obj:`config.n_layers`, with"
+" each tuple having 2 tensors   of shape :obj:`(batch_size, num_heads, "
+"sequence_length, embed_size_per_head)`) and 2 additional tensors of   "
+"shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the decoder at the output of each "
+"layer plus the initial embedding outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the decoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the "
+"decoder's cross-attention layer, after the attention softmax, used to "
+"compute the   weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the encoder at the output of each "
+"layer plus the initial embedding outputs. - **encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the encoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForQuestionAnswering.forward:87
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.BigBirdPegasusConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForQuestionAnswering.forward:91
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForQuestionAnswering.forward:92
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForQuestionAnswering.forward:93
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForQuestionAnswering.forward:124
+msgid ""
+":class:`~transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bigbird_pegasus.rst:93
+msgid "BigBirdPegasusForCausalLM"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:69
+msgid "Args:"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:9
+msgid ""
+"input_ids (:obj:`torch.LongTensor` of shape :obj:`(batch_size, "
+"sequence_length)`):"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:6
+msgid ""
+"Indices can be obtained using "
+":class:`~transformers.BigBirdPegasusTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:16
+msgid ""
+"attention_mask (:obj:`torch.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`, `optional`):"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:19
+msgid ""
+"encoder_hidden_states  (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`):"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:19
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the encoder."
+" Used in the cross-attention if the model is configured as a decoder."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:22
+msgid ""
+"encoder_attention_mask (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`, `optional`):"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:22
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:28
+msgid ""
+"head_mask (:obj:`torch.Tensor` of shape :obj:`(decoder_layers, "
+"decoder_attention_heads)`, `optional`):"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:25
+msgid ""
+"Mask to nullify selected heads of the attention modules. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:34
+msgid ""
+"cross_attn_head_mask (:obj:`torch.Tensor` of shape :obj:`(decoder_layers,"
+" decoder_attention_heads)`, `optional`):"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:31
+msgid ""
+"Mask to nullify selected heads of the cross-attention modules. Mask "
+"values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:48
+msgid ""
+"past_key_values (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``):"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:37
+msgid ""
+"Tuple of :obj:`tuple(torch.FloatTensor)` of length "
+":obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`. The two additional "
+"tensors are only required when the model is used as a decoder in a "
+"Sequence to Sequence model."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:47
+msgid ""
+"If :obj:`past_key_values` are used, the user can optionally input only "
+"the last ``decoder_input_ids`` (those that don't have their past key "
+"value states given to this model) of shape :obj:`(batch_size, 1)` instead"
+" of all ``decoder_input_ids`` of shape :obj:`(batch_size, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:53
+msgid ""
+"labels (:obj:`torch.LongTensor` of shape :obj:`(batch_size, "
+"sequence_length)`, `optional`):"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:59
+msgid "use_cache (:obj:`bool`, `optional`):"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:62
+msgid "output_attentions (:obj:`bool`, `optional`):"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:65
+msgid "output_hidden_states (:obj:`bool`, `optional`):"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:69
+msgid "return_dict (:obj:`bool`, `optional`):"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:71
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.BigBirdPegasusConfig`) and inputs.  - **loss** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, returned when"
+" :obj:`labels` is provided) -- Language modeling loss (for next-token "
+"prediction). - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Cross attentions weights after the"
+" attention softmax, used to compute the weighted average in the   cross-"
+"attention heads. - **past_key_values** "
+"(:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`torch.FloatTensor` tuples of length :obj:`config.n_layers`, with"
+" each tuple containing the   cached key, value states of the self-"
+"attention and the cross-attention layers if model is used in   encoder-"
+"decoder setting. Only relevant if ``config.is_decoder = True``.    "
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see   :obj:`past_key_values` input) to speed up"
+" sequential decoding.   Example::      >>> from transformers import "
+"BigBirdPegasusTokenizer, BigBirdPegasusForCausalLM      >>> tokenizer = "
+"BigBirdPegasusTokenizer.from_pretrained(\"google/bigbird-pegasus-large-"
+"arxiv\")     >>> model = "
+"BigBirdPegasusForCausalLM.from_pretrained(\"google/bigbird-pegasus-large-"
+"arxiv\", add_cross_attention=False)     >>> assert "
+"model.config.is_decoder, f\"{model.__class__} has to be configured as a "
+"decoder.\"     >>> inputs = tokenizer(\"Hello, my dog is cute\", "
+"return_tensors=\"pt\")     >>> outputs = model(**inputs)      >>> "
+"last_hidden_states = outputs.last_hidden_state"
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:71
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.BigBirdPegasusConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:75
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss (for "
+"next-token prediction)."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:77
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:80
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:81
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:84
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:89
+msgid ""
+"Cross attentions weights after the attention softmax, used to compute the"
+" weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:91
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`torch.FloatTensor` tuples of"
+" length :obj:`config.n_layers`, with each tuple containing the cached "
+"key, value states of the self-attention and the cross-attention layers if"
+" model is used in encoder-decoder setting. Only relevant if "
+"``config.is_decoder = True``."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:95
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.BigBirdPegasusForCausalLM.forward:110
+msgid ""
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+

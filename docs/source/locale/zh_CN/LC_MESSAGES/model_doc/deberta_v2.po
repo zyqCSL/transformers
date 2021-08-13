@@ -1,0 +1,1217 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/deberta_v2.rst:14
+msgid "DeBERTa-v2"
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:19
+msgid ""
+"The DeBERTa model was proposed in `DeBERTa: Decoding-enhanced BERT with "
+"Disentangled Attention <https://arxiv.org/abs/2006.03654>`__ by Pengcheng"
+" He, Xiaodong Liu, Jianfeng Gao, Weizhu Chen It is based on Google's BERT"
+" model released in 2018 and Facebook's RoBERTa model released in 2019."
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:23
+msgid ""
+"It builds on RoBERTa with disentangled attention and enhanced mask "
+"decoder training with half of the data used in RoBERTa."
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:26
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:28
+msgid ""
+"*Recent progress in pre-trained neural language models has significantly "
+"improved the performance of many natural language processing (NLP) tasks."
+" In this paper we propose a new model architecture DeBERTa (Decoding-"
+"enhanced BERT with disentangled attention) that improves the BERT and "
+"RoBERTa models using two novel techniques. The first is the disentangled "
+"attention mechanism, where each word is represented using two vectors "
+"that encode its content and position, respectively, and the attention "
+"weights among words are computed using disentangled matrices on their "
+"contents and relative positions. Second, an enhanced mask decoder is used"
+" to replace the output softmax layer to predict the masked tokens for "
+"model pretraining. We show that these two techniques significantly "
+"improve the efficiency of model pretraining and performance of downstream"
+" tasks. Compared to RoBERTa-Large, a DeBERTa model trained on half of the"
+" training data performs consistently better on a wide range of NLP tasks,"
+" achieving improvements on MNLI by +0.9% (90.2% vs. 91.1%), on SQuAD v2.0"
+" by +2.3% (88.4% vs. 90.7%) and RACE by +3.6% (83.2% vs. 86.8%). The "
+"DeBERTa code and pre-trained models will be made publicly available at "
+"https://github.com/microsoft/DeBERTa.*"
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:41
+msgid ""
+"The following information is visible directly on the [original "
+"implementation repository](https://github.com/microsoft/DeBERTa). DeBERTa"
+" v2 is the second version of the DeBERTa model. It includes the 1.5B "
+"model used for the SuperGLUE single-model submission and achieving 89.9, "
+"versus human baseline 89.8. You can find more details about this "
+"submission in the authors' [blog](https://www.microsoft.com/en-"
+"us/research/blog/microsoft-deberta-surpasses-human-performance-on-the-"
+"superglue-benchmark/)"
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:47
+msgid "New in v2:"
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:49
+msgid ""
+"**Vocabulary** In v2 the tokenizer is changed to use a new vocabulary of "
+"size 128K built from the training data. Instead of a GPT2-based "
+"tokenizer, the tokenizer is now [sentencepiece-"
+"based](https://github.com/google/sentencepiece) tokenizer."
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:52
+msgid ""
+"**nGiE(nGram Induced Input Encoding)** The DeBERTa-v2 model uses an "
+"additional convolution layer aside with the first transformer layer to "
+"better learn the local dependency of input tokens."
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:54
+msgid ""
+"**Sharing position projection matrix with content projection matrix in "
+"attention layer** Based on previous experiments, this can save parameters"
+" without affecting the performance."
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:56
+msgid ""
+"**Apply bucket to encode relative postions** The DeBERTa-v2 model uses "
+"log bucket to encode relative positions similar to T5."
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:58
+msgid ""
+"**900M model & 1.5B model** Two additional model sizes are available: "
+"900M and 1.5B, which significantly improves the performance of downstream"
+" tasks."
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:61
+msgid ""
+"This model was contributed by `DeBERTa "
+"<https://huggingface.co/DeBERTa>`__. The original code can be found `here"
+" <https://github.com/microsoft/DeBERTa>`__."
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:66
+msgid "DebertaV2Config"
+msgstr ""
+
+#: of transformers.DebertaV2Config:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.DebertaV2Model`. It is used to instantiate a "
+"DeBERTa-v2 model according to the specified arguments, defining the model"
+" architecture. Instantiating a configuration with the defaults will yield"
+" a similar configuration to that of the DeBERTa "
+"`microsoft/deberta-v2-xlarge <https://huggingface.co/microsoft/deberta-"
+"base>`__ architecture."
+msgstr ""
+
+#: of transformers.DebertaV2Config:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.DebertaV2Config transformers.DebertaV2ForMaskedLM
+#: transformers.DebertaV2ForMaskedLM.forward
+#: transformers.DebertaV2ForQuestionAnswering
+#: transformers.DebertaV2ForQuestionAnswering.forward
+#: transformers.DebertaV2ForSequenceClassification
+#: transformers.DebertaV2ForSequenceClassification.forward
+#: transformers.DebertaV2ForTokenClassification
+#: transformers.DebertaV2ForTokenClassification.forward
+#: transformers.DebertaV2Model transformers.DebertaV2Model.forward
+#: transformers.DebertaV2Tokenizer
+#: transformers.DebertaV2Tokenizer.build_inputs_with_special_tokens
+#: transformers.DebertaV2Tokenizer.create_token_type_ids_from_sequences
+#: transformers.DebertaV2Tokenizer.get_special_tokens_mask
+#: transformers.DebertaV2Tokenizer.save_vocabulary
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.DebertaV2Config:9
+msgid ""
+"Vocabulary size of the DeBERTa-v2 model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.DebertaV2Model`."
+msgstr ""
+
+#: of transformers.DebertaV2Config:12
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.DebertaV2Config:14
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.DebertaV2Config:16
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.DebertaV2Config:18
+msgid ""
+"Dimensionality of the \"intermediate\" (often named feed-forward) layer "
+"in the Transformer encoder."
+msgstr ""
+
+#: of transformers.DebertaV2Config:20
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"`,"
+" :obj:`\"gelu\"`, :obj:`\"tanh\"`, :obj:`\"gelu_fast\"`, :obj:`\"mish\"`,"
+" :obj:`\"linear\"`, :obj:`\"sigmoid\"` and :obj:`\"gelu_new\"` are "
+"supported."
+msgstr ""
+
+#: of transformers.DebertaV2Config:24
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.DebertaV2Config:26
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.DebertaV2Config:28
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.DebertaV2Config:31
+msgid ""
+"The vocabulary size of the :obj:`token_type_ids` passed when calling "
+":class:`~transformers.DebertaModel` or "
+":class:`~transformers.TFDebertaModel`."
+msgstr ""
+
+#: of transformers.DebertaV2Config:34
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.DebertaV2Config:36 transformers.DebertaV2Config:50
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.DebertaV2Config:38
+msgid "Whether use relative position encoding."
+msgstr ""
+
+#: of transformers.DebertaV2Config:40
+msgid ""
+"The range of relative positions :obj:`[-max_position_embeddings, "
+"max_position_embeddings]`. Use the same value as "
+":obj:`max_position_embeddings`."
+msgstr ""
+
+#: of transformers.DebertaV2Config:43
+msgid "The value used to pad input_ids."
+msgstr ""
+
+#: of transformers.DebertaV2Config:45
+msgid "Whether add absolute position embedding to content embedding."
+msgstr ""
+
+#: of transformers.DebertaV2Config:47
+msgid ""
+"The type of relative position attention, it can be a combination of "
+":obj:`[\"p2c\", \"c2p\", \"p2p\"]`, e.g. :obj:`[\"p2c\"]`, "
+":obj:`[\"p2c\", \"c2p\"]`, :obj:`[\"p2c\", \"c2p\", 'p2p\"]`."
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:73
+msgid "DebertaV2Tokenizer"
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:1
+msgid ""
+"Constructs a DeBERTa-v2 tokenizer. Based on `SentencePiece "
+"<https://github.com/google/sentencepiece>`__."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:3
+msgid ""
+"`SentencePiece <https://github.com/google/sentencepiece>`__ file "
+"(generally has a `.spm` extension) that contains the vocabulary necessary"
+" to instantiate a tokenizer."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:6
+msgid "Whether or not to lowercase the input when tokenizing."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:8
+msgid ""
+"The beginning of sequence token that was used during pre-training. Can be"
+" used a sequence classifier token. When building a sequence using special"
+" tokens, this is not the token that is used for the beginning of "
+"sequence. The token used is the :obj:`cls_token`."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:12
+msgid ""
+"The end of sequence token. When building a sequence using special tokens,"
+" this is not the token that is used for the end of sequence. The token "
+"used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:15
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:18
+msgid ""
+"The separator token, which is used when building a sequence from multiple"
+" sequences, e.g. two sequences for sequence classification or for a text "
+"and a question for question answering. It is also used as the last token "
+"of a sequence built with special tokens."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:22
+msgid ""
+"The token used for padding, for example when batching sequences of "
+"different lengths."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:24
+msgid ""
+"The classifier token which is used when doing sequence classification "
+"(classification of the whole sequence instead of per-token "
+"classification). It is the first token of the sequence when built with "
+"special tokens."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:27
+msgid ""
+"The token used for masking values. This is the token used when training "
+"this model with masked language modeling. This is the token which the "
+"model will try to predict."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:30
+msgid ""
+"Will be passed to the ``SentencePieceProcessor.__init__()`` method. The "
+"`Python wrapper for SentencePiece "
+"<https://github.com/google/sentencepiece/tree/master/python>`__ can be "
+"used, among other things, to set:  - ``enable_sampling``: Enable subword "
+"regularization. - ``nbest_size``: Sampling parameters for unigram. "
+"Invalid for BPE-Dropout.    - ``nbest_size = {0,1}``: No sampling is "
+"performed.   - ``nbest_size > 1``: samples from the nbest_size results."
+"   - ``nbest_size < 0``: assuming that nbest_size is infinite and samples"
+" from the all hypothesis (lattice)     using forward-filtering-and-"
+"backward-sampling algorithm.  - ``alpha``: Smoothing parameter for "
+"unigram sampling, and dropout probability of merge operations for   BPE-"
+"dropout."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:30
+msgid ""
+"Will be passed to the ``SentencePieceProcessor.__init__()`` method. The "
+"`Python wrapper for SentencePiece "
+"<https://github.com/google/sentencepiece/tree/master/python>`__ can be "
+"used, among other things, to set:"
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:33
+msgid "``enable_sampling``: Enable subword regularization."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:34
+msgid "``nbest_size``: Sampling parameters for unigram. Invalid for BPE-Dropout."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:36
+msgid "``nbest_size = {0,1}``: No sampling is performed."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:37
+msgid "``nbest_size > 1``: samples from the nbest_size results."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:38
+msgid ""
+"``nbest_size < 0``: assuming that nbest_size is infinite and samples from"
+" the all hypothesis (lattice) using forward-filtering-and-backward-"
+"sampling algorithm."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer:41
+msgid ""
+"``alpha``: Smoothing parameter for unigram sampling, and dropout "
+"probability of merge operations for BPE-dropout."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. A "
+"DeBERTa sequence has the following format:"
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.build_inputs_with_special_tokens:4
+msgid "single sequence: [CLS] X [SEP]"
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.build_inputs_with_special_tokens:5
+msgid "pair of sequences: [CLS] A [SEP] B [SEP]"
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.build_inputs_with_special_tokens:9
+#: transformers.DebertaV2Tokenizer.create_token_type_ids_from_sequences:13
+#: transformers.DebertaV2Tokenizer.get_special_tokens_mask:6
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward
+#: transformers.DebertaV2ForQuestionAnswering.forward
+#: transformers.DebertaV2ForSequenceClassification.forward
+#: transformers.DebertaV2ForTokenClassification.forward
+#: transformers.DebertaV2Model.forward
+#: transformers.DebertaV2Tokenizer.build_inputs_with_special_tokens
+#: transformers.DebertaV2Tokenizer.create_token_type_ids_from_sequences
+#: transformers.DebertaV2Tokenizer.get_special_tokens_mask
+#: transformers.DebertaV2Tokenizer.save_vocabulary
+msgid "Returns"
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward
+#: transformers.DebertaV2ForQuestionAnswering.forward
+#: transformers.DebertaV2ForSequenceClassification.forward
+#: transformers.DebertaV2ForTokenClassification.forward
+#: transformers.DebertaV2Model.forward
+#: transformers.DebertaV2Tokenizer.build_inputs_with_special_tokens
+#: transformers.DebertaV2Tokenizer.create_token_type_ids_from_sequences
+#: transformers.DebertaV2Tokenizer.get_special_tokens_mask
+#: transformers.DebertaV2Tokenizer.save_vocabulary
+msgid "Return type"
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.build_inputs_with_special_tokens:13
+#: transformers.DebertaV2Tokenizer.create_token_type_ids_from_sequences:18
+#: transformers.DebertaV2Tokenizer.get_special_tokens_mask:12
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. A DeBERTa sequence pair mask has the following "
+"format:"
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.create_token_type_ids_from_sequences:9
+msgid ""
+"If :obj:`token_ids_1` is :obj:`None`, this method only returns the first "
+"portion of the mask (0s)."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.create_token_type_ids_from_sequences:11
+#: transformers.DebertaV2Tokenizer.get_special_tokens_mask:4
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.create_token_type_ids_from_sequences:16
+msgid ""
+"List of `token type IDs <../glossary.html#token-type-ids>`_ according to "
+"the given sequence(s)."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieves sequence ids from a token list that has no special tokens "
+"added. This method is called when adding special tokens using the "
+"tokenizer ``prepare_for_model`` or ``encode_plus`` methods."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.DebertaV2Tokenizer.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:81
+msgid "DebertaV2Model"
+msgstr ""
+
+#: of transformers.DebertaV2Model:1
+msgid ""
+"The bare DeBERTa Model transformer outputting raw hidden-states without "
+"any specific head on top. The DeBERTa model was proposed in `DeBERTa: "
+"Decoding-enhanced BERT with Disentangled Attention "
+"<https://arxiv.org/abs/2006.03654>`_ by Pengcheng He, Xiaodong Liu, "
+"Jianfeng Gao, Weizhu Chen. It's build on top of BERT/RoBERTa with two "
+"improvements, i.e. disentangled attention and enhanced mask decoder. With"
+" those two improvements, it out perform BERT/RoBERTa on a majority of "
+"tasks with 80GB pretraining data."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM:7
+#: transformers.DebertaV2ForQuestionAnswering:9
+#: transformers.DebertaV2ForSequenceClassification:9
+#: transformers.DebertaV2ForTokenClassification:9 transformers.DebertaV2Model:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior.```"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM:12
+#: transformers.DebertaV2ForQuestionAnswering:14
+#: transformers.DebertaV2ForSequenceClassification:14
+#: transformers.DebertaV2ForTokenClassification:14
+#: transformers.DebertaV2Model:12
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.DebertaV2Model.forward:1
+msgid ""
+"The :class:`~transformers.DebertaV2Model` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:4
+#: transformers.DebertaV2ForQuestionAnswering.forward:4
+#: transformers.DebertaV2ForSequenceClassification.forward:4
+#: transformers.DebertaV2ForTokenClassification.forward:4
+#: transformers.DebertaV2Model.forward:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:8
+#: transformers.DebertaV2ForQuestionAnswering.forward:8
+#: transformers.DebertaV2ForSequenceClassification.forward:8
+#: transformers.DebertaV2ForTokenClassification.forward:8
+#: transformers.DebertaV2Model.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`transformers.DebertaV2Tokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:8
+#: transformers.DebertaV2ForQuestionAnswering.forward:8
+#: transformers.DebertaV2ForSequenceClassification.forward:8
+#: transformers.DebertaV2ForTokenClassification.forward:8
+#: transformers.DebertaV2Model.forward:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:10
+#: transformers.DebertaV2ForQuestionAnswering.forward:10
+#: transformers.DebertaV2ForSequenceClassification.forward:10
+#: transformers.DebertaV2ForTokenClassification.forward:10
+#: transformers.DebertaV2Model.forward:10
+msgid ""
+"Indices can be obtained using :class:`transformers.DebertaV2Tokenizer`. "
+"See :func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:14
+#: transformers.DebertaV2ForQuestionAnswering.forward:14
+#: transformers.DebertaV2ForSequenceClassification.forward:14
+#: transformers.DebertaV2ForTokenClassification.forward:14
+#: transformers.DebertaV2Model.forward:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:16
+#: transformers.DebertaV2ForQuestionAnswering.forward:16
+#: transformers.DebertaV2ForSequenceClassification.forward:16
+#: transformers.DebertaV2ForTokenClassification.forward:16
+#: transformers.DebertaV2Model.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:16
+#: transformers.DebertaV2ForQuestionAnswering.forward:16
+#: transformers.DebertaV2ForSequenceClassification.forward:16
+#: transformers.DebertaV2ForTokenClassification.forward:16
+#: transformers.DebertaV2Model.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:18
+#: transformers.DebertaV2ForQuestionAnswering.forward:18
+#: transformers.DebertaV2ForSequenceClassification.forward:18
+#: transformers.DebertaV2ForTokenClassification.forward:18
+#: transformers.DebertaV2Model.forward:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:19
+#: transformers.DebertaV2ForQuestionAnswering.forward:19
+#: transformers.DebertaV2ForSequenceClassification.forward:19
+#: transformers.DebertaV2ForTokenClassification.forward:19
+#: transformers.DebertaV2Model.forward:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:21
+#: transformers.DebertaV2ForQuestionAnswering.forward:21
+#: transformers.DebertaV2ForSequenceClassification.forward:21
+#: transformers.DebertaV2ForTokenClassification.forward:21
+#: transformers.DebertaV2Model.forward:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:23
+#: transformers.DebertaV2ForQuestionAnswering.forward:23
+#: transformers.DebertaV2ForSequenceClassification.forward:23
+#: transformers.DebertaV2ForTokenClassification.forward:23
+#: transformers.DebertaV2Model.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:23
+#: transformers.DebertaV2ForQuestionAnswering.forward:23
+#: transformers.DebertaV2ForSequenceClassification.forward:23
+#: transformers.DebertaV2ForTokenClassification.forward:23
+#: transformers.DebertaV2Model.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:26
+#: transformers.DebertaV2ForQuestionAnswering.forward:26
+#: transformers.DebertaV2ForSequenceClassification.forward:26
+#: transformers.DebertaV2ForTokenClassification.forward:26
+#: transformers.DebertaV2Model.forward:26
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:27
+#: transformers.DebertaV2ForQuestionAnswering.forward:27
+#: transformers.DebertaV2ForSequenceClassification.forward:27
+#: transformers.DebertaV2ForTokenClassification.forward:27
+#: transformers.DebertaV2Model.forward:27
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:29
+#: transformers.DebertaV2ForQuestionAnswering.forward:29
+#: transformers.DebertaV2ForSequenceClassification.forward:29
+#: transformers.DebertaV2ForTokenClassification.forward:29
+#: transformers.DebertaV2Model.forward:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:31
+#: transformers.DebertaV2ForQuestionAnswering.forward:31
+#: transformers.DebertaV2ForSequenceClassification.forward:31
+#: transformers.DebertaV2ForTokenClassification.forward:31
+#: transformers.DebertaV2Model.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:31
+#: transformers.DebertaV2ForQuestionAnswering.forward:31
+#: transformers.DebertaV2ForSequenceClassification.forward:31
+#: transformers.DebertaV2ForTokenClassification.forward:31
+#: transformers.DebertaV2Model.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:34
+#: transformers.DebertaV2ForQuestionAnswering.forward:34
+#: transformers.DebertaV2ForSequenceClassification.forward:34
+#: transformers.DebertaV2ForTokenClassification.forward:34
+#: transformers.DebertaV2Model.forward:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:36
+#: transformers.DebertaV2ForQuestionAnswering.forward:36
+#: transformers.DebertaV2ForSequenceClassification.forward:36
+#: transformers.DebertaV2ForTokenClassification.forward:36
+#: transformers.DebertaV2Model.forward:36
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert `input_ids` indices into associated vectors "
+"than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:40
+#: transformers.DebertaV2ForQuestionAnswering.forward:40
+#: transformers.DebertaV2ForSequenceClassification.forward:40
+#: transformers.DebertaV2ForTokenClassification.forward:40
+#: transformers.DebertaV2Model.forward:40
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:43
+#: transformers.DebertaV2ForQuestionAnswering.forward:43
+#: transformers.DebertaV2ForSequenceClassification.forward:43
+#: transformers.DebertaV2ForTokenClassification.forward:43
+#: transformers.DebertaV2Model.forward:43
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:46
+#: transformers.DebertaV2ForQuestionAnswering.forward:46
+#: transformers.DebertaV2ForSequenceClassification.forward:46
+#: transformers.DebertaV2ForTokenClassification.forward:46
+#: transformers.DebertaV2Model.forward:46
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.DebertaV2ForSequenceClassification.forward:53
+#: transformers.DebertaV2Model.forward:49
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DebertaV2Config`) and inputs."
+"  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.DebertaV2ForSequenceClassification.forward:53
+#: transformers.DebertaV2Model.forward:49
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DebertaV2Config`) and inputs."
+msgstr ""
+
+#: of transformers.DebertaV2ForSequenceClassification.forward:57
+#: transformers.DebertaV2Model.forward:53
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.DebertaV2ForSequenceClassification.forward:58
+#: transformers.DebertaV2Model.forward:54
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:59
+#: transformers.DebertaV2ForQuestionAnswering.forward:64
+#: transformers.DebertaV2ForSequenceClassification.forward:59
+#: transformers.DebertaV2ForTokenClassification.forward:58
+#: transformers.DebertaV2Model.forward:55
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:62
+#: transformers.DebertaV2ForQuestionAnswering.forward:67
+#: transformers.DebertaV2ForSequenceClassification.forward:62
+#: transformers.DebertaV2ForTokenClassification.forward:61
+#: transformers.DebertaV2Model.forward:58
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:63
+#: transformers.DebertaV2ForQuestionAnswering.forward:68
+#: transformers.DebertaV2ForSequenceClassification.forward:63
+#: transformers.DebertaV2ForTokenClassification.forward:62
+#: transformers.DebertaV2Model.forward:59
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:66
+#: transformers.DebertaV2ForQuestionAnswering.forward:71
+#: transformers.DebertaV2ForSequenceClassification.forward:66
+#: transformers.DebertaV2ForTokenClassification.forward:65
+#: transformers.DebertaV2Model.forward:62
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.DebertaV2ForSequenceClassification.forward:68
+#: transformers.DebertaV2Model.forward:64
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:70
+#: transformers.DebertaV2ForQuestionAnswering.forward:75
+#: transformers.DebertaV2ForSequenceClassification.forward:70
+#: transformers.DebertaV2ForTokenClassification.forward:69
+#: transformers.DebertaV2Model.forward:66
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:88
+msgid "DebertaV2PreTrainedModel"
+msgstr ""
+
+#: of transformers.DebertaV2PreTrainedModel:1
+msgid ""
+"An abstract class to handle weights initialization and a simple interface"
+" for downloading and loading pretrained models."
+msgstr ""
+
+#: of transformers.DebertaV2PreTrainedModel.forward:1
+msgid "Defines the computation performed at every call."
+msgstr ""
+
+#: of transformers.DebertaV2PreTrainedModel.forward:3
+msgid "Should be overridden by all subclasses."
+msgstr ""
+
+#: of transformers.DebertaV2PreTrainedModel.forward:6
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the registered hooks "
+"while the latter silently ignores them."
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:95
+msgid "DebertaV2ForMaskedLM"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM:1
+msgid ""
+"DeBERTa Model with a `language modeling` head on top. The DeBERTa model "
+"was proposed in `DeBERTa: Decoding-enhanced BERT with Disentangled "
+"Attention <https://arxiv.org/abs/2006.03654>`_ by Pengcheng He, Xiaodong "
+"Liu, Jianfeng Gao, Weizhu Chen. It's build on top of BERT/RoBERTa with "
+"two improvements, i.e. disentangled attention and enhanced mask decoder. "
+"With those two improvements, it out perform BERT/RoBERTa on a majority of"
+" tasks with 80GB pretraining data."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:1
+msgid ""
+"The :class:`~transformers.DebertaV2ForMaskedLM` forward method, overrides"
+" the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:48
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:53
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.DebertaV2Config`) and inputs.  -"
+" **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:53
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.DebertaV2Config`) and inputs."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:57
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:58
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.DebertaV2ForMaskedLM.forward:68
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:102
+msgid "DebertaV2ForSequenceClassification"
+msgstr ""
+
+#: of transformers.DebertaV2ForSequenceClassification:1
+msgid ""
+"DeBERTa Model transformer with a sequence classification/regression head "
+"on top (a linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.DebertaV2ForQuestionAnswering:4
+#: transformers.DebertaV2ForSequenceClassification:4
+#: transformers.DebertaV2ForTokenClassification:4
+msgid ""
+"The DeBERTa model was proposed in `DeBERTa: Decoding-enhanced BERT with "
+"Disentangled Attention <https://arxiv.org/abs/2006.03654>`_ by Pengcheng "
+"He, Xiaodong Liu, Jianfeng Gao, Weizhu Chen. It's build on top of "
+"BERT/RoBERTa with two improvements, i.e. disentangled attention and "
+"enhanced mask decoder. With those two improvements, it out perform "
+"BERT/RoBERTa on a majority of tasks with 80GB pretraining data."
+msgstr ""
+
+#: of transformers.DebertaV2ForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.DebertaV2ForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.DebertaV2ForSequenceClassification.forward:48
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:109
+msgid "DebertaV2ForTokenClassification"
+msgstr ""
+
+#: of transformers.DebertaV2ForTokenClassification:1
+msgid ""
+"DeBERTa Model with a token classification head on top (a linear layer on "
+"top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) "
+"tasks."
+msgstr ""
+
+#: of transformers.DebertaV2ForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.DebertaV2ForTokenClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.DebertaV2ForTokenClassification.forward:48
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.DebertaV2ForTokenClassification.forward:52
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DebertaV2Config`) and inputs."
+"  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.DebertaV2ForTokenClassification.forward:52
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DebertaV2Config`) and inputs."
+msgstr ""
+
+#: of transformers.DebertaV2ForTokenClassification.forward:56
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.DebertaV2ForTokenClassification.forward:57
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.DebertaV2ForTokenClassification.forward:67
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/deberta_v2.rst:116
+msgid "DebertaV2ForQuestionAnswering"
+msgstr ""
+
+#: of transformers.DebertaV2ForQuestionAnswering:1
+msgid ""
+"DeBERTa Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.DebertaV2ForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.DebertaV2ForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.DebertaV2ForQuestionAnswering.forward:48
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.DebertaV2ForQuestionAnswering.forward:52
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.DebertaV2ForQuestionAnswering.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.DebertaV2Config`) "
+"and inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.DebertaV2ForQuestionAnswering.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.DebertaV2Config`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.DebertaV2ForQuestionAnswering.forward:61
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.DebertaV2ForQuestionAnswering.forward:62
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.DebertaV2ForQuestionAnswering.forward:63
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.DebertaV2ForQuestionAnswering.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+

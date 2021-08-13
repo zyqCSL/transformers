@@ -1,0 +1,1155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/ibert.rst:14
+msgid "I-BERT"
+msgstr ""
+
+#: ../../source/model_doc/ibert.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/ibert.rst:19
+msgid ""
+"The I-BERT model was proposed in `I-BERT: Integer-only BERT Quantization "
+"<https://arxiv.org/abs/2101.01321>`__ by Sehoon Kim, Amir Gholami, Zhewei"
+" Yao, Michael W. Mahoney and Kurt Keutzer. It's a quantized version of "
+"RoBERTa running inference up to four times faster."
+msgstr ""
+
+#: ../../source/model_doc/ibert.rst:23
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/ibert.rst:25
+msgid ""
+"*Transformer based models, like BERT and RoBERTa, have achieved state-of-"
+"the-art results in many Natural Language Processing tasks. However, their"
+" memory footprint, inference latency, and power consumption are "
+"prohibitive for efficient inference at the edge, and even at the data "
+"center. While quantization can be a viable solution for this, previous "
+"work on quantizing Transformer based models use floating-point arithmetic"
+" during inference, which cannot efficiently utilize integer-only logical "
+"units such as the recent Turing Tensor Cores, or traditional integer-only"
+" ARM processors. In this work, we propose I-BERT, a novel quantization "
+"scheme for Transformer based models that quantizes the entire inference "
+"with integer-only arithmetic. Based on lightweight integer-only "
+"approximation methods for nonlinear operations, e.g., GELU, Softmax, and "
+"Layer Normalization, I-BERT performs an end-to-end integer-only BERT "
+"inference without any floating point calculation. We evaluate our "
+"approach on GLUE downstream tasks using RoBERTa-Base/Large. We show that "
+"for both cases, I-BERT achieves similar (and slightly higher) accuracy as"
+" compared to the full-precision baseline. Furthermore, our preliminary "
+"implementation of I-BERT shows a speedup of 2.4 - 4.0x for INT8 inference"
+" on a T4 GPU system as compared to FP32 inference. The framework has been"
+" developed in PyTorch and has been open-sourced.*"
+msgstr ""
+
+#: ../../source/model_doc/ibert.rst:39
+msgid ""
+"This model was contributed by `kssteven "
+"<https://huggingface.co/kssteven>`__. The original code can be found "
+"`here <https://github.com/kssteven418/I-BERT>`__."
+msgstr ""
+
+#: ../../source/model_doc/ibert.rst:44
+msgid "IBertConfig"
+msgstr ""
+
+#: of transformers.IBertConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.IBertModel`. It is used to instantiate a I-BERT "
+"model according to the specified arguments,"
+msgstr ""
+
+#: of transformers.IBertConfig:4
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.IBertConfig transformers.IBertForMaskedLM
+#: transformers.IBertForMaskedLM.forward transformers.IBertForMultipleChoice
+#: transformers.IBertForMultipleChoice.forward
+#: transformers.IBertForQuestionAnswering
+#: transformers.IBertForQuestionAnswering.forward
+#: transformers.IBertForSequenceClassification
+#: transformers.IBertForSequenceClassification.forward
+#: transformers.IBertForTokenClassification
+#: transformers.IBertForTokenClassification.forward transformers.IBertModel
+#: transformers.IBertModel.forward
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.IBertConfig:7
+msgid ""
+"Vocabulary size of the I-BERT model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.IBertModel`"
+msgstr ""
+
+#: of transformers.IBertConfig:10
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.IBertConfig:12
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.IBertConfig:14
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.IBertConfig:16
+msgid ""
+"Dimensionality of the \"intermediate\" (often named feed-forward) layer "
+"in the Transformer encoder."
+msgstr ""
+
+#: of transformers.IBertConfig:18
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.IBertConfig:21
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.IBertConfig:23
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.IBertConfig:25
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.IBertConfig:28
+msgid ""
+"The vocabulary size of the :obj:`token_type_ids` passed when calling "
+":class:`~transformers.IBertModel`"
+msgstr ""
+
+#: of transformers.IBertConfig:30
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.IBertConfig:32
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.IBertConfig:34
+msgid ""
+"Type of position embedding. Choose one of :obj:`\"absolute\"`, "
+":obj:`\"relative_key\"`, :obj:`\"relative_key_query\"`. For positional "
+"embeddings use :obj:`\"absolute\"`. For more information on "
+":obj:`\"relative_key\"`, please refer to `Self-Attention with Relative "
+"Position Representations (Shaw et al.) "
+"<https://arxiv.org/abs/1803.02155>`__. For more information on "
+":obj:`\"relative_key_query\"`, please refer to `Method 4` in `Improve "
+"Transformer Models with Better Relative Position Embeddings (Huang et "
+"al.) <https://arxiv.org/abs/2009.13658>`__."
+msgstr ""
+
+#: of transformers.IBertConfig:41
+msgid "Whether to quantize the model or not."
+msgstr ""
+
+#: of transformers.IBertConfig:43
+msgid ""
+"Force dequantize specific nonlinear layer. Dequatized layers are then "
+"executed with full precision. :obj:`\"none\"`, :obj:`\"gelu\"`, "
+":obj:`\"softmax\"`, :obj:`\"layernorm\"` and :obj:`\"nonlinear\"` are "
+"supported. As deafult, it is set as :obj:`\"none\"`, which does not "
+"dequantize any layers. Please specify :obj:`\"gelu\"`, "
+":obj:`\"softmax\"`, or :obj:`\"layernorm\"` to dequantize GELU, Softmax, "
+"or LayerNorm, respectively. :obj:`\"nonlinear\"` will dequantize all "
+"nonlinear layers, i.e., GELU, Softmax, and LayerNorm."
+msgstr ""
+
+#: ../../source/model_doc/ibert.rst:51
+msgid "IBertModel"
+msgstr ""
+
+#: of transformers.IBertModel:1
+msgid ""
+"The bare I-BERT Model transformer outputting raw hidden-states without "
+"any specific head on top."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM:3 transformers.IBertForMultipleChoice:5
+#: transformers.IBertForQuestionAnswering:5
+#: transformers.IBertForSequenceClassification:5
+#: transformers.IBertForTokenClassification:5 transformers.IBertModel:3
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM:7 transformers.IBertForMultipleChoice:9
+#: transformers.IBertForQuestionAnswering:9
+#: transformers.IBertForSequenceClassification:9
+#: transformers.IBertForTokenClassification:9 transformers.IBertModel:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM:11 transformers.IBertForMultipleChoice:13
+#: transformers.IBertForQuestionAnswering:13
+#: transformers.IBertForSequenceClassification:13
+#: transformers.IBertForTokenClassification:13 transformers.IBertModel:11
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.IBertModel:17
+msgid ""
+"The model can behave as an encoder (with only self-attention) as well as "
+"a decoder, in which case a layer of cross-attention is added between the "
+"self-attention layers, following the architecture described in `Attention"
+" is all you need <https://arxiv.org/abs/1706.03762>`__ by Ashish Vaswani,"
+" Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez,"
+" Lukasz Kaiser and Illia Polosukhin."
+msgstr ""
+
+#: of transformers.IBertModel.forward:1
+msgid ""
+"The :class:`~transformers.IBertModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:4
+#: transformers.IBertForMultipleChoice.forward:4
+#: transformers.IBertForQuestionAnswering.forward:4
+#: transformers.IBertForSequenceClassification.forward:4
+#: transformers.IBertForTokenClassification.forward:4
+#: transformers.IBertModel.forward:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:8
+#: transformers.IBertForMultipleChoice.forward:8
+#: transformers.IBertForQuestionAnswering.forward:8
+#: transformers.IBertForSequenceClassification.forward:8
+#: transformers.IBertForTokenClassification.forward:8
+#: transformers.IBertModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.RobertaTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:8
+#: transformers.IBertForMultipleChoice.forward:8
+#: transformers.IBertForQuestionAnswering.forward:8
+#: transformers.IBertForSequenceClassification.forward:8
+#: transformers.IBertForTokenClassification.forward:8
+#: transformers.IBertModel.forward:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:10
+#: transformers.IBertForMultipleChoice.forward:10
+#: transformers.IBertForQuestionAnswering.forward:10
+#: transformers.IBertForSequenceClassification.forward:10
+#: transformers.IBertForTokenClassification.forward:10
+#: transformers.IBertModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.RobertaTokenizer`. "
+"See :meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:14
+#: transformers.IBertForMultipleChoice.forward:14
+#: transformers.IBertForQuestionAnswering.forward:14
+#: transformers.IBertForSequenceClassification.forward:14
+#: transformers.IBertForTokenClassification.forward:14
+#: transformers.IBertModel.forward:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:16
+#: transformers.IBertForMultipleChoice.forward:16
+#: transformers.IBertForQuestionAnswering.forward:16
+#: transformers.IBertForSequenceClassification.forward:16
+#: transformers.IBertForTokenClassification.forward:16
+#: transformers.IBertModel.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:16
+#: transformers.IBertForMultipleChoice.forward:16
+#: transformers.IBertForQuestionAnswering.forward:16
+#: transformers.IBertForSequenceClassification.forward:16
+#: transformers.IBertForTokenClassification.forward:16
+#: transformers.IBertModel.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:18
+#: transformers.IBertForMultipleChoice.forward:18
+#: transformers.IBertForQuestionAnswering.forward:18
+#: transformers.IBertForSequenceClassification.forward:18
+#: transformers.IBertForTokenClassification.forward:18
+#: transformers.IBertModel.forward:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:19
+#: transformers.IBertForMultipleChoice.forward:19
+#: transformers.IBertForQuestionAnswering.forward:19
+#: transformers.IBertForSequenceClassification.forward:19
+#: transformers.IBertForTokenClassification.forward:19
+#: transformers.IBertModel.forward:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:21
+#: transformers.IBertForMultipleChoice.forward:21
+#: transformers.IBertForQuestionAnswering.forward:21
+#: transformers.IBertForSequenceClassification.forward:21
+#: transformers.IBertForTokenClassification.forward:21
+#: transformers.IBertModel.forward:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:23
+#: transformers.IBertForMultipleChoice.forward:23
+#: transformers.IBertForQuestionAnswering.forward:23
+#: transformers.IBertForSequenceClassification.forward:23
+#: transformers.IBertForTokenClassification.forward:23
+#: transformers.IBertModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:23
+#: transformers.IBertForMultipleChoice.forward:23
+#: transformers.IBertForQuestionAnswering.forward:23
+#: transformers.IBertForSequenceClassification.forward:23
+#: transformers.IBertForTokenClassification.forward:23
+#: transformers.IBertModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:26
+#: transformers.IBertForMultipleChoice.forward:26
+#: transformers.IBertForQuestionAnswering.forward:26
+#: transformers.IBertForSequenceClassification.forward:26
+#: transformers.IBertForTokenClassification.forward:26
+#: transformers.IBertModel.forward:26
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:27
+#: transformers.IBertForMultipleChoice.forward:27
+#: transformers.IBertForQuestionAnswering.forward:27
+#: transformers.IBertForSequenceClassification.forward:27
+#: transformers.IBertForTokenClassification.forward:27
+#: transformers.IBertModel.forward:27
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:29
+#: transformers.IBertForMultipleChoice.forward:29
+#: transformers.IBertForQuestionAnswering.forward:29
+#: transformers.IBertForSequenceClassification.forward:29
+#: transformers.IBertForTokenClassification.forward:29
+#: transformers.IBertModel.forward:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:31
+#: transformers.IBertForMultipleChoice.forward:31
+#: transformers.IBertForQuestionAnswering.forward:31
+#: transformers.IBertForSequenceClassification.forward:31
+#: transformers.IBertForTokenClassification.forward:31
+#: transformers.IBertModel.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:31
+#: transformers.IBertForMultipleChoice.forward:31
+#: transformers.IBertForQuestionAnswering.forward:31
+#: transformers.IBertForSequenceClassification.forward:31
+#: transformers.IBertForTokenClassification.forward:31
+#: transformers.IBertModel.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:34
+#: transformers.IBertForMultipleChoice.forward:34
+#: transformers.IBertForQuestionAnswering.forward:34
+#: transformers.IBertForSequenceClassification.forward:34
+#: transformers.IBertForTokenClassification.forward:34
+#: transformers.IBertModel.forward:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:36
+#: transformers.IBertForMultipleChoice.forward:36
+#: transformers.IBertForQuestionAnswering.forward:36
+#: transformers.IBertForSequenceClassification.forward:36
+#: transformers.IBertForTokenClassification.forward:36
+#: transformers.IBertModel.forward:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:36
+#: transformers.IBertForMultipleChoice.forward:36
+#: transformers.IBertForQuestionAnswering.forward:36
+#: transformers.IBertForSequenceClassification.forward:36
+#: transformers.IBertForTokenClassification.forward:36
+#: transformers.IBertModel.forward:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:38
+#: transformers.IBertForMultipleChoice.forward:38
+#: transformers.IBertForQuestionAnswering.forward:38
+#: transformers.IBertForSequenceClassification.forward:38
+#: transformers.IBertForTokenClassification.forward:38
+#: transformers.IBertModel.forward:38
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:39
+#: transformers.IBertForMultipleChoice.forward:39
+#: transformers.IBertForQuestionAnswering.forward:39
+#: transformers.IBertForSequenceClassification.forward:39
+#: transformers.IBertForTokenClassification.forward:39
+#: transformers.IBertModel.forward:39
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:41
+#: transformers.IBertForMultipleChoice.forward:41
+#: transformers.IBertForQuestionAnswering.forward:41
+#: transformers.IBertForSequenceClassification.forward:41
+#: transformers.IBertForTokenClassification.forward:41
+#: transformers.IBertModel.forward:41
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:45
+#: transformers.IBertForMultipleChoice.forward:45
+#: transformers.IBertForQuestionAnswering.forward:45
+#: transformers.IBertForSequenceClassification.forward:45
+#: transformers.IBertForTokenClassification.forward:45
+#: transformers.IBertModel.forward:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:48
+#: transformers.IBertForMultipleChoice.forward:48
+#: transformers.IBertForQuestionAnswering.forward:48
+#: transformers.IBertForSequenceClassification.forward:48
+#: transformers.IBertForTokenClassification.forward:48
+#: transformers.IBertModel.forward:48
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:51
+#: transformers.IBertForMultipleChoice.forward:51
+#: transformers.IBertForQuestionAnswering.forward:51
+#: transformers.IBertForSequenceClassification.forward:51
+#: transformers.IBertForTokenClassification.forward:51
+#: transformers.IBertModel.forward:51
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward
+#: transformers.IBertForMultipleChoice.forward
+#: transformers.IBertForQuestionAnswering.forward
+#: transformers.IBertForSequenceClassification.forward
+#: transformers.IBertForTokenClassification.forward
+#: transformers.IBertModel.forward
+msgid "Returns"
+msgstr ""
+
+#: of transformers.IBertModel.forward:54
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.IBertConfig`) and "
+"inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, hidden_size)`) -- "
+"Last layer hidden-state of the first token of the sequence "
+"(classification token) further processed by a   Linear layer and a Tanh "
+"activation function. The Linear layer weights are trained from the next "
+"sentence   prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` and ``config.add_cross_attention=True`` is "
+"passed or when ``config.output_attentions=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for each layer) of shape :obj:`(batch_size,"
+" num_heads,   sequence_length, sequence_length)`.    Attentions weights "
+"of the decoder's cross-attention layer, after the attention softmax, used"
+" to compute the   weighted average in the cross-attention heads. - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and optionally if   "
+"``config.is_encoder_decoder=True`` 2 additional tensors of shape "
+":obj:`(batch_size, num_heads,   encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and optionally if   "
+"``config.is_encoder_decoder=True`` in the cross-attention blocks) that "
+"can be used (see   :obj:`past_key_values` input) to speed up sequential "
+"decoding."
+msgstr ""
+
+#: of transformers.IBertModel.forward:54
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.IBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.IBertModel.forward:58
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.IBertModel.forward:59
+msgid ""
+"**pooler_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:66
+#: transformers.IBertForMultipleChoice.forward:66
+#: transformers.IBertForQuestionAnswering.forward:69
+#: transformers.IBertForSequenceClassification.forward:64
+#: transformers.IBertForTokenClassification.forward:63
+#: transformers.IBertModel.forward:62
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:69
+#: transformers.IBertForMultipleChoice.forward:69
+#: transformers.IBertForQuestionAnswering.forward:72
+#: transformers.IBertForSequenceClassification.forward:67
+#: transformers.IBertForTokenClassification.forward:66
+#: transformers.IBertModel.forward:65
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:70
+#: transformers.IBertForMultipleChoice.forward:70
+#: transformers.IBertForQuestionAnswering.forward:73
+#: transformers.IBertForSequenceClassification.forward:68
+#: transformers.IBertForTokenClassification.forward:67
+#: transformers.IBertModel.forward:66
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:73
+#: transformers.IBertForMultipleChoice.forward:73
+#: transformers.IBertForQuestionAnswering.forward:76
+#: transformers.IBertForSequenceClassification.forward:71
+#: transformers.IBertForTokenClassification.forward:70
+#: transformers.IBertModel.forward:69
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.IBertModel.forward:71
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` and "
+"``config.add_cross_attention=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.IBertModel.forward:74
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.IBertModel.forward:76
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) "
+"and optionally if ``config.is_encoder_decoder=True`` 2 additional tensors"
+" of shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.IBertModel.forward:81
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and optionally if ``config.is_encoder_decoder=True`` in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward
+#: transformers.IBertForMultipleChoice.forward
+#: transformers.IBertForQuestionAnswering.forward
+#: transformers.IBertForSequenceClassification.forward
+#: transformers.IBertForTokenClassification.forward
+#: transformers.IBertModel.forward
+msgid "Return type"
+msgstr ""
+
+#: of transformers.IBertModel.forward:84
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:77
+#: transformers.IBertForMultipleChoice.forward:77
+#: transformers.IBertForQuestionAnswering.forward:80
+#: transformers.IBertForSequenceClassification.forward:75
+#: transformers.IBertForTokenClassification.forward:74
+#: transformers.IBertModel.forward:86
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/ibert.rst:58
+msgid "IBertForMaskedLM"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM:1
+msgid "I-BERT Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:1
+msgid ""
+"The :class:`~transformers.IBertForMaskedLM` forward method, overrides the"
+" :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:53
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:57
+msgid "Used to hide legacy arguments that have been deprecated."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:60
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.IBertConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:60
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.IBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:64
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:65
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.IBertForMaskedLM.forward:75
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/ibert.rst:65
+msgid "IBertForSequenceClassification"
+msgstr ""
+
+#: of transformers.IBertForSequenceClassification:1
+msgid ""
+"I-BERT Model transformer with a sequence classification/regression head "
+"on top (a linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.IBertForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.IBertForSequenceClassification` forward method,"
+" overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.IBertForSequenceClassification.forward:53
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.IBertForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.IBertConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.IBertForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.IBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.IBertForSequenceClassification.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.IBertForSequenceClassification.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.IBertForSequenceClassification.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/ibert.rst:72
+msgid "IBertForMultipleChoice"
+msgstr ""
+
+#: of transformers.IBertForMultipleChoice:1
+msgid ""
+"I-BERT Model with a multiple choice classification head on top (a linear "
+"layer on top of the pooled output and a softmax) e.g. for RocStories/SWAG"
+" tasks."
+msgstr ""
+
+#: of transformers.IBertForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.IBertForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.IBertForMultipleChoice.forward:53
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.IBertForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.IBertConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss. - **logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, num_choices)`) -- "
+"`num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.IBertForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.IBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.IBertForMultipleChoice.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.IBertForMultipleChoice.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.IBertForMultipleChoice.forward:65
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.IBertForMultipleChoice.forward:75
+msgid ""
+":class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/ibert.rst:79
+msgid "IBertForTokenClassification"
+msgstr ""
+
+#: of transformers.IBertForTokenClassification:1
+msgid ""
+"I-BERT Model with a token classification head on top (a linear layer on "
+"top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) "
+"tasks."
+msgstr ""
+
+#: of transformers.IBertForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.IBertForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.IBertForTokenClassification.forward:53
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.IBertForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.IBertConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.IBertForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.IBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.IBertForTokenClassification.forward:61
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.IBertForTokenClassification.forward:62
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.IBertForTokenClassification.forward:72
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/ibert.rst:86
+msgid "IBertForQuestionAnswering"
+msgstr ""
+
+#: of transformers.IBertForQuestionAnswering:1
+msgid ""
+"I-BERT Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.IBertForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.IBertForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.IBertForQuestionAnswering.forward:53
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.IBertForQuestionAnswering.forward:57
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.IBertForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.IBertConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.IBertForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.IBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.IBertForQuestionAnswering.forward:66
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.IBertForQuestionAnswering.forward:67
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.IBertForQuestionAnswering.forward:68
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.IBertForQuestionAnswering.forward:78
+msgid ""
+":class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+

@@ -1,0 +1,4044 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-10 04:49+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/bert.rst:14
+msgid "BERT"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:19
+msgid ""
+"The BERT model was proposed in `BERT: Pre-training of Deep Bidirectional "
+"Transformers for Language Understanding "
+"<https://arxiv.org/abs/1810.04805>`__ by Jacob Devlin, Ming-Wei Chang, "
+"Kenton Lee and Kristina Toutanova. It's a bidirectional transformer "
+"pretrained using a combination of masked language modeling objective and "
+"next sentence prediction on a large corpus comprising the Toronto Book "
+"Corpus and Wikipedia."
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:24
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:26
+msgid ""
+"*We introduce a new language representation model called BERT, which "
+"stands for Bidirectional Encoder Representations from Transformers. "
+"Unlike recent language representation models, BERT is designed to pre-"
+"train deep bidirectional representations from unlabeled text by jointly "
+"conditioning on both left and right context in all layers. As a result, "
+"the pre-trained BERT model can be fine-tuned with just one additional "
+"output layer to create state-of-the-art models for a wide range of tasks,"
+" such as question answering and language inference, without substantial "
+"task-specific architecture modifications.*"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:33
+msgid ""
+"*BERT is conceptually simple and empirically powerful. It obtains new "
+"state-of-the-art results on eleven natural language processing tasks, "
+"including pushing the GLUE score to 80.5% (7.7% point absolute "
+"improvement), MultiNLI accuracy to 86.7% (4.6% absolute improvement), "
+"SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute "
+"improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute "
+"improvement).*"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:38
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:40
+msgid ""
+"BERT is a model with absolute position embeddings so it's usually advised"
+" to pad the inputs on the right rather than the left."
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:42
+msgid ""
+"BERT was trained with the masked language modeling (MLM) and next "
+"sentence prediction (NSP) objectives. It is efficient at predicting "
+"masked tokens and at NLU in general, but is not optimal for text "
+"generation."
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:45
+msgid ""
+"This model was contributed by `thomwolf "
+"<https://huggingface.co/thomwolf>`__. The original code can be found "
+"`here <https://github.com/google-research/bert>`__."
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:49
+msgid "BertConfig"
+msgstr ""
+
+#: of transformers.BertConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.BertModel` or a :class:`~transformers.TFBertModel`."
+" It is used to instantiate a BERT model according to the specified "
+"arguments, defining the model architecture. Instantiating a configuration"
+" with the defaults will yield a similar configuration to that of the BERT"
+" `bert-base-uncased <https://huggingface.co/bert-base-uncased>`__ "
+"architecture."
+msgstr ""
+
+#: of transformers.BertConfig:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.BertConfig transformers.BertForMaskedLM
+#: transformers.BertForMaskedLM.forward transformers.BertForMultipleChoice
+#: transformers.BertForMultipleChoice.forward
+#: transformers.BertForNextSentencePrediction
+#: transformers.BertForNextSentencePrediction.forward
+#: transformers.BertForPreTraining transformers.BertForPreTraining.forward
+#: transformers.BertForQuestionAnswering
+#: transformers.BertForQuestionAnswering.forward
+#: transformers.BertForSequenceClassification
+#: transformers.BertForSequenceClassification.forward
+#: transformers.BertForTokenClassification
+#: transformers.BertForTokenClassification.forward transformers.BertLMHeadModel
+#: transformers.BertLMHeadModel.forward transformers.BertModel
+#: transformers.BertModel.forward transformers.BertTokenizer
+#: transformers.BertTokenizer.build_inputs_with_special_tokens
+#: transformers.BertTokenizer.create_token_type_ids_from_sequences
+#: transformers.BertTokenizer.get_special_tokens_mask
+#: transformers.BertTokenizer.save_vocabulary transformers.BertTokenizerFast
+#: transformers.BertTokenizerFast.build_inputs_with_special_tokens
+#: transformers.BertTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.BertTokenizerFast.save_vocabulary
+#: transformers.FlaxBertForMaskedLM transformers.FlaxBertForMaskedLM.__call__
+#: transformers.FlaxBertForMultipleChoice
+#: transformers.FlaxBertForMultipleChoice.__call__
+#: transformers.FlaxBertForNextSentencePrediction
+#: transformers.FlaxBertForNextSentencePrediction.__call__
+#: transformers.FlaxBertForPreTraining
+#: transformers.FlaxBertForPreTraining.__call__
+#: transformers.FlaxBertForQuestionAnswering
+#: transformers.FlaxBertForQuestionAnswering.__call__
+#: transformers.FlaxBertForSequenceClassification
+#: transformers.FlaxBertForSequenceClassification.__call__
+#: transformers.FlaxBertForTokenClassification
+#: transformers.FlaxBertForTokenClassification.__call__
+#: transformers.FlaxBertModel transformers.FlaxBertModel.__call__
+#: transformers.TFBertForMaskedLM transformers.TFBertForMaskedLM.call
+#: transformers.TFBertForMultipleChoice
+#: transformers.TFBertForMultipleChoice.call
+#: transformers.TFBertForNextSentencePrediction
+#: transformers.TFBertForNextSentencePrediction.call
+#: transformers.TFBertForPreTraining.call
+#: transformers.TFBertForQuestionAnswering
+#: transformers.TFBertForQuestionAnswering.call
+#: transformers.TFBertForSequenceClassification
+#: transformers.TFBertForSequenceClassification.call
+#: transformers.TFBertForTokenClassification
+#: transformers.TFBertForTokenClassification.call transformers.TFBertModel
+#: transformers.TFBertModel.call
+#: transformers.models.bert.modeling_bert.BertForPreTrainingOutput
+#: transformers.models.bert.modeling_flax_bert.FlaxBertForPreTrainingOutput
+#: transformers.models.bert.modeling_tf_bert.TFBertForPreTrainingOutput
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.BertConfig:10
+msgid ""
+"Vocabulary size of the BERT model. Defines the number of different tokens"
+" that can be represented by the :obj:`inputs_ids` passed when calling "
+":class:`~transformers.BertModel` or :class:`~transformers.TFBertModel`."
+msgstr ""
+
+#: of transformers.BertConfig:14
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.BertConfig:16
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.BertConfig:18
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.BertConfig:20
+msgid ""
+"Dimensionality of the \"intermediate\" (often named feed-forward) layer "
+"in the Transformer encoder."
+msgstr ""
+
+#: of transformers.BertConfig:22
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.BertConfig:25
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.BertConfig:27
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.BertConfig:29
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.BertConfig:32
+msgid ""
+"The vocabulary size of the :obj:`token_type_ids` passed when calling "
+":class:`~transformers.BertModel` or :class:`~transformers.TFBertModel`."
+msgstr ""
+
+#: of transformers.BertConfig:35
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.BertConfig:37
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.BertConfig:39
+msgid ""
+"If True, use gradient checkpointing to save memory at the expense of "
+"slower backward pass."
+msgstr ""
+
+#: of transformers.BertConfig:41
+msgid ""
+"Type of position embedding. Choose one of :obj:`\"absolute\"`, "
+":obj:`\"relative_key\"`, :obj:`\"relative_key_query\"`. For positional "
+"embeddings use :obj:`\"absolute\"`. For more information on "
+":obj:`\"relative_key\"`, please refer to `Self-Attention with Relative "
+"Position Representations (Shaw et al.) "
+"<https://arxiv.org/abs/1803.02155>`__. For more information on "
+":obj:`\"relative_key_query\"`, please refer to `Method 4` in `Improve "
+"Transformer Models with Better Relative Position Embeddings (Huang et "
+"al.) <https://arxiv.org/abs/2009.13658>`__."
+msgstr ""
+
+#: of transformers.BertConfig:48
+msgid ""
+"Whether or not the model should return the last key/values attentions "
+"(not used by all models). Only relevant if ``config.is_decoder=True``."
+msgstr ""
+
+#: of transformers.BertConfig:51
+msgid "The dropout ratio for the classification head."
+msgstr ""
+
+#: of transformers.BertConfig:54
+#: transformers.TFBertForNextSentencePrediction.call:78
+#: transformers.TFBertForPreTraining.call:90
+msgid "Examples::"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:56
+msgid "BertTokenizer"
+msgstr ""
+
+#: of transformers.BertTokenizer:1
+msgid "Construct a BERT tokenizer. Based on WordPiece."
+msgstr ""
+
+#: of transformers.BertTokenizer:3
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.BertTokenizer:6 transformers.BertTokenizerFast:6
+msgid "File containing the vocabulary."
+msgstr ""
+
+#: of transformers.BertTokenizer:8 transformers.BertTokenizerFast:8
+msgid "Whether or not to lowercase the input when tokenizing."
+msgstr ""
+
+#: of transformers.BertTokenizer:10
+msgid "Whether or not to do basic tokenization before WordPiece."
+msgstr ""
+
+#: of transformers.BertTokenizer:12
+msgid ""
+"Collection of tokens which will never be split during tokenization. Only "
+"has an effect when :obj:`do_basic_tokenize=True`"
+msgstr ""
+
+#: of transformers.BertTokenizer:15 transformers.BertTokenizerFast:10
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.BertTokenizer:18 transformers.BertTokenizerFast:13
+msgid ""
+"The separator token, which is used when building a sequence from multiple"
+" sequences, e.g. two sequences for sequence classification or for a text "
+"and a question for question answering. It is also used as the last token "
+"of a sequence built with special tokens."
+msgstr ""
+
+#: of transformers.BertTokenizer:22 transformers.BertTokenizerFast:17
+msgid ""
+"The token used for padding, for example when batching sequences of "
+"different lengths."
+msgstr ""
+
+#: of transformers.BertTokenizer:24 transformers.BertTokenizerFast:19
+msgid ""
+"The classifier token which is used when doing sequence classification "
+"(classification of the whole sequence instead of per-token "
+"classification). It is the first token of the sequence when built with "
+"special tokens."
+msgstr ""
+
+#: of transformers.BertTokenizer:27 transformers.BertTokenizerFast:22
+msgid ""
+"The token used for masking values. This is the token used when training "
+"this model with masked language modeling. This is the token which the "
+"model will try to predict."
+msgstr ""
+
+#: of transformers.BertTokenizer:30
+msgid ""
+"Whether or not to tokenize Chinese characters.  This should likely be "
+"deactivated for Japanese (see this `issue "
+"<https://github.com/huggingface/transformers/issues/328>`__)."
+msgstr ""
+
+#: of transformers.BertTokenizer:30
+msgid "Whether or not to tokenize Chinese characters."
+msgstr ""
+
+#: of transformers.BertTokenizer:32
+msgid ""
+"This should likely be deactivated for Japanese (see this `issue "
+"<https://github.com/huggingface/transformers/issues/328>`__)."
+msgstr ""
+
+#: of transformers.BertTokenizer:35 transformers.BertTokenizerFast:31
+msgid ""
+"(:obj:`bool`, `optional`): Whether or not to strip all accents. If this "
+"option is not specified, then it will be determined by the value for "
+":obj:`lowercase` (as in the original BERT)."
+msgstr ""
+
+#: of transformers.BertTokenizer.build_inputs_with_special_tokens:1
+#: transformers.BertTokenizerFast.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. A BERT "
+"sequence has the following format:"
+msgstr ""
+
+#: of transformers.BertTokenizer.build_inputs_with_special_tokens:4
+#: transformers.BertTokenizerFast.build_inputs_with_special_tokens:4
+msgid "single sequence: ``[CLS] X [SEP]``"
+msgstr ""
+
+#: of transformers.BertTokenizer.build_inputs_with_special_tokens:5
+#: transformers.BertTokenizerFast.build_inputs_with_special_tokens:5
+msgid "pair of sequences: ``[CLS] A [SEP] B [SEP]``"
+msgstr ""
+
+#: of transformers.BertTokenizer.build_inputs_with_special_tokens:7
+#: transformers.BertTokenizerFast.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.BertTokenizer.build_inputs_with_special_tokens:9
+#: transformers.BertTokenizer.create_token_type_ids_from_sequences:13
+#: transformers.BertTokenizer.get_special_tokens_mask:6
+#: transformers.BertTokenizerFast.build_inputs_with_special_tokens:9
+#: transformers.BertTokenizerFast.create_token_type_ids_from_sequences:13
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward
+#: transformers.BertForMultipleChoice.forward
+#: transformers.BertForNextSentencePrediction.forward
+#: transformers.BertForPreTraining.forward
+#: transformers.BertForQuestionAnswering.forward
+#: transformers.BertForSequenceClassification.forward
+#: transformers.BertForTokenClassification.forward
+#: transformers.BertLMHeadModel.forward transformers.BertModel.forward
+#: transformers.BertTokenizer.build_inputs_with_special_tokens
+#: transformers.BertTokenizer.create_token_type_ids_from_sequences
+#: transformers.BertTokenizer.get_special_tokens_mask
+#: transformers.BertTokenizer.save_vocabulary
+#: transformers.BertTokenizerFast.build_inputs_with_special_tokens
+#: transformers.BertTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.BertTokenizerFast.save_vocabulary
+#: transformers.FlaxBertForMaskedLM.__call__
+#: transformers.FlaxBertForMultipleChoice.__call__
+#: transformers.FlaxBertForNextSentencePrediction.__call__
+#: transformers.FlaxBertForPreTraining.__call__
+#: transformers.FlaxBertForQuestionAnswering.__call__
+#: transformers.FlaxBertForSequenceClassification.__call__
+#: transformers.FlaxBertForTokenClassification.__call__
+#: transformers.FlaxBertModel.__call__ transformers.TFBertForMaskedLM.call
+#: transformers.TFBertForMultipleChoice.call
+#: transformers.TFBertForNextSentencePrediction.call
+#: transformers.TFBertForPreTraining.call
+#: transformers.TFBertForQuestionAnswering.call
+#: transformers.TFBertForSequenceClassification.call
+#: transformers.TFBertForTokenClassification.call
+#: transformers.TFBertLMHeadModel.call transformers.TFBertModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.BertTokenizer.build_inputs_with_special_tokens:12
+#: transformers.BertTokenizerFast.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward
+#: transformers.BertForMultipleChoice.forward
+#: transformers.BertForNextSentencePrediction.forward
+#: transformers.BertForPreTraining.forward
+#: transformers.BertForQuestionAnswering.forward
+#: transformers.BertForSequenceClassification.forward
+#: transformers.BertForTokenClassification.forward
+#: transformers.BertLMHeadModel.forward transformers.BertModel.forward
+#: transformers.BertTokenizer.build_inputs_with_special_tokens
+#: transformers.BertTokenizer.create_token_type_ids_from_sequences
+#: transformers.BertTokenizer.get_special_tokens_mask
+#: transformers.BertTokenizer.save_vocabulary
+#: transformers.BertTokenizerFast.build_inputs_with_special_tokens
+#: transformers.BertTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.BertTokenizerFast.save_vocabulary
+#: transformers.FlaxBertForMaskedLM.__call__
+#: transformers.FlaxBertForMultipleChoice.__call__
+#: transformers.FlaxBertForNextSentencePrediction.__call__
+#: transformers.FlaxBertForPreTraining.__call__
+#: transformers.FlaxBertForQuestionAnswering.__call__
+#: transformers.FlaxBertForSequenceClassification.__call__
+#: transformers.FlaxBertForTokenClassification.__call__
+#: transformers.FlaxBertModel.__call__ transformers.TFBertForMaskedLM.call
+#: transformers.TFBertForMultipleChoice.call
+#: transformers.TFBertForNextSentencePrediction.call
+#: transformers.TFBertForPreTraining.call
+#: transformers.TFBertForQuestionAnswering.call
+#: transformers.TFBertForSequenceClassification.call
+#: transformers.TFBertForTokenClassification.call
+#: transformers.TFBertLMHeadModel.call transformers.TFBertModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.BertTokenizer.build_inputs_with_special_tokens:13
+#: transformers.BertTokenizer.create_token_type_ids_from_sequences:18
+#: transformers.BertTokenizer.get_special_tokens_mask:12
+#: transformers.BertTokenizerFast.build_inputs_with_special_tokens:13
+#: transformers.BertTokenizerFast.create_token_type_ids_from_sequences:18
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.BertTokenizer.create_token_type_ids_from_sequences:1
+#: transformers.BertTokenizerFast.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. A BERT sequence pair mask has the following format:"
+msgstr ""
+
+#: of transformers.BertTokenizer.create_token_type_ids_from_sequences:9
+#: transformers.BertTokenizerFast.create_token_type_ids_from_sequences:9
+msgid ""
+"If :obj:`token_ids_1` is :obj:`None`, this method only returns the first "
+"portion of the mask (0s)."
+msgstr ""
+
+#: of transformers.BertTokenizer.create_token_type_ids_from_sequences:11
+#: transformers.BertTokenizer.get_special_tokens_mask:4
+#: transformers.BertTokenizerFast.create_token_type_ids_from_sequences:11
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.BertTokenizer.create_token_type_ids_from_sequences:16
+#: transformers.BertTokenizerFast.create_token_type_ids_from_sequences:16
+msgid ""
+"List of `token type IDs <../glossary.html#token-type-ids>`_ according to "
+"the given sequence(s)."
+msgstr ""
+
+#: of transformers.BertTokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.BertTokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.BertTokenizer.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.BertTokenizer.save_vocabulary:1
+#: transformers.BertTokenizerFast.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.BertTokenizer.save_vocabulary:3
+#: transformers.BertTokenizerFast.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.BertTokenizer.save_vocabulary:6
+#: transformers.BertTokenizerFast.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.BertTokenizer.save_vocabulary:8
+#: transformers.BertTokenizerFast.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.BertTokenizer.save_vocabulary:11
+#: transformers.BertTokenizerFast.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.BertTokenizer.save_vocabulary:12
+#: transformers.BertTokenizerFast.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:64
+msgid "BertTokenizerFast"
+msgstr ""
+
+#: of transformers.BertTokenizerFast:1
+msgid ""
+"Construct a \"fast\" BERT tokenizer (backed by HuggingFace's `tokenizers`"
+" library). Based on WordPiece."
+msgstr ""
+
+#: of transformers.BertTokenizerFast:3
+msgid ""
+"This tokenizer inherits from "
+":class:`~transformers.PreTrainedTokenizerFast` which contains most of the"
+" main methods. Users should refer to this superclass for more information"
+" regarding those methods."
+msgstr ""
+
+#: of transformers.BertTokenizerFast:25
+msgid ""
+"Whether or not to clean the text before tokenization by removing any "
+"control characters and replacing all whitespaces by the classic one."
+msgstr ""
+
+#: of transformers.BertTokenizerFast:28
+msgid ""
+"Whether or not to tokenize Chinese characters. This should likely be "
+"deactivated for Japanese (see `this issue "
+"<https://github.com/huggingface/transformers/issues/328>`__)."
+msgstr ""
+
+#: of transformers.BertTokenizerFast:34
+msgid ""
+"(:obj:`str`, `optional`, defaults to :obj:`\"##\"`): The prefix for "
+"subwords."
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:71
+msgid "Bert specific outputs"
+msgstr ""
+
+#: of transformers.models.bert.modeling_bert.BertForPreTrainingOutput:1
+#: transformers.models.bert.modeling_flax_bert.FlaxBertForPreTrainingOutput:1
+msgid "Output type of :class:`~transformers.BertForPreTraining`."
+msgstr ""
+
+#: of transformers.models.bert.modeling_bert.BertForPreTrainingOutput:3
+msgid ""
+"Total loss as the sum of the masked language modeling loss and the next "
+"sequence prediction (classification) loss."
+msgstr ""
+
+#: of transformers.models.bert.modeling_bert.BertForPreTrainingOutput:6
+#: transformers.models.bert.modeling_flax_bert.FlaxBertForPreTrainingOutput:3
+#: transformers.models.bert.modeling_tf_bert.TFBertForPreTrainingOutput:3
+msgid ""
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.models.bert.modeling_bert.BertForPreTrainingOutput:8
+#: transformers.models.bert.modeling_flax_bert.FlaxBertForPreTrainingOutput:5
+#: transformers.models.bert.modeling_tf_bert.TFBertForPreTrainingOutput:5
+msgid ""
+"Prediction scores of the next sequence prediction (classification) head "
+"(scores of True/False continuation before SoftMax)."
+msgstr ""
+
+#: of transformers.models.bert.modeling_bert.BertForPreTrainingOutput:11
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the model at the output"
+" of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.models.bert.modeling_bert.BertForPreTrainingOutput:11
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:67
+#: transformers.BertForMultipleChoice.forward:69
+#: transformers.BertForNextSentencePrediction.forward:70
+#: transformers.BertForPreTraining.forward:78
+#: transformers.BertForQuestionAnswering.forward:72
+#: transformers.BertForSequenceClassification.forward:67
+#: transformers.BertForTokenClassification.forward:66
+#: transformers.BertLMHeadModel.forward:85 transformers.BertModel.forward:83
+#: transformers.FlaxBertForMaskedLM.__call__:45
+#: transformers.FlaxBertForMultipleChoice.__call__:47
+#: transformers.FlaxBertForNextSentencePrediction.__call__:46
+#: transformers.FlaxBertForPreTraining.__call__:47
+#: transformers.FlaxBertForQuestionAnswering.__call__:46
+#: transformers.FlaxBertForSequenceClassification.__call__:45
+#: transformers.FlaxBertForTokenClassification.__call__:45
+#: transformers.FlaxBertModel.__call__:48
+#: transformers.TFBertForMaskedLM.call:73
+#: transformers.TFBertForMultipleChoice.call:75
+#: transformers.TFBertForNextSentencePrediction.call:70
+#: transformers.TFBertForPreTraining.call:82
+#: transformers.TFBertForQuestionAnswering.call:78
+#: transformers.TFBertForSequenceClassification.call:73
+#: transformers.TFBertForTokenClassification.call:72
+#: transformers.TFBertLMHeadModel.call:14 transformers.TFBertModel.call:74
+#: transformers.models.bert.modeling_bert.BertForPreTrainingOutput:14
+#: transformers.models.bert.modeling_flax_bert.FlaxBertForPreTrainingOutput:11
+#: transformers.models.bert.modeling_tf_bert.TFBertForPreTrainingOutput:11
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.models.bert.modeling_bert.BertForPreTrainingOutput:16
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.models.bert.modeling_bert.BertForPreTrainingOutput:16
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:71
+#: transformers.BertForMultipleChoice.forward:73
+#: transformers.BertForNextSentencePrediction.forward:74
+#: transformers.BertForPreTraining.forward:82
+#: transformers.BertForQuestionAnswering.forward:76
+#: transformers.BertForSequenceClassification.forward:71
+#: transformers.BertForTokenClassification.forward:70
+#: transformers.BertLMHeadModel.forward:89 transformers.BertModel.forward:87
+#: transformers.FlaxBertForMaskedLM.__call__:49
+#: transformers.FlaxBertForMultipleChoice.__call__:51
+#: transformers.FlaxBertForNextSentencePrediction.__call__:50
+#: transformers.FlaxBertForPreTraining.__call__:51
+#: transformers.FlaxBertForQuestionAnswering.__call__:50
+#: transformers.FlaxBertForSequenceClassification.__call__:49
+#: transformers.FlaxBertForTokenClassification.__call__:49
+#: transformers.FlaxBertModel.__call__:52
+#: transformers.TFBertForMaskedLM.call:77
+#: transformers.TFBertForMultipleChoice.call:79
+#: transformers.TFBertForNextSentencePrediction.call:74
+#: transformers.TFBertForPreTraining.call:86
+#: transformers.TFBertForQuestionAnswering.call:82
+#: transformers.TFBertForSequenceClassification.call:77
+#: transformers.TFBertForTokenClassification.call:76
+#: transformers.TFBertLMHeadModel.call:18 transformers.TFBertModel.call:78
+#: transformers.models.bert.modeling_bert.BertForPreTrainingOutput:19
+#: transformers.models.bert.modeling_flax_bert.FlaxBertForPreTrainingOutput:16
+#: transformers.models.bert.modeling_tf_bert.TFBertForPreTrainingOutput:16
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.models.bert.modeling_tf_bert.TFBertForPreTrainingOutput:1
+msgid "Output type of :class:`~transformers.TFBertForPreTraining`."
+msgstr ""
+
+#: of transformers.models.bert.modeling_tf_bert.TFBertForPreTrainingOutput:8
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.  Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.models.bert.modeling_tf_bert.TFBertForPreTrainingOutput:8
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.models.bert.modeling_tf_bert.TFBertForPreTrainingOutput:13
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.models.bert.modeling_tf_bert.TFBertForPreTrainingOutput:13
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: of
+#: transformers.models.bert.modeling_flax_bert.FlaxBertForPreTrainingOutput:8
+msgid ""
+"Tuple of :obj:`jnp.ndarray` (one for the output of the embeddings + one "
+"for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the model at the output"
+" of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.bert.modeling_flax_bert.FlaxBertForPreTrainingOutput:8
+msgid ""
+"Tuple of :obj:`jnp.ndarray` (one for the output of the embeddings + one "
+"for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`."
+msgstr ""
+
+#: of
+#: transformers.models.bert.modeling_flax_bert.FlaxBertForPreTrainingOutput:13
+msgid ""
+"Tuple of :obj:`jnp.ndarray` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.bert.modeling_flax_bert.FlaxBertForPreTrainingOutput:13
+msgid ""
+"Tuple of :obj:`jnp.ndarray` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: of
+#: transformers.models.bert.modeling_flax_bert.FlaxBertForPreTrainingOutput.replace:1
+msgid "\"Returns a new object replacing the specified fields with new values."
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:84
+msgid "BertModel"
+msgstr ""
+
+#: of transformers.BertModel:1 transformers.FlaxBertModel:1
+#: transformers.TFBertModel:1
+msgid ""
+"The bare Bert Model transformer outputting raw hidden-states without any "
+"specific head on top."
+msgstr ""
+
+#: of transformers.BertForMaskedLM:3 transformers.BertForMultipleChoice:5
+#: transformers.BertForNextSentencePrediction:3
+#: transformers.BertForPreTraining:5 transformers.BertForQuestionAnswering:5
+#: transformers.BertForSequenceClassification:5
+#: transformers.BertForTokenClassification:5 transformers.BertLMHeadModel:3
+#: transformers.BertModel:3
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.BertForMaskedLM:7 transformers.BertForMultipleChoice:9
+#: transformers.BertForNextSentencePrediction:7
+#: transformers.BertForPreTraining:9 transformers.BertForQuestionAnswering:9
+#: transformers.BertForSequenceClassification:9
+#: transformers.BertForTokenClassification:9 transformers.BertLMHeadModel:7
+#: transformers.BertModel:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.BertForMaskedLM:11 transformers.BertForMultipleChoice:13
+#: transformers.BertForNextSentencePrediction:11
+#: transformers.BertForPreTraining:13 transformers.BertForQuestionAnswering:13
+#: transformers.BertForSequenceClassification:13
+#: transformers.BertForTokenClassification:13 transformers.BertLMHeadModel:11
+#: transformers.BertModel:11
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.BertModel:17
+msgid ""
+"The model can behave as an encoder (with only self-attention) as well as "
+"a decoder, in which case a layer of cross-attention is added between the "
+"self-attention layers, following the architecture described in `Attention"
+" is all you need <https://arxiv.org/abs/1706.03762>`__ by Ashish Vaswani,"
+" Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez,"
+" Lukasz Kaiser and Illia Polosukhin."
+msgstr ""
+
+#: of transformers.BertModel:22
+msgid ""
+"To behave as an decoder the model needs to be initialized with the "
+":obj:`is_decoder` argument of the configuration set to :obj:`True`. To be"
+" used in a Seq2Seq model, the model needs to initialized with both "
+":obj:`is_decoder` argument and :obj:`add_cross_attention` set to "
+":obj:`True`; an :obj:`encoder_hidden_states` is then expected as an input"
+" to the forward pass."
+msgstr ""
+
+#: of transformers.BertModel.forward:1
+msgid ""
+"The :class:`~transformers.BertModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:4
+#: transformers.BertForMultipleChoice.forward:4
+#: transformers.BertForNextSentencePrediction.forward:4
+#: transformers.BertForPreTraining.forward:4
+#: transformers.BertForQuestionAnswering.forward:4
+#: transformers.BertForSequenceClassification.forward:4
+#: transformers.BertForTokenClassification.forward:4
+#: transformers.BertLMHeadModel.forward:4 transformers.BertModel.forward:4
+#: transformers.FlaxBertForMaskedLM.__call__:4
+#: transformers.FlaxBertForMultipleChoice.__call__:4
+#: transformers.FlaxBertForNextSentencePrediction.__call__:4
+#: transformers.FlaxBertForPreTraining.__call__:4
+#: transformers.FlaxBertForQuestionAnswering.__call__:4
+#: transformers.FlaxBertForSequenceClassification.__call__:4
+#: transformers.FlaxBertForTokenClassification.__call__:4
+#: transformers.FlaxBertModel.__call__:4 transformers.TFBertForMaskedLM.call:4
+#: transformers.TFBertForMultipleChoice.call:4
+#: transformers.TFBertForNextSentencePrediction.call:4
+#: transformers.TFBertForPreTraining.call:4
+#: transformers.TFBertForQuestionAnswering.call:4
+#: transformers.TFBertForSequenceClassification.call:4
+#: transformers.TFBertForTokenClassification.call:4
+#: transformers.TFBertModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:8
+#: transformers.BertForMultipleChoice.forward:8
+#: transformers.BertForNextSentencePrediction.forward:8
+#: transformers.BertForPreTraining.forward:8
+#: transformers.BertForQuestionAnswering.forward:8
+#: transformers.BertForSequenceClassification.forward:8
+#: transformers.BertForTokenClassification.forward:8
+#: transformers.BertLMHeadModel.forward:8 transformers.BertModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.BertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:8
+#: transformers.BertForMultipleChoice.forward:8
+#: transformers.BertForNextSentencePrediction.forward:8
+#: transformers.BertForPreTraining.forward:8
+#: transformers.BertForQuestionAnswering.forward:8
+#: transformers.BertForSequenceClassification.forward:8
+#: transformers.BertForTokenClassification.forward:8
+#: transformers.BertLMHeadModel.forward:8 transformers.BertModel.forward:8
+#: transformers.FlaxBertForMaskedLM.__call__:8
+#: transformers.FlaxBertForMultipleChoice.__call__:8
+#: transformers.FlaxBertForNextSentencePrediction.__call__:8
+#: transformers.FlaxBertForPreTraining.__call__:8
+#: transformers.FlaxBertForQuestionAnswering.__call__:8
+#: transformers.FlaxBertForSequenceClassification.__call__:8
+#: transformers.FlaxBertForTokenClassification.__call__:8
+#: transformers.FlaxBertModel.__call__:8 transformers.TFBertForMaskedLM.call:8
+#: transformers.TFBertForMultipleChoice.call:8
+#: transformers.TFBertForNextSentencePrediction.call:8
+#: transformers.TFBertForPreTraining.call:8
+#: transformers.TFBertForQuestionAnswering.call:8
+#: transformers.TFBertForSequenceClassification.call:8
+#: transformers.TFBertForTokenClassification.call:8
+#: transformers.TFBertModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:10
+#: transformers.BertForMultipleChoice.forward:10
+#: transformers.BertForNextSentencePrediction.forward:10
+#: transformers.BertForPreTraining.forward:10
+#: transformers.BertForQuestionAnswering.forward:10
+#: transformers.BertForSequenceClassification.forward:10
+#: transformers.BertForTokenClassification.forward:10
+#: transformers.BertLMHeadModel.forward:10 transformers.BertModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.BertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:14
+#: transformers.BertForMultipleChoice.forward:14
+#: transformers.BertForNextSentencePrediction.forward:14
+#: transformers.BertForPreTraining.forward:14
+#: transformers.BertForQuestionAnswering.forward:14
+#: transformers.BertForSequenceClassification.forward:14
+#: transformers.BertForTokenClassification.forward:14
+#: transformers.BertLMHeadModel.forward:14 transformers.BertModel.forward:14
+#: transformers.FlaxBertForMaskedLM.__call__:14
+#: transformers.FlaxBertForMultipleChoice.__call__:14
+#: transformers.FlaxBertForNextSentencePrediction.__call__:14
+#: transformers.FlaxBertForPreTraining.__call__:14
+#: transformers.FlaxBertForQuestionAnswering.__call__:14
+#: transformers.FlaxBertForSequenceClassification.__call__:14
+#: transformers.FlaxBertForTokenClassification.__call__:14
+#: transformers.FlaxBertModel.__call__:14
+#: transformers.TFBertForMaskedLM.call:14
+#: transformers.TFBertForMultipleChoice.call:14
+#: transformers.TFBertForNextSentencePrediction.call:14
+#: transformers.TFBertForPreTraining.call:14
+#: transformers.TFBertForQuestionAnswering.call:14
+#: transformers.TFBertForSequenceClassification.call:14
+#: transformers.TFBertForTokenClassification.call:14
+#: transformers.TFBertModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:16
+#: transformers.BertForMultipleChoice.forward:16
+#: transformers.BertForNextSentencePrediction.forward:16
+#: transformers.BertForPreTraining.forward:16
+#: transformers.BertForQuestionAnswering.forward:16
+#: transformers.BertForSequenceClassification.forward:16
+#: transformers.BertForTokenClassification.forward:16
+#: transformers.BertLMHeadModel.forward:16 transformers.BertModel.forward:16
+#: transformers.FlaxBertForMaskedLM.__call__:16
+#: transformers.FlaxBertForMultipleChoice.__call__:16
+#: transformers.FlaxBertForNextSentencePrediction.__call__:16
+#: transformers.FlaxBertForPreTraining.__call__:16
+#: transformers.FlaxBertForQuestionAnswering.__call__:16
+#: transformers.FlaxBertForSequenceClassification.__call__:16
+#: transformers.FlaxBertForTokenClassification.__call__:16
+#: transformers.FlaxBertModel.__call__:16
+#: transformers.TFBertForMaskedLM.call:16
+#: transformers.TFBertForMultipleChoice.call:16
+#: transformers.TFBertForNextSentencePrediction.call:16
+#: transformers.TFBertForPreTraining.call:16
+#: transformers.TFBertForQuestionAnswering.call:16
+#: transformers.TFBertForSequenceClassification.call:16
+#: transformers.TFBertForTokenClassification.call:16
+#: transformers.TFBertModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:16
+#: transformers.BertForMultipleChoice.forward:16
+#: transformers.BertForNextSentencePrediction.forward:16
+#: transformers.BertForPreTraining.forward:16
+#: transformers.BertForQuestionAnswering.forward:16
+#: transformers.BertForSequenceClassification.forward:16
+#: transformers.BertForTokenClassification.forward:16
+#: transformers.BertLMHeadModel.forward:16 transformers.BertModel.forward:16
+#: transformers.FlaxBertForMaskedLM.__call__:16
+#: transformers.FlaxBertForMultipleChoice.__call__:16
+#: transformers.FlaxBertForNextSentencePrediction.__call__:16
+#: transformers.FlaxBertForPreTraining.__call__:16
+#: transformers.FlaxBertForQuestionAnswering.__call__:16
+#: transformers.FlaxBertForSequenceClassification.__call__:16
+#: transformers.FlaxBertForTokenClassification.__call__:16
+#: transformers.FlaxBertModel.__call__:16
+#: transformers.TFBertForMaskedLM.call:16
+#: transformers.TFBertForMultipleChoice.call:16
+#: transformers.TFBertForNextSentencePrediction.call:16
+#: transformers.TFBertForPreTraining.call:16
+#: transformers.TFBertForQuestionAnswering.call:16
+#: transformers.TFBertForSequenceClassification.call:16
+#: transformers.TFBertForTokenClassification.call:16
+#: transformers.TFBertModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:18
+#: transformers.BertForMultipleChoice.forward:18
+#: transformers.BertForNextSentencePrediction.forward:18
+#: transformers.BertForPreTraining.forward:18
+#: transformers.BertForQuestionAnswering.forward:18
+#: transformers.BertForSequenceClassification.forward:18
+#: transformers.BertForTokenClassification.forward:18
+#: transformers.BertLMHeadModel.forward:18
+#: transformers.BertLMHeadModel.forward:59 transformers.BertModel.forward:18
+#: transformers.BertModel.forward:59
+#: transformers.FlaxBertForMaskedLM.__call__:18
+#: transformers.FlaxBertForMultipleChoice.__call__:18
+#: transformers.FlaxBertForNextSentencePrediction.__call__:18
+#: transformers.FlaxBertForPreTraining.__call__:18
+#: transformers.FlaxBertForQuestionAnswering.__call__:18
+#: transformers.FlaxBertForSequenceClassification.__call__:18
+#: transformers.FlaxBertForTokenClassification.__call__:18
+#: transformers.FlaxBertModel.__call__:18
+#: transformers.TFBertForMaskedLM.call:18
+#: transformers.TFBertForMultipleChoice.call:18
+#: transformers.TFBertForNextSentencePrediction.call:18
+#: transformers.TFBertForPreTraining.call:18
+#: transformers.TFBertForQuestionAnswering.call:18
+#: transformers.TFBertForSequenceClassification.call:18
+#: transformers.TFBertForTokenClassification.call:18
+#: transformers.TFBertModel.call:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:19
+#: transformers.BertForMultipleChoice.forward:19
+#: transformers.BertForNextSentencePrediction.forward:19
+#: transformers.BertForPreTraining.forward:19
+#: transformers.BertForQuestionAnswering.forward:19
+#: transformers.BertForSequenceClassification.forward:19
+#: transformers.BertForTokenClassification.forward:19
+#: transformers.BertLMHeadModel.forward:19
+#: transformers.BertLMHeadModel.forward:60 transformers.BertModel.forward:19
+#: transformers.BertModel.forward:60
+#: transformers.FlaxBertForMaskedLM.__call__:19
+#: transformers.FlaxBertForMultipleChoice.__call__:19
+#: transformers.FlaxBertForNextSentencePrediction.__call__:19
+#: transformers.FlaxBertForPreTraining.__call__:19
+#: transformers.FlaxBertForQuestionAnswering.__call__:19
+#: transformers.FlaxBertForSequenceClassification.__call__:19
+#: transformers.FlaxBertForTokenClassification.__call__:19
+#: transformers.FlaxBertModel.__call__:19
+#: transformers.TFBertForMaskedLM.call:19
+#: transformers.TFBertForMultipleChoice.call:19
+#: transformers.TFBertForNextSentencePrediction.call:19
+#: transformers.TFBertForPreTraining.call:19
+#: transformers.TFBertForQuestionAnswering.call:19
+#: transformers.TFBertForSequenceClassification.call:19
+#: transformers.TFBertForTokenClassification.call:19
+#: transformers.TFBertModel.call:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:21
+#: transformers.BertForMultipleChoice.forward:21
+#: transformers.BertForNextSentencePrediction.forward:21
+#: transformers.BertForPreTraining.forward:21
+#: transformers.BertForQuestionAnswering.forward:21
+#: transformers.BertForSequenceClassification.forward:21
+#: transformers.BertForTokenClassification.forward:21
+#: transformers.BertLMHeadModel.forward:21 transformers.BertModel.forward:21
+#: transformers.FlaxBertForMaskedLM.__call__:21
+#: transformers.FlaxBertForMultipleChoice.__call__:21
+#: transformers.FlaxBertForNextSentencePrediction.__call__:21
+#: transformers.FlaxBertForPreTraining.__call__:21
+#: transformers.FlaxBertForQuestionAnswering.__call__:21
+#: transformers.FlaxBertForSequenceClassification.__call__:21
+#: transformers.FlaxBertForTokenClassification.__call__:21
+#: transformers.FlaxBertModel.__call__:21
+#: transformers.TFBertForMaskedLM.call:21
+#: transformers.TFBertForMultipleChoice.call:21
+#: transformers.TFBertForNextSentencePrediction.call:21
+#: transformers.TFBertForPreTraining.call:21
+#: transformers.TFBertForQuestionAnswering.call:21
+#: transformers.TFBertForSequenceClassification.call:21
+#: transformers.TFBertForTokenClassification.call:21
+#: transformers.TFBertModel.call:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:23
+#: transformers.BertForMultipleChoice.forward:23
+#: transformers.BertForNextSentencePrediction.forward:23
+#: transformers.BertForPreTraining.forward:23
+#: transformers.BertForQuestionAnswering.forward:23
+#: transformers.BertForSequenceClassification.forward:23
+#: transformers.BertForTokenClassification.forward:23
+#: transformers.BertLMHeadModel.forward:23 transformers.BertModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:23
+#: transformers.BertForMultipleChoice.forward:23
+#: transformers.BertForNextSentencePrediction.forward:23
+#: transformers.BertForPreTraining.forward:23
+#: transformers.BertForQuestionAnswering.forward:23
+#: transformers.BertForSequenceClassification.forward:23
+#: transformers.BertForTokenClassification.forward:23
+#: transformers.BertLMHeadModel.forward:23 transformers.BertModel.forward:23
+#: transformers.FlaxBertForMaskedLM.__call__:23
+#: transformers.FlaxBertForMultipleChoice.__call__:23
+#: transformers.FlaxBertForNextSentencePrediction.__call__:23
+#: transformers.FlaxBertForPreTraining.__call__:23
+#: transformers.FlaxBertForQuestionAnswering.__call__:23
+#: transformers.FlaxBertForSequenceClassification.__call__:23
+#: transformers.FlaxBertForTokenClassification.__call__:23
+#: transformers.FlaxBertModel.__call__:23
+#: transformers.TFBertForMaskedLM.call:23
+#: transformers.TFBertForMultipleChoice.call:23
+#: transformers.TFBertForNextSentencePrediction.call:23
+#: transformers.TFBertForPreTraining.call:23
+#: transformers.TFBertForQuestionAnswering.call:23
+#: transformers.TFBertForSequenceClassification.call:23
+#: transformers.TFBertForTokenClassification.call:23
+#: transformers.TFBertModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:26
+#: transformers.BertForMultipleChoice.forward:26
+#: transformers.BertForNextSentencePrediction.forward:26
+#: transformers.BertForPreTraining.forward:26
+#: transformers.BertForQuestionAnswering.forward:26
+#: transformers.BertForSequenceClassification.forward:26
+#: transformers.BertForTokenClassification.forward:26
+#: transformers.BertLMHeadModel.forward:26 transformers.BertModel.forward:26
+#: transformers.FlaxBertForMaskedLM.__call__:26
+#: transformers.FlaxBertForMultipleChoice.__call__:26
+#: transformers.FlaxBertForNextSentencePrediction.__call__:26
+#: transformers.FlaxBertForPreTraining.__call__:26
+#: transformers.FlaxBertForQuestionAnswering.__call__:26
+#: transformers.FlaxBertForSequenceClassification.__call__:26
+#: transformers.FlaxBertForTokenClassification.__call__:26
+#: transformers.FlaxBertModel.__call__:26
+#: transformers.TFBertForMaskedLM.call:26
+#: transformers.TFBertForMultipleChoice.call:26
+#: transformers.TFBertForNextSentencePrediction.call:26
+#: transformers.TFBertForPreTraining.call:26
+#: transformers.TFBertForQuestionAnswering.call:26
+#: transformers.TFBertForSequenceClassification.call:26
+#: transformers.TFBertForTokenClassification.call:26
+#: transformers.TFBertModel.call:26
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:27
+#: transformers.BertForMultipleChoice.forward:27
+#: transformers.BertForNextSentencePrediction.forward:27
+#: transformers.BertForPreTraining.forward:27
+#: transformers.BertForQuestionAnswering.forward:27
+#: transformers.BertForSequenceClassification.forward:27
+#: transformers.BertForTokenClassification.forward:27
+#: transformers.BertLMHeadModel.forward:27 transformers.BertModel.forward:27
+#: transformers.FlaxBertForMaskedLM.__call__:27
+#: transformers.FlaxBertForMultipleChoice.__call__:27
+#: transformers.FlaxBertForNextSentencePrediction.__call__:27
+#: transformers.FlaxBertForPreTraining.__call__:27
+#: transformers.FlaxBertForQuestionAnswering.__call__:27
+#: transformers.FlaxBertForSequenceClassification.__call__:27
+#: transformers.FlaxBertForTokenClassification.__call__:27
+#: transformers.FlaxBertModel.__call__:27
+#: transformers.TFBertForMaskedLM.call:27
+#: transformers.TFBertForMultipleChoice.call:27
+#: transformers.TFBertForNextSentencePrediction.call:27
+#: transformers.TFBertForPreTraining.call:27
+#: transformers.TFBertForQuestionAnswering.call:27
+#: transformers.TFBertForSequenceClassification.call:27
+#: transformers.TFBertForTokenClassification.call:27
+#: transformers.TFBertModel.call:27
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:29
+#: transformers.BertForMultipleChoice.forward:29
+#: transformers.BertForNextSentencePrediction.forward:29
+#: transformers.BertForPreTraining.forward:29
+#: transformers.BertForQuestionAnswering.forward:29
+#: transformers.BertForSequenceClassification.forward:29
+#: transformers.BertForTokenClassification.forward:29
+#: transformers.BertLMHeadModel.forward:29 transformers.BertModel.forward:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:31
+#: transformers.BertForMultipleChoice.forward:31
+#: transformers.BertForNextSentencePrediction.forward:31
+#: transformers.BertForPreTraining.forward:31
+#: transformers.BertForQuestionAnswering.forward:31
+#: transformers.BertForSequenceClassification.forward:31
+#: transformers.BertForTokenClassification.forward:31
+#: transformers.BertLMHeadModel.forward:31 transformers.BertModel.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:31
+#: transformers.BertForMultipleChoice.forward:31
+#: transformers.BertForNextSentencePrediction.forward:31
+#: transformers.BertForPreTraining.forward:31
+#: transformers.BertForQuestionAnswering.forward:31
+#: transformers.BertForSequenceClassification.forward:31
+#: transformers.BertForTokenClassification.forward:31
+#: transformers.BertLMHeadModel.forward:31 transformers.BertModel.forward:31
+#: transformers.FlaxBertForMaskedLM.__call__:31
+#: transformers.FlaxBertForMultipleChoice.__call__:31
+#: transformers.FlaxBertForNextSentencePrediction.__call__:31
+#: transformers.FlaxBertForPreTraining.__call__:31
+#: transformers.FlaxBertForQuestionAnswering.__call__:31
+#: transformers.FlaxBertForSequenceClassification.__call__:31
+#: transformers.FlaxBertForTokenClassification.__call__:31
+#: transformers.FlaxBertModel.__call__:31
+#: transformers.TFBertForMaskedLM.call:31
+#: transformers.TFBertForMultipleChoice.call:31
+#: transformers.TFBertForNextSentencePrediction.call:31
+#: transformers.TFBertForPreTraining.call:31
+#: transformers.TFBertForQuestionAnswering.call:31
+#: transformers.TFBertForSequenceClassification.call:31
+#: transformers.TFBertForTokenClassification.call:31
+#: transformers.TFBertModel.call:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:34
+#: transformers.BertForMultipleChoice.forward:34
+#: transformers.BertForNextSentencePrediction.forward:34
+#: transformers.BertForPreTraining.forward:34
+#: transformers.BertForQuestionAnswering.forward:34
+#: transformers.BertForSequenceClassification.forward:34
+#: transformers.BertForTokenClassification.forward:34
+#: transformers.BertLMHeadModel.forward:34 transformers.BertModel.forward:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:36
+#: transformers.BertForMultipleChoice.forward:36
+#: transformers.BertForNextSentencePrediction.forward:36
+#: transformers.BertForPreTraining.forward:36
+#: transformers.BertForQuestionAnswering.forward:36
+#: transformers.BertForSequenceClassification.forward:36
+#: transformers.BertForTokenClassification.forward:36
+#: transformers.BertLMHeadModel.forward:36 transformers.BertModel.forward:36
+#: transformers.TFBertForMaskedLM.call:36
+#: transformers.TFBertForMultipleChoice.call:36
+#: transformers.TFBertForNextSentencePrediction.call:36
+#: transformers.TFBertForPreTraining.call:36
+#: transformers.TFBertForQuestionAnswering.call:36
+#: transformers.TFBertForSequenceClassification.call:36
+#: transformers.TFBertForTokenClassification.call:36
+#: transformers.TFBertModel.call:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:36
+#: transformers.BertForMultipleChoice.forward:36
+#: transformers.BertForNextSentencePrediction.forward:36
+#: transformers.BertForPreTraining.forward:36
+#: transformers.BertForQuestionAnswering.forward:36
+#: transformers.BertForSequenceClassification.forward:36
+#: transformers.BertForTokenClassification.forward:36
+#: transformers.BertLMHeadModel.forward:36 transformers.BertModel.forward:36
+#: transformers.TFBertForMaskedLM.call:36
+#: transformers.TFBertForMultipleChoice.call:36
+#: transformers.TFBertForNextSentencePrediction.call:36
+#: transformers.TFBertForPreTraining.call:36
+#: transformers.TFBertForQuestionAnswering.call:36
+#: transformers.TFBertForSequenceClassification.call:36
+#: transformers.TFBertForTokenClassification.call:36
+#: transformers.TFBertModel.call:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:38
+#: transformers.BertForMultipleChoice.forward:38
+#: transformers.BertForNextSentencePrediction.forward:38
+#: transformers.BertForPreTraining.forward:38
+#: transformers.BertForQuestionAnswering.forward:38
+#: transformers.BertForSequenceClassification.forward:38
+#: transformers.BertForTokenClassification.forward:38
+#: transformers.BertLMHeadModel.forward:38 transformers.BertModel.forward:38
+#: transformers.TFBertForMaskedLM.call:38
+#: transformers.TFBertForMultipleChoice.call:38
+#: transformers.TFBertForNextSentencePrediction.call:38
+#: transformers.TFBertForPreTraining.call:38
+#: transformers.TFBertForQuestionAnswering.call:38
+#: transformers.TFBertForSequenceClassification.call:38
+#: transformers.TFBertForTokenClassification.call:38
+#: transformers.TFBertModel.call:38
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:39
+#: transformers.BertForMultipleChoice.forward:39
+#: transformers.BertForNextSentencePrediction.forward:39
+#: transformers.BertForPreTraining.forward:39
+#: transformers.BertForQuestionAnswering.forward:39
+#: transformers.BertForSequenceClassification.forward:39
+#: transformers.BertForTokenClassification.forward:39
+#: transformers.BertLMHeadModel.forward:39 transformers.BertModel.forward:39
+#: transformers.TFBertForMaskedLM.call:39
+#: transformers.TFBertForMultipleChoice.call:39
+#: transformers.TFBertForNextSentencePrediction.call:39
+#: transformers.TFBertForPreTraining.call:39
+#: transformers.TFBertForQuestionAnswering.call:39
+#: transformers.TFBertForSequenceClassification.call:39
+#: transformers.TFBertForTokenClassification.call:39
+#: transformers.TFBertModel.call:39
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:41
+#: transformers.BertForMultipleChoice.forward:41
+#: transformers.BertForNextSentencePrediction.forward:41
+#: transformers.BertForPreTraining.forward:41
+#: transformers.BertForQuestionAnswering.forward:41
+#: transformers.BertForSequenceClassification.forward:41
+#: transformers.BertForTokenClassification.forward:41
+#: transformers.BertLMHeadModel.forward:41 transformers.BertModel.forward:41
+#: transformers.TFBertForMaskedLM.call:41
+#: transformers.TFBertForMultipleChoice.call:41
+#: transformers.TFBertForNextSentencePrediction.call:41
+#: transformers.TFBertForPreTraining.call:41
+#: transformers.TFBertForQuestionAnswering.call:41
+#: transformers.TFBertForSequenceClassification.call:41
+#: transformers.TFBertForTokenClassification.call:41
+#: transformers.TFBertModel.call:41
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:45
+#: transformers.BertForMultipleChoice.forward:45
+#: transformers.BertForNextSentencePrediction.forward:45
+#: transformers.BertForPreTraining.forward:45
+#: transformers.BertForQuestionAnswering.forward:45
+#: transformers.BertForSequenceClassification.forward:45
+#: transformers.BertForTokenClassification.forward:45
+#: transformers.BertLMHeadModel.forward:45 transformers.BertModel.forward:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:48
+#: transformers.BertForMultipleChoice.forward:48
+#: transformers.BertForNextSentencePrediction.forward:48
+#: transformers.BertForPreTraining.forward:48
+#: transformers.BertForQuestionAnswering.forward:48
+#: transformers.BertForSequenceClassification.forward:48
+#: transformers.BertForTokenClassification.forward:48
+#: transformers.BertLMHeadModel.forward:48 transformers.BertModel.forward:48
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:51
+#: transformers.BertForMultipleChoice.forward:51
+#: transformers.BertForNextSentencePrediction.forward:51
+#: transformers.BertForPreTraining.forward:51
+#: transformers.BertForQuestionAnswering.forward:51
+#: transformers.BertForSequenceClassification.forward:51
+#: transformers.BertForTokenClassification.forward:51
+#: transformers.BertLMHeadModel.forward:51 transformers.BertModel.forward:51
+#: transformers.FlaxBertForMaskedLM.__call__:34
+#: transformers.FlaxBertForMultipleChoice.__call__:34
+#: transformers.FlaxBertForNextSentencePrediction.__call__:34
+#: transformers.FlaxBertForPreTraining.__call__:34
+#: transformers.FlaxBertForQuestionAnswering.__call__:34
+#: transformers.FlaxBertForSequenceClassification.__call__:34
+#: transformers.FlaxBertForTokenClassification.__call__:34
+#: transformers.FlaxBertModel.__call__:34
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:53 transformers.BertModel.forward:53
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the encoder."
+" Used in the cross-attention if the model is configured as a decoder."
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:56 transformers.BertModel.forward:56
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:  - 1 for "
+"tokens that are **not masked**, - 0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:56 transformers.BertModel.forward:56
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:66 transformers.BertModel.forward:62
+msgid ""
+"Contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding.  If :obj:`past_key_values` are used, "
+"the user can optionally input only the last :obj:`decoder_input_ids` "
+"(those that don't have their past key value states given to this model) "
+"of shape :obj:`(batch_size, 1)` instead of all :obj:`decoder_input_ids` "
+"of shape :obj:`(batch_size, sequence_length)`."
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:66 transformers.BertModel.forward:62
+msgid ""
+"Contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding."
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:68 transformers.BertModel.forward:64
+msgid ""
+"If :obj:`past_key_values` are used, the user can optionally input only "
+"the last :obj:`decoder_input_ids` (those that don't have their past key "
+"value states given to this model) of shape :obj:`(batch_size, 1)` instead"
+" of all :obj:`decoder_input_ids` of shape :obj:`(batch_size, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:72 transformers.BertModel.forward:68
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.BertModel.forward:72
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, hidden_size)`) -- "
+"Last layer hidden-state of the first token of the sequence "
+"(classification token) further processed by a   Linear layer and a Tanh "
+"activation function. The Linear layer weights are trained from the next "
+"sentence   prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` and ``config.add_cross_attention=True`` is "
+"passed or when ``config.output_attentions=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for each layer) of shape :obj:`(batch_size,"
+" num_heads,   sequence_length, sequence_length)`.    Attentions weights "
+"of the decoder's cross-attention layer, after the attention softmax, used"
+" to compute the   weighted average in the cross-attention heads. - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and optionally if   "
+"``config.is_encoder_decoder=True`` 2 additional tensors of shape "
+":obj:`(batch_size, num_heads,   encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and optionally if   "
+"``config.is_encoder_decoder=True`` in the cross-attention blocks) that "
+"can be used (see   :obj:`past_key_values` input) to speed up sequential "
+"decoding."
+msgstr ""
+
+#: of transformers.BertModel.forward:72
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.BertModel.forward:76
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.BertModel.forward:77
+msgid ""
+"**pooler_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:64
+#: transformers.BertForMultipleChoice.forward:66
+#: transformers.BertForNextSentencePrediction.forward:67
+#: transformers.BertForPreTraining.forward:75
+#: transformers.BertForQuestionAnswering.forward:69
+#: transformers.BertForSequenceClassification.forward:64
+#: transformers.BertForTokenClassification.forward:63
+#: transformers.BertLMHeadModel.forward:82 transformers.BertModel.forward:80
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:68
+#: transformers.BertForMultipleChoice.forward:70
+#: transformers.BertForNextSentencePrediction.forward:71
+#: transformers.BertForPreTraining.forward:79
+#: transformers.BertForQuestionAnswering.forward:73
+#: transformers.BertForSequenceClassification.forward:68
+#: transformers.BertForTokenClassification.forward:67
+#: transformers.BertLMHeadModel.forward:86 transformers.BertModel.forward:84
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BertModel.forward:89
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` and "
+"``config.add_cross_attention=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BertModel.forward:92
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.BertModel.forward:94
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) "
+"and optionally if ``config.is_encoder_decoder=True`` 2 additional tensors"
+" of shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.BertModel.forward:99
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and optionally if ``config.is_encoder_decoder=True`` in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.BertModel.forward:102
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:75
+#: transformers.BertForMultipleChoice.forward:77
+#: transformers.BertForNextSentencePrediction.forward:78
+#: transformers.BertForPreTraining.forward:86
+#: transformers.BertForQuestionAnswering.forward:80
+#: transformers.BertForSequenceClassification.forward:75
+#: transformers.BertForTokenClassification.forward:74
+#: transformers.BertLMHeadModel.forward:104 transformers.BertModel.forward:104
+#: transformers.FlaxBertForMaskedLM.__call__:53
+#: transformers.FlaxBertForMultipleChoice.__call__:55
+#: transformers.FlaxBertForNextSentencePrediction.__call__:54
+#: transformers.FlaxBertForPreTraining.__call__:55
+#: transformers.FlaxBertForQuestionAnswering.__call__:54
+#: transformers.FlaxBertForSequenceClassification.__call__:53
+#: transformers.FlaxBertForTokenClassification.__call__:53
+#: transformers.FlaxBertModel.__call__:56
+#: transformers.TFBertForMaskedLM.call:81
+#: transformers.TFBertForMultipleChoice.call:83
+#: transformers.TFBertForQuestionAnswering.call:86
+#: transformers.TFBertForSequenceClassification.call:81
+#: transformers.TFBertForTokenClassification.call:80
+#: transformers.TFBertLMHeadModel.call:22 transformers.TFBertModel.call:82
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:91
+msgid "BertForPreTraining"
+msgstr ""
+
+#: of transformers.BertForPreTraining:1 transformers.FlaxBertForPreTraining:1
+msgid ""
+"Bert Model with two heads on top as done during the pretraining: a "
+"`masked language modeling` head and a `next sentence prediction "
+"(classification)` head."
+msgstr ""
+
+#: of transformers.BertForPreTraining.forward:1
+msgid ""
+"The :class:`~transformers.BertForPreTraining` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:53
+#: transformers.BertForPreTraining.forward:53
+#: transformers.TFBertForMaskedLM.call:59
+#: transformers.TFBertForPreTraining.call:59
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.BertForPreTraining.forward:57
+#: transformers.TFBertForPreTraining.call:63
+msgid ""
+"Labels for computing the next sequence prediction (classification) loss. "
+"Input should be a sequence pair (see :obj:`input_ids` docstring) Indices "
+"should be in ``[0, 1]``:  - 0 indicates sequence B is a continuation of "
+"sequence A, - 1 indicates sequence B is a random sequence."
+msgstr ""
+
+#: of transformers.BertForPreTraining.forward:57
+#: transformers.TFBertForPreTraining.call:63
+msgid ""
+"Labels for computing the next sequence prediction (classification) loss. "
+"Input should be a sequence pair (see :obj:`input_ids` docstring) Indices "
+"should be in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BertForNextSentencePrediction.forward:56
+#: transformers.BertForPreTraining.forward:60
+#: transformers.TFBertForPreTraining.call:66
+msgid "0 indicates sequence B is a continuation of sequence A,"
+msgstr ""
+
+#: of transformers.BertForNextSentencePrediction.forward:57
+#: transformers.BertForPreTraining.forward:61
+#: transformers.TFBertForPreTraining.call:67
+msgid "1 indicates sequence B is a random sequence."
+msgstr ""
+
+#: of transformers.BertForPreTraining.forward:63
+#: transformers.TFBertForPreTraining.call:69
+msgid "Used to hide legacy arguments that have been deprecated."
+msgstr ""
+
+#: of transformers.BertForPreTraining.forward:66
+msgid ""
+"A "
+":class:`~transformers.models.bert.modeling_bert.BertForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs.  - **loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss as the sum of "
+"the masked language modeling loss and the next sequence prediction   "
+"(classification) loss. - **prediction_logits** (:obj:`torch.FloatTensor` "
+"of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **seq_relationship_logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, 2)`) -- Prediction "
+"scores of the next sequence prediction (classification) head (scores of "
+"True/False continuation   before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Example::      >>> from transformers import "
+"BertTokenizer, BertForPreTraining     >>> import torch      >>> tokenizer"
+" = BertTokenizer.from_pretrained('bert-base-uncased')     >>> model = "
+"BertForPreTraining.from_pretrained('bert-base-uncased')      >>> inputs ="
+" tokenizer(\"Hello, my dog is cute\", return_tensors=\"pt\")     >>> "
+"outputs = model(**inputs)      >>> prediction_logits = "
+"outputs.prediction_logits     >>> seq_relationship_logits = "
+"outputs.seq_relationship_logits"
+msgstr ""
+
+#: of transformers.BertForPreTraining.forward:66
+msgid ""
+"A "
+":class:`~transformers.models.bert.modeling_bert.BertForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.BertForPreTraining.forward:70
+msgid ""
+"**loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss as the sum of "
+"the masked language modeling loss and the next sequence prediction "
+"(classification) loss."
+msgstr ""
+
+#: of transformers.BertForPreTraining.forward:72
+msgid ""
+"**prediction_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax)."
+msgstr ""
+
+#: of transformers.BertForPreTraining.forward:73
+msgid ""
+"**seq_relationship_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, 2)`) -- Prediction scores of the next sequence "
+"prediction (classification) head (scores of True/False continuation "
+"before SoftMax)."
+msgstr ""
+
+#: of transformers.BertForPreTraining.forward:99
+msgid ""
+":class:`~transformers.models.bert.modeling_bert.BertForPreTrainingOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:98
+msgid "BertLMHeadModel"
+msgstr ""
+
+#: of transformers.BertLMHeadModel:1
+msgid "Bert Model with a `language modeling` head on top for CLM fine-tuning."
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:1
+msgid ""
+"The :class:`~transformers.BertLMHeadModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:62
+msgid ""
+"Labels for computing the left-to-right language modeling loss (next word "
+"prediction). Indices should be in ``[-100, 0, ..., config.vocab_size]`` "
+"(see ``input_ids`` docstring) Tokens with indices set to ``-100`` are "
+"ignored (masked), the loss is only computed for the tokens with labels n "
+"``[0, ..., config.vocab_size]``"
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:76
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Language modeling"
+" loss (for next-token prediction). - **logits** (:obj:`torch.FloatTensor`"
+" of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Cross attentions weights after the"
+" attention softmax, used to compute the weighted average in the   cross-"
+"attention heads. - **past_key_values** "
+"(:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`torch.FloatTensor` tuples of length :obj:`config.n_layers`, with"
+" each tuple containing the   cached key, value states of the self-"
+"attention and the cross-attention layers if model is used in   encoder-"
+"decoder setting. Only relevant if ``config.is_decoder = True``.    "
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see   :obj:`past_key_values` input) to speed up"
+" sequential decoding.   Example::      >>> from transformers import "
+"BertTokenizer, BertLMHeadModel, BertConfig     >>> import torch      >>> "
+"tokenizer = BertTokenizer.from_pretrained('bert-base-cased')     >>> "
+"config = BertConfig.from_pretrained(\"bert-base-cased\")     >>> "
+"config.is_decoder = True     >>> model = BertLMHeadModel.from_pretrained"
+"('bert-base-cased', config=config)      >>> inputs = tokenizer(\"Hello, "
+"my dog is cute\", return_tensors=\"pt\")     >>> outputs = "
+"model(**inputs)      >>> prediction_logits = outputs.logits"
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:76
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:80
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss (for "
+"next-token prediction)."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:63
+#: transformers.BertLMHeadModel.forward:81
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:91
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:94
+msgid ""
+"Cross attentions weights after the attention softmax, used to compute the"
+" weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:96
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`torch.FloatTensor` tuples of"
+" length :obj:`config.n_layers`, with each tuple containing the cached "
+"key, value states of the self-attention and the cross-attention layers if"
+" model is used in encoder-decoder setting. Only relevant if "
+"``config.is_decoder = True``."
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:100
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.BertLMHeadModel.forward:118
+msgid ""
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:105
+msgid "BertForMaskedLM"
+msgstr ""
+
+#: of transformers.BertForMaskedLM:1 transformers.FlaxBertForMaskedLM:1
+#: transformers.TFBertForMaskedLM:1
+msgid "Bert Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:1
+msgid ""
+"The :class:`~transformers.BertForMaskedLM` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BertConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.BertForMaskedLM.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:112
+msgid "BertForNextSentencePrediction"
+msgstr ""
+
+#: of transformers.BertForNextSentencePrediction:1
+#: transformers.FlaxBertForNextSentencePrediction:1
+#: transformers.TFBertForNextSentencePrediction:1
+msgid "Bert Model with a `next sentence prediction (classification)` head on top."
+msgstr ""
+
+#: of transformers.BertForNextSentencePrediction.forward:1
+msgid ""
+"The :class:`~transformers.BertForNextSentencePrediction` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BertForNextSentencePrediction.forward:53
+msgid ""
+"Labels for computing the next sequence prediction (classification) loss. "
+"Input should be a sequence pair (see ``input_ids`` docstring). Indices "
+"should be in ``[0, 1]``:  - 0 indicates sequence B is a continuation of "
+"sequence A, - 1 indicates sequence B is a random sequence."
+msgstr ""
+
+#: of transformers.BertForNextSentencePrediction.forward:53
+msgid ""
+"Labels for computing the next sequence prediction (classification) loss. "
+"Input should be a sequence pair (see ``input_ids`` docstring). Indices "
+"should be in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.BertForNextSentencePrediction.forward:60
+msgid ""
+"A :class:`~transformers.modeling_outputs.NextSentencePredictorOutput` or "
+"a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`next_sentence_label` is provided) -- Next"
+" sequence prediction (classification) loss. - **logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, 2)`) -- Prediction "
+"scores of the next sequence prediction (classification) head (scores of "
+"True/False continuation   before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Example::      >>> from transformers import "
+"BertTokenizer, BertForNextSentencePrediction     >>> import torch      "
+">>> tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')     "
+">>> model = BertForNextSentencePrediction.from_pretrained('bert-base-"
+"uncased')      >>> prompt = \"In Italy, pizza served in formal settings, "
+"such as at a restaurant, is presented unsliced.\"     >>> next_sentence ="
+" \"The sky is blue due to the shorter wavelength of blue light.\"     >>>"
+" encoding = tokenizer(prompt, next_sentence, return_tensors='pt')      "
+">>> outputs = model(**encoding, labels=torch.LongTensor([1]))     >>> "
+"logits = outputs.logits     >>> assert logits[0, 0] < logits[0, 1] # next"
+" sentence was random"
+msgstr ""
+
+#: of transformers.BertForNextSentencePrediction.forward:60
+msgid ""
+"A :class:`~transformers.modeling_outputs.NextSentencePredictorOutput` or "
+"a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.BertForNextSentencePrediction.forward:64
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`next_sentence_label` is provided) -- Next sequence "
+"prediction (classification) loss."
+msgstr ""
+
+#: of transformers.BertForNextSentencePrediction.forward:65
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, 2)`) -- "
+"Prediction scores of the next sequence prediction (classification) head "
+"(scores of True/False continuation before SoftMax)."
+msgstr ""
+
+#: of transformers.BertForNextSentencePrediction.forward:93
+msgid ""
+":class:`~transformers.modeling_outputs.NextSentencePredictorOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:119
+msgid "BertForSequenceClassification"
+msgstr ""
+
+#: of transformers.BertForSequenceClassification:1
+#: transformers.FlaxBertForSequenceClassification:1
+#: transformers.TFBertForSequenceClassification:1
+msgid ""
+"Bert Model transformer with a sequence classification/regression head on "
+"top (a linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.BertForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.BertForSequenceClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BertForSequenceClassification.forward:53
+#: transformers.TFBertForSequenceClassification.call:59
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.BertForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.BertForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BertForSequenceClassification.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.BertForSequenceClassification.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.BertForSequenceClassification.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:126
+msgid "BertForMultipleChoice"
+msgstr ""
+
+#: of transformers.BertForMultipleChoice:1
+#: transformers.FlaxBertForMultipleChoice:1
+#: transformers.TFBertForMultipleChoice:1
+msgid ""
+"Bert Model with a multiple choice classification head on top (a linear "
+"layer on top of the pooled output and a softmax) e.g. for RocStories/SWAG"
+" tasks."
+msgstr ""
+
+#: of transformers.BertForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.BertForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BertForMultipleChoice.forward:53
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.BertForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss. - **logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, num_choices)`) -- "
+"`num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.BertForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BertForMultipleChoice.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.BertForMultipleChoice.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.BertForMultipleChoice.forward:65
+#: transformers.FlaxBertForMultipleChoice.__call__:43
+#: transformers.TFBertForMultipleChoice.call:71
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.BertForMultipleChoice.forward:75
+msgid ""
+":class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:133
+msgid "BertForTokenClassification"
+msgstr ""
+
+#: of transformers.BertForTokenClassification:1
+#: transformers.FlaxBertForTokenClassification:1
+#: transformers.TFBertForTokenClassification:1
+msgid ""
+"Bert Model with a token classification head on top (a linear layer on top"
+" of the hidden-states output) e.g. for Named-Entity-Recognition (NER) "
+"tasks."
+msgstr ""
+
+#: of transformers.BertForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.BertForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BertForTokenClassification.forward:53
+#: transformers.TFBertForTokenClassification.call:59
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.BertForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.BertForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.BertForTokenClassification.forward:61
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.BertForTokenClassification.forward:62
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.BertForTokenClassification.forward:72
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:140
+msgid "BertForQuestionAnswering"
+msgstr ""
+
+#: of transformers.BertForQuestionAnswering:1
+#: transformers.FlaxBertForQuestionAnswering:1
+msgid ""
+"Bert Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.BertForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.BertForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.BertForQuestionAnswering.forward:53
+#: transformers.TFBertForQuestionAnswering.call:59
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.BertForQuestionAnswering.forward:57
+#: transformers.TFBertForQuestionAnswering.call:63
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.BertForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.BertForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.BertForQuestionAnswering.forward:66
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.BertForQuestionAnswering.forward:67
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.BertForQuestionAnswering.forward:68
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.BertForQuestionAnswering.forward:78
+msgid ""
+":class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:147
+msgid "TFBertModel"
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM:3 transformers.TFBertForMultipleChoice:5
+#: transformers.TFBertForNextSentencePrediction:3
+#: transformers.TFBertForPreTraining:5
+#: transformers.TFBertForQuestionAnswering:5
+#: transformers.TFBertForSequenceClassification:5
+#: transformers.TFBertForTokenClassification:5 transformers.TFBertModel:3
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM:7 transformers.TFBertForMultipleChoice:9
+#: transformers.TFBertForNextSentencePrediction:7
+#: transformers.TFBertForPreTraining:9
+#: transformers.TFBertForQuestionAnswering:9
+#: transformers.TFBertForSequenceClassification:9
+#: transformers.TFBertForTokenClassification:9 transformers.TFBertModel:7
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM:13 transformers.TFBertForMultipleChoice:15
+#: transformers.TFBertForNextSentencePrediction:13
+#: transformers.TFBertForPreTraining:15
+#: transformers.TFBertForQuestionAnswering:15
+#: transformers.TFBertForSequenceClassification:15
+#: transformers.TFBertForTokenClassification:15 transformers.TFBertModel:13
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM:15 transformers.TFBertForMultipleChoice:17
+#: transformers.TFBertForNextSentencePrediction:15
+#: transformers.TFBertForPreTraining:17
+#: transformers.TFBertForQuestionAnswering:17
+#: transformers.TFBertForSequenceClassification:17
+#: transformers.TFBertForTokenClassification:17 transformers.TFBertModel:15
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM:16 transformers.TFBertForMultipleChoice:18
+#: transformers.TFBertForNextSentencePrediction:16
+#: transformers.TFBertForPreTraining:18
+#: transformers.TFBertForQuestionAnswering:18
+#: transformers.TFBertForSequenceClassification:18
+#: transformers.TFBertForTokenClassification:18 transformers.TFBertModel:16
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM:18 transformers.TFBertForMultipleChoice:20
+#: transformers.TFBertForNextSentencePrediction:18
+#: transformers.TFBertForPreTraining:20
+#: transformers.TFBertForQuestionAnswering:20
+#: transformers.TFBertForSequenceClassification:20
+#: transformers.TFBertForTokenClassification:20 transformers.TFBertModel:18
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM:21 transformers.TFBertForMultipleChoice:23
+#: transformers.TFBertForNextSentencePrediction:21
+#: transformers.TFBertForPreTraining:23
+#: transformers.TFBertForQuestionAnswering:23
+#: transformers.TFBertForSequenceClassification:23
+#: transformers.TFBertForTokenClassification:23 transformers.TFBertModel:21
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM:24 transformers.TFBertForMultipleChoice:26
+#: transformers.TFBertForNextSentencePrediction:24
+#: transformers.TFBertForPreTraining:26
+#: transformers.TFBertForQuestionAnswering:26
+#: transformers.TFBertForSequenceClassification:26
+#: transformers.TFBertForTokenClassification:26 transformers.TFBertModel:24
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM:25 transformers.TFBertForMultipleChoice:27
+#: transformers.TFBertForNextSentencePrediction:25
+#: transformers.TFBertForPreTraining:27
+#: transformers.TFBertForQuestionAnswering:27
+#: transformers.TFBertForSequenceClassification:27
+#: transformers.TFBertForTokenClassification:27 transformers.TFBertModel:25
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM:27 transformers.TFBertForMultipleChoice:29
+#: transformers.TFBertForNextSentencePrediction:27
+#: transformers.TFBertForPreTraining:29
+#: transformers.TFBertForQuestionAnswering:29
+#: transformers.TFBertForSequenceClassification:29
+#: transformers.TFBertForTokenClassification:29 transformers.TFBertModel:27
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM:30 transformers.TFBertForMultipleChoice:32
+#: transformers.TFBertForNextSentencePrediction:30
+#: transformers.TFBertForQuestionAnswering:32
+#: transformers.TFBertForSequenceClassification:32
+#: transformers.TFBertForTokenClassification:32 transformers.TFBertModel:30
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.TFPreTrainedModel.from_pretrained` method to load "
+"the model weights."
+msgstr ""
+
+#: of transformers.TFBertModel.call:1
+msgid ""
+"The :class:`~transformers.TFBertModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:8
+#: transformers.TFBertForMultipleChoice.call:8
+#: transformers.TFBertForNextSentencePrediction.call:8
+#: transformers.TFBertForPreTraining.call:8
+#: transformers.TFBertForQuestionAnswering.call:8
+#: transformers.TFBertForSequenceClassification.call:8
+#: transformers.TFBertForTokenClassification.call:8
+#: transformers.TFBertModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.BertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:10
+#: transformers.TFBertForMultipleChoice.call:10
+#: transformers.TFBertForNextSentencePrediction.call:10
+#: transformers.TFBertForPreTraining.call:10
+#: transformers.TFBertForQuestionAnswering.call:10
+#: transformers.TFBertForSequenceClassification.call:10
+#: transformers.TFBertForTokenClassification.call:10
+#: transformers.TFBertModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.BertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM.__call__:23
+#: transformers.FlaxBertForMultipleChoice.__call__:23
+#: transformers.FlaxBertForNextSentencePrediction.__call__:23
+#: transformers.FlaxBertForPreTraining.__call__:23
+#: transformers.FlaxBertForQuestionAnswering.__call__:23
+#: transformers.FlaxBertForSequenceClassification.__call__:23
+#: transformers.FlaxBertForTokenClassification.__call__:23
+#: transformers.FlaxBertModel.__call__:23
+#: transformers.TFBertForMaskedLM.call:23
+#: transformers.TFBertForMultipleChoice.call:23
+#: transformers.TFBertForNextSentencePrediction.call:23
+#: transformers.TFBertForPreTraining.call:23
+#: transformers.TFBertForQuestionAnswering.call:23
+#: transformers.TFBertForSequenceClassification.call:23
+#: transformers.TFBertForTokenClassification.call:23
+#: transformers.TFBertModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM.__call__:29
+#: transformers.FlaxBertForMultipleChoice.__call__:29
+#: transformers.FlaxBertForNextSentencePrediction.__call__:29
+#: transformers.FlaxBertForPreTraining.__call__:29
+#: transformers.FlaxBertForQuestionAnswering.__call__:29
+#: transformers.FlaxBertForSequenceClassification.__call__:29
+#: transformers.FlaxBertForTokenClassification.__call__:29
+#: transformers.FlaxBertModel.__call__:29
+#: transformers.TFBertForMaskedLM.call:29
+#: transformers.TFBertForMultipleChoice.call:29
+#: transformers.TFBertForNextSentencePrediction.call:29
+#: transformers.TFBertForPreTraining.call:29
+#: transformers.TFBertForQuestionAnswering.call:29
+#: transformers.TFBertForSequenceClassification.call:29
+#: transformers.TFBertForTokenClassification.call:29
+#: transformers.TFBertModel.call:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:31
+#: transformers.TFBertForMultipleChoice.call:31
+#: transformers.TFBertForNextSentencePrediction.call:31
+#: transformers.TFBertForPreTraining.call:31
+#: transformers.TFBertForQuestionAnswering.call:31
+#: transformers.TFBertForSequenceClassification.call:31
+#: transformers.TFBertForTokenClassification.call:31
+#: transformers.TFBertModel.call:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:34
+#: transformers.TFBertForMultipleChoice.call:34
+#: transformers.TFBertForNextSentencePrediction.call:34
+#: transformers.TFBertForPreTraining.call:34
+#: transformers.TFBertForQuestionAnswering.call:34
+#: transformers.TFBertForSequenceClassification.call:34
+#: transformers.TFBertForTokenClassification.call:34
+#: transformers.TFBertModel.call:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:45
+#: transformers.TFBertForMultipleChoice.call:45
+#: transformers.TFBertForNextSentencePrediction.call:45
+#: transformers.TFBertForPreTraining.call:45
+#: transformers.TFBertForQuestionAnswering.call:45
+#: transformers.TFBertForSequenceClassification.call:45
+#: transformers.TFBertForTokenClassification.call:45
+#: transformers.TFBertModel.call:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:49
+#: transformers.TFBertForMultipleChoice.call:49
+#: transformers.TFBertForNextSentencePrediction.call:49
+#: transformers.TFBertForPreTraining.call:49
+#: transformers.TFBertForQuestionAnswering.call:49
+#: transformers.TFBertForSequenceClassification.call:49
+#: transformers.TFBertForTokenClassification.call:49
+#: transformers.TFBertModel.call:49
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:53
+#: transformers.TFBertForMultipleChoice.call:53
+#: transformers.TFBertForNextSentencePrediction.call:53
+#: transformers.TFBertForPreTraining.call:53
+#: transformers.TFBertForQuestionAnswering.call:53
+#: transformers.TFBertForSequenceClassification.call:53
+#: transformers.TFBertForTokenClassification.call:53
+#: transformers.TFBertModel.call:53
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:56
+#: transformers.TFBertForMultipleChoice.call:56
+#: transformers.TFBertForNextSentencePrediction.call:56
+#: transformers.TFBertForPreTraining.call:56
+#: transformers.TFBertForQuestionAnswering.call:56
+#: transformers.TFBertForSequenceClassification.call:56
+#: transformers.TFBertForTokenClassification.call:56
+#: transformers.TFBertModel.call:56
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFBertModel.call:60
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **pooler_output** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, hidden_size)`) -- Last "
+"layer hidden-state of the first token of the sequence (classification "
+"token) further processed by a   Linear layer and a Tanh activation "
+"function. The Linear layer weights are trained from the next sentence   "
+"prediction (classification) objective during pretraining.    This output "
+"is usually *not* a good summary of the semantic content of the input, "
+"you're often better with   averaging or pooling the sequence of hidden-"
+"states for the whole input sequence. - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFBertModel.call:60
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFBertModel.call:64
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.TFBertModel.call:65
+msgid ""
+"**pooler_output** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.TFBertModel.call:69
+msgid ""
+"This output is usually *not* a good summary of the semantic content of "
+"the input, you're often better with averaging or pooling the sequence of "
+"hidden-states for the whole input sequence."
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:70
+#: transformers.TFBertForMultipleChoice.call:72
+#: transformers.TFBertForNextSentencePrediction.call:67
+#: transformers.TFBertForPreTraining.call:79
+#: transformers.TFBertForQuestionAnswering.call:75
+#: transformers.TFBertForSequenceClassification.call:70
+#: transformers.TFBertForTokenClassification.call:69
+#: transformers.TFBertLMHeadModel.call:11 transformers.TFBertModel.call:71
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:74
+#: transformers.TFBertForMultipleChoice.call:76
+#: transformers.TFBertForNextSentencePrediction.call:71
+#: transformers.TFBertForPreTraining.call:83
+#: transformers.TFBertForQuestionAnswering.call:79
+#: transformers.TFBertForSequenceClassification.call:74
+#: transformers.TFBertForTokenClassification.call:73
+#: transformers.TFBertLMHeadModel.call:15 transformers.TFBertModel.call:75
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFBertModel.call:80
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling` "
+"or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:154
+msgid "TFBertForPreTraining"
+msgstr ""
+
+#: of transformers.TFBertForPreTraining:37
+msgid "Bert Model with two heads on top as done during the pretraining:"
+msgstr ""
+
+#: of transformers.TFBertForPreTraining:2
+msgid ""
+"a `masked language modeling` head and a `next sentence prediction "
+"(classification)` head."
+msgstr ""
+
+#: of transformers.TFBertForPreTraining:37
+msgid "Args:"
+msgstr ""
+
+#: of transformers.TFBertForPreTraining:37
+msgid ""
+"config (:class:`~transformers.BertConfig`): Model configuration class "
+"with all the parameters of the model."
+msgstr ""
+
+#: of transformers.TFBertForPreTraining:34
+msgid ""
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.TFPreTrainedModel.from_pretrained` method to load "
+"the model weights."
+msgstr ""
+
+#: of transformers.TFBertForPreTraining.call:1
+msgid ""
+"The :class:`~transformers.TFBertForPreTraining` forward method, overrides"
+" the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFBertForPreTraining.call:72
+msgid ""
+"A "
+":class:`~transformers.models.bert.modeling_tf_bert.TFBertForPreTrainingOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs.  - "
+"**prediction_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **seq_relationship_logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, 2)`) -- Prediction scores of the next sequence "
+"prediction (classification) head (scores of True/False continuation   "
+"before SoftMax). - **hidden_states** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Examples::      >>> import tensorflow as tf     >>> from transformers "
+"import BertTokenizer, TFBertForPreTraining      >>> tokenizer = "
+"BertTokenizer.from_pretrained('bert-base-uncased')     >>> model = "
+"TFBertForPreTraining.from_pretrained('bert-base-uncased')     >>> "
+"input_ids = tf.constant(tokenizer.encode(\"Hello, my dog is cute\", "
+"add_special_tokens=True))[None, :]  # Batch size 1     >>> outputs = "
+"model(input_ids)     >>> prediction_scores, seq_relationship_scores = "
+"outputs[:2]"
+msgstr ""
+
+#: of transformers.TFBertForPreTraining.call:72
+msgid ""
+"A "
+":class:`~transformers.models.bert.modeling_tf_bert.TFBertForPreTrainingOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFBertForPreTraining.call:76
+msgid ""
+"**prediction_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFBertForPreTraining.call:77
+msgid ""
+"**seq_relationship_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size,"
+" 2)`) -- Prediction scores of the next sequence prediction "
+"(classification) head (scores of True/False continuation before SoftMax)."
+msgstr ""
+
+#: of transformers.TFBertForPreTraining.call:100
+msgid ""
+":class:`~transformers.models.bert.modeling_tf_bert.TFBertForPreTrainingOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:161
+msgid "TFBertModelLMHeadModel"
+msgstr ""
+
+#: of transformers.TFBertLMHeadModel.call:3
+msgid ""
+"labels (:obj:`tf.Tensor` or :obj:`np.ndarray` of shape :obj:`(batch_size,"
+" sequence_length)`, `optional`):"
+msgstr ""
+
+#: of transformers.TFBertLMHeadModel.call:2
+msgid ""
+"Labels for computing the cross entropy classification loss. Indices "
+"should be in ``[0, ..., config.vocab_size - 1]``."
+msgstr ""
+
+#: of transformers.TFBertLMHeadModel.call:5
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFCausalLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BertConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Language modeling loss (for next-token prediction). - **logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length, "
+"config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFBertLMHeadModel.call:5
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFCausalLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFBertLMHeadModel.call:9
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Language modeling loss (for next-token prediction)."
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:69
+#: transformers.TFBertLMHeadModel.call:10
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFBertLMHeadModel.call:20
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFCausalLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:168
+msgid "TFBertForMaskedLM"
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:1
+msgid ""
+"The :class:`~transformers.TFBertForMaskedLM` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BertConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss. - **logits** (:obj:`tf.Tensor` "
+"of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss."
+msgstr ""
+
+#: of transformers.TFBertForMaskedLM.call:79
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:175
+msgid "TFBertForNextSentencePrediction"
+msgstr ""
+
+#: of transformers.TFBertForNextSentencePrediction.call:1
+msgid ""
+"The :class:`~transformers.TFBertForNextSentencePrediction` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFBertForNextSentencePrediction.call:60
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFNextSentencePredictorOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`next_sentence_label`"
+" is provided) -- Next sentence prediction loss. - **logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, 2)`) -- Prediction scores "
+"of the next sequence prediction (classification) head (scores of "
+"True/False continuation   before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Examples::      >>> import tensorflow as tf     >>> from transformers "
+"import BertTokenizer, TFBertForNextSentencePrediction      >>> tokenizer "
+"= BertTokenizer.from_pretrained('bert-base-uncased')     >>> model = "
+"TFBertForNextSentencePrediction.from_pretrained('bert-base-uncased')"
+"      >>> prompt = \"In Italy, pizza served in formal settings, such as "
+"at a restaurant, is presented unsliced.\"     >>> next_sentence = \"The "
+"sky is blue due to the shorter wavelength of blue light.\"     >>> "
+"encoding = tokenizer(prompt, next_sentence, return_tensors='tf')      >>>"
+" logits = model(encoding['input_ids'], "
+"token_type_ids=encoding['token_type_ids'])[0]     >>> assert logits[0][0]"
+" < logits[0][1] # the next sentence was random"
+msgstr ""
+
+#: of transformers.TFBertForNextSentencePrediction.call:60
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFNextSentencePredictorOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFBertForNextSentencePrediction.call:64
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`next_sentence_label`"
+" is provided) -- Next sentence prediction loss."
+msgstr ""
+
+#: of transformers.TFBertForNextSentencePrediction.call:65
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, 2)`) -- "
+"Prediction scores of the next sequence prediction (classification) head "
+"(scores of True/False continuation before SoftMax)."
+msgstr ""
+
+#: of transformers.TFBertForNextSentencePrediction.call:92
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFNextSentencePredictorOutput` "
+"or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:182
+msgid "TFBertForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFBertForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFBertForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFBertForSequenceClassification.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, config.num_labels)`) -- Classification (or regression "
+"if config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFBertForSequenceClassification.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFBertForSequenceClassification.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFBertForSequenceClassification.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFBertForSequenceClassification.call:79
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:189
+msgid "TFBertForMultipleChoice"
+msgstr ""
+
+#: of transformers.TFBertForMultipleChoice.call:1
+msgid ""
+"The :class:`~transformers.TFBertForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFBertForMultipleChoice.call:59
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.TFBertForMultipleChoice.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss. - "
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFBertForMultipleChoice.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFBertForMultipleChoice.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.TFBertForMultipleChoice.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.TFBertForMultipleChoice.call:81
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` or"
+" :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:196
+msgid "TFBertForTokenClassification"
+msgstr ""
+
+#: of transformers.TFBertForTokenClassification.call:1
+msgid ""
+"The :class:`~transformers.TFBertForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFBertForTokenClassification.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BertConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, config.num_labels)`) -- "
+"Classification scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFBertForTokenClassification.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.BertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFBertForTokenClassification.call:67
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss."
+msgstr ""
+
+#: of transformers.TFBertForTokenClassification.call:68
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.num_labels)`) -- Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFBertForTokenClassification.call:78
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:203
+msgid "TFBertForQuestionAnswering"
+msgstr ""
+
+#: of transformers.TFBertForQuestionAnswering:1
+msgid ""
+"Bert Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layer on top of the hidden-"
+"states output to compute `span start logits` and `span end logits`)."
+msgstr ""
+
+#: of transformers.TFBertForQuestionAnswering.call:1
+msgid ""
+"The :class:`~transformers.TFBertForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFBertForQuestionAnswering.call:68
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions. - **start_logits** (:obj:`tf.Tensor` of "
+"shape :obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFBertForQuestionAnswering.call:68
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFBertForQuestionAnswering.call:72
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions."
+msgstr ""
+
+#: of transformers.TFBertForQuestionAnswering.call:73
+msgid ""
+"**start_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFBertForQuestionAnswering.call:74
+msgid ""
+"**end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFBertForQuestionAnswering.call:84
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:210
+msgid "FlaxBertModel"
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM:3
+#: transformers.FlaxBertForMultipleChoice:5
+#: transformers.FlaxBertForNextSentencePrediction:3
+#: transformers.FlaxBertForPreTraining:5
+#: transformers.FlaxBertForQuestionAnswering:5
+#: transformers.FlaxBertForSequenceClassification:5
+#: transformers.FlaxBertForTokenClassification:5 transformers.FlaxBertModel:3
+msgid ""
+"This model inherits from :class:`~transformers.FlaxPreTrainedModel`. "
+"Check the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading, saving and converting "
+"weights from PyTorch models)"
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM:7
+#: transformers.FlaxBertForMultipleChoice:9
+#: transformers.FlaxBertForNextSentencePrediction:7
+#: transformers.FlaxBertForPreTraining:9
+#: transformers.FlaxBertForQuestionAnswering:9
+#: transformers.FlaxBertForSequenceClassification:9
+#: transformers.FlaxBertForTokenClassification:9 transformers.FlaxBertModel:7
+msgid ""
+"This model is also a Flax Linen `flax.linen.Module "
+"<https://flax.readthedocs.io/en/latest/flax.linen.html#module>`__ "
+"subclass. Use it as a regular Flax linen Module and refer to the Flax "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM:11
+#: transformers.FlaxBertForMultipleChoice:13
+#: transformers.FlaxBertForNextSentencePrediction:11
+#: transformers.FlaxBertForPreTraining:13
+#: transformers.FlaxBertForQuestionAnswering:13
+#: transformers.FlaxBertForSequenceClassification:13
+#: transformers.FlaxBertForTokenClassification:13 transformers.FlaxBertModel:11
+msgid "Finally, this model supports inherent JAX features such as:"
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM:13
+#: transformers.FlaxBertForMultipleChoice:15
+#: transformers.FlaxBertForNextSentencePrediction:13
+#: transformers.FlaxBertForPreTraining:15
+#: transformers.FlaxBertForQuestionAnswering:15
+#: transformers.FlaxBertForSequenceClassification:15
+#: transformers.FlaxBertForTokenClassification:15 transformers.FlaxBertModel:13
+msgid ""
+"`Just-In-Time (JIT) compilation "
+"<https://jax.readthedocs.io/en/latest/jax.html#just-in-time-compilation-"
+"jit>`__"
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM:14
+#: transformers.FlaxBertForMultipleChoice:16
+#: transformers.FlaxBertForNextSentencePrediction:14
+#: transformers.FlaxBertForPreTraining:16
+#: transformers.FlaxBertForQuestionAnswering:16
+#: transformers.FlaxBertForSequenceClassification:16
+#: transformers.FlaxBertForTokenClassification:16 transformers.FlaxBertModel:14
+msgid ""
+"`Automatic Differentiation <https://jax.readthedocs.io/en/latest/jax.html"
+"#automatic-differentiation>`__"
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM:15
+#: transformers.FlaxBertForMultipleChoice:17
+#: transformers.FlaxBertForNextSentencePrediction:15
+#: transformers.FlaxBertForPreTraining:17
+#: transformers.FlaxBertForQuestionAnswering:17
+#: transformers.FlaxBertForSequenceClassification:17
+#: transformers.FlaxBertForTokenClassification:17 transformers.FlaxBertModel:15
+msgid ""
+"`Vectorization <https://jax.readthedocs.io/en/latest/jax.html"
+"#vectorization-vmap>`__"
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM:16
+#: transformers.FlaxBertForMultipleChoice:18
+#: transformers.FlaxBertForNextSentencePrediction:16
+#: transformers.FlaxBertForPreTraining:18
+#: transformers.FlaxBertForQuestionAnswering:18
+#: transformers.FlaxBertForSequenceClassification:18
+#: transformers.FlaxBertForTokenClassification:18 transformers.FlaxBertModel:16
+msgid ""
+"`Parallelization <https://jax.readthedocs.io/en/latest/jax.html"
+"#parallelization-pmap>`__"
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM:18
+#: transformers.FlaxBertForMultipleChoice:20
+#: transformers.FlaxBertForNextSentencePrediction:18
+#: transformers.FlaxBertForPreTraining:20
+#: transformers.FlaxBertForQuestionAnswering:20
+#: transformers.FlaxBertForSequenceClassification:20
+#: transformers.FlaxBertForTokenClassification:20 transformers.FlaxBertModel:18
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.FlaxPreTrainedModel.from_pretrained` method to load "
+"the model weights."
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM.__call__:1
+#: transformers.FlaxBertForMultipleChoice.__call__:1
+#: transformers.FlaxBertForNextSentencePrediction.__call__:1
+#: transformers.FlaxBertForPreTraining.__call__:1
+#: transformers.FlaxBertForQuestionAnswering.__call__:1
+#: transformers.FlaxBertForSequenceClassification.__call__:1
+#: transformers.FlaxBertForTokenClassification.__call__:1
+#: transformers.FlaxBertModel.__call__:1
+msgid ""
+"The :class:`~transformers.FlaxBertPreTrainedModel` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM.__call__:8
+#: transformers.FlaxBertForMultipleChoice.__call__:8
+#: transformers.FlaxBertForNextSentencePrediction.__call__:8
+#: transformers.FlaxBertForPreTraining.__call__:8
+#: transformers.FlaxBertForQuestionAnswering.__call__:8
+#: transformers.FlaxBertForSequenceClassification.__call__:8
+#: transformers.FlaxBertForTokenClassification.__call__:8
+#: transformers.FlaxBertModel.__call__:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.BertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM.__call__:10
+#: transformers.FlaxBertForMultipleChoice.__call__:10
+#: transformers.FlaxBertForNextSentencePrediction.__call__:10
+#: transformers.FlaxBertForPreTraining.__call__:10
+#: transformers.FlaxBertForQuestionAnswering.__call__:10
+#: transformers.FlaxBertForSequenceClassification.__call__:10
+#: transformers.FlaxBertForTokenClassification.__call__:10
+#: transformers.FlaxBertModel.__call__:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.BertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.FlaxBertModel.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs.  - **last_hidden_state** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`jnp.ndarray` of shape :obj:`(batch_size, hidden_size)`) -- Last "
+"layer hidden-state of the first token of the sequence (classification "
+"token) further processed by a   Linear layer and a Tanh activation "
+"function. The Linear layer weights are trained from the next sentence   "
+"prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxBertModel.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.FlaxBertModel.__call__:41
+msgid ""
+"**last_hidden_state** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.FlaxBertModel.__call__:42
+msgid ""
+"**pooler_output** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM.__call__:42
+#: transformers.FlaxBertForMultipleChoice.__call__:44
+#: transformers.FlaxBertForNextSentencePrediction.__call__:43
+#: transformers.FlaxBertForPreTraining.__call__:44
+#: transformers.FlaxBertForQuestionAnswering.__call__:43
+#: transformers.FlaxBertForSequenceClassification.__call__:42
+#: transformers.FlaxBertForTokenClassification.__call__:42
+#: transformers.FlaxBertModel.__call__:45
+msgid ""
+"**hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM.__call__:46
+#: transformers.FlaxBertForMultipleChoice.__call__:48
+#: transformers.FlaxBertForNextSentencePrediction.__call__:47
+#: transformers.FlaxBertForPreTraining.__call__:48
+#: transformers.FlaxBertForQuestionAnswering.__call__:47
+#: transformers.FlaxBertForSequenceClassification.__call__:46
+#: transformers.FlaxBertForTokenClassification.__call__:46
+#: transformers.FlaxBertModel.__call__:49
+msgid ""
+"**attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxBertModel.__call__:54
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:217
+msgid "FlaxBertForPreTraining"
+msgstr ""
+
+#: of transformers.FlaxBertForPreTraining.__call__:37
+msgid ""
+"A "
+":class:`~transformers.models.bert.modeling_flax_bert.FlaxBertForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs.  - **prediction_logits** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **seq_relationship_logits** (:obj:`jnp.ndarray` of "
+"shape :obj:`(batch_size, 2)`) -- Prediction scores of the next sequence "
+"prediction (classification) head (scores of True/False continuation   "
+"before SoftMax). - **hidden_states** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` "
+"(one for the output of the embeddings + one for the output of each layer)"
+" of   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxBertForPreTraining.__call__:37
+msgid ""
+"A "
+":class:`~transformers.models.bert.modeling_flax_bert.FlaxBertForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.FlaxBertForPreTraining.__call__:41
+msgid ""
+"**prediction_logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBertForPreTraining.__call__:42
+msgid ""
+"**seq_relationship_logits** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, 2)`) -- Prediction scores of the next sequence "
+"prediction (classification) head (scores of True/False continuation "
+"before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBertForPreTraining.__call__:53
+msgid ""
+":class:`~transformers.models.bert.modeling_flax_bert.FlaxBertForPreTrainingOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:224
+msgid "FlaxBertForMaskedLM"
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxMaskedLMOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs.  - "
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxMaskedLMOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.BertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBertForMaskedLM.__call__:51
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxMaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:231
+msgid "FlaxBertForNextSentencePrediction"
+msgstr ""
+
+#: of transformers.FlaxBertForNextSentencePrediction.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxNextSentencePredictorOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs.  - **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"2)`) -- Prediction scores of the next sequence prediction "
+"(classification) head (scores of True/False continuation   before "
+"SoftMax). - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxBertForNextSentencePrediction.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxNextSentencePredictorOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.FlaxBertForNextSentencePrediction.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, 2)`) -- "
+"Prediction scores of the next sequence prediction (classification) head "
+"(scores of True/False continuation before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBertForNextSentencePrediction.__call__:52
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxNextSentencePredictorOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:238
+msgid "FlaxBertForSequenceClassification"
+msgstr ""
+
+#: of transformers.FlaxBertForSequenceClassification.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs.  - **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxBertForSequenceClassification.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.FlaxBertForSequenceClassification.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBertForSequenceClassification.__call__:51
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:245
+msgid "FlaxBertForMultipleChoice"
+msgstr ""
+
+#: of transformers.FlaxBertForMultipleChoice.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs.  - **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxBertForMultipleChoice.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.FlaxBertForMultipleChoice.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, num_choices)`)"
+" -- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.FlaxBertForMultipleChoice.__call__:53
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:252
+msgid "FlaxBertForTokenClassification"
+msgstr ""
+
+#: of transformers.FlaxBertForTokenClassification.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxTokenClassifierOutput` "
+"or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs.  - **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxBertForTokenClassification.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxTokenClassifierOutput` "
+"or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.FlaxBertForTokenClassification.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBertForTokenClassification.__call__:51
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxTokenClassifierOutput` or"
+" :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/bert.rst:259
+msgid "FlaxBertForQuestionAnswering"
+msgstr ""
+
+#: of transformers.FlaxBertForQuestionAnswering.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs.  - **start_logits** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxBertForQuestionAnswering.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.BertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.FlaxBertForQuestionAnswering.__call__:41
+msgid ""
+"**start_logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBertForQuestionAnswering.__call__:42
+msgid ""
+"**end_logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxBertForQuestionAnswering.__call__:52
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+

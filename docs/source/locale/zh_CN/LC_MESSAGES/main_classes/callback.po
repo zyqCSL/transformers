@@ -1,0 +1,638 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-10 04:49+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/main_classes/callback.rst:14
+msgid "Callbacks"
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:16
+msgid ""
+"Callbacks are objects that can customize the behavior of the training "
+"loop in the PyTorch :class:`~transformers.Trainer` (this feature is not "
+"yet implemented in TensorFlow) that can inspect the training loop state "
+"(for progress reporting, logging on TensorBoard or other ML platforms...)"
+" and take decisions (like early stopping)."
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:21
+msgid ""
+"Callbacks are \"read only\" pieces of code, apart from the "
+":class:`~transformers.TrainerControl` object they return, they cannot "
+"change anything in the training loop. For customizations that require "
+"changes in the training loop, you should subclass "
+":class:`~transformers.Trainer` and override the methods you need (see "
+":doc:`trainer` for examples)."
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:25
+msgid ""
+"By default a :class:`~transformers.Trainer` will use the following "
+"callbacks:"
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:27
+msgid ""
+":class:`~transformers.DefaultFlowCallback` which handles the default "
+"behavior for logging, saving and evaluation."
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:28
+msgid ""
+":class:`~transformers.PrinterCallback` or "
+":class:`~transformers.ProgressCallback` to display progress and print the"
+" logs (the first one is used if you deactivate tqdm through the "
+":class:`~transformers.TrainingArguments`, otherwise it's the second one)."
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:31
+msgid ""
+":class:`~transformers.integrations.TensorBoardCallback` if tensorboard is"
+" accessible (either through PyTorch >= 1.4 or tensorboardX)."
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:33
+msgid ""
+":class:`~transformers.integrations.WandbCallback` if `wandb "
+"<https://www.wandb.com/>`__ is installed."
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:34
+msgid ""
+":class:`~transformers.integrations.CometCallback` if `comet_ml "
+"<https://www.comet.ml/site/>`__ is installed."
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:35
+msgid ""
+":class:`~transformers.integrations.MLflowCallback` if `mlflow "
+"<https://www.mlflow.org/>`__ is installed."
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:36
+msgid ""
+":class:`~transformers.integrations.AzureMLCallback` if `azureml-sdk "
+"<https://pypi.org/project/azureml-sdk/>`__ is installed."
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:39
+msgid ""
+"The main class that implements callbacks is "
+":class:`~transformers.TrainerCallback`. It gets the "
+":class:`~transformers.TrainingArguments` used to instantiate the "
+":class:`~transformers.Trainer`, can access that Trainer's internal state "
+"via :class:`~transformers.TrainerState`, and can take some actions on the"
+" training loop via :class:`~transformers.TrainerControl`."
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:46
+msgid "Available Callbacks"
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:48
+msgid ""
+"Here is the list of the available :class:`~transformers.TrainerCallback` "
+"in the library:"
+msgstr ""
+
+#: of transformers.integrations.CometCallback:1
+msgid ""
+"A :class:`~transformers.TrainerCallback` that sends the logs to `Comet ML"
+" <https://www.comet.ml/site/>`__."
+msgstr ""
+
+#: of transformers.integrations.CometCallback.setup:1
+msgid "Setup the optional Comet.ml integration."
+msgstr ""
+
+#: of transformers.integrations.CometCallback.setup:9
+#: transformers.integrations.MLflowCallback.setup:8
+#: transformers.integrations.WandbCallback.setup:15
+msgid "Environment:"
+msgstr ""
+
+#: of transformers.integrations.CometCallback.setup:4
+msgid "COMET_MODE (:obj:`str`, `optional`):"
+msgstr ""
+
+#: of transformers.integrations.CometCallback.setup:5
+msgid "\"OFFLINE\", \"ONLINE\", or \"DISABLED\""
+msgstr ""
+
+#: of transformers.integrations.CometCallback.setup:6
+msgid "COMET_PROJECT_NAME (:obj:`str`, `optional`):"
+msgstr ""
+
+#: of transformers.integrations.CometCallback.setup:7
+msgid "Comet.ml project name for experiments"
+msgstr ""
+
+#: of transformers.integrations.CometCallback.setup:9
+msgid "COMET_OFFLINE_DIRECTORY (:obj:`str`, `optional`):"
+msgstr ""
+
+#: of transformers.integrations.CometCallback.setup:9
+msgid ""
+"Folder to use for saving offline experiments when :obj:`COMET_MODE` is "
+"\"OFFLINE\""
+msgstr ""
+
+#: of transformers.integrations.CometCallback.setup:11
+msgid ""
+"For a number of configurable items in the environment, see `here "
+"<https://www.comet.ml/docs/python-sdk/advanced/#comet-configuration-"
+"variables>`__."
+msgstr ""
+
+#: of transformers.DefaultFlowCallback:1
+msgid ""
+"A :class:`~transformers.TrainerCallback` that handles the default flow of"
+" the training loop for logs, evaluation and checkpoints."
+msgstr ""
+
+#: of transformers.PrinterCallback:1
+msgid "A bare :class:`~transformers.TrainerCallback` that just prints the logs."
+msgstr ""
+
+#: of transformers.ProgressCallback:1
+msgid ""
+"A :class:`~transformers.TrainerCallback` that displays the progress of "
+"training or evaluation."
+msgstr ""
+
+#: of transformers.EarlyStoppingCallback:1
+msgid "A :class:`~transformers.TrainerCallback` that handles early stopping."
+msgstr ""
+
+#: of transformers.EarlyStoppingCallback transformers.TrainerCallback
+#: transformers.TrainerControl transformers.TrainerState
+#: transformers.integrations.TensorBoardCallback
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.EarlyStoppingCallback:3
+msgid ""
+"Use with :obj:`metric_for_best_model` to stop training when the specified"
+" metric worsens for :obj:`early_stopping_patience` evaluation calls."
+msgstr ""
+
+#: of transformers.EarlyStoppingCallback:6
+msgid ""
+"Use with TrainingArguments :obj:`metric_for_best_model` and "
+":obj:`early_stopping_patience` to denote how much the specified metric "
+"must improve to satisfy early stopping conditions. `"
+msgstr ""
+
+#: of transformers.EarlyStoppingCallback:10
+msgid ""
+"This callback depends on :class:`~transformers.TrainingArguments` "
+"argument `load_best_model_at_end` functionality to set best_metric in "
+":class:`~transformers.TrainerState`."
+msgstr ""
+
+#: of transformers.integrations.TensorBoardCallback:1
+msgid ""
+"A :class:`~transformers.TrainerCallback` that sends the logs to "
+"`TensorBoard <https://www.tensorflow.org/tensorboard>`__."
+msgstr ""
+
+#: of transformers.integrations.TensorBoardCallback:4
+msgid "The writer to use. Will instantiate one if not set."
+msgstr ""
+
+#: of transformers.integrations.WandbCallback:1
+msgid ""
+"A :class:`~transformers.TrainerCallback` that sends the logs to `Weight "
+"and Biases <https://www.wandb.com/>`__."
+msgstr ""
+
+#: of transformers.integrations.WandbCallback.setup:1
+msgid "Setup the optional Weights & Biases (`wandb`) integration."
+msgstr ""
+
+#: of transformers.integrations.WandbCallback.setup:3
+msgid ""
+"One can subclass and override this method to customize the setup if "
+"needed. Find more information `here "
+"<https://docs.wandb.ai/integrations/huggingface>`__. You can also "
+"override the following environment variables:"
+msgstr ""
+
+#: of transformers.integrations.WandbCallback.setup:8
+msgid "WANDB_LOG_MODEL (:obj:`bool`, `optional`, defaults to :obj:`False`):"
+msgstr ""
+
+#: of transformers.integrations.WandbCallback.setup:8
+msgid ""
+"Whether or not to log model as artifact at the end of training. Use along"
+" with `TrainingArguments.load_best_model_at_end` to upload best model."
+msgstr ""
+
+#: of transformers.integrations.WandbCallback.setup:11
+msgid "WANDB_WATCH (:obj:`str`, `optional` defaults to :obj:`\"gradients\"`):"
+msgstr ""
+
+#: of transformers.integrations.WandbCallback.setup:11
+msgid ""
+"Can be :obj:`\"gradients\"`, :obj:`\"all\"` or :obj:`\"false\"`. Set to "
+":obj:`\"false\"` to disable gradient logging or :obj:`\"all\"` to log "
+"gradients and parameters."
+msgstr ""
+
+#: of transformers.integrations.WandbCallback.setup:13
+msgid ""
+"WANDB_PROJECT (:obj:`str`, `optional`, defaults to "
+":obj:`\"huggingface\"`):"
+msgstr ""
+
+#: of transformers.integrations.WandbCallback.setup:14
+msgid "Set this to a custom string to store results in a different project."
+msgstr ""
+
+#: of transformers.integrations.WandbCallback.setup:15
+msgid "WANDB_DISABLED (:obj:`bool`, `optional`, defaults to :obj:`False`):"
+msgstr ""
+
+#: of transformers.integrations.WandbCallback.setup:16
+msgid ""
+"Whether or not to disable wandb entirely. Set `WANDB_DISABLED=true` to "
+"disable."
+msgstr ""
+
+#: of transformers.integrations.MLflowCallback:1
+msgid ""
+"A :class:`~transformers.TrainerCallback` that sends the logs to `MLflow "
+"<https://www.mlflow.org/>`__."
+msgstr ""
+
+#: of transformers.integrations.MLflowCallback.setup:1
+msgid "Setup the optional MLflow integration."
+msgstr ""
+
+#: of transformers.integrations.MLflowCallback.setup:8
+msgid "HF_MLFLOW_LOG_ARTIFACTS (:obj:`str`, `optional`):"
+msgstr ""
+
+#: of transformers.integrations.MLflowCallback.setup:5
+msgid "Whether to use MLflow .log_artifact() facility to log artifacts."
+msgstr ""
+
+#: of transformers.integrations.MLflowCallback.setup:7
+msgid ""
+"This only makes sense if logging to a remote server, e.g. s3 or GCS. If "
+"set to `True` or `1`, will copy whatever is in "
+":class:`~transformers.TrainingArguments`'s ``output_dir`` to the local or"
+" remote artifact storage. Using it without a remote storage will just "
+"copy the files to your artifact location."
+msgstr ""
+
+#: of transformers.integrations.AzureMLCallback:1
+msgid ""
+"A :class:`~transformers.TrainerCallback` that sends the logs to `AzureML "
+"<https://pypi.org/project/azureml-sdk/>`__."
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:72
+msgid "TrainerCallback"
+msgstr ""
+
+#: of transformers.TrainerCallback:1
+msgid ""
+"A class for objects that will inspect the state of the training loop at "
+"some events and take some decisions. At each of those events the "
+"following arguments are available:"
+msgstr ""
+
+#: of transformers.TrainerCallback:4
+msgid ""
+"The training arguments used to instantiate the "
+":class:`~transformers.Trainer`."
+msgstr ""
+
+#: of transformers.TrainerCallback:6
+msgid "The current state of the :class:`~transformers.Trainer`."
+msgstr ""
+
+#: of transformers.TrainerCallback:8
+msgid ""
+"The object that is returned to the :class:`~transformers.Trainer` and can"
+" be used to make some decisions."
+msgstr ""
+
+#: of transformers.TrainerCallback:10
+msgid "The model being trained."
+msgstr ""
+
+#: of transformers.TrainerCallback:12
+msgid "The tokenizer used for encoding the data."
+msgstr ""
+
+#: of transformers.TrainerCallback:14
+msgid "The optimizer used for the training steps."
+msgstr ""
+
+#: of transformers.TrainerCallback:16
+msgid "The scheduler used for setting the learning rate."
+msgstr ""
+
+#: of transformers.TrainerCallback:18 transformers.TrainerCallback:20
+msgid "The current dataloader used for training."
+msgstr ""
+
+#: of transformers.TrainerCallback:22
+msgid ""
+"The metrics computed by the last evaluation phase.  Those are only "
+"accessible in the event :obj:`on_evaluate`."
+msgstr ""
+
+#: of transformers.TrainerCallback:22
+msgid "The metrics computed by the last evaluation phase."
+msgstr ""
+
+#: of transformers.TrainerCallback:24
+msgid "Those are only accessible in the event :obj:`on_evaluate`."
+msgstr ""
+
+#: of transformers.TrainerCallback:26
+msgid "The values to log.  Those are only accessible in the event :obj:`on_log`."
+msgstr ""
+
+#: of transformers.TrainerCallback:26
+msgid "The values to log."
+msgstr ""
+
+#: of transformers.TrainerCallback:28
+msgid "Those are only accessible in the event :obj:`on_log`."
+msgstr ""
+
+#: of transformers.TrainerCallback:31
+msgid ""
+"The :obj:`control` object is the only one that can be changed by the "
+"callback, in which case the event that changes it should return the "
+"modified version."
+msgstr ""
+
+#: of transformers.TrainerCallback:34
+msgid ""
+"The argument :obj:`args`, :obj:`state` and :obj:`control` are positionals"
+" for all events, all the others are grouped in :obj:`kwargs`. You can "
+"unpack the ones you need in the signature of the event using them. As an "
+"example, see the code of the simple "
+":class:`~transformer.PrinterCallback`."
+msgstr ""
+
+#: of transformers.TrainerCallback:38
+msgid "Example::"
+msgstr ""
+
+#: of transformers.TrainerCallback.on_epoch_begin:1
+msgid "Event called at the beginning of an epoch."
+msgstr ""
+
+#: of transformers.TrainerCallback.on_epoch_end:1
+msgid "Event called at the end of an epoch."
+msgstr ""
+
+#: of transformers.TrainerCallback.on_evaluate:1
+msgid "Event called after an evaluation phase."
+msgstr ""
+
+#: of transformers.TrainerCallback.on_init_end:1
+msgid ""
+"Event called at the end of the initialization of the "
+":class:`~transformers.Trainer`."
+msgstr ""
+
+#: of transformers.TrainerCallback.on_log:1
+msgid "Event called after logging the last logs."
+msgstr ""
+
+#: of transformers.TrainerCallback.on_prediction_step:1
+msgid "Event called after a prediction step."
+msgstr ""
+
+#: of transformers.TrainerCallback.on_save:1
+msgid "Event called after a checkpoint save."
+msgstr ""
+
+#: of transformers.TrainerCallback.on_step_begin:1
+msgid ""
+"Event called at the beginning of a training step. If using gradient "
+"accumulation, one training step might take several inputs."
+msgstr ""
+
+#: of transformers.TrainerCallback.on_step_end:1
+msgid ""
+"Event called at the end of a training step. If using gradient "
+"accumulation, one training step might take several inputs."
+msgstr ""
+
+#: of transformers.TrainerCallback.on_substep_end:1
+msgid "Event called at the end of an substep during gradient accumulation."
+msgstr ""
+
+#: of transformers.TrainerCallback.on_train_begin:1
+msgid "Event called at the beginning of training."
+msgstr ""
+
+#: of transformers.TrainerCallback.on_train_end:1
+msgid "Event called at the end of training."
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:77
+msgid ""
+"Here is an example of how to register a custom callback with the PyTorch "
+":class:`~transformers.Trainer`:"
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:95
+msgid ""
+"Another way to register a callback is to call ``trainer.add_callback()`` "
+"as follows:"
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:105
+msgid "TrainerState"
+msgstr ""
+
+#: of transformers.TrainerState:1
+msgid ""
+"A class containing the :class:`~transformers.Trainer` inner state that "
+"will be saved along the model and optimizer when checkpointing and passed"
+" to the :class:`~transformers.TrainerCallback`."
+msgstr ""
+
+#: of transformers.TrainerState:6
+msgid ""
+"In all this class, one step is to be understood as one update step. When "
+"using gradient accumulation, one update step may require several forward "
+"and backward passes: if you use :obj:`gradient_accumulation_steps=n`, "
+"then one update step requires going through `n` batches."
+msgstr ""
+
+#: of transformers.TrainerState:10
+msgid ""
+"Only set during training, will represent the epoch the training is at "
+"(the decimal part being the percentage of the current epoch completed)."
+msgstr ""
+
+#: of transformers.TrainerState:13
+msgid "During training, represents the number of update steps completed."
+msgstr ""
+
+#: of transformers.TrainerState:15
+msgid "The number of update steps to do during the current training."
+msgstr ""
+
+#: of transformers.TrainerState:17
+msgid ""
+"The total number of floating operations done by the model since the "
+"beginning of training (stored as floats to avoid overflow)."
+msgstr ""
+
+#: of transformers.TrainerState:20
+msgid "The list of logs done since the beginning of training."
+msgstr ""
+
+#: of transformers.TrainerState:22
+msgid ""
+"When tracking the best model, the value of the best metric encountered so"
+" far."
+msgstr ""
+
+#: of transformers.TrainerState:24
+msgid ""
+"When tracking the best model, the value of the name of the checkpoint for"
+" the best model encountered so far."
+msgstr ""
+
+#: of transformers.TrainerState:27
+msgid ""
+"Whether or not this process is the local (e.g., on one machine if "
+"training in a distributed fashion on several machines) main process."
+msgstr ""
+
+#: of transformers.TrainerState:30
+msgid ""
+"Whether or not this process is the global main process (when training in "
+"a distributed fashion on several machines, this is only going to be "
+":obj:`True` for one process)."
+msgstr ""
+
+#: of transformers.TrainerState:33
+msgid ""
+"Whether we are in the process of a hyper parameter search using "
+"Trainer.hyperparameter_search. This will impact the way data will be "
+"logged in TensorBoard."
+msgstr ""
+
+#: of transformers.TrainerState.load_from_json:1
+msgid "Create an instance from the content of :obj:`json_path`."
+msgstr ""
+
+#: of transformers.TrainerState.save_to_json:1
+msgid "Save the content of this instance in JSON format inside :obj:`json_path`."
+msgstr ""
+
+#: ../../source/main_classes/callback.rst:112
+msgid "TrainerControl"
+msgstr ""
+
+#: of transformers.TrainerControl:1
+msgid ""
+"A class that handles the :class:`~transformers.Trainer` control flow. "
+"This class is used by the :class:`~transformers.TrainerCallback` to "
+"activate some switches in the training loop."
+msgstr ""
+
+#: of transformers.TrainerControl:4
+msgid ""
+"Whether or not the training should be interrupted.  If :obj:`True`, this "
+"variable will not be set back to :obj:`False`. The training will just "
+"stop."
+msgstr ""
+
+#: of transformers.TrainerControl:4
+msgid "Whether or not the training should be interrupted."
+msgstr ""
+
+#: of transformers.TrainerControl:6
+msgid ""
+"If :obj:`True`, this variable will not be set back to :obj:`False`. The "
+"training will just stop."
+msgstr ""
+
+#: of transformers.TrainerControl:8
+msgid ""
+"Whether or not the current epoch should be interrupted.  If :obj:`True`, "
+"this variable will be set back to :obj:`False` at the beginning of the "
+"next epoch."
+msgstr ""
+
+#: of transformers.TrainerControl:8
+msgid "Whether or not the current epoch should be interrupted."
+msgstr ""
+
+#: of transformers.TrainerControl:10
+msgid ""
+"If :obj:`True`, this variable will be set back to :obj:`False` at the "
+"beginning of the next epoch."
+msgstr ""
+
+#: of transformers.TrainerControl:12
+msgid ""
+"Whether or not the model should be saved at this step.  If :obj:`True`, "
+"this variable will be set back to :obj:`False` at the beginning of the "
+"next step."
+msgstr ""
+
+#: of transformers.TrainerControl:12
+msgid "Whether or not the model should be saved at this step."
+msgstr ""
+
+#: of transformers.TrainerControl:14 transformers.TrainerControl:18
+#: transformers.TrainerControl:22
+msgid ""
+"If :obj:`True`, this variable will be set back to :obj:`False` at the "
+"beginning of the next step."
+msgstr ""
+
+#: of transformers.TrainerControl:16
+msgid ""
+"Whether or not the model should be evaluated at this step.  If "
+":obj:`True`, this variable will be set back to :obj:`False` at the "
+"beginning of the next step."
+msgstr ""
+
+#: of transformers.TrainerControl:16
+msgid "Whether or not the model should be evaluated at this step."
+msgstr ""
+
+#: of transformers.TrainerControl:20
+msgid ""
+"Whether or not the logs should be reported at this step.  If :obj:`True`,"
+" this variable will be set back to :obj:`False` at the beginning of the "
+"next step."
+msgstr ""
+
+#: of transformers.TrainerControl:20
+msgid "Whether or not the logs should be reported at this step."
+msgstr ""
+

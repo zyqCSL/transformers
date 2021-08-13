@@ -1,0 +1,3070 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-10 04:49+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/roberta.rst:14
+msgid "RoBERTa"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:19
+msgid ""
+"The RoBERTa model was proposed in `RoBERTa: A Robustly Optimized BERT "
+"Pretraining Approach <https://arxiv.org/abs/1907.11692>`_ by Yinhan Liu, "
+"Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, "
+"Mike Lewis, Luke Zettlemoyer, Veselin Stoyanov. It is based on Google's "
+"BERT model released in 2018."
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:23
+msgid ""
+"It builds on BERT and modifies key hyperparameters, removing the next-"
+"sentence pretraining objective and training with much larger mini-batches"
+" and learning rates."
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:26
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:28
+msgid ""
+"*Language model pretraining has led to significant performance gains but "
+"careful comparison between different approaches is challenging. Training "
+"is computationally expensive, often done on private datasets of different"
+" sizes, and, as we will show, hyperparameter choices have significant "
+"impact on the final results. We present a replication study of BERT "
+"pretraining (Devlin et al., 2019) that carefully measures the impact of "
+"many key hyperparameters and training data size. We find that BERT was "
+"significantly undertrained, and can match or exceed the performance of "
+"every model published after it. Our best model achieves state-of-the-art "
+"results on GLUE, RACE and SQuAD. These results highlight the importance "
+"of previously overlooked design choices, and raise questions about the "
+"source of recently reported improvements. We release our models and "
+"code.*"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:37
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:39
+msgid ""
+"This implementation is the same as :class:`~transformers.BertModel` with "
+"a tiny embeddings tweak as well as a setup for Roberta pretrained models."
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:41
+msgid ""
+"RoBERTa has the same architecture as BERT, but uses a byte-level BPE as a"
+" tokenizer (same as GPT-2) and uses a different pretraining scheme."
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:43
+msgid ""
+"RoBERTa doesn't have :obj:`token_type_ids`, you don't need to indicate "
+"which token belongs to which segment. Just separate your segments with "
+"the separation token :obj:`tokenizer.sep_token` (or :obj:`</s>`)"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:45
+msgid ""
+":doc:`CamemBERT <camembert>` is a wrapper around RoBERTa. Refer to this "
+"page for usage examples."
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:47
+msgid ""
+"This model was contributed by `julien-c "
+"<https://huggingface.co/julien-c>`__. The original code can be found "
+"`here "
+"<https://github.com/pytorch/fairseq/tree/master/examples/roberta>`_."
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:52
+msgid "RobertaConfig"
+msgstr ""
+
+#: of transformers.RobertaConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.RobertaModel` or a "
+":class:`~transformers.TFRobertaModel`. It is used to instantiate a "
+"RoBERTa model according to the specified arguments, defining the model "
+"architecture."
+msgstr ""
+
+#: of transformers.RobertaConfig:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.RobertaConfig:9
+msgid ""
+"The :class:`~transformers.RobertaConfig` class directly inherits "
+":class:`~transformers.BertConfig`. It reuses the same defaults. Please "
+"check the parent class for more information."
+msgstr ""
+
+#: of transformers.RobertaConfig:12
+msgid "Examples::"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:59
+msgid "RobertaTokenizer"
+msgstr ""
+
+#: of transformers.RobertaTokenizer:1
+msgid ""
+"Constructs a RoBERTa tokenizer, derived from the GPT-2 tokenizer, using "
+"byte-level Byte-Pair-Encoding."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:3 transformers.RobertaTokenizerFast:4
+msgid ""
+"This tokenizer has been trained to treat spaces like parts of the tokens "
+"(a bit like sentencepiece) so a word will be encoded differently whether "
+"it is at the beginning of the sentence (without space) or not:"
+msgstr ""
+
+#: of transformers.RobertaTokenizer:15 transformers.RobertaTokenizerFast:16
+msgid ""
+"You can get around that behavior by passing ``add_prefix_space=True`` "
+"when instantiating this tokenizer or when you call it on some text, but "
+"since the model was not pretrained this way, it might yield a decrease in"
+" performance."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:20
+msgid ""
+"When used with ``is_split_into_words=True``, this tokenizer will add a "
+"space before each word (even the first one)."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:23
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM
+#: transformers.FlaxRobertaForMaskedLM.__call__
+#: transformers.FlaxRobertaForMultipleChoice
+#: transformers.FlaxRobertaForMultipleChoice.__call__
+#: transformers.FlaxRobertaForQuestionAnswering
+#: transformers.FlaxRobertaForQuestionAnswering.__call__
+#: transformers.FlaxRobertaForSequenceClassification
+#: transformers.FlaxRobertaForSequenceClassification.__call__
+#: transformers.FlaxRobertaForTokenClassification
+#: transformers.FlaxRobertaForTokenClassification.__call__
+#: transformers.FlaxRobertaModel transformers.FlaxRobertaModel.__call__
+#: transformers.RobertaForCausalLM transformers.RobertaForCausalLM.forward
+#: transformers.RobertaForMaskedLM transformers.RobertaForMaskedLM.forward
+#: transformers.RobertaForMultipleChoice
+#: transformers.RobertaForMultipleChoice.forward
+#: transformers.RobertaForQuestionAnswering
+#: transformers.RobertaForQuestionAnswering.forward
+#: transformers.RobertaForSequenceClassification
+#: transformers.RobertaForSequenceClassification.forward
+#: transformers.RobertaForTokenClassification
+#: transformers.RobertaForTokenClassification.forward transformers.RobertaModel
+#: transformers.RobertaModel.forward transformers.RobertaTokenizer
+#: transformers.RobertaTokenizer.build_inputs_with_special_tokens
+#: transformers.RobertaTokenizer.create_token_type_ids_from_sequences
+#: transformers.RobertaTokenizer.get_special_tokens_mask
+#: transformers.RobertaTokenizer.save_vocabulary
+#: transformers.RobertaTokenizerFast
+#: transformers.RobertaTokenizerFast.build_inputs_with_special_tokens
+#: transformers.TFRobertaForMaskedLM transformers.TFRobertaForMaskedLM.call
+#: transformers.TFRobertaForMultipleChoice
+#: transformers.TFRobertaForMultipleChoice.call
+#: transformers.TFRobertaForQuestionAnswering
+#: transformers.TFRobertaForQuestionAnswering.call
+#: transformers.TFRobertaForSequenceClassification
+#: transformers.TFRobertaForSequenceClassification.call
+#: transformers.TFRobertaForTokenClassification
+#: transformers.TFRobertaForTokenClassification.call
+#: transformers.TFRobertaModel transformers.TFRobertaModel.call
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.RobertaTokenizer:26 transformers.RobertaTokenizerFast:27
+msgid "Path to the vocabulary file."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:28 transformers.RobertaTokenizerFast:29
+msgid "Path to the merges file."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:30 transformers.RobertaTokenizerFast:31
+msgid ""
+"Paradigm to follow when decoding bytes to UTF-8. See `bytes.decode "
+"<https://docs.python.org/3/library/stdtypes.html#bytes.decode>`__ for "
+"more information."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:33 transformers.RobertaTokenizerFast:34
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token.  .. note::      When building a "
+"sequence using special tokens, this is not the token that is used for the"
+" beginning of     sequence. The token used is the :obj:`cls_token`."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:33 transformers.RobertaTokenizerFast:34
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:37 transformers.RobertaTokenizerFast:38
+msgid ""
+"When building a sequence using special tokens, this is not the token that"
+" is used for the beginning of sequence. The token used is the "
+":obj:`cls_token`."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:40 transformers.RobertaTokenizerFast:41
+msgid ""
+"The end of sequence token.  .. note::      When building a sequence using"
+" special tokens, this is not the token that is used for the end of     "
+"sequence. The token used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:40 transformers.RobertaTokenizerFast:41
+msgid "The end of sequence token."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:44 transformers.RobertaTokenizerFast:45
+msgid ""
+"When building a sequence using special tokens, this is not the token that"
+" is used for the end of sequence. The token used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:47 transformers.RobertaTokenizerFast:48
+msgid ""
+"The separator token, which is used when building a sequence from multiple"
+" sequences, e.g. two sequences for sequence classification or for a text "
+"and a question for question answering. It is also used as the last token "
+"of a sequence built with special tokens."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:51 transformers.RobertaTokenizerFast:52
+msgid ""
+"The classifier token which is used when doing sequence classification "
+"(classification of the whole sequence instead of per-token "
+"classification). It is the first token of the sequence when built with "
+"special tokens."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:54 transformers.RobertaTokenizerFast:55
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:57 transformers.RobertaTokenizerFast:58
+msgid ""
+"The token used for padding, for example when batching sequences of "
+"different lengths."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:59 transformers.RobertaTokenizerFast:60
+msgid ""
+"The token used for masking values. This is the token used when training "
+"this model with masked language modeling. This is the token which the "
+"model will try to predict."
+msgstr ""
+
+#: of transformers.RobertaTokenizer:62 transformers.RobertaTokenizerFast:63
+msgid ""
+"Whether or not to add an initial space to the input. This allows to treat"
+" the leading word just as any other word. (RoBERTa tokenizer detect "
+"beginning of words by the preceding space)."
+msgstr ""
+
+#: of transformers.RobertaTokenizer.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. A "
+"RoBERTa sequence has the following format:"
+msgstr ""
+
+#: of transformers.RobertaTokenizer.build_inputs_with_special_tokens:4
+msgid "single sequence: ``<s> X </s>``"
+msgstr ""
+
+#: of transformers.RobertaTokenizer.build_inputs_with_special_tokens:5
+msgid "pair of sequences: ``<s> A </s></s> B </s>``"
+msgstr ""
+
+#: of transformers.RobertaTokenizer.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.RobertaTokenizer.build_inputs_with_special_tokens:9
+#: transformers.RobertaTokenizer.create_token_type_ids_from_sequences:6
+#: transformers.RobertaTokenizer.get_special_tokens_mask:6
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__
+#: transformers.FlaxRobertaForMultipleChoice.__call__
+#: transformers.FlaxRobertaForQuestionAnswering.__call__
+#: transformers.FlaxRobertaForSequenceClassification.__call__
+#: transformers.FlaxRobertaForTokenClassification.__call__
+#: transformers.FlaxRobertaModel.__call__
+#: transformers.RobertaForCausalLM.forward
+#: transformers.RobertaForMaskedLM.forward
+#: transformers.RobertaForMultipleChoice.forward
+#: transformers.RobertaForQuestionAnswering.forward
+#: transformers.RobertaForSequenceClassification.forward
+#: transformers.RobertaForTokenClassification.forward
+#: transformers.RobertaModel.forward
+#: transformers.RobertaTokenizer.build_inputs_with_special_tokens
+#: transformers.RobertaTokenizer.create_token_type_ids_from_sequences
+#: transformers.RobertaTokenizer.get_special_tokens_mask
+#: transformers.RobertaTokenizer.save_vocabulary
+#: transformers.RobertaTokenizerFast.build_inputs_with_special_tokens
+#: transformers.TFRobertaForMaskedLM.call
+#: transformers.TFRobertaForMultipleChoice.call
+#: transformers.TFRobertaForQuestionAnswering.call
+#: transformers.TFRobertaForSequenceClassification.call
+#: transformers.TFRobertaForTokenClassification.call
+#: transformers.TFRobertaModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.RobertaTokenizer.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__
+#: transformers.FlaxRobertaForMultipleChoice.__call__
+#: transformers.FlaxRobertaForQuestionAnswering.__call__
+#: transformers.FlaxRobertaForSequenceClassification.__call__
+#: transformers.FlaxRobertaForTokenClassification.__call__
+#: transformers.FlaxRobertaModel.__call__
+#: transformers.RobertaForCausalLM.forward
+#: transformers.RobertaForMaskedLM.forward
+#: transformers.RobertaForMultipleChoice.forward
+#: transformers.RobertaForQuestionAnswering.forward
+#: transformers.RobertaForSequenceClassification.forward
+#: transformers.RobertaForTokenClassification.forward
+#: transformers.RobertaModel.forward
+#: transformers.RobertaTokenizer.build_inputs_with_special_tokens
+#: transformers.RobertaTokenizer.create_token_type_ids_from_sequences
+#: transformers.RobertaTokenizer.get_special_tokens_mask
+#: transformers.RobertaTokenizer.save_vocabulary
+#: transformers.RobertaTokenizerFast.build_inputs_with_special_tokens
+#: transformers.TFRobertaForMaskedLM.call
+#: transformers.TFRobertaForMultipleChoice.call
+#: transformers.TFRobertaForQuestionAnswering.call
+#: transformers.TFRobertaForSequenceClassification.call
+#: transformers.TFRobertaForTokenClassification.call
+#: transformers.TFRobertaModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.RobertaTokenizer.build_inputs_with_special_tokens:13
+#: transformers.RobertaTokenizer.create_token_type_ids_from_sequences:10
+#: transformers.RobertaTokenizer.get_special_tokens_mask:12
+#: transformers.RobertaTokenizerFast.build_inputs_with_special_tokens:12
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.RobertaTokenizer.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. RoBERTa does not make use of token type ids, "
+"therefore a list of zeros is returned."
+msgstr ""
+
+#: of transformers.RobertaTokenizer.create_token_type_ids_from_sequences:4
+#: transformers.RobertaTokenizer.get_special_tokens_mask:4
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.RobertaTokenizer.create_token_type_ids_from_sequences:9
+msgid "List of zeros."
+msgstr ""
+
+#: of transformers.RobertaTokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.RobertaTokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.RobertaTokenizer.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.RobertaTokenizer.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.RobertaTokenizer.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.RobertaTokenizer.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.RobertaTokenizer.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.RobertaTokenizer.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.RobertaTokenizer.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:67
+msgid "RobertaTokenizerFast"
+msgstr ""
+
+#: of transformers.RobertaTokenizerFast:1
+msgid ""
+"Construct a \"fast\" RoBERTa tokenizer (backed by HuggingFace's "
+"`tokenizers` library), derived from the GPT-2 tokenizer, using byte-level"
+" Byte-Pair-Encoding."
+msgstr ""
+
+#: of transformers.RobertaTokenizerFast:21
+msgid ""
+"When used with ``is_split_into_words=True``, this tokenizer needs to be "
+"instantiated with ``add_prefix_space=True``."
+msgstr ""
+
+#: of transformers.RobertaTokenizerFast:24
+msgid ""
+"This tokenizer inherits from "
+":class:`~transformers.PreTrainedTokenizerFast` which contains most of the"
+" main methods. Users should refer to this superclass for more information"
+" regarding those methods."
+msgstr ""
+
+#: of transformers.RobertaTokenizerFast:66
+msgid ""
+"Whether the post processing step should trim offsets to avoid including "
+"whitespaces."
+msgstr ""
+
+#: of transformers.RobertaTokenizerFast.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens."
+msgstr ""
+
+#: of transformers.RobertaTokenizerFast.build_inputs_with_special_tokens:4
+msgid ""
+"This implementation does not add special tokens and this method should be"
+" overridden in a subclass."
+msgstr ""
+
+#: of transformers.RobertaTokenizerFast.build_inputs_with_special_tokens:6
+msgid "The first tokenized sequence."
+msgstr ""
+
+#: of transformers.RobertaTokenizerFast.build_inputs_with_special_tokens:8
+msgid "The second tokenized sequence."
+msgstr ""
+
+#: of transformers.RobertaTokenizerFast.build_inputs_with_special_tokens:11
+msgid "The model input with special tokens."
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:74
+msgid "RobertaModel"
+msgstr ""
+
+#: of transformers.FlaxRobertaModel:1 transformers.RobertaModel:1
+#: transformers.TFRobertaModel:1
+msgid ""
+"The bare RoBERTa Model transformer outputting raw hidden-states without "
+"any specific head on top."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM:3 transformers.RobertaForMaskedLM:3
+#: transformers.RobertaForMultipleChoice:5
+#: transformers.RobertaForQuestionAnswering:5
+#: transformers.RobertaForSequenceClassification:5
+#: transformers.RobertaForTokenClassification:5 transformers.RobertaModel:3
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.RobertaForCausalLM:7 transformers.RobertaForMaskedLM:7
+#: transformers.RobertaForMultipleChoice:9
+#: transformers.RobertaForQuestionAnswering:9
+#: transformers.RobertaForSequenceClassification:9
+#: transformers.RobertaForTokenClassification:9 transformers.RobertaModel:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM:11 transformers.RobertaForMaskedLM:11
+#: transformers.RobertaForMultipleChoice:13
+#: transformers.RobertaForQuestionAnswering:13
+#: transformers.RobertaForSequenceClassification:13
+#: transformers.RobertaForTokenClassification:13 transformers.RobertaModel:11
+#: transformers.TFRobertaForMaskedLM:30
+#: transformers.TFRobertaForMultipleChoice:32
+#: transformers.TFRobertaForQuestionAnswering:32
+#: transformers.TFRobertaForSequenceClassification:32
+#: transformers.TFRobertaForTokenClassification:32
+#: transformers.TFRobertaModel:30
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.RobertaModel:17
+msgid ""
+"The model can behave as an encoder (with only self-attention) as well as "
+"a decoder, in which case a layer of cross-attention is added between the "
+"self-attention layers, following the architecture described in `Attention"
+" is all you need`_ by Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob "
+"Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser and Illia "
+"Polosukhin."
+msgstr ""
+
+#: of transformers.RobertaModel:22
+msgid ""
+"To behave as an decoder the model needs to be initialized with the "
+":obj:`is_decoder` argument of the configuration set to :obj:`True`. To be"
+" used in a Seq2Seq model, the model needs to initialized with both "
+":obj:`is_decoder` argument and :obj:`add_cross_attention` set to "
+":obj:`True`; an :obj:`encoder_hidden_states` is then expected as an input"
+" to the forward pass."
+msgstr ""
+
+#: of transformers.RobertaModel.forward:1
+msgid ""
+"The :class:`~transformers.RobertaModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:4
+#: transformers.FlaxRobertaForMultipleChoice.__call__:4
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:4
+#: transformers.FlaxRobertaForSequenceClassification.__call__:4
+#: transformers.FlaxRobertaForTokenClassification.__call__:4
+#: transformers.FlaxRobertaModel.__call__:4
+#: transformers.RobertaForCausalLM.forward:4
+#: transformers.RobertaForMaskedLM.forward:4
+#: transformers.RobertaForMultipleChoice.forward:4
+#: transformers.RobertaForQuestionAnswering.forward:4
+#: transformers.RobertaForSequenceClassification.forward:4
+#: transformers.RobertaForTokenClassification.forward:4
+#: transformers.RobertaModel.forward:4 transformers.TFRobertaForMaskedLM.call:4
+#: transformers.TFRobertaForMultipleChoice.call:4
+#: transformers.TFRobertaForQuestionAnswering.call:4
+#: transformers.TFRobertaForSequenceClassification.call:4
+#: transformers.TFRobertaForTokenClassification.call:4
+#: transformers.TFRobertaModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:8
+#: transformers.RobertaForMaskedLM.forward:8
+#: transformers.RobertaForMultipleChoice.forward:8
+#: transformers.RobertaForQuestionAnswering.forward:8
+#: transformers.RobertaForSequenceClassification.forward:8
+#: transformers.RobertaForTokenClassification.forward:8
+#: transformers.RobertaModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.RobertaTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:8
+#: transformers.FlaxRobertaForMultipleChoice.__call__:8
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:8
+#: transformers.FlaxRobertaForSequenceClassification.__call__:8
+#: transformers.FlaxRobertaForTokenClassification.__call__:8
+#: transformers.FlaxRobertaModel.__call__:8
+#: transformers.RobertaForCausalLM.forward:8
+#: transformers.RobertaForMaskedLM.forward:8
+#: transformers.RobertaForMultipleChoice.forward:8
+#: transformers.RobertaForQuestionAnswering.forward:8
+#: transformers.RobertaForSequenceClassification.forward:8
+#: transformers.RobertaForTokenClassification.forward:8
+#: transformers.RobertaModel.forward:8 transformers.TFRobertaForMaskedLM.call:8
+#: transformers.TFRobertaForMultipleChoice.call:8
+#: transformers.TFRobertaForQuestionAnswering.call:8
+#: transformers.TFRobertaForSequenceClassification.call:8
+#: transformers.TFRobertaForTokenClassification.call:8
+#: transformers.TFRobertaModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:10
+#: transformers.RobertaForMaskedLM.forward:10
+#: transformers.RobertaForMultipleChoice.forward:10
+#: transformers.RobertaForQuestionAnswering.forward:10
+#: transformers.RobertaForSequenceClassification.forward:10
+#: transformers.RobertaForTokenClassification.forward:10
+#: transformers.RobertaModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.RobertaTokenizer`. "
+"See :meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:14
+#: transformers.FlaxRobertaForMultipleChoice.__call__:14
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:14
+#: transformers.FlaxRobertaForSequenceClassification.__call__:14
+#: transformers.FlaxRobertaForTokenClassification.__call__:14
+#: transformers.FlaxRobertaModel.__call__:14
+#: transformers.RobertaForCausalLM.forward:14
+#: transformers.RobertaForMaskedLM.forward:14
+#: transformers.RobertaForMultipleChoice.forward:14
+#: transformers.RobertaForQuestionAnswering.forward:14
+#: transformers.RobertaForSequenceClassification.forward:14
+#: transformers.RobertaForTokenClassification.forward:14
+#: transformers.RobertaModel.forward:14
+#: transformers.TFRobertaForMaskedLM.call:14
+#: transformers.TFRobertaForMultipleChoice.call:14
+#: transformers.TFRobertaForQuestionAnswering.call:14
+#: transformers.TFRobertaForSequenceClassification.call:14
+#: transformers.TFRobertaForTokenClassification.call:14
+#: transformers.TFRobertaModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:16
+#: transformers.FlaxRobertaForMultipleChoice.__call__:16
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:16
+#: transformers.FlaxRobertaForSequenceClassification.__call__:16
+#: transformers.FlaxRobertaForTokenClassification.__call__:16
+#: transformers.FlaxRobertaModel.__call__:16
+#: transformers.RobertaForCausalLM.forward:16
+#: transformers.RobertaForMaskedLM.forward:16
+#: transformers.RobertaForMultipleChoice.forward:16
+#: transformers.RobertaForQuestionAnswering.forward:16
+#: transformers.RobertaForSequenceClassification.forward:16
+#: transformers.RobertaForTokenClassification.forward:16
+#: transformers.RobertaModel.forward:16
+#: transformers.TFRobertaForMaskedLM.call:16
+#: transformers.TFRobertaForMultipleChoice.call:16
+#: transformers.TFRobertaForQuestionAnswering.call:16
+#: transformers.TFRobertaForSequenceClassification.call:16
+#: transformers.TFRobertaForTokenClassification.call:16
+#: transformers.TFRobertaModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:16
+#: transformers.FlaxRobertaForMultipleChoice.__call__:16
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:16
+#: transformers.FlaxRobertaForSequenceClassification.__call__:16
+#: transformers.FlaxRobertaForTokenClassification.__call__:16
+#: transformers.FlaxRobertaModel.__call__:16
+#: transformers.RobertaForCausalLM.forward:16
+#: transformers.RobertaForMaskedLM.forward:16
+#: transformers.RobertaForMultipleChoice.forward:16
+#: transformers.RobertaForQuestionAnswering.forward:16
+#: transformers.RobertaForSequenceClassification.forward:16
+#: transformers.RobertaForTokenClassification.forward:16
+#: transformers.RobertaModel.forward:16
+#: transformers.TFRobertaForMaskedLM.call:16
+#: transformers.TFRobertaForMultipleChoice.call:16
+#: transformers.TFRobertaForQuestionAnswering.call:16
+#: transformers.TFRobertaForSequenceClassification.call:16
+#: transformers.TFRobertaForTokenClassification.call:16
+#: transformers.TFRobertaModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:18
+#: transformers.FlaxRobertaForMultipleChoice.__call__:18
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:18
+#: transformers.FlaxRobertaForSequenceClassification.__call__:18
+#: transformers.FlaxRobertaForTokenClassification.__call__:18
+#: transformers.FlaxRobertaModel.__call__:18
+#: transformers.RobertaForCausalLM.forward:18
+#: transformers.RobertaForCausalLM.forward:59
+#: transformers.RobertaForMaskedLM.forward:18
+#: transformers.RobertaForMultipleChoice.forward:18
+#: transformers.RobertaForQuestionAnswering.forward:18
+#: transformers.RobertaForSequenceClassification.forward:18
+#: transformers.RobertaForTokenClassification.forward:18
+#: transformers.RobertaModel.forward:18 transformers.RobertaModel.forward:59
+#: transformers.TFRobertaForMaskedLM.call:18
+#: transformers.TFRobertaForMultipleChoice.call:18
+#: transformers.TFRobertaForQuestionAnswering.call:18
+#: transformers.TFRobertaForSequenceClassification.call:18
+#: transformers.TFRobertaForTokenClassification.call:18
+#: transformers.TFRobertaModel.call:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:19
+#: transformers.FlaxRobertaForMultipleChoice.__call__:19
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:19
+#: transformers.FlaxRobertaForSequenceClassification.__call__:19
+#: transformers.FlaxRobertaForTokenClassification.__call__:19
+#: transformers.FlaxRobertaModel.__call__:19
+#: transformers.RobertaForCausalLM.forward:19
+#: transformers.RobertaForCausalLM.forward:60
+#: transformers.RobertaForMaskedLM.forward:19
+#: transformers.RobertaForMultipleChoice.forward:19
+#: transformers.RobertaForQuestionAnswering.forward:19
+#: transformers.RobertaForSequenceClassification.forward:19
+#: transformers.RobertaForTokenClassification.forward:19
+#: transformers.RobertaModel.forward:19 transformers.RobertaModel.forward:60
+#: transformers.TFRobertaForMaskedLM.call:19
+#: transformers.TFRobertaForMultipleChoice.call:19
+#: transformers.TFRobertaForQuestionAnswering.call:19
+#: transformers.TFRobertaForSequenceClassification.call:19
+#: transformers.TFRobertaForTokenClassification.call:19
+#: transformers.TFRobertaModel.call:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:21
+#: transformers.FlaxRobertaForMultipleChoice.__call__:21
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:21
+#: transformers.FlaxRobertaForSequenceClassification.__call__:21
+#: transformers.FlaxRobertaForTokenClassification.__call__:21
+#: transformers.FlaxRobertaModel.__call__:21
+#: transformers.RobertaForCausalLM.forward:21
+#: transformers.RobertaForMaskedLM.forward:21
+#: transformers.RobertaForMultipleChoice.forward:21
+#: transformers.RobertaForQuestionAnswering.forward:21
+#: transformers.RobertaForSequenceClassification.forward:21
+#: transformers.RobertaForTokenClassification.forward:21
+#: transformers.RobertaModel.forward:21
+#: transformers.TFRobertaForMaskedLM.call:21
+#: transformers.TFRobertaForMultipleChoice.call:21
+#: transformers.TFRobertaForQuestionAnswering.call:21
+#: transformers.TFRobertaForSequenceClassification.call:21
+#: transformers.TFRobertaForTokenClassification.call:21
+#: transformers.TFRobertaModel.call:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:23
+#: transformers.RobertaForMaskedLM.forward:23
+#: transformers.RobertaForMultipleChoice.forward:23
+#: transformers.RobertaForQuestionAnswering.forward:23
+#: transformers.RobertaForSequenceClassification.forward:23
+#: transformers.RobertaForTokenClassification.forward:23
+#: transformers.RobertaModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:23
+#: transformers.FlaxRobertaForMultipleChoice.__call__:23
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:23
+#: transformers.FlaxRobertaForSequenceClassification.__call__:23
+#: transformers.FlaxRobertaForTokenClassification.__call__:23
+#: transformers.FlaxRobertaModel.__call__:23
+#: transformers.RobertaForCausalLM.forward:23
+#: transformers.RobertaForMaskedLM.forward:23
+#: transformers.RobertaForMultipleChoice.forward:23
+#: transformers.RobertaForQuestionAnswering.forward:23
+#: transformers.RobertaForSequenceClassification.forward:23
+#: transformers.RobertaForTokenClassification.forward:23
+#: transformers.RobertaModel.forward:23
+#: transformers.TFRobertaForMaskedLM.call:23
+#: transformers.TFRobertaForMultipleChoice.call:23
+#: transformers.TFRobertaForQuestionAnswering.call:23
+#: transformers.TFRobertaForSequenceClassification.call:23
+#: transformers.TFRobertaForTokenClassification.call:23
+#: transformers.TFRobertaModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:26
+#: transformers.FlaxRobertaForMultipleChoice.__call__:26
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:26
+#: transformers.FlaxRobertaForSequenceClassification.__call__:26
+#: transformers.FlaxRobertaForTokenClassification.__call__:26
+#: transformers.FlaxRobertaModel.__call__:26
+#: transformers.RobertaForCausalLM.forward:26
+#: transformers.RobertaForMaskedLM.forward:26
+#: transformers.RobertaForMultipleChoice.forward:26
+#: transformers.RobertaForQuestionAnswering.forward:26
+#: transformers.RobertaForSequenceClassification.forward:26
+#: transformers.RobertaForTokenClassification.forward:26
+#: transformers.RobertaModel.forward:26
+#: transformers.TFRobertaForMaskedLM.call:26
+#: transformers.TFRobertaForMultipleChoice.call:26
+#: transformers.TFRobertaForQuestionAnswering.call:26
+#: transformers.TFRobertaForSequenceClassification.call:26
+#: transformers.TFRobertaForTokenClassification.call:26
+#: transformers.TFRobertaModel.call:26
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:27
+#: transformers.FlaxRobertaForMultipleChoice.__call__:27
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:27
+#: transformers.FlaxRobertaForSequenceClassification.__call__:27
+#: transformers.FlaxRobertaForTokenClassification.__call__:27
+#: transformers.FlaxRobertaModel.__call__:27
+#: transformers.RobertaForCausalLM.forward:27
+#: transformers.RobertaForMaskedLM.forward:27
+#: transformers.RobertaForMultipleChoice.forward:27
+#: transformers.RobertaForQuestionAnswering.forward:27
+#: transformers.RobertaForSequenceClassification.forward:27
+#: transformers.RobertaForTokenClassification.forward:27
+#: transformers.RobertaModel.forward:27
+#: transformers.TFRobertaForMaskedLM.call:27
+#: transformers.TFRobertaForMultipleChoice.call:27
+#: transformers.TFRobertaForQuestionAnswering.call:27
+#: transformers.TFRobertaForSequenceClassification.call:27
+#: transformers.TFRobertaForTokenClassification.call:27
+#: transformers.TFRobertaModel.call:27
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:29
+#: transformers.RobertaForMaskedLM.forward:29
+#: transformers.RobertaForMultipleChoice.forward:29
+#: transformers.RobertaForQuestionAnswering.forward:29
+#: transformers.RobertaForSequenceClassification.forward:29
+#: transformers.RobertaForTokenClassification.forward:29
+#: transformers.RobertaModel.forward:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:31
+#: transformers.RobertaForMaskedLM.forward:31
+#: transformers.RobertaForMultipleChoice.forward:31
+#: transformers.RobertaForQuestionAnswering.forward:31
+#: transformers.RobertaForSequenceClassification.forward:31
+#: transformers.RobertaForTokenClassification.forward:31
+#: transformers.RobertaModel.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:31
+#: transformers.FlaxRobertaForMultipleChoice.__call__:31
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:31
+#: transformers.FlaxRobertaForSequenceClassification.__call__:31
+#: transformers.FlaxRobertaForTokenClassification.__call__:31
+#: transformers.FlaxRobertaModel.__call__:31
+#: transformers.RobertaForCausalLM.forward:31
+#: transformers.RobertaForMaskedLM.forward:31
+#: transformers.RobertaForMultipleChoice.forward:31
+#: transformers.RobertaForQuestionAnswering.forward:31
+#: transformers.RobertaForSequenceClassification.forward:31
+#: transformers.RobertaForTokenClassification.forward:31
+#: transformers.RobertaModel.forward:31
+#: transformers.TFRobertaForMaskedLM.call:31
+#: transformers.TFRobertaForMultipleChoice.call:31
+#: transformers.TFRobertaForQuestionAnswering.call:31
+#: transformers.TFRobertaForSequenceClassification.call:31
+#: transformers.TFRobertaForTokenClassification.call:31
+#: transformers.TFRobertaModel.call:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:34
+#: transformers.RobertaForMaskedLM.forward:34
+#: transformers.RobertaForMultipleChoice.forward:34
+#: transformers.RobertaForQuestionAnswering.forward:34
+#: transformers.RobertaForSequenceClassification.forward:34
+#: transformers.RobertaForTokenClassification.forward:34
+#: transformers.RobertaModel.forward:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:36
+#: transformers.RobertaForMaskedLM.forward:36
+#: transformers.RobertaForMultipleChoice.forward:36
+#: transformers.RobertaForQuestionAnswering.forward:36
+#: transformers.RobertaForSequenceClassification.forward:36
+#: transformers.RobertaForTokenClassification.forward:36
+#: transformers.RobertaModel.forward:36
+#: transformers.TFRobertaForMaskedLM.call:36
+#: transformers.TFRobertaForMultipleChoice.call:36
+#: transformers.TFRobertaForQuestionAnswering.call:36
+#: transformers.TFRobertaForSequenceClassification.call:36
+#: transformers.TFRobertaForTokenClassification.call:36
+#: transformers.TFRobertaModel.call:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:36
+#: transformers.RobertaForMaskedLM.forward:36
+#: transformers.RobertaForMultipleChoice.forward:36
+#: transformers.RobertaForQuestionAnswering.forward:36
+#: transformers.RobertaForSequenceClassification.forward:36
+#: transformers.RobertaForTokenClassification.forward:36
+#: transformers.RobertaModel.forward:36
+#: transformers.TFRobertaForMaskedLM.call:36
+#: transformers.TFRobertaForMultipleChoice.call:36
+#: transformers.TFRobertaForQuestionAnswering.call:36
+#: transformers.TFRobertaForSequenceClassification.call:36
+#: transformers.TFRobertaForTokenClassification.call:36
+#: transformers.TFRobertaModel.call:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:38
+#: transformers.RobertaForMaskedLM.forward:38
+#: transformers.RobertaForMultipleChoice.forward:38
+#: transformers.RobertaForQuestionAnswering.forward:38
+#: transformers.RobertaForSequenceClassification.forward:38
+#: transformers.RobertaForTokenClassification.forward:38
+#: transformers.RobertaModel.forward:38
+#: transformers.TFRobertaForMaskedLM.call:38
+#: transformers.TFRobertaForMultipleChoice.call:38
+#: transformers.TFRobertaForQuestionAnswering.call:38
+#: transformers.TFRobertaForSequenceClassification.call:38
+#: transformers.TFRobertaForTokenClassification.call:38
+#: transformers.TFRobertaModel.call:38
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:39
+#: transformers.RobertaForMaskedLM.forward:39
+#: transformers.RobertaForMultipleChoice.forward:39
+#: transformers.RobertaForQuestionAnswering.forward:39
+#: transformers.RobertaForSequenceClassification.forward:39
+#: transformers.RobertaForTokenClassification.forward:39
+#: transformers.RobertaModel.forward:39
+#: transformers.TFRobertaForMaskedLM.call:39
+#: transformers.TFRobertaForMultipleChoice.call:39
+#: transformers.TFRobertaForQuestionAnswering.call:39
+#: transformers.TFRobertaForSequenceClassification.call:39
+#: transformers.TFRobertaForTokenClassification.call:39
+#: transformers.TFRobertaModel.call:39
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:41
+#: transformers.RobertaForMaskedLM.forward:41
+#: transformers.RobertaForMultipleChoice.forward:41
+#: transformers.RobertaForQuestionAnswering.forward:41
+#: transformers.RobertaForSequenceClassification.forward:41
+#: transformers.RobertaForTokenClassification.forward:41
+#: transformers.RobertaModel.forward:41
+#: transformers.TFRobertaForMaskedLM.call:41
+#: transformers.TFRobertaForMultipleChoice.call:41
+#: transformers.TFRobertaForQuestionAnswering.call:41
+#: transformers.TFRobertaForSequenceClassification.call:41
+#: transformers.TFRobertaForTokenClassification.call:41
+#: transformers.TFRobertaModel.call:41
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:45
+#: transformers.RobertaForMaskedLM.forward:45
+#: transformers.RobertaForMultipleChoice.forward:45
+#: transformers.RobertaForQuestionAnswering.forward:45
+#: transformers.RobertaForSequenceClassification.forward:45
+#: transformers.RobertaForTokenClassification.forward:45
+#: transformers.RobertaModel.forward:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:48
+#: transformers.RobertaForMaskedLM.forward:48
+#: transformers.RobertaForMultipleChoice.forward:48
+#: transformers.RobertaForQuestionAnswering.forward:48
+#: transformers.RobertaForSequenceClassification.forward:48
+#: transformers.RobertaForTokenClassification.forward:48
+#: transformers.RobertaModel.forward:48
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:34
+#: transformers.FlaxRobertaForMultipleChoice.__call__:34
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:34
+#: transformers.FlaxRobertaForSequenceClassification.__call__:34
+#: transformers.FlaxRobertaForTokenClassification.__call__:34
+#: transformers.FlaxRobertaModel.__call__:34
+#: transformers.RobertaForCausalLM.forward:51
+#: transformers.RobertaForMaskedLM.forward:51
+#: transformers.RobertaForMultipleChoice.forward:51
+#: transformers.RobertaForQuestionAnswering.forward:51
+#: transformers.RobertaForSequenceClassification.forward:51
+#: transformers.RobertaForTokenClassification.forward:51
+#: transformers.RobertaModel.forward:51
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:53
+#: transformers.RobertaModel.forward:53
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the encoder."
+" Used in the cross-attention if the model is configured as a decoder."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:56
+#: transformers.RobertaModel.forward:56
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:  - 1 for "
+"tokens that are **not masked**, - 0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:56
+#: transformers.RobertaModel.forward:56
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:66
+#: transformers.RobertaModel.forward:62
+msgid ""
+"Contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding.  If :obj:`past_key_values` are used, "
+"the user can optionally input only the last :obj:`decoder_input_ids` "
+"(those that don't have their past key value states given to this model) "
+"of shape :obj:`(batch_size, 1)` instead of all :obj:`decoder_input_ids` "
+"of shape :obj:`(batch_size, sequence_length)`."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:66
+#: transformers.RobertaModel.forward:62
+msgid ""
+"Contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:68
+#: transformers.RobertaModel.forward:64
+msgid ""
+"If :obj:`past_key_values` are used, the user can optionally input only "
+"the last :obj:`decoder_input_ids` (those that don't have their past key "
+"value states given to this model) of shape :obj:`(batch_size, 1)` instead"
+" of all :obj:`decoder_input_ids` of shape :obj:`(batch_size, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:72
+#: transformers.RobertaModel.forward:68
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.RobertaModel.forward:72
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, hidden_size)`) -- "
+"Last layer hidden-state of the first token of the sequence "
+"(classification token) further processed by a   Linear layer and a Tanh "
+"activation function. The Linear layer weights are trained from the next "
+"sentence   prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` and ``config.add_cross_attention=True`` is "
+"passed or when ``config.output_attentions=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for each layer) of shape :obj:`(batch_size,"
+" num_heads,   sequence_length, sequence_length)`.    Attentions weights "
+"of the decoder's cross-attention layer, after the attention softmax, used"
+" to compute the   weighted average in the cross-attention heads. - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and optionally if   "
+"``config.is_encoder_decoder=True`` 2 additional tensors of shape "
+":obj:`(batch_size, num_heads,   encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and optionally if   "
+"``config.is_encoder_decoder=True`` in the cross-attention blocks) that "
+"can be used (see   :obj:`past_key_values` input) to speed up sequential "
+"decoding."
+msgstr ""
+
+#: of transformers.RobertaModel.forward:72
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.RobertaModel.forward:76
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.RobertaModel.forward:77
+msgid ""
+"**pooler_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:82
+#: transformers.RobertaForMaskedLM.forward:66
+#: transformers.RobertaForMultipleChoice.forward:66
+#: transformers.RobertaForQuestionAnswering.forward:69
+#: transformers.RobertaForSequenceClassification.forward:64
+#: transformers.RobertaForTokenClassification.forward:63
+#: transformers.RobertaModel.forward:80
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:48
+#: transformers.FlaxRobertaForMultipleChoice.__call__:47
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:46
+#: transformers.FlaxRobertaForSequenceClassification.__call__:45
+#: transformers.FlaxRobertaForTokenClassification.__call__:45
+#: transformers.FlaxRobertaModel.__call__:48
+#: transformers.RobertaForCausalLM.forward:85
+#: transformers.RobertaForMaskedLM.forward:69
+#: transformers.RobertaForMultipleChoice.forward:69
+#: transformers.RobertaForQuestionAnswering.forward:72
+#: transformers.RobertaForSequenceClassification.forward:67
+#: transformers.RobertaForTokenClassification.forward:66
+#: transformers.RobertaModel.forward:83
+#: transformers.TFRobertaForMaskedLM.call:73
+#: transformers.TFRobertaForMultipleChoice.call:75
+#: transformers.TFRobertaForQuestionAnswering.call:78
+#: transformers.TFRobertaForSequenceClassification.call:73
+#: transformers.TFRobertaForTokenClassification.call:72
+#: transformers.TFRobertaModel.call:74
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:86
+#: transformers.RobertaForMaskedLM.forward:70
+#: transformers.RobertaForMultipleChoice.forward:70
+#: transformers.RobertaForQuestionAnswering.forward:73
+#: transformers.RobertaForSequenceClassification.forward:68
+#: transformers.RobertaForTokenClassification.forward:67
+#: transformers.RobertaModel.forward:84
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:52
+#: transformers.FlaxRobertaForMultipleChoice.__call__:51
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:50
+#: transformers.FlaxRobertaForSequenceClassification.__call__:49
+#: transformers.FlaxRobertaForTokenClassification.__call__:49
+#: transformers.FlaxRobertaModel.__call__:52
+#: transformers.RobertaForCausalLM.forward:89
+#: transformers.RobertaForMaskedLM.forward:73
+#: transformers.RobertaForMultipleChoice.forward:73
+#: transformers.RobertaForQuestionAnswering.forward:76
+#: transformers.RobertaForSequenceClassification.forward:71
+#: transformers.RobertaForTokenClassification.forward:70
+#: transformers.RobertaModel.forward:87
+#: transformers.TFRobertaForMaskedLM.call:77
+#: transformers.TFRobertaForMultipleChoice.call:79
+#: transformers.TFRobertaForQuestionAnswering.call:82
+#: transformers.TFRobertaForSequenceClassification.call:77
+#: transformers.TFRobertaForTokenClassification.call:76
+#: transformers.TFRobertaModel.call:78
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.RobertaModel.forward:89
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` and "
+"``config.add_cross_attention=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.RobertaModel.forward:92
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.RobertaModel.forward:94
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) "
+"and optionally if ``config.is_encoder_decoder=True`` 2 additional tensors"
+" of shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.RobertaModel.forward:99
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and optionally if ``config.is_encoder_decoder=True`` in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.RobertaModel.forward:102
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:56
+#: transformers.FlaxRobertaForMultipleChoice.__call__:55
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:54
+#: transformers.FlaxRobertaForSequenceClassification.__call__:53
+#: transformers.FlaxRobertaForTokenClassification.__call__:53
+#: transformers.FlaxRobertaModel.__call__:56
+#: transformers.RobertaForCausalLM.forward:104
+#: transformers.RobertaForMaskedLM.forward:77
+#: transformers.RobertaForMultipleChoice.forward:77
+#: transformers.RobertaForQuestionAnswering.forward:80
+#: transformers.RobertaForSequenceClassification.forward:75
+#: transformers.RobertaForTokenClassification.forward:74
+#: transformers.RobertaModel.forward:104
+#: transformers.TFRobertaForMaskedLM.call:81
+#: transformers.TFRobertaForMultipleChoice.call:83
+#: transformers.TFRobertaForQuestionAnswering.call:86
+#: transformers.TFRobertaForSequenceClassification.call:81
+#: transformers.TFRobertaForTokenClassification.call:80
+#: transformers.TFRobertaModel.call:82
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:81
+msgid "RobertaForCausalLM"
+msgstr ""
+
+#: of transformers.RobertaForCausalLM:1
+msgid "RoBERTa Model with a `language modeling` head on top for CLM fine-tuning."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:1
+msgid ""
+"The :class:`~transformers.RobertaForCausalLM` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:62
+msgid ""
+"Labels for computing the left-to-right language modeling loss (next word "
+"prediction). Indices should be in ``[-100, 0, ..., config.vocab_size]`` "
+"(see ``input_ids`` docstring) Tokens with indices set to ``-100`` are "
+"ignored (masked), the loss is only computed for the tokens with labels in"
+" ``[0, ..., config.vocab_size]``"
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:76
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Language modeling"
+" loss (for next-token prediction). - **logits** (:obj:`torch.FloatTensor`"
+" of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Cross attentions weights after the"
+" attention softmax, used to compute the weighted average in the   cross-"
+"attention heads. - **past_key_values** "
+"(:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`torch.FloatTensor` tuples of length :obj:`config.n_layers`, with"
+" each tuple containing the   cached key, value states of the self-"
+"attention and the cross-attention layers if model is used in   encoder-"
+"decoder setting. Only relevant if ``config.is_decoder = True``.    "
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see   :obj:`past_key_values` input) to speed up"
+" sequential decoding.   Example::      >>> from transformers import "
+"RobertaTokenizer, RobertaForCausalLM, RobertaConfig     >>> import torch"
+"      >>> tokenizer = RobertaTokenizer.from_pretrained('roberta-base')"
+"     >>> config = RobertaConfig.from_pretrained(\"roberta-base\")     >>>"
+" config.is_decoder = True     >>> model = "
+"RobertaForCausalLM.from_pretrained('roberta-base', config=config)      "
+">>> inputs = tokenizer(\"Hello, my dog is cute\", return_tensors=\"pt\")"
+"     >>> outputs = model(**inputs)      >>> prediction_logits = "
+"outputs.logits"
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:76
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:80
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss (for "
+"next-token prediction)."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:81
+#: transformers.RobertaForMaskedLM.forward:65
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:91
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:94
+msgid ""
+"Cross attentions weights after the attention softmax, used to compute the"
+" weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:96
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`torch.FloatTensor` tuples of"
+" length :obj:`config.n_layers`, with each tuple containing the cached "
+"key, value states of the self-attention and the cross-attention layers if"
+" model is used in encoder-decoder setting. Only relevant if "
+"``config.is_decoder = True``."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:100
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.RobertaForCausalLM.forward:118
+msgid ""
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:88
+msgid "RobertaForMaskedLM"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM:1 transformers.RobertaForMaskedLM:1
+#: transformers.TFRobertaForMaskedLM:1
+msgid "RoBERTa Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.RobertaForMaskedLM.forward:1
+msgid ""
+"The :class:`~transformers.RobertaForMaskedLM` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RobertaForMaskedLM.forward:53
+#: transformers.TFRobertaForMaskedLM.call:59
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.RobertaForMaskedLM.forward:57
+msgid "Used to hide legacy arguments that have been deprecated."
+msgstr ""
+
+#: of transformers.RobertaForMaskedLM.forward:60
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RobertaConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.RobertaForMaskedLM.forward:60
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RobertaConfig`) and inputs."
+msgstr ""
+
+#: of transformers.RobertaForMaskedLM.forward:64
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.RobertaForMaskedLM.forward:75
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:95
+msgid "RobertaForSequenceClassification"
+msgstr ""
+
+#: of transformers.RobertaForSequenceClassification:1
+#: transformers.TFRobertaForSequenceClassification:1
+msgid ""
+"RoBERTa Model transformer with a sequence classification/regression head "
+"on top (a linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.RobertaForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.RobertaForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RobertaForSequenceClassification.forward:53
+#: transformers.TFRobertaForSequenceClassification.call:59
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.RobertaForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RobertaConfig`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.RobertaForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RobertaConfig`) and inputs."
+msgstr ""
+
+#: of transformers.RobertaForSequenceClassification.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.RobertaForSequenceClassification.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.RobertaForSequenceClassification.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:102
+msgid "RobertaForMultipleChoice"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMultipleChoice:1
+#: transformers.RobertaForMultipleChoice:1
+#: transformers.TFRobertaForMultipleChoice:1
+msgid ""
+"Roberta Model with a multiple choice classification head on top (a linear"
+" layer on top of the pooled output and a softmax) e.g. for "
+"RocStories/SWAG tasks."
+msgstr ""
+
+#: of transformers.RobertaForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.RobertaForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RobertaForMultipleChoice.forward:53
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.RobertaForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RobertaConfig`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.RobertaForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RobertaConfig`) and inputs."
+msgstr ""
+
+#: of transformers.RobertaForMultipleChoice.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.RobertaForMultipleChoice.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMultipleChoice.__call__:43
+#: transformers.RobertaForMultipleChoice.forward:65
+#: transformers.TFRobertaForMultipleChoice.call:71
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.RobertaForMultipleChoice.forward:75
+msgid ""
+":class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:109
+msgid "RobertaForTokenClassification"
+msgstr ""
+
+#: of transformers.FlaxRobertaForTokenClassification:1
+#: transformers.RobertaForTokenClassification:1
+msgid ""
+"Roberta Model with a token classification head on top (a linear layer on "
+"top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) "
+"tasks."
+msgstr ""
+
+#: of transformers.RobertaForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.RobertaForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RobertaForTokenClassification.forward:53
+#: transformers.TFRobertaForTokenClassification.call:59
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.RobertaForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RobertaConfig`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.RobertaForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RobertaConfig`) and inputs."
+msgstr ""
+
+#: of transformers.RobertaForTokenClassification.forward:61
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.RobertaForTokenClassification.forward:62
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.RobertaForTokenClassification.forward:72
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:116
+msgid "RobertaForQuestionAnswering"
+msgstr ""
+
+#: of transformers.FlaxRobertaForQuestionAnswering:1
+#: transformers.RobertaForQuestionAnswering:1
+msgid ""
+"Roberta Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.RobertaForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.RobertaForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RobertaForQuestionAnswering.forward:53
+#: transformers.TFRobertaForQuestionAnswering.call:59
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.RobertaForQuestionAnswering.forward:57
+#: transformers.TFRobertaForQuestionAnswering.call:63
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.RobertaForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.RobertaForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.RobertaForQuestionAnswering.forward:66
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.RobertaForQuestionAnswering.forward:67
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.RobertaForQuestionAnswering.forward:68
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.RobertaForQuestionAnswering.forward:78
+msgid ""
+":class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:123
+msgid "TFRobertaModel"
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM:3
+#: transformers.TFRobertaForMultipleChoice:5
+#: transformers.TFRobertaForQuestionAnswering:5
+#: transformers.TFRobertaForSequenceClassification:5
+#: transformers.TFRobertaForTokenClassification:5 transformers.TFRobertaModel:3
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM:7
+#: transformers.TFRobertaForMultipleChoice:9
+#: transformers.TFRobertaForQuestionAnswering:9
+#: transformers.TFRobertaForSequenceClassification:9
+#: transformers.TFRobertaForTokenClassification:9 transformers.TFRobertaModel:7
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM:13
+#: transformers.TFRobertaForMultipleChoice:15
+#: transformers.TFRobertaForQuestionAnswering:15
+#: transformers.TFRobertaForSequenceClassification:15
+#: transformers.TFRobertaForTokenClassification:15
+#: transformers.TFRobertaModel:13
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM:15
+#: transformers.TFRobertaForMultipleChoice:17
+#: transformers.TFRobertaForQuestionAnswering:17
+#: transformers.TFRobertaForSequenceClassification:17
+#: transformers.TFRobertaForTokenClassification:17
+#: transformers.TFRobertaModel:15
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM:16
+#: transformers.TFRobertaForMultipleChoice:18
+#: transformers.TFRobertaForQuestionAnswering:18
+#: transformers.TFRobertaForSequenceClassification:18
+#: transformers.TFRobertaForTokenClassification:18
+#: transformers.TFRobertaModel:16
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM:18
+#: transformers.TFRobertaForMultipleChoice:20
+#: transformers.TFRobertaForQuestionAnswering:20
+#: transformers.TFRobertaForSequenceClassification:20
+#: transformers.TFRobertaForTokenClassification:20
+#: transformers.TFRobertaModel:18
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM:21
+#: transformers.TFRobertaForMultipleChoice:23
+#: transformers.TFRobertaForQuestionAnswering:23
+#: transformers.TFRobertaForSequenceClassification:23
+#: transformers.TFRobertaForTokenClassification:23
+#: transformers.TFRobertaModel:21
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM:24
+#: transformers.TFRobertaForMultipleChoice:26
+#: transformers.TFRobertaForQuestionAnswering:26
+#: transformers.TFRobertaForSequenceClassification:26
+#: transformers.TFRobertaForTokenClassification:26
+#: transformers.TFRobertaModel:24
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM:25
+#: transformers.TFRobertaForMultipleChoice:27
+#: transformers.TFRobertaForQuestionAnswering:27
+#: transformers.TFRobertaForSequenceClassification:27
+#: transformers.TFRobertaForTokenClassification:27
+#: transformers.TFRobertaModel:25
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM:27
+#: transformers.TFRobertaForMultipleChoice:29
+#: transformers.TFRobertaForQuestionAnswering:29
+#: transformers.TFRobertaForSequenceClassification:29
+#: transformers.TFRobertaForTokenClassification:29
+#: transformers.TFRobertaModel:27
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFRobertaModel.call:1
+msgid ""
+"The :class:`~transformers.TFRobertaModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:8
+#: transformers.TFRobertaForMultipleChoice.call:8
+#: transformers.TFRobertaForQuestionAnswering.call:8
+#: transformers.TFRobertaForSequenceClassification.call:8
+#: transformers.TFRobertaForTokenClassification.call:8
+#: transformers.TFRobertaModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.RobertaTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:10
+#: transformers.TFRobertaForMultipleChoice.call:10
+#: transformers.TFRobertaForQuestionAnswering.call:10
+#: transformers.TFRobertaForSequenceClassification.call:10
+#: transformers.TFRobertaForTokenClassification.call:10
+#: transformers.TFRobertaModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.RobertaTokenizer`. "
+"See :func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:23
+#: transformers.FlaxRobertaForMultipleChoice.__call__:23
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:23
+#: transformers.FlaxRobertaForSequenceClassification.__call__:23
+#: transformers.FlaxRobertaForTokenClassification.__call__:23
+#: transformers.FlaxRobertaModel.__call__:23
+#: transformers.TFRobertaForMaskedLM.call:23
+#: transformers.TFRobertaForMultipleChoice.call:23
+#: transformers.TFRobertaForQuestionAnswering.call:23
+#: transformers.TFRobertaForSequenceClassification.call:23
+#: transformers.TFRobertaForTokenClassification.call:23
+#: transformers.TFRobertaModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:29
+#: transformers.FlaxRobertaForMultipleChoice.__call__:29
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:29
+#: transformers.FlaxRobertaForSequenceClassification.__call__:29
+#: transformers.FlaxRobertaForTokenClassification.__call__:29
+#: transformers.FlaxRobertaModel.__call__:29
+#: transformers.TFRobertaForMaskedLM.call:29
+#: transformers.TFRobertaForMultipleChoice.call:29
+#: transformers.TFRobertaForQuestionAnswering.call:29
+#: transformers.TFRobertaForSequenceClassification.call:29
+#: transformers.TFRobertaForTokenClassification.call:29
+#: transformers.TFRobertaModel.call:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:31
+#: transformers.TFRobertaForMultipleChoice.call:31
+#: transformers.TFRobertaForQuestionAnswering.call:31
+#: transformers.TFRobertaForSequenceClassification.call:31
+#: transformers.TFRobertaForTokenClassification.call:31
+#: transformers.TFRobertaModel.call:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:34
+#: transformers.TFRobertaForMultipleChoice.call:34
+#: transformers.TFRobertaForQuestionAnswering.call:34
+#: transformers.TFRobertaForSequenceClassification.call:34
+#: transformers.TFRobertaForTokenClassification.call:34
+#: transformers.TFRobertaModel.call:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:45
+#: transformers.TFRobertaForMultipleChoice.call:45
+#: transformers.TFRobertaForQuestionAnswering.call:45
+#: transformers.TFRobertaForSequenceClassification.call:45
+#: transformers.TFRobertaForTokenClassification.call:45
+#: transformers.TFRobertaModel.call:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:49
+#: transformers.TFRobertaForMultipleChoice.call:49
+#: transformers.TFRobertaForQuestionAnswering.call:49
+#: transformers.TFRobertaForSequenceClassification.call:49
+#: transformers.TFRobertaForTokenClassification.call:49
+#: transformers.TFRobertaModel.call:49
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:53
+#: transformers.TFRobertaForMultipleChoice.call:53
+#: transformers.TFRobertaForQuestionAnswering.call:53
+#: transformers.TFRobertaForSequenceClassification.call:53
+#: transformers.TFRobertaForTokenClassification.call:53
+#: transformers.TFRobertaModel.call:53
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:56
+#: transformers.TFRobertaForMultipleChoice.call:56
+#: transformers.TFRobertaForQuestionAnswering.call:56
+#: transformers.TFRobertaForSequenceClassification.call:56
+#: transformers.TFRobertaForTokenClassification.call:56
+#: transformers.TFRobertaModel.call:56
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFRobertaModel.call:60
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RobertaConfig`) and inputs.  "
+"- **last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **pooler_output** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, hidden_size)`) -- Last "
+"layer hidden-state of the first token of the sequence (classification "
+"token) further processed by a   Linear layer and a Tanh activation "
+"function. The Linear layer weights are trained from the next sentence   "
+"prediction (classification) objective during pretraining.    This output "
+"is usually *not* a good summary of the semantic content of the input, "
+"you're often better with   averaging or pooling the sequence of hidden-"
+"states for the whole input sequence. - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRobertaModel.call:60
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RobertaConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRobertaModel.call:64
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.TFRobertaModel.call:65
+msgid ""
+"**pooler_output** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.TFRobertaModel.call:69
+msgid ""
+"This output is usually *not* a good summary of the semantic content of "
+"the input, you're often better with averaging or pooling the sequence of "
+"hidden-states for the whole input sequence."
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:70
+#: transformers.TFRobertaForMultipleChoice.call:72
+#: transformers.TFRobertaForQuestionAnswering.call:75
+#: transformers.TFRobertaForSequenceClassification.call:70
+#: transformers.TFRobertaForTokenClassification.call:69
+#: transformers.TFRobertaModel.call:71
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:74
+#: transformers.TFRobertaForMultipleChoice.call:76
+#: transformers.TFRobertaForQuestionAnswering.call:79
+#: transformers.TFRobertaForSequenceClassification.call:74
+#: transformers.TFRobertaForTokenClassification.call:73
+#: transformers.TFRobertaModel.call:75
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFRobertaModel.call:80
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling` "
+"or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:130
+msgid "TFRobertaForMaskedLM"
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:1
+msgid ""
+"The :class:`~transformers.TFRobertaForMaskedLM` forward method, overrides"
+" the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RobertaConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss. - **logits** (:obj:`tf.Tensor` "
+"of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RobertaConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss."
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFRobertaForMaskedLM.call:79
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:137
+msgid "TFRobertaForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFRobertaForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFRobertaForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRobertaForSequenceClassification.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RobertaConfig`) and inputs.  "
+"- **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, config.num_labels)`) -- Classification (or regression "
+"if config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRobertaForSequenceClassification.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RobertaConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRobertaForSequenceClassification.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFRobertaForSequenceClassification.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFRobertaForSequenceClassification.call:79
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:144
+msgid "TFRobertaForMultipleChoice"
+msgstr ""
+
+#: of transformers.TFRobertaForMultipleChoice.call:1
+msgid ""
+"The :class:`~transformers.TFRobertaForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRobertaForMultipleChoice.call:59
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.TFRobertaForMultipleChoice.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RobertaConfig`) and inputs.  "
+"- **loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss. - "
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRobertaForMultipleChoice.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RobertaConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRobertaForMultipleChoice.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.TFRobertaForMultipleChoice.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.TFRobertaForMultipleChoice.call:81
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` or"
+" :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:151
+msgid "TFRobertaForTokenClassification"
+msgstr ""
+
+#: of transformers.TFRobertaForTokenClassification:1
+msgid ""
+"RoBERTa Model with a token classification head on top (a linear layer on "
+"top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) "
+"tasks."
+msgstr ""
+
+#: of transformers.TFRobertaForTokenClassification.call:1
+msgid ""
+"The :class:`~transformers.TFRobertaForTokenClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRobertaForTokenClassification.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RobertaConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, config.num_labels)`) -- "
+"Classification scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRobertaForTokenClassification.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RobertaConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRobertaForTokenClassification.call:67
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss."
+msgstr ""
+
+#: of transformers.TFRobertaForTokenClassification.call:68
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.num_labels)`) -- Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFRobertaForTokenClassification.call:78
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:158
+msgid "TFRobertaForQuestionAnswering"
+msgstr ""
+
+#: of transformers.TFRobertaForQuestionAnswering:1
+msgid ""
+"RoBERTa Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.TFRobertaForQuestionAnswering.call:1
+msgid ""
+"The :class:`~transformers.TFRobertaForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRobertaForQuestionAnswering.call:68
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RobertaConfig`) and inputs.  "
+"- **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions. - **start_logits** (:obj:`tf.Tensor` of "
+"shape :obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRobertaForQuestionAnswering.call:68
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RobertaConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRobertaForQuestionAnswering.call:72
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions."
+msgstr ""
+
+#: of transformers.TFRobertaForQuestionAnswering.call:73
+msgid ""
+"**start_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFRobertaForQuestionAnswering.call:74
+msgid ""
+"**end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFRobertaForQuestionAnswering.call:84
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:165
+msgid "FlaxRobertaModel"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM:3
+#: transformers.FlaxRobertaForMultipleChoice:5
+#: transformers.FlaxRobertaForQuestionAnswering:5
+#: transformers.FlaxRobertaForSequenceClassification:5
+#: transformers.FlaxRobertaForTokenClassification:5
+#: transformers.FlaxRobertaModel:3
+msgid ""
+"This model inherits from :class:`~transformers.FlaxPreTrainedModel`. "
+"Check the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading, saving and converting "
+"weights from PyTorch models)"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM:7
+#: transformers.FlaxRobertaForMultipleChoice:9
+#: transformers.FlaxRobertaForQuestionAnswering:9
+#: transformers.FlaxRobertaForSequenceClassification:9
+#: transformers.FlaxRobertaForTokenClassification:9
+#: transformers.FlaxRobertaModel:7
+msgid ""
+"This model is also a Flax Linen `flax.linen.Module "
+"<https://flax.readthedocs.io/en/latest/flax.linen.html#module>`__ "
+"subclass. Use it as a regular Flax linen Module and refer to the Flax "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM:11
+#: transformers.FlaxRobertaForMultipleChoice:13
+#: transformers.FlaxRobertaForQuestionAnswering:13
+#: transformers.FlaxRobertaForSequenceClassification:13
+#: transformers.FlaxRobertaForTokenClassification:13
+#: transformers.FlaxRobertaModel:11
+msgid "Finally, this model supports inherent JAX features such as:"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM:13
+#: transformers.FlaxRobertaForMultipleChoice:15
+#: transformers.FlaxRobertaForQuestionAnswering:15
+#: transformers.FlaxRobertaForSequenceClassification:15
+#: transformers.FlaxRobertaForTokenClassification:15
+#: transformers.FlaxRobertaModel:13
+msgid ""
+"`Just-In-Time (JIT) compilation "
+"<https://jax.readthedocs.io/en/latest/jax.html#just-in-time-compilation-"
+"jit>`__"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM:14
+#: transformers.FlaxRobertaForMultipleChoice:16
+#: transformers.FlaxRobertaForQuestionAnswering:16
+#: transformers.FlaxRobertaForSequenceClassification:16
+#: transformers.FlaxRobertaForTokenClassification:16
+#: transformers.FlaxRobertaModel:14
+msgid ""
+"`Automatic Differentiation <https://jax.readthedocs.io/en/latest/jax.html"
+"#automatic-differentiation>`__"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM:15
+#: transformers.FlaxRobertaForMultipleChoice:17
+#: transformers.FlaxRobertaForQuestionAnswering:17
+#: transformers.FlaxRobertaForSequenceClassification:17
+#: transformers.FlaxRobertaForTokenClassification:17
+#: transformers.FlaxRobertaModel:15
+msgid ""
+"`Vectorization <https://jax.readthedocs.io/en/latest/jax.html"
+"#vectorization-vmap>`__"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM:16
+#: transformers.FlaxRobertaForMultipleChoice:18
+#: transformers.FlaxRobertaForQuestionAnswering:18
+#: transformers.FlaxRobertaForSequenceClassification:18
+#: transformers.FlaxRobertaForTokenClassification:18
+#: transformers.FlaxRobertaModel:16
+msgid ""
+"`Parallelization <https://jax.readthedocs.io/en/latest/jax.html"
+"#parallelization-pmap>`__"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM:18
+#: transformers.FlaxRobertaForMultipleChoice:20
+#: transformers.FlaxRobertaForQuestionAnswering:20
+#: transformers.FlaxRobertaForSequenceClassification:20
+#: transformers.FlaxRobertaForTokenClassification:20
+#: transformers.FlaxRobertaModel:18
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.FlaxPreTrainedModel.from_pretrained` method to load "
+"the model weights."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:1
+#: transformers.FlaxRobertaForMultipleChoice.__call__:1
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:1
+#: transformers.FlaxRobertaForSequenceClassification.__call__:1
+#: transformers.FlaxRobertaForTokenClassification.__call__:1
+#: transformers.FlaxRobertaModel.__call__:1
+msgid ""
+"The :class:`~transformers.FlaxRobertaPreTrainedModel` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:8
+#: transformers.FlaxRobertaForMultipleChoice.__call__:8
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:8
+#: transformers.FlaxRobertaForSequenceClassification.__call__:8
+#: transformers.FlaxRobertaForTokenClassification.__call__:8
+#: transformers.FlaxRobertaModel.__call__:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.BertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:10
+#: transformers.FlaxRobertaForMultipleChoice.__call__:10
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:10
+#: transformers.FlaxRobertaForSequenceClassification.__call__:10
+#: transformers.FlaxRobertaForTokenClassification.__call__:10
+#: transformers.FlaxRobertaModel.__call__:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.BertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:37
+#: transformers.FlaxRobertaModel.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs.  - **last_hidden_state** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`jnp.ndarray` of shape :obj:`(batch_size, hidden_size)`) -- Last "
+"layer hidden-state of the first token of the sequence (classification "
+"token) further processed by a   Linear layer and a Tanh activation "
+"function. The Linear layer weights are trained from the next sentence   "
+"prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:37
+#: transformers.FlaxRobertaModel.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:41
+#: transformers.FlaxRobertaModel.__call__:41
+msgid ""
+"**last_hidden_state** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:42
+#: transformers.FlaxRobertaModel.__call__:42
+msgid ""
+"**pooler_output** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:45
+#: transformers.FlaxRobertaForMultipleChoice.__call__:44
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:43
+#: transformers.FlaxRobertaForSequenceClassification.__call__:42
+#: transformers.FlaxRobertaForTokenClassification.__call__:42
+#: transformers.FlaxRobertaModel.__call__:45
+msgid ""
+"**hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:49
+#: transformers.FlaxRobertaForMultipleChoice.__call__:48
+#: transformers.FlaxRobertaForQuestionAnswering.__call__:47
+#: transformers.FlaxRobertaForSequenceClassification.__call__:46
+#: transformers.FlaxRobertaForTokenClassification.__call__:46
+#: transformers.FlaxRobertaModel.__call__:49
+msgid ""
+"**attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMaskedLM.__call__:54
+#: transformers.FlaxRobertaModel.__call__:54
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:172
+msgid "FlaxRobertaForMaskedLM"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:179
+msgid "FlaxRobertaForSequenceClassification"
+msgstr ""
+
+#: of transformers.FlaxRobertaForSequenceClassification:1
+msgid ""
+"Roberta Model transformer with a sequence classification/regression head "
+"on top (a linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.FlaxRobertaForSequenceClassification.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs.  - **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxRobertaForSequenceClassification.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxRobertaForSequenceClassification.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxRobertaForSequenceClassification.__call__:51
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:186
+msgid "FlaxRobertaForMultipleChoice"
+msgstr ""
+
+#: of transformers.FlaxRobertaForMultipleChoice.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs.  - **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMultipleChoice.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMultipleChoice.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, num_choices)`)"
+" -- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.FlaxRobertaForMultipleChoice.__call__:53
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:193
+msgid "FlaxRobertaForTokenClassification"
+msgstr ""
+
+#: of transformers.FlaxRobertaForTokenClassification.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxTokenClassifierOutput` "
+"or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs.  - **logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxRobertaForTokenClassification.__call__:37
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxTokenClassifierOutput` "
+"or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxRobertaForTokenClassification.__call__:41
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxRobertaForTokenClassification.__call__:51
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxTokenClassifierOutput` or"
+" :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/roberta.rst:200
+msgid "FlaxRobertaForQuestionAnswering"
+msgstr ""
+
+#: of transformers.FlaxRobertaForQuestionAnswering.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs.  - **start_logits** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.FlaxRobertaForQuestionAnswering.__call__:37
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RobertaConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.FlaxRobertaForQuestionAnswering.__call__:41
+msgid ""
+"**start_logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxRobertaForQuestionAnswering.__call__:42
+msgid ""
+"**end_logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxRobertaForQuestionAnswering.__call__:52
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+

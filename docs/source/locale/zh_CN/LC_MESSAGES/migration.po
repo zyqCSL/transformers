@@ -1,0 +1,571 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/migration.md:17
+msgid "Migrating from previous packages"
+msgstr ""
+
+#: ../../source/migration.md:19
+msgid "Migrating from transformers v3.x to v4.x"
+msgstr ""
+
+#: ../../source/migration.md:21
+msgid ""
+"A couple of changes were introduced when the switch from version 3 to "
+"version 4 was done. Below is a summary of the expected changes:"
+msgstr ""
+
+#: ../../source/migration.md:24
+msgid "1. AutoTokenizers and pipelines now use fast (rust) tokenizers by default."
+msgstr ""
+
+#: ../../source/migration.md:26
+msgid ""
+"The python and rust tokenizers have roughly the same API, but the rust "
+"tokenizers have a more complete feature set."
+msgstr ""
+
+#: ../../source/migration.md:28
+msgid "This introduces two breaking changes:"
+msgstr ""
+
+#: ../../source/migration.md:29
+msgid ""
+"The handling of overflowing tokens between the python and rust tokenizers"
+" is different."
+msgstr ""
+
+#: ../../source/migration.md:30
+msgid "The rust tokenizers do not accept integers in the encoding methods."
+msgstr ""
+
+#: ../../source/migration.md:32 ../../source/migration.md:64
+#: ../../source/migration.md:86 ../../source/migration.md:105
+msgid "How to obtain the same behavior as v3.x in v4.x"
+msgstr ""
+
+#: ../../source/migration.md:34
+msgid ""
+"The pipelines now contain additional features out of the box. See the "
+"token-classification pipeline with the grouped_entities flag."
+msgstr ""
+
+#: ../../source/migration.md:35
+msgid ""
+"The auto-tokenizers now return rust tokenizers. In order to obtain the "
+"python tokenizers instead, the user may use the use_fast flag by setting "
+"it to False:"
+msgstr ""
+
+#: ../../source/migration.md:37 ../../source/migration.md:68
+#: ../../source/migration.md:90 ../../source/migration.md:109
+msgid "In version v3.x:"
+msgstr ""
+
+#: ../../source/migration.md:43 ../../source/migration.md:72
+#: ../../source/migration.md:94 ../../source/migration.md:114
+msgid "to obtain the same in version v4.x:"
+msgstr ""
+
+#: ../../source/migration.md:50
+msgid "2. SentencePiece is removed from the required dependencies"
+msgstr ""
+
+#: ../../source/migration.md:52
+msgid ""
+"The requirement on the SentencePiece dependency has been lifted from the "
+"setup.py. This is done so that we may have a channel on anaconda cloud "
+"without relying on conda-forge. This means that the tokenizers that "
+"depend on the SentencePiece library will not be available with a standard"
+" transformers installation."
+msgstr ""
+
+#: ../../source/migration.md:54
+msgid "This includes the slow versions of:"
+msgstr ""
+
+#: ../../source/migration.md:55
+msgid "XLNetTokenizer"
+msgstr ""
+
+#: ../../source/migration.md:56
+msgid "AlbertTokenizer"
+msgstr ""
+
+#: ../../source/migration.md:57
+msgid "CamembertTokenizer"
+msgstr ""
+
+#: ../../source/migration.md:58
+msgid "MBartTokenizer"
+msgstr ""
+
+#: ../../source/migration.md:59
+msgid "PegasusTokenizer"
+msgstr ""
+
+#: ../../source/migration.md:60
+msgid "T5Tokenizer"
+msgstr ""
+
+#: ../../source/migration.md:61
+msgid "ReformerTokenizer"
+msgstr ""
+
+#: ../../source/migration.md:62
+msgid "XLMRobertaTokenizer"
+msgstr ""
+
+#: ../../source/migration.md:66
+msgid ""
+"In order to obtain the same behavior as version v3.x, you should install "
+"sentencepiece additionally:"
+msgstr ""
+
+#: ../../source/migration.md:76 ../../source/migration.md:119
+msgid "or"
+msgstr ""
+
+#: ../../source/migration.md:80
+msgid ""
+"3. The architecture of the repo has been updated so that each model "
+"resides in its folder"
+msgstr ""
+
+#: ../../source/migration.md:82
+msgid ""
+"The past and foreseeable addition of new models means that the number of "
+"files in the directory src/transformers keeps growing and becomes harder "
+"to navigate and understand. We made the choice to put each model and the "
+"files accompanying it in their own sub-directories."
+msgstr ""
+
+#: ../../source/migration.md:84
+msgid ""
+"This is a breaking change as importing intermediary layers using a "
+"model's module directly needs to be done via a different path."
+msgstr ""
+
+#: ../../source/migration.md:88
+msgid ""
+"In order to obtain the same behavior as version v3.x, you should update "
+"the path used to access the layers."
+msgstr ""
+
+#: ../../source/migration.md:99
+msgid "4. Switching the return_dict argument to True by default"
+msgstr ""
+
+#: ../../source/migration.md:101
+msgid ""
+"The return_dict argument enables the return of dict-like python objects "
+"containing the model outputs, instead of the standard tuples. This object"
+" is self-documented as keys can be used to retrieve values, while also "
+"behaving as a tuple as users may retrieve objects by index or by slice."
+msgstr ""
+
+#: ../../source/migration.md:103
+msgid ""
+"This is a breaking change as the limitation of that tuple is that it "
+"cannot be unpacked: value0, value1 = outputs will not work."
+msgstr ""
+
+#: ../../source/migration.md:107
+msgid ""
+"In order to obtain the same behavior as version v3.x, you should specify "
+"the return_dict argument to False, either in the model configuration or "
+"during the forward pass."
+msgstr ""
+
+#: ../../source/migration.md:125
+msgid "5. Removed some deprecated attributes"
+msgstr ""
+
+#: ../../source/migration.md:127
+msgid ""
+"Attributes that were deprecated have been removed if they had been "
+"deprecated for at least a month. The full list of deprecated attributes "
+"can be found in #8604."
+msgstr ""
+
+#: ../../source/migration.md:129
+msgid ""
+"Here is a list of these attributes/methods/arguments and what their "
+"replacements should be:"
+msgstr ""
+
+#: ../../source/migration.md:131
+msgid "In several models, the labels become consistent with the other models:"
+msgstr ""
+
+#: ../../source/migration.md:132
+msgid ""
+"masked_lm_labels becomes labels in AlbertForMaskedLM and "
+"AlbertForPreTraining."
+msgstr ""
+
+#: ../../source/migration.md:133
+msgid "masked_lm_labels becomes labels in BertForMaskedLM and BertForPreTraining."
+msgstr ""
+
+#: ../../source/migration.md:134
+msgid "masked_lm_labels becomes labels in DistilBertForMaskedLM."
+msgstr ""
+
+#: ../../source/migration.md:135
+msgid "masked_lm_labels becomes labels in ElectraForMaskedLM."
+msgstr ""
+
+#: ../../source/migration.md:136
+msgid "masked_lm_labels becomes labels in LongformerForMaskedLM."
+msgstr ""
+
+#: ../../source/migration.md:137
+msgid "masked_lm_labels becomes labels in MobileBertForMaskedLM."
+msgstr ""
+
+#: ../../source/migration.md:138
+msgid "masked_lm_labels becomes labels in RobertaForMaskedLM."
+msgstr ""
+
+#: ../../source/migration.md:139
+msgid "lm_labels becomes labels in BartForConditionalGeneration."
+msgstr ""
+
+#: ../../source/migration.md:140
+msgid "lm_labels becomes labels in GPT2DoubleHeadsModel."
+msgstr ""
+
+#: ../../source/migration.md:141
+msgid "lm_labels becomes labels in OpenAIGPTDoubleHeadsModel."
+msgstr ""
+
+#: ../../source/migration.md:142
+msgid "lm_labels becomes labels in T5ForConditionalGeneration."
+msgstr ""
+
+#: ../../source/migration.md:144
+msgid ""
+"In several models, the caching mechanism becomes consistent with the "
+"other models:"
+msgstr ""
+
+#: ../../source/migration.md:145
+msgid ""
+"decoder_cached_states becomes past_key_values in all BART-like, FSMT and "
+"T5 models."
+msgstr ""
+
+#: ../../source/migration.md:146
+msgid ""
+"decoder_past_key_values becomes past_key_values in all BART-like, FSMT "
+"and T5 models."
+msgstr ""
+
+#: ../../source/migration.md:147
+msgid "past becomes past_key_values in all CTRL models."
+msgstr ""
+
+#: ../../source/migration.md:148
+msgid "past becomes past_key_values in all GPT-2 models."
+msgstr ""
+
+#: ../../source/migration.md:150
+msgid "Regarding the tokenizer classes:"
+msgstr ""
+
+#: ../../source/migration.md:151
+msgid "The tokenizer attribute max_len becomes model_max_length."
+msgstr ""
+
+#: ../../source/migration.md:152
+msgid "The tokenizer attribute return_lengths becomes return_length."
+msgstr ""
+
+#: ../../source/migration.md:153
+msgid ""
+"The tokenizer encoding argument is_pretokenized becomes "
+"is_split_into_words."
+msgstr ""
+
+#: ../../source/migration.md:155
+msgid "Regarding the Trainer class:"
+msgstr ""
+
+#: ../../source/migration.md:156
+msgid ""
+"The Trainer argument tb_writer is removed in favor of the callback "
+"TensorBoardCallback(tb_writer=...)."
+msgstr ""
+
+#: ../../source/migration.md:157
+msgid ""
+"The Trainer argument prediction_loss_only is removed in favor of the "
+"class argument args.prediction_loss_only."
+msgstr ""
+
+#: ../../source/migration.md:158
+msgid "The Trainer attribute data_collator should be a callable."
+msgstr ""
+
+#: ../../source/migration.md:159 ../../source/migration.md:167
+msgid "The Trainer method _log is deprecated in favor of log."
+msgstr ""
+
+#: ../../source/migration.md:160
+msgid "The Trainer method _training_step is deprecated in favor of training_step."
+msgstr ""
+
+#: ../../source/migration.md:161
+msgid ""
+"The Trainer method _prediction_loop is deprecated in favor of "
+"prediction_loop."
+msgstr ""
+
+#: ../../source/migration.md:162
+msgid ""
+"The Trainer method is_local_master is deprecated in favor of "
+"is_local_process_zero."
+msgstr ""
+
+#: ../../source/migration.md:163
+msgid ""
+"The Trainer method is_world_master is deprecated in favor of "
+"is_world_process_zero."
+msgstr ""
+
+#: ../../source/migration.md:165
+msgid "Regarding the TFTrainer class:"
+msgstr ""
+
+#: ../../source/migration.md:166
+msgid ""
+"The TFTrainer argument prediction_loss_only is removed in favor of the "
+"class argument args.prediction_loss_only."
+msgstr ""
+
+#: ../../source/migration.md:168
+msgid ""
+"The TFTrainer method _prediction_loop is deprecated in favor of "
+"prediction_loop."
+msgstr ""
+
+#: ../../source/migration.md:169
+msgid "The TFTrainer method _setup_wandb is deprecated in favor of setup_wandb."
+msgstr ""
+
+#: ../../source/migration.md:170
+msgid "The TFTrainer method _run_model is deprecated in favor of run_model."
+msgstr ""
+
+#: ../../source/migration.md:172
+msgid "Regarding the TrainingArguments class:"
+msgstr ""
+
+#: ../../source/migration.md:173
+msgid ""
+"The TrainingArguments argument evaluate_during_training is deprecated in "
+"favor of evaluation_strategy."
+msgstr ""
+
+#: ../../source/migration.md:175
+msgid "Regarding the Transfo-XL model:"
+msgstr ""
+
+#: ../../source/migration.md:176
+msgid ""
+"The Transfo-XL configuration attribute tie_weight becomes "
+"tie_words_embeddings."
+msgstr ""
+
+#: ../../source/migration.md:177
+msgid "The Transfo-XL modeling method reset_length becomes reset_memory_length."
+msgstr ""
+
+#: ../../source/migration.md:179
+msgid "Regarding pipelines:"
+msgstr ""
+
+#: ../../source/migration.md:180
+msgid "The FillMaskPipeline argument topk becomes top_k."
+msgstr ""
+
+#: ../../source/migration.md:184
+msgid "Migrating from pytorch-transformers to 🤗 Transformers"
+msgstr ""
+
+#: ../../source/migration.md:186
+msgid ""
+"Here is a quick summary of what you should take care of when migrating "
+"from pytorch-transformers to 🤗 Transformers."
+msgstr ""
+
+#: ../../source/migration.md:188
+msgid ""
+"Positional order of some models' keywords inputs (attention_mask, "
+"token_type_ids...) changed"
+msgstr ""
+
+#: ../../source/migration.md:190
+msgid ""
+"To be able to use Torchscript (see #1010, #1204 and #1195) the specific "
+"order of some models keywords inputs (attention_mask, token_type_ids...) "
+"has been changed."
+msgstr ""
+
+#: ../../source/migration.md:192
+msgid ""
+"If you used to call the models with keyword names for keyword arguments, "
+"e.g. model(inputs_ids, attention_mask=attention_mask, "
+"token_type_ids=token_type_ids), this should not cause any change."
+msgstr ""
+
+#: ../../source/migration.md:194
+msgid ""
+"If you used to call the models with positional inputs for keyword "
+"arguments, e.g. model(inputs_ids, attention_mask, token_type_ids), you "
+"may have to double check the exact order of input arguments."
+msgstr ""
+
+#: ../../source/migration.md:196
+msgid "Migrating from pytorch-pretrained-bert"
+msgstr ""
+
+#: ../../source/migration.md:198
+msgid ""
+"Here is a quick summary of what you should take care of when migrating "
+"from pytorch-pretrained-bert to 🤗 Transformers"
+msgstr ""
+
+#: ../../source/migration.md:200
+msgid "Models always output tuples"
+msgstr ""
+
+#: ../../source/migration.md:202
+msgid ""
+"The main breaking change when migrating from pytorch-pretrained-bert to 🤗"
+" Transformers is that the models forward method always outputs a tuple "
+"with various elements depending on the model and the configuration "
+"parameters."
+msgstr ""
+
+#: ../../source/migration.md:204
+msgid ""
+"The exact content of the tuples for each model are detailed in the "
+"models' docstrings and the documentation."
+msgstr ""
+
+#: ../../source/migration.md:206
+msgid ""
+"In pretty much every case, you will be fine by taking the first element "
+"of the output as the output you previously used in pytorch-pretrained-"
+"bert."
+msgstr ""
+
+#: ../../source/migration.md:208
+msgid ""
+"Here is a pytorch-pretrained-bert to 🤗 Transformers conversion example "
+"for a BertForSequenceClassification classification model:"
+msgstr ""
+
+#: ../../source/migration.md:230
+msgid "Serialization"
+msgstr ""
+
+#: ../../source/migration.md:232
+msgid "Breaking change in the from_pretrained()method:"
+msgstr ""
+
+#: ../../source/migration.md:234
+msgid ""
+"Models are now set in evaluation mode by default when instantiated with "
+"the from_pretrained() method. To train them don't forget to set them back"
+" in training mode (model.train()) to activate the dropout modules."
+msgstr ""
+
+#: ../../source/migration.md:236
+msgid ""
+"The additional *inputs and **kwargs arguments supplied to the "
+"from_pretrained() method used to be directly passed to the underlying "
+"model's class __init__() method. They are now used to update the model "
+"configuration attribute first which can break derived model classes build"
+" based on the previous BertForSequenceClassification examples. More "
+"precisely, the positional arguments *inputs provided to from_pretrained()"
+" are directly forwarded the model __init__() method while the keyword "
+"arguments **kwargs (i) which match configuration class attributes are "
+"used to update said attributes (ii) which don't match any configuration "
+"class attributes are forwarded to the model __init__() method."
+msgstr ""
+
+#: ../../source/migration.md:238
+msgid ""
+"Also, while not a breaking change, the serialization methods have been "
+"standardized and you probably should switch to the new method "
+"save_pretrained(save_directory) if you were using any other serialization"
+" method before."
+msgstr ""
+
+#: ../../source/migration.md:240
+msgid "Here is an example:"
+msgstr ""
+
+#: ../../source/migration.md:263
+msgid ""
+"Optimizers: BertAdam & OpenAIAdam are now AdamW, schedules are standard "
+"PyTorch schedules"
+msgstr ""
+
+#: ../../source/migration.md:265
+msgid ""
+"The two optimizers previously included, BertAdam and OpenAIAdam, have "
+"been replaced by a single AdamW optimizer which has a few differences:"
+msgstr ""
+
+#: ../../source/migration.md:267
+msgid "it only implements weights decay correction,"
+msgstr ""
+
+#: ../../source/migration.md:268
+msgid "schedules are now externals (see below),"
+msgstr ""
+
+#: ../../source/migration.md:269
+msgid "gradient clipping is now also external (see below)."
+msgstr ""
+
+#: ../../source/migration.md:271
+msgid ""
+"The new optimizer AdamW matches PyTorch Adam optimizer API and let you "
+"use standard PyTorch or apex methods for the schedule and clipping."
+msgstr ""
+
+#: ../../source/migration.md:273
+msgid ""
+"The schedules are now standard PyTorch learning rate schedulers and not "
+"part of the optimizer anymore."
+msgstr ""
+
+#: ../../source/migration.md:275
+msgid ""
+"Here is a conversion examples from BertAdam with a linear warmup and "
+"decay schedule to AdamW and the same schedule:"
+msgstr ""
+

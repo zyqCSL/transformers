@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/examples.md:16
+msgid "Examples"
+msgstr ""
+
+#: ../../source/examples.md:18
+msgid ""
+"This folder contains actively maintained examples of use of 🤗 "
+"Transformers organized along NLP tasks. If you are looking for an example"
+" that used to be in this folder, it may have moved to the corresponding "
+"framework subfolder (pytorch, tensorflow or flax), our research projects "
+"subfolder (which contains frozen snapshots of research projects) or to "
+"the legacy subfolder."
+msgstr ""
+
+#: ../../source/examples.md:20
+msgid ""
+"While we strive to present as many use cases as possible, the scripts in "
+"this folder are just examples. It is expected that they won't work out-"
+"of-the box on your specific problem and that you will be required to "
+"change a few lines of code to adapt them to your needs. To help you with "
+"that, most of the examples fully expose the preprocessing of the data. "
+"This way, you can easily tweak them."
+msgstr ""
+
+#: ../../source/examples.md:22
+msgid ""
+"This is similar if you want the scripts to report another metric than the"
+" one they currently use: look at the compute_metrics function inside the "
+"script. It takes the full arrays of predictions and labels and has to "
+"return a dictionary of string keys and float values. Just change it to "
+"add (or replace) your own metric to the ones already reported."
+msgstr ""
+
+#: ../../source/examples.md:24
+msgid ""
+"Please discuss on the forum or in an issue a feature you would like to "
+"implement in an example before submitting a PR: we welcome bug fixes but "
+"since we want to keep the examples as simple as possible, it's unlikely "
+"we will merge a pull request adding more functionality at the cost of "
+"readability."
+msgstr ""
+
+#: ../../source/examples.md:26
+msgid "Important note"
+msgstr ""
+
+#: ../../source/examples.md:28
+msgid "Important"
+msgstr ""
+
+#: ../../source/examples.md:30
+msgid ""
+"To make sure you can successfully run the latest versions of the example "
+"scripts, you have to install the library from source and install some "
+"example-specific requirements. To do this, execute the following steps in"
+" a new virtual environment:"
+msgstr ""
+
+#: ../../source/examples.md:36
+msgid "Then cd in the example folder of your choice and run"
+msgstr ""
+
+#: ../../source/examples.md:41
+msgid ""
+"To browse the examples corresponding to released versions of 🤗 "
+"Transformers, click on the line below and then on your desired version of"
+" the library:"
+msgstr ""
+
+#: ../../source/examples.md:74
+msgid ""
+"Alternatively, you can find switch your cloned 🤗 Transformers to a "
+"specific version (for instance with v3.5.1) with"
+msgstr ""
+
+#: ../../source/examples.md:78
+msgid "and run the example command as usual afterward."
+msgstr ""
+

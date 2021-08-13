@@ -1,0 +1,2237 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/internal/tokenization_utils.rst:14
+msgid "Utilities for Tokenizers"
+msgstr ""
+
+#: ../../source/internal/tokenization_utils.rst:16
+msgid ""
+"This page lists all the utility functions used by the tokenizers, mainly "
+"the class "
+":class:`~transformers.tokenization_utils_base.PreTrainedTokenizerBase` "
+"that implements the common methods between "
+":class:`~transformers.PreTrainedTokenizer` and "
+":class:`~transformers.PreTrainedTokenizerFast` and the mixin "
+":class:`~transformers.tokenization_utils_base.SpecialTokensMixin`."
+msgstr ""
+
+#: ../../source/internal/tokenization_utils.rst:21
+msgid ""
+"Most of those are only useful if you are studying the code of the "
+"tokenizers in the library."
+msgstr ""
+
+#: ../../source/internal/tokenization_utils.rst:24
+msgid "PreTrainedTokenizerBase"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:1
+msgid ""
+"Base class for :class:`~transformers.PreTrainedTokenizer` and "
+":class:`~transformers.PreTrainedTokenizerFast`."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:3
+msgid "Handles shared (mostly boiler plate) methods for those two classes."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:5
+msgid "Class attributes (overridden by derived classes)"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:7
+msgid ""
+"**vocab_files_names** (:obj:`Dict[str, str]`) -- A dictionary with, as "
+"keys, the ``__init__`` keyword name of each vocabulary file required by "
+"the model, and as associated values, the filename for saving the "
+"associated file (string)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:10
+msgid ""
+"**pretrained_vocab_files_map** (:obj:`Dict[str, Dict[str, str]]`) -- A "
+"dictionary of dictionaries, with the high-level keys being the "
+"``__init__`` keyword name of each vocabulary file required by the model, "
+"the low-level being the :obj:`short-cut-names` of the pretrained models "
+"with, as associated values, the :obj:`url` to the associated pretrained "
+"vocabulary file."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:14
+msgid ""
+"**max_model_input_sizes** (:obj:`Dict[str, Optinal[int]]`) -- A "
+"dictionary with, as keys, the :obj:`short-cut-names` of the pretrained "
+"models, and as associated values, the maximum length of the sequence "
+"inputs of this model, or :obj:`None` if the model has no maximum input "
+"size."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:17
+msgid ""
+"**pretrained_init_configuration** (:obj:`Dict[str, Dict[str, Any]]`) -- A"
+" dictionary with, as keys, the :obj:`short-cut-names` of the pretrained "
+"models, and as associated values, a dictionary of specific arguments to "
+"pass to the ``__init__`` method of the tokenizer class for this "
+"pretrained model when loading the tokenizer with the "
+":meth:`~transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained`"
+" method."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:22
+msgid ""
+"**model_input_names** (:obj:`List[str]`) -- A list of inputs expected in "
+"the forward pass of the model."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:23
+msgid ""
+"**padding_side** (:obj:`str`) -- The default value for the side on which "
+"the model should have padding applied. Should be :obj:`'right'` or "
+":obj:`'left'`."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.CharSpan
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_decode
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.build_inputs_with_special_tokens
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.clean_up_tokenization
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.convert_tokens_to_string
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.create_token_type_ids_from_sequences
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.decode
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.get_special_tokens_mask
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.push_to_hub
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_vocabulary
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.tokenize
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences
+#: transformers.tokenization_utils_base.SpecialTokensMixin
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_tokens
+#: transformers.tokenization_utils_base.TokenSpan
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:26
+msgid ""
+"The maximum length (in number of tokens) for the inputs to the "
+"transformer model. When the tokenizer is loaded with "
+":meth:`~transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained`,"
+" this will be set to the value stored for the associated model in "
+"``max_model_input_sizes`` (see above). If no value is provided, will "
+"default to VERY_LARGE_INTEGER (:obj:`int(1e30)`)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:31
+msgid ""
+"(:obj:`str`, `optional`): The side on which the model should have padding"
+" applied. Should be selected between ['right', 'left']. Default value is "
+"picked from the class attribute of the same name."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:34
+msgid ""
+"The list of inputs accepted by the forward pass of the model (like "
+":obj:`\"token_type_ids\"` or :obj:`\"attention_mask\"`). Default value is"
+" picked from the class attribute of the same name."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:37
+msgid ""
+"A special token representing the beginning of a sentence. Will be "
+"associated to ``self.bos_token`` and ``self.bos_token_id``."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:40
+msgid ""
+"A special token representing the end of a sentence. Will be associated to"
+" ``self.eos_token`` and ``self.eos_token_id``."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:43
+msgid ""
+"A special token representing an out-of-vocabulary token. Will be "
+"associated to ``self.unk_token`` and ``self.unk_token_id``."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:46
+msgid ""
+"A special token separating two different sentences in the same input "
+"(used by BERT for instance). Will be associated to ``self.sep_token`` and"
+" ``self.sep_token_id``."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:49
+msgid ""
+"A special token used to make arrays of tokens the same size for batching "
+"purpose. Will then be ignored by attention mechanisms or loss "
+"computation. Will be associated to ``self.pad_token`` and "
+"``self.pad_token_id``."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:53
+msgid ""
+"A special token representing the class of the input (used by BERT for "
+"instance). Will be associated to ``self.cls_token`` and "
+"``self.cls_token_id``."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:56
+msgid ""
+"A special token representing a masked token (used by masked-language "
+"modeling pretraining objectives, like BERT). Will be associated to "
+"``self.mask_token`` and ``self.mask_token_id``."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase:59
+msgid ""
+"A tuple or a list of additional special tokens. Add them here to ensure "
+"they won't be split by the tokenization process. Will be associated to "
+"``self.additional_special_tokens`` and "
+"``self.additional_special_tokens_ids``."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:1
+msgid ""
+"Main method to tokenize and prepare for the model one or several "
+"sequence(s) or one or several pair(s) of sequences."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:4
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:8
+msgid ""
+"The sequence or batch of sequences to be encoded. Each sequence can be a "
+"string or a list of strings (pretokenized string). If the sequences are "
+"provided as list of strings (pretokenized), you must set "
+":obj:`is_split_into_words=True` (to lift the ambiguity with a batch of "
+"sequences)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:12
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:10
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:13
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:14
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:11
+msgid ""
+"Whether or not to encode the sequences with the special tokens relative "
+"to their model."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:14
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:12
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:15
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:16
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:13
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:15
+msgid ""
+"Activates and controls padding. Accepts the following values:  * "
+":obj:`True` or :obj:`'longest'`: Pad to the longest sequence in the batch"
+" (or no padding if only a   single sequence if provided). * "
+":obj:`'max_length'`: Pad to a maximum length specified with the argument "
+":obj:`max_length` or to the   maximum acceptable input length for the "
+"model if that argument is not provided. * :obj:`False` or "
+":obj:`'do_not_pad'` (default): No padding (i.e., can output a batch with "
+"sequences of   different lengths)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:14
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:12
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:15
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:16
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:13
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:15
+msgid "Activates and controls padding. Accepts the following values:"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:16
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:14
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:17
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:18
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:24
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:15
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:17
+msgid ""
+":obj:`True` or :obj:`'longest'`: Pad to the longest sequence in the batch"
+" (or no padding if only a single sequence if provided)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:18
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:16
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:19
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:20
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:26
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:17
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:19
+msgid ""
+":obj:`'max_length'`: Pad to a maximum length specified with the argument "
+":obj:`max_length` or to the maximum acceptable input length for the model"
+" if that argument is not provided."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:20
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:18
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:21
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:22
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:28
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:19
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:21
+msgid ""
+":obj:`False` or :obj:`'do_not_pad'` (default): No padding (i.e., can "
+"output a batch with sequences of different lengths)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:23
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:21
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:24
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:25
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:22
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:30
+msgid ""
+"Activates and controls truncation. Accepts the following values:  * "
+":obj:`True` or :obj:`'longest_first'`: Truncate to a maximum length "
+"specified with the argument   :obj:`max_length` or to the maximum "
+"acceptable input length for the model if that argument is not   provided."
+" This will truncate token by token, removing a token from the longest "
+"sequence in the pair   if a pair of sequences (or a batch of pairs) is "
+"provided. * :obj:`'only_first'`: Truncate to a maximum length specified "
+"with the argument :obj:`max_length` or to   the maximum acceptable input "
+"length for the model if that argument is not provided. This will only   "
+"truncate the first sequence of a pair if a pair of sequences (or a batch "
+"of pairs) is provided. * :obj:`'only_second'`: Truncate to a maximum "
+"length specified with the argument :obj:`max_length` or   to the maximum "
+"acceptable input length for the model if that argument is not provided. "
+"This will only   truncate the second sequence of a pair if a pair of "
+"sequences (or a batch of pairs) is provided. * :obj:`False` or "
+":obj:`'do_not_truncate'` (default): No truncation (i.e., can output batch"
+" with   sequence lengths greater than the model maximum admissible input "
+"size)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:23
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:21
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:24
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:25
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:22
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:30
+msgid "Activates and controls truncation. Accepts the following values:"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:25
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:23
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:26
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:27
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:24
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:32
+msgid ""
+":obj:`True` or :obj:`'longest_first'`: Truncate to a maximum length "
+"specified with the argument :obj:`max_length` or to the maximum "
+"acceptable input length for the model if that argument is not provided. "
+"This will truncate token by token, removing a token from the longest "
+"sequence in the pair if a pair of sequences (or a batch of pairs) is "
+"provided."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:29
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:27
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:30
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:31
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:28
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:36
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences:17
+msgid ""
+":obj:`'only_first'`: Truncate to a maximum length specified with the "
+"argument :obj:`max_length` or to the maximum acceptable input length for "
+"the model if that argument is not provided. This will only truncate the "
+"first sequence of a pair if a pair of sequences (or a batch of pairs) is "
+"provided."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:32
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:30
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:33
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:34
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:31
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:39
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences:20
+msgid ""
+":obj:`'only_second'`: Truncate to a maximum length specified with the "
+"argument :obj:`max_length` or to the maximum acceptable input length for "
+"the model if that argument is not provided. This will only truncate the "
+"second sequence of a pair if a pair of sequences (or a batch of pairs) is"
+" provided."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:35
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:33
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:36
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:37
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:34
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:42
+msgid ""
+":obj:`False` or :obj:`'do_not_truncate'` (default): No truncation (i.e., "
+"can output batch with sequence lengths greater than the model maximum "
+"admissible input size)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:38
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:36
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:39
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:40
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:37
+msgid ""
+"Controls the maximum length to use by one of the truncation/padding "
+"parameters.  If left unset or set to :obj:`None`, this will use the "
+"predefined model maximum length if a maximum length is required by one of"
+" the truncation/padding parameters. If the model has no specific maximum "
+"input length (like XLNet) truncation/padding to a maximum length will be "
+"deactivated."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:38
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:36
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:39
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:40
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:37
+msgid ""
+"Controls the maximum length to use by one of the truncation/padding "
+"parameters."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:40
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:38
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:41
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:42
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:39
+msgid ""
+"If left unset or set to :obj:`None`, this will use the predefined model "
+"maximum length if a maximum length is required by one of the "
+"truncation/padding parameters. If the model has no specific maximum input"
+" length (like XLNet) truncation/padding to a maximum length will be "
+"deactivated."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:44
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:42
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:45
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:46
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:43
+msgid ""
+"If set to a number along with :obj:`max_length`, the overflowing tokens "
+"returned when :obj:`return_overflowing_tokens=True` will contain some "
+"tokens from the end of the truncated sequence returned to provide some "
+"overlap between truncated and overflowing sequences. The value of this "
+"argument defines the number of overlapping tokens."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:49
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:47
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:50
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:51
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:48
+msgid ""
+"Whether or not the input is already pre-tokenized (e.g., split into "
+"words). If set to :obj:`True`, the tokenizer assumes the input is already"
+" split into words (for instance, by splitting it on whitespace) which it "
+"will tokenize. This is useful for NER or token classification."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:53
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:51
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:54
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:55
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:52
+msgid ""
+"If set will pad the sequence to a multiple of the provided value. This is"
+" especially useful to enable the use of Tensor Cores on NVIDIA hardware "
+"with compute capability >= 7.5 (Volta)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:56
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:54
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:57
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:58
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:43
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:55
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:24
+msgid ""
+"If set, will return tensors instead of list of python integers. "
+"Acceptable values are:  * :obj:`'tf'`: Return TensorFlow "
+":obj:`tf.constant` objects. * :obj:`'pt'`: Return PyTorch "
+":obj:`torch.Tensor` objects. * :obj:`'np'`: Return Numpy "
+":obj:`np.ndarray` objects."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:56
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:54
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:57
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:58
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:43
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:55
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:24
+msgid ""
+"If set, will return tensors instead of list of python integers. "
+"Acceptable values are:"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:58
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:56
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:59
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:60
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:45
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:57
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:26
+msgid ":obj:`'tf'`: Return TensorFlow :obj:`tf.constant` objects."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:59
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:57
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:60
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:61
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:46
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:58
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:27
+msgid ":obj:`'pt'`: Return PyTorch :obj:`torch.Tensor` objects."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:60
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:58
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:61
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:62
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:47
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:59
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:28
+msgid ":obj:`'np'`: Return Numpy :obj:`np.ndarray` objects."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:62
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:60
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:64
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:61
+msgid ""
+"Whether to return token type IDs. If left to the default, will return the"
+" token type IDs according to the specific tokenizer's default, defined by"
+" the :obj:`return_outputs` attribute.  `What are token type IDs? "
+"<../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:62
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:60
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:64
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:61
+msgid ""
+"Whether to return token type IDs. If left to the default, will return the"
+" token type IDs according to the specific tokenizer's default, defined by"
+" the :obj:`return_outputs` attribute."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:65
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:97
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:63
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:95
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:67
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:99
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:64
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:96
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:67
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:65
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:69
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:38
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:66
+msgid ""
+"Whether to return the attention mask. If left to the default, will return"
+" the attention mask according to the specific tokenizer's default, "
+"defined by the :obj:`return_outputs` attribute.  `What are attention "
+"masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:67
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:65
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:69
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:38
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:66
+msgid ""
+"Whether to return the attention mask. If left to the default, will return"
+" the attention mask according to the specific tokenizer's default, "
+"defined by the :obj:`return_outputs` attribute."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:70
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:102
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:68
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:100
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:72
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:104
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:41
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:69
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:101
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:72
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:70
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:74
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:71
+msgid "Whether or not to return overflowing token sequences."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:74
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:72
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:76
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:73
+msgid "Whether or not to return special tokens mask information."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:76
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:74
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:78
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:75
+msgid ""
+"Whether or not to return :obj:`(char_start, char_end)` for each token.  "
+"This is only available on fast tokenizers inheriting from "
+":class:`~transformers.PreTrainedTokenizerFast`, if using Python's "
+"tokenizer, this method will raise :obj:`NotImplementedError`."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:76
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:74
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:78
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:75
+msgid "Whether or not to return :obj:`(char_start, char_end)` for each token."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:78
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:76
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:80
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:77
+msgid ""
+"This is only available on fast tokenizers inheriting from "
+":class:`~transformers.PreTrainedTokenizerFast`, if using Python's "
+"tokenizer, this method will raise :obj:`NotImplementedError`."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:82
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:80
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:84
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:81
+msgid "Whether or not to return the lengths of the encoded inputs."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:84
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:82
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:86
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:49
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:83
+msgid "Whether or not to print more information and warnings."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:86
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:84
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:88
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:85
+msgid "passed to the :obj:`self.tokenize()` method"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_decode
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.build_inputs_with_special_tokens
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.clean_up_tokenization
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.convert_tokens_to_string
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.create_token_type_ids_from_sequences
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.decode
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.get_special_tokens_mask
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.get_vocab
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.push_to_hub
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_vocabulary
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.tokenize
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_tokens
+#: transformers.tokenization_utils_base.SpecialTokensMixin.sanitize_special_tokens
+msgid "Returns"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:88
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:86
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:90
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:87
+msgid ""
+"A :class:`~transformers.BatchEncoding` with the following fields:  - "
+"**input_ids** -- List of token ids to be fed to a model.    `What are "
+"input IDs? <../glossary.html#input-ids>`__  - **token_type_ids** -- List "
+"of token type ids to be fed to a model (when "
+":obj:`return_token_type_ids=True`   or if `\"token_type_ids\"` is in "
+":obj:`self.model_input_names`).    `What are token type IDs? "
+"<../glossary.html#token-type-ids>`__  - **attention_mask** -- List of "
+"indices specifying which tokens should be attended to by the model (when"
+"   :obj:`return_attention_mask=True` or if `\"attention_mask\"` is in "
+":obj:`self.model_input_names`).    `What are attention masks? "
+"<../glossary.html#attention-mask>`__  - **overflowing_tokens** -- List of"
+" overflowing tokens sequences (when a :obj:`max_length` is specified and"
+"   :obj:`return_overflowing_tokens=True`). - **num_truncated_tokens** -- "
+"Number of tokens truncated (when a :obj:`max_length` is specified and   "
+":obj:`return_overflowing_tokens=True`). - **special_tokens_mask** -- List"
+" of 0s and 1s, with 1 specifying added special tokens and 0 specifying   "
+"regular sequence tokens (when :obj:`add_special_tokens=True` and "
+":obj:`return_special_tokens_mask=True`). - **length** -- The length of "
+"the inputs (when :obj:`return_length=True`)"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:88
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:86
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:90
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:87
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:47
+msgid "A :class:`~transformers.BatchEncoding` with the following fields:"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:90
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:88
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:92
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:89
+msgid "**input_ids** -- List of token ids to be fed to a model."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:92
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:90
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:94
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:91
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:94
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:92
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:96
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:93
+msgid ""
+"**token_type_ids** -- List of token type ids to be fed to a model (when "
+":obj:`return_token_type_ids=True` or if `\"token_type_ids\"` is in "
+":obj:`self.model_input_names`)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:99
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:97
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:101
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:98
+msgid ""
+"**attention_mask** -- List of indices specifying which tokens should be "
+"attended to by the model (when :obj:`return_attention_mask=True` or if "
+"`\"attention_mask\"` is in :obj:`self.model_input_names`)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:104
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:102
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:106
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:103
+msgid ""
+"**overflowing_tokens** -- List of overflowing tokens sequences (when a "
+":obj:`max_length` is specified and "
+":obj:`return_overflowing_tokens=True`)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:106
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:104
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:108
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:105
+msgid ""
+"**num_truncated_tokens** -- Number of tokens truncated (when a "
+":obj:`max_length` is specified and "
+":obj:`return_overflowing_tokens=True`)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:108
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:106
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:110
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:107
+msgid ""
+"**special_tokens_mask** -- List of 0s and 1s, with 1 specifying added "
+"special tokens and 0 specifying regular sequence tokens (when "
+":obj:`add_special_tokens=True` and "
+":obj:`return_special_tokens_mask=True`)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:110
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:108
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:112
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:109
+msgid "**length** -- The length of the inputs (when :obj:`return_length=True`)"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_decode
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.build_inputs_with_special_tokens
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.clean_up_tokenization
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.convert_tokens_to_string
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.create_token_type_ids_from_sequences
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.decode
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.get_special_tokens_mask
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.get_vocab
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.push_to_hub
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_vocabulary
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.tokenize
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_tokens
+#: transformers.tokenization_utils_base.SpecialTokensMixin.sanitize_special_tokens
+msgid "Return type"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.__call__:111
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:109
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:113
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:110
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:55
+msgid ":class:`~transformers.BatchEncoding`"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.as_target_tokenizer:1
+msgid ""
+"Temporarily sets the tokenizer for encoding the targets. Useful for "
+"tokenizer associated to sequence-to-sequence models that need a slightly "
+"different processing for the labels."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_decode:1
+msgid ""
+"Convert a list of lists of token ids into a list of strings by calling "
+"decode."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_decode:3
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.decode:6
+msgid ""
+"List of tokenized input ids. Can be obtained using the ``__call__`` "
+"method."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_decode:5
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.decode:8
+msgid "Whether or not to remove special tokens in the decoding."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_decode:7
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.decode:10
+msgid "Whether or not to clean up the tokenization spaces."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_decode:9
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.decode:12
+msgid "Will be passed to the underlying model specific decode method."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_decode:12
+msgid "The list of decoded sentences."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_decode:13
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.tokenize:14
+#: transformers.tokenization_utils_base.SpecialTokensMixin.additional_special_tokens:4
+#: transformers.tokenization_utils_base.SpecialTokensMixin.all_special_tokens:5
+msgid ":obj:`List[str]`"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:1
+msgid ""
+"Tokenize and prepare for the model a list of sequences or a list of pairs"
+" of sequences."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:4
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:4
+msgid "This method is deprecated, ``__call__`` should be used instead."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.batch_encode_plus:6
+msgid ""
+"Batch of sequences or pair of sequences to be encoded. This can be a list"
+" of string/string-sequences/int-sequences or a list of pair of string"
+"/string-sequences/int-sequence (see details in ``encode_plus``)."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.build_inputs_with_special_tokens:4
+msgid ""
+"This implementation does not add special tokens and this method should be"
+" overridden in a subclass."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.build_inputs_with_special_tokens:6
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.create_token_type_ids_from_sequences:6
+msgid "The first tokenized sequence."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.build_inputs_with_special_tokens:8
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.create_token_type_ids_from_sequences:8
+msgid "The second tokenized sequence."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.build_inputs_with_special_tokens:11
+msgid "The model input with special tokens."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.build_inputs_with_special_tokens:12
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.create_token_type_ids_from_sequences:12
+#: transformers.tokenization_utils_base.SpecialTokensMixin.additional_special_tokens_ids:4
+#: transformers.tokenization_utils_base.SpecialTokensMixin.all_special_ids:4
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.clean_up_tokenization:1
+msgid ""
+"Clean up a list of simple English tokenization artifacts like spaces "
+"before punctuations and abbreviated forms."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.clean_up_tokenization:3
+msgid "The text to clean up."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.clean_up_tokenization:6
+msgid "The cleaned-up string."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.clean_up_tokenization:7
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.convert_tokens_to_string:8
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.decode:16
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.push_to_hub:28
+#: transformers.tokenization_utils_base.SpecialTokensMixin.bos_token:3
+#: transformers.tokenization_utils_base.SpecialTokensMixin.cls_token:4
+#: transformers.tokenization_utils_base.SpecialTokensMixin.eos_token:3
+#: transformers.tokenization_utils_base.SpecialTokensMixin.mask_token:4
+#: transformers.tokenization_utils_base.SpecialTokensMixin.pad_token:3
+#: transformers.tokenization_utils_base.SpecialTokensMixin.sep_token:4
+#: transformers.tokenization_utils_base.SpecialTokensMixin.unk_token:3
+msgid ":obj:`str`"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.convert_tokens_to_string:1
+msgid ""
+"Converts a sequence of tokens in a single string. The most simple way to "
+"do it is ``\" \".join(tokens)`` but we often want to remove sub-word "
+"tokenization artifacts at the same time."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.convert_tokens_to_string:4
+msgid "The token to join in a string."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.convert_tokens_to_string:7
+msgid "The joined tokens."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.create_token_type_ids_from_sequences:1
+msgid ""
+"Create the token type IDs corresponding to the sequences passed. `What "
+"are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.create_token_type_ids_from_sequences:4
+msgid ""
+"Should be overridden in a subclass if the model has a special way of "
+"building those."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.create_token_type_ids_from_sequences:11
+msgid "The token type ids."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.decode:1
+msgid ""
+"Converts a sequence of ids in a string, using the tokenizer and "
+"vocabulary with options to remove special tokens and clean up "
+"tokenization spaces."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.decode:4
+msgid ""
+"Similar to doing "
+"``self.convert_tokens_to_string(self.convert_ids_to_tokens(token_ids))``."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.decode:15
+msgid "The decoded sentence."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:1
+msgid ""
+"Converts a string to a sequence of ids (integer), using the tokenizer and"
+" vocabulary."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:3
+msgid "Same as doing ``self.convert_tokens_to_ids(self.tokenize(text))``."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:5
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:6
+msgid ""
+"The first sequence to be encoded. This can be a string, a list of strings"
+" (tokenized string using the ``tokenize`` method) or a list of integers "
+"(tokenized string ids using the ``convert_tokens_to_ids`` method)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:9
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:10
+msgid ""
+"Optional second sequence to be encoded. This can be a string, a list of "
+"strings (tokenized string using the ``tokenize`` method) or a list of "
+"integers (tokenized string ids using the ``convert_tokens_to_ids`` "
+"method)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:63
+msgid "Passed along to the `.tokenize()` method."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:65
+msgid "The tokenized ids of the text."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode:67
+msgid ""
+":obj:`List[int]`, :obj:`torch.Tensor`, :obj:`tf.Tensor` or "
+":obj:`np.ndarray`"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.encode_plus:1
+msgid "Tokenize and prepare for the model a sequence or a pair of sequences."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:1
+msgid ""
+"Instantiate a "
+":class:`~transformers.tokenization_utils_base.PreTrainedTokenizerBase` "
+"(or a derived class) from a predefined tokenizer."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:4
+msgid ""
+"Can be either:  - A string, the `model id` of a predefined tokenizer "
+"hosted inside a model repo on huggingface.co.   Valid model ids can be "
+"located at the root-level, like ``bert-base-uncased``, or namespaced "
+"under a   user or organization name, like ``dbmdz/bert-base-german-"
+"cased``. - A path to a `directory` containing vocabulary files required "
+"by the tokenizer, for instance saved   using the "
+":meth:`~transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained`"
+"   method, e.g., ``./my_model_directory/``. - (**Deprecated**, not "
+"applicable to all derived classes) A path or url to a single saved "
+"vocabulary   file (if and only if the tokenizer only requires a single "
+"vocabulary file like Bert or XLNet), e.g.,   "
+"``./my_model_directory/vocab.txt``."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:4
+msgid "Can be either:"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:6
+msgid ""
+"A string, the `model id` of a predefined tokenizer hosted inside a model "
+"repo on huggingface.co. Valid model ids can be located at the root-level,"
+" like ``bert-base-uncased``, or namespaced under a user or organization "
+"name, like ``dbmdz/bert-base-german-cased``."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:9
+msgid ""
+"A path to a `directory` containing vocabulary files required by the "
+"tokenizer, for instance saved using the "
+":meth:`~transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained`"
+" method, e.g., ``./my_model_directory/``."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:12
+msgid ""
+"(**Deprecated**, not applicable to all derived classes) A path or url to "
+"a single saved vocabulary file (if and only if the tokenizer only "
+"requires a single vocabulary file like Bert or XLNet), e.g., "
+"``./my_model_directory/vocab.txt``."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:16
+msgid ""
+"Path to a directory in which a downloaded predefined tokenizer vocabulary"
+" files should be cached if the standard cache should not be used."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:19
+msgid ""
+"Whether or not to force the (re-)download the vocabulary files and "
+"override the cached versions if they exist."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:22
+msgid ""
+"Whether or not to delete incompletely received files. Attempt to resume "
+"the download if such a file exists."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:25
+msgid ""
+"A dictionary of proxy servers to use by protocol or endpoint, e.g., "
+":obj:`{'http': 'foo.bar:3128', 'http://hostname': 'foo.bar:4012'}`. The "
+"proxies are used on each request."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:28
+msgid ""
+"The token to use as HTTP bearer authorization for remote files. If "
+":obj:`True`, will use the token generated when running :obj"
+":`transformers-cli login` (stored in :obj:`~/.huggingface`)."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:31
+msgid ""
+"The specific model version to use. It can be a branch name, a tag name, "
+"or a commit id, since we use a git-based system for storing models and "
+"other artifacts on huggingface.co, so ``revision`` can be any identifier "
+"allowed by git."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:35
+msgid ""
+"In case the relevant files are located inside a subfolder of the model "
+"repo on huggingface.co (e.g. for facebook/rag-token-base), specify it "
+"here."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:38
+msgid "Will be passed along to the Tokenizer ``__init__`` method."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:40
+msgid ""
+"Will be passed to the Tokenizer ``__init__`` method. Can be used to set "
+"special tokens like ``bos_token``, ``eos_token``, ``unk_token``, "
+"``sep_token``, ``pad_token``, ``cls_token``, ``mask_token``, "
+"``additional_special_tokens``. See parameters in the ``__init__`` for "
+"more details."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:47
+msgid ""
+"Passing :obj:`use_auth_token=True` is required when you want to use a "
+"private model."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.from_pretrained:49
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.push_to_hub:30
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens:32
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_tokens:24
+msgid "Examples::"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.get_special_tokens_mask:1
+msgid ""
+"Retrieves sequence ids from a token list that has no special tokens "
+"added. This method is called when adding special tokens using the "
+"tokenizer ``prepare_for_model`` or ``encode_plus`` methods."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.get_special_tokens_mask:4
+msgid "List of ids of the first sequence."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.get_special_tokens_mask:6
+msgid "List of ids of the second sequence."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.get_special_tokens_mask:11
+msgid "1 for a special token, 0 for a sequence token."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.get_vocab:1
+msgid "Returns the vocabulary as a dictionary of token to index."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.get_vocab:3
+msgid ""
+":obj:`tokenizer.get_vocab()[token]` is equivalent to "
+":obj:`tokenizer.convert_tokens_to_ids(token)` when :obj:`token` is in the"
+" vocab."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.get_vocab:6
+msgid "The vocabulary."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.get_vocab:7
+msgid ":obj:`Dict[str, int]`"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.max_len_sentences_pair:1
+msgid ""
+"The maximum combined length of a pair of sentences that can be fed to the"
+" model."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.max_len_sentences_pair
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.max_len_single_sentence
+#: transformers.tokenization_utils_base.SpecialTokensMixin.additional_special_tokens
+#: transformers.tokenization_utils_base.SpecialTokensMixin.additional_special_tokens_ids
+#: transformers.tokenization_utils_base.SpecialTokensMixin.all_special_ids
+#: transformers.tokenization_utils_base.SpecialTokensMixin.all_special_tokens
+#: transformers.tokenization_utils_base.SpecialTokensMixin.all_special_tokens_extended
+#: transformers.tokenization_utils_base.SpecialTokensMixin.bos_token
+#: transformers.tokenization_utils_base.SpecialTokensMixin.bos_token_id
+#: transformers.tokenization_utils_base.SpecialTokensMixin.cls_token
+#: transformers.tokenization_utils_base.SpecialTokensMixin.cls_token_id
+#: transformers.tokenization_utils_base.SpecialTokensMixin.eos_token
+#: transformers.tokenization_utils_base.SpecialTokensMixin.eos_token_id
+#: transformers.tokenization_utils_base.SpecialTokensMixin.mask_token
+#: transformers.tokenization_utils_base.SpecialTokensMixin.mask_token_id
+#: transformers.tokenization_utils_base.SpecialTokensMixin.pad_token
+#: transformers.tokenization_utils_base.SpecialTokensMixin.pad_token_id
+#: transformers.tokenization_utils_base.SpecialTokensMixin.pad_token_type_id
+#: transformers.tokenization_utils_base.SpecialTokensMixin.sep_token
+#: transformers.tokenization_utils_base.SpecialTokensMixin.sep_token_id
+#: transformers.tokenization_utils_base.SpecialTokensMixin.special_tokens_map
+#: transformers.tokenization_utils_base.SpecialTokensMixin.special_tokens_map_extended
+#: transformers.tokenization_utils_base.SpecialTokensMixin.unk_token
+#: transformers.tokenization_utils_base.SpecialTokensMixin.unk_token_id
+msgid "type"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.max_len_sentences_pair:3
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.max_len_single_sentence:3
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens:30
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_tokens:22
+#: transformers.tokenization_utils_base.SpecialTokensMixin.pad_token_type_id:3
+#: transformers.tokenization_utils_base.SpecialTokensMixin.sanitize_special_tokens:7
+msgid ":obj:`int`"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.max_len_single_sentence:1
+msgid "The maximum length of a sentence that can be fed to the model."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:1
+msgid ""
+"Pad a single encoded input or a batch of encoded inputs up to predefined "
+"length or to the max sequence length in the batch."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:4
+msgid ""
+"Padding side (left/right) padding token ids are defined at the tokenizer "
+"level (with ``self.padding_side``, ``self.pad_token_id`` and "
+"``self.pad_token_type_id``)"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:9
+msgid ""
+"If the ``encoded_inputs`` passed are dictionary of numpy arrays, PyTorch "
+"tensors or TensorFlow tensors, the result will use the same type unless "
+"you provide a different tensor type with ``return_tensors``. In the case "
+"of PyTorch tensors, you will lose the specific device of your tensors "
+"however."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:13
+msgid ""
+"Tokenized inputs. Can represent one input "
+"(:class:`~transformers.BatchEncoding` or :obj:`Dict[str, List[int]]`) or "
+"a batch of tokenized inputs (list of "
+":class:`~transformers.BatchEncoding`, `Dict[str, List[List[int]]]` or "
+"`List[Dict[str, List[int]]]`) so you can use this method during "
+"preprocessing as well as in a PyTorch Dataloader collate function.  "
+"Instead of :obj:`List[int]` you can have tensors (numpy arrays, PyTorch "
+"tensors or TensorFlow tensors), see the note above for the return type."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:13
+msgid ""
+"Tokenized inputs. Can represent one input "
+"(:class:`~transformers.BatchEncoding` or :obj:`Dict[str, List[int]]`) or "
+"a batch of tokenized inputs (list of "
+":class:`~transformers.BatchEncoding`, `Dict[str, List[List[int]]]` or "
+"`List[Dict[str, List[int]]]`) so you can use this method during "
+"preprocessing as well as in a PyTorch Dataloader collate function."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:18
+msgid ""
+"Instead of :obj:`List[int]` you can have tensors (numpy arrays, PyTorch "
+"tensors or TensorFlow tensors), see the note above for the return type."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:21
+msgid ""
+"Select a strategy to pad the returned sequences (according to the model's"
+" padding side and padding  index) among:  * :obj:`True` or "
+":obj:`'longest'`: Pad to the longest sequence in the batch (or no padding"
+" if only a   single sequence if provided). * :obj:`'max_length'`: Pad to "
+"a maximum length specified with the argument :obj:`max_length` or to the"
+"   maximum acceptable input length for the model if that argument is not "
+"provided. * :obj:`False` or :obj:`'do_not_pad'` (default): No padding "
+"(i.e., can output a batch with sequences of   different lengths)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:22
+msgid ""
+"Select a strategy to pad the returned sequences (according to the model's"
+" padding side and padding"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:22
+msgid "index) among:"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:31
+msgid ""
+"Maximum length of the returned list and optionally padding length (see "
+"above)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:33
+msgid ""
+"If set will pad the sequence to a multiple of the provided value.  This "
+"is especially useful to enable the use of Tensor Cores on NVIDIA hardware"
+" with compute capability >= 7.5 (Volta)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:33
+msgid "If set will pad the sequence to a multiple of the provided value."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.pad:35
+msgid ""
+"This is especially useful to enable the use of Tensor Cores on NVIDIA "
+"hardware with compute capability >= 7.5 (Volta)."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:1
+msgid ""
+"Prepares a sequence of input id, or a pair of sequences of inputs ids so "
+"that it can be used by the model. It adds special tokens, truncates "
+"sequences if overflowing while taking into account the special tokens and"
+" manages a moving window (with user defined stride) for overflowing "
+"tokens"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:5
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences:3
+msgid ""
+"Tokenized input ids of the first sequence. Can be obtained from a string "
+"by chaining the ``tokenize`` and ``convert_tokens_to_ids`` methods."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_for_model:8
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences:6
+msgid ""
+"Tokenized input ids of the second sequence. Can be obtained from a string"
+" by chaining the ``tokenize`` and ``convert_tokens_to_ids`` methods."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:1
+msgid ""
+"Prepare model inputs for translation. For best performance, translate one"
+" sentence at a time."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:3
+msgid "List of documents to summarize or source language texts."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:5
+msgid "List of summaries or target language texts."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:7
+msgid ""
+"Controls the maximum length for encoder inputs (documents to summarize or"
+" source language texts) If left unset or set to :obj:`None`, this will "
+"use the predefined model maximum length if a maximum length is required "
+"by one of the truncation/padding parameters. If the model has no specific"
+" maximum input length (like XLNet) truncation/padding to a maximum length"
+" will be deactivated."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:12
+msgid ""
+"Controls the maximum length of decoder inputs (target language texts or "
+"summaries) If left unset or set to :obj:`None`, this will use the "
+"max_length value."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:45
+msgid "Additional keyword arguments passed along to :obj:`self.__call__`."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:47
+msgid ""
+"A :class:`~transformers.BatchEncoding` with the following fields:  - "
+"**input_ids** -- List of token ids to be fed to the encoder. - "
+"**attention_mask** -- List of indices specifying which tokens should be "
+"attended to by the model. - **labels** -- List of token ids for "
+"tgt_texts.  The full set of keys ``[input_ids, attention_mask, labels]``,"
+" will only be returned if tgt_texts is passed. Otherwise, input_ids, "
+"attention_mask will be the only keys."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:49
+msgid "**input_ids** -- List of token ids to be fed to the encoder."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:50
+msgid ""
+"**attention_mask** -- List of indices specifying which tokens should be "
+"attended to by the model."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:51
+msgid "**labels** -- List of token ids for tgt_texts."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.prepare_seq2seq_batch:53
+msgid ""
+"The full set of keys ``[input_ids, attention_mask, labels]``, will only "
+"be returned if tgt_texts is passed. Otherwise, input_ids, attention_mask "
+"will be the only keys."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.push_to_hub:1
+msgid ""
+"Upload the tokenizer files to the 🤗 Model Hub while synchronizing a local"
+" clone of the repo in :obj:`repo_path_or_name`."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.push_to_hub:4
+msgid ""
+"Can either be a repository name for your tokenizer in the Hub or a path "
+"to a local folder (in which case the repository will have the name of "
+"that local folder). If not specified, will default to the name given by "
+":obj:`repo_url` and a local directory with that name will be created."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.push_to_hub:8
+msgid ""
+"Specify this in case you want to push to an existing repository in the "
+"hub. If unspecified, a new repository will be created in your namespace "
+"(unless you specify an :obj:`organization`) with :obj:`repo_name`."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.push_to_hub:12
+msgid ""
+"Whether or not to clone the distant repo in a temporary directory or in "
+":obj:`repo_path_or_name` inside the current working directory. This will "
+"slow things down if you are making changes in an existing repo since you "
+"will need to clone the repo before every push."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.push_to_hub:16
+msgid "Message to commit while pushing. Will default to :obj:`\"add tokenizer\"`."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.push_to_hub:18
+msgid ""
+"Organization in which you want to push your tokenizer (you must be a "
+"member of this organization)."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.push_to_hub:20
+msgid ""
+"Whether or not the repository created should be private (requires a "
+"paying subscription)."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.push_to_hub:22
+msgid ""
+"The token to use as HTTP bearer authorization for remote files. If "
+":obj:`True`, will use the token generated when running :obj"
+":`transformers-cli login` (stored in :obj:`~/.huggingface`). Will default"
+" to :obj:`True` if :obj:`repo_url` is not specified."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.push_to_hub:27
+msgid "The url of the commit of your tokenizer in the given repository."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained:1
+msgid "Save the full tokenizer state."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained:4
+msgid ""
+"This method make sure the full tokenizer can then be re-loaded using the "
+":meth:`~transformers.tokenization_utils_base.PreTrainedTokenizer.from_pretrained`"
+" class method.."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained:8
+msgid ""
+"This won't save modifications you may have applied to the tokenizer after"
+" the instantiation (for instance, modifying "
+":obj:`tokenizer.do_lower_case` after creation)."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained:11
+msgid "The path to a directory where the tokenizer will be saved."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained:13
+msgid ""
+"Only applicable for a fast tokenizer. If unset (default), will save the "
+"tokenizer in the unified JSON format as well as in legacy format if it "
+"exists, i.e. with tokenizer specific vocabulary and a separate "
+"added_tokens files.  If :obj:`False`, will only save the tokenizer in the"
+" unified JSON format. This format is incompatible with \"slow\" "
+"tokenizers (not powered by the `tokenizers` library), so the tokenizer "
+"will not be able to be loaded in the corresponding \"slow\" tokenizer.  "
+"If :obj:`True`, will save the tokenizer in legacy format. If the \"slow\""
+" tokenizer doesn't exits, a value error is raised."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained:13
+msgid ""
+"Only applicable for a fast tokenizer. If unset (default), will save the "
+"tokenizer in the unified JSON format as well as in legacy format if it "
+"exists, i.e. with tokenizer specific vocabulary and a separate "
+"added_tokens files."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained:17
+msgid ""
+"If :obj:`False`, will only save the tokenizer in the unified JSON format."
+" This format is incompatible with \"slow\" tokenizers (not powered by the"
+" `tokenizers` library), so the tokenizer will not be able to be loaded in"
+" the corresponding \"slow\" tokenizer."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained:21
+msgid ""
+"If :obj:`True`, will save the tokenizer in legacy format. If the \"slow\""
+" tokenizer doesn't exits, a value error is raised."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained:24
+msgid ""
+"(:obj:`str`, `optional`): A prefix to add to the names of the files saved"
+" by the tokenizer."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained:26
+msgid ""
+"Whether or not to push your model to the Hugging Face model hub after "
+"saving it.  .. warning::      Using :obj:`push_to_hub=True` will "
+"synchronize the repository you are pushing to with     "
+":obj:`save_directory`, which requires :obj:`save_directory` to be a local"
+" clone of the repo you are     pushing to if it's an existing folder. "
+"Pass along :obj:`temp_dir=True` to use a temporary directory     instead."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained:26
+msgid ""
+"Whether or not to push your model to the Hugging Face model hub after "
+"saving it."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained:30
+msgid ""
+"Using :obj:`push_to_hub=True` will synchronize the repository you are "
+"pushing to with :obj:`save_directory`, which requires "
+":obj:`save_directory` to be a local clone of the repo you are pushing to "
+"if it's an existing folder. Pass along :obj:`temp_dir=True` to use a "
+"temporary directory instead."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained:36
+msgid "The files saved."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_pretrained:37
+msgid "A tuple of :obj:`str`"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.tokenize:1
+msgid ""
+"Converts a string in a sequence of tokens, replacing unknown tokens with "
+"the :obj:`unk_token`."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.tokenize:3
+msgid "The sequence to be encoded."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.tokenize:5
+msgid "A second sequence to be encoded with the first."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.tokenize:7
+msgid ""
+"Whether or not to add the special tokens associated with the "
+"corresponding model."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.tokenize:9
+msgid ""
+"Will be passed to the underlying model specific encode method. See "
+"details in :meth:`~transformers.PreTrainedTokenizerBase.__call__`"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.PreTrainedTokenizerBase.tokenize:13
+msgid "The list of tokens."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences:1
+msgid "Truncates a sequence pair in-place following the strategy."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences:9
+msgid "Number of tokens to remove using the truncation strategy."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences:11
+msgid ""
+"The strategy to follow for truncation. Can be:  * :obj:`'longest_first'`:"
+" Truncate to a maximum length specified with the argument "
+":obj:`max_length` or   to the maximum acceptable input length for the "
+"model if that argument is not provided. This will   truncate token by "
+"token, removing a token from the longest sequence in the pair if a pair "
+"of   sequences (or a batch of pairs) is provided. * :obj:`'only_first'`: "
+"Truncate to a maximum length specified with the argument "
+":obj:`max_length` or to   the maximum acceptable input length for the "
+"model if that argument is not provided. This will only   truncate the "
+"first sequence of a pair if a pair of sequences (or a batch of pairs) is "
+"provided. * :obj:`'only_second'`: Truncate to a maximum length specified "
+"with the argument :obj:`max_length` or   to the maximum acceptable input "
+"length for the model if that argument is not provided. This will only   "
+"truncate the second sequence of a pair if a pair of sequences (or a batch"
+" of pairs) is provided. * :obj:`'do_not_truncate'` (default): No "
+"truncation (i.e., can output batch with sequence lengths   greater than "
+"the model maximum admissible input size)."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences:11
+msgid "The strategy to follow for truncation. Can be:"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences:13
+msgid ""
+":obj:`'longest_first'`: Truncate to a maximum length specified with the "
+"argument :obj:`max_length` or to the maximum acceptable input length for "
+"the model if that argument is not provided. This will truncate token by "
+"token, removing a token from the longest sequence in the pair if a pair "
+"of sequences (or a batch of pairs) is provided."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences:23
+msgid ""
+":obj:`'do_not_truncate'` (default): No truncation (i.e., can output batch"
+" with sequence lengths greater than the model maximum admissible input "
+"size)."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences:26
+msgid ""
+"If set to a positive number, the overflowing tokens returned will contain"
+" some tokens from the main sequence returned. The value of this argument "
+"defines the number of additional tokens."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences:30
+msgid ""
+"The truncated ``ids``, the truncated ``pair_ids`` and the list of "
+"overflowing tokens."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.PreTrainedTokenizerBase.truncate_sequences:32
+msgid ":obj:`Tuple[List[int], List[int], List[int]]`"
+msgstr ""
+
+#: ../../source/internal/tokenization_utils.rst:32
+msgid "SpecialTokensMixin"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin:1
+msgid ""
+"A mixin derived by :class:`~transformers.PreTrainedTokenizer` and "
+":class:`~transformers.PreTrainedTokenizerFast` to handle specific "
+"behaviors related to special tokens. In particular, this class hold the "
+"attributes which can be used to directly access these special tokens in a"
+" model-independent manner and allow to set and update the special tokens."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin:6
+msgid "A special token representing the beginning of a sentence."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin:8
+msgid "A special token representing the end of a sentence."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin:10
+msgid "A special token representing an out-of-vocabulary token."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin:12
+msgid ""
+"A special token separating two different sentences in the same input "
+"(used by BERT for instance)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin:14
+msgid ""
+"A special token used to make arrays of tokens the same size for batching "
+"purpose. Will then be ignored by attention mechanisms or loss "
+"computation."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin:17
+msgid ""
+"A special token representing the class of the input (used by BERT for "
+"instance)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin:19
+msgid ""
+"A special token representing a masked token (used by masked-language "
+"modeling pretraining objectives, like BERT)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin:22
+msgid "A tuple or a list of additional special tokens."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens:1
+msgid ""
+"Add a dictionary of special tokens (eos, pad, cls, etc.) to the encoder "
+"and link them to class attributes. If special tokens are NOT in the "
+"vocabulary, they are added to it (indexed starting from the last index of"
+" the current vocabulary)."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens:6
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_tokens:5
+msgid ""
+"When adding new tokens to the vocabulary, you should make sure to also "
+"resize the token embedding matrix of the model so that its embedding "
+"matrix matches the tokenizer."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens:9
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_tokens:8
+msgid ""
+"In order to do that, please use the "
+":meth:`~transformers.PreTrainedModel.resize_token_embeddings` method."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens:11
+msgid ""
+"Using :obj:`add_special_tokens` will ensure your special tokens can be "
+"used in several ways:"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens:13
+msgid ""
+"Special tokens are carefully handled by the tokenizer (they are never "
+"split)."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens:14
+msgid ""
+"You can easily refer to special tokens using tokenizer class attributes "
+"like :obj:`tokenizer.cls_token`. This makes it easy to develop model-"
+"agnostic training and fine-tuning scripts."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens:17
+msgid ""
+"When possible, special tokens are already registered for provided "
+"pretrained models (for instance :class:`~transformers.BertTokenizer` "
+":obj:`cls_token` is already registered to be :obj`'[CLS]'` and XLM's one "
+"is also registered to be :obj:`'</s>'`)."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens:21
+msgid ""
+"Keys should be in the list of predefined special attributes: "
+"[``bos_token``, ``eos_token``, ``unk_token``, ``sep_token``, "
+"``pad_token``, ``cls_token``, ``mask_token``, "
+"``additional_special_tokens``].  Tokens are only added if they are not "
+"already in the vocabulary (tested by checking if the tokenizer assign the"
+" index of the ``unk_token`` to them)."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens:21
+msgid ""
+"Keys should be in the list of predefined special attributes: "
+"[``bos_token``, ``eos_token``, ``unk_token``, ``sep_token``, "
+"``pad_token``, ``cls_token``, ``mask_token``, "
+"``additional_special_tokens``]."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens:25
+msgid ""
+"Tokens are only added if they are not already in the vocabulary (tested "
+"by checking if the tokenizer assign the index of the ``unk_token`` to "
+"them)."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_special_tokens:29
+#: transformers.tokenization_utils_base.SpecialTokensMixin.add_tokens:21
+msgid "Number of tokens added to the vocabulary."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.add_tokens:1
+msgid ""
+"Add a list of new tokens to the tokenizer class. If the new tokens are "
+"not in the vocabulary, they are added to it with indices starting from "
+"length of the current vocabulary."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.add_tokens:10
+msgid ""
+"Tokens are only added if they are not already in the vocabulary. "
+":obj:`tokenizers.AddedToken` wraps a string token to let you personalize "
+"its behavior: whether this token should only match against a single word,"
+" whether this token should strip all potential whitespaces on the left "
+"side, whether this token should strip all potential whitespaces on the "
+"right side, etc."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.add_tokens:15
+msgid ""
+"Can be used to specify if the token is a special token. This mostly "
+"change the normalization behavior (special tokens like CLS or [MASK] are "
+"usually not lower-cased for instance).  See details for "
+":obj:`tokenizers.AddedToken` in HuggingFace tokenizers library."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.add_tokens:15
+msgid ""
+"Can be used to specify if the token is a special token. This mostly "
+"change the normalization behavior (special tokens like CLS or [MASK] are "
+"usually not lower-cased for instance)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.add_tokens:18
+msgid ""
+"See details for :obj:`tokenizers.AddedToken` in HuggingFace tokenizers "
+"library."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.additional_special_tokens:1
+msgid ""
+"All the additional special tokens you may want to use. Log an error if "
+"used while not having been set."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.additional_special_tokens_ids:1
+msgid ""
+"Ids of all the additional special tokens in the vocabulary. Log an error "
+"if used while not having been set."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.all_special_ids:1
+msgid ""
+"List the ids of the special tokens(:obj:`'<unk>'`, :obj:`'<cls>'`, etc.) "
+"mapped to class attributes."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.all_special_tokens:1
+#: transformers.tokenization_utils_base.SpecialTokensMixin.all_special_tokens_extended:1
+msgid ""
+"All the special tokens (:obj:`'<unk>'`, :obj:`'<cls>'`, etc.) mapped to "
+"class attributes."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.all_special_tokens:3
+msgid "Convert tokens of :obj:`tokenizers.AddedToken` type to string."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.all_special_tokens_extended:4
+#: transformers.tokenization_utils_base.SpecialTokensMixin.special_tokens_map_extended:5
+msgid ""
+"Don't convert tokens of :obj:`tokenizers.AddedToken` type to string so "
+"they can be used to control more finely how special tokens are tokenized."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.all_special_tokens_extended:7
+msgid ":obj:`List[Union[str, tokenizers.AddedToken]]`"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.bos_token:1
+msgid ""
+"Beginning of sentence token. Log an error if used while not having been "
+"set."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.bos_token_id:1
+msgid ""
+"Id of the beginning of sentence token in the vocabulary. Returns "
+":obj:`None` if the token has not been set."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.bos_token_id:4
+#: transformers.tokenization_utils_base.SpecialTokensMixin.cls_token_id:6
+#: transformers.tokenization_utils_base.SpecialTokensMixin.eos_token_id:4
+#: transformers.tokenization_utils_base.SpecialTokensMixin.mask_token_id:4
+#: transformers.tokenization_utils_base.SpecialTokensMixin.pad_token_id:4
+#: transformers.tokenization_utils_base.SpecialTokensMixin.sep_token_id:4
+#: transformers.tokenization_utils_base.SpecialTokensMixin.unk_token_id:4
+msgid ":obj:`Optional[int]`"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.cls_token:1
+msgid ""
+"Classification token, to extract a summary of an input sequence "
+"leveraging self-attention along the full depth of the model. Log an error"
+" if used while not having been set."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.cls_token_id:1
+msgid ""
+"Id of the classification token in the vocabulary, to extract a summary of"
+" an input sequence leveraging self-attention along the full depth of the "
+"model."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.cls_token_id:4
+msgid "Returns :obj:`None` if the token has not been set."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.eos_token:1
+msgid "End of sentence token. Log an error if used while not having been set."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.eos_token_id:1
+msgid ""
+"Id of the end of sentence token in the vocabulary. Returns :obj:`None` if"
+" the token has not been set."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.mask_token:1
+msgid ""
+"Mask token, to use when training a model with masked-language modeling. "
+"Log an error if used while not having been set."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.mask_token_id:1
+msgid ""
+"Id of the mask token in the vocabulary, used when training a model with "
+"masked-language modeling. Returns :obj:`None` if the token has not been "
+"set."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.pad_token:1
+msgid "Padding token. Log an error if used while not having been set."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.pad_token_id:1
+msgid ""
+"Id of the padding token in the vocabulary. Returns :obj:`None` if the "
+"token has not been set."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.pad_token_type_id:1
+msgid "Id of the padding token type in the vocabulary."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.sanitize_special_tokens:1
+msgid ""
+"Make sure that all the special tokens attributes of the tokenizer "
+"(:obj:`tokenizer.mask_token`, :obj:`tokenizer.cls_token`, etc.) are in "
+"the vocabulary."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.sanitize_special_tokens:4
+msgid "Add the missing ones to the vocabulary if needed."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.sanitize_special_tokens:6
+msgid "The number of tokens added in the vocabulary during the operation."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.sep_token:1
+msgid ""
+"Separation token, to separate context and query in an input sequence. Log"
+" an error if used while not having been set."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.sep_token_id:1
+msgid ""
+"Id of the separation token in the vocabulary, to separate context and "
+"query in an input sequence. Returns :obj:`None` if the token has not been"
+" set."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.special_tokens_map:1
+#: transformers.tokenization_utils_base.SpecialTokensMixin.special_tokens_map_extended:1
+msgid ""
+"A dictionary mapping special token class attributes (:obj:`cls_token`, "
+":obj:`unk_token`, etc.) to their values (:obj:`'<unk>'`, :obj:`'<cls>'`, "
+"etc.)."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.special_tokens_map:4
+msgid "Convert potential tokens of :obj:`tokenizers.AddedToken` type to string."
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.special_tokens_map:6
+msgid ":obj:`Dict[str, Union[str, List[str]]]`"
+msgstr ""
+
+#: of
+#: transformers.tokenization_utils_base.SpecialTokensMixin.special_tokens_map_extended:8
+msgid ""
+":obj:`Dict[str, Union[str, tokenizers.AddedToken, List[Union[str, "
+"tokenizers.AddedToken]]]]`"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.unk_token:1
+msgid "Unknown token. Log an error if used while not having been set."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.SpecialTokensMixin.unk_token_id:1
+msgid ""
+"Id of the unknown token in the vocabulary. Returns :obj:`None` if the "
+"token has not been set."
+msgstr ""
+
+#: ../../source/internal/tokenization_utils.rst:39
+msgid "Enums and namedtuples"
+msgstr ""
+
+#: of transformers.tokenization_utils_base.TruncationStrategy:1
+msgid ""
+"Possible values for the ``truncation`` argument in "
+":meth:`PreTrainedTokenizerBase.__call__`. Useful for tab-completion in an"
+" IDE."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.CharSpan:1
+msgid "Character span in the original string."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.CharSpan:3
+msgid "Index of the first character in the original string."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.CharSpan:5
+msgid ""
+"Index of the character following the last character in the original "
+"string."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.TokenSpan:1
+msgid "Token span in an encoded string (list of tokens)."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.TokenSpan:3
+msgid "Index of the first token in the span."
+msgstr ""
+
+#: of transformers.tokenization_utils_base.TokenSpan:5
+msgid "Index of the token following the last token in the span."
+msgstr ""
+

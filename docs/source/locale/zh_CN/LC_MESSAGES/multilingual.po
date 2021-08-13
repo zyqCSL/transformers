@@ -1,0 +1,204 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/multilingual.rst:14
+msgid "Multi-lingual models"
+msgstr ""
+
+#: ../../source/multilingual.rst:16
+msgid ""
+"Most of the models available in this library are mono-lingual models "
+"(English, Chinese and German). A few multi-lingual models are available "
+"and have a different mechanisms than mono-lingual models. This page "
+"details the usage of these models."
+msgstr ""
+
+#: ../../source/multilingual.rst:20
+msgid "The two models that currently support multiple languages are BERT and XLM."
+msgstr ""
+
+#: ../../source/multilingual.rst:23
+msgid "XLM"
+msgstr ""
+
+#: ../../source/multilingual.rst:25
+msgid ""
+"XLM has a total of 10 different checkpoints, only one of which is mono-"
+"lingual. The 9 remaining model checkpoints can be split in two "
+"categories: the checkpoints that make use of language embeddings, and "
+"those that don't"
+msgstr ""
+
+#: ../../source/multilingual.rst:29
+msgid "XLM & Language Embeddings"
+msgstr ""
+
+#: ../../source/multilingual.rst:31 ../../source/multilingual.rst:99
+msgid "This section concerns the following checkpoints:"
+msgstr ""
+
+#: ../../source/multilingual.rst:33
+msgid "``xlm-mlm-ende-1024`` (Masked language modeling, English-German)"
+msgstr ""
+
+#: ../../source/multilingual.rst:34
+msgid "``xlm-mlm-enfr-1024`` (Masked language modeling, English-French)"
+msgstr ""
+
+#: ../../source/multilingual.rst:35
+msgid "``xlm-mlm-enro-1024`` (Masked language modeling, English-Romanian)"
+msgstr ""
+
+#: ../../source/multilingual.rst:36
+msgid "``xlm-mlm-xnli15-1024`` (Masked language modeling, XNLI languages)"
+msgstr ""
+
+#: ../../source/multilingual.rst:37
+msgid ""
+"``xlm-mlm-tlm-xnli15-1024`` (Masked language modeling + Translation, XNLI"
+" languages)"
+msgstr ""
+
+#: ../../source/multilingual.rst:38
+msgid "``xlm-clm-enfr-1024`` (Causal language modeling, English-French)"
+msgstr ""
+
+#: ../../source/multilingual.rst:39
+msgid "``xlm-clm-ende-1024`` (Causal language modeling, English-German)"
+msgstr ""
+
+#: ../../source/multilingual.rst:41
+msgid ""
+"These checkpoints require language embeddings that will specify the "
+"language used at inference time. These language embeddings are "
+"represented as a tensor that is of the same shape as the input ids passed"
+" to the model. The values in these tensors depend on the language used "
+"and are identifiable using the ``lang2id`` and ``id2lang`` attributes "
+"from the tokenizer."
+msgstr ""
+
+#: ../../source/multilingual.rst:46
+msgid ""
+"Here is an example using the ``xlm-clm-enfr-1024`` checkpoint (Causal "
+"language modeling, English-French):"
+msgstr ""
+
+#: ../../source/multilingual.rst:58
+msgid ""
+"The different languages this model/tokenizer handles, as well as the ids "
+"of these languages are visible using the ``lang2id`` attribute:"
+msgstr ""
+
+#: ../../source/multilingual.rst:67
+msgid ""
+"These ids should be used when passing a language parameter during a model"
+" pass. Let's define our inputs:"
+msgstr ""
+
+#: ../../source/multilingual.rst:74
+msgid ""
+"We should now define the language embedding by using the previously "
+"defined language id. We want to create a tensor filled with the "
+"appropriate language ids, of the same size as input_ids. For english, the"
+" id is 0:"
+msgstr ""
+
+#: ../../source/multilingual.rst:86
+msgid "You can then feed it all as input to your model:"
+msgstr ""
+
+#: ../../source/multilingual.rst:93
+msgid ""
+"The example :prefix_link:`run_generation.py <examples/pytorch/text-"
+"generation/run_generation.py>` can generate text using the CLM "
+"checkpoints from XLM, using the language embeddings."
+msgstr ""
+
+#: ../../source/multilingual.rst:97
+msgid "XLM without Language Embeddings"
+msgstr ""
+
+#: ../../source/multilingual.rst:101
+msgid "``xlm-mlm-17-1280`` (Masked language modeling, 17 languages)"
+msgstr ""
+
+#: ../../source/multilingual.rst:102
+msgid "``xlm-mlm-100-1280`` (Masked language modeling, 100 languages)"
+msgstr ""
+
+#: ../../source/multilingual.rst:104
+msgid ""
+"These checkpoints do not require language embeddings at inference time. "
+"These models are used to have generic sentence representations, "
+"differently from previously-mentioned XLM checkpoints."
+msgstr ""
+
+#: ../../source/multilingual.rst:109
+msgid "BERT"
+msgstr ""
+
+#: ../../source/multilingual.rst:111
+msgid "BERT has two checkpoints that can be used for multi-lingual tasks:"
+msgstr ""
+
+#: ../../source/multilingual.rst:113
+msgid ""
+"``bert-base-multilingual-uncased`` (Masked language modeling + Next "
+"sentence prediction, 102 languages)"
+msgstr ""
+
+#: ../../source/multilingual.rst:114
+msgid ""
+"``bert-base-multilingual-cased`` (Masked language modeling + Next "
+"sentence prediction, 104 languages)"
+msgstr ""
+
+#: ../../source/multilingual.rst:116
+msgid ""
+"These checkpoints do not require language embeddings at inference time. "
+"They should identify the language used in the context and infer "
+"accordingly."
+msgstr ""
+
+#: ../../source/multilingual.rst:120
+msgid "XLM-RoBERTa"
+msgstr ""
+
+#: ../../source/multilingual.rst:122
+msgid ""
+"XLM-RoBERTa was trained on 2.5TB of newly created clean CommonCrawl data "
+"in 100 languages. It provides strong gains over previously released "
+"multi-lingual models like mBERT or XLM on downstream tasks like "
+"classification, sequence labeling and question answering."
+msgstr ""
+
+#: ../../source/multilingual.rst:126
+msgid "Two XLM-RoBERTa checkpoints can be used for multi-lingual tasks:"
+msgstr ""
+
+#: ../../source/multilingual.rst:128
+msgid "``xlm-roberta-base`` (Masked language modeling, 100 languages)"
+msgstr ""
+
+#: ../../source/multilingual.rst:129
+msgid "``xlm-roberta-large`` (Masked language modeling, 100 languages)"
+msgstr ""
+

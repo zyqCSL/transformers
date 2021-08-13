@@ -1,0 +1,600 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-10 04:49+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/serialization.rst:14
+msgid "Exporting transformers models"
+msgstr ""
+
+#: ../../source/serialization.rst:17
+msgid "ONNX / ONNXRuntime"
+msgstr ""
+
+#: ../../source/serialization.rst:19
+msgid ""
+"Projects `ONNX (Open Neural Network eXchange) <http://onnx.ai>`_ and "
+"`ONNXRuntime (ORT) <https://microsoft.github.io/onnxruntime/>`_ are part "
+"of an effort from leading industries in the AI field to provide a unified"
+" and community-driven format to store and, by extension, efficiently "
+"execute neural network leveraging a variety of hardware and dedicated "
+"optimizations."
+msgstr ""
+
+#: ../../source/serialization.rst:25
+msgid ""
+"Starting from transformers v2.10.0 we partnered with ONNX Runtime to "
+"provide an easy export of transformers models to the ONNX format. You can"
+" have a look at the effort by looking at our joint blog post `Accelerate "
+"your NLP pipelines using Hugging Face Transformers and ONNX Runtime "
+"<https://medium.com/microsoftazure/accelerate-your-nlp-pipelines-using-"
+"hugging-face-transformers-and-onnx-runtime-2443578f4333>`_."
+msgstr ""
+
+#: ../../source/serialization.rst:32
+msgid "Configuration-based approach"
+msgstr ""
+
+#: ../../source/serialization.rst:34
+msgid ""
+"Transformers v4.9.0 introduces a new package: ``transformers.onnx``. This"
+" package allows converting checkpoints to an ONNX graph by leveraging "
+"configuration objects. These configuration objects come ready made for a "
+"number of model architectures, and are made to be easily extendable to "
+"other architectures."
+msgstr ""
+
+#: ../../source/serialization.rst:38
+msgid "Ready-made configurations include the following models:"
+msgstr ""
+
+#: ../../source/serialization.rst:40
+msgid "ALBERT"
+msgstr ""
+
+#: ../../source/serialization.rst:41
+msgid "BART"
+msgstr ""
+
+#: ../../source/serialization.rst:42
+msgid "BERT"
+msgstr ""
+
+#: ../../source/serialization.rst:43
+msgid "DistilBERT"
+msgstr ""
+
+#: ../../source/serialization.rst:44
+msgid "GPT-2"
+msgstr ""
+
+#: ../../source/serialization.rst:45
+msgid "RoBERTa"
+msgstr ""
+
+#: ../../source/serialization.rst:46
+msgid "T5"
+msgstr ""
+
+#: ../../source/serialization.rst:47
+msgid "XLM-RoBERTa"
+msgstr ""
+
+#: ../../source/serialization.rst:49
+msgid ""
+"This conversion is handled with the PyTorch version of models - it, "
+"therefore, requires PyTorch to be installed. If you would like to be able"
+" to convert from TensorFlow, please let us know by opening an issue."
+msgstr ""
+
+#: ../../source/serialization.rst:53
+msgid ""
+"The models showcased here are close to fully feature complete, but do "
+"lack some features that are currently in development. Namely, the ability"
+" to handle the past key values for decoder models is currently in the "
+"works."
+msgstr ""
+
+#: ../../source/serialization.rst:58
+msgid "Converting an ONNX model using the ``transformers.onnx`` package"
+msgstr ""
+
+#: ../../source/serialization.rst:60
+msgid "The package may be used as a Python module:"
+msgstr ""
+
+#: ../../source/serialization.rst:79
+msgid ""
+"Exporting a checkpoint using a ready-made configuration can be done as "
+"follows:"
+msgstr ""
+
+#: ../../source/serialization.rst:85
+msgid ""
+"This exports an ONNX graph of the mentioned checkpoint. Here it is `bert-"
+"base-cased`, but it can be any model from the hub, or a local path."
+msgstr ""
+
+#: ../../source/serialization.rst:88
+msgid ""
+"It will be exported under ``onnx/bert-base-cased``. You should see "
+"similar logs:"
+msgstr ""
+
+#: ../../source/serialization.rst:102
+msgid "This export can now be used in the ONNX inference runtime:"
+msgstr ""
+
+#: ../../source/serialization.rst:116
+msgid ""
+"The outputs used (:obj:`[\"last_hidden_state\", \"pooler_output\"]`) can "
+"be obtained by taking a look at the ONNX configuration of each model. For"
+" example, for BERT:"
+msgstr ""
+
+#: ../../source/serialization.rst:128
+msgid "Implementing a custom configuration for an unsupported architecture"
+msgstr ""
+
+#: ../../source/serialization.rst:130
+msgid ""
+"Let's take a look at the changes necessary to add a custom configuration "
+"for an unsupported architecture. Firstly, we will need a custom ONNX "
+"configuration object that details the model inputs and outputs. The BERT "
+"ONNX configuration is visible below:"
+msgstr ""
+
+#: ../../source/serialization.rst:151
+msgid ""
+"Let's understand what's happening here. This configuration has two "
+"properties: the inputs, and the outputs."
+msgstr ""
+
+#: ../../source/serialization.rst:153
+msgid ""
+"The inputs return a dictionary, where each key corresponds to an expected"
+" input, and each value indicates the axis of that input."
+msgstr ""
+
+#: ../../source/serialization.rst:156
+msgid ""
+"For BERT, there are three necessary inputs. These three inputs are of "
+"similar shape, which is made up of two dimensions: the batch is the first"
+" dimension, and the second is the sequence."
+msgstr ""
+
+#: ../../source/serialization.rst:159
+msgid ""
+"The outputs return a similar dictionary, where, once again, each key "
+"corresponds to an expected output, and each value indicates the axis of "
+"that output."
+msgstr ""
+
+#: ../../source/serialization.rst:162
+msgid ""
+"Once this is done, a single step remains: adding this configuration "
+"object to the initialisation of the model class, and to the general "
+"``transformers`` initialisation."
+msgstr ""
+
+#: ../../source/serialization.rst:165
+msgid ""
+"An important fact to notice is the use of `OrderedDict` in both inputs "
+"and outputs properties. This is a requirements as inputs are matched "
+"against their relative position within the `PreTrainedModel.forward()` "
+"prototype and outputs are match against there position in the returned "
+"`BaseModelOutputX` instance."
+msgstr ""
+
+#: ../../source/serialization.rst:169
+msgid ""
+"An example of such an addition is visible here, for the MBart model: "
+"`Making MBART ONNX-convertible "
+"<https://github.com/huggingface/transformers/pull/13049/commits/d097adcebd89a520f04352eb215a85916934204f>`__"
+msgstr ""
+
+#: ../../source/serialization.rst:172
+msgid ""
+"If you would like to contribute your addition to the library, we "
+"recommend you implement tests. An example of such tests is visible here: "
+"`Adding tests to the MBART ONNX conversion "
+"<https://github.com/huggingface/transformers/pull/13049/commits/5d642f65abf45ceeb72bd855ca7bfe2506a58e6a>`__"
+msgstr ""
+
+#: ../../source/serialization.rst:177
+msgid "Graph conversion"
+msgstr ""
+
+#: ../../source/serialization.rst:180
+msgid ""
+"The approach detailed here is bing deprecated. We recommend you follow "
+"the part above for an up to date approach."
+msgstr ""
+
+#: ../../source/serialization.rst:183
+msgid ""
+"Exporting a model is done through the script `convert_graph_to_onnx.py` "
+"at the root of the transformers sources. The following command shows how "
+"easy it is to export a BERT model from the library, simply run:"
+msgstr ""
+
+#: ../../source/serialization.rst:190
+msgid ""
+"The conversion tool works for both PyTorch and Tensorflow models and "
+"ensures:"
+msgstr ""
+
+#: ../../source/serialization.rst:192
+msgid ""
+"The model and its weights are correctly initialized from the Hugging Face"
+" model hub or a local checkpoint."
+msgstr ""
+
+#: ../../source/serialization.rst:193
+msgid "The inputs and outputs are correctly generated to their ONNX counterpart."
+msgstr ""
+
+#: ../../source/serialization.rst:194
+msgid "The generated model can be correctly loaded through onnxruntime."
+msgstr ""
+
+#: ../../source/serialization.rst:197
+msgid ""
+"Currently, inputs and outputs are always exported with dynamic sequence "
+"axes preventing some optimizations on the ONNX Runtime. If you would like"
+" to see such support for fixed-length inputs/outputs, please open up an "
+"issue on transformers."
+msgstr ""
+
+#: ../../source/serialization.rst:202
+msgid ""
+"Also, the conversion tool supports different options which let you tune "
+"the behavior of the generated model:"
+msgstr ""
+
+#: ../../source/serialization.rst:204
+msgid ""
+"**Change the target opset version of the generated model.** (More recent "
+"opset generally supports more operators and enables faster inference)"
+msgstr ""
+
+#: ../../source/serialization.rst:207
+msgid ""
+"**Export pipeline-specific prediction heads.** (Allow to export model "
+"along with its task-specific prediction head(s))"
+msgstr ""
+
+#: ../../source/serialization.rst:210
+msgid ""
+"**Use the external data format (PyTorch only).** (Lets you export model "
+"which size is above 2Gb (`More info "
+"<https://github.com/pytorch/pytorch/pull/33062>`_))"
+msgstr ""
+
+#: ../../source/serialization.rst:215
+msgid "Optimizations"
+msgstr ""
+
+#: ../../source/serialization.rst:217
+msgid ""
+"ONNXRuntime includes some transformers-specific transformations to "
+"leverage optimized operations in the graph. Below are some of the "
+"operators which can be enabled to speed up inference through ONNXRuntime "
+"(*see note below*):"
+msgstr ""
+
+#: ../../source/serialization.rst:220
+msgid "Constant folding"
+msgstr ""
+
+#: ../../source/serialization.rst:221
+msgid "Attention Layer fusing"
+msgstr ""
+
+#: ../../source/serialization.rst:222
+msgid "Skip connection LayerNormalization fusing"
+msgstr ""
+
+#: ../../source/serialization.rst:223
+msgid "FastGeLU approximation"
+msgstr ""
+
+#: ../../source/serialization.rst:225
+msgid ""
+"Some of the optimizations performed by ONNX runtime can be hardware "
+"specific and thus lead to different performances if used on another "
+"machine with a different hardware configuration than the one used for "
+"exporting the model. For this reason, when using "
+"``convert_graph_to_onnx.py`` optimizations are not enabled, ensuring the "
+"model can be easily exported to various hardware. Optimizations can then "
+"be enabled when loading the model through ONNX runtime for inference."
+msgstr ""
+
+#: ../../source/serialization.rst:233
+msgid ""
+"When quantization is enabled (see below), ``convert_graph_to_onnx.py`` "
+"script will enable optimizations on the model because quantization would "
+"modify the underlying graph making it impossible for ONNX runtime to do "
+"the optimizations afterwards."
+msgstr ""
+
+#: ../../source/serialization.rst:238
+msgid ""
+"For more information about the optimizations enabled by ONNXRuntime, "
+"please have a look at the `ONNXRuntime Github "
+"<https://github.com/microsoft/onnxruntime/tree/master/onnxruntime/python/tools/transformers>`_."
+msgstr ""
+
+#: ../../source/serialization.rst:242
+msgid "Quantization"
+msgstr ""
+
+#: ../../source/serialization.rst:244
+msgid ""
+"ONNX exporter supports generating a quantized version of the model to "
+"allow efficient inference."
+msgstr ""
+
+#: ../../source/serialization.rst:246
+msgid ""
+"Quantization works by converting the memory representation of the "
+"parameters in the neural network to a compact integer format. By default,"
+" weights of a neural network are stored as single-precision float "
+"(`float32`) which can express a wide-range of floating-point numbers with"
+" decent precision. These properties are especially interesting at "
+"training where you want fine-grained representation."
+msgstr ""
+
+#: ../../source/serialization.rst:251
+msgid ""
+"On the other hand, after the training phase, it has been shown one can "
+"greatly reduce the range and the precision of `float32` numbers without "
+"changing the performances of the neural network."
+msgstr ""
+
+#: ../../source/serialization.rst:254
+msgid ""
+"More technically, `float32` parameters are converted to a type requiring "
+"fewer bits to represent each number, thus reducing the overall size of "
+"the model. Here, we are enabling `float32` mapping to `int8` values (a "
+"non-floating, single byte, number representation) according to the "
+"following formula:"
+msgstr ""
+
+#: ../../source/serialization.rst:258
+msgid ""
+"y_{float32} = scale * x_{int8} - zero\\_point\n"
+"\n"
+msgstr ""
+
+#: ../../source/serialization.rst:262
+msgid ""
+"The quantization process will infer the parameter `scale` and "
+"`zero_point` from the neural network parameters"
+msgstr ""
+
+#: ../../source/serialization.rst:264
+msgid ""
+"Leveraging tiny-integers has numerous advantages when it comes to "
+"inference:"
+msgstr ""
+
+#: ../../source/serialization.rst:266
+msgid ""
+"Storing fewer bits instead of 32 bits for the `float32` reduces the size "
+"of the model and makes it load faster."
+msgstr ""
+
+#: ../../source/serialization.rst:267
+msgid "Integer operations execute a magnitude faster on modern hardware"
+msgstr ""
+
+#: ../../source/serialization.rst:268
+msgid "Integer operations require less power to do the computations"
+msgstr ""
+
+#: ../../source/serialization.rst:270
+msgid ""
+"In order to convert a transformers model to ONNX IR with quantized "
+"weights you just need to specify ``--quantize`` when using "
+"``convert_graph_to_onnx.py``. Also, you can have a look at the "
+"``quantize()`` utility-method in this same script file."
+msgstr ""
+
+#: ../../source/serialization.rst:274
+msgid "Example of quantized BERT model export:"
+msgstr ""
+
+#: ../../source/serialization.rst:281
+msgid "Quantization support requires ONNX Runtime >= 1.4.0"
+msgstr ""
+
+#: ../../source/serialization.rst:284
+msgid ""
+"When exporting quantized model you will end up with two different ONNX "
+"files. The one specified at the end of the above command will contain the"
+" original ONNX model storing `float32` weights. The second one, with "
+"``-quantized`` suffix, will hold the quantized parameters."
+msgstr ""
+
+#: ../../source/serialization.rst:290
+msgid "TorchScript"
+msgstr ""
+
+#: ../../source/serialization.rst:293
+msgid ""
+"This is the very beginning of our experiments with TorchScript and we are"
+" still exploring its capabilities with variable-input-size models. It is "
+"a focus of interest to us and we will deepen our analysis in upcoming "
+"releases, with more code examples, a more flexible implementation, and "
+"benchmarks comparing python-based codes with compiled TorchScript."
+msgstr ""
+
+#: ../../source/serialization.rst:299
+msgid ""
+"According to Pytorch's documentation: \"TorchScript is a way to create "
+"serializable and optimizable models from PyTorch code\". Pytorch's two "
+"modules `JIT and TRACE <https://pytorch.org/docs/stable/jit.html>`_ allow"
+" the developer to export their model to be re-used in other programs, "
+"such as efficiency-oriented C++ programs."
+msgstr ""
+
+#: ../../source/serialization.rst:303
+msgid ""
+"We have provided an interface that allows the export of 🤗 Transformers "
+"models to TorchScript so that they can be reused in a different "
+"environment than a Pytorch-based python program. Here we explain how to "
+"export and use our models using TorchScript."
+msgstr ""
+
+#: ../../source/serialization.rst:307
+msgid "Exporting a model requires two things:"
+msgstr ""
+
+#: ../../source/serialization.rst:309
+msgid "a forward pass with dummy inputs."
+msgstr ""
+
+#: ../../source/serialization.rst:310
+msgid "model instantiation with the ``torchscript`` flag."
+msgstr ""
+
+#: ../../source/serialization.rst:312
+msgid ""
+"These necessities imply several things developers should be careful "
+"about. These are detailed below."
+msgstr ""
+
+#: ../../source/serialization.rst:316
+msgid "Implications"
+msgstr ""
+
+#: ../../source/serialization.rst:319
+msgid "TorchScript flag and tied weights"
+msgstr ""
+
+#: ../../source/serialization.rst:321
+msgid ""
+"This flag is necessary because most of the language models in this "
+"repository have tied weights between their ``Embedding`` layer and their "
+"``Decoding`` layer. TorchScript does not allow the export of models that "
+"have tied weights, therefore it is necessary to untie and clone the "
+"weights beforehand."
+msgstr ""
+
+#: ../../source/serialization.rst:325
+msgid ""
+"This implies that models instantiated with the ``torchscript`` flag have "
+"their ``Embedding`` layer and ``Decoding`` layer separate, which means "
+"that they should not be trained down the line. Training would de-"
+"synchronize the two layers, leading to unexpected results."
+msgstr ""
+
+#: ../../source/serialization.rst:329
+msgid ""
+"This is not the case for models that do not have a Language Model head, "
+"as those do not have tied weights. These models can be safely exported "
+"without the ``torchscript`` flag."
+msgstr ""
+
+#: ../../source/serialization.rst:333
+msgid "Dummy inputs and standard lengths"
+msgstr ""
+
+#: ../../source/serialization.rst:335
+msgid ""
+"The dummy inputs are used to do a model forward pass. While the inputs' "
+"values are propagating through the layers, Pytorch keeps track of the "
+"different operations executed on each tensor. These recorded operations "
+"are then used to create the \"trace\" of the model."
+msgstr ""
+
+#: ../../source/serialization.rst:339
+msgid ""
+"The trace is created relatively to the inputs' dimensions. It is "
+"therefore constrained by the dimensions of the dummy input, and will not "
+"work for any other sequence length or batch size. When trying with a "
+"different size, an error such as:"
+msgstr ""
+
+#: ../../source/serialization.rst:343
+msgid ""
+"``The expanded size of the tensor (3) must match the existing size (7) at"
+" non-singleton dimension 2``"
+msgstr ""
+
+#: ../../source/serialization.rst:345
+msgid ""
+"will be raised. It is therefore recommended to trace the model with a "
+"dummy input size at least as large as the largest input that will be fed "
+"to the model during inference. Padding can be performed to fill the "
+"missing values. As the model will have been traced with a large input "
+"size however, the dimensions of the different matrix will be large as "
+"well, resulting in more calculations."
+msgstr ""
+
+#: ../../source/serialization.rst:350
+msgid ""
+"It is recommended to be careful of the total number of operations done on"
+" each input and to follow performance closely when exporting varying "
+"sequence-length models."
+msgstr ""
+
+#: ../../source/serialization.rst:354
+msgid "Using TorchScript in Python"
+msgstr ""
+
+#: ../../source/serialization.rst:356
+msgid ""
+"Below is an example, showing how to save, load models as well as how to "
+"use the trace for inference."
+msgstr ""
+
+#: ../../source/serialization.rst:359
+msgid "Saving a model"
+msgstr ""
+
+#: ../../source/serialization.rst:361
+msgid ""
+"This snippet shows how to use TorchScript to export a ``BertModel``. Here"
+" the ``BertModel`` is instantiated according to a ``BertConfig`` class "
+"and then saved to disk under the filename ``traced_bert.pt``"
+msgstr ""
+
+#: ../../source/serialization.rst:405
+msgid "Loading a model"
+msgstr ""
+
+#: ../../source/serialization.rst:407
+msgid ""
+"This snippet shows how to load the ``BertModel`` that was previously "
+"saved to disk under the name ``traced_bert.pt``. We are re-using the "
+"previously initialised ``dummy_input``."
+msgstr ""
+
+#: ../../source/serialization.rst:418
+msgid "Using a traced model for inference"
+msgstr ""
+
+#: ../../source/serialization.rst:420
+msgid ""
+"Using the traced model for inference is as simple as using its "
+"``__call__`` dunder method:"
+msgstr ""
+

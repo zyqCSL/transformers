@@ -1,0 +1,1611 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-10 04:49+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/main_classes/output.rst:14
+msgid "Model outputs"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:16
+msgid ""
+"All models have outputs that are instances of subclasses of "
+":class:`~transformers.file_utils.ModelOutput`. Those are data structures "
+"containing all the information returned by the model, but that can also "
+"be used as tuples or dictionaries."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:20
+msgid "Let's see of this looks on an example:"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:34
+msgid ""
+"The ``outputs`` object is a "
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput`, as we "
+"can see in the documentation of that class below, it means it has an "
+"optional ``loss``, a ``logits`` an optional ``hidden_states`` and an "
+"optional ``attentions`` attribute. Here we have the ``loss`` since we "
+"passed along ``labels``, but we don't have ``hidden_states`` and "
+"``attentions`` because we didn't pass ``output_hidden_states=True`` or "
+"``output_attentions=True``."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:40
+msgid ""
+"You can access each attribute as you would usually do, and if that "
+"attribute has not been returned by the model, you will get ``None``. Here"
+" for instance ``outputs.loss`` is the loss computed by the model, and "
+"``outputs.attentions`` is ``None``."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:44
+msgid ""
+"When considering our ``outputs`` object as tuple, it only considers the "
+"attributes that don't have ``None`` values. Here for instance, it has two"
+" elements, ``loss`` then ``logits``, so"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:51
+msgid "will return the tuple ``(outputs.loss, outputs.logits)`` for instance."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:53
+msgid ""
+"When considering our ``outputs`` object as dictionary, it only considers "
+"the attributes that don't have ``None`` values. Here for instance, it has"
+" two keys that are ``loss`` and ``logits``."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:56
+msgid ""
+"We document here the generic model outputs that are used by more than one"
+" model type. Specific output types are documented on their corresponding "
+"model page."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:60
+msgid "ModelOutput"
+msgstr ""
+
+#: of transformers.file_utils.ModelOutput:1
+msgid ""
+"Base class for all model outputs as dataclass. Has a ``__getitem__`` that"
+" allows indexing by integer or slice (like a tuple) or strings (like a "
+"dictionary) that will ignore the ``None`` attributes. Otherwise behaves "
+"like a regular python dictionary."
+msgstr ""
+
+#: of transformers.file_utils.ModelOutput:6
+msgid ""
+"You can't unpack a :obj:`ModelOutput` directly. Use the "
+":meth:`~transformers.file_utils.ModelOutput.to_tuple` method to convert "
+"it to a tuple before."
+msgstr ""
+
+#: of transformers.file_utils.ModelOutput.to_tuple:1
+msgid ""
+"Convert self to a tuple containing all the attributes/keys that are not "
+"``None``."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:67
+msgid "BaseModelOutput"
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxBaseModelOutput:1
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPast:1
+#: transformers.modeling_outputs.BaseModelOutput:1
+#: transformers.modeling_outputs.BaseModelOutputWithCrossAttentions:1
+#: transformers.modeling_tf_outputs.TFBaseModelOutput:1
+msgid ""
+"Base class for model's outputs, with potential hidden states and "
+"attentions."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxBaseModelOutput
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPast
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling
+#: transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions
+#: transformers.modeling_flax_outputs.FlaxMaskedLMOutput
+#: transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput
+#: transformers.modeling_flax_outputs.FlaxNextSentencePredictorOutput
+#: transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput
+#: transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput
+#: transformers.modeling_flax_outputs.FlaxTokenClassifierOutput
+#: transformers.modeling_outputs.BaseModelOutput
+#: transformers.modeling_outputs.BaseModelOutputWithCrossAttentions
+#: transformers.modeling_outputs.BaseModelOutputWithPast
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions
+#: transformers.modeling_outputs.BaseModelOutputWithPooling
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions
+#: transformers.modeling_outputs.CausalLMOutput
+#: transformers.modeling_outputs.CausalLMOutputWithCrossAttentions
+#: transformers.modeling_outputs.CausalLMOutputWithPast
+#: transformers.modeling_outputs.MaskedLMOutput
+#: transformers.modeling_outputs.MultipleChoiceModelOutput
+#: transformers.modeling_outputs.NextSentencePredictorOutput
+#: transformers.modeling_outputs.QuestionAnsweringModelOutput
+#: transformers.modeling_outputs.Seq2SeqLMOutput
+#: transformers.modeling_outputs.Seq2SeqModelOutput
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput
+#: transformers.modeling_outputs.SequenceClassifierOutput
+#: transformers.modeling_outputs.TokenClassifierOutput
+#: transformers.modeling_tf_outputs.TFBaseModelOutput
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPast
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling
+#: transformers.modeling_tf_outputs.TFCausalLMOutput
+#: transformers.modeling_tf_outputs.TFCausalLMOutputWithPast
+#: transformers.modeling_tf_outputs.TFMaskedLMOutput
+#: transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput
+#: transformers.modeling_tf_outputs.TFNextSentencePredictorOutput
+#: transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput
+#: transformers.modeling_tf_outputs.TFSequenceClassifierOutput
+#: transformers.modeling_tf_outputs.TFTokenClassifierOutput
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxBaseModelOutput:3
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPast:3
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:3
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling:3
+#: transformers.modeling_outputs.BaseModelOutput:3
+#: transformers.modeling_outputs.BaseModelOutputWithCrossAttentions:3
+#: transformers.modeling_outputs.BaseModelOutputWithPast:3
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:3
+#: transformers.modeling_outputs.BaseModelOutputWithPooling:3
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions:3
+#: transformers.modeling_tf_outputs.TFBaseModelOutput:3
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPast:3
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling:3
+msgid "Sequence of hidden-states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.modeling_outputs.BaseModelOutput:5
+#: transformers.modeling_outputs.BaseModelOutputWithCrossAttentions:5
+#: transformers.modeling_outputs.BaseModelOutputWithPast:17
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:17
+#: transformers.modeling_outputs.BaseModelOutputWithPooling:9
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions:9
+#: transformers.modeling_outputs.CausalLMOutput:7
+#: transformers.modeling_outputs.CausalLMOutputWithCrossAttentions:7
+#: transformers.modeling_outputs.CausalLMOutputWithPast:13
+#: transformers.modeling_outputs.MaskedLMOutput:7
+#: transformers.modeling_outputs.MultipleChoiceModelOutput:9
+#: transformers.modeling_outputs.NextSentencePredictorOutput:8
+#: transformers.modeling_outputs.QuestionAnsweringModelOutput:9
+#: transformers.modeling_outputs.SequenceClassifierOutput:7
+#: transformers.modeling_outputs.TokenClassifierOutput:7
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the model at the output"
+" of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.modeling_outputs.BaseModelOutput:5
+#: transformers.modeling_outputs.BaseModelOutputWithCrossAttentions:5
+#: transformers.modeling_outputs.BaseModelOutputWithPast:17
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:17
+#: transformers.modeling_outputs.BaseModelOutputWithPooling:9
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions:9
+#: transformers.modeling_outputs.CausalLMOutput:7
+#: transformers.modeling_outputs.CausalLMOutputWithCrossAttentions:7
+#: transformers.modeling_outputs.CausalLMOutputWithPast:13
+#: transformers.modeling_outputs.MaskedLMOutput:7
+#: transformers.modeling_outputs.MultipleChoiceModelOutput:9
+#: transformers.modeling_outputs.NextSentencePredictorOutput:8
+#: transformers.modeling_outputs.QuestionAnsweringModelOutput:9
+#: transformers.modeling_outputs.Seq2SeqLMOutput:14
+#: transformers.modeling_outputs.Seq2SeqLMOutput:33
+#: transformers.modeling_outputs.Seq2SeqModelOutput:16
+#: transformers.modeling_outputs.Seq2SeqModelOutput:35
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:16
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:35
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:14
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:33
+#: transformers.modeling_outputs.SequenceClassifierOutput:7
+#: transformers.modeling_outputs.TokenClassifierOutput:7
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxBaseModelOutput:8
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPast:11
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:20
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling:12
+#: transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions:8
+#: transformers.modeling_flax_outputs.FlaxMaskedLMOutput:8
+#: transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput:10
+#: transformers.modeling_flax_outputs.FlaxNextSentencePredictorOutput:9
+#: transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput:10
+#: transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput:8
+#: transformers.modeling_flax_outputs.FlaxTokenClassifierOutput:8
+#: transformers.modeling_outputs.BaseModelOutput:8
+#: transformers.modeling_outputs.BaseModelOutputWithCrossAttentions:8
+#: transformers.modeling_outputs.BaseModelOutputWithPast:20
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:20
+#: transformers.modeling_outputs.BaseModelOutputWithPooling:12
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions:12
+#: transformers.modeling_outputs.CausalLMOutput:10
+#: transformers.modeling_outputs.CausalLMOutputWithCrossAttentions:10
+#: transformers.modeling_outputs.CausalLMOutputWithPast:16
+#: transformers.modeling_outputs.MaskedLMOutput:10
+#: transformers.modeling_outputs.MultipleChoiceModelOutput:12
+#: transformers.modeling_outputs.NextSentencePredictorOutput:11
+#: transformers.modeling_outputs.QuestionAnsweringModelOutput:12
+#: transformers.modeling_outputs.SequenceClassifierOutput:10
+#: transformers.modeling_outputs.TokenClassifierOutput:10
+#: transformers.modeling_tf_outputs.TFBaseModelOutput:8
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPast:17
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling:15
+#: transformers.modeling_tf_outputs.TFCausalLMOutput:10
+#: transformers.modeling_tf_outputs.TFCausalLMOutputWithPast:16
+#: transformers.modeling_tf_outputs.TFMaskedLMOutput:10
+#: transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput:12
+#: transformers.modeling_tf_outputs.TFNextSentencePredictorOutput:11
+#: transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput:12
+#: transformers.modeling_tf_outputs.TFSequenceClassifierOutput:10
+#: transformers.modeling_tf_outputs.TFTokenClassifierOutput:10
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.modeling_outputs.BaseModelOutput:10
+#: transformers.modeling_outputs.BaseModelOutputWithCrossAttentions:10
+#: transformers.modeling_outputs.BaseModelOutputWithPast:22
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:22
+#: transformers.modeling_outputs.BaseModelOutputWithPooling:14
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions:14
+#: transformers.modeling_outputs.CausalLMOutput:12
+#: transformers.modeling_outputs.CausalLMOutputWithCrossAttentions:12
+#: transformers.modeling_outputs.CausalLMOutputWithPast:18
+#: transformers.modeling_outputs.MaskedLMOutput:12
+#: transformers.modeling_outputs.MultipleChoiceModelOutput:14
+#: transformers.modeling_outputs.NextSentencePredictorOutput:13
+#: transformers.modeling_outputs.QuestionAnsweringModelOutput:14
+#: transformers.modeling_outputs.SequenceClassifierOutput:12
+#: transformers.modeling_outputs.TokenClassifierOutput:12
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.modeling_outputs.BaseModelOutput:10
+#: transformers.modeling_outputs.BaseModelOutputWithCrossAttentions:10
+#: transformers.modeling_outputs.BaseModelOutputWithCrossAttentions:16
+#: transformers.modeling_outputs.BaseModelOutputWithPast:22
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:22
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:28
+#: transformers.modeling_outputs.BaseModelOutputWithPooling:14
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions:14
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions:20
+#: transformers.modeling_outputs.CausalLMOutput:12
+#: transformers.modeling_outputs.CausalLMOutputWithCrossAttentions:12
+#: transformers.modeling_outputs.CausalLMOutputWithCrossAttentions:18
+#: transformers.modeling_outputs.CausalLMOutputWithPast:18
+#: transformers.modeling_outputs.MaskedLMOutput:12
+#: transformers.modeling_outputs.MultipleChoiceModelOutput:14
+#: transformers.modeling_outputs.NextSentencePredictorOutput:13
+#: transformers.modeling_outputs.QuestionAnsweringModelOutput:14
+#: transformers.modeling_outputs.Seq2SeqLMOutput:19
+#: transformers.modeling_outputs.Seq2SeqLMOutput:25
+#: transformers.modeling_outputs.Seq2SeqLMOutput:38
+#: transformers.modeling_outputs.Seq2SeqModelOutput:21
+#: transformers.modeling_outputs.Seq2SeqModelOutput:27
+#: transformers.modeling_outputs.Seq2SeqModelOutput:40
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:21
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:27
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:40
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:19
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:25
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:38
+#: transformers.modeling_outputs.SequenceClassifierOutput:12
+#: transformers.modeling_outputs.TokenClassifierOutput:12
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxBaseModelOutput:13
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPast:16
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:25
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling:17
+#: transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions:13
+#: transformers.modeling_flax_outputs.FlaxMaskedLMOutput:13
+#: transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput:15
+#: transformers.modeling_flax_outputs.FlaxNextSentencePredictorOutput:14
+#: transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput:15
+#: transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput:13
+#: transformers.modeling_flax_outputs.FlaxTokenClassifierOutput:13
+#: transformers.modeling_outputs.BaseModelOutput:13
+#: transformers.modeling_outputs.BaseModelOutputWithCrossAttentions:13
+#: transformers.modeling_outputs.BaseModelOutputWithPast:25
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:25
+#: transformers.modeling_outputs.BaseModelOutputWithPooling:17
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions:17
+#: transformers.modeling_outputs.CausalLMOutput:15
+#: transformers.modeling_outputs.CausalLMOutputWithCrossAttentions:15
+#: transformers.modeling_outputs.CausalLMOutputWithPast:21
+#: transformers.modeling_outputs.MaskedLMOutput:15
+#: transformers.modeling_outputs.MultipleChoiceModelOutput:17
+#: transformers.modeling_outputs.NextSentencePredictorOutput:16
+#: transformers.modeling_outputs.QuestionAnsweringModelOutput:17
+#: transformers.modeling_outputs.SequenceClassifierOutput:15
+#: transformers.modeling_outputs.TokenClassifierOutput:15
+#: transformers.modeling_tf_outputs.TFBaseModelOutput:13
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPast:22
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling:20
+#: transformers.modeling_tf_outputs.TFCausalLMOutput:15
+#: transformers.modeling_tf_outputs.TFCausalLMOutputWithPast:21
+#: transformers.modeling_tf_outputs.TFMaskedLMOutput:15
+#: transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput:17
+#: transformers.modeling_tf_outputs.TFNextSentencePredictorOutput:16
+#: transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput:17
+#: transformers.modeling_tf_outputs.TFSequenceClassifierOutput:15
+#: transformers.modeling_tf_outputs.TFTokenClassifierOutput:15
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:74
+msgid "BaseModelOutputWithPooling"
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling:1
+#: transformers.modeling_outputs.BaseModelOutputWithPooling:1
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions:1
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling:1
+msgid ""
+"Base class for model's outputs that also contains a pooling of the last "
+"hidden states."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling:5
+#: transformers.modeling_outputs.BaseModelOutputWithPooling:5
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions:5
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling:5
+msgid ""
+"Last layer hidden-state of the first token of the sequence "
+"(classification token) further processed by a Linear layer and a Tanh "
+"activation function. The Linear layer weights are trained from the next "
+"sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:81
+msgid "BaseModelOutputWithCrossAttentions"
+msgstr ""
+
+#: of transformers.modeling_outputs.BaseModelOutputWithCrossAttentions:16
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:28
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions:20
+#: transformers.modeling_outputs.Seq2SeqLMOutput:25
+#: transformers.modeling_outputs.Seq2SeqModelOutput:27
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:27
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:25
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:31
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:26
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:30
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:28
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:26
+#: transformers.modeling_outputs.BaseModelOutputWithCrossAttentions:19
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:31
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions:23
+#: transformers.modeling_outputs.Seq2SeqLMOutput:28
+#: transformers.modeling_outputs.Seq2SeqModelOutput:30
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:30
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:28
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:27
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:29
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:88
+msgid "BaseModelOutputWithPoolingAndCrossAttentions"
+msgstr ""
+
+#: of transformers.modeling_outputs.BaseModelOutputWithPast:8
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:8
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions:26
+msgid ""
+"Tuple of :obj:`tuple(torch.FloatTensor)` of length "
+":obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" optionally if ``config.is_encoder_decoder=True`` 2 additional tensors of"
+" shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.  Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and optionally if "
+"``config.is_encoder_decoder=True`` in the cross-attention blocks) that "
+"can be used (see :obj:`past_key_values` input) to speed up sequential "
+"decoding."
+msgstr ""
+
+#: of transformers.modeling_outputs.BaseModelOutputWithPast:8
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:8
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions:26
+msgid ""
+"Tuple of :obj:`tuple(torch.FloatTensor)` of length "
+":obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" optionally if ``config.is_encoder_decoder=True`` 2 additional tensors of"
+" shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`."
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:13
+#: transformers.modeling_outputs.BaseModelOutputWithPast:13
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:13
+#: transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions:31
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and optionally if ``config.is_encoder_decoder=True`` in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:95
+msgid "BaseModelOutputWithPast"
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:1
+#: transformers.modeling_outputs.BaseModelOutputWithPast:1
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:1
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPast:1
+msgid ""
+"Base class for model's outputs that may also contain a past key/values "
+"(to speed up sequential decoding)."
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:3
+#: transformers.modeling_outputs.BaseModelOutputWithPast:3
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:3
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPast:3
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the model.  "
+"If :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size, 1, hidden_size)` is output."
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:5
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:6
+#: transformers.modeling_outputs.BaseModelOutputWithPast:5
+#: transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions:5
+#: transformers.modeling_outputs.Seq2SeqModelOutput:6
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPast:5
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:6
+msgid ""
+"If :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size, 1, hidden_size)` is output."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:102
+msgid "BaseModelOutputWithPastAndCrossAttentions"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:109
+msgid "Seq2SeqModelOutput"
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:1
+#: transformers.modeling_outputs.Seq2SeqModelOutput:1
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:1
+msgid ""
+"Base class for model encoder's outputs that also contains : pre-computed "
+"hidden states that can speed up sequential decoding."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:4
+#: transformers.modeling_outputs.Seq2SeqModelOutput:4
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:4
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the decoder "
+"of the model.  If :obj:`past_key_values` is used only the last hidden-"
+"state of the sequences of shape :obj:`(batch_size, 1, hidden_size)` is "
+"output."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:4
+#: transformers.modeling_outputs.Seq2SeqModelOutput:4
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:4
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the decoder "
+"of the model."
+msgstr ""
+
+#: of transformers.modeling_outputs.Seq2SeqLMOutput:7
+#: transformers.modeling_outputs.Seq2SeqModelOutput:9
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:9
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:7
+msgid ""
+"Tuple of :obj:`tuple(torch.FloatTensor)` of length "
+":obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`.  Contains pre-computed "
+"hidden-states (key and values in the self-attention blocks and in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.modeling_outputs.Seq2SeqLMOutput:7
+#: transformers.modeling_outputs.Seq2SeqModelOutput:9
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:9
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:7
+msgid ""
+"Tuple of :obj:`tuple(torch.FloatTensor)` of length "
+":obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:9
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:13
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:11
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:9
+#: transformers.modeling_outputs.Seq2SeqLMOutput:11
+#: transformers.modeling_outputs.Seq2SeqModelOutput:13
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:13
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:11
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and in the cross-attention blocks) that can be used (see "
+":obj:`past_key_values` input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.modeling_outputs.Seq2SeqLMOutput:14
+#: transformers.modeling_outputs.Seq2SeqModelOutput:16
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:16
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:14
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the decoder at the "
+"output of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:15
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:19
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:17
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:15
+#: transformers.modeling_outputs.Seq2SeqLMOutput:17
+#: transformers.modeling_outputs.Seq2SeqModelOutput:19
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:19
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:17
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:16
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:18
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:18
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:16
+msgid ""
+"Hidden-states of the decoder at the output of each layer plus the initial"
+" embedding outputs."
+msgstr ""
+
+#: of transformers.modeling_outputs.Seq2SeqLMOutput:19
+#: transformers.modeling_outputs.Seq2SeqModelOutput:21
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:21
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:19
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights of the decoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:20
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:24
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:22
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:20
+#: transformers.modeling_outputs.Seq2SeqLMOutput:22
+#: transformers.modeling_outputs.Seq2SeqModelOutput:24
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:24
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:22
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:21
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:23
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:23
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:21
+msgid ""
+"Attentions weights of the decoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:29
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:33
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:31
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:29
+#: transformers.modeling_outputs.Seq2SeqLMOutput:31
+#: transformers.modeling_outputs.Seq2SeqModelOutput:33
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:33
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:31
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:30
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:32
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:26
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:24
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model."
+msgstr ""
+
+#: of transformers.modeling_outputs.Seq2SeqLMOutput:33
+#: transformers.modeling_outputs.Seq2SeqModelOutput:35
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:35
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:33
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the encoder at the "
+"output of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:34
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:38
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:36
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:34
+#: transformers.modeling_outputs.Seq2SeqLMOutput:36
+#: transformers.modeling_outputs.Seq2SeqModelOutput:38
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:38
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:36
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:35
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:37
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:31
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:29
+msgid ""
+"Hidden-states of the encoder at the output of each layer plus the initial"
+" embedding outputs."
+msgstr ""
+
+#: of transformers.modeling_outputs.Seq2SeqLMOutput:38
+#: transformers.modeling_outputs.Seq2SeqModelOutput:40
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:40
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:38
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights of the encoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:39
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:43
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:41
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:39
+#: transformers.modeling_outputs.Seq2SeqLMOutput:41
+#: transformers.modeling_outputs.Seq2SeqModelOutput:43
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:43
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:41
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:40
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:42
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:36
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:34
+msgid ""
+"Attentions weights of the encoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:116
+msgid "CausalLMOutput"
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions:1
+#: transformers.modeling_outputs.CausalLMOutput:1
+#: transformers.modeling_outputs.CausalLMOutputWithCrossAttentions:1
+#: transformers.modeling_outputs.CausalLMOutputWithPast:1
+#: transformers.modeling_tf_outputs.TFCausalLMOutput:1
+#: transformers.modeling_tf_outputs.TFCausalLMOutputWithPast:1
+msgid "Base class for causal language model (or autoregressive) outputs."
+msgstr ""
+
+#: of transformers.modeling_outputs.CausalLMOutput:3
+#: transformers.modeling_outputs.CausalLMOutputWithCrossAttentions:3
+#: transformers.modeling_outputs.CausalLMOutputWithPast:3
+#: transformers.modeling_tf_outputs.TFCausalLMOutput:3
+#: transformers.modeling_tf_outputs.TFCausalLMOutputWithPast:3
+msgid "Language modeling loss (for next-token prediction)."
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions:3
+#: transformers.modeling_flax_outputs.FlaxMaskedLMOutput:3
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:3
+#: transformers.modeling_outputs.CausalLMOutput:5
+#: transformers.modeling_outputs.CausalLMOutputWithCrossAttentions:5
+#: transformers.modeling_outputs.CausalLMOutputWithPast:5
+#: transformers.modeling_outputs.MaskedLMOutput:5
+#: transformers.modeling_outputs.Seq2SeqLMOutput:5
+#: transformers.modeling_tf_outputs.TFCausalLMOutput:5
+#: transformers.modeling_tf_outputs.TFCausalLMOutputWithPast:5
+#: transformers.modeling_tf_outputs.TFMaskedLMOutput:5
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:5
+msgid ""
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax)."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:123
+msgid "CausalLMOutputWithCrossAttentions"
+msgstr ""
+
+#: of transformers.modeling_outputs.CausalLMOutputWithCrossAttentions:18
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  Cross "
+"attentions weights after the attention softmax, used to compute the "
+"weighted average in the cross-attention heads."
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions:19
+#: transformers.modeling_outputs.CausalLMOutputWithCrossAttentions:21
+msgid ""
+"Cross attentions weights after the attention softmax, used to compute the"
+" weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.modeling_outputs.CausalLMOutputWithCrossAttentions:24
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` tuples of length "
+":obj:`config.n_layers`, with each tuple containing the cached key, value "
+"states of the self-attention and the cross-attention layers if model is "
+"used in encoder-decoder setting. Only relevant if ``config.is_decoder = "
+"True``.  Contains pre-computed hidden-states (key and values in the "
+"attention blocks) that can be used (see :obj:`past_key_values` input) to "
+"speed up sequential decoding."
+msgstr ""
+
+#: of transformers.modeling_outputs.CausalLMOutputWithCrossAttentions:24
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` tuples of length "
+":obj:`config.n_layers`, with each tuple containing the cached key, value "
+"states of the self-attention and the cross-attention layers if model is "
+"used in encoder-decoder setting. Only relevant if ``config.is_decoder = "
+"True``."
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions:26
+#: transformers.modeling_outputs.CausalLMOutputWithCrossAttentions:28
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPast:11
+#: transformers.modeling_tf_outputs.TFCausalLMOutputWithPast:10
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:130
+msgid "CausalLMOutputWithPast"
+msgstr ""
+
+#: of transformers.modeling_outputs.CausalLMOutputWithPast:7
+msgid ""
+"Tuple of :obj:`tuple(torch.FloatTensor)` of length "
+":obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`)  "
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.modeling_outputs.CausalLMOutputWithPast:7
+msgid ""
+"Tuple of :obj:`tuple(torch.FloatTensor)` of length "
+":obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`)"
+msgstr ""
+
+#: of transformers.modeling_outputs.CausalLMOutputWithPast:10
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:137
+msgid "MaskedLMOutput"
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxMaskedLMOutput:1
+#: transformers.modeling_outputs.MaskedLMOutput:1
+#: transformers.modeling_tf_outputs.TFMaskedLMOutput:1
+msgid "Base class for masked language models outputs."
+msgstr ""
+
+#: of transformers.modeling_outputs.MaskedLMOutput:3
+#: transformers.modeling_tf_outputs.TFMaskedLMOutput:3
+msgid "Masked language modeling (MLM) loss."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:144
+msgid "Seq2SeqLMOutput"
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:1
+#: transformers.modeling_outputs.Seq2SeqLMOutput:1
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:1
+msgid "Base class for sequence-to-sequence language models outputs."
+msgstr ""
+
+#: of transformers.modeling_outputs.Seq2SeqLMOutput:3
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:3
+msgid "Language modeling loss."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:151
+msgid "NextSentencePredictorOutput"
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxNextSentencePredictorOutput:1
+#: transformers.modeling_outputs.NextSentencePredictorOutput:1
+#: transformers.modeling_tf_outputs.TFNextSentencePredictorOutput:1
+msgid ""
+"Base class for outputs of models predicting if two sentences are "
+"consecutive or not."
+msgstr ""
+
+#: of transformers.modeling_outputs.NextSentencePredictorOutput:3
+msgid "Next sequence prediction (classification) loss."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxNextSentencePredictorOutput:3
+#: transformers.modeling_outputs.NextSentencePredictorOutput:5
+#: transformers.modeling_tf_outputs.TFNextSentencePredictorOutput:5
+msgid ""
+"Prediction scores of the next sequence prediction (classification) head "
+"(scores of True/False continuation before SoftMax)."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:158
+msgid "SequenceClassifierOutput"
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput:1
+#: transformers.modeling_outputs.SequenceClassifierOutput:1
+#: transformers.modeling_tf_outputs.TFSequenceClassifierOutput:1
+msgid "Base class for outputs of sentence classification models."
+msgstr ""
+
+#: of transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:3
+#: transformers.modeling_outputs.SequenceClassifierOutput:3
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:3
+#: transformers.modeling_tf_outputs.TFSequenceClassifierOutput:3
+msgid "Classification (or regression if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:3
+#: transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput:3
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:5
+#: transformers.modeling_outputs.SequenceClassifierOutput:5
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:5
+#: transformers.modeling_tf_outputs.TFSequenceClassifierOutput:5
+msgid ""
+"Classification (or regression if config.num_labels==1) scores (before "
+"SoftMax)."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:165
+msgid "Seq2SeqSequenceClassifierOutput"
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:1
+#: transformers.modeling_outputs.Seq2SeqSequenceClassifierOutput:1
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:1
+msgid ""
+"Base class for outputs of sequence-to-sequence sentence classification "
+"models."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:172
+msgid "MultipleChoiceModelOutput"
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput:1
+#: transformers.modeling_outputs.MultipleChoiceModelOutput:1
+#: transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput:1
+msgid "Base class for outputs of multiple choice models."
+msgstr ""
+
+#: of transformers.modeling_outputs.MultipleChoiceModelOutput:3
+#: transformers.modeling_outputs.TokenClassifierOutput:3
+#: transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput:3
+#: transformers.modeling_tf_outputs.TFTokenClassifierOutput:3
+msgid "Classification loss."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput:3
+#: transformers.modeling_outputs.MultipleChoiceModelOutput:5
+#: transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput:5
+msgid ""
+"`num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).  Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput:3
+#: transformers.modeling_outputs.MultipleChoiceModelOutput:5
+#: transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput:5
+msgid ""
+"`num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput:5
+#: transformers.modeling_flax_outputs.FlaxTokenClassifierOutput:3
+#: transformers.modeling_outputs.MultipleChoiceModelOutput:7
+#: transformers.modeling_outputs.TokenClassifierOutput:5
+#: transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput:7
+#: transformers.modeling_tf_outputs.TFTokenClassifierOutput:5
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:179
+msgid "TokenClassifierOutput"
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxTokenClassifierOutput:1
+#: transformers.modeling_outputs.TokenClassifierOutput:1
+#: transformers.modeling_tf_outputs.TFTokenClassifierOutput:1
+msgid "Base class for outputs of token classification models."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:186
+msgid "QuestionAnsweringModelOutput"
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput:1
+#: transformers.modeling_outputs.QuestionAnsweringModelOutput:1
+#: transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput:1
+msgid "Base class for outputs of question answering models."
+msgstr ""
+
+#: of transformers.modeling_outputs.QuestionAnsweringModelOutput:3
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:3
+#: transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput:3
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:3
+msgid ""
+"Total span extraction loss is the sum of a Cross-Entropy for the start "
+"and end positions."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput:3
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:3
+#: transformers.modeling_outputs.QuestionAnsweringModelOutput:5
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:5
+#: transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput:5
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:5
+msgid "Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput:5
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:5
+#: transformers.modeling_outputs.QuestionAnsweringModelOutput:7
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:7
+#: transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput:7
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:7
+msgid "Span-end scores (before SoftMax)."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:193
+msgid "Seq2SeqQuestionAnsweringModelOutput"
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:1
+#: transformers.modeling_outputs.Seq2SeqQuestionAnsweringModelOutput:1
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:1
+msgid "Base class for outputs of sequence-to-sequence question answering models."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:200
+msgid "TFBaseModelOutput"
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFBaseModelOutput:5
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPast:14
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling:12
+#: transformers.modeling_tf_outputs.TFCausalLMOutput:7
+#: transformers.modeling_tf_outputs.TFCausalLMOutputWithPast:13
+#: transformers.modeling_tf_outputs.TFMaskedLMOutput:7
+#: transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput:9
+#: transformers.modeling_tf_outputs.TFNextSentencePredictorOutput:8
+#: transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput:9
+#: transformers.modeling_tf_outputs.TFSequenceClassifierOutput:7
+#: transformers.modeling_tf_outputs.TFTokenClassifierOutput:7
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.  Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFBaseModelOutput:5
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPast:14
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling:12
+#: transformers.modeling_tf_outputs.TFCausalLMOutput:7
+#: transformers.modeling_tf_outputs.TFCausalLMOutputWithPast:13
+#: transformers.modeling_tf_outputs.TFMaskedLMOutput:7
+#: transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput:9
+#: transformers.modeling_tf_outputs.TFNextSentencePredictorOutput:8
+#: transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput:9
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:13
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:32
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:15
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:34
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:15
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:28
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:13
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:26
+#: transformers.modeling_tf_outputs.TFSequenceClassifierOutput:7
+#: transformers.modeling_tf_outputs.TFTokenClassifierOutput:7
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFBaseModelOutput:10
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPast:19
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling:17
+#: transformers.modeling_tf_outputs.TFCausalLMOutput:12
+#: transformers.modeling_tf_outputs.TFCausalLMOutputWithPast:18
+#: transformers.modeling_tf_outputs.TFMaskedLMOutput:12
+#: transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput:14
+#: transformers.modeling_tf_outputs.TFNextSentencePredictorOutput:13
+#: transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput:14
+#: transformers.modeling_tf_outputs.TFSequenceClassifierOutput:12
+#: transformers.modeling_tf_outputs.TFTokenClassifierOutput:12
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFBaseModelOutput:10
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPast:19
+#: transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling:17
+#: transformers.modeling_tf_outputs.TFCausalLMOutput:12
+#: transformers.modeling_tf_outputs.TFCausalLMOutputWithPast:18
+#: transformers.modeling_tf_outputs.TFMaskedLMOutput:12
+#: transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput:14
+#: transformers.modeling_tf_outputs.TFNextSentencePredictorOutput:13
+#: transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput:14
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:18
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:24
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:37
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:20
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:26
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:39
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:20
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:33
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:18
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:31
+#: transformers.modeling_tf_outputs.TFSequenceClassifierOutput:12
+#: transformers.modeling_tf_outputs.TFTokenClassifierOutput:12
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:207
+msgid "TFBaseModelOutputWithPooling"
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling:5
+msgid ""
+"Last layer hidden-state of the first token of the sequence "
+"(classification token) further processed by a Linear layer and a Tanh "
+"activation function. The Linear layer weights are trained from the next "
+"sentence prediction (classification) objective during pretraining.  This "
+"output is usually *not* a good summary of the semantic content of the "
+"input, you're often better with averaging or pooling the sequence of "
+"hidden-states for the whole input sequence."
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling:9
+msgid ""
+"This output is usually *not* a good summary of the semantic content of "
+"the input, you're often better with averaging or pooling the sequence of "
+"hidden-states for the whole input sequence."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:214
+msgid "TFBaseModelOutputWithPast"
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFBaseModelOutputWithPast:8
+#: transformers.modeling_tf_outputs.TFCausalLMOutputWithPast:7
+msgid ""
+"List of :obj:`tf.Tensor` of length :obj:`config.n_layers`, with each "
+"tensor of shape :obj:`(2, batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`).  Contains pre-computed hidden-states (key and "
+"values in the attention blocks) that can be used (see "
+":obj:`past_key_values` input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFBaseModelOutputWithPast:8
+#: transformers.modeling_tf_outputs.TFCausalLMOutputWithPast:7
+#: transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:7
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:9
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:9
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:7
+msgid ""
+"List of :obj:`tf.Tensor` of length :obj:`config.n_layers`, with each "
+"tensor of shape :obj:`(2, batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`)."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:221
+msgid "TFSeq2SeqModelOutput"
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:7
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:9
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:9
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:7
+msgid ""
+"List of :obj:`tf.Tensor` of length :obj:`config.n_layers`, with each "
+"tensor of shape :obj:`(2, batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`).  Contains pre-computed hidden-states (key and "
+"values in the attention blocks) of the decoder that can be used (see "
+":obj:`past_key_values` input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:10
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:12
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:12
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:10
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) of the decoder that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:13
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:15
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:15
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:13
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.  Hidden-states of the decoder at the output of each layer "
+"plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:18
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:20
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:20
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:18
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights of the decoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:24
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:26
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:32
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:34
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:28
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:26
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.  Hidden-states of the encoder at the output of each layer "
+"plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFSeq2SeqLMOutput:37
+#: transformers.modeling_tf_outputs.TFSeq2SeqModelOutput:39
+#: transformers.modeling_tf_outputs.TFSeq2SeqQuestionAnsweringModelOutput:33
+#: transformers.modeling_tf_outputs.TFSeq2SeqSequenceClassifierOutput:31
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights of the encoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:228
+msgid "TFCausalLMOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:235
+msgid "TFCausalLMOutputWithPast"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:242
+msgid "TFMaskedLMOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:249
+msgid "TFSeq2SeqLMOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:256
+msgid "TFNextSentencePredictorOutput"
+msgstr ""
+
+#: of transformers.modeling_tf_outputs.TFNextSentencePredictorOutput:3
+msgid "Next sentence prediction loss."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:263
+msgid "TFSequenceClassifierOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:270
+msgid "TFSeq2SeqSequenceClassifierOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:277
+msgid "TFMultipleChoiceModelOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:284
+msgid "TFTokenClassifierOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:291
+msgid "TFQuestionAnsweringModelOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:298
+msgid "TFSeq2SeqQuestionAnsweringModelOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:305
+msgid "FlaxBaseModelOutput"
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxBaseModelOutput:5
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPast:8
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:17
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling:9
+#: transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions:5
+#: transformers.modeling_flax_outputs.FlaxMaskedLMOutput:5
+#: transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput:7
+#: transformers.modeling_flax_outputs.FlaxNextSentencePredictorOutput:6
+#: transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput:7
+#: transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput:5
+#: transformers.modeling_flax_outputs.FlaxTokenClassifierOutput:5
+msgid ""
+"Tuple of :obj:`jnp.ndarray` (one for the output of the embeddings + one "
+"for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the model at the output"
+" of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxBaseModelOutput:5
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPast:8
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:17
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling:9
+#: transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions:5
+#: transformers.modeling_flax_outputs.FlaxMaskedLMOutput:5
+#: transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput:7
+#: transformers.modeling_flax_outputs.FlaxNextSentencePredictorOutput:6
+#: transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput:7
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:12
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:31
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:16
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:35
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:14
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:33
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:12
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:31
+#: transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput:5
+#: transformers.modeling_flax_outputs.FlaxTokenClassifierOutput:5
+msgid ""
+"Tuple of :obj:`jnp.ndarray` (one for the output of the embeddings + one "
+"for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxBaseModelOutput:10
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPast:13
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:22
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling:14
+#: transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions:10
+#: transformers.modeling_flax_outputs.FlaxMaskedLMOutput:10
+#: transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput:12
+#: transformers.modeling_flax_outputs.FlaxNextSentencePredictorOutput:11
+#: transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput:12
+#: transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput:10
+#: transformers.modeling_flax_outputs.FlaxTokenClassifierOutput:10
+msgid ""
+"Tuple of :obj:`jnp.ndarray` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxBaseModelOutput:10
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPast:13
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:22
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:28
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPooling:14
+#: transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions:10
+#: transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions:16
+#: transformers.modeling_flax_outputs.FlaxMaskedLMOutput:10
+#: transformers.modeling_flax_outputs.FlaxMultipleChoiceModelOutput:12
+#: transformers.modeling_flax_outputs.FlaxNextSentencePredictorOutput:11
+#: transformers.modeling_flax_outputs.FlaxQuestionAnsweringModelOutput:12
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:17
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:23
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:36
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:21
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:27
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:40
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:19
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:25
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:38
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:17
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:23
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:36
+#: transformers.modeling_flax_outputs.FlaxSequenceClassifierOutput:10
+#: transformers.modeling_flax_outputs.FlaxTokenClassifierOutput:10
+msgid ""
+"Tuple of :obj:`jnp.ndarray` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:311
+msgid "FlaxBaseModelOutputWithPast"
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPast:5
+msgid ""
+"Dictionary of pre-computed hidden-states (key and values in the attention"
+" blocks) that can be used for fast auto-regressive decoding. Pre-computed"
+" key and value hidden-states are of shape `[batch_size, max_length]`."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:317
+msgid "FlaxBaseModelOutputWithPooling"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:323
+msgid "FlaxBaseModelOutputWithPastAndCrossAttentions"
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:8
+msgid ""
+"Tuple of :obj:`tuple(jnp.ndarray)` of length :obj:`config.n_layers`, with"
+" each tuple having 2 tensors of shape :obj:`(batch_size, num_heads, "
+"sequence_length, embed_size_per_head)`) and optionally if "
+"``config.is_encoder_decoder=True`` 2 additional tensors of shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.  Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and optionally if "
+"``config.is_encoder_decoder=True`` in the cross-attention blocks) that "
+"can be used (see :obj:`past_key_values` input) to speed up sequential "
+"decoding."
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:8
+msgid ""
+"Tuple of :obj:`tuple(jnp.ndarray)` of length :obj:`config.n_layers`, with"
+" each tuple having 2 tensors of shape :obj:`(batch_size, num_heads, "
+"sequence_length, embed_size_per_head)`) and optionally if "
+"``config.is_encoder_decoder=True`` 2 additional tensors of shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`."
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions:28
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:23
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:27
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:25
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:23
+msgid ""
+"Tuple of :obj:`jnp.ndarray` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:329
+msgid "FlaxSeq2SeqModelOutput"
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:5
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:9
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:7
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:5
+msgid ""
+"Tuple of :obj:`tuple(jnp.ndarray)` of length :obj:`config.n_layers`, with"
+" each tuple having 2 tensors of shape :obj:`(batch_size, num_heads, "
+"sequence_length, embed_size_per_head)`) and 2 additional tensors of shape"
+" :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.  Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:5
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:9
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:7
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:5
+msgid ""
+"Tuple of :obj:`tuple(jnp.ndarray)` of length :obj:`config.n_layers`, with"
+" each tuple having 2 tensors of shape :obj:`(batch_size, num_heads, "
+"sequence_length, embed_size_per_head)`) and 2 additional tensors of shape"
+" :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:12
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:16
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:14
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:12
+msgid ""
+"Tuple of :obj:`jnp.ndarray` (one for the output of the embeddings + one "
+"for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the decoder at the "
+"output of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:17
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:21
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:19
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:17
+msgid ""
+"Tuple of :obj:`jnp.ndarray` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights of the decoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:31
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:35
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:33
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:31
+msgid ""
+"Tuple of :obj:`jnp.ndarray` (one for the output of the embeddings + one "
+"for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the encoder at the "
+"output of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput:36
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqModelOutput:40
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqQuestionAnsweringModelOutput:38
+#: transformers.modeling_flax_outputs.FlaxSeq2SeqSequenceClassifierOutput:36
+msgid ""
+"Tuple of :obj:`jnp.ndarray` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights of the encoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:335
+msgid "FlaxCausalLMOutputWithCrossAttentions"
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions:16
+msgid ""
+"Tuple of :obj:`jnp.ndarray` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  Cross "
+"attentions weights after the attention softmax, used to compute the "
+"weighted average in the cross-attention heads."
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions:22
+msgid ""
+"Tuple of :obj:`jnp.ndarray` tuples of length :obj:`config.n_layers`, with"
+" each tuple containing the cached key, value states of the self-attention"
+" and the cross-attention layers if model is used in encoder-decoder "
+"setting. Only relevant if ``config.is_decoder = True``.  Contains pre-"
+"computed hidden-states (key and values in the attention blocks) that can "
+"be used (see :obj:`past_key_values` input) to speed up sequential "
+"decoding."
+msgstr ""
+
+#: of
+#: transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions:22
+msgid ""
+"Tuple of :obj:`jnp.ndarray` tuples of length :obj:`config.n_layers`, with"
+" each tuple containing the cached key, value states of the self-attention"
+" and the cross-attention layers if model is used in encoder-decoder "
+"setting. Only relevant if ``config.is_decoder = True``."
+msgstr ""
+
+#: ../../source/main_classes/output.rst:341
+msgid "FlaxMaskedLMOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:347
+msgid "FlaxSeq2SeqLMOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:353
+msgid "FlaxNextSentencePredictorOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:359
+msgid "FlaxSequenceClassifierOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:365
+msgid "FlaxSeq2SeqSequenceClassifierOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:371
+msgid "FlaxMultipleChoiceModelOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:377
+msgid "FlaxTokenClassifierOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:383
+msgid "FlaxQuestionAnsweringModelOutput"
+msgstr ""
+
+#: ../../source/main_classes/output.rst:389
+msgid "FlaxSeq2SeqQuestionAnsweringModelOutput"
+msgstr ""
+

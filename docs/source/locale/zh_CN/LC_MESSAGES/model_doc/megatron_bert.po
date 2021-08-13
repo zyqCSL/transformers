@@ -1,0 +1,1794 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/megatron_bert.rst:14
+msgid "MegatronBERT"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:19
+msgid ""
+"The MegatronBERT model was proposed in `Megatron-LM: Training Multi-"
+"Billion Parameter Language Models Using Model Parallelism "
+"<https://arxiv.org/abs/1909.08053>`__ by Mohammad Shoeybi, Mostofa "
+"Patwary, Raul Puri, Patrick LeGresley, Jared Casper and Bryan Catanzaro."
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:23
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:25
+#, python-format
+msgid ""
+"*Recent work in language modeling demonstrates that training large "
+"transformer models advances the state of the art in Natural Language "
+"Processing applications. However, very large models can be quite "
+"difficult to train due to memory constraints. In this work, we present "
+"our techniques for training very large transformer models and implement a"
+" simple, efficient intra-layer model parallel approach that enables "
+"training transformer models with billions of parameters. Our approach "
+"does not require a new compiler or library changes, is orthogonal and "
+"complimentary to pipeline model parallelism, and can be fully implemented"
+" with the insertion of a few communication operations in native PyTorch. "
+"We illustrate this approach by converging transformer based models up to "
+"8.3 billion parameters using 512 GPUs. We sustain 15.1 PetaFLOPs across "
+"the entire application with 76% scaling efficiency when compared to a "
+"strong single GPU baseline that sustains 39 TeraFLOPs, which is 30% of "
+"peak FLOPs. To demonstrate that large language models can further advance"
+" the state of the art (SOTA), we train an 8.3 billion parameter "
+"transformer language model similar to GPT-2 and a 3.9 billion parameter "
+"model similar to BERT. We show that careful attention to the placement of"
+" layer normalization in BERT-like models is critical to achieving "
+"increased performance as the model size grows. Using the GPT-2 model we "
+"achieve SOTA results on the WikiText103 (10.8 compared to SOTA perplexity"
+" of 15.8) and LAMBADA (66.5% compared to SOTA accuracy of 63.2%) "
+"datasets. Our BERT model achieves SOTA results on the RACE dataset (90.9%"
+" compared to SOTA accuracy of 89.4%).*"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:41
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:43
+msgid ""
+"We have provided pretrained `BERT-345M "
+"<https://ngc.nvidia.com/catalog/models/nvidia:megatron_bert_345m>`__ "
+"checkpoints for use to evaluate or finetuning downstream tasks."
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:46
+msgid ""
+"To access these checkpoints, first `sign up "
+"<https://ngc.nvidia.com/signup>`__ for and setup the NVIDIA GPU Cloud "
+"(NGC) Registry CLI. Further documentation for downloading models can be "
+"found in the `NGC documentation <https://docs.nvidia.com/dgx/ngc-"
+"registry-cli-user-guide/index.html#topic_6_4_1>`__."
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:50
+msgid "Alternatively, you can directly download the checkpoints using:"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:52
+msgid "BERT-345M-uncased::"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:56
+msgid ""
+"wget --content-disposition "
+"https://api.ngc.nvidia.com/v2/models/nvidia/megatron_bert_345m/versions/v0.1_uncased/zip"
+" -O megatron_bert_345m_v0_1_uncased.zip"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:59
+msgid "BERT-345M-cased::"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:63
+msgid ""
+"wget --content-disposition "
+"https://api.ngc.nvidia.com/v2/models/nvidia/megatron_bert_345m/versions/v0.1_cased/zip"
+" -O megatron_bert_345m_v0_1_cased.zip"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:66
+msgid ""
+"Once you have obtained the checkpoints from NVIDIA GPU Cloud (NGC), you "
+"have to convert them to a format that will easily be loaded by Hugging "
+"Face Transformers and our port of the BERT code."
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:69
+msgid ""
+"The following commands allow you to do the conversion. We assume that the"
+" folder ``models/megatron_bert`` contains "
+"``megatron_bert_345m_v0_1_{cased, uncased}.zip`` and that the commands "
+"are run from inside that folder::"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:74
+msgid ""
+"python3 "
+"$PATH_TO_TRANSFORMERS/models/megatron_bert/convert_megatron_bert_checkpoint.py"
+" megatron_bert_345m_v0_1_uncased.zip"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:80
+msgid ""
+"This model was contributed by `jdemouth "
+"<https://huggingface.co/jdemouth>`__. The original code can be found "
+"`here <https://github.com/NVIDIA/Megatron-LM>`__. That repository "
+"contains a multi-GPU and multi-node implementation of the Megatron "
+"Language models. In particular, it contains a hybrid model parallel "
+"approach using \"tensor parallel\" and \"pipeline parallel\" techniques."
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:86
+msgid "MegatronBertConfig"
+msgstr ""
+
+#: of transformers.MegatronBertConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.MegatronBertModel`. It is used to instantiate a "
+"MEGATRON_BERT model according to the specified arguments, defining the "
+"model architecture. Instantiating a configuration with the defaults will "
+"yield a similar configuration to that of the MEGATRON_BERT `megatron-"
+"bert-uncased-345m <https://huggingface.co/nvidia/megatron-bert-uncased-"
+"345m>`__ architecture."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.MegatronBertConfig transformers.MegatronBertForCausalLM
+#: transformers.MegatronBertForCausalLM.forward
+#: transformers.MegatronBertForMaskedLM
+#: transformers.MegatronBertForMaskedLM.forward
+#: transformers.MegatronBertForMultipleChoice
+#: transformers.MegatronBertForMultipleChoice.forward
+#: transformers.MegatronBertForNextSentencePrediction
+#: transformers.MegatronBertForNextSentencePrediction.forward
+#: transformers.MegatronBertForPreTraining
+#: transformers.MegatronBertForPreTraining.forward
+#: transformers.MegatronBertForQuestionAnswering
+#: transformers.MegatronBertForQuestionAnswering.forward
+#: transformers.MegatronBertForSequenceClassification
+#: transformers.MegatronBertForSequenceClassification.forward
+#: transformers.MegatronBertForTokenClassification
+#: transformers.MegatronBertForTokenClassification.forward
+#: transformers.MegatronBertModel transformers.MegatronBertModel.forward
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.MegatronBertConfig:10
+msgid ""
+"Vocabulary size of the MEGATRON_BERT model. Defines the number of "
+"different tokens that can be represented by the :obj:`inputs_ids` passed "
+"when calling :class:`~transformers.MegatronBertModel`."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:13
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:15
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:17
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:19
+msgid ""
+"Dimensionality of the \"intermediate\" (often named feed-forward) layer "
+"in the Transformer encoder."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:21
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:24
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:26
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:28
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:31
+msgid ""
+"The vocabulary size of the :obj:`token_type_ids` passed when calling "
+":class:`~transformers.MegatronBertModel`."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:34
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:36
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:38
+msgid ""
+"If True, use gradient checkpointing to save memory at the expense of "
+"slower backward pass."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:40
+msgid ""
+"Type of position embedding. Choose one of :obj:`\"absolute\"`, "
+":obj:`\"relative_key\"`, :obj:`\"relative_key_query\"`. For positional "
+"embeddings use :obj:`\"absolute\"`. For more information on "
+":obj:`\"relative_key\"`, please refer to `Self-Attention with Relative "
+"Position Representations (Shaw et al.) "
+"<https://arxiv.org/abs/1803.02155>`__. For more information on "
+":obj:`\"relative_key_query\"`, please refer to `Method 4` in `Improve "
+"Transformer Models with Better Relative Position Embeddings (Huang et "
+"al.) <https://arxiv.org/abs/2009.13658>`__."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:47
+msgid ""
+"Whether or not the model should return the last key/values attentions "
+"(not used by all models). Only relevant if ``config.is_decoder=True``."
+msgstr ""
+
+#: of transformers.MegatronBertConfig:51
+msgid "Examples::"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:93
+msgid "MegatronBertModel"
+msgstr ""
+
+#: of transformers.MegatronBertModel:1
+msgid ""
+"The bare MegatronBert Model transformer outputting raw hidden-states "
+"without any specific head on top."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM:3
+#: transformers.MegatronBertForMaskedLM:3
+#: transformers.MegatronBertForMultipleChoice:5
+#: transformers.MegatronBertForNextSentencePrediction:3
+#: transformers.MegatronBertForPreTraining:5
+#: transformers.MegatronBertForQuestionAnswering:5
+#: transformers.MegatronBertForSequenceClassification:5
+#: transformers.MegatronBertForTokenClassification:5
+#: transformers.MegatronBertModel:3
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM:7
+#: transformers.MegatronBertForMaskedLM:7
+#: transformers.MegatronBertForMultipleChoice:9
+#: transformers.MegatronBertForNextSentencePrediction:7
+#: transformers.MegatronBertForPreTraining:9
+#: transformers.MegatronBertForQuestionAnswering:9
+#: transformers.MegatronBertForSequenceClassification:9
+#: transformers.MegatronBertForTokenClassification:9
+#: transformers.MegatronBertModel:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM:11
+#: transformers.MegatronBertForMaskedLM:11
+#: transformers.MegatronBertForMultipleChoice:13
+#: transformers.MegatronBertForNextSentencePrediction:11
+#: transformers.MegatronBertForPreTraining:13
+#: transformers.MegatronBertForQuestionAnswering:13
+#: transformers.MegatronBertForSequenceClassification:13
+#: transformers.MegatronBertForTokenClassification:13
+#: transformers.MegatronBertModel:11
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.MegatronBertModel:17
+msgid ""
+"The model can behave as an encoder (with only self-attention) as well as "
+"a decoder, in which case a layer of cross-attention is added between the "
+"self-attention layers, following the architecture described in `Attention"
+" is all you need <https://arxiv.org/abs/1706.03762>`__ by Ashish Vaswani,"
+" Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez,"
+" Lukasz Kaiser and Illia Polosukhin."
+msgstr ""
+
+#: of transformers.MegatronBertModel:22
+msgid ""
+"To behave as an decoder the model needs to be initialized with the "
+":obj:`is_decoder` argument of the configuration set to :obj:`True`. To be"
+" used in a Seq2Seq model, the model needs to initialized with both "
+":obj:`is_decoder` argument and :obj:`add_cross_attention` set to "
+":obj:`True`; an :obj:`encoder_hidden_states` is then expected as an input"
+" to the forward pass."
+msgstr ""
+
+#: of transformers.MegatronBertModel.forward:1
+msgid ""
+"The :class:`~transformers.MegatronBertModel` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:4
+#: transformers.MegatronBertForMaskedLM.forward:4
+#: transformers.MegatronBertForMultipleChoice.forward:4
+#: transformers.MegatronBertForNextSentencePrediction.forward:4
+#: transformers.MegatronBertForPreTraining.forward:4
+#: transformers.MegatronBertForQuestionAnswering.forward:4
+#: transformers.MegatronBertForSequenceClassification.forward:4
+#: transformers.MegatronBertForTokenClassification.forward:4
+#: transformers.MegatronBertModel.forward:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:8
+#: transformers.MegatronBertForMaskedLM.forward:8
+#: transformers.MegatronBertForMultipleChoice.forward:8
+#: transformers.MegatronBertForNextSentencePrediction.forward:8
+#: transformers.MegatronBertForPreTraining.forward:8
+#: transformers.MegatronBertForQuestionAnswering.forward:8
+#: transformers.MegatronBertForSequenceClassification.forward:8
+#: transformers.MegatronBertForTokenClassification.forward:8
+#: transformers.MegatronBertModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.BertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:8
+#: transformers.MegatronBertForMaskedLM.forward:8
+#: transformers.MegatronBertForMultipleChoice.forward:8
+#: transformers.MegatronBertForNextSentencePrediction.forward:8
+#: transformers.MegatronBertForPreTraining.forward:8
+#: transformers.MegatronBertForQuestionAnswering.forward:8
+#: transformers.MegatronBertForSequenceClassification.forward:8
+#: transformers.MegatronBertForTokenClassification.forward:8
+#: transformers.MegatronBertModel.forward:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:10
+#: transformers.MegatronBertForMaskedLM.forward:10
+#: transformers.MegatronBertForMultipleChoice.forward:10
+#: transformers.MegatronBertForNextSentencePrediction.forward:10
+#: transformers.MegatronBertForPreTraining.forward:10
+#: transformers.MegatronBertForQuestionAnswering.forward:10
+#: transformers.MegatronBertForSequenceClassification.forward:10
+#: transformers.MegatronBertForTokenClassification.forward:10
+#: transformers.MegatronBertModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.BertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:14
+#: transformers.MegatronBertForMaskedLM.forward:14
+#: transformers.MegatronBertForMultipleChoice.forward:14
+#: transformers.MegatronBertForNextSentencePrediction.forward:14
+#: transformers.MegatronBertForPreTraining.forward:14
+#: transformers.MegatronBertForQuestionAnswering.forward:14
+#: transformers.MegatronBertForSequenceClassification.forward:14
+#: transformers.MegatronBertForTokenClassification.forward:14
+#: transformers.MegatronBertModel.forward:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:16
+#: transformers.MegatronBertForMaskedLM.forward:16
+#: transformers.MegatronBertForMultipleChoice.forward:16
+#: transformers.MegatronBertForNextSentencePrediction.forward:16
+#: transformers.MegatronBertForPreTraining.forward:16
+#: transformers.MegatronBertForQuestionAnswering.forward:16
+#: transformers.MegatronBertForSequenceClassification.forward:16
+#: transformers.MegatronBertForTokenClassification.forward:16
+#: transformers.MegatronBertModel.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:16
+#: transformers.MegatronBertForMaskedLM.forward:16
+#: transformers.MegatronBertForMultipleChoice.forward:16
+#: transformers.MegatronBertForNextSentencePrediction.forward:16
+#: transformers.MegatronBertForPreTraining.forward:16
+#: transformers.MegatronBertForQuestionAnswering.forward:16
+#: transformers.MegatronBertForSequenceClassification.forward:16
+#: transformers.MegatronBertForTokenClassification.forward:16
+#: transformers.MegatronBertModel.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:18
+#: transformers.MegatronBertForCausalLM.forward:59
+#: transformers.MegatronBertForMaskedLM.forward:18
+#: transformers.MegatronBertForMultipleChoice.forward:18
+#: transformers.MegatronBertForNextSentencePrediction.forward:18
+#: transformers.MegatronBertForPreTraining.forward:18
+#: transformers.MegatronBertForQuestionAnswering.forward:18
+#: transformers.MegatronBertForSequenceClassification.forward:18
+#: transformers.MegatronBertForTokenClassification.forward:18
+#: transformers.MegatronBertModel.forward:18
+#: transformers.MegatronBertModel.forward:59
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:19
+#: transformers.MegatronBertForCausalLM.forward:60
+#: transformers.MegatronBertForMaskedLM.forward:19
+#: transformers.MegatronBertForMultipleChoice.forward:19
+#: transformers.MegatronBertForNextSentencePrediction.forward:19
+#: transformers.MegatronBertForPreTraining.forward:19
+#: transformers.MegatronBertForQuestionAnswering.forward:19
+#: transformers.MegatronBertForSequenceClassification.forward:19
+#: transformers.MegatronBertForTokenClassification.forward:19
+#: transformers.MegatronBertModel.forward:19
+#: transformers.MegatronBertModel.forward:60
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:21
+#: transformers.MegatronBertForMaskedLM.forward:21
+#: transformers.MegatronBertForMultipleChoice.forward:21
+#: transformers.MegatronBertForNextSentencePrediction.forward:21
+#: transformers.MegatronBertForPreTraining.forward:21
+#: transformers.MegatronBertForQuestionAnswering.forward:21
+#: transformers.MegatronBertForSequenceClassification.forward:21
+#: transformers.MegatronBertForTokenClassification.forward:21
+#: transformers.MegatronBertModel.forward:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:23
+#: transformers.MegatronBertForMaskedLM.forward:23
+#: transformers.MegatronBertForMultipleChoice.forward:23
+#: transformers.MegatronBertForNextSentencePrediction.forward:23
+#: transformers.MegatronBertForPreTraining.forward:23
+#: transformers.MegatronBertForQuestionAnswering.forward:23
+#: transformers.MegatronBertForSequenceClassification.forward:23
+#: transformers.MegatronBertForTokenClassification.forward:23
+#: transformers.MegatronBertModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:23
+#: transformers.MegatronBertForMaskedLM.forward:23
+#: transformers.MegatronBertForMultipleChoice.forward:23
+#: transformers.MegatronBertForNextSentencePrediction.forward:23
+#: transformers.MegatronBertForPreTraining.forward:23
+#: transformers.MegatronBertForQuestionAnswering.forward:23
+#: transformers.MegatronBertForSequenceClassification.forward:23
+#: transformers.MegatronBertForTokenClassification.forward:23
+#: transformers.MegatronBertModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:26
+#: transformers.MegatronBertForMaskedLM.forward:26
+#: transformers.MegatronBertForMultipleChoice.forward:26
+#: transformers.MegatronBertForNextSentencePrediction.forward:26
+#: transformers.MegatronBertForPreTraining.forward:26
+#: transformers.MegatronBertForQuestionAnswering.forward:26
+#: transformers.MegatronBertForSequenceClassification.forward:26
+#: transformers.MegatronBertForTokenClassification.forward:26
+#: transformers.MegatronBertModel.forward:26
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:27
+#: transformers.MegatronBertForMaskedLM.forward:27
+#: transformers.MegatronBertForMultipleChoice.forward:27
+#: transformers.MegatronBertForNextSentencePrediction.forward:27
+#: transformers.MegatronBertForPreTraining.forward:27
+#: transformers.MegatronBertForQuestionAnswering.forward:27
+#: transformers.MegatronBertForSequenceClassification.forward:27
+#: transformers.MegatronBertForTokenClassification.forward:27
+#: transformers.MegatronBertModel.forward:27
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:29
+#: transformers.MegatronBertForMaskedLM.forward:29
+#: transformers.MegatronBertForMultipleChoice.forward:29
+#: transformers.MegatronBertForNextSentencePrediction.forward:29
+#: transformers.MegatronBertForPreTraining.forward:29
+#: transformers.MegatronBertForQuestionAnswering.forward:29
+#: transformers.MegatronBertForSequenceClassification.forward:29
+#: transformers.MegatronBertForTokenClassification.forward:29
+#: transformers.MegatronBertModel.forward:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:31
+#: transformers.MegatronBertForMaskedLM.forward:31
+#: transformers.MegatronBertForMultipleChoice.forward:31
+#: transformers.MegatronBertForNextSentencePrediction.forward:31
+#: transformers.MegatronBertForPreTraining.forward:31
+#: transformers.MegatronBertForQuestionAnswering.forward:31
+#: transformers.MegatronBertForSequenceClassification.forward:31
+#: transformers.MegatronBertForTokenClassification.forward:31
+#: transformers.MegatronBertModel.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:31
+#: transformers.MegatronBertForMaskedLM.forward:31
+#: transformers.MegatronBertForMultipleChoice.forward:31
+#: transformers.MegatronBertForNextSentencePrediction.forward:31
+#: transformers.MegatronBertForPreTraining.forward:31
+#: transformers.MegatronBertForQuestionAnswering.forward:31
+#: transformers.MegatronBertForSequenceClassification.forward:31
+#: transformers.MegatronBertForTokenClassification.forward:31
+#: transformers.MegatronBertModel.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:34
+#: transformers.MegatronBertForMaskedLM.forward:34
+#: transformers.MegatronBertForMultipleChoice.forward:34
+#: transformers.MegatronBertForNextSentencePrediction.forward:34
+#: transformers.MegatronBertForPreTraining.forward:34
+#: transformers.MegatronBertForQuestionAnswering.forward:34
+#: transformers.MegatronBertForSequenceClassification.forward:34
+#: transformers.MegatronBertForTokenClassification.forward:34
+#: transformers.MegatronBertModel.forward:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:36
+#: transformers.MegatronBertForMaskedLM.forward:36
+#: transformers.MegatronBertForMultipleChoice.forward:36
+#: transformers.MegatronBertForNextSentencePrediction.forward:36
+#: transformers.MegatronBertForPreTraining.forward:36
+#: transformers.MegatronBertForQuestionAnswering.forward:36
+#: transformers.MegatronBertForSequenceClassification.forward:36
+#: transformers.MegatronBertForTokenClassification.forward:36
+#: transformers.MegatronBertModel.forward:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:36
+#: transformers.MegatronBertForMaskedLM.forward:36
+#: transformers.MegatronBertForMultipleChoice.forward:36
+#: transformers.MegatronBertForNextSentencePrediction.forward:36
+#: transformers.MegatronBertForPreTraining.forward:36
+#: transformers.MegatronBertForQuestionAnswering.forward:36
+#: transformers.MegatronBertForSequenceClassification.forward:36
+#: transformers.MegatronBertForTokenClassification.forward:36
+#: transformers.MegatronBertModel.forward:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:38
+#: transformers.MegatronBertForMaskedLM.forward:38
+#: transformers.MegatronBertForMultipleChoice.forward:38
+#: transformers.MegatronBertForNextSentencePrediction.forward:38
+#: transformers.MegatronBertForPreTraining.forward:38
+#: transformers.MegatronBertForQuestionAnswering.forward:38
+#: transformers.MegatronBertForSequenceClassification.forward:38
+#: transformers.MegatronBertForTokenClassification.forward:38
+#: transformers.MegatronBertModel.forward:38
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:39
+#: transformers.MegatronBertForMaskedLM.forward:39
+#: transformers.MegatronBertForMultipleChoice.forward:39
+#: transformers.MegatronBertForNextSentencePrediction.forward:39
+#: transformers.MegatronBertForPreTraining.forward:39
+#: transformers.MegatronBertForQuestionAnswering.forward:39
+#: transformers.MegatronBertForSequenceClassification.forward:39
+#: transformers.MegatronBertForTokenClassification.forward:39
+#: transformers.MegatronBertModel.forward:39
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:41
+#: transformers.MegatronBertForMaskedLM.forward:41
+#: transformers.MegatronBertForMultipleChoice.forward:41
+#: transformers.MegatronBertForNextSentencePrediction.forward:41
+#: transformers.MegatronBertForPreTraining.forward:41
+#: transformers.MegatronBertForQuestionAnswering.forward:41
+#: transformers.MegatronBertForSequenceClassification.forward:41
+#: transformers.MegatronBertForTokenClassification.forward:41
+#: transformers.MegatronBertModel.forward:41
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:45
+#: transformers.MegatronBertForMaskedLM.forward:45
+#: transformers.MegatronBertForMultipleChoice.forward:45
+#: transformers.MegatronBertForNextSentencePrediction.forward:45
+#: transformers.MegatronBertForPreTraining.forward:45
+#: transformers.MegatronBertForQuestionAnswering.forward:45
+#: transformers.MegatronBertForSequenceClassification.forward:45
+#: transformers.MegatronBertForTokenClassification.forward:45
+#: transformers.MegatronBertModel.forward:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:48
+#: transformers.MegatronBertForMaskedLM.forward:48
+#: transformers.MegatronBertForMultipleChoice.forward:48
+#: transformers.MegatronBertForNextSentencePrediction.forward:48
+#: transformers.MegatronBertForPreTraining.forward:48
+#: transformers.MegatronBertForQuestionAnswering.forward:48
+#: transformers.MegatronBertForSequenceClassification.forward:48
+#: transformers.MegatronBertForTokenClassification.forward:48
+#: transformers.MegatronBertModel.forward:48
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:51
+#: transformers.MegatronBertForMaskedLM.forward:51
+#: transformers.MegatronBertForMultipleChoice.forward:51
+#: transformers.MegatronBertForNextSentencePrediction.forward:51
+#: transformers.MegatronBertForPreTraining.forward:51
+#: transformers.MegatronBertForQuestionAnswering.forward:51
+#: transformers.MegatronBertForSequenceClassification.forward:51
+#: transformers.MegatronBertForTokenClassification.forward:51
+#: transformers.MegatronBertModel.forward:51
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:53
+#: transformers.MegatronBertModel.forward:53
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the encoder."
+" Used in the cross-attention if the model is configured as a decoder."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:56
+#: transformers.MegatronBertModel.forward:56
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:  - 1 for "
+"tokens that are **not masked**, - 0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:56
+#: transformers.MegatronBertModel.forward:56
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:66
+#: transformers.MegatronBertModel.forward:62
+msgid ""
+"Contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding.  If :obj:`past_key_values` are used, "
+"the user can optionally input only the last :obj:`decoder_input_ids` "
+"(those that don't have their past key value states given to this model) "
+"of shape :obj:`(batch_size, 1)` instead of all :obj:`decoder_input_ids` "
+"of shape :obj:`(batch_size, sequence_length)`."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:66
+#: transformers.MegatronBertModel.forward:62
+msgid ""
+"Contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:68
+#: transformers.MegatronBertModel.forward:64
+msgid ""
+"If :obj:`past_key_values` are used, the user can optionally input only "
+"the last :obj:`decoder_input_ids` (those that don't have their past key "
+"value states given to this model) of shape :obj:`(batch_size, 1)` instead"
+" of all :obj:`decoder_input_ids` of shape :obj:`(batch_size, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:72
+#: transformers.MegatronBertModel.forward:68
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward
+#: transformers.MegatronBertForMaskedLM.forward
+#: transformers.MegatronBertForMultipleChoice.forward
+#: transformers.MegatronBertForNextSentencePrediction.forward
+#: transformers.MegatronBertForPreTraining.forward
+#: transformers.MegatronBertForQuestionAnswering.forward
+#: transformers.MegatronBertForSequenceClassification.forward
+#: transformers.MegatronBertForTokenClassification.forward
+#: transformers.MegatronBertModel.forward
+msgid "Returns"
+msgstr ""
+
+#: of transformers.MegatronBertModel.forward:72
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.MegatronBertConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, hidden_size)`) -- "
+"Last layer hidden-state of the first token of the sequence "
+"(classification token) further processed by a   Linear layer and a Tanh "
+"activation function. The Linear layer weights are trained from the next "
+"sentence   prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` and ``config.add_cross_attention=True`` is "
+"passed or when ``config.output_attentions=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for each layer) of shape :obj:`(batch_size,"
+" num_heads,   sequence_length, sequence_length)`.    Attentions weights "
+"of the decoder's cross-attention layer, after the attention softmax, used"
+" to compute the   weighted average in the cross-attention heads. - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and optionally if   "
+"``config.is_encoder_decoder=True`` 2 additional tensors of shape "
+":obj:`(batch_size, num_heads,   encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and optionally if   "
+"``config.is_encoder_decoder=True`` in the cross-attention blocks) that "
+"can be used (see   :obj:`past_key_values` input) to speed up sequential "
+"decoding."
+msgstr ""
+
+#: of transformers.MegatronBertModel.forward:72
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.MegatronBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.MegatronBertModel.forward:76
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.MegatronBertModel.forward:77
+msgid ""
+"**pooler_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:82
+#: transformers.MegatronBertForMaskedLM.forward:64
+#: transformers.MegatronBertForMultipleChoice.forward:66
+#: transformers.MegatronBertForNextSentencePrediction.forward:67
+#: transformers.MegatronBertForPreTraining.forward:75
+#: transformers.MegatronBertForQuestionAnswering.forward:69
+#: transformers.MegatronBertForSequenceClassification.forward:64
+#: transformers.MegatronBertForTokenClassification.forward:63
+#: transformers.MegatronBertModel.forward:80
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:85
+#: transformers.MegatronBertForMaskedLM.forward:67
+#: transformers.MegatronBertForMultipleChoice.forward:69
+#: transformers.MegatronBertForNextSentencePrediction.forward:70
+#: transformers.MegatronBertForPreTraining.forward:78
+#: transformers.MegatronBertForQuestionAnswering.forward:72
+#: transformers.MegatronBertForSequenceClassification.forward:67
+#: transformers.MegatronBertForTokenClassification.forward:66
+#: transformers.MegatronBertModel.forward:83
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:86
+#: transformers.MegatronBertForMaskedLM.forward:68
+#: transformers.MegatronBertForMultipleChoice.forward:70
+#: transformers.MegatronBertForNextSentencePrediction.forward:71
+#: transformers.MegatronBertForPreTraining.forward:79
+#: transformers.MegatronBertForQuestionAnswering.forward:73
+#: transformers.MegatronBertForSequenceClassification.forward:68
+#: transformers.MegatronBertForTokenClassification.forward:67
+#: transformers.MegatronBertModel.forward:84
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:89
+#: transformers.MegatronBertForMaskedLM.forward:71
+#: transformers.MegatronBertForMultipleChoice.forward:73
+#: transformers.MegatronBertForNextSentencePrediction.forward:74
+#: transformers.MegatronBertForPreTraining.forward:82
+#: transformers.MegatronBertForQuestionAnswering.forward:76
+#: transformers.MegatronBertForSequenceClassification.forward:71
+#: transformers.MegatronBertForTokenClassification.forward:70
+#: transformers.MegatronBertModel.forward:87
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.MegatronBertModel.forward:89
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` and "
+"``config.add_cross_attention=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.MegatronBertModel.forward:92
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.MegatronBertModel.forward:94
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) "
+"and optionally if ``config.is_encoder_decoder=True`` 2 additional tensors"
+" of shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.MegatronBertModel.forward:99
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and optionally if ``config.is_encoder_decoder=True`` in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward
+#: transformers.MegatronBertForMaskedLM.forward
+#: transformers.MegatronBertForMultipleChoice.forward
+#: transformers.MegatronBertForNextSentencePrediction.forward
+#: transformers.MegatronBertForPreTraining.forward
+#: transformers.MegatronBertForQuestionAnswering.forward
+#: transformers.MegatronBertForSequenceClassification.forward
+#: transformers.MegatronBertForTokenClassification.forward
+#: transformers.MegatronBertModel.forward
+msgid "Return type"
+msgstr ""
+
+#: of transformers.MegatronBertModel.forward:102
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPoolingAndCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:104
+#: transformers.MegatronBertForMaskedLM.forward:75
+#: transformers.MegatronBertForMultipleChoice.forward:77
+#: transformers.MegatronBertForNextSentencePrediction.forward:78
+#: transformers.MegatronBertForPreTraining.forward:86
+#: transformers.MegatronBertForQuestionAnswering.forward:80
+#: transformers.MegatronBertForSequenceClassification.forward:75
+#: transformers.MegatronBertForTokenClassification.forward:74
+#: transformers.MegatronBertModel.forward:104
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:100
+msgid "MegatronBertForMaskedLM"
+msgstr ""
+
+#: of transformers.MegatronBertForMaskedLM:1
+msgid "MegatronBert Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.MegatronBertForMaskedLM.forward:1
+msgid ""
+"The :class:`~transformers.MegatronBertForMaskedLM` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MegatronBertForMaskedLM.forward:53
+#: transformers.MegatronBertForPreTraining.forward:53
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.MegatronBertForMaskedLM.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.MegatronBertConfig`) and inputs."
+"  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.MegatronBertForMaskedLM.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.MegatronBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.MegatronBertForMaskedLM.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:81
+#: transformers.MegatronBertForMaskedLM.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.MegatronBertForMaskedLM.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:107
+msgid "MegatronBertForCausalLM"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM:1
+msgid ""
+"MegatronBert Model with a `language modeling` head on top for CLM fine-"
+"tuning."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:1
+msgid ""
+"The :class:`~transformers.MegatronBertForCausalLM` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:62
+msgid ""
+"Labels for computing the left-to-right language modeling loss (next word "
+"prediction). Indices should be in ``[-100, 0, ..., config.vocab_size]`` "
+"(see ``input_ids`` docstring) Tokens with indices set to ``-100`` are "
+"ignored (masked), the loss is only computed for the tokens with labels n "
+"``[0, ..., config.vocab_size]``"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:76
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.MegatronBertConfig`) and inputs.  - **loss** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, returned when"
+" :obj:`labels` is provided) -- Language modeling loss (for next-token "
+"prediction). - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Cross attentions weights after the"
+" attention softmax, used to compute the weighted average in the   cross-"
+"attention heads. - **past_key_values** "
+"(:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`torch.FloatTensor` tuples of length :obj:`config.n_layers`, with"
+" each tuple containing the   cached key, value states of the self-"
+"attention and the cross-attention layers if model is used in   encoder-"
+"decoder setting. Only relevant if ``config.is_decoder = True``.    "
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see   :obj:`past_key_values` input) to speed up"
+" sequential decoding.   Example::      >>> from transformers import "
+"BertTokenizer, MegatronBertForCausalLM, MegatronBertConfig     >>> import"
+" torch      >>> tokenizer = BertTokenizer.from_pretrained('nvidia"
+"/megatron-bert-cased-345m')     >>> model = "
+"MegatronBertLMHeadModel.from_pretrained('nvidia/megatron-bert-cased-"
+"345m', is_decoder=True)      >>> inputs = tokenizer(\"Hello, my dog is "
+"cute\", return_tensors=\"pt\")     >>> outputs = model(**inputs)      >>>"
+" prediction_logits = outputs.logits"
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:76
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.MegatronBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:80
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss (for "
+"next-token prediction)."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:91
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:94
+msgid ""
+"Cross attentions weights after the attention softmax, used to compute the"
+" weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:96
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`torch.FloatTensor` tuples of"
+" length :obj:`config.n_layers`, with each tuple containing the cached "
+"key, value states of the self-attention and the cross-attention layers if"
+" model is used in encoder-decoder setting. Only relevant if "
+"``config.is_decoder = True``."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:100
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.MegatronBertForCausalLM.forward:116
+msgid ""
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:114
+msgid "MegatronBertForNextSentencePrediction"
+msgstr ""
+
+#: of transformers.MegatronBertForNextSentencePrediction:1
+msgid ""
+"MegatronBert Model with a `next sentence prediction (classification)` "
+"head on top."
+msgstr ""
+
+#: of transformers.MegatronBertForNextSentencePrediction.forward:1
+msgid ""
+"The :class:`~transformers.MegatronBertForNextSentencePrediction` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MegatronBertForNextSentencePrediction.forward:53
+msgid ""
+"Labels for computing the next sequence prediction (classification) loss. "
+"Input should be a sequence pair (see ``input_ids`` docstring). Indices "
+"should be in ``[0, 1]``:  - 0 indicates sequence B is a continuation of "
+"sequence A, - 1 indicates sequence B is a random sequence."
+msgstr ""
+
+#: of transformers.MegatronBertForNextSentencePrediction.forward:53
+msgid ""
+"Labels for computing the next sequence prediction (classification) loss. "
+"Input should be a sequence pair (see ``input_ids`` docstring). Indices "
+"should be in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.MegatronBertForNextSentencePrediction.forward:56
+#: transformers.MegatronBertForPreTraining.forward:60
+msgid "0 indicates sequence B is a continuation of sequence A,"
+msgstr ""
+
+#: of transformers.MegatronBertForNextSentencePrediction.forward:57
+#: transformers.MegatronBertForPreTraining.forward:61
+msgid "1 indicates sequence B is a random sequence."
+msgstr ""
+
+#: of transformers.MegatronBertForNextSentencePrediction.forward:60
+msgid ""
+"A :class:`~transformers.modeling_outputs.NextSentencePredictorOutput` or "
+"a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.MegatronBertConfig`) and inputs.  - **loss** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, returned when"
+" :obj:`next_sentence_label` is provided) -- Next sequence prediction "
+"(classification) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, 2)`) -- Prediction scores of the next sequence "
+"prediction (classification) head (scores of True/False continuation   "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Example::      >>> from transformers import "
+"BertTokenizer, MegatronBertForNextSentencePrediction     >>> import torch"
+"      >>> tokenizer = BertTokenizer.from_pretrained('nvidia/megatron-"
+"bert-cased-345m')     >>> model = "
+"MegatronBertForNextSentencePrediction.from_pretrained('nvidia/megatron-"
+"bert-cased-345m')      >>> prompt = \"In Italy, pizza served in formal "
+"settings, such as at a restaurant, is presented unsliced.\"     >>> "
+"next_sentence = \"The sky is blue due to the shorter wavelength of blue "
+"light.\"     >>> encoding = tokenizer(prompt, next_sentence, "
+"return_tensors='pt')      >>> outputs = model(**encoding, "
+"labels=torch.LongTensor([1]))     >>> logits = outputs.logits     >>> "
+"assert logits[0, 0] < logits[0, 1] # next sentence was random"
+msgstr ""
+
+#: of transformers.MegatronBertForNextSentencePrediction.forward:60
+msgid ""
+"A :class:`~transformers.modeling_outputs.NextSentencePredictorOutput` or "
+"a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.MegatronBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.MegatronBertForNextSentencePrediction.forward:64
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`next_sentence_label` is provided) -- Next sequence "
+"prediction (classification) loss."
+msgstr ""
+
+#: of transformers.MegatronBertForNextSentencePrediction.forward:65
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, 2)`) -- "
+"Prediction scores of the next sequence prediction (classification) head "
+"(scores of True/False continuation before SoftMax)."
+msgstr ""
+
+#: of transformers.MegatronBertForNextSentencePrediction.forward:93
+msgid ""
+":class:`~transformers.modeling_outputs.NextSentencePredictorOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:121
+msgid "MegatronBertForPreTraining"
+msgstr ""
+
+#: of transformers.MegatronBertForPreTraining:1
+msgid ""
+"MegatronBert Model with two heads on top as done during the pretraining: "
+"a `masked language modeling` head and a `next sentence prediction "
+"(classification)` head."
+msgstr ""
+
+#: of transformers.MegatronBertForPreTraining.forward:1
+msgid ""
+"The :class:`~transformers.MegatronBertForPreTraining` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MegatronBertForPreTraining.forward:57
+msgid ""
+"Labels for computing the next sequence prediction (classification) loss. "
+"Input should be a sequence pair (see :obj:`input_ids` docstring) Indices "
+"should be in ``[0, 1]``:  - 0 indicates sequence B is a continuation of "
+"sequence A, - 1 indicates sequence B is a random sequence."
+msgstr ""
+
+#: of transformers.MegatronBertForPreTraining.forward:57
+msgid ""
+"Labels for computing the next sequence prediction (classification) loss. "
+"Input should be a sequence pair (see :obj:`input_ids` docstring) Indices "
+"should be in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.MegatronBertForPreTraining.forward:63
+msgid "Used to hide legacy arguments that have been deprecated."
+msgstr ""
+
+#: of transformers.MegatronBertForPreTraining.forward:66
+msgid ""
+"A "
+":class:`~transformers.models.megatron_bert.modeling_megatron_bert.MegatronBertForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.MegatronBertConfig`) and inputs.  - **loss** "
+"(`optional`, returned when ``labels`` is provided, ``torch.FloatTensor`` "
+"of shape :obj:`(1,)`) -- Total loss as the sum of the masked language "
+"modeling loss and the next sequence prediction   (classification) loss. -"
+" **prediction_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **seq_relationship_logits** (:obj:`torch.FloatTensor` "
+"of shape :obj:`(batch_size, 2)`) -- Prediction scores of the next "
+"sequence prediction (classification) head (scores of True/False "
+"continuation   before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Example::      >>> from transformers import "
+"BertTokenizer, MegatronBertForPreTraining     >>> import torch      >>> "
+"tokenizer = BertTokenizer.from_pretrained('nvidia/megatron-bert-cased-"
+"345m')     >>> model = MegatronBertForPreTraining.from_pretrained('nvidia"
+"/megatron-bert-cased-345m')      >>> inputs = tokenizer(\"Hello, my dog "
+"is cute\", return_tensors=\"pt\")     >>> outputs = model(**inputs)      "
+">>> prediction_logits = outputs.prediction_logits     >>> "
+"seq_relationship_logits = outputs.seq_relationship_logits"
+msgstr ""
+
+#: of transformers.MegatronBertForPreTraining.forward:66
+msgid ""
+"A "
+":class:`~transformers.models.megatron_bert.modeling_megatron_bert.MegatronBertForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.MegatronBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.MegatronBertForPreTraining.forward:70
+msgid ""
+"**loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss as the sum of "
+"the masked language modeling loss and the next sequence prediction "
+"(classification) loss."
+msgstr ""
+
+#: of transformers.MegatronBertForPreTraining.forward:72
+msgid ""
+"**prediction_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax)."
+msgstr ""
+
+#: of transformers.MegatronBertForPreTraining.forward:73
+msgid ""
+"**seq_relationship_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, 2)`) -- Prediction scores of the next sequence "
+"prediction (classification) head (scores of True/False continuation "
+"before SoftMax)."
+msgstr ""
+
+#: of transformers.MegatronBertForPreTraining.forward:99
+msgid ""
+":class:`~transformers.models.megatron_bert.modeling_megatron_bert.MegatronBertForPreTrainingOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:128
+msgid "MegatronBertForSequenceClassification"
+msgstr ""
+
+#: of transformers.MegatronBertForSequenceClassification:1
+msgid ""
+"MegatronBert Model transformer with a sequence classification/regression "
+"head on top (a linear layer on top of the pooled output) e.g. for GLUE "
+"tasks."
+msgstr ""
+
+#: of transformers.MegatronBertForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.MegatronBertForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MegatronBertForSequenceClassification.forward:53
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.MegatronBertForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MegatronBertConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"(or regression if config.num_labels==1) loss. - **logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.MegatronBertForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MegatronBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.MegatronBertForSequenceClassification.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.MegatronBertForSequenceClassification.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.MegatronBertForSequenceClassification.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:135
+msgid "MegatronBertForMultipleChoice"
+msgstr ""
+
+#: of transformers.MegatronBertForMultipleChoice:1
+msgid ""
+"MegatronBert Model with a multiple choice classification head on top (a "
+"linear layer on top of the pooled output and a softmax) e.g. for "
+"RocStories/SWAG tasks."
+msgstr ""
+
+#: of transformers.MegatronBertForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.MegatronBertForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MegatronBertForMultipleChoice.forward:53
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.MegatronBertForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MegatronBertConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape `(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"loss. - **logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.MegatronBertForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MegatronBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.MegatronBertForMultipleChoice.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.MegatronBertForMultipleChoice.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.MegatronBertForMultipleChoice.forward:65
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.MegatronBertForMultipleChoice.forward:75
+msgid ""
+":class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:142
+msgid "MegatronBertForTokenClassification"
+msgstr ""
+
+#: of transformers.MegatronBertForTokenClassification:1
+msgid ""
+"MegatronBert Model with a token classification head on top (a linear "
+"layer on top of the hidden-states output) e.g. for Named-Entity-"
+"Recognition (NER) tasks."
+msgstr ""
+
+#: of transformers.MegatronBertForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.MegatronBertForTokenClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MegatronBertForTokenClassification.forward:53
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.MegatronBertForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MegatronBertConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when ``labels`` is provided)  -- Classification "
+"loss. - **logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.MegatronBertForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.MegatronBertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.MegatronBertForTokenClassification.forward:61
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.MegatronBertForTokenClassification.forward:62
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.MegatronBertForTokenClassification.forward:72
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/megatron_bert.rst:149
+msgid "MegatronBertForQuestionAnswering"
+msgstr ""
+
+#: of transformers.MegatronBertForQuestionAnswering:1
+msgid ""
+"MegatronBert Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.MegatronBertForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.MegatronBertForQuestionAnswering` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.MegatronBertForQuestionAnswering.forward:53
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.MegatronBertForQuestionAnswering.forward:57
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.MegatronBertForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.MegatronBertConfig`) and inputs.  - **loss** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, returned when"
+" :obj:`labels` is provided) -- Total span extraction loss is the sum of a"
+" Cross-Entropy for the start and end positions. - **start_logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, sequence_length)`) "
+"-- Span-start scores (before SoftMax). - **end_logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, sequence_length)`) "
+"-- Span-end scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.MegatronBertForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration "
+"(:class:`~transformers.MegatronBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.MegatronBertForQuestionAnswering.forward:66
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.MegatronBertForQuestionAnswering.forward:67
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.MegatronBertForQuestionAnswering.forward:68
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.MegatronBertForQuestionAnswering.forward:78
+msgid ""
+":class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+

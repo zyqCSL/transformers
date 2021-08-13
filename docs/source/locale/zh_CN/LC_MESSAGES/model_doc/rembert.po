@@ -1,0 +1,2660 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/rembert.rst:14
+msgid "RemBERT"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:19
+msgid ""
+"The RemBERT model was proposed in `Rethinking Embedding Coupling in Pre-"
+"trained Language Models <https://arxiv.org/abs/2010.12821>`__ by Hyung "
+"Won Chung, Thibault Févry, Henry Tsai, Melvin Johnson, Sebastian Ruder."
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:22
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:24
+msgid ""
+"*We re-evaluate the standard practice of sharing weights between input "
+"and output embeddings in state-of-the-art pre-trained language models. We"
+" show that decoupled embeddings provide increased modeling flexibility, "
+"allowing us to significantly improve the efficiency of parameter "
+"allocation in the input embedding of multilingual models. By reallocating"
+" the input embedding parameters in the Transformer layers, we achieve "
+"dramatically better performance on standard natural language "
+"understanding tasks with the same number of parameters during fine-"
+"tuning. We also show that allocating additional capacity to the output "
+"embedding provides benefits to the model that persist through the fine-"
+"tuning stage even though the output embedding is discarded after pre-"
+"training. Our analysis shows that larger output embeddings prevent the "
+"model's last layers from overspecializing to the pre-training task and "
+"encourage Transformer representations to be more general and more "
+"transferable to other tasks and languages. Harnessing these findings, we "
+"are able to train models that achieve strong performance on the XTREME "
+"benchmark without increasing the number of parameters at the fine-tuning "
+"stage.*"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:36
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:38
+msgid ""
+"For fine-tuning, RemBERT can be thought of as a bigger version of mBERT "
+"with an ALBERT-like factorization of the embedding layer. The embeddings "
+"are not tied in pre-training, in contrast with BERT, which enables "
+"smaller input embeddings (preserved during fine-tuning) and bigger output"
+" embeddings (discarded at fine-tuning). The tokenizer is also similar to "
+"the Albert one rather than the BERT one."
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:44
+msgid "RemBertConfig"
+msgstr ""
+
+#: of transformers.RemBertConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.RemBertModel`. It is used to instantiate an RemBERT"
+" model according to the specified arguments, defining the model "
+"architecture. Instantiating a configuration with the defaults will yield "
+"a similar configuration to that of the remert-large architecture."
+msgstr ""
+
+#: of transformers.RemBertConfig:5
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.RemBertConfig transformers.RemBertForCausalLM
+#: transformers.RemBertForCausalLM.forward transformers.RemBertForMaskedLM
+#: transformers.RemBertForMaskedLM.forward
+#: transformers.RemBertForMultipleChoice
+#: transformers.RemBertForMultipleChoice.forward
+#: transformers.RemBertForQuestionAnswering
+#: transformers.RemBertForQuestionAnswering.forward
+#: transformers.RemBertForSequenceClassification
+#: transformers.RemBertForSequenceClassification.forward
+#: transformers.RemBertForTokenClassification
+#: transformers.RemBertForTokenClassification.forward transformers.RemBertModel
+#: transformers.RemBertModel.forward transformers.RemBertTokenizer
+#: transformers.RemBertTokenizer.build_inputs_with_special_tokens
+#: transformers.RemBertTokenizer.create_token_type_ids_from_sequences
+#: transformers.RemBertTokenizer.get_special_tokens_mask
+#: transformers.RemBertTokenizer.save_vocabulary
+#: transformers.RemBertTokenizerFast
+#: transformers.RemBertTokenizerFast.build_inputs_with_special_tokens
+#: transformers.RemBertTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.RemBertTokenizerFast.get_special_tokens_mask
+#: transformers.RemBertTokenizerFast.save_vocabulary
+#: transformers.TFRemBertForCausalLM transformers.TFRemBertForMaskedLM
+#: transformers.TFRemBertForMaskedLM.call
+#: transformers.TFRemBertForMultipleChoice
+#: transformers.TFRemBertForMultipleChoice.call
+#: transformers.TFRemBertForQuestionAnswering
+#: transformers.TFRemBertForQuestionAnswering.call
+#: transformers.TFRemBertForSequenceClassification
+#: transformers.TFRemBertForSequenceClassification.call
+#: transformers.TFRemBertForTokenClassification
+#: transformers.TFRemBertForTokenClassification.call
+#: transformers.TFRemBertModel transformers.TFRemBertModel.call
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.RemBertConfig:9
+msgid ""
+"Vocabulary size of the RemBERT model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.RemBertModel` or "
+":class:`~transformers.TFRemBertModel`. Vocabulary size of the model. "
+"Defines the different tokens that can be represented by the `inputs_ids` "
+"passed to the forward method of :class:`~transformers.RemBertModel`."
+msgstr ""
+
+#: of transformers.RemBertConfig:14
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.RemBertConfig:16
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.RemBertConfig:18
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.RemBertConfig:20
+msgid "Dimensionality of the input embeddings."
+msgstr ""
+
+#: of transformers.RemBertConfig:22
+msgid "Dimensionality of the output embeddings."
+msgstr ""
+
+#: of transformers.RemBertConfig:24
+msgid ""
+"Dimensionality of the \"intermediate\" (i.e., feed-forward) layer in the "
+"Transformer encoder."
+msgstr ""
+
+#: of transformers.RemBertConfig:26
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"selu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.RemBertConfig:29
+msgid ""
+"The dropout probabilitiy for all fully connected layers in the "
+"embeddings, encoder, and pooler."
+msgstr ""
+
+#: of transformers.RemBertConfig:31
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.RemBertConfig:33
+msgid "The dropout ratio for the classifier layer when fine-tuning."
+msgstr ""
+
+#: of transformers.RemBertConfig:35
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.RemBertConfig:38
+msgid ""
+"The vocabulary size of the :obj:`token_type_ids` passed when calling "
+":class:`~transformers.RemBertModel` or "
+":class:`~transformers.TFRemBertModel`."
+msgstr ""
+
+#: of transformers.RemBertConfig:41
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.RemBertConfig:43
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.RemBertConfig:45
+msgid ""
+"Whether or not the model should return the last key/values attentions "
+"(not used by all models). Only relevant if ``config.is_decoder=True``."
+msgstr ""
+
+#: of transformers.RemBertConfig:48
+msgid ""
+"If True, use gradient checkpointing to save memory at the expense of "
+"slower backward pass."
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:51
+msgid "RemBertTokenizer"
+msgstr ""
+
+#: of transformers.RemBertTokenizer:1
+msgid ""
+"Construct a RemBERT tokenizer. Based on `SentencePiece "
+"<https://github.com/google/sentencepiece>`__."
+msgstr ""
+
+#: of transformers.RemBertTokenizer:3
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.RemBertTokenizer:6 transformers.RemBertTokenizerFast:6
+msgid ""
+"`SentencePiece <https://github.com/google/sentencepiece>`__ file "
+"(generally has a `.spm` extension) that contains the vocabulary necessary"
+" to instantiate a tokenizer."
+msgstr ""
+
+#: of transformers.RemBertTokenizer:9
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token.  .. note::      When building a "
+"sequence using special tokens, this is not the token that is used for the"
+" beginning of     sequence. The token used is the :obj:`cls_token`."
+msgstr ""
+
+#: of transformers.RemBertTokenizer:9 transformers.RemBertTokenizerFast:15
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token."
+msgstr ""
+
+#: of transformers.RemBertTokenizer:13 transformers.RemBertTokenizerFast:19
+msgid ""
+"When building a sequence using special tokens, this is not the token that"
+" is used for the beginning of sequence. The token used is the "
+":obj:`cls_token`."
+msgstr ""
+
+#: of transformers.RemBertTokenizer:16
+msgid ""
+"The end of sequence token.  .. note::      When building a sequence using"
+" special tokens, this is not the token that is used for the end of     "
+"sequence. The token used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.RemBertTokenizer:16
+msgid "The end of sequence token."
+msgstr ""
+
+#: of transformers.RemBertTokenizer:20
+msgid ""
+"When building a sequence using special tokens, this is not the token that"
+" is used for the end of sequence. The token used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.RemBertTokenizer:23 transformers.RemBertTokenizerFast:25
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.RemBertTokenizer:26 transformers.RemBertTokenizerFast:28
+msgid ""
+"The separator token, which is used when building a sequence from multiple"
+" sequences, e.g. two sequences for sequence classification or for a text "
+"and a question for question answering. It is also used as the last token "
+"of a sequence built with special tokens."
+msgstr ""
+
+#: of transformers.RemBertTokenizer:30 transformers.RemBertTokenizerFast:32
+msgid ""
+"The token used for padding, for example when batching sequences of "
+"different lengths."
+msgstr ""
+
+#: of transformers.RemBertTokenizer:32 transformers.RemBertTokenizerFast:34
+msgid ""
+"The classifier token which is used when doing sequence classification "
+"(classification of the whole sequence instead of per-token "
+"classification). It is the first token of the sequence when built with "
+"special tokens."
+msgstr ""
+
+#: of transformers.RemBertTokenizer:35 transformers.RemBertTokenizerFast:37
+msgid ""
+"The token used for masking values. This is the token used when training "
+"this model with masked language modeling. This is the token which the "
+"model will try to predict."
+msgstr ""
+
+#: of transformers.RemBertTokenizer:41
+msgid ""
+"The `SentencePiece` processor that is used for every conversion (string, "
+"tokens and IDs)."
+msgstr ""
+
+#: of transformers.RemBertTokenizer
+msgid "type"
+msgstr ""
+
+#: of transformers.RemBertTokenizer:43
+msgid ":obj:`SentencePieceProcessor`"
+msgstr ""
+
+#: of transformers.RemBertTokenizer.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. A "
+"REMBERT sequence has the following format:"
+msgstr ""
+
+#: of transformers.RemBertTokenizer.build_inputs_with_special_tokens:4
+#: transformers.RemBertTokenizerFast.build_inputs_with_special_tokens:4
+msgid "single sequence: ``[CLS] X [SEP]``"
+msgstr ""
+
+#: of transformers.RemBertTokenizer.build_inputs_with_special_tokens:5
+#: transformers.RemBertTokenizerFast.build_inputs_with_special_tokens:5
+msgid "pair of sequences: ``[CLS] A [SEP] B [SEP]``"
+msgstr ""
+
+#: of transformers.RemBertTokenizer.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.RemBertTokenizer.build_inputs_with_special_tokens:9
+#: transformers.RemBertTokenizer.create_token_type_ids_from_sequences:13
+#: transformers.RemBertTokenizer.get_special_tokens_mask:6
+#: transformers.RemBertTokenizerFast.build_inputs_with_special_tokens:9
+#: transformers.RemBertTokenizerFast.create_token_type_ids_from_sequences:13
+#: transformers.RemBertTokenizerFast.get_special_tokens_mask:6
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward
+#: transformers.RemBertForMaskedLM.forward
+#: transformers.RemBertForMultipleChoice.forward
+#: transformers.RemBertForQuestionAnswering.forward
+#: transformers.RemBertForSequenceClassification.forward
+#: transformers.RemBertForTokenClassification.forward
+#: transformers.RemBertModel.forward
+#: transformers.RemBertTokenizer.build_inputs_with_special_tokens
+#: transformers.RemBertTokenizer.create_token_type_ids_from_sequences
+#: transformers.RemBertTokenizer.get_special_tokens_mask
+#: transformers.RemBertTokenizer.save_vocabulary
+#: transformers.RemBertTokenizerFast.build_inputs_with_special_tokens
+#: transformers.RemBertTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.RemBertTokenizerFast.get_special_tokens_mask
+#: transformers.RemBertTokenizerFast.save_vocabulary
+#: transformers.TFRemBertForCausalLM.call
+#: transformers.TFRemBertForMaskedLM.call
+#: transformers.TFRemBertForMultipleChoice.call
+#: transformers.TFRemBertForQuestionAnswering.call
+#: transformers.TFRemBertForSequenceClassification.call
+#: transformers.TFRemBertForTokenClassification.call
+#: transformers.TFRemBertModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.RemBertTokenizer.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward
+#: transformers.RemBertForMaskedLM.forward
+#: transformers.RemBertForMultipleChoice.forward
+#: transformers.RemBertForQuestionAnswering.forward
+#: transformers.RemBertForSequenceClassification.forward
+#: transformers.RemBertForTokenClassification.forward
+#: transformers.RemBertModel.forward
+#: transformers.RemBertTokenizer.build_inputs_with_special_tokens
+#: transformers.RemBertTokenizer.create_token_type_ids_from_sequences
+#: transformers.RemBertTokenizer.get_special_tokens_mask
+#: transformers.RemBertTokenizer.save_vocabulary
+#: transformers.RemBertTokenizerFast.build_inputs_with_special_tokens
+#: transformers.RemBertTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.RemBertTokenizerFast.get_special_tokens_mask
+#: transformers.RemBertTokenizerFast.save_vocabulary
+#: transformers.TFRemBertForCausalLM.call
+#: transformers.TFRemBertForMaskedLM.call
+#: transformers.TFRemBertForMultipleChoice.call
+#: transformers.TFRemBertForQuestionAnswering.call
+#: transformers.TFRemBertForSequenceClassification.call
+#: transformers.TFRemBertForTokenClassification.call
+#: transformers.TFRemBertModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.RemBertTokenizer.build_inputs_with_special_tokens:13
+#: transformers.RemBertTokenizer.create_token_type_ids_from_sequences:18
+#: transformers.RemBertTokenizer.get_special_tokens_mask:12
+#: transformers.RemBertTokenizerFast.build_inputs_with_special_tokens:13
+#: transformers.RemBertTokenizerFast.create_token_type_ids_from_sequences:18
+#: transformers.RemBertTokenizerFast.get_special_tokens_mask:12
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.RemBertTokenizer.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. A RemBERT sequence pair mask has the following "
+"format:"
+msgstr ""
+
+#: of transformers.RemBertTokenizer.create_token_type_ids_from_sequences:9
+msgid ""
+"If :obj:`token_ids_1` is :obj:`None`, this method only returns the first "
+"portion of the mask (0s)."
+msgstr ""
+
+#: of transformers.RemBertTokenizer.create_token_type_ids_from_sequences:11
+#: transformers.RemBertTokenizer.get_special_tokens_mask:4
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.RemBertTokenizer.create_token_type_ids_from_sequences:16
+#: transformers.RemBertTokenizerFast.create_token_type_ids_from_sequences:16
+msgid ""
+"List of `token type IDs <../glossary.html#token-type-ids>`_ according to "
+"the given sequence(s)."
+msgstr ""
+
+#: of transformers.RemBertTokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.RemBertTokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.RemBertTokenizer.get_special_tokens_mask:11
+#: transformers.RemBertTokenizerFast.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.RemBertTokenizer.save_vocabulary:1
+#: transformers.RemBertTokenizerFast.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.RemBertTokenizer.save_vocabulary:3
+#: transformers.RemBertTokenizerFast.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.RemBertTokenizer.save_vocabulary:6
+#: transformers.RemBertTokenizerFast.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.RemBertTokenizer.save_vocabulary:8
+#: transformers.RemBertTokenizerFast.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.RemBertTokenizer.save_vocabulary:11
+#: transformers.RemBertTokenizerFast.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.RemBertTokenizer.save_vocabulary:12
+#: transformers.RemBertTokenizerFast.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:59
+msgid "RemBertTokenizerFast"
+msgstr ""
+
+#: of transformers.RemBertTokenizerFast:1
+msgid ""
+"Construct a \"fast\" RemBert tokenizer (backed by HuggingFace's "
+"`tokenizers` library). Based on `Unigram "
+"<https://huggingface.co/docs/tokenizers/python/latest/components.html?highlight=unigram#models>`__."
+" This tokenizer inherits from "
+":class:`~transformers.PreTrainedTokenizerFast` which contains most of the"
+" main methods. Users should refer to this superclass for more information"
+" regarding those methods"
+msgstr ""
+
+#: of transformers.RemBertTokenizerFast:9
+msgid "Whether or not to lowercase the input when tokenizing."
+msgstr ""
+
+#: of transformers.RemBertTokenizerFast:11
+msgid ""
+"Whether or not to strip the text when tokenizing (removing excess spaces "
+"before and after the string)."
+msgstr ""
+
+#: of transformers.RemBertTokenizerFast:13
+msgid "Whether or not to keep accents when tokenizing."
+msgstr ""
+
+#: of transformers.RemBertTokenizerFast:15
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token.  .. note::     When building a sequence"
+" using special tokens, this is not the token that is used for the "
+"beginning of    sequence. The token used is the :obj:`cls_token`."
+msgstr ""
+
+#: of transformers.RemBertTokenizerFast:22
+msgid ""
+"The end of sequence token. .. note:: When building a sequence using "
+"special tokens, this is not the token that is used for the end of "
+"sequence. The token used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.RemBertTokenizerFast.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. A "
+"RemBERT sequence has the following format:"
+msgstr ""
+
+#: of transformers.RemBertTokenizerFast.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added"
+msgstr ""
+
+#: of transformers.RemBertTokenizerFast.build_inputs_with_special_tokens:12
+msgid ""
+"list of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.RemBertTokenizerFast.create_token_type_ids_from_sequences:1
+msgid ""
+"Creates a mask from the two sequences passed to be used in a sequence-"
+"pair classification task. A RemBERT sequence pair mask has the following "
+"format:"
+msgstr ""
+
+#: of transformers.RemBertTokenizerFast.create_token_type_ids_from_sequences:9
+msgid "if token_ids_1 is None, only returns the first portion of the mask (0s)."
+msgstr ""
+
+#: of transformers.RemBertTokenizerFast.create_token_type_ids_from_sequences:11
+#: transformers.RemBertTokenizerFast.get_special_tokens_mask:4
+msgid "List of ids."
+msgstr ""
+
+#: of transformers.RemBertTokenizerFast.get_special_tokens_mask:1
+msgid ""
+"Retrieves sequence ids from a token list that has no special tokens "
+"added. This method is called when adding special tokens using the "
+"tokenizer ``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.RemBertTokenizerFast.get_special_tokens_mask:8
+msgid ""
+"Set to True if the token list is already formatted with special tokens "
+"for the model"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:67
+msgid "RemBertModel"
+msgstr ""
+
+#: of transformers.RemBertModel:1
+msgid ""
+"The bare RemBERT Model transformer outputting raw hidden-states without "
+"any specific head on top. This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM:6 transformers.RemBertForMaskedLM:6
+#: transformers.RemBertForMultipleChoice:8
+#: transformers.RemBertForQuestionAnswering:8
+#: transformers.RemBertForSequenceClassification:8
+#: transformers.RemBertForTokenClassification:8 transformers.RemBertModel:6
+#: transformers.TFRemBertForCausalLM:30 transformers.TFRemBertForMaskedLM:30
+#: transformers.TFRemBertForMultipleChoice:32
+#: transformers.TFRemBertForQuestionAnswering:32
+#: transformers.TFRemBertForSequenceClassification:31
+#: transformers.TFRemBertForTokenClassification:32
+#: transformers.TFRemBertModel:30
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.RemBertModel:12
+msgid ""
+"The model can behave as an encoder (with only self-attention) as well as "
+"a decoder, in which case a layer of cross-attention is added between the "
+"self-attention layers, following the architecture described in `Attention"
+" is all you need <https://arxiv.org/abs/1706.03762>`__ by Ashish Vaswani,"
+" Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez,"
+" Lukasz Kaiser and Illia Polosukhin."
+msgstr ""
+
+#: of transformers.RemBertModel:17
+msgid ""
+"To behave as an decoder the model needs to be initialized with the "
+":obj:`is_decoder` argument of the configuration set to :obj:`True`. To be"
+" used in a Seq2Seq model, the model needs to initialized with both "
+":obj:`is_decoder` argument and :obj:`add_cross_attention` set to "
+":obj:`True`; an :obj:`encoder_hidden_states` is then expected as an input"
+" to the forward pass."
+msgstr ""
+
+#: of transformers.RemBertModel.forward:1
+msgid ""
+"The :class:`~transformers.RemBertModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:4
+#: transformers.RemBertForMaskedLM.forward:4
+#: transformers.RemBertForMultipleChoice.forward:4
+#: transformers.RemBertForQuestionAnswering.forward:4
+#: transformers.RemBertForSequenceClassification.forward:4
+#: transformers.RemBertForTokenClassification.forward:4
+#: transformers.RemBertModel.forward:4 transformers.TFRemBertForMaskedLM.call:4
+#: transformers.TFRemBertForMultipleChoice.call:4
+#: transformers.TFRemBertForQuestionAnswering.call:4
+#: transformers.TFRemBertForSequenceClassification.call:4
+#: transformers.TFRemBertForTokenClassification.call:4
+#: transformers.TFRemBertModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:8
+#: transformers.RemBertForMaskedLM.forward:8
+#: transformers.RemBertForMultipleChoice.forward:8
+#: transformers.RemBertForQuestionAnswering.forward:8
+#: transformers.RemBertForSequenceClassification.forward:8
+#: transformers.RemBertForTokenClassification.forward:8
+#: transformers.RemBertModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`transformers.RemBertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:8
+#: transformers.RemBertForMaskedLM.forward:8
+#: transformers.RemBertForMultipleChoice.forward:8
+#: transformers.RemBertForQuestionAnswering.forward:8
+#: transformers.RemBertForSequenceClassification.forward:8
+#: transformers.RemBertForTokenClassification.forward:8
+#: transformers.RemBertModel.forward:8 transformers.TFRemBertForMaskedLM.call:8
+#: transformers.TFRemBertForMultipleChoice.call:8
+#: transformers.TFRemBertForQuestionAnswering.call:8
+#: transformers.TFRemBertForSequenceClassification.call:8
+#: transformers.TFRemBertForTokenClassification.call:8
+#: transformers.TFRemBertModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:10
+#: transformers.RemBertForMaskedLM.forward:10
+#: transformers.RemBertForMultipleChoice.forward:10
+#: transformers.RemBertForQuestionAnswering.forward:10
+#: transformers.RemBertForSequenceClassification.forward:10
+#: transformers.RemBertForTokenClassification.forward:10
+#: transformers.RemBertModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`transformers.RemBertTokenizer`. See"
+" :func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:14
+#: transformers.RemBertForMaskedLM.forward:14
+#: transformers.RemBertForMultipleChoice.forward:14
+#: transformers.RemBertForQuestionAnswering.forward:14
+#: transformers.RemBertForSequenceClassification.forward:14
+#: transformers.RemBertForTokenClassification.forward:14
+#: transformers.RemBertModel.forward:14
+#: transformers.TFRemBertForMaskedLM.call:14
+#: transformers.TFRemBertForMultipleChoice.call:14
+#: transformers.TFRemBertForQuestionAnswering.call:14
+#: transformers.TFRemBertForSequenceClassification.call:14
+#: transformers.TFRemBertForTokenClassification.call:14
+#: transformers.TFRemBertModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:16
+#: transformers.RemBertForMaskedLM.forward:16
+#: transformers.RemBertForMultipleChoice.forward:16
+#: transformers.RemBertForQuestionAnswering.forward:16
+#: transformers.RemBertForSequenceClassification.forward:16
+#: transformers.RemBertForTokenClassification.forward:16
+#: transformers.RemBertModel.forward:16
+#: transformers.TFRemBertForMaskedLM.call:16
+#: transformers.TFRemBertForMultipleChoice.call:16
+#: transformers.TFRemBertForQuestionAnswering.call:16
+#: transformers.TFRemBertForSequenceClassification.call:16
+#: transformers.TFRemBertForTokenClassification.call:16
+#: transformers.TFRemBertModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:16
+#: transformers.RemBertForMaskedLM.forward:16
+#: transformers.RemBertForMultipleChoice.forward:16
+#: transformers.RemBertForQuestionAnswering.forward:16
+#: transformers.RemBertForSequenceClassification.forward:16
+#: transformers.RemBertForTokenClassification.forward:16
+#: transformers.RemBertModel.forward:16
+#: transformers.TFRemBertForMaskedLM.call:16
+#: transformers.TFRemBertForMultipleChoice.call:16
+#: transformers.TFRemBertForQuestionAnswering.call:16
+#: transformers.TFRemBertForSequenceClassification.call:16
+#: transformers.TFRemBertForTokenClassification.call:16
+#: transformers.TFRemBertModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:18
+#: transformers.RemBertForCausalLM.forward:59
+#: transformers.RemBertForMaskedLM.forward:18
+#: transformers.RemBertForMultipleChoice.forward:18
+#: transformers.RemBertForQuestionAnswering.forward:18
+#: transformers.RemBertForSequenceClassification.forward:18
+#: transformers.RemBertForTokenClassification.forward:18
+#: transformers.RemBertModel.forward:18 transformers.RemBertModel.forward:59
+#: transformers.TFRemBertForMaskedLM.call:18
+#: transformers.TFRemBertForMultipleChoice.call:18
+#: transformers.TFRemBertForQuestionAnswering.call:18
+#: transformers.TFRemBertForSequenceClassification.call:18
+#: transformers.TFRemBertForTokenClassification.call:18
+#: transformers.TFRemBertModel.call:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:19
+#: transformers.RemBertForCausalLM.forward:60
+#: transformers.RemBertForMaskedLM.forward:19
+#: transformers.RemBertForMultipleChoice.forward:19
+#: transformers.RemBertForQuestionAnswering.forward:19
+#: transformers.RemBertForSequenceClassification.forward:19
+#: transformers.RemBertForTokenClassification.forward:19
+#: transformers.RemBertModel.forward:19 transformers.RemBertModel.forward:60
+#: transformers.TFRemBertForMaskedLM.call:19
+#: transformers.TFRemBertForMultipleChoice.call:19
+#: transformers.TFRemBertForQuestionAnswering.call:19
+#: transformers.TFRemBertForSequenceClassification.call:19
+#: transformers.TFRemBertForTokenClassification.call:19
+#: transformers.TFRemBertModel.call:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:21
+#: transformers.RemBertForMaskedLM.forward:21
+#: transformers.RemBertForMultipleChoice.forward:21
+#: transformers.RemBertForQuestionAnswering.forward:21
+#: transformers.RemBertForSequenceClassification.forward:21
+#: transformers.RemBertForTokenClassification.forward:21
+#: transformers.RemBertModel.forward:21
+#: transformers.TFRemBertForMaskedLM.call:21
+#: transformers.TFRemBertForMultipleChoice.call:21
+#: transformers.TFRemBertForQuestionAnswering.call:21
+#: transformers.TFRemBertForSequenceClassification.call:21
+#: transformers.TFRemBertForTokenClassification.call:21
+#: transformers.TFRemBertModel.call:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:23
+#: transformers.RemBertForMaskedLM.forward:23
+#: transformers.RemBertForMultipleChoice.forward:23
+#: transformers.RemBertForQuestionAnswering.forward:23
+#: transformers.RemBertForSequenceClassification.forward:23
+#: transformers.RemBertForTokenClassification.forward:23
+#: transformers.RemBertModel.forward:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:23
+#: transformers.RemBertForMaskedLM.forward:23
+#: transformers.RemBertForMultipleChoice.forward:23
+#: transformers.RemBertForQuestionAnswering.forward:23
+#: transformers.RemBertForSequenceClassification.forward:23
+#: transformers.RemBertForTokenClassification.forward:23
+#: transformers.RemBertModel.forward:23
+#: transformers.TFRemBertForMaskedLM.call:23
+#: transformers.TFRemBertForMultipleChoice.call:23
+#: transformers.TFRemBertForQuestionAnswering.call:23
+#: transformers.TFRemBertForSequenceClassification.call:23
+#: transformers.TFRemBertForTokenClassification.call:23
+#: transformers.TFRemBertModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:26
+#: transformers.RemBertForMaskedLM.forward:26
+#: transformers.RemBertForMultipleChoice.forward:26
+#: transformers.RemBertForQuestionAnswering.forward:26
+#: transformers.RemBertForSequenceClassification.forward:26
+#: transformers.RemBertForTokenClassification.forward:26
+#: transformers.RemBertModel.forward:26
+#: transformers.TFRemBertForMaskedLM.call:26
+#: transformers.TFRemBertForMultipleChoice.call:26
+#: transformers.TFRemBertForQuestionAnswering.call:26
+#: transformers.TFRemBertForSequenceClassification.call:26
+#: transformers.TFRemBertForTokenClassification.call:26
+#: transformers.TFRemBertModel.call:26
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:27
+#: transformers.RemBertForMaskedLM.forward:27
+#: transformers.RemBertForMultipleChoice.forward:27
+#: transformers.RemBertForQuestionAnswering.forward:27
+#: transformers.RemBertForSequenceClassification.forward:27
+#: transformers.RemBertForTokenClassification.forward:27
+#: transformers.RemBertModel.forward:27
+#: transformers.TFRemBertForMaskedLM.call:27
+#: transformers.TFRemBertForMultipleChoice.call:27
+#: transformers.TFRemBertForQuestionAnswering.call:27
+#: transformers.TFRemBertForSequenceClassification.call:27
+#: transformers.TFRemBertForTokenClassification.call:27
+#: transformers.TFRemBertModel.call:27
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:29
+#: transformers.RemBertForMaskedLM.forward:29
+#: transformers.RemBertForMultipleChoice.forward:29
+#: transformers.RemBertForQuestionAnswering.forward:29
+#: transformers.RemBertForSequenceClassification.forward:29
+#: transformers.RemBertForTokenClassification.forward:29
+#: transformers.RemBertModel.forward:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:31
+#: transformers.RemBertForMaskedLM.forward:31
+#: transformers.RemBertForMultipleChoice.forward:31
+#: transformers.RemBertForQuestionAnswering.forward:31
+#: transformers.RemBertForSequenceClassification.forward:31
+#: transformers.RemBertForTokenClassification.forward:31
+#: transformers.RemBertModel.forward:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:31
+#: transformers.RemBertForMaskedLM.forward:31
+#: transformers.RemBertForMultipleChoice.forward:31
+#: transformers.RemBertForQuestionAnswering.forward:31
+#: transformers.RemBertForSequenceClassification.forward:31
+#: transformers.RemBertForTokenClassification.forward:31
+#: transformers.RemBertModel.forward:31
+#: transformers.TFRemBertForMaskedLM.call:31
+#: transformers.TFRemBertForMultipleChoice.call:31
+#: transformers.TFRemBertForQuestionAnswering.call:31
+#: transformers.TFRemBertForSequenceClassification.call:31
+#: transformers.TFRemBertForTokenClassification.call:31
+#: transformers.TFRemBertModel.call:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:34
+#: transformers.RemBertForMaskedLM.forward:34
+#: transformers.RemBertForMultipleChoice.forward:34
+#: transformers.RemBertForQuestionAnswering.forward:34
+#: transformers.RemBertForSequenceClassification.forward:34
+#: transformers.RemBertForTokenClassification.forward:34
+#: transformers.RemBertModel.forward:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:36
+#: transformers.RemBertForMaskedLM.forward:36
+#: transformers.RemBertForMultipleChoice.forward:36
+#: transformers.RemBertForQuestionAnswering.forward:36
+#: transformers.RemBertForSequenceClassification.forward:36
+#: transformers.RemBertForTokenClassification.forward:36
+#: transformers.RemBertModel.forward:36
+#: transformers.TFRemBertForMaskedLM.call:36
+#: transformers.TFRemBertForMultipleChoice.call:36
+#: transformers.TFRemBertForQuestionAnswering.call:36
+#: transformers.TFRemBertForSequenceClassification.call:36
+#: transformers.TFRemBertForTokenClassification.call:36
+#: transformers.TFRemBertModel.call:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:36
+#: transformers.RemBertForMaskedLM.forward:36
+#: transformers.RemBertForMultipleChoice.forward:36
+#: transformers.RemBertForQuestionAnswering.forward:36
+#: transformers.RemBertForSequenceClassification.forward:36
+#: transformers.RemBertForTokenClassification.forward:36
+#: transformers.RemBertModel.forward:36
+#: transformers.TFRemBertForMaskedLM.call:36
+#: transformers.TFRemBertForMultipleChoice.call:36
+#: transformers.TFRemBertForQuestionAnswering.call:36
+#: transformers.TFRemBertForSequenceClassification.call:36
+#: transformers.TFRemBertForTokenClassification.call:36
+#: transformers.TFRemBertModel.call:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:38
+#: transformers.RemBertForMaskedLM.forward:38
+#: transformers.RemBertForMultipleChoice.forward:38
+#: transformers.RemBertForQuestionAnswering.forward:38
+#: transformers.RemBertForSequenceClassification.forward:38
+#: transformers.RemBertForTokenClassification.forward:38
+#: transformers.RemBertModel.forward:38
+#: transformers.TFRemBertForMaskedLM.call:38
+#: transformers.TFRemBertForMultipleChoice.call:38
+#: transformers.TFRemBertForQuestionAnswering.call:38
+#: transformers.TFRemBertForSequenceClassification.call:38
+#: transformers.TFRemBertForTokenClassification.call:38
+#: transformers.TFRemBertModel.call:38
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:39
+#: transformers.RemBertForMaskedLM.forward:39
+#: transformers.RemBertForMultipleChoice.forward:39
+#: transformers.RemBertForQuestionAnswering.forward:39
+#: transformers.RemBertForSequenceClassification.forward:39
+#: transformers.RemBertForTokenClassification.forward:39
+#: transformers.RemBertModel.forward:39
+#: transformers.TFRemBertForMaskedLM.call:39
+#: transformers.TFRemBertForMultipleChoice.call:39
+#: transformers.TFRemBertForQuestionAnswering.call:39
+#: transformers.TFRemBertForSequenceClassification.call:39
+#: transformers.TFRemBertForTokenClassification.call:39
+#: transformers.TFRemBertModel.call:39
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:41
+#: transformers.RemBertForMaskedLM.forward:41
+#: transformers.RemBertForMultipleChoice.forward:41
+#: transformers.RemBertForQuestionAnswering.forward:41
+#: transformers.RemBertForSequenceClassification.forward:41
+#: transformers.RemBertForTokenClassification.forward:41
+#: transformers.RemBertModel.forward:41
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert `input_ids` indices into associated vectors "
+"than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:45
+#: transformers.RemBertForMaskedLM.forward:45
+#: transformers.RemBertForMultipleChoice.forward:45
+#: transformers.RemBertForQuestionAnswering.forward:45
+#: transformers.RemBertForSequenceClassification.forward:45
+#: transformers.RemBertForTokenClassification.forward:45
+#: transformers.RemBertModel.forward:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:48
+#: transformers.RemBertForMaskedLM.forward:48
+#: transformers.RemBertForMultipleChoice.forward:48
+#: transformers.RemBertForQuestionAnswering.forward:48
+#: transformers.RemBertForSequenceClassification.forward:48
+#: transformers.RemBertForTokenClassification.forward:48
+#: transformers.RemBertModel.forward:48
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:51
+#: transformers.RemBertForMaskedLM.forward:51
+#: transformers.RemBertForMultipleChoice.forward:51
+#: transformers.RemBertForQuestionAnswering.forward:51
+#: transformers.RemBertForSequenceClassification.forward:51
+#: transformers.RemBertForTokenClassification.forward:51
+#: transformers.RemBertModel.forward:51
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:53
+#: transformers.RemBertModel.forward:53
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the encoder."
+" Used in the cross-attention if the model is configured as a decoder."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:56
+#: transformers.RemBertModel.forward:56
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:  - 1 for "
+"tokens that are **not masked**, - 0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:56
+#: transformers.RemBertModel.forward:56
+msgid ""
+"Mask to avoid performing attention on the padding token indices of the "
+"encoder input. This mask is used in the cross-attention if the model is "
+"configured as a decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:62
+#: transformers.RemBertModel.forward:62
+msgid ""
+"Contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding. If :obj:`past_key_values` are used, "
+"the user can optionally input only the last :obj:`decoder_input_ids` "
+"(those that don't have their past key value states given to this model) "
+"of shape :obj:`(batch_size, 1)` instead of all :obj:`decoder_input_ids` "
+"of shape :obj:`(batch_size, sequence_length)`."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:71
+#: transformers.RemBertModel.forward:67
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.RemBertModel.forward:71
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RemBertConfig`) and"
+" inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model.    If "
+":obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size,   1, hidden_size)` is output. - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and optionally if   "
+"``config.is_encoder_decoder=True`` 2 additional tensors of shape "
+":obj:`(batch_size, num_heads,   encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and optionally if   "
+"``config.is_encoder_decoder=True`` in the cross-attention blocks) that "
+"can be used (see   :obj:`past_key_values` input) to speed up sequential "
+"decoding. - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` and ``config.add_cross_attention=True`` is "
+"passed or when ``config.output_attentions=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for each layer) of shape :obj:`(batch_size,"
+" num_heads,   sequence_length, sequence_length)`.    Attentions weights "
+"of the decoder's cross-attention layer, after the attention softmax, used"
+" to compute the   weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.RemBertModel.forward:71
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RemBertConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.RemBertModel.forward:75
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.RemBertModel.forward:77
+msgid ""
+"If :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size, 1, hidden_size)` is output."
+msgstr ""
+
+#: of transformers.RemBertModel.forward:79
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) "
+"and optionally if ``config.is_encoder_decoder=True`` 2 additional tensors"
+" of shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.RemBertModel.forward:84
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and optionally if ``config.is_encoder_decoder=True`` in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:81
+#: transformers.RemBertForMaskedLM.forward:64
+#: transformers.RemBertForMultipleChoice.forward:66
+#: transformers.RemBertForQuestionAnswering.forward:69
+#: transformers.RemBertForSequenceClassification.forward:64
+#: transformers.RemBertForTokenClassification.forward:63
+#: transformers.RemBertModel.forward:87
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:84
+#: transformers.RemBertForMaskedLM.forward:67
+#: transformers.RemBertForMultipleChoice.forward:69
+#: transformers.RemBertForQuestionAnswering.forward:72
+#: transformers.RemBertForSequenceClassification.forward:67
+#: transformers.RemBertForTokenClassification.forward:66
+#: transformers.RemBertModel.forward:90
+#: transformers.TFRemBertForCausalLM.call:14
+#: transformers.TFRemBertForMaskedLM.call:73
+#: transformers.TFRemBertForMultipleChoice.call:75
+#: transformers.TFRemBertForQuestionAnswering.call:78
+#: transformers.TFRemBertForSequenceClassification.call:73
+#: transformers.TFRemBertForTokenClassification.call:72
+#: transformers.TFRemBertModel.call:74
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:85
+#: transformers.RemBertForMaskedLM.forward:68
+#: transformers.RemBertForMultipleChoice.forward:70
+#: transformers.RemBertForQuestionAnswering.forward:73
+#: transformers.RemBertForSequenceClassification.forward:68
+#: transformers.RemBertForTokenClassification.forward:67
+#: transformers.RemBertModel.forward:91
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:88
+#: transformers.RemBertForMaskedLM.forward:71
+#: transformers.RemBertForMultipleChoice.forward:73
+#: transformers.RemBertForQuestionAnswering.forward:76
+#: transformers.RemBertForSequenceClassification.forward:71
+#: transformers.RemBertForTokenClassification.forward:70
+#: transformers.RemBertModel.forward:94
+#: transformers.TFRemBertForCausalLM.call:18
+#: transformers.TFRemBertForMaskedLM.call:77
+#: transformers.TFRemBertForMultipleChoice.call:79
+#: transformers.TFRemBertForQuestionAnswering.call:82
+#: transformers.TFRemBertForSequenceClassification.call:77
+#: transformers.TFRemBertForTokenClassification.call:76
+#: transformers.TFRemBertModel.call:78
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.RemBertModel.forward:96
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` and "
+"``config.add_cross_attention=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.RemBertModel.forward:99
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.RemBertModel.forward:101
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPastAndCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:103
+#: transformers.RemBertForMaskedLM.forward:75
+#: transformers.RemBertForMultipleChoice.forward:77
+#: transformers.RemBertForQuestionAnswering.forward:80
+#: transformers.RemBertForSequenceClassification.forward:75
+#: transformers.RemBertForTokenClassification.forward:74
+#: transformers.RemBertModel.forward:103
+#: transformers.TFRemBertForCausalLM.call:22
+#: transformers.TFRemBertForMaskedLM.call:81
+#: transformers.TFRemBertForMultipleChoice.call:83
+#: transformers.TFRemBertForQuestionAnswering.call:86
+#: transformers.TFRemBertForSequenceClassification.call:81
+#: transformers.TFRemBertForTokenClassification.call:80
+#: transformers.TFRemBertModel.call:82
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:74
+msgid "RemBertForCausalLM"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM:1
+msgid ""
+"RemBERT Model with a `language modeling` head on top for CLM fine-tuning."
+" This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:1
+msgid ""
+"The :class:`~transformers.RemBertForCausalLM` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:67
+msgid ""
+"Labels for computing the left-to-right language modeling loss (next word "
+"prediction). Indices should be in ``[-100, 0, ..., config.vocab_size]`` "
+"(see ``input_ids`` docstring) Tokens with indices set to ``-100`` are "
+"ignored (masked), the loss is only computed for the tokens with labels n "
+"``[0, ..., config.vocab_size]``."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:75
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RemBertConfig`) and"
+" inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Language modeling"
+" loss (for next-token prediction). - **logits** (:obj:`torch.FloatTensor`"
+" of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Cross attentions weights after the"
+" attention softmax, used to compute the weighted average in the   cross-"
+"attention heads. - **past_key_values** "
+"(:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`torch.FloatTensor` tuples of length :obj:`config.n_layers`, with"
+" each tuple containing the   cached key, value states of the self-"
+"attention and the cross-attention layers if model is used in   encoder-"
+"decoder setting. Only relevant if ``config.is_decoder = True``.    "
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see   :obj:`past_key_values` input) to speed up"
+" sequential decoding.   Example::      >>> from transformers import "
+"RemBertTokenizer, RemBertForCausalLM, RemBertConfig     >>> import torch"
+"      >>> tokenizer = RemBertTokenizer.from_pretrained('rembert')     >>>"
+" config = RemBertConfig.from_pretrained(\"rembert\")     >>> "
+"config.is_decoder = True     >>> model = "
+"RemBertForCausalLM.from_pretrained('rembert', config=config)      >>> "
+"inputs = tokenizer(\"Hello, my dog is cute\", return_tensors=\"pt\")     "
+">>> outputs = model(**inputs)      >>> prediction_logits = outputs.logits"
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:75
+msgid ""
+"A "
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RemBertConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:79
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss (for "
+"next-token prediction)."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:80
+#: transformers.RemBertForMaskedLM.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:90
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:93
+msgid ""
+"Cross attentions weights after the attention softmax, used to compute the"
+" weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:95
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`torch.FloatTensor` tuples of"
+" length :obj:`config.n_layers`, with each tuple containing the cached "
+"key, value states of the self-attention and the cross-attention layers if"
+" model is used in encoder-decoder setting. Only relevant if "
+"``config.is_decoder = True``."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:99
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.RemBertForCausalLM.forward:117
+msgid ""
+":class:`~transformers.modeling_outputs.CausalLMOutputWithCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:81
+msgid "RemBertForMaskedLM"
+msgstr ""
+
+#: of transformers.RemBertForMaskedLM:1
+msgid ""
+"RemBERT Model with a `language modeling` head on top. This model is a "
+"PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.RemBertForMaskedLM.forward:1
+msgid ""
+"The :class:`~transformers.RemBertForMaskedLM` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RemBertForMaskedLM.forward:53
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``."
+msgstr ""
+
+#: of transformers.RemBertForMaskedLM.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RemBertConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.RemBertForMaskedLM.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RemBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.RemBertForMaskedLM.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.RemBertForMaskedLM.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:88
+msgid "RemBertForSequenceClassification"
+msgstr ""
+
+#: of transformers.RemBertForSequenceClassification:1
+msgid ""
+"RemBERT Model transformer with a sequence classification/regression head "
+"on top (a linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.RemBertForMultipleChoice:4
+#: transformers.RemBertForQuestionAnswering:4
+#: transformers.RemBertForSequenceClassification:4
+#: transformers.RemBertForTokenClassification:4
+msgid ""
+"This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ sub-class. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.RemBertForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.RemBertForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RemBertForSequenceClassification.forward:53
+#: transformers.TFRemBertForSequenceClassification.call:59
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.RemBertForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RemBertConfig`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.RemBertForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RemBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.RemBertForSequenceClassification.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.RemBertForSequenceClassification.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.RemBertForSequenceClassification.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:95
+msgid "RemBertForMultipleChoice"
+msgstr ""
+
+#: of transformers.RemBertForMultipleChoice:1
+#: transformers.TFRemBertForMultipleChoice:1
+msgid ""
+"RemBERT Model with a multiple choice classification head on top (a linear"
+" layer on top of the pooled output and a softmax) e.g. for "
+"RocStories/SWAG tasks."
+msgstr ""
+
+#: of transformers.RemBertForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.RemBertForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RemBertForMultipleChoice.forward:53
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.RemBertForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RemBertConfig`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.RemBertForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RemBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.RemBertForMultipleChoice.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.RemBertForMultipleChoice.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.RemBertForMultipleChoice.forward:65
+#: transformers.TFRemBertForMultipleChoice.call:71
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.RemBertForMultipleChoice.forward:75
+msgid ""
+":class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:102
+msgid "RemBertForTokenClassification"
+msgstr ""
+
+#: of transformers.RemBertForTokenClassification:1
+#: transformers.TFRemBertForTokenClassification:1
+msgid ""
+"RemBERT Model with a token classification head on top (a linear layer on "
+"top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) "
+"tasks."
+msgstr ""
+
+#: of transformers.RemBertForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.RemBertForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RemBertForTokenClassification.forward:53
+#: transformers.TFRemBertForTokenClassification.call:59
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.RemBertForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RemBertConfig`) and inputs.  "
+"- **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.RemBertForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RemBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.RemBertForTokenClassification.forward:61
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.RemBertForTokenClassification.forward:62
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.RemBertForTokenClassification.forward:72
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:109
+msgid "RemBertForQuestionAnswering"
+msgstr ""
+
+#: of transformers.RemBertForQuestionAnswering:1
+msgid ""
+"RemBERT Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.RemBertForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.RemBertForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.RemBertForQuestionAnswering.forward:53
+#: transformers.TFRemBertForQuestionAnswering.call:59
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.RemBertForQuestionAnswering.forward:57
+#: transformers.TFRemBertForQuestionAnswering.call:63
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.RemBertForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RemBertConfig`) and"
+" inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.RemBertForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.RemBertConfig`) and"
+" inputs."
+msgstr ""
+
+#: of transformers.RemBertForQuestionAnswering.forward:66
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.RemBertForQuestionAnswering.forward:67
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.RemBertForQuestionAnswering.forward:68
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.RemBertForQuestionAnswering.forward:78
+msgid ""
+":class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:116
+msgid "TFRemBertModel"
+msgstr ""
+
+#: of transformers.TFRemBertModel:1
+msgid ""
+"The bare RemBERT Model transformer outputing raw hidden-states without "
+"any specific head on top."
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM:3 transformers.TFRemBertForMaskedLM:3
+#: transformers.TFRemBertForMultipleChoice:5
+#: transformers.TFRemBertForQuestionAnswering:5
+#: transformers.TFRemBertForSequenceClassification:4
+#: transformers.TFRemBertForTokenClassification:5 transformers.TFRemBertModel:3
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM:7 transformers.TFRemBertForMaskedLM:7
+#: transformers.TFRemBertForMultipleChoice:9
+#: transformers.TFRemBertForQuestionAnswering:9
+#: transformers.TFRemBertForSequenceClassification:8
+#: transformers.TFRemBertForTokenClassification:9 transformers.TFRemBertModel:7
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM:13 transformers.TFRemBertForMaskedLM:13
+#: transformers.TFRemBertForMultipleChoice:15
+#: transformers.TFRemBertForQuestionAnswering:15
+#: transformers.TFRemBertForSequenceClassification:14
+#: transformers.TFRemBertForTokenClassification:15
+#: transformers.TFRemBertModel:13
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM:15 transformers.TFRemBertForMaskedLM:15
+#: transformers.TFRemBertForMultipleChoice:17
+#: transformers.TFRemBertForQuestionAnswering:17
+#: transformers.TFRemBertForSequenceClassification:16
+#: transformers.TFRemBertForTokenClassification:17
+#: transformers.TFRemBertModel:15
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM:16 transformers.TFRemBertForMaskedLM:16
+#: transformers.TFRemBertForMultipleChoice:18
+#: transformers.TFRemBertForQuestionAnswering:18
+#: transformers.TFRemBertForSequenceClassification:17
+#: transformers.TFRemBertForTokenClassification:18
+#: transformers.TFRemBertModel:16
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM:18 transformers.TFRemBertForMaskedLM:18
+#: transformers.TFRemBertForMultipleChoice:20
+#: transformers.TFRemBertForQuestionAnswering:20
+#: transformers.TFRemBertForSequenceClassification:19
+#: transformers.TFRemBertForTokenClassification:20
+#: transformers.TFRemBertModel:18
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM:21 transformers.TFRemBertForMaskedLM:21
+#: transformers.TFRemBertForMultipleChoice:23
+#: transformers.TFRemBertForQuestionAnswering:23
+#: transformers.TFRemBertForSequenceClassification:22
+#: transformers.TFRemBertForTokenClassification:23
+#: transformers.TFRemBertModel:21
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM:24 transformers.TFRemBertForMaskedLM:24
+#: transformers.TFRemBertForMultipleChoice:26
+#: transformers.TFRemBertForQuestionAnswering:26
+#: transformers.TFRemBertForSequenceClassification:25
+#: transformers.TFRemBertForTokenClassification:26
+#: transformers.TFRemBertModel:24
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM:25 transformers.TFRemBertForMaskedLM:25
+#: transformers.TFRemBertForMultipleChoice:27
+#: transformers.TFRemBertForQuestionAnswering:27
+#: transformers.TFRemBertForSequenceClassification:26
+#: transformers.TFRemBertForTokenClassification:27
+#: transformers.TFRemBertModel:25
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM:27 transformers.TFRemBertForMaskedLM:27
+#: transformers.TFRemBertForMultipleChoice:29
+#: transformers.TFRemBertForQuestionAnswering:29
+#: transformers.TFRemBertForSequenceClassification:28
+#: transformers.TFRemBertForTokenClassification:29
+#: transformers.TFRemBertModel:27
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFRemBertModel.call:1
+msgid ""
+"The :class:`~transformers.TFRemBertModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:8
+#: transformers.TFRemBertForMultipleChoice.call:8
+#: transformers.TFRemBertForQuestionAnswering.call:8
+#: transformers.TFRemBertForSequenceClassification.call:8
+#: transformers.TFRemBertForTokenClassification.call:8
+#: transformers.TFRemBertModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.BertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:10
+#: transformers.TFRemBertForMultipleChoice.call:10
+#: transformers.TFRemBertForQuestionAnswering.call:10
+#: transformers.TFRemBertForSequenceClassification.call:10
+#: transformers.TFRemBertForTokenClassification.call:10
+#: transformers.TFRemBertModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.BertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:23
+#: transformers.TFRemBertForMultipleChoice.call:23
+#: transformers.TFRemBertForQuestionAnswering.call:23
+#: transformers.TFRemBertForSequenceClassification.call:23
+#: transformers.TFRemBertForTokenClassification.call:23
+#: transformers.TFRemBertModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:29
+#: transformers.TFRemBertForMultipleChoice.call:29
+#: transformers.TFRemBertForQuestionAnswering.call:29
+#: transformers.TFRemBertForSequenceClassification.call:29
+#: transformers.TFRemBertForTokenClassification.call:29
+#: transformers.TFRemBertModel.call:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:31
+#: transformers.TFRemBertForMultipleChoice.call:31
+#: transformers.TFRemBertForQuestionAnswering.call:31
+#: transformers.TFRemBertForSequenceClassification.call:31
+#: transformers.TFRemBertForTokenClassification.call:31
+#: transformers.TFRemBertModel.call:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:34
+#: transformers.TFRemBertForMultipleChoice.call:34
+#: transformers.TFRemBertForQuestionAnswering.call:34
+#: transformers.TFRemBertForSequenceClassification.call:34
+#: transformers.TFRemBertForTokenClassification.call:34
+#: transformers.TFRemBertModel.call:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:41
+#: transformers.TFRemBertForMultipleChoice.call:41
+#: transformers.TFRemBertForQuestionAnswering.call:41
+#: transformers.TFRemBertForSequenceClassification.call:41
+#: transformers.TFRemBertForTokenClassification.call:41
+#: transformers.TFRemBertModel.call:41
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:45
+#: transformers.TFRemBertForMultipleChoice.call:45
+#: transformers.TFRemBertForQuestionAnswering.call:45
+#: transformers.TFRemBertForSequenceClassification.call:45
+#: transformers.TFRemBertForTokenClassification.call:45
+#: transformers.TFRemBertModel.call:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:49
+#: transformers.TFRemBertForMultipleChoice.call:49
+#: transformers.TFRemBertForQuestionAnswering.call:49
+#: transformers.TFRemBertForSequenceClassification.call:49
+#: transformers.TFRemBertForTokenClassification.call:49
+#: transformers.TFRemBertModel.call:49
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:53
+#: transformers.TFRemBertForMultipleChoice.call:53
+#: transformers.TFRemBertForQuestionAnswering.call:53
+#: transformers.TFRemBertForSequenceClassification.call:53
+#: transformers.TFRemBertForTokenClassification.call:53
+#: transformers.TFRemBertModel.call:53
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:56
+#: transformers.TFRemBertForMultipleChoice.call:56
+#: transformers.TFRemBertForQuestionAnswering.call:56
+#: transformers.TFRemBertForSequenceClassification.call:56
+#: transformers.TFRemBertForTokenClassification.call:56
+#: transformers.TFRemBertModel.call:56
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFRemBertModel.call:60
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RemBertConfig`) and inputs.  "
+"- **last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **pooler_output** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, hidden_size)`) -- Last "
+"layer hidden-state of the first token of the sequence (classification "
+"token) further processed by a   Linear layer and a Tanh activation "
+"function. The Linear layer weights are trained from the next sentence   "
+"prediction (classification) objective during pretraining.    This output "
+"is usually *not* a good summary of the semantic content of the input, "
+"you're often better with   averaging or pooling the sequence of hidden-"
+"states for the whole input sequence. - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRemBertModel.call:60
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RemBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRemBertModel.call:64
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.TFRemBertModel.call:65
+msgid ""
+"**pooler_output** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.TFRemBertModel.call:69
+msgid ""
+"This output is usually *not* a good summary of the semantic content of "
+"the input, you're often better with averaging or pooling the sequence of "
+"hidden-states for the whole input sequence."
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM.call:11
+#: transformers.TFRemBertForMaskedLM.call:70
+#: transformers.TFRemBertForMultipleChoice.call:72
+#: transformers.TFRemBertForQuestionAnswering.call:75
+#: transformers.TFRemBertForSequenceClassification.call:70
+#: transformers.TFRemBertForTokenClassification.call:69
+#: transformers.TFRemBertModel.call:71
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM.call:15
+#: transformers.TFRemBertForMaskedLM.call:74
+#: transformers.TFRemBertForMultipleChoice.call:76
+#: transformers.TFRemBertForQuestionAnswering.call:79
+#: transformers.TFRemBertForSequenceClassification.call:74
+#: transformers.TFRemBertForTokenClassification.call:73
+#: transformers.TFRemBertModel.call:75
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFRemBertModel.call:80
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling` "
+"or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:123
+msgid "TFRemBertForMaskedLM"
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM:1
+msgid "RemBERT Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:1
+msgid ""
+"The :class:`~transformers.TFRemBertForMaskedLM` forward method, overrides"
+" the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:59
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RemBertConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss. - **logits** (:obj:`tf.Tensor` "
+"of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RemBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss."
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM.call:10
+#: transformers.TFRemBertForMaskedLM.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFRemBertForMaskedLM.call:79
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:130
+msgid "TFRemBertForCausalLM"
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM:1
+msgid "RemBERT Model with a `language modeling` head on top for CLM fine-tuning."
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM.call:3
+msgid ""
+"labels (:obj:`tf.Tensor` or :obj:`np.ndarray` of shape :obj:`(batch_size,"
+" sequence_length)`, `optional`):"
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM.call:2
+msgid ""
+"Labels for computing the cross entropy classification loss. Indices "
+"should be in ``[0, ..., config.vocab_size - 1]``."
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM.call:5
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFCausalLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RemBertConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Language modeling loss (for next-token prediction). - **logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length, "
+"config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM.call:5
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFCausalLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RemBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM.call:9
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Language modeling loss (for next-token prediction)."
+msgstr ""
+
+#: of transformers.TFRemBertForCausalLM.call:20
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFCausalLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:137
+msgid "TFRemBertForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFRemBertForSequenceClassification:1
+msgid ""
+"RemBERT Model transformer with a sequence classification/regression head "
+"on top e.g., for GLUE tasks."
+msgstr ""
+
+#: of transformers.TFRemBertForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFRemBertForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRemBertForSequenceClassification.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RemBertConfig`) and inputs.  "
+"- **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, config.num_labels)`) -- Classification (or regression "
+"if config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRemBertForSequenceClassification.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RemBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRemBertForSequenceClassification.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFRemBertForSequenceClassification.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFRemBertForSequenceClassification.call:79
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:144
+msgid "TFRemBertForMultipleChoice"
+msgstr ""
+
+#: of transformers.TFRemBertForMultipleChoice.call:1
+msgid ""
+"The :class:`~transformers.TFRemBertForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRemBertForMultipleChoice.call:59
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.TFRemBertForMultipleChoice.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RemBertConfig`) and inputs.  "
+"- **loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss. - "
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRemBertForMultipleChoice.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RemBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRemBertForMultipleChoice.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.TFRemBertForMultipleChoice.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.TFRemBertForMultipleChoice.call:81
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` or"
+" :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:151
+msgid "TFRemBertForTokenClassification"
+msgstr ""
+
+#: of transformers.TFRemBertForTokenClassification.call:1
+msgid ""
+"The :class:`~transformers.TFRemBertForTokenClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRemBertForTokenClassification.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RemBertConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, config.num_labels)`) -- "
+"Classification scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRemBertForTokenClassification.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.RemBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRemBertForTokenClassification.call:67
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss."
+msgstr ""
+
+#: of transformers.TFRemBertForTokenClassification.call:68
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.num_labels)`) -- Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFRemBertForTokenClassification.call:78
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/rembert.rst:158
+msgid "TFRemBertForQuestionAnswering"
+msgstr ""
+
+#: of transformers.TFRemBertForQuestionAnswering:1
+msgid ""
+"RemBERT Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layer on top of the hidden-"
+"states output to compute `span start logits` and `span end logits`)."
+msgstr ""
+
+#: of transformers.TFRemBertForQuestionAnswering.call:1
+msgid ""
+"The :class:`~transformers.TFRemBertForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFRemBertForQuestionAnswering.call:68
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RemBertConfig`) and inputs.  "
+"- **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions. - **start_logits** (:obj:`tf.Tensor` of "
+"shape :obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFRemBertForQuestionAnswering.call:68
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.RemBertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFRemBertForQuestionAnswering.call:72
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions."
+msgstr ""
+
+#: of transformers.TFRemBertForQuestionAnswering.call:73
+msgid ""
+"**start_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFRemBertForQuestionAnswering.call:74
+msgid ""
+"**end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFRemBertForQuestionAnswering.call:84
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+

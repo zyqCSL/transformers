@@ -1,0 +1,1113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/fsmt.rst:14
+msgid "FSMT"
+msgstr ""
+
+#: ../../source/model_doc/fsmt.rst:16
+msgid ""
+"**DISCLAIMER:** If you see something strange, file a `Github Issue "
+"<https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template"
+"=bug-report.md&title>`__ and assign @stas00."
+msgstr ""
+
+#: ../../source/model_doc/fsmt.rst:21
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/fsmt.rst:23
+msgid ""
+"FSMT (FairSeq MachineTranslation) models were introduced in `Facebook "
+"FAIR's WMT19 News Translation Task Submission "
+"<https://arxiv.org/abs/1907.06616>`__ by Nathan Ng, Kyra Yee, Alexei "
+"Baevski, Myle Ott, Michael Auli, Sergey Edunov."
+msgstr ""
+
+#: ../../source/model_doc/fsmt.rst:26
+msgid "The abstract of the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/fsmt.rst:28
+msgid ""
+"*This paper describes Facebook FAIR's submission to the WMT19 shared news"
+" translation task. We participate in two language pairs and four language"
+" directions, English <-> German and English <-> Russian. Following our "
+"submission from last year, our baseline systems are large BPE-based "
+"transformer models trained with the Fairseq sequence modeling toolkit "
+"which rely on sampled back-translations. This year we experiment with "
+"different bitext data filtering schemes, as well as with adding filtered "
+"back-translated data. We also ensemble and fine-tune our models on "
+"domain-specific data, then decode using noisy channel model reranking. "
+"Our submissions are ranked first in all four directions of the human "
+"evaluation campaign. On En->De, our system significantly outperforms "
+"other systems as well as human translations. This system improves upon "
+"our WMT'18 submission by 4.5 BLEU points.*"
+msgstr ""
+
+#: ../../source/model_doc/fsmt.rst:37
+msgid ""
+"This model was contributed by `stas <https://huggingface.co/stas>`__. The"
+" original code can be found here "
+"<https://github.com/pytorch/fairseq/tree/master/examples/wmt19>__."
+msgstr ""
+
+#: ../../source/model_doc/fsmt.rst:41
+msgid "Implementation Notes"
+msgstr ""
+
+#: ../../source/model_doc/fsmt.rst:43
+msgid ""
+"FSMT uses source and target vocabulary pairs that aren't combined into "
+"one. It doesn't share embeddings tokens either. Its tokenizer is very "
+"similar to :class:`~transformers.XLMTokenizer` and the main model is "
+"derived from :class:`~transformers.BartModel`."
+msgstr ""
+
+#: ../../source/model_doc/fsmt.rst:49
+msgid "FSMTConfig"
+msgstr ""
+
+#: of transformers.FSMTConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.FSMTModel`. It is used to instantiate a FSMT model "
+"according to the specified arguments, defining the model architecture."
+msgstr ""
+
+#: of transformers.FSMTConfig:4
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.FSMTConfig transformers.FSMTForConditionalGeneration
+#: transformers.FSMTForConditionalGeneration.forward transformers.FSMTModel
+#: transformers.FSMTModel.forward transformers.FSMTTokenizer
+#: transformers.FSMTTokenizer.build_inputs_with_special_tokens
+#: transformers.FSMTTokenizer.create_token_type_ids_from_sequences
+#: transformers.FSMTTokenizer.get_special_tokens_mask
+#: transformers.FSMTTokenizer.save_vocabulary
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.FSMTConfig:7
+msgid "A list with source language and target_language (e.g., ['en', 'ru'])."
+msgstr ""
+
+#: of transformers.FSMTConfig:9
+msgid ""
+"Vocabulary size of the encoder. Defines the number of different tokens "
+"that can be represented by the :obj:`inputs_ids` passed to the forward "
+"method in the encoder."
+msgstr ""
+
+#: of transformers.FSMTConfig:12
+msgid ""
+"Vocabulary size of the decoder. Defines the number of different tokens "
+"that can be represented by the :obj:`inputs_ids` passed to the forward "
+"method in the decoder."
+msgstr ""
+
+#: of transformers.FSMTConfig:15
+msgid "Dimensionality of the layers and the pooler layer."
+msgstr ""
+
+#: of transformers.FSMTConfig:17
+msgid "Number of encoder layers."
+msgstr ""
+
+#: of transformers.FSMTConfig:19
+msgid "Number of decoder layers."
+msgstr ""
+
+#: of transformers.FSMTConfig:21
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.FSMTConfig:23
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"decoder."
+msgstr ""
+
+#: of transformers.FSMTConfig:25 transformers.FSMTConfig:27
+msgid ""
+"Dimensionality of the \"intermediate\" (often named feed-forward) layer "
+"in decoder."
+msgstr ""
+
+#: of transformers.FSMTConfig:29
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.FSMTConfig:32
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.FSMTConfig:34
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.FSMTConfig:36
+msgid "The dropout ratio for activations inside the fully connected layer."
+msgstr ""
+
+#: of transformers.FSMTConfig:38
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.FSMTConfig:41
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.FSMTConfig:43
+msgid "Scale embeddings by diving by sqrt(d_model)."
+msgstr ""
+
+#: of transformers.FSMTConfig:45
+msgid "Beginning of stream token id."
+msgstr ""
+
+#: of transformers.FSMTConfig:47
+msgid "Padding token id."
+msgstr ""
+
+#: of transformers.FSMTConfig:49
+msgid "End of stream token id."
+msgstr ""
+
+#: of transformers.FSMTConfig:51
+msgid "This model starts decoding with :obj:`eos_token_id`"
+msgstr ""
+
+#: of transformers.FSMTConfig:53 transformers.FSMTConfig:55
+msgid ""
+"(:obj:`float`, `optional`, defaults to 0.0): Google \"layerdrop arxiv\", "
+"as its not explainable in one line."
+msgstr ""
+
+#: of transformers.FSMTConfig:57
+msgid "Whether this is an encoder/decoder model."
+msgstr ""
+
+#: of transformers.FSMTConfig:59
+msgid "Whether to tie input and output embeddings."
+msgstr ""
+
+#: of transformers.FSMTConfig:61
+msgid ""
+"Number of beams for beam search that will be used by default in the "
+":obj:`generate` method of the model. 1 means no beam search."
+msgstr ""
+
+#: of transformers.FSMTConfig:64
+msgid ""
+"Exponential penalty to the length that will be used by default in the "
+":obj:`generate` method of the model."
+msgstr ""
+
+#: of transformers.FSMTConfig:66
+msgid ""
+"Flag that will be used by default in the :obj:`generate` method of the "
+"model. Whether to stop the beam search when at least ``num_beams`` "
+"sentences are finished per batch or not."
+msgstr ""
+
+#: of transformers.FSMTConfig:69
+msgid ""
+"Whether or not the model should return the last key/values attentions "
+"(not used by all models)."
+msgstr ""
+
+#: of transformers.FSMTConfig:71
+msgid ""
+"The id of the token to force as the last generated token when "
+":obj:`max_length` is reached. Usually set to :obj:`eos_token_id`."
+msgstr ""
+
+#: of transformers.FSMTConfig:74
+msgid ""
+">>> from transformers import FSMTConfig, FSMTModel  >>> config = "
+"FSMTConfig.from_pretrained('facebook/wmt19-en-ru') >>> model = "
+"FSMTModel(config)"
+msgstr ""
+
+#: of transformers.FSMTConfig.to_dict:1
+msgid ""
+"Serializes this instance to a Python dictionary. Override the default "
+"`to_dict()` from `PretrainedConfig`."
+msgstr ""
+
+#: of transformers.FSMTConfig.to_dict
+#: transformers.FSMTForConditionalGeneration.forward
+#: transformers.FSMTModel.forward
+#: transformers.FSMTTokenizer.build_inputs_with_special_tokens
+#: transformers.FSMTTokenizer.create_token_type_ids_from_sequences
+#: transformers.FSMTTokenizer.get_special_tokens_mask
+#: transformers.FSMTTokenizer.save_vocabulary
+msgid "Returns"
+msgstr ""
+
+#: of transformers.FSMTConfig.to_dict:3
+msgid "Dictionary of all the attributes that make up this configuration instance,"
+msgstr ""
+
+#: of transformers.FSMTConfig.to_dict
+#: transformers.FSMTForConditionalGeneration.forward
+#: transformers.FSMTModel.forward
+#: transformers.FSMTTokenizer.build_inputs_with_special_tokens
+#: transformers.FSMTTokenizer.create_token_type_ids_from_sequences
+#: transformers.FSMTTokenizer.get_special_tokens_mask
+#: transformers.FSMTTokenizer.save_vocabulary
+msgid "Return type"
+msgstr ""
+
+#: of transformers.FSMTConfig.to_dict:4
+msgid ":obj:`Dict[str, any]`"
+msgstr ""
+
+#: ../../source/model_doc/fsmt.rst:56
+msgid "FSMTTokenizer"
+msgstr ""
+
+#: of transformers.FSMTTokenizer:1
+msgid ""
+"Construct an FAIRSEQ Transformer tokenizer. Based on Byte-Pair Encoding. "
+"The tokenization process is the following:"
+msgstr ""
+
+#: of transformers.FSMTTokenizer:3
+msgid "Moses preprocessing and tokenization."
+msgstr ""
+
+#: of transformers.FSMTTokenizer:4
+msgid "Normalizing all inputs text."
+msgstr ""
+
+#: of transformers.FSMTTokenizer:5
+msgid ""
+"The arguments ``special_tokens`` and the function ``set_special_tokens``,"
+" can be used to add additional symbols (like \"__classify__\") to a "
+"vocabulary."
+msgstr ""
+
+#: of transformers.FSMTTokenizer:7
+msgid "The argument :obj:`langs` defines a pair of languages."
+msgstr ""
+
+#: of transformers.FSMTTokenizer:9
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.FSMTTokenizer:12
+msgid ""
+"A list of two languages to translate from and to, for instance "
+":obj:`[\"en\", \"ru\"]`."
+msgstr ""
+
+#: of transformers.FSMTTokenizer:14
+msgid "File containing the vocabulary for the source language."
+msgstr ""
+
+#: of transformers.FSMTTokenizer:16
+msgid "File containing the vocabulary for the target language."
+msgstr ""
+
+#: of transformers.FSMTTokenizer:18
+msgid "File containing the merges."
+msgstr ""
+
+#: of transformers.FSMTTokenizer:20
+msgid "Whether or not to lowercase the input when tokenizing."
+msgstr ""
+
+#: of transformers.FSMTTokenizer:22
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.FSMTTokenizer:25
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token.  .. note::      When building a "
+"sequence using special tokens, this is not the token that is used for the"
+" beginning of     sequence. The token used is the :obj:`cls_token`."
+msgstr ""
+
+#: of transformers.FSMTTokenizer:25
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token."
+msgstr ""
+
+#: of transformers.FSMTTokenizer:29
+msgid ""
+"When building a sequence using special tokens, this is not the token that"
+" is used for the beginning of sequence. The token used is the "
+":obj:`cls_token`."
+msgstr ""
+
+#: of transformers.FSMTTokenizer:32
+msgid ""
+"The separator token, which is used when building a sequence from multiple"
+" sequences, e.g. two sequences for sequence classification or for a text "
+"and a question for question answering. It is also used as the last token "
+"of a sequence built with special tokens."
+msgstr ""
+
+#: of transformers.FSMTTokenizer:36
+msgid ""
+"The token used for padding, for example when batching sequences of "
+"different lengths."
+msgstr ""
+
+#: of transformers.FSMTTokenizer.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. A "
+"FAIRSEQ Transformer sequence has the following format:"
+msgstr ""
+
+#: of transformers.FSMTTokenizer.build_inputs_with_special_tokens:4
+msgid "single sequence: ``<s> X </s>``"
+msgstr ""
+
+#: of transformers.FSMTTokenizer.build_inputs_with_special_tokens:5
+msgid "pair of sequences: ``<s> A </s> B </s>``"
+msgstr ""
+
+#: of transformers.FSMTTokenizer.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.FSMTTokenizer.build_inputs_with_special_tokens:9
+#: transformers.FSMTTokenizer.create_token_type_ids_from_sequences:13
+#: transformers.FSMTTokenizer.get_special_tokens_mask:6
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.FSMTTokenizer.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.FSMTTokenizer.build_inputs_with_special_tokens:13
+#: transformers.FSMTTokenizer.create_token_type_ids_from_sequences:18
+#: transformers.FSMTTokenizer.get_special_tokens_mask:12
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.FSMTTokenizer.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. A FAIRSEQ Transformer sequence pair mask has the "
+"following format:"
+msgstr ""
+
+#: of transformers.FSMTTokenizer.create_token_type_ids_from_sequences:9
+msgid ""
+"If :obj:`token_ids_1` is :obj:`None`, this method only returns the first "
+"portion of the mask (0s)."
+msgstr ""
+
+#: of transformers.FSMTTokenizer.create_token_type_ids_from_sequences:11
+#: transformers.FSMTTokenizer.get_special_tokens_mask:4
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.FSMTTokenizer.create_token_type_ids_from_sequences:16
+msgid ""
+"List of `token type IDs <../glossary.html#token-type-ids>`_ according to "
+"the given sequence(s)."
+msgstr ""
+
+#: of transformers.FSMTTokenizer.create_token_type_ids_from_sequences:20
+msgid ""
+"Creates a mask from the two sequences passed to be used in a sequence-"
+"pair classification task. An FAIRSEQ_TRANSFORMER sequence pair mask has "
+"the following format:"
+msgstr ""
+
+#: of transformers.FSMTTokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.FSMTTokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.FSMTTokenizer.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.FSMTTokenizer.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.FSMTTokenizer.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.FSMTTokenizer.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.FSMTTokenizer.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.FSMTTokenizer.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.FSMTTokenizer.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/fsmt.rst:64
+msgid "FSMTModel"
+msgstr ""
+
+#: of transformers.FSMTModel:1
+msgid ""
+"The bare FSMT Model outputting raw hidden-states without any specific "
+"head on top."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration:3 transformers.FSMTModel:3
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration:7 transformers.FSMTModel:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration:11 transformers.FSMTModel:11
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.FSMTModel.forward:1
+msgid ""
+"The :class:`~transformers.FSMTModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:4
+#: transformers.FSMTModel.forward:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:8
+#: transformers.FSMTModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  IIndices can be "
+"obtained using :class:`~transformers.FSTMTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:8
+#: transformers.FSMTModel.forward:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:10
+#: transformers.FSMTModel.forward:10
+msgid ""
+"IIndices can be obtained using :class:`~transformers.FSTMTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:14
+#: transformers.FSMTModel.forward:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:16
+#: transformers.FSMTModel.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:16
+#: transformers.FSMTModel.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:18
+#: transformers.FSMTModel.forward:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:19
+#: transformers.FSMTModel.forward:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:21
+#: transformers.FSMTModel.forward:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:23
+#: transformers.FSMTModel.forward:23
+msgid ""
+"Indices of decoder input sequence tokens in the vocabulary.  Indices can "
+"be obtained using :class:`~transformers.FSMTTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" decoder input IDs? <../glossary.html#decoder-input-ids>`__  FSMT uses "
+"the :obj:`eos_token_id` as the starting token for "
+":obj:`decoder_input_ids` generation. If :obj:`past_key_values` is used, "
+"optionally only the last :obj:`decoder_input_ids` have to be input (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:23
+#: transformers.FSMTModel.forward:23
+msgid "Indices of decoder input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:25
+#: transformers.FSMTModel.forward:25
+msgid ""
+"Indices can be obtained using :class:`~transformers.FSMTTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:29
+#: transformers.FSMTModel.forward:29
+msgid "`What are decoder input IDs? <../glossary.html#decoder-input-ids>`__"
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:31
+#: transformers.FSMTModel.forward:31
+msgid ""
+"FSMT uses the :obj:`eos_token_id` as the starting token for "
+":obj:`decoder_input_ids` generation. If :obj:`past_key_values` is used, "
+"optionally only the last :obj:`decoder_input_ids` have to be input (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:35
+#: transformers.FSMTModel.forward:35
+msgid ""
+"Default behavior: generate a tensor that ignores pad tokens in "
+":obj:`decoder_input_ids`. Causal mask will also be used by default."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:38
+#: transformers.FSMTModel.forward:38
+msgid ""
+"Mask to nullify selected heads of the attention modules in the encoder. "
+"Mask values selected in ``[0, 1]``:  - 1 indicates the head is **not "
+"masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:38
+#: transformers.FSMTModel.forward:38
+msgid ""
+"Mask to nullify selected heads of the attention modules in the encoder. "
+"Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:40
+#: transformers.FSMTForConditionalGeneration.forward:45
+#: transformers.FSMTForConditionalGeneration.forward:51
+#: transformers.FSMTModel.forward:40 transformers.FSMTModel.forward:45
+#: transformers.FSMTModel.forward:51
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:41
+#: transformers.FSMTForConditionalGeneration.forward:46
+#: transformers.FSMTForConditionalGeneration.forward:52
+#: transformers.FSMTModel.forward:41 transformers.FSMTModel.forward:46
+#: transformers.FSMTModel.forward:52
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:43
+#: transformers.FSMTModel.forward:43
+msgid ""
+"Mask to nullify selected heads of the attention modules in the decoder. "
+"Mask values selected in ``[0, 1]``:  - 1 indicates the head is **not "
+"masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:43
+#: transformers.FSMTModel.forward:43
+msgid ""
+"Mask to nullify selected heads of the attention modules in the decoder. "
+"Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:48
+#: transformers.FSMTModel.forward:48
+msgid ""
+"Mask to nullify selected heads of the cross-attention modules in the "
+"decoder. Mask values selected in ``[0, 1]``:  - 1 indicates the head is "
+"**not masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:48
+#: transformers.FSMTModel.forward:48
+msgid ""
+"Mask to nullify selected heads of the cross-attention modules in the "
+"decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:54
+#: transformers.FSMTModel.forward:54
+msgid ""
+"Tuple consists of (:obj:`last_hidden_state`, `optional`: "
+":obj:`hidden_states`, `optional`: :obj:`attentions`) "
+":obj:`last_hidden_state` of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)` is a sequence of hidden-states at the output of the last "
+"layer of the encoder. Used in the cross-attention of the decoder."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:59
+#: transformers.FSMTModel.forward:59
+msgid ""
+"Contains precomputed key and value hidden-states of the attention blocks."
+" Can be used to speed up decoding. If :obj:`past_key_values` are used, "
+"the user can optionally input only the last :obj:`decoder_input_ids` "
+"(those that don't have their past key value states given to this model) "
+"of shape :obj:`(batch_size, 1)` instead of all :obj:`decoder_input_ids` "
+"of shape :obj:`(batch_size, sequence_length)`."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:64
+#: transformers.FSMTModel.forward:64
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:67
+#: transformers.FSMTModel.forward:67
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:70
+#: transformers.FSMTModel.forward:70
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:73
+#: transformers.FSMTModel.forward:73
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.FSMTModel.forward:76
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqModelOutput` or a tuple "
+"of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FSMTConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the decoder of the model.    If"
+" :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size,   1, hidden_size)` is output. - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the decoder at the output of each "
+"layer plus the initial embedding outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the decoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the "
+"decoder's cross-attention layer, after the attention softmax, used to "
+"compute the   weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the encoder at the output of each "
+"layer plus the initial embedding outputs. - **encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the encoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads."
+msgstr ""
+
+#: of transformers.FSMTModel.forward:76
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqModelOutput` or a tuple "
+"of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FSMTConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FSMTModel.forward:80
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the decoder of the model."
+msgstr ""
+
+#: of transformers.FSMTModel.forward:82
+msgid ""
+"If :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size, 1, hidden_size)` is output."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:86
+#: transformers.FSMTModel.forward:84
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) "
+"and 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:90
+#: transformers.FSMTModel.forward:88
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and in the cross-attention blocks) that can be used (see "
+":obj:`past_key_values` input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:92
+#: transformers.FSMTModel.forward:90
+msgid ""
+"**decoder_hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:95
+#: transformers.FSMTModel.forward:93
+msgid ""
+"Hidden-states of the decoder at the output of each layer plus the initial"
+" embedding outputs."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:96
+#: transformers.FSMTModel.forward:94
+msgid ""
+"**decoder_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:99
+#: transformers.FSMTModel.forward:97
+msgid ""
+"Attentions weights of the decoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:101
+#: transformers.FSMTModel.forward:99
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:104
+#: transformers.FSMTModel.forward:102
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:106
+#: transformers.FSMTModel.forward:104
+msgid ""
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:107
+#: transformers.FSMTModel.forward:105
+msgid ""
+"**encoder_hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:110
+#: transformers.FSMTModel.forward:108
+msgid ""
+"Hidden-states of the encoder at the output of each layer plus the initial"
+" embedding outputs."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:111
+#: transformers.FSMTModel.forward:109
+msgid ""
+"**encoder_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:114
+#: transformers.FSMTModel.forward:112
+msgid ""
+"Attentions weights of the encoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.FSMTModel.forward:114
+msgid ""
+":class:`~transformers.modeling_outputs.Seq2SeqModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.FSMTModel.forward:116
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/fsmt.rst:71
+msgid "FSMTForConditionalGeneration"
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration:1
+msgid ""
+"The FSMT Model with a language modeling head. Can be used for "
+"summarization."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:1
+msgid ""
+"The :class:`~transformers.FSMTForConditionalGeneration` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:75
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should "
+"either be in ``[0, ..., config.vocab_size]`` or -100 (see ``input_ids`` "
+"docstring). Tokens with indices set to ``-100`` are ignored (masked), the"
+" loss is only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:80
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FSMTConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, "
+"`optional`, returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the decoder at the output of each "
+"layer plus the initial embedding outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the decoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the "
+"decoder's cross-attention layer, after the attention softmax, used to "
+"compute the   weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the encoder at the output of each "
+"layer plus the initial embedding outputs. - **encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the encoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:80
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.FSMTConfig`) and inputs."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:84
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:85
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:116
+msgid ""
+":class:`~transformers.modeling_outputs.Seq2SeqLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.FSMTForConditionalGeneration.forward:118
+msgid "Translation example::"
+msgstr ""
+

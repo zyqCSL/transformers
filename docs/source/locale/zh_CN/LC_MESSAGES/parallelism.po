@@ -1,0 +1,913 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/parallelism.md:17
+msgid "Model Parallelism"
+msgstr ""
+
+#: ../../source/parallelism.md:20
+msgid "Parallelism overview"
+msgstr ""
+
+#: ../../source/parallelism.md:22
+msgid ""
+"In the modern machine learning the various approaches to parallelism are "
+"used to:"
+msgstr ""
+
+#: ../../source/parallelism.md:23
+msgid ""
+"fit very large models onto limited hardware - e.g. t5-11b is 45GB in just"
+" model params"
+msgstr ""
+
+#: ../../source/parallelism.md:24
+msgid ""
+"significantly speed up training - finish training that would take a year "
+"in hours"
+msgstr ""
+
+#: ../../source/parallelism.md:26
+msgid ""
+"We will first discuss in depth various 1D parallelism techniques and "
+"their pros and cons and then look at how they can be combined into 2D and"
+" 3D parallelism to enable an even faster training and to support even "
+"bigger models. Various other powerful alternative approaches will be "
+"presented."
+msgstr ""
+
+#: ../../source/parallelism.md:28
+msgid ""
+"While the main concepts most likely will apply to any other framework, "
+"this article is focused on PyTorch-based implementations."
+msgstr ""
+
+#: ../../source/parallelism.md:31
+msgid "Concepts"
+msgstr ""
+
+#: ../../source/parallelism.md:33
+msgid ""
+"The following is the brief description of the main concepts that will be "
+"described later in depth in this document."
+msgstr ""
+
+#: ../../source/parallelism.md:35
+msgid ""
+"DataParallel (DP) - the same setup is replicated multiple times, and each"
+" being fed a slice of the data. The processing is done in parallel and "
+"all setups are synchronized at the end of each training step."
+msgstr ""
+
+#: ../../source/parallelism.md:36
+msgid ""
+"TensorParallel (TP) - each tensor is split up into multiple chunks, so "
+"instead of having the whole tensor reside on a single gpu, each shard of "
+"the tensor resides on its designated gpu. During processing each shard "
+"gets processed separately and in parallel on different GPUs and the "
+"results are synced at the end of the step. This is what one may call "
+"horizontal parallelism, as the splitting happens on horizontal level."
+msgstr ""
+
+#: ../../source/parallelism.md:37
+msgid ""
+"PipelineParallel (PP) - the model is split up vertically (layer-level) "
+"across multiple GPUs, so that only one or several layers of the model are"
+" places on a single gpu. Each gpu processes in parallel different stages "
+"of the pipeline and working on a small chunk of the batch."
+msgstr ""
+
+#: ../../source/parallelism.md:38
+msgid ""
+"Zero Redundancy Optimizer (ZeRO) - Also performs sharding of the tensors "
+"somewhat similar to TP, except the whole tensor gets reconstructed in "
+"time for a forward or backward computation, therefore the model does't "
+"need to be modified. It also supports various offloading techniques to "
+"compensate for limited GPU memory."
+msgstr ""
+
+#: ../../source/parallelism.md:39
+msgid ""
+"Sharded DDP - is another name for the foundational ZeRO concept as used "
+"by various other implementations of ZeRO."
+msgstr ""
+
+#: ../../source/parallelism.md:42
+msgid "Data Parallel"
+msgstr ""
+
+#: ../../source/parallelism.md:44
+msgid ""
+"Most users with just 2 GPUs already enjoy the increased training speed up"
+" thanks to DataParallel (DP) and DistributedDataParallel (DDP) that are "
+"almost trivial to use. This is a built-in feature of Pytorch."
+msgstr ""
+
+#: ../../source/parallelism.md:46
+msgid "ZeRO Data Parallel"
+msgstr ""
+
+#: ../../source/parallelism.md:48
+msgid ""
+"ZeRO-powered data parallelism (ZeRO-DP) is described on the following "
+"diagram from this blog post DeepSpeed-Image-1"
+msgstr ""
+
+#: ../../source/parallelism.md:51
+msgid ""
+"It can be difficult to wrap one's head around it, but in reality the "
+"concept is quite simple. This is just the usual DataParallel (DP), "
+"except, instead of replicating the full model params, gradients and "
+"optimizer states, each GPU stores only a slice of it.  And then at run-"
+"time when the full layer params are needed just for the given layer, all "
+"GPUs synchronize to give each other parts that they miss - this is it."
+msgstr ""
+
+#: ../../source/parallelism.md:53
+msgid "Consider this simple model with 3 layers, where each layer has 3 params:"
+msgstr ""
+
+#: ../../source/parallelism.md:61
+msgid "Layer La has weights a0, at and a2."
+msgstr ""
+
+#: ../../source/parallelism.md:63
+msgid ""
+"If we have 3 GPUs, the Sharded DDP (= Zero-DP) splits the model onto 3 "
+"GPUs like so:"
+msgstr ""
+
+#: ../../source/parallelism.md:82
+msgid ""
+"In a way this is the same horizontal slicing, as tensor parallelism, if "
+"you imagine the typical DNN diagram. Vertical slicing is where one puts "
+"whole layer-groups on different GPUs. But it's just the starting point."
+msgstr ""
+
+#: ../../source/parallelism.md:84
+msgid "Now each of these GPUs will get the usual mini-batch as it works in DP:"
+msgstr ""
+
+#: ../../source/parallelism.md:91
+msgid ""
+"The inputs are unmodified - they think they are going to be processed by "
+"the normal model."
+msgstr ""
+
+#: ../../source/parallelism.md:93
+msgid "First, the inputs hit the layer La."
+msgstr ""
+
+#: ../../source/parallelism.md:95
+msgid ""
+"Let's focus just on GPU0: x0 needs a0, a1, a2 params to do its forward "
+"path, but GPU0 has only a0 - it gets sent a1 from GPU1 and a2 from GPU2, "
+"bringing all pieces of the model together."
+msgstr ""
+
+#: ../../source/parallelism.md:97
+msgid ""
+"In parallel, GPU1 gets mini-batch x1 and it only has a1, but needs a0 and"
+" a2 params, so it gets those from GPU0 and GPU2."
+msgstr ""
+
+#: ../../source/parallelism.md:99
+msgid ""
+"Same happens to GPU2 that gets input x2. It gets a0 and a1 from GPU0 and "
+"GPU1, and with its a2 it reconstructs the full tensor."
+msgstr ""
+
+#: ../../source/parallelism.md:101
+msgid "All 3 GPUs get the full tensors reconstructed and a forward happens."
+msgstr ""
+
+#: ../../source/parallelism.md:103
+msgid ""
+"As soon as the calculation is done, the data that is no longer needed "
+"gets dropped - it's only used during the calculation. The reconstruction "
+"is done efficiently via a pre-fetch."
+msgstr ""
+
+#: ../../source/parallelism.md:105
+msgid ""
+"And the whole process is repeated for layer Lb, then Lc forward-wise, and"
+" then backward Lc -> Lb -> La."
+msgstr ""
+
+#: ../../source/parallelism.md:107
+msgid ""
+"To me this sounds like an efficient group backpacking weight distribution"
+" strategy:"
+msgstr ""
+
+#: ../../source/parallelism.md:109
+msgid "person A carries the tent"
+msgstr ""
+
+#: ../../source/parallelism.md:110
+msgid "person B carries the stove"
+msgstr ""
+
+#: ../../source/parallelism.md:111
+msgid "person C carries the axe"
+msgstr ""
+
+#: ../../source/parallelism.md:113
+msgid ""
+"Now each night they all share what they have with others and get from "
+"others what the don't have, and in the morning they pack up their "
+"allocated type of gear and continue on their way. This is Sharded DDP / "
+"Zero DP."
+msgstr ""
+
+#: ../../source/parallelism.md:115
+msgid ""
+"Compare this strategy to the simple one where each person has to carry "
+"their own tent, stove and axe, which would be far more inefficient. This "
+"is DataParallel (DP and DDP) in Pytorch."
+msgstr ""
+
+#: ../../source/parallelism.md:117
+msgid ""
+"While reading the literature on this topic you may encounter the "
+"following synonyms: Sharded, Partitioned."
+msgstr ""
+
+#: ../../source/parallelism.md:119
+msgid ""
+"If you pay close attention the way ZeRO partitions the model's weights - "
+"it looks very similar to tensor parallelism which will be discussed "
+"later. This is because it partitions/shards each layer's weights, unlike "
+"vertical model parallelism which is discussed next."
+msgstr ""
+
+#: ../../source/parallelism.md:121 ../../source/parallelism.md:178
+#: ../../source/parallelism.md:223 ../../source/parallelism.md:244
+#: ../../source/parallelism.md:261 ../../source/parallelism.md:282
+msgid "Implementations:"
+msgstr ""
+
+#: ../../source/parallelism.md:123
+msgid "DeepSpeed ZeRO-DP stages 1+2+3"
+msgstr ""
+
+#: ../../source/parallelism.md:124
+msgid "Fairscale ZeRO-DP stages 1+2+3"
+msgstr ""
+
+#: ../../source/parallelism.md:125
+msgid "transformers integration"
+msgstr ""
+
+#: ../../source/parallelism.md:127
+msgid "Naive Model Parallel (Vertical) and Pipeline Parallel"
+msgstr ""
+
+#: ../../source/parallelism.md:129
+msgid ""
+"Naive Model Parallel (MP) is where one spreads groups of model layers "
+"across multiple GPUs. The mechanism is relatively simple - switch the "
+"desired layers .to() the desired devices and now whenever the data goes "
+"in and out those layers switch the data to the same device as the layer "
+"and leave the rest unmodified."
+msgstr ""
+
+#: ../../source/parallelism.md:131
+msgid ""
+"We refer to it as Vertical MP, because if you remember how most models "
+"are drawn, we slice the layers vertically. For example, if the following "
+"diagram shows an 8-layer model:"
+msgstr ""
+
+#: ../../source/parallelism.md:139
+msgid ""
+"we just sliced it in 2 vertically, placing layers 0-3 onto GPU0 and 4-7 "
+"to GPU1."
+msgstr ""
+
+#: ../../source/parallelism.md:141
+msgid ""
+"Now while data travels from layer 0 to 1, 1 to 2 and 2 to 3 this is just "
+"the normal model. But when data needs to pass from layer 3 to layer 4 it "
+"needs to travel from GPU0 to GPU1 which introduces a communication "
+"overhead. If the participating GPUs are on the same compute node (e.g. "
+"same physical machine) this copying is pretty fast, but if the GPUs are "
+"located on different compute nodes (e.g. multiple machines) the "
+"communication overhead could be significantly larger."
+msgstr ""
+
+#: ../../source/parallelism.md:143
+msgid ""
+"Then layers 4 to 5 to 6 to 7 are as a normal model would have and when "
+"the 7th layer completes we often need to send the data back to layer 0 "
+"where the labels are (or alternatively send the labels to the the last "
+"layer). Now the loss can be computed and the optimizer can do its work."
+msgstr ""
+
+#: ../../source/parallelism.md:145 ../../source/parallelism.md:173
+msgid "Problems:"
+msgstr ""
+
+#: ../../source/parallelism.md:146
+msgid ""
+"the main deficiency and why this one is called \"naive\" MP, is that all "
+"but one GPU is idle at any given moment. So if 4 GPUs are used, it's "
+"almost identical to quadrupling the amount of memory of a single GPU, and"
+" ignoring the rest of the hardware. Plus there is the overhead of copying"
+" the data between devices. So 4x 6GB cards will be able to accommodate "
+"the same size as 1x 24GB card using naive MP, except the latter will "
+"complete the training faster, since it doesn't have the data copying "
+"overhead. But, say, if you have 40GB cards and need to fit a 45GB model "
+"you can with 4x 40GB cards (but barely because of the gradient and "
+"optimizer states)"
+msgstr ""
+
+#: ../../source/parallelism.md:147
+msgid "shared embeddings may need to get copied back and forth between GPUs."
+msgstr ""
+
+#: ../../source/parallelism.md:149
+msgid ""
+"Pipeline Parallel (PP) is almost identical to a naive MP, but it solves "
+"the GPU idling problem, by chunking the incoming batch into micro-batches"
+" and artificially creating a pipeline, which allows different GPUs to "
+"concurrently participate in the computation process."
+msgstr ""
+
+#: ../../source/parallelism.md:151
+msgid ""
+"The following illustration from the GPipe paper shows the naive MP on the"
+" top, and PP on the bottom:"
+msgstr ""
+
+#: ../../source/parallelism.md:153
+msgid "mp-pp"
+msgstr ""
+
+#: ../../source/parallelism.md:155
+msgid ""
+"It's easy to see from the bottom diagram how PP has less dead zones, "
+"where GPUs are idle. The idle parts are referred to as the \"bubble\"."
+msgstr ""
+
+#: ../../source/parallelism.md:157
+msgid ""
+"Both parts of the diagram show a parallelism that is of degree 4. That is"
+" 4 GPUs are participating in the pipeline. So there is the forward path "
+"of 4 pipe stages F0, F1, F2 and F3 and then the return reverse order "
+"backward path of B3, B2, B1 and B0."
+msgstr ""
+
+#: ../../source/parallelism.md:159
+msgid ""
+"PP introduces a new hyper-parameter to tune and it's chunks which defines"
+" how many chunks of data are sent in a sequence through the same pipe "
+"stage. For example, in the bottomw diagram you can see that chunks=4. "
+"GPU0 performs the same forward path on chunk 0, 1, 2 and 3 (F0,0, F0,1, "
+"F0,2, F0,3) and then it waits for other GPUs to do their work and only "
+"when their work is starting to be complete, GPU0 starts to work again "
+"doing the backward path for chunks 3, 2, 1 and 0 (B0,3, B0,2, B0,1, "
+"B0,0)."
+msgstr ""
+
+#: ../../source/parallelism.md:161
+msgid ""
+"Note that conceptually this is the same concept as gradient accumulation "
+"steps (GAS). Pytorch uses chunks, whereas DeepSpeed refers to the same "
+"hyper-parameter as GAS."
+msgstr ""
+
+#: ../../source/parallelism.md:163
+msgid ""
+"Because of the chunks, PP introduces the concept of micro-batches (MBS). "
+"DP splits the global data batch size into mini-batches, so if you have a "
+"DP degree of 4, a global batch size of 1024 gets split up into 4 mini-"
+"batches of 256 each (1024/4). And if the number of chunks (or GAS) is 32 "
+"we end up with a micro-batch size of 8 (256/32). Each Pipeline stage "
+"works with a single micro-batch at a time."
+msgstr ""
+
+#: ../../source/parallelism.md:165
+msgid ""
+"To calculate the global batch size of the DP + PP setup we then do: "
+"mbs*chunks*dp_degree (8*32*4=1024)."
+msgstr ""
+
+#: ../../source/parallelism.md:167
+msgid "Let's go back to the diagram."
+msgstr ""
+
+#: ../../source/parallelism.md:169
+msgid ""
+"With chunks=1 you end up with the naive MP, which is very inefficient. "
+"With a very large chunks value you end up with tiny micro-batch sizes "
+"which could be not every efficient either. So one has to experiment to "
+"find the value that leads to the highest efficient utilization of the "
+"gpus."
+msgstr ""
+
+#: ../../source/parallelism.md:171
+msgid ""
+"While the diagram shows that there is a bubble of \"dead\" time that "
+"can't be parallelized because the last forward stage has to wait for "
+"backward to complete the pipeline, the purpose of finding the best value "
+"for chunks is to enable a high concurrent GPU utilization across all "
+"participating GPUs which translates to minimizing the size of the bubble."
+msgstr ""
+
+#: ../../source/parallelism.md:174
+msgid ""
+"have to modify the model quite heavily, because Pipeline requires one to "
+"rewrite the normal flow of modules into a nn.Sequential sequence of the "
+"same, which may require changes to the design of the model."
+msgstr ""
+
+#: ../../source/parallelism.md:175
+msgid ""
+"currently the Pipeline API is very restricted. If you had a bunch of "
+"python variables being passed in the very first stage of the Pipeline, "
+"you will have to find a way around it. Currently, the pipeline interface "
+"requires either a single Tensor or a tuple of Tensors as the only input "
+"and output. These tensors must have a batch size as the very first "
+"dimension, since pipeline is going to chunk the mini batch into micro-"
+"batches. Possible improvements are being discussed here "
+"https://github.com/pytorch/pytorch/pull/50693"
+msgstr ""
+
+#: ../../source/parallelism.md:176
+msgid ""
+"have to arrange each layer so that the output of one model becomes an "
+"input to the other model"
+msgstr ""
+
+#: ../../source/parallelism.md:179
+msgid ""
+"Pytorch (initial support in pytorch-1.8, and progressively getting "
+"improved in 1.9 and more so in 1.10). Some examples"
+msgstr ""
+
+#: ../../source/parallelism.md:180
+msgid "FairScale"
+msgstr ""
+
+#: ../../source/parallelism.md:181 ../../source/parallelism.md:245
+msgid "DeepSpeed"
+msgstr ""
+
+#: ../../source/parallelism.md:182
+msgid "Megatron-LM has an internal implementation - no API."
+msgstr ""
+
+#: ../../source/parallelism.md:184
+msgid ""
+"🤗 Transformers status: as of this writing none of the models supports "
+"full-PP. GPT2 and T5 models have naive PP support. The main obstacle is "
+"being unable to convert the models to nn.Sequential and have all the "
+"inputs to be Tensors. This is because currently the models include many "
+"features that make the conversion very complicated, and will need to be "
+"removed to accomplish that."
+msgstr ""
+
+#: ../../source/parallelism.md:186
+msgid "Other approaches:"
+msgstr ""
+
+#: ../../source/parallelism.md:188
+msgid ""
+"DeepSpeed and SageMaker use the concept of an Interleaved Pipeline "
+"interleaved-pipeline-execution"
+msgstr ""
+
+#: ../../source/parallelism.md:191
+msgid ""
+"Here the bubble (idle time) is further minimized by prioritizing backward"
+" passes."
+msgstr ""
+
+#: ../../source/parallelism.md:193
+msgid ""
+"According to the same document, it might be able to automate the non "
+"nn.Sequential model conversion to pipeline. The only problem is that this"
+" is currently only available at AWS, so you can't run it on your own "
+"hardware."
+msgstr ""
+
+#: ../../source/parallelism.md:196
+msgid "Tensor Parallelism"
+msgstr ""
+
+#: ../../source/parallelism.md:198
+msgid ""
+"In Tensor Parallelism each GPU processes only a slice of a tensor and "
+"only aggregates the full tensor for operations that require the whole "
+"thing."
+msgstr ""
+
+#: ../../source/parallelism.md:200
+msgid ""
+"In this section we use concepts and diagrams from the Megatron-LM paper: "
+"Efficient Large-Scale Language Model Training on GPU Clusters."
+msgstr ""
+
+#: ../../source/parallelism.md:202
+msgid ""
+"The main building block of any transformer is a fully connected nn.Linear"
+" followed by a nonlinear activation GeLU."
+msgstr ""
+
+#: ../../source/parallelism.md:204
+msgid ""
+"Following the Megatron's paper notation, we can write the dot-product "
+"part of it as Y = GeLU(XA), where X and Y are the input and output "
+"vectors, and A is the weight matrix."
+msgstr ""
+
+#: ../../source/parallelism.md:206
+msgid ""
+"If we look at the computation in matrix form, it's easy to see how the "
+"matrix multiplication can be split between multiple GPUs: Parallel GEMM"
+msgstr ""
+
+#: ../../source/parallelism.md:209
+msgid ""
+"If we split the weight matrix A column-wise across N GPUs and perform "
+"matrix multiplications XA_1 through XA_n in parallel, then we will end up"
+" with N output vectors Y_1, Y_2, ..., Y_n which can be fed into GeLU "
+"independently: independent GeLU"
+msgstr ""
+
+#: ../../source/parallelism.md:212
+msgid ""
+"Using this principle, we can update an MLP of arbitrary depth, without "
+"the need for any synchronization between GPUs until the very end, where "
+"we need to reconstruct the output vector from shards. The Megatron-LM "
+"paper authors provide a helpful illustration for that: parallel shard "
+"processing"
+msgstr ""
+
+#: ../../source/parallelism.md:215
+msgid ""
+"Parallelizing the multi-headed attention layers is even simpler, since "
+"they are already inherently parallel, due to having multiple independent "
+"heads! parallel self-attention"
+msgstr ""
+
+#: ../../source/parallelism.md:218
+msgid ""
+"Special considerations: TP requires very fast network, and therefore it's"
+" not advisable to do TP across more than one node. Practically, if a node"
+" has 4 GPUs, the highest TP degree is therefore 4. If you need a TP "
+"degree of 8, you need to use nodes that have at least 8 GPUs."
+msgstr ""
+
+#: ../../source/parallelism.md:220
+msgid ""
+"This section is based on the original much more detailed TP overview. by "
+"@anton-l."
+msgstr ""
+
+#: ../../source/parallelism.md:224
+msgid "DeepSpeed calls it tensor slicing"
+msgstr ""
+
+#: ../../source/parallelism.md:225
+msgid "Megatron-LM has an internal implementation."
+msgstr ""
+
+#: ../../source/parallelism.md:227
+msgid "🤗 Transformers status:"
+msgstr ""
+
+#: ../../source/parallelism.md:228
+msgid "core: not yet implemented in the core"
+msgstr ""
+
+#: ../../source/parallelism.md:229
+msgid ""
+"but if you want inference parallelformers provides this support for most "
+"of our models. So until this is implemented in the core you can use "
+"theirs. And hopefully training mode will be supported too."
+msgstr ""
+
+#: ../../source/parallelism.md:230
+msgid ""
+"Deepspeed-Inference also supports our BERT, GPT-2, and GPT-Neo models in "
+"their super-fast CUDA-kernel-based inference mode, see more here"
+msgstr ""
+
+#: ../../source/parallelism.md:234
+msgid "DP+PP"
+msgstr ""
+
+#: ../../source/parallelism.md:236
+msgid ""
+"The following diagram from the DeepSpeed pipeline tutorial demonstrates "
+"how one combines DP with PP."
+msgstr ""
+
+#: ../../source/parallelism.md:238
+msgid "dp-pp-2d"
+msgstr ""
+
+#: ../../source/parallelism.md:240
+msgid ""
+"Here it's important to see how DP rank 0 doesn't see GPU2 and DP rank 1 "
+"doesn't see GPU3. To DP there is just GPUs 0 and 1 where it feeds data as"
+" if there were just 2 GPUs. GPU0 \"secretly\" offloads some of its load "
+"to GPU2 using PP. And GPU1 does the same by enlisting GPU3 to its aid."
+msgstr ""
+
+#: ../../source/parallelism.md:242
+msgid ""
+"Since each dimension requires at least 2 GPUs, here you'd need at least 4"
+" GPUs."
+msgstr ""
+
+#: ../../source/parallelism.md:246 ../../source/parallelism.md:263
+msgid "Megatron-LM"
+msgstr ""
+
+#: ../../source/parallelism.md:248
+msgid "🤗 Transformers status: not yet implemented"
+msgstr ""
+
+#: ../../source/parallelism.md:251
+msgid "DP+PP+TP"
+msgstr ""
+
+#: ../../source/parallelism.md:253
+msgid ""
+"To get an even more efficient training a 3D parallelism is used where PP "
+"is combined with TP and DP. This can be seen in the following diagram."
+msgstr ""
+
+#: ../../source/parallelism.md:255
+msgid "dp-pp-tp-3d"
+msgstr ""
+
+#: ../../source/parallelism.md:257
+msgid ""
+"This diagram is from a blog post 3D parallelism: Scaling to trillion-"
+"parameter models, which is a good read as well."
+msgstr ""
+
+#: ../../source/parallelism.md:259
+msgid ""
+"Since each dimension requires at least 2 GPUs, here you'd need at least 8"
+" GPUs."
+msgstr ""
+
+#: ../../source/parallelism.md:262
+msgid ""
+"DeepSpeed - DeepSpeed also includes an even more efficient DP, which they"
+" call ZeRO-DP."
+msgstr ""
+
+#: ../../source/parallelism.md:265 ../../source/parallelism.md:285
+msgid "🤗 Transformers status: not yet implemented, since we have no PP and TP."
+msgstr ""
+
+#: ../../source/parallelism.md:268
+msgid "DP+PP+TP+ZeRO"
+msgstr ""
+
+#: ../../source/parallelism.md:270
+msgid ""
+"One of the main features of DeepSpeed is ZeRO, which is a super-scalable "
+"extension of DP. It has already been discussed in ZeRO Data Parallel. "
+"Normally it's a standalone feature that doesn't require PP or TP. But it "
+"can be combined with PP and TP."
+msgstr ""
+
+#: ../../source/parallelism.md:272
+msgid ""
+"When ZeRO-DP is combined with PP (and optinally TP) it typically enables "
+"only ZeRO stage 1 (optimizer sharding)."
+msgstr ""
+
+#: ../../source/parallelism.md:274
+msgid ""
+"While it's theoretically possible to use ZeRO stage 2 (gradient sharding)"
+" with Pipeline Parallelism, it will have bad performance impacts. There "
+"would need to be an additional reduce-scatter collective for every micro-"
+"batch to aggregate the gradients before sharding, which adds a "
+"potentially significant communication overhead. By nature of Pipeline "
+"Parallelism, small micro-batches are used and instead the focus is on "
+"trying to balance arithmetic intensity (micro-batch size) with minimizing"
+" the Pipeline bubble (number of micro-batches). Therefore those "
+"communication costs are going to hurt."
+msgstr ""
+
+#: ../../source/parallelism.md:276
+msgid ""
+"In addition, There are already fewer layers than normal due to PP and so "
+"the memory savings won't be huge. PP already reduces gradient size by "
+"1/PP, and so gradient sharding savings on top of that are less "
+"significant than pure DP."
+msgstr ""
+
+#: ../../source/parallelism.md:278
+msgid ""
+"ZeRO stage 3 is not a good choice either for the same reason - more "
+"inter-node communications required."
+msgstr ""
+
+#: ../../source/parallelism.md:280
+msgid ""
+"And since we have ZeRO, the other benefit is ZeRO-Offload. Since this is "
+"stage 1 optimizer states can be offloaded to CPU."
+msgstr ""
+
+#: ../../source/parallelism.md:283
+msgid "Megatron-DeepSpeed"
+msgstr ""
+
+#: ../../source/parallelism.md:288
+msgid "FlexFlow"
+msgstr ""
+
+#: ../../source/parallelism.md:290
+msgid ""
+"FlexFlow also solves the parallelization problem in a slightly different "
+"approach."
+msgstr ""
+
+#: ../../source/parallelism.md:292
+msgid ""
+"Paper: \"Beyond Data and Model Parallelism for Deep Neural Networks\" by "
+"Zhihao Jia, Matei Zaharia, Alex Aiken"
+msgstr ""
+
+#: ../../source/parallelism.md:294
+msgid ""
+"It performs a sort of 4D Parallelism over Sample-Operator-Attribute-"
+"Parameter."
+msgstr ""
+
+#: ../../source/parallelism.md:296
+msgid "Sample = Data Parallelism"
+msgstr ""
+
+#: ../../source/parallelism.md:297
+msgid ""
+"Operator = part vertical Layer Parallelism, but it can split the layer "
+"too - more refined level"
+msgstr ""
+
+#: ../../source/parallelism.md:298
+msgid "Attribute = horizontal Model Parallelism (Megatron-LM style)"
+msgstr ""
+
+#: ../../source/parallelism.md:299
+msgid "Parameter = Sharded model params"
+msgstr ""
+
+#: ../../source/parallelism.md:301
+msgid ""
+"and they are working on Pipeline Parallelism. I guess ZeRO-DP is "
+"Sample+Parameter in this context."
+msgstr ""
+
+#: ../../source/parallelism.md:303
+msgid "flex-flow-soap"
+msgstr ""
+
+#: ../../source/parallelism.md:305
+msgid ""
+"The significance of this framework is that it takes resources like (1) "
+"GPU/TPU/CPU vs. (2) RAM/DRAM vs. (3) fast-intra-connect/slow-inter-"
+"connect and it automatically optimizes all these  algorithmically "
+"deciding which parallelisation to use where."
+msgstr ""
+
+#: ../../source/parallelism.md:307
+msgid ""
+"One very important aspect is that FlexFlow is designed for optimizing DNN"
+" parallelizations for models with static and fixed workloads, since "
+"models with dynamic behavior may prefer different parallelization "
+"strategies across iterations."
+msgstr ""
+
+#: ../../source/parallelism.md:309
+msgid ""
+"So the promise is very attractive - it runs a 30min simulation on the "
+"cluster of choice and it comes up with the best strategy to utilise this "
+"specific environment. If you add/remove/replace any parts it'll run and "
+"re-optimize the plan for that. And then you can train. A different setup "
+"will have its own custom optimization."
+msgstr ""
+
+#: ../../source/parallelism.md:311
+msgid ""
+"🤗 Transformers status: not yet integrated. We already have our models FX-"
+"trace-able via transformers.utils.fx, which is a prerequisite for "
+"FlexFlow, so someone needs to figure out what needs to be done to make "
+"FlexFlow work with our models."
+msgstr ""
+
+#: ../../source/parallelism.md:314
+msgid "Which Strategy To Use When"
+msgstr ""
+
+#: ../../source/parallelism.md:316
+msgid ""
+"Here is a very rough outlook at which parallelism strategy to use when. "
+"The first on the list is typically faster."
+msgstr ""
+
+#: ../../source/parallelism.md:318
+msgid "⇨ Single GPU"
+msgstr ""
+
+#: ../../source/parallelism.md:320 ../../source/parallelism.md:331
+msgid "Model fits onto a single GPU:"
+msgstr ""
+
+#: ../../source/parallelism.md:322
+msgid "Normal use"
+msgstr ""
+
+#: ../../source/parallelism.md:324 ../../source/parallelism.md:336
+msgid "Model doesn't fit onto a single GPU:"
+msgstr ""
+
+#: ../../source/parallelism.md:326
+msgid "ZeRO + Offload CPU and optionally NVMe"
+msgstr ""
+
+#: ../../source/parallelism.md:329
+msgid "⇨ Single Node / Multi-GPU"
+msgstr ""
+
+#: ../../source/parallelism.md:333
+msgid "DDP - Distributed DP"
+msgstr ""
+
+#: ../../source/parallelism.md:334
+msgid ""
+"ZeRO - may or may not be faster depending on the situation and "
+"configuration used"
+msgstr ""
+
+#: ../../source/parallelism.md:338
+msgid "PP"
+msgstr ""
+
+#: ../../source/parallelism.md:339
+msgid "ZeRO"
+msgstr ""
+
+#: ../../source/parallelism.md:340
+msgid "TP"
+msgstr ""
+
+#: ../../source/parallelism.md:342
+msgid ""
+"With very fast intra-node connectivity of NVLINK or NVSwitch all three "
+"should be mostly on par, without these PP will be faster than TP and "
+"ZeRO. The degree of TP may also make a difference. Best to experiment to "
+"find the winner on your particular setup."
+msgstr ""
+
+#: ../../source/parallelism.md:345
+msgid "⇨ Multi-Node / Multi-GPU"
+msgstr ""
+
+#: ../../source/parallelism.md:347
+msgid "When you have fast inter-node connectivity:"
+msgstr ""
+
+#: ../../source/parallelism.md:349
+msgid "ZeRO - as it requires close to no modifications to the model"
+msgstr ""
+
+#: ../../source/parallelism.md:350
+msgid "PP+TP+DP - less communications, but requires massive changes to the model"
+msgstr ""
+
+#: ../../source/parallelism.md:352
+msgid "when you have slow inter-node connectivity and still low on GPU memory:"
+msgstr ""
+
+#: ../../source/parallelism.md:354
+msgid "DP+PP+TP+ZeRO-1"
+msgstr ""
+

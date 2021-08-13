@@ -1,0 +1,2793 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-10 04:49+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/t5.rst:14
+msgid "T5"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:16
+msgid ""
+"**DISCLAIMER:** This model is still a work in progress, if you see "
+"something strange, file a `Github Issue "
+"<https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template"
+"=bug-report.md&title>`__."
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:20
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:22
+msgid ""
+"The T5 model was presented in `Exploring the Limits of Transfer Learning "
+"with a Unified Text-to-Text Transformer "
+"<https://arxiv.org/pdf/1910.10683.pdf>`_ by Colin Raffel, Noam Shazeer, "
+"Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, "
+"Wei Li, Peter J. Liu."
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:26
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:28
+msgid ""
+"*Transfer learning, where a model is first pre-trained on a data-rich "
+"task before being fine-tuned on a downstream task, has emerged as a "
+"powerful technique in natural language processing (NLP). The "
+"effectiveness of transfer learning has given rise to a diversity of "
+"approaches, methodology, and practice. In this paper, we explore the "
+"landscape of transfer learning techniques for NLP by introducing a "
+"unified framework that converts every language problem into a text-to-"
+"text format. Our systematic study compares pretraining objectives, "
+"architectures, unlabeled datasets, transfer approaches, and other factors"
+" on dozens of language understanding tasks. By combining the insights "
+"from our exploration with scale and our new \"Colossal Clean Crawled "
+"Corpus\", we achieve state-of-the-art results on many benchmarks covering"
+" summarization, question answering, text classification, and more. To "
+"facilitate future work on transfer learning for NLP, we release our "
+"dataset, pre-trained models, and code.*"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:38
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:40
+msgid ""
+"T5 is an encoder-decoder model pre-trained on a multi-task mixture of "
+"unsupervised and supervised tasks and for which each task is converted "
+"into a text-to-text format. T5 works well on a variety of tasks out-of-"
+"the-box by prepending a different prefix to the input corresponding to "
+"each task, e.g., for translation: *translate English to German: ...*, for"
+" summarization: *summarize: ...*."
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:45
+msgid ""
+"For more information about which prefix to use, it is easiest to look "
+"into Appendix D of the `paper <https://arxiv.org/pdf/1910.10683.pdf>`__. "
+"- For sequence-to-sequence generation, it is recommended to use "
+":meth:`~transformers.generation_utils.GenerationMixin.generate`. This "
+"method takes care of feeding the encoded input via cross-attention layers"
+" to the decoder and auto-regressively generates the decoder output. - T5 "
+"uses relative scalar embeddings. Encoder input padding can be done on the"
+" left and on the right."
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:51
+msgid ""
+"This model was contributed by `thomwolf "
+"<https://huggingface.co/thomwolf>`__. The original code can be found "
+"`here <https://github.com/google-research/text-to-text-transfer-"
+"transformer>`__."
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:55
+msgid "Training"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:57
+msgid ""
+"T5 is an encoder-decoder model and converts all NLP problems into a text-"
+"to-text format. It is trained using teacher forcing. This means that for "
+"training we always need an input sequence and a target sequence. The "
+"input sequence is fed to the model using :obj:`input_ids`. The target "
+"sequence is shifted to the right, i.e., prepended by a start-sequence "
+"token and fed to the decoder using the :obj:`decoder_input_ids`. In "
+"teacher-forcing style, the target sequence is then appended by the EOS "
+"token and corresponds to the :obj:`labels`. The PAD token is hereby used "
+"as the start-sequence token. T5 can be trained / fine-tuned both in a "
+"supervised and unsupervised fashion."
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:64
+msgid "Unsupervised denoising training"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:66
+msgid ""
+"In this setup spans of the input sequence are masked by so-called "
+"sentinel tokens (*a.k.a* unique mask tokens) and the output sequence is "
+"formed as a concatenation of the same sentinel tokens and the *real* "
+"masked tokens. Each sentinel token represents a unique mask token for "
+"this sentence and should start with :obj:`<extra_id_0>`, "
+":obj:`<extra_id_1>`, ... up to :obj:`<extra_id_99>`. As a default, 100 "
+"sentinel tokens are available in :class:`~transformers.T5Tokenizer`."
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:72
+msgid ""
+"For instance, the sentence \"The cute dog walks in the park\" with the "
+"masks put on \"cute dog\" and \"the\" should be processed as follows:"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:86
+msgid "Supervised training"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:88
+msgid ""
+"In this setup the input sequence and output sequence are standard "
+"sequence-to-sequence input output mapping. In translation, for instance "
+"with the input sequence \"The house is wonderful.\" and output sequence "
+"\"Das Haus ist wunderbar.\", the sentences should be processed as "
+"follows:"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:105
+msgid "T5Config"
+msgstr ""
+
+#: of transformers.T5Config:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.T5Model` or a :class:`~transformers.TFT5Model`. It "
+"is used to instantiate a T5 model according to the specified arguments, "
+"defining the model architecture. Instantiating a configuration with the "
+"defaults will yield a similar configuration to that of the T5 `t5-small "
+"<https://huggingface.co/t5-small>`__ architecture."
+msgstr ""
+
+#: of transformers.T5Config:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__
+#: transformers.FlaxT5ForConditionalGeneration.decode
+#: transformers.FlaxT5ForConditionalGeneration.encode
+#: transformers.FlaxT5Model.__call__ transformers.FlaxT5Model.decode
+#: transformers.FlaxT5Model.encode transformers.T5Config
+#: transformers.T5EncoderModel transformers.T5EncoderModel.forward
+#: transformers.T5EncoderModel.parallelize
+#: transformers.T5ForConditionalGeneration
+#: transformers.T5ForConditionalGeneration.forward
+#: transformers.T5ForConditionalGeneration.parallelize transformers.T5Model
+#: transformers.T5Model.forward transformers.T5Model.parallelize
+#: transformers.T5Tokenizer
+#: transformers.T5Tokenizer.build_inputs_with_special_tokens
+#: transformers.T5Tokenizer.create_token_type_ids_from_sequences
+#: transformers.T5Tokenizer.get_special_tokens_mask
+#: transformers.T5Tokenizer.save_vocabulary transformers.T5TokenizerFast
+#: transformers.T5TokenizerFast.build_inputs_with_special_tokens
+#: transformers.T5TokenizerFast.create_token_type_ids_from_sequences
+#: transformers.T5TokenizerFast.save_vocabulary transformers.TFT5EncoderModel
+#: transformers.TFT5EncoderModel.call transformers.TFT5ForConditionalGeneration
+#: transformers.TFT5ForConditionalGeneration.call transformers.TFT5Model
+#: transformers.TFT5Model.call
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.T5Config:9
+msgid ""
+"Vocabulary size of the T5 model. Defines the number of different tokens "
+"that can be represented by the :obj:`inputs_ids` passed when calling "
+":class:`~transformers.T5Model` or :class:`~transformers.TFT5Model`."
+msgstr ""
+
+#: of transformers.T5Config:12
+msgid "Size of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.T5Config:14
+msgid ""
+"Size of the key, query, value projections per attention head. :obj:`d_kv`"
+" has to be equal to :obj:`d_model // num_heads`."
+msgstr ""
+
+#: of transformers.T5Config:17
+msgid "Size of the intermediate feed forward layer in each :obj:`T5Block`."
+msgstr ""
+
+#: of transformers.T5Config:19
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.T5Config:21
+msgid ""
+"Number of hidden layers in the Transformer decoder. Will use the same "
+"value as :obj:`num_layers` if not set."
+msgstr ""
+
+#: of transformers.T5Config:24
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.T5Config:26
+msgid "The number of buckets to use for each attention layer."
+msgstr ""
+
+#: of transformers.T5Config:28
+msgid "The ratio for all dropout layers."
+msgstr ""
+
+#: of transformers.T5Config:30
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.T5Config:32
+msgid ""
+"A factor for initializing all weight matrices (should be kept to 1, used "
+"internally for initialization testing)."
+msgstr ""
+
+#: of transformers.T5Config:35
+msgid ""
+"Type of feed forward layer to be used. Should be one of :obj:`\"relu\"` "
+"or :obj:`\"gated-gelu\"`. T5v1.1 uses the :obj:`\"gated-gelu\"` feed "
+"forward projection. Original T5 uses :obj:`\"relu\"`."
+msgstr ""
+
+#: of transformers.T5Config:38
+msgid ""
+"Whether or not the model should return the last key/values attentions "
+"(not used by all models)."
+msgstr ""
+
+#: of transformers.T5Config:40
+msgid ""
+"If True, use gradient checkpointing to save memory at the expense of "
+"slower backward pass."
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:112
+msgid "T5Tokenizer"
+msgstr ""
+
+#: of transformers.T5Tokenizer:1
+msgid ""
+"Construct a T5 tokenizer. Based on `SentencePiece "
+"<https://github.com/google/sentencepiece>`__."
+msgstr ""
+
+#: of transformers.T5Tokenizer:3
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.T5Tokenizer:6 transformers.T5TokenizerFast:7
+msgid ""
+"`SentencePiece <https://github.com/google/sentencepiece>`__ file "
+"(generally has a `.spm` extension) that contains the vocabulary necessary"
+" to instantiate a tokenizer."
+msgstr ""
+
+#: of transformers.T5Tokenizer:9 transformers.T5TokenizerFast:10
+msgid ""
+"The end of sequence token.  .. note::      When building a sequence using"
+" special tokens, this is not the token that is used for the end of     "
+"sequence. The token used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.T5Tokenizer:9 transformers.T5TokenizerFast:10
+msgid "The end of sequence token."
+msgstr ""
+
+#: of transformers.T5Tokenizer:13 transformers.T5TokenizerFast:14
+msgid ""
+"When building a sequence using special tokens, this is not the token that"
+" is used for the end of sequence. The token used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.T5Tokenizer:16 transformers.T5TokenizerFast:17
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.T5Tokenizer:19 transformers.T5TokenizerFast:20
+msgid ""
+"The token used for padding, for example when batching sequences of "
+"different lengths."
+msgstr ""
+
+#: of transformers.T5Tokenizer:21 transformers.T5TokenizerFast:22
+#, python-format
+msgid ""
+"Add a number of extra ids added to the end of the vocabulary for use as "
+"sentinels. These tokens are accessible as \"<extra_id_{%d}>\" where "
+"\"{%d}\" is a number between 0 and extra_ids-1. Extra tokens are indexed "
+"from the end of the vocabulary up to beginning (\"<extra_id_0>\" is the "
+"last token in the vocabulary like in T5 preprocessing see `here "
+"<https://github.com/google-research/text-to-text-transfer-"
+"transformer/blob/9fd7b14a769417be33bc6c850f9598764913c833/t5/data/preprocessors.py#L2117>`__)."
+msgstr ""
+
+#: of transformers.T5Tokenizer:27 transformers.T5TokenizerFast:28
+msgid "Additional special tokens used by the tokenizer."
+msgstr ""
+
+#: of transformers.T5Tokenizer:29
+msgid ""
+"Will be passed to the ``SentencePieceProcessor.__init__()`` method. The "
+"`Python wrapper for SentencePiece "
+"<https://github.com/google/sentencepiece/tree/master/python>`__ can be "
+"used, among other things, to set:  - ``enable_sampling``: Enable subword "
+"regularization. - ``nbest_size``: Sampling parameters for unigram. "
+"Invalid for BPE-Dropout.    - ``nbest_size = {0,1}``: No sampling is "
+"performed.   - ``nbest_size > 1``: samples from the nbest_size results."
+"   - ``nbest_size < 0``: assuming that nbest_size is infinite and samples"
+" from the all hypothesis (lattice)     using forward-filtering-and-"
+"backward-sampling algorithm.  - ``alpha``: Smoothing parameter for "
+"unigram sampling, and dropout probability of merge operations for   BPE-"
+"dropout."
+msgstr ""
+
+#: of transformers.T5Tokenizer:29
+msgid ""
+"Will be passed to the ``SentencePieceProcessor.__init__()`` method. The "
+"`Python wrapper for SentencePiece "
+"<https://github.com/google/sentencepiece/tree/master/python>`__ can be "
+"used, among other things, to set:"
+msgstr ""
+
+#: of transformers.T5Tokenizer:32
+msgid "``enable_sampling``: Enable subword regularization."
+msgstr ""
+
+#: of transformers.T5Tokenizer:33
+msgid "``nbest_size``: Sampling parameters for unigram. Invalid for BPE-Dropout."
+msgstr ""
+
+#: of transformers.T5Tokenizer:35
+msgid "``nbest_size = {0,1}``: No sampling is performed."
+msgstr ""
+
+#: of transformers.T5Tokenizer:36
+msgid "``nbest_size > 1``: samples from the nbest_size results."
+msgstr ""
+
+#: of transformers.T5Tokenizer:37
+msgid ""
+"``nbest_size < 0``: assuming that nbest_size is infinite and samples from"
+" the all hypothesis (lattice) using forward-filtering-and-backward-"
+"sampling algorithm."
+msgstr ""
+
+#: of transformers.T5Tokenizer:40
+msgid ""
+"``alpha``: Smoothing parameter for unigram sampling, and dropout "
+"probability of merge operations for BPE-dropout."
+msgstr ""
+
+#: of transformers.T5Tokenizer:46
+msgid ""
+"The `SentencePiece` processor that is used for every conversion (string, "
+"tokens and IDs)."
+msgstr ""
+
+#: of transformers.T5Tokenizer
+msgid "type"
+msgstr ""
+
+#: of transformers.T5Tokenizer:48
+msgid ":obj:`SentencePieceProcessor`"
+msgstr ""
+
+#: of transformers.T5Tokenizer.build_inputs_with_special_tokens:1
+#: transformers.T5TokenizerFast.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. A "
+"sequence has the following format:"
+msgstr ""
+
+#: of transformers.T5Tokenizer.build_inputs_with_special_tokens:4
+#: transformers.T5TokenizerFast.build_inputs_with_special_tokens:4
+msgid "single sequence: ``X </s>``"
+msgstr ""
+
+#: of transformers.T5Tokenizer.build_inputs_with_special_tokens:5
+#: transformers.T5TokenizerFast.build_inputs_with_special_tokens:5
+msgid "pair of sequences: ``A </s> B </s>``"
+msgstr ""
+
+#: of transformers.T5Tokenizer.build_inputs_with_special_tokens:7
+#: transformers.T5TokenizerFast.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.T5Tokenizer.build_inputs_with_special_tokens:9
+#: transformers.T5Tokenizer.create_token_type_ids_from_sequences:6
+#: transformers.T5Tokenizer.get_special_tokens_mask:6
+#: transformers.T5TokenizerFast.build_inputs_with_special_tokens:9
+#: transformers.T5TokenizerFast.create_token_type_ids_from_sequences:6
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__
+#: transformers.FlaxT5ForConditionalGeneration.decode
+#: transformers.FlaxT5ForConditionalGeneration.encode
+#: transformers.FlaxT5Model.__call__ transformers.FlaxT5Model.decode
+#: transformers.FlaxT5Model.encode transformers.T5EncoderModel.forward
+#: transformers.T5ForConditionalGeneration.forward transformers.T5Model.forward
+#: transformers.T5Tokenizer.build_inputs_with_special_tokens
+#: transformers.T5Tokenizer.create_token_type_ids_from_sequences
+#: transformers.T5Tokenizer.get_special_tokens_mask
+#: transformers.T5Tokenizer.save_vocabulary
+#: transformers.T5TokenizerFast.build_inputs_with_special_tokens
+#: transformers.T5TokenizerFast.create_token_type_ids_from_sequences
+#: transformers.T5TokenizerFast.save_vocabulary
+#: transformers.TFT5EncoderModel.call
+#: transformers.TFT5ForConditionalGeneration.call transformers.TFT5Model.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.T5Tokenizer.build_inputs_with_special_tokens:12
+#: transformers.T5TokenizerFast.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__
+#: transformers.FlaxT5ForConditionalGeneration.decode
+#: transformers.FlaxT5ForConditionalGeneration.encode
+#: transformers.FlaxT5Model.__call__ transformers.FlaxT5Model.decode
+#: transformers.FlaxT5Model.encode transformers.T5EncoderModel.forward
+#: transformers.T5ForConditionalGeneration.forward transformers.T5Model.forward
+#: transformers.T5Tokenizer.build_inputs_with_special_tokens
+#: transformers.T5Tokenizer.create_token_type_ids_from_sequences
+#: transformers.T5Tokenizer.get_special_tokens_mask
+#: transformers.T5Tokenizer.save_vocabulary
+#: transformers.T5TokenizerFast.build_inputs_with_special_tokens
+#: transformers.T5TokenizerFast.create_token_type_ids_from_sequences
+#: transformers.T5TokenizerFast.save_vocabulary
+#: transformers.TFT5EncoderModel.call
+#: transformers.TFT5ForConditionalGeneration.call transformers.TFT5Model.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.T5Tokenizer.build_inputs_with_special_tokens:13
+#: transformers.T5Tokenizer.create_token_type_ids_from_sequences:10
+#: transformers.T5Tokenizer.get_special_tokens_mask:12
+#: transformers.T5TokenizerFast.build_inputs_with_special_tokens:13
+#: transformers.T5TokenizerFast.create_token_type_ids_from_sequences:10
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.T5Tokenizer.create_token_type_ids_from_sequences:1
+#: transformers.T5TokenizerFast.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. T5 does not make use of token type ids, therefore a"
+" list of zeros is returned."
+msgstr ""
+
+#: of transformers.T5Tokenizer.create_token_type_ids_from_sequences:4
+#: transformers.T5Tokenizer.get_special_tokens_mask:4
+#: transformers.T5TokenizerFast.create_token_type_ids_from_sequences:4
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.T5Tokenizer.create_token_type_ids_from_sequences:9
+#: transformers.T5TokenizerFast.create_token_type_ids_from_sequences:9
+msgid "List of zeros."
+msgstr ""
+
+#: of transformers.T5Tokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.T5Tokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.T5Tokenizer.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.T5Tokenizer.save_vocabulary:1
+#: transformers.T5TokenizerFast.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.T5Tokenizer.save_vocabulary:3
+#: transformers.T5TokenizerFast.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.T5Tokenizer.save_vocabulary:6
+#: transformers.T5TokenizerFast.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.T5Tokenizer.save_vocabulary:8
+#: transformers.T5TokenizerFast.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.T5Tokenizer.save_vocabulary:11
+#: transformers.T5TokenizerFast.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.T5Tokenizer.save_vocabulary:12
+#: transformers.T5TokenizerFast.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:120
+msgid "T5TokenizerFast"
+msgstr ""
+
+#: of transformers.T5TokenizerFast:1
+msgid ""
+"Construct a \"fast\" T5 tokenizer (backed by HuggingFace's `tokenizers` "
+"library). Based on `Unigram "
+"<https://huggingface.co/docs/tokenizers/python/latest/components.html?highlight=unigram#models>`__."
+msgstr ""
+
+#: of transformers.T5TokenizerFast:4
+msgid ""
+"This tokenizer inherits from "
+":class:`~transformers.PreTrainedTokenizerFast` which contains most of the"
+" main methods. Users should refer to this superclass for more information"
+" regarding those methods."
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:127
+msgid "T5Model"
+msgstr ""
+
+#: of transformers.T5Model:1 transformers.TFT5Model:1
+msgid ""
+"The bare T5 Model transformer outputting raw hidden-stateswithout any "
+"specific head on top."
+msgstr ""
+
+#: of transformers.T5EncoderModel:3 transformers.T5ForConditionalGeneration:3
+#: transformers.T5Model:3 transformers.TFT5EncoderModel:3
+#: transformers.TFT5ForConditionalGeneration:3 transformers.TFT5Model:3
+msgid ""
+"The T5 model was proposed in `Exploring the Limits of Transfer Learning "
+"with a Unified Text-to-Text Transformer "
+"<https://arxiv.org/abs/1910.10683>`__ by Colin Raffel, Noam Shazeer, Adam"
+" Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei "
+"Li, Peter J. Liu. It's an encoder decoder transformer pre-trained in a "
+"text-to-text denoising generative setting."
+msgstr ""
+
+#: of transformers.T5EncoderModel:8 transformers.T5ForConditionalGeneration:8
+#: transformers.T5Model:8
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.T5EncoderModel:12 transformers.T5ForConditionalGeneration:12
+#: transformers.T5Model:12
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.T5EncoderModel:16 transformers.T5ForConditionalGeneration:16
+#: transformers.T5Model:16 transformers.TFT5EncoderModel:35
+#: transformers.TFT5ForConditionalGeneration:35 transformers.TFT5Model:35
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.T5EncoderModel.deparallelize:1
+#: transformers.T5ForConditionalGeneration.deparallelize:1
+#: transformers.T5Model.deparallelize:1
+msgid "Moves the model to cpu from a model parallel state."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:102
+#: transformers.FlaxT5ForConditionalGeneration.decode:68
+#: transformers.FlaxT5ForConditionalGeneration.encode:43
+#: transformers.FlaxT5Model.__call__:102 transformers.FlaxT5Model.decode:73
+#: transformers.FlaxT5Model.encode:43
+#: transformers.T5EncoderModel.deparallelize:3
+#: transformers.T5EncoderModel.forward:59
+#: transformers.T5EncoderModel.parallelize:18
+#: transformers.T5ForConditionalGeneration.deparallelize:3
+#: transformers.T5ForConditionalGeneration.parallelize:18
+#: transformers.T5Model.deparallelize:3 transformers.T5Model.forward:138
+#: transformers.T5Model.parallelize:18
+msgid "Example::"
+msgstr ""
+
+#: of transformers.T5Model.forward:1
+msgid ""
+"The :class:`~transformers.T5Model` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:4
+#: transformers.FlaxT5Model.__call__:4 transformers.T5EncoderModel.forward:4
+#: transformers.T5ForConditionalGeneration.forward:4
+#: transformers.T5Model.forward:4 transformers.TFT5EncoderModel.call:4
+#: transformers.TFT5ForConditionalGeneration.call:4
+#: transformers.TFT5Model.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:8
+#: transformers.FlaxT5Model.__call__:8
+#: transformers.T5ForConditionalGeneration.forward:8
+#: transformers.T5Model.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary. T5 is a model with "
+"relative position embeddings so you should be able to pad the inputs on "
+"both the right and the left.  Indices can be obtained using "
+":class:`~transformers.T5Tokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for detail.  `What are "
+"input IDs? <../glossary.html#input-ids>`__  To know more on how to "
+"prepare :obj:`input_ids` for pretraining take a look a `T5 Training "
+"<./t5.html#training>`__."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:8
+#: transformers.FlaxT5ForConditionalGeneration.encode:1
+#: transformers.FlaxT5Model.__call__:8 transformers.FlaxT5Model.encode:1
+#: transformers.T5EncoderModel.forward:8
+#: transformers.T5ForConditionalGeneration.forward:8
+#: transformers.T5Model.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary. T5 is a model with "
+"relative position embeddings so you should be able to pad the inputs on "
+"both the right and the left."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:11
+#: transformers.FlaxT5ForConditionalGeneration.encode:4
+#: transformers.FlaxT5Model.__call__:11 transformers.FlaxT5Model.encode:4
+#: transformers.T5EncoderModel.forward:11
+#: transformers.T5ForConditionalGeneration.forward:11
+#: transformers.T5Model.forward:11
+msgid ""
+"Indices can be obtained using :class:`~transformers.T5Tokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for detail."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:15
+#: transformers.FlaxT5Model.__call__:15
+#: transformers.T5ForConditionalGeneration.forward:15
+#: transformers.T5Model.forward:15
+#: transformers.TFT5ForConditionalGeneration.call:15
+#: transformers.TFT5Model.call:15
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:17
+#: transformers.FlaxT5ForConditionalGeneration.encode:8
+#: transformers.FlaxT5Model.__call__:17 transformers.FlaxT5Model.encode:8
+#: transformers.T5EncoderModel.forward:15
+#: transformers.T5ForConditionalGeneration.forward:17
+#: transformers.T5Model.forward:17
+msgid ""
+"To know more on how to prepare :obj:`input_ids` for pretraining take a "
+"look a `T5 Training <./t5.html#training>`__."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:20
+#: transformers.FlaxT5ForConditionalGeneration.decode:16
+#: transformers.FlaxT5ForConditionalGeneration.encode:11
+#: transformers.FlaxT5Model.__call__:20 transformers.FlaxT5Model.decode:16
+#: transformers.FlaxT5Model.encode:11 transformers.T5EncoderModel.forward:18
+#: transformers.T5ForConditionalGeneration.forward:20
+#: transformers.T5Model.forward:20 transformers.TFT5EncoderModel.call:18
+#: transformers.TFT5ForConditionalGeneration.call:27
+#: transformers.TFT5Model.call:27
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:20
+#: transformers.FlaxT5ForConditionalGeneration.decode:16
+#: transformers.FlaxT5ForConditionalGeneration.encode:11
+#: transformers.FlaxT5Model.__call__:20 transformers.FlaxT5Model.decode:16
+#: transformers.FlaxT5Model.encode:11 transformers.T5EncoderModel.forward:18
+#: transformers.T5ForConditionalGeneration.forward:20
+#: transformers.T5Model.forward:20 transformers.TFT5EncoderModel.call:18
+#: transformers.TFT5ForConditionalGeneration.call:27
+#: transformers.TFT5Model.call:27
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:22
+#: transformers.FlaxT5ForConditionalGeneration.decode:18
+#: transformers.FlaxT5ForConditionalGeneration.encode:13
+#: transformers.FlaxT5Model.__call__:22 transformers.FlaxT5Model.decode:18
+#: transformers.FlaxT5Model.encode:13 transformers.T5EncoderModel.forward:20
+#: transformers.T5ForConditionalGeneration.forward:22
+#: transformers.T5Model.forward:22 transformers.TFT5EncoderModel.call:20
+#: transformers.TFT5ForConditionalGeneration.call:29
+#: transformers.TFT5Model.call:29
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:23
+#: transformers.FlaxT5ForConditionalGeneration.decode:19
+#: transformers.FlaxT5ForConditionalGeneration.encode:14
+#: transformers.FlaxT5Model.__call__:23 transformers.FlaxT5Model.decode:19
+#: transformers.FlaxT5Model.encode:14 transformers.T5EncoderModel.forward:21
+#: transformers.T5ForConditionalGeneration.forward:23
+#: transformers.T5Model.forward:23 transformers.TFT5EncoderModel.call:21
+#: transformers.TFT5ForConditionalGeneration.call:30
+#: transformers.TFT5Model.call:30
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:25
+#: transformers.FlaxT5ForConditionalGeneration.decode:21
+#: transformers.FlaxT5ForConditionalGeneration.encode:16
+#: transformers.FlaxT5Model.__call__:25 transformers.FlaxT5Model.decode:21
+#: transformers.FlaxT5Model.encode:16 transformers.T5EncoderModel.forward:23
+#: transformers.T5ForConditionalGeneration.forward:25
+#: transformers.T5Model.forward:25 transformers.TFT5EncoderModel.call:23
+#: transformers.TFT5ForConditionalGeneration.call:32
+#: transformers.TFT5Model.call:32
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:27
+#: transformers.FlaxT5Model.__call__:27
+#: transformers.T5ForConditionalGeneration.forward:27
+#: transformers.T5Model.forward:27
+msgid ""
+"Indices of decoder input sequence tokens in the vocabulary.  Indices can "
+"be obtained using :class:`~transformers.T5Tokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" decoder input IDs? <../glossary.html#decoder-input-ids>`__  T5 uses the "
+":obj:`pad_token_id` as the starting token for :obj:`decoder_input_ids` "
+"generation. If :obj:`past_key_values` is used, optionally only the last "
+":obj:`decoder_input_ids` have to be input (see :obj:`past_key_values`).  "
+"To know more on how to prepare :obj:`decoder_input_ids` for pretraining "
+"take a look at `T5 Training <./t5.html#training>`__."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:27
+#: transformers.FlaxT5ForConditionalGeneration.decode:1
+#: transformers.FlaxT5Model.__call__:27 transformers.FlaxT5Model.decode:1
+#: transformers.T5ForConditionalGeneration.forward:27
+#: transformers.T5Model.forward:27
+msgid "Indices of decoder input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:29
+#: transformers.FlaxT5ForConditionalGeneration.decode:3
+#: transformers.FlaxT5Model.__call__:29 transformers.FlaxT5Model.decode:3
+#: transformers.T5ForConditionalGeneration.forward:29
+#: transformers.T5Model.forward:29
+msgid ""
+"Indices can be obtained using :class:`~transformers.T5Tokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:33
+#: transformers.FlaxT5ForConditionalGeneration.decode:7
+#: transformers.FlaxT5Model.__call__:33 transformers.FlaxT5Model.decode:7
+#: transformers.T5ForConditionalGeneration.forward:33
+#: transformers.T5Model.forward:33
+msgid "`What are decoder input IDs? <../glossary.html#decoder-input-ids>`__"
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:35
+#: transformers.FlaxT5Model.__call__:35
+#: transformers.T5ForConditionalGeneration.forward:35
+#: transformers.T5Model.forward:35
+msgid ""
+"T5 uses the :obj:`pad_token_id` as the starting token for "
+":obj:`decoder_input_ids` generation. If :obj:`past_key_values` is used, "
+"optionally only the last :obj:`decoder_input_ids` have to be input (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:39
+#: transformers.FlaxT5Model.__call__:39
+#: transformers.T5ForConditionalGeneration.forward:39
+#: transformers.T5Model.forward:39
+#: transformers.TFT5ForConditionalGeneration.call:24
+#: transformers.TFT5Model.call:24
+msgid ""
+"To know more on how to prepare :obj:`decoder_input_ids` for pretraining "
+"take a look at `T5 Training <./t5.html#training>`__."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:42
+#: transformers.FlaxT5ForConditionalGeneration.decode:23
+#: transformers.FlaxT5Model.__call__:42 transformers.FlaxT5Model.decode:23
+#: transformers.T5ForConditionalGeneration.forward:42
+#: transformers.T5Model.forward:42
+#: transformers.TFT5ForConditionalGeneration.call:34
+#: transformers.TFT5Model.call:34
+msgid ""
+"Default behavior: generate a tensor that ignores pad tokens in "
+":obj:`decoder_input_ids`. Causal mask will also be used by default."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:45
+#: transformers.T5Model.forward:45
+msgid ""
+"Mask to nullify selected heads of the self-attention modules in the "
+"encoder. Mask values selected in ``[0, 1]``:  - 1 indicates the head is "
+"**not masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:45
+#: transformers.T5Model.forward:45
+msgid ""
+"Mask to nullify selected heads of the self-attention modules in the "
+"encoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.T5EncoderModel.forward:27
+#: transformers.T5ForConditionalGeneration.forward:48
+#: transformers.T5ForConditionalGeneration.forward:54
+#: transformers.T5ForConditionalGeneration.forward:60
+#: transformers.T5Model.forward:48 transformers.T5Model.forward:54
+#: transformers.T5Model.forward:60 transformers.TFT5EncoderModel.call:32
+#: transformers.TFT5ForConditionalGeneration.call:41
+#: transformers.TFT5ForConditionalGeneration.call:47
+#: transformers.TFT5Model.call:41 transformers.TFT5Model.call:47
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.T5EncoderModel.forward:28
+#: transformers.T5ForConditionalGeneration.forward:49
+#: transformers.T5ForConditionalGeneration.forward:55
+#: transformers.T5ForConditionalGeneration.forward:61
+#: transformers.T5Model.forward:49 transformers.T5Model.forward:55
+#: transformers.T5Model.forward:61 transformers.TFT5EncoderModel.call:33
+#: transformers.TFT5ForConditionalGeneration.call:42
+#: transformers.TFT5ForConditionalGeneration.call:48
+#: transformers.TFT5Model.call:42 transformers.TFT5Model.call:48
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:51
+#: transformers.T5Model.forward:51
+msgid ""
+"Mask to nullify selected heads of the self-attention modules in the "
+"decoder. Mask values selected in ``[0, 1]``:  - 1 indicates the head is "
+"**not masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:51
+#: transformers.T5Model.forward:51
+msgid ""
+"Mask to nullify selected heads of the self-attention modules in the "
+"decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:57
+#: transformers.T5Model.forward:57
+msgid ""
+"Mask to nullify selected heads of the cross-attention modules in the "
+"decoder. Mask values selected in ``[0, 1]``:  - 1 indicates the head is "
+"**not masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:57
+#: transformers.T5Model.forward:57
+msgid ""
+"Mask to nullify selected heads of the cross-attention modules in the "
+"decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:45
+#: transformers.FlaxT5Model.__call__:45
+#: transformers.T5ForConditionalGeneration.forward:63
+#: transformers.T5Model.forward:63
+#: transformers.TFT5ForConditionalGeneration.call:49
+#: transformers.TFT5Model.call:49
+msgid ""
+"Tuple consists of (:obj:`last_hidden_state`, :obj:`optional`: "
+"`hidden_states`, :obj:`optional`: `attentions`) :obj:`last_hidden_state` "
+"of shape :obj:`(batch_size, sequence_length, hidden_size)` is a sequence "
+"of hidden states at the output of the last layer of the encoder. Used in "
+"the cross-attention of the decoder."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:50
+#: transformers.FlaxT5Model.__call__:50
+#: transformers.T5ForConditionalGeneration.forward:68
+#: transformers.T5Model.forward:68
+msgid ""
+"Contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding.  If :obj:`past_key_values` are used, "
+"the user can optionally input only the last :obj:`decoder_input_ids` "
+"(those that don't have their past key value states given to this model) "
+"of shape :obj:`(batch_size, 1)` instead of all :obj:`decoder_input_ids` "
+"of shape :obj:`(batch_size, sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:50
+#: transformers.FlaxT5Model.__call__:50
+#: transformers.T5ForConditionalGeneration.forward:68
+#: transformers.T5Model.forward:68
+msgid ""
+"Contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:52
+#: transformers.FlaxT5Model.__call__:52
+#: transformers.T5ForConditionalGeneration.forward:70
+#: transformers.T5Model.forward:70
+#: transformers.TFT5ForConditionalGeneration.call:56
+#: transformers.TFT5Model.call:56
+msgid ""
+"If :obj:`past_key_values` are used, the user can optionally input only "
+"the last :obj:`decoder_input_ids` (those that don't have their past key "
+"value states given to this model) of shape :obj:`(batch_size, 1)` instead"
+" of all :obj:`decoder_input_ids` of shape :obj:`(batch_size, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.T5EncoderModel.forward:30
+#: transformers.T5ForConditionalGeneration.forward:74
+#: transformers.T5Model.forward:74 transformers.TFT5EncoderModel.call:25
+#: transformers.TFT5ForConditionalGeneration.call:60
+#: transformers.TFT5Model.call:60
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:78
+#: transformers.T5Model.forward:78
+#: transformers.TFT5ForConditionalGeneration.call:64
+#: transformers.TFT5Model.call:64
+msgid ""
+"Optionally, instead of passing :obj:`decoder_input_ids` you can choose to"
+" directly pass an embedded representation. If :obj:`past_key_values` is "
+"used, optionally only the last :obj:`decoder_inputs_embeds` have to be "
+"input (see :obj:`past_key_values`). This is useful if you want more "
+"control over how to convert :obj:`decoder_input_ids` indices into "
+"associated vectors than the model's internal embedding lookup matrix.  If"
+" :obj:`decoder_input_ids` and :obj:`decoder_inputs_embeds` are both "
+"unset, :obj:`decoder_inputs_embeds` takes the value of "
+":obj:`inputs_embeds`."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:78
+#: transformers.T5Model.forward:78
+#: transformers.TFT5ForConditionalGeneration.call:64
+#: transformers.TFT5Model.call:64
+msgid ""
+"Optionally, instead of passing :obj:`decoder_input_ids` you can choose to"
+" directly pass an embedded representation. If :obj:`past_key_values` is "
+"used, optionally only the last :obj:`decoder_inputs_embeds` have to be "
+"input (see :obj:`past_key_values`). This is useful if you want more "
+"control over how to convert :obj:`decoder_input_ids` indices into "
+"associated vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:83
+#: transformers.T5Model.forward:83
+#: transformers.TFT5ForConditionalGeneration.call:69
+#: transformers.TFT5Model.call:69
+msgid ""
+"If :obj:`decoder_input_ids` and :obj:`decoder_inputs_embeds` are both "
+"unset, :obj:`decoder_inputs_embeds` takes the value of "
+":obj:`inputs_embeds`."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:86
+#: transformers.T5Model.forward:86
+#: transformers.TFT5ForConditionalGeneration.call:72
+#: transformers.TFT5Model.call:72
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:56
+#: transformers.FlaxT5ForConditionalGeneration.decode:32
+#: transformers.FlaxT5ForConditionalGeneration.encode:18
+#: transformers.FlaxT5Model.__call__:56 transformers.FlaxT5Model.decode:32
+#: transformers.FlaxT5Model.encode:18 transformers.T5EncoderModel.forward:34
+#: transformers.T5ForConditionalGeneration.forward:89
+#: transformers.T5Model.forward:89 transformers.TFT5EncoderModel.call:34
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:59
+#: transformers.FlaxT5ForConditionalGeneration.decode:35
+#: transformers.FlaxT5ForConditionalGeneration.encode:21
+#: transformers.FlaxT5Model.__call__:59 transformers.FlaxT5Model.decode:35
+#: transformers.FlaxT5Model.encode:21 transformers.T5EncoderModel.forward:37
+#: transformers.T5ForConditionalGeneration.forward:92
+#: transformers.T5Model.forward:92 transformers.TFT5EncoderModel.call:37
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:62
+#: transformers.FlaxT5ForConditionalGeneration.decode:38
+#: transformers.FlaxT5ForConditionalGeneration.encode:24
+#: transformers.FlaxT5Model.__call__:62 transformers.FlaxT5Model.decode:38
+#: transformers.FlaxT5Model.encode:24 transformers.T5EncoderModel.forward:40
+#: transformers.T5ForConditionalGeneration.forward:95
+#: transformers.T5Model.forward:95 transformers.TFT5EncoderModel.call:40
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.T5Model.forward:98
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqModelOutput` or a tuple "
+"of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.T5Config`) and inputs.  - "
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the decoder of the model.    If"
+" :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size,   1, hidden_size)` is output. - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the decoder at the output of each "
+"layer plus the initial embedding outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the decoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the "
+"decoder's cross-attention layer, after the attention softmax, used to "
+"compute the   weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the encoder at the output of each "
+"layer plus the initial embedding outputs. - **encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the encoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads.   Example::      >>> from transformers import "
+"T5Tokenizer, T5Model      >>> tokenizer = "
+"T5Tokenizer.from_pretrained('t5-small')     >>> model = "
+"T5Model.from_pretrained('t5-small')      >>> input_ids = "
+"tokenizer(\"Studies have been shown that owning a dog is good for you\", "
+"return_tensors=\"pt\").input_ids  # Batch size 1     >>> "
+"decoder_input_ids = tokenizer(\"Studies show that\", "
+"return_tensors=\"pt\").input_ids  # Batch size 1     >>> outputs = "
+"model(input_ids=input_ids, decoder_input_ids=decoder_input_ids)      >>> "
+"last_hidden_states = outputs.last_hidden_state"
+msgstr ""
+
+#: of transformers.T5Model.forward:98
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqModelOutput` or a tuple "
+"of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.T5Config`) and inputs."
+msgstr ""
+
+#: of transformers.T5Model.forward:102
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the decoder of the model."
+msgstr ""
+
+#: of transformers.FlaxT5Model.decode:47 transformers.T5Model.forward:104
+#: transformers.TFT5Model.call:96
+msgid ""
+"If :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size, 1, hidden_size)` is output."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:108
+#: transformers.T5Model.forward:106
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) "
+"and 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:74
+#: transformers.FlaxT5Model.__call__:74
+#: transformers.T5ForConditionalGeneration.forward:112
+#: transformers.T5Model.forward:110
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and in the cross-attention blocks) that can be used (see "
+":obj:`past_key_values` input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:114
+#: transformers.T5Model.forward:112
+msgid ""
+"**decoder_hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:79
+#: transformers.FlaxT5Model.__call__:79
+#: transformers.T5ForConditionalGeneration.forward:117
+#: transformers.T5Model.forward:115
+#: transformers.TFT5ForConditionalGeneration.call:107
+#: transformers.TFT5Model.call:106
+msgid ""
+"Hidden-states of the decoder at the output of each layer plus the initial"
+" embedding outputs."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:118
+#: transformers.T5Model.forward:116
+msgid ""
+"**decoder_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:83
+#: transformers.FlaxT5Model.__call__:83
+#: transformers.T5ForConditionalGeneration.forward:121
+#: transformers.T5Model.forward:119
+#: transformers.TFT5ForConditionalGeneration.call:111
+#: transformers.TFT5Model.call:110
+msgid ""
+"Attentions weights of the decoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:123
+#: transformers.T5Model.forward:121
+msgid ""
+"**cross_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:88
+#: transformers.FlaxT5Model.__call__:88 transformers.FlaxT5Model.decode:69
+#: transformers.T5ForConditionalGeneration.forward:126
+#: transformers.T5Model.forward:124
+#: transformers.TFT5ForConditionalGeneration.call:116
+#: transformers.TFT5Model.call:115
+msgid ""
+"Attentions weights of the decoder's cross-attention layer, after the "
+"attention softmax, used to compute the weighted average in the cross-"
+"attention heads."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:128
+#: transformers.T5Model.forward:126
+msgid ""
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:129
+#: transformers.T5Model.forward:127
+msgid ""
+"**encoder_hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:94
+#: transformers.FlaxT5Model.__call__:94
+#: transformers.T5ForConditionalGeneration.forward:132
+#: transformers.T5Model.forward:130
+#: transformers.TFT5ForConditionalGeneration.call:122
+#: transformers.TFT5Model.call:121
+msgid ""
+"Hidden-states of the encoder at the output of each layer plus the initial"
+" embedding outputs."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:133
+#: transformers.T5Model.forward:131
+msgid ""
+"**encoder_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:98
+#: transformers.FlaxT5Model.__call__:98
+#: transformers.T5ForConditionalGeneration.forward:136
+#: transformers.T5Model.forward:134
+#: transformers.TFT5ForConditionalGeneration.call:126
+#: transformers.TFT5Model.call:125
+msgid ""
+"Attentions weights of the encoder, after the attention softmax, used to "
+"compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.T5Model.forward:150
+msgid ""
+":class:`~transformers.modeling_outputs.Seq2SeqModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.T5EncoderModel.parallelize:1
+#: transformers.T5ForConditionalGeneration.parallelize:1
+#: transformers.T5Model.parallelize:1
+msgid ""
+"This is an experimental feature and is a subject to change at a moment's "
+"notice."
+msgstr ""
+
+#: of transformers.T5EncoderModel.parallelize:3
+#: transformers.T5ForConditionalGeneration.parallelize:3
+#: transformers.T5Model.parallelize:3
+msgid ""
+"Uses a device map to distribute attention modules of the model across "
+"several devices. If no device map is given, it will evenly distribute "
+"blocks across all devices."
+msgstr ""
+
+#: of transformers.T5EncoderModel.parallelize:6
+#: transformers.T5ForConditionalGeneration.parallelize:6
+#: transformers.T5Model.parallelize:6
+msgid ""
+"A dictionary that maps attention modules to devices. Note that the "
+"embedding module and LMHead are always automatically mapped to the first "
+"device (for esoteric reasons). That means that the first device should "
+"have fewer attention modules mapped to it than other devices. For "
+"reference, the t5 models have the following number of attention modules:"
+"      - t5-small: 6     - t5-base: 12     - t5-large: 24     - t5-3b: 24"
+"     - t5-11b: 24"
+msgstr ""
+
+#: of transformers.T5EncoderModel.parallelize:6
+#: transformers.T5ForConditionalGeneration.parallelize:6
+#: transformers.T5Model.parallelize:6
+msgid ""
+"A dictionary that maps attention modules to devices. Note that the "
+"embedding module and LMHead are always automatically mapped to the first "
+"device (for esoteric reasons). That means that the first device should "
+"have fewer attention modules mapped to it than other devices. For "
+"reference, the t5 models have the following number of attention modules:"
+msgstr ""
+
+#: of transformers.T5EncoderModel.parallelize:11
+#: transformers.T5ForConditionalGeneration.parallelize:11
+#: transformers.T5Model.parallelize:11
+msgid "t5-small: 6"
+msgstr ""
+
+#: of transformers.T5EncoderModel.parallelize:12
+#: transformers.T5ForConditionalGeneration.parallelize:12
+#: transformers.T5Model.parallelize:12
+msgid "t5-base: 12"
+msgstr ""
+
+#: of transformers.T5EncoderModel.parallelize:13
+#: transformers.T5ForConditionalGeneration.parallelize:13
+#: transformers.T5Model.parallelize:13
+msgid "t5-large: 24"
+msgstr ""
+
+#: of transformers.T5EncoderModel.parallelize:14
+#: transformers.T5ForConditionalGeneration.parallelize:14
+#: transformers.T5Model.parallelize:14
+msgid "t5-3b: 24"
+msgstr ""
+
+#: of transformers.T5EncoderModel.parallelize:15
+#: transformers.T5ForConditionalGeneration.parallelize:15
+#: transformers.T5Model.parallelize:15
+msgid "t5-11b: 24"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:134
+msgid "T5ForConditionalGeneration"
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration:1
+#: transformers.TFT5ForConditionalGeneration:1
+msgid "T5 Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:1
+msgid ""
+"The :class:`~transformers.T5ForConditionalGeneration` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:97
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[-100, 0, ..., config.vocab_size - 1]`. All labels "
+"set to ``-100`` are ignored (masked), the loss is only computed for "
+"labels in ``[0, ..., config.vocab_size]``"
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:102
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.T5Config`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, "
+"`optional`, returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the decoder at the output of each "
+"layer plus the initial embedding outputs. - **decoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the decoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads. - **cross_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the "
+"decoder's cross-attention layer, after the attention softmax, used to "
+"compute the   weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the encoder at the output of each "
+"layer plus the initial embedding outputs. - **encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights of the encoder,"
+" after the attention softmax, used to compute the weighted average in the"
+"   self-attention heads.   Examples::      >>> from transformers import "
+"T5Tokenizer, T5ForConditionalGeneration      >>> tokenizer = "
+"T5Tokenizer.from_pretrained('t5-small')     >>> model = "
+"T5ForConditionalGeneration.from_pretrained('t5-small')      >>> input_ids"
+" = tokenizer('The <extra_id_0> walks in <extra_id_1> park', "
+"return_tensors='pt').input_ids     >>> labels = tokenizer('<extra_id_0> "
+"cute dog <extra_id_1> the <extra_id_2> </s>', "
+"return_tensors='pt').input_ids     >>> outputs = "
+"model(input_ids=input_ids, labels=labels)     >>> loss = outputs.loss"
+"     >>> logits = outputs.logits      >>> input_ids = "
+"tokenizer(\"summarize: studies have shown that owning a dog is good for "
+"you \", return_tensors=\"pt\").input_ids  # Batch size 1     >>> outputs "
+"= model.generate(input_ids)"
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:102
+msgid ""
+"A :class:`~transformers.modeling_outputs.Seq2SeqLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.T5Config`) and inputs."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:106
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:107
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:140
+#: transformers.TFT5EncoderModel.call:62
+#: transformers.TFT5ForConditionalGeneration.call:130
+#: transformers.TFT5Model.call:129
+msgid "Examples::"
+msgstr ""
+
+#: of transformers.T5ForConditionalGeneration.forward:155
+msgid ""
+":class:`~transformers.modeling_outputs.Seq2SeqLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:140
+msgid "T5EncoderModel"
+msgstr ""
+
+#: of transformers.T5EncoderModel:1
+msgid ""
+"The bare T5 Model transformer outputting encoder's raw hidden-states "
+"without any specific head on top."
+msgstr ""
+
+#: of transformers.T5EncoderModel.forward:1
+msgid ""
+"The :class:`~transformers.T5EncoderModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.encode:1
+#: transformers.FlaxT5Model.encode:1 transformers.T5EncoderModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary. T5 is a model with "
+"relative position embeddings so you should be able to pad the inputs on "
+"both the right and the left.  Indices can be obtained using "
+":class:`~transformers.T5Tokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for detail.  To know "
+"more on how to prepare :obj:`input_ids` for pretraining take a look a `T5"
+" Training <./t5.html#training>`__."
+msgstr ""
+
+#: of transformers.T5EncoderModel.forward:25
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.T5EncoderModel.forward:25
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.T5EncoderModel.forward:43
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.T5Config`) and inputs.  - "
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Example::      >>> from transformers import "
+"T5Tokenizer, T5EncoderModel     >>> tokenizer = "
+"T5Tokenizer.from_pretrained('t5-small')     >>> model = "
+"T5EncoderModel.from_pretrained('t5-small')     >>> input_ids = "
+"tokenizer(\"Studies have been shown that owning a dog is good for you\", "
+"return_tensors=\"pt\").input_ids  # Batch size 1     >>> outputs = "
+"model(input_ids=input_ids)     >>> last_hidden_states = "
+"outputs.last_hidden_state"
+msgstr ""
+
+#: of transformers.T5EncoderModel.forward:43
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.T5Config`) and inputs."
+msgstr ""
+
+#: of transformers.T5EncoderModel.forward:47
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.T5EncoderModel.forward:48
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:49
+#: transformers.FlaxT5ForConditionalGeneration.encode:35
+#: transformers.FlaxT5Model.decode:60 transformers.FlaxT5Model.encode:35
+#: transformers.T5EncoderModel.forward:51 transformers.TFT5EncoderModel.call:54
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.T5EncoderModel.forward:52
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:53
+#: transformers.FlaxT5ForConditionalGeneration.encode:39
+#: transformers.FlaxT5Model.decode:64 transformers.FlaxT5Model.encode:39
+#: transformers.T5EncoderModel.forward:55 transformers.TFT5EncoderModel.call:58
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.T5EncoderModel.forward:67
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:146
+msgid "TFT5Model"
+msgstr ""
+
+#: of transformers.TFT5EncoderModel:8
+#: transformers.TFT5ForConditionalGeneration:8 transformers.TFT5Model:8
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFT5EncoderModel:12
+#: transformers.TFT5ForConditionalGeneration:12 transformers.TFT5Model:12
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFT5EncoderModel:18
+#: transformers.TFT5ForConditionalGeneration:18 transformers.TFT5Model:18
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFT5EncoderModel:20
+#: transformers.TFT5ForConditionalGeneration:20 transformers.TFT5Model:20
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFT5EncoderModel:21
+#: transformers.TFT5ForConditionalGeneration:21 transformers.TFT5Model:21
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFT5EncoderModel:23
+#: transformers.TFT5ForConditionalGeneration:23 transformers.TFT5Model:23
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFT5EncoderModel:26
+#: transformers.TFT5ForConditionalGeneration:26 transformers.TFT5Model:26
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFT5EncoderModel:29
+#: transformers.TFT5ForConditionalGeneration:29 transformers.TFT5Model:29
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFT5EncoderModel:30
+#: transformers.TFT5ForConditionalGeneration:30 transformers.TFT5Model:30
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFT5EncoderModel:32
+#: transformers.TFT5ForConditionalGeneration:32 transformers.TFT5Model:32
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFT5Model.call:1
+msgid ""
+"The :class:`~transformers.TFT5Model` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:8
+#: transformers.TFT5Model.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary. T5 is a model with "
+"relative position embeddings so you should be able to pad the inputs on "
+"the right or the left.  Indices can be obtained using "
+":class:`~transformers.BertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__  To know more on how to "
+"prepare :obj:`inputs` for pretraining take a look at `T5 Training "
+"<./t5.html#training>`__."
+msgstr ""
+
+#: of transformers.TFT5EncoderModel.call:8
+#: transformers.TFT5ForConditionalGeneration.call:8
+#: transformers.TFT5Model.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary. T5 is a model with "
+"relative position embeddings so you should be able to pad the inputs on "
+"the right or the left."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:11
+#: transformers.TFT5Model.call:11
+msgid ""
+"Indices can be obtained using :class:`~transformers.BertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:17
+#: transformers.TFT5Model.call:17
+msgid ""
+"To know more on how to prepare :obj:`inputs` for pretraining take a look "
+"at `T5 Training <./t5.html#training>`__."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:20
+#: transformers.TFT5Model.call:20
+msgid ""
+"Provide for sequence to sequence training. T5 uses the "
+":obj:`pad_token_id` as the starting token for :obj:`decoder_input_ids` "
+"generation. If :obj:`past_key_values` is used, optionally only the last "
+":obj:`decoder_input_ids` have to be input (see :obj:`past_key_values`).  "
+"To know more on how to prepare :obj:`decoder_input_ids` for pretraining "
+"take a look at `T5 Training <./t5.html#training>`__."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:20
+#: transformers.TFT5Model.call:20
+msgid ""
+"Provide for sequence to sequence training. T5 uses the "
+":obj:`pad_token_id` as the starting token for :obj:`decoder_input_ids` "
+"generation. If :obj:`past_key_values` is used, optionally only the last "
+":obj:`decoder_input_ids` have to be input (see :obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:37
+#: transformers.TFT5Model.call:37
+msgid ""
+"(:obj:`tf.Tensor` of shape :obj:`(num_heads,)` or :obj:`(num_layers, "
+"num_heads)`, `optional`): Mask to nullify selected heads of the self-"
+"attention modules in the encoder. Mask values selected in ``[0, 1]``:  - "
+"1 indicates the head is **not masked**, - 0 indicates the head is "
+"**masked**."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:37
+#: transformers.TFT5Model.call:37
+msgid ""
+"(:obj:`tf.Tensor` of shape :obj:`(num_heads,)` or :obj:`(num_layers, "
+"num_heads)`, `optional`): Mask to nullify selected heads of the self-"
+"attention modules in the encoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:43
+#: transformers.TFT5Model.call:43
+msgid ""
+"(:obj:`tf.Tensor` of shape :obj:`(num_heads,)` or :obj:`(num_layers, "
+"num_heads)`, `optional`): Mask to nullify selected heads of the self-"
+"attention modules in the decoder. Mask values selected in ``[0, 1]``:  - "
+"1 indicates the head is **not masked**, - 0 indicates the head is "
+"**masked**."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:43
+#: transformers.TFT5Model.call:43
+msgid ""
+"(:obj:`tf.Tensor` of shape :obj:`(num_heads,)` or :obj:`(num_layers, "
+"num_heads)`, `optional`): Mask to nullify selected heads of the self-"
+"attention modules in the decoder. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:54
+#: transformers.TFT5Model.call:54
+msgid ""
+"contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding.  If :obj:`past_key_values` are used, "
+"the user can optionally input only the last :obj:`decoder_input_ids` "
+"(those that don't have their past key value states given to this model) "
+"of shape :obj:`(batch_size, 1)` instead of all :obj:`decoder_input_ids` "
+"of shape :obj:`(batch_size, sequence_length)`."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:54
+#: transformers.TFT5Model.call:54
+msgid ""
+"contains precomputed key and value hidden states of the attention blocks."
+" Can be used to speed up decoding."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:75
+#: transformers.TFT5Model.call:75
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:79
+#: transformers.TFT5Model.call:79
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:83
+#: transformers.TFT5Model.call:83
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFT5EncoderModel.call:42
+#: transformers.TFT5ForConditionalGeneration.call:86
+#: transformers.TFT5Model.call:86
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFT5Model.call:90
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSeq2SeqModelOutput` or a "
+"tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.T5Config`) and inputs.  - "
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the decoder of the model.    If "
+":obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size,   1, hidden_size)` is output. - "
+"**past_key_values** (:obj:`List[tf.Tensor]`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- List "
+"of :obj:`tf.Tensor` of length :obj:`config.n_layers`, with each tensor of"
+" shape :obj:`(2, batch_size,   num_heads, sequence_length, "
+"embed_size_per_head)`).    Contains pre-computed hidden-states (key and "
+"values in the attention blocks) of the decoder that can be   used (see "
+":obj:`past_key_values` input) to speed up sequential decoding. - "
+"**decoder_hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the decoder at the output of each layer plus the initial "
+"embedding outputs. - **decoder_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the decoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads. - **cross_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the decoder's cross-attention"
+" layer, after the attention softmax, used to compute the   weighted "
+"average in the cross-attention heads. - **encoder_last_hidden_state** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`, `optional`) -- Sequence of hidden-states at the output of "
+"the last layer of the encoder of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the encoder at the output of each layer plus the initial "
+"embedding outputs. - **encoder_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the encoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads.   Examples::      >>> from transformers import "
+"T5Tokenizer, TFT5Model      >>> tokenizer = "
+"T5Tokenizer.from_pretrained('t5-small')     >>> model = "
+"TFT5Model.from_pretrained('t5-small')      >>> input_ids = "
+"tokenizer(\"Studies have been shown that owning a dog is good for you\", "
+"return_tensors=\"tf\").input_ids  # Batch size 1     >>> "
+"decoder_input_ids = tokenizer(\"Studies show that\", "
+"return_tensors=\"tf\").input_ids  # Batch size 1     >>> outputs = "
+"model(input_ids, decoder_input_ids=decoder_input_ids)"
+msgstr ""
+
+#: of transformers.TFT5Model.call:90
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSeq2SeqModelOutput` or a "
+"tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.T5Config`) and inputs."
+msgstr ""
+
+#: of transformers.TFT5Model.call:94
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the decoder of the model."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:99
+#: transformers.TFT5Model.call:98
+msgid ""
+"**past_key_values** (:obj:`List[tf.Tensor]`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- List "
+"of :obj:`tf.Tensor` of length :obj:`config.n_layers`, with each tensor of"
+" shape :obj:`(2, batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`)."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:102
+#: transformers.TFT5Model.call:101
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) of the decoder that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:104
+#: transformers.TFT5Model.call:103
+msgid ""
+"**decoder_hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:108
+#: transformers.TFT5Model.call:107
+msgid ""
+"**decoder_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:113
+#: transformers.TFT5Model.call:112
+msgid ""
+"**cross_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:118
+#: transformers.TFT5Model.call:117
+msgid ""
+"**encoder_last_hidden_state** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:119
+#: transformers.TFT5Model.call:118
+msgid ""
+"**encoder_hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:123
+#: transformers.TFT5Model.call:122
+msgid ""
+"**encoder_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFT5Model.call:139
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSeq2SeqModelOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:153
+msgid "TFT5ForConditionalGeneration"
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:1
+msgid ""
+"The :class:`~transformers.TFT5ForConditionalGeneration` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:89
+msgid ""
+"Labels for computing the cross entropy classification loss. Indices "
+"should be in ``[0, ..., config.vocab_size - 1]``."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:93
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSeq2SeqLMOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.T5Config`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Language modeling loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **past_key_values** (:obj:`List[tf.Tensor]`, "
+"`optional`, returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- List of :obj:`tf.Tensor` of length "
+":obj:`config.n_layers`, with each tensor of shape :obj:`(2, batch_size,"
+"   num_heads, sequence_length, embed_size_per_head)`).    Contains pre-"
+"computed hidden-states (key and values in the attention blocks) of the "
+"decoder that can be   used (see :obj:`past_key_values` input) to speed up"
+" sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the decoder at the output of each layer plus the initial "
+"embedding outputs. - **decoder_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the decoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads. - **cross_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the decoder's cross-attention"
+" layer, after the attention softmax, used to compute the   weighted "
+"average in the cross-attention heads. - **encoder_last_hidden_state** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`, `optional`) -- Sequence of hidden-states at the output of "
+"the last layer of the encoder of the model. - **encoder_hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the encoder at the output of each layer plus the initial "
+"embedding outputs. - **encoder_attentions** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights of the encoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads.   Examples::      >>> from transformers import "
+"T5Tokenizer, TFT5ForConditionalGeneration      >>> tokenizer = "
+"T5Tokenizer.from_pretrained('t5-small')     >>> model = "
+"TFT5ForConditionalGeneration.from_pretrained('t5-small')      >>> inputs "
+"= tokenizer('The <extra_id_0> walks in <extra_id_1> park', "
+"return_tensors='tf').input_ids     >>> labels = tokenizer('<extra_id_0> "
+"cute dog <extra_id_1> the <extra_id_2> </s>', "
+"return_tensors='tf').input_ids     >>> outputs = model(inputs, "
+"labels=labels)     >>> loss = outputs.loss     >>> logits = "
+"outputs.logits      >>> inputs = tokenizer(\"summarize: studies have "
+"shown that owning a dog is good for you \", "
+"return_tensors=\"tf\").input_ids  # Batch size 1      >>> result = "
+"model.generate(inputs)"
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:93
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSeq2SeqLMOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.T5Config`) and inputs."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:97
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Language modeling loss."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:98
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFT5ForConditionalGeneration.call:146
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSeq2SeqLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:159
+msgid "TFT5EncoderModel"
+msgstr ""
+
+#: of transformers.TFT5EncoderModel:1
+msgid ""
+"The bare T5 Model transformer outputting encoder's raw hidden-"
+"stateswithout any specific head on top."
+msgstr ""
+
+#: of transformers.TFT5EncoderModel.call:1
+msgid ""
+"The :class:`~transformers.TFT5EncoderModel` forward method, overrides the"
+" :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFT5EncoderModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary. T5 is a model with "
+"relative position embeddings so you should be able to pad the inputs on "
+"the right or the left.  Indices can be obtained using "
+":class:`~transformers.T5Tokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  To know "
+"more on how to prepare :obj:`inputs` for pre-training take a look at `T5 "
+"Training <./t5.html#training>`__."
+msgstr ""
+
+#: of transformers.TFT5EncoderModel.call:11
+msgid ""
+"Indices can be obtained using :class:`~transformers.T5Tokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFT5EncoderModel.call:15
+msgid ""
+"To know more on how to prepare :obj:`inputs` for pre-training take a look"
+" at `T5 Training <./t5.html#training>`__."
+msgstr ""
+
+#: of transformers.TFT5EncoderModel.call:29
+msgid ""
+"(:obj:`tf.Tensor` of shape :obj:`(num_heads,)` or :obj:`(num_layers, "
+"num_heads)`, `optional`): Mask to nullify selected heads of the self-"
+"attention modules. Mask values selected in ``[0, 1]``:  - 1 indicates the"
+" head is **not masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.TFT5EncoderModel.call:29
+msgid ""
+"(:obj:`tf.Tensor` of shape :obj:`(num_heads,)` or :obj:`(num_layers, "
+"num_heads)`, `optional`): Mask to nullify selected heads of the self-"
+"attention modules. Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFT5EncoderModel.call:46
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.T5Config`) and inputs.  - "
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(tf.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Examples::      >>> from transformers import T5Tokenizer, TFT5Model      "
+">>> tokenizer = T5Tokenizer.from_pretrained('t5-small')     >>> model = "
+"TFT5EncoderModel.from_pretrained('t5-small')      >>> input_ids = "
+"tokenizer(\"Studies have been shown that owning a dog is good for you\", "
+"return_tensors=\"tf\").input_ids  # Batch size 1     >>> outputs = "
+"model(input_ids)"
+msgstr ""
+
+#: of transformers.TFT5EncoderModel.call:46
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or a tuple"
+" of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.T5Config`) and inputs."
+msgstr ""
+
+#: of transformers.TFT5EncoderModel.call:50
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.TFT5EncoderModel.call:51
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFT5EncoderModel.call:55
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFT5EncoderModel.call:71
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFBaseModelOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:165
+msgid "FlaxT5Model"
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:1
+#: transformers.FlaxT5Model.__call__:1
+msgid ""
+"The :class:`~transformers.FlaxT5PreTrainedModel` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:65
+#: transformers.FlaxT5Model.__call__:65
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.T5Config`) and inputs.  - "
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **past_key_values** (:obj:`tuple(tuple(jnp.ndarray))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(jnp.ndarray)` of "
+"length :obj:`config.n_layers`, with each tuple having 2 tensors of   "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and 2 additional tensors of   shape "
+":obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and in the cross-attention   blocks) "
+"that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding. - **decoder_hidden_states** "
+"(:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the decoder at the output of each layer plus the initial "
+"embedding outputs. - **decoder_attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights of the decoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads. - **cross_attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights of the decoder's cross-"
+"attention layer, after the attention softmax, used to compute the   "
+"weighted average in the cross-attention heads. - "
+"**encoder_last_hidden_state** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model. - **encoder_hidden_states** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` "
+"(one for the output of the embeddings + one for the output of each layer)"
+" of   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the encoder at the output of each layer plus the initial "
+"embedding outputs. - **encoder_attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights of the encoder, after the "
+"attention softmax, used to compute the weighted average in the   self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:65
+#: transformers.FlaxT5Model.__call__:65
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.T5Config`) and inputs."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:69
+#: transformers.FlaxT5ForConditionalGeneration.decode:45
+#: transformers.FlaxT5Model.__call__:69
+msgid ""
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:70
+#: transformers.FlaxT5Model.__call__:70
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(jnp.ndarray))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(jnp.ndarray)` of "
+"length :obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" 2 additional tensors of shape :obj:`(batch_size, num_heads, "
+"encoder_sequence_length, embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:76
+#: transformers.FlaxT5Model.__call__:76
+msgid ""
+"**decoder_hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:80
+#: transformers.FlaxT5Model.__call__:80
+msgid ""
+"**decoder_attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:85
+#: transformers.FlaxT5ForConditionalGeneration.decode:55
+#: transformers.FlaxT5Model.__call__:85
+msgid ""
+"**cross_attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:90
+#: transformers.FlaxT5Model.__call__:90
+msgid ""
+"**encoder_last_hidden_state** (:obj:`jnp.ndarray` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`, `optional`) -- "
+"Sequence of hidden-states at the output of the last layer of the encoder "
+"of the model."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:91
+#: transformers.FlaxT5Model.__call__:91
+msgid ""
+"**encoder_hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:95
+#: transformers.FlaxT5Model.__call__:95
+msgid ""
+"**encoder_attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.__call__:100
+#: transformers.FlaxT5Model.__call__:100
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxSeq2SeqLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:1
+#: transformers.FlaxT5Model.decode:1
+msgid ""
+"Indices of decoder input sequence tokens in the vocabulary.  Indices can "
+"be obtained using :class:`~transformers.T5Tokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" decoder input IDs? <../glossary.html#decoder-input-ids>`__  For "
+"training, :obj:`decoder_input_ids` should be provided."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:9
+#: transformers.FlaxT5Model.decode:9
+msgid "For training, :obj:`decoder_input_ids` should be provided."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:11
+#: transformers.FlaxT5Model.decode:11
+msgid ""
+"Tuple consists of (:obj:`last_hidden_state`, `optional`: "
+":obj:`hidden_states`, `optional`: :obj:`attentions`) "
+":obj:`last_hidden_state` of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`, `optional`) is a sequence of hidden-states at the output "
+"of the last layer of the encoder. Used in the cross-attention of the "
+"decoder."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:23
+#: transformers.FlaxT5Model.decode:23
+msgid ""
+"Default behavior: generate a tensor that ignores pad tokens in "
+":obj:`decoder_input_ids`. Causal mask will also be used by default.  If "
+"you want to change padding behavior, you should modify to your needs. See"
+" diagram 1 in `the paper <https://arxiv.org/abs/1910.13461>`__ for more "
+"information on the default strategy."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:26
+#: transformers.FlaxT5Model.decode:26
+msgid ""
+"If you want to change padding behavior, you should modify to your needs. "
+"See diagram 1 in `the paper <https://arxiv.org/abs/1910.13461>`__ for "
+"more information on the default strategy."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:29
+#: transformers.FlaxT5Model.decode:29
+msgid ""
+"Dictionary of pre-computed hidden-states (key and values in the attention"
+" blocks) that can be used for fast auto-regressive decoding. Pre-computed"
+" key and value hidden-states are of shape `[batch_size, max_length]`."
+msgstr ""
+
+#: of transformers.FlaxT5Model.decode:41
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.<class "
+"'transformers.models.t5.configuration_t5.T5Config'>`) and inputs.  - "
+"**last_hidden_state** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model.    If :obj:`past_key_values` is "
+"used only the last hidden-state of the sequences of shape "
+":obj:`(batch_size,   1, hidden_size)` is output. - **past_key_values** "
+"(:obj:`tuple(tuple(jnp.ndarray))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`tuple(jnp.ndarray)` of length :obj:`config.n_layers`, with each "
+"tuple having 2 tensors of   shape :obj:`(batch_size, num_heads, "
+"sequence_length, embed_size_per_head)`) and optionally if   "
+"``config.is_encoder_decoder=True`` 2 additional tensors of shape "
+":obj:`(batch_size, num_heads,   encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and optionally if   "
+"``config.is_encoder_decoder=True`` in the cross-attention blocks) that "
+"can be used (see   :obj:`past_key_values` input) to speed up sequential "
+"decoding. - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads. - "
+"**cross_attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_attentions=True`` and ``config.add_cross_attention=True`` "
+"is passed or when ``config.output_attentions=True``) -- Tuple of "
+":obj:`jnp.ndarray` (one for each layer) of shape :obj:`(batch_size, "
+"num_heads, sequence_length,   sequence_length)`.    Attentions weights of"
+" the decoder's cross-attention layer, after the attention softmax, used "
+"to compute the   weighted average in the cross-attention heads.   "
+"Example::      >>> from transformers import T5Tokenizer, "
+"FlaxT5ForConditionalGeneration      >>> model = "
+"FlaxT5ForConditionalGeneration.from_pretrained('t5-small')     >>> "
+"tokenizer = T5Tokenizer.from_pretrained('t5-small')      >>> text = \"My "
+"friends are cool but they eat too many carbs.\"     >>> inputs = "
+"tokenizer(text, max_length=512, return_tensors='jax')     >>> "
+"encoder_outputs = model.encode(**inputs)      >>> decoder_start_token_id "
+"= model.config.decoder_start_token_id     >>> decoder_input_ids = "
+"jnp.ones((inputs.input_ids.shape[0], 1), dtype=\"i4\") * "
+"decoder_start_token_id      >>> outputs = model.decode(decoder_input_ids,"
+" encoder_outputs)     >>> last_decoder_hidden_states = "
+"outputs.last_hidden_state"
+msgstr ""
+
+#: of transformers.FlaxT5Model.decode:41
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.<class "
+"'transformers.models.t5.configuration_t5.T5Config'>`) and inputs."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.encode:31
+#: transformers.FlaxT5Model.decode:45 transformers.FlaxT5Model.encode:31
+msgid ""
+"**last_hidden_state** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.FlaxT5Model.decode:49
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(jnp.ndarray))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(jnp.ndarray)` of "
+"length :obj:`config.n_layers`, with each tuple having 2 tensors of shape "
+":obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) and"
+" optionally if ``config.is_encoder_decoder=True`` 2 additional tensors of"
+" shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.FlaxT5Model.decode:54
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and optionally if ``config.is_encoder_decoder=True`` in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:46
+#: transformers.FlaxT5ForConditionalGeneration.encode:32
+#: transformers.FlaxT5Model.decode:57 transformers.FlaxT5Model.encode:32
+msgid ""
+"**hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:50
+#: transformers.FlaxT5ForConditionalGeneration.encode:36
+#: transformers.FlaxT5Model.decode:61 transformers.FlaxT5Model.encode:36
+msgid ""
+"**attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxT5Model.decode:66
+msgid ""
+"**cross_attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_attentions=True`` and ``config.add_cross_attention=True`` "
+"is passed or when ``config.output_attentions=True``) -- Tuple of "
+":obj:`jnp.ndarray` (one for each layer) of shape :obj:`(batch_size, "
+"num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.FlaxT5Model.decode:89
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutputWithPastAndCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.encode:27
+#: transformers.FlaxT5Model.encode:27
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.<class "
+"'transformers.models.t5.configuration_t5.T5Config'>`) and inputs.  - "
+"**last_hidden_state** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **hidden_states** "
+"(:obj:`tuple(jnp.ndarray)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Example::      >>> from transformers import T5Tokenizer, "
+"FlaxT5ForConditionalGeneration      >>> model = "
+"FlaxT5ForConditionalGeneration.from_pretrained('t5-small')     >>> "
+"tokenizer = T5Tokenizer.from_pretrained('t5-small')      >>> text = \"My "
+"friends are cool but they eat too many carbs.\"     >>> inputs = "
+"tokenizer(text, max_length=512, return_tensors='jax')     >>> "
+"encoder_outputs = model.encode(**inputs)"
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.encode:27
+#: transformers.FlaxT5Model.encode:27
+msgid ""
+"A :class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.<class "
+"'transformers.models.t5.configuration_t5.T5Config'>`) and inputs."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.encode:53
+#: transformers.FlaxT5Model.encode:53
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxBaseModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/t5.rst:171
+msgid "FlaxT5ForConditionalGeneration"
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:41
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.<class "
+"'transformers.models.t5.configuration_t5.T5Config'>`) and inputs.  - "
+"**logits** (:obj:`jnp.ndarray` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **hidden_states** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`jnp.ndarray` (one"
+" for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(jnp.ndarray)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads. - "
+"**cross_attentions** (:obj:`tuple(jnp.ndarray)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`jnp.ndarray` (one "
+"for each layer) of shape :obj:`(batch_size, num_heads, sequence_length,"
+"   sequence_length)`.    Cross attentions weights after the attention "
+"softmax, used to compute the weighted average in the   cross-attention "
+"heads. - **past_key_values** (:obj:`tuple(tuple(jnp.ndarray))`, "
+"`optional`, returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`jnp.ndarray` tuples of "
+"length :obj:`config.n_layers`, with each tuple containing the cached   "
+"key, value states of the self-attention and the cross-attention layers if"
+" model is used in encoder-decoder   setting. Only relevant if "
+"``config.is_decoder = True``.    Contains pre-computed hidden-states (key"
+" and values in the attention blocks) that can be used (see   "
+":obj:`past_key_values` input) to speed up sequential decoding.   "
+"Example::      >>> from transformers import T5Tokenizer, "
+"FlaxT5ForConditionalGeneration      >>> model = "
+"FlaxT5ForConditionalGeneration.from_pretrained('t5-small')     >>> "
+"tokenizer = T5Tokenizer.from_pretrained('t5-small')      >>> text = "
+"\"summarize: My friends are cool but they eat too many carbs.\"     >>> "
+"inputs = tokenizer(text, max_length=512, return_tensors='jax')     >>> "
+"encoder_outputs = model.encode(**inputs)      >>> decoder_start_token_id "
+"= model.config.decoder_start_token_id     >>> decoder_input_ids = "
+"jnp.ones((inputs.input_ids.shape[0], 1), dtype=\"i4\") * "
+"decoder_start_token_id      >>> outputs = model.decode(decoder_input_ids,"
+" encoder_outputs)     >>> last_decoder_hidden_states = "
+"outputs.last_hidden_state"
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:41
+msgid ""
+"A "
+":class:`~transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.<class "
+"'transformers.models.t5.configuration_t5.T5Config'>`) and inputs."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:58
+msgid ""
+"Cross attentions weights after the attention softmax, used to compute the"
+" weighted average in the cross-attention heads."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:60
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(jnp.ndarray))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`jnp.ndarray` tuples of "
+"length :obj:`config.n_layers`, with each tuple containing the cached key,"
+" value states of the self-attention and the cross-attention layers if "
+"model is used in encoder-decoder setting. Only relevant if "
+"``config.is_decoder = True``."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:64
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.FlaxT5ForConditionalGeneration.decode:84
+msgid ""
+":class:`~transformers.modeling_flax_outputs.FlaxCausalLMOutputWithCrossAttentions`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+

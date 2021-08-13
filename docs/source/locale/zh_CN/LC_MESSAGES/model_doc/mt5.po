@@ -1,0 +1,263 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-10 04:49+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/mt5.rst:14
+msgid "MT5"
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:19
+msgid ""
+"The mT5 model was presented in `mT5: A massively multilingual pre-trained"
+" text-to-text transformer <https://arxiv.org/abs/2010.11934>`_ by Linting"
+" Xue, Noah Constant, Adam Roberts, Mihir Kale, Rami Al-Rfou, Aditya "
+"Siddhant, Aditya Barua, Colin Raffel."
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:23
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:25
+msgid ""
+"*The recent \"Text-to-Text Transfer Transformer\" (T5) leveraged a "
+"unified text-to-text format and scale to attain state-of-the-art results "
+"on a wide variety of English-language NLP tasks. In this paper, we "
+"introduce mT5, a multilingual variant of T5 that was pre-trained on a new"
+" Common Crawl-based dataset covering 101 languages. We describe the "
+"design and modified training of mT5 and demonstrate its state-of-the-art "
+"performance on many multilingual benchmarks. All of the code and model "
+"checkpoints*"
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:31
+msgid ""
+"This model was contributed by `patrickvonplaten "
+"<https://huggingface.co/patrickvonplaten>`__. The original code can be "
+"found `here <https://github.com/google-research/multilingual-t5>`__."
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:35
+msgid "MT5Config"
+msgstr ""
+
+#: of transformers.MT5Config:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.MT5Model` or a :class:`~transformers.TFMT5Model`. "
+"It is used to instantiate a mT5 model according to the specified "
+"arguments, defining the model architecture. Instantiating a configuration"
+" with the defaults will yield a similar configuration to that of the mT5 "
+"`google/mt5-small <https://huggingface.co/google/mt5-small>`__ "
+"architecture."
+msgstr ""
+
+#: of transformers.MT5Config:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.MT5Config
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.MT5Config:9
+msgid ""
+"Vocabulary size of the T5 model. Defines the number of different tokens "
+"that can be represented by the :obj:`inputs_ids` passed when calling "
+":class:`~transformers.T5Model` or :class:`~transformers.TFT5Model`."
+msgstr ""
+
+#: of transformers.MT5Config:12
+msgid "Size of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.MT5Config:14
+msgid ""
+"Size of the key, query, value projections per attention head. :obj:`d_kv`"
+" has to be equal to :obj:`d_model // num_heads`."
+msgstr ""
+
+#: of transformers.MT5Config:17
+msgid "Size of the intermediate feed forward layer in each :obj:`T5Block`."
+msgstr ""
+
+#: of transformers.MT5Config:19
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.MT5Config:21
+msgid ""
+"Number of hidden layers in the Transformer decoder. Will use the same "
+"value as :obj:`num_layers` if not set."
+msgstr ""
+
+#: of transformers.MT5Config:24
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.MT5Config:26
+msgid "The number of buckets to use for each attention layer."
+msgstr ""
+
+#: of transformers.MT5Config:28
+msgid "The ratio for all dropout layers."
+msgstr ""
+
+#: of transformers.MT5Config:30
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.MT5Config:32
+msgid ""
+"A factor for initializing all weight matrices (should be kept to 1, used "
+"internally for initialization testing)."
+msgstr ""
+
+#: of transformers.MT5Config:35
+msgid ""
+"Type of feed forward layer to be used. Should be one of :obj:`\"relu\"` "
+"or :obj:`\"gated-gelu\"`."
+msgstr ""
+
+#: of transformers.MT5Config:37
+msgid ""
+"Whether or not the model should return the last key/values attentions "
+"(not used by all models)."
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:42
+msgid "MT5Tokenizer"
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:46
+msgid "See :class:`~transformers.T5Tokenizer` for all details."
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:50
+msgid "MT5TokenizerFast"
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:54
+msgid "See :class:`~transformers.T5TokenizerFast` for all details."
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:58
+msgid "MT5Model"
+msgstr ""
+
+#: of transformers.MT5Model:1
+msgid ""
+"This class overrides :class:`~transformers.T5Model`. Please check the "
+"superclass for the appropriate documentation alongside usage examples."
+msgstr ""
+
+#: of transformers.FlaxMT5ForConditionalGeneration:4
+#: transformers.FlaxMT5Model:4 transformers.MT5EncoderModel:4
+#: transformers.MT5ForConditionalGeneration:4 transformers.MT5Model:4
+#: transformers.TFMT5EncoderModel:4
+#: transformers.TFMT5ForConditionalGeneration:4 transformers.TFMT5Model:4
+msgid "Examples::"
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:65
+msgid "MT5ForConditionalGeneration"
+msgstr ""
+
+#: of transformers.MT5ForConditionalGeneration:1
+msgid ""
+"This class overrides :class:`~transformers.T5ForConditionalGeneration`. "
+"Please check the superclass for the appropriate documentation alongside "
+"usage examples."
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:72
+msgid "MT5EncoderModel"
+msgstr ""
+
+#: of transformers.MT5EncoderModel:1
+msgid ""
+"This class overrides :class:`~transformers.T5EncoderModel`. Please check "
+"the superclass for the appropriate documentation alongside usage "
+"examples."
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:79
+msgid "TFMT5Model"
+msgstr ""
+
+#: of transformers.TFMT5Model:1
+msgid ""
+"This class overrides :class:`~transformers.TFT5Model`. Please check the "
+"superclass for the appropriate documentation alongside usage examples."
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:86
+msgid "TFMT5ForConditionalGeneration"
+msgstr ""
+
+#: of transformers.TFMT5ForConditionalGeneration:1
+msgid ""
+"This class overrides :class:`~transformers.TFT5ForConditionalGeneration`."
+" Please check the superclass for the appropriate documentation alongside "
+"usage examples."
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:93
+msgid "TFMT5EncoderModel"
+msgstr ""
+
+#: of transformers.TFMT5EncoderModel:1
+msgid ""
+"This class overrides :class:`~transformers.TFT5EncoderModel`. Please "
+"check the superclass for the appropriate documentation alongside usage "
+"examples."
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:100
+msgid "FlaxMT5Model"
+msgstr ""
+
+#: of transformers.FlaxMT5Model:1
+msgid ""
+"This class overrides :class:`~transformers.FlaxT5Model`. Please check the"
+" superclass for the appropriate documentation alongside usage examples."
+msgstr ""
+
+#: ../../source/model_doc/mt5.rst:107
+msgid "FlaxMT5ForConditionalGeneration"
+msgstr ""
+
+#: of transformers.FlaxMT5ForConditionalGeneration:1
+msgid ""
+"This class overrides "
+":class:`~transformers.FlaxT5ForConditionalGeneration`. Please check the "
+"superclass for the appropriate documentation alongside usage examples."
+msgstr ""
+

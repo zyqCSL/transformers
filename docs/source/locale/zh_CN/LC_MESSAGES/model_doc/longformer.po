@@ -1,0 +1,2915 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/longformer.rst:14
+msgid "Longformer"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:16
+msgid ""
+"**DISCLAIMER:** This model is still a work in progress, if you see "
+"something strange, file a `Github Issue "
+"<https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template"
+"=bug-report.md&title>`__."
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:20
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:22
+msgid ""
+"The Longformer model was presented in `Longformer: The Long-Document "
+"Transformer <https://arxiv.org/pdf/2004.05150.pdf>`__ by Iz Beltagy, "
+"Matthew E. Peters, Arman Cohan."
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:25
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:27
+msgid ""
+"*Transformer-based models are unable to process long sequences due to "
+"their self-attention operation, which scales quadratically with the "
+"sequence length. To address this limitation, we introduce the Longformer "
+"with an attention mechanism that scales linearly with sequence length, "
+"making it easy to process documents of thousands of tokens or longer. "
+"Longformer's attention mechanism is a drop-in replacement for the "
+"standard self-attention and combines a local windowed attention with a "
+"task motivated global attention. Following prior work on long-sequence "
+"transformers, we evaluate Longformer on character-level language modeling"
+" and achieve state-of-the-art results on text8 and enwik8. In contrast to"
+" most prior work, we also pretrain Longformer and finetune it on a "
+"variety of downstream tasks. Our pretrained Longformer consistently "
+"outperforms RoBERTa on long document tasks and sets new state-of-the-art "
+"results on WikiHop and TriviaQA.*"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:37
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:39
+msgid ""
+"Since the Longformer is based on RoBERTa, it doesn't have "
+":obj:`token_type_ids`. You don't need to indicate which token belongs to "
+"which segment. Just separate your segments with the separation token "
+":obj:`tokenizer.sep_token` (or :obj:`</s>`)."
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:43
+msgid ""
+"This model was contributed by `beltagy "
+"<https://huggingface.co/beltagy>`__. The Authors' code can be found `here"
+" <https://github.com/allenai/longformer>`__."
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:47
+msgid "Longformer Self Attention"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:49
+msgid ""
+"Longformer self attention employs self attention on both a \"local\" "
+"context and a \"global\" context. Most tokens only attend \"locally\" to "
+"each other meaning that each token attends to its :math:`\\frac{1}{2} w` "
+"previous tokens and :math:`\\frac{1}{2} w` succeding tokens with "
+":math:`w` being the window length as defined in "
+":obj:`config.attention_window`. Note that :obj:`config.attention_window` "
+"can be of type :obj:`List` to define a different :math:`w` for each "
+"layer. A selected few tokens attend \"globally\" to all other tokens, as "
+"it is conventionally done for all tokens in :obj:`BertSelfAttention`."
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:56
+msgid ""
+"Note that \"locally\" and \"globally\" attending tokens are projected by "
+"different query, key and value matrices. Also note that every \"locally\""
+" attending token not only attends to tokens within its window :math:`w`, "
+"but also to all \"globally\" attending tokens so that global attention is"
+" *symmetric*."
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:60
+msgid ""
+"The user can define which tokens attend \"locally\" and which tokens "
+"attend \"globally\" by setting the tensor :obj:`global_attention_mask` at"
+" run-time appropriately. All Longformer models employ the following logic"
+" for :obj:`global_attention_mask`:"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:64
+msgid "0: the token attends \"locally\","
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:65
+msgid "1: the token attends \"globally\"."
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:67
+msgid ""
+"For more information please also refer to "
+":meth:`~transformers.LongformerModel.forward` method."
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:69
+msgid ""
+"Using Longformer self attention, the memory and time complexity of the "
+"query-key matmul operation, which usually represents the memory and time "
+"bottleneck, can be reduced from :math:`\\mathcal{O}(n_s \\times n_s)` to "
+":math:`\\mathcal{O}(n_s \\times w)`, with :math:`n_s` being the sequence "
+"length and :math:`w` being the average window size. It is assumed that "
+"the number of \"globally\" attending tokens is insignificant as compared "
+"to the number of \"locally\" attending tokens."
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:75
+msgid ""
+"For more information, please refer to the official `paper "
+"<https://arxiv.org/pdf/2004.05150.pdf>`__."
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:79
+msgid "Training"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:81
+msgid ""
+":class:`~transformers.LongformerForMaskedLM` is trained the exact same "
+"way :class:`~transformers.RobertaForMaskedLM` is trained and should be "
+"used as follows:"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:93
+msgid "LongformerConfig"
+msgstr ""
+
+#: of transformers.LongformerConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.LongformerModel` or a "
+":class:`~transformers.TFLongformerModel`. It is used to instantiate a "
+"Longformer model according to the specified arguments, defining the model"
+" architecture."
+msgstr ""
+
+#: of transformers.LongformerConfig:5
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.LongformerModel`. It is used to instantiate an "
+"Longformer model according to the specified arguments, defining the model"
+" architecture. Instantiating a configuration with the defaults will yield"
+" a similar configuration to that of the RoBERTa `roberta-base "
+"<https://huggingface.co/roberta-base>`__ architecture with a sequence "
+"length 4,096."
+msgstr ""
+
+#: of transformers.LongformerConfig:10
+msgid ""
+"The :class:`~transformers.LongformerConfig` class directly inherits "
+":class:`~transformers.RobertaConfig`. It reuses the same defaults. Please"
+" check the parent class for more information."
+msgstr ""
+
+#: of transformers.LongformerConfig transformers.LongformerForMaskedLM
+#: transformers.LongformerForMaskedLM.forward
+#: transformers.LongformerForMultipleChoice
+#: transformers.LongformerForMultipleChoice.forward
+#: transformers.LongformerForQuestionAnswering
+#: transformers.LongformerForQuestionAnswering.forward
+#: transformers.LongformerForSequenceClassification
+#: transformers.LongformerForSequenceClassification.forward
+#: transformers.LongformerForTokenClassification
+#: transformers.LongformerForTokenClassification.forward
+#: transformers.LongformerModel transformers.LongformerModel.forward
+#: transformers.TFLongformerForMaskedLM
+#: transformers.TFLongformerForMaskedLM.call
+#: transformers.TFLongformerForMultipleChoice
+#: transformers.TFLongformerForMultipleChoice.call
+#: transformers.TFLongformerForQuestionAnswering
+#: transformers.TFLongformerForQuestionAnswering.call
+#: transformers.TFLongformerForSequenceClassification
+#: transformers.TFLongformerForSequenceClassification.call
+#: transformers.TFLongformerForTokenClassification
+#: transformers.TFLongformerForTokenClassification.call
+#: transformers.TFLongformerModel transformers.TFLongformerModel.call
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutput
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling
+#: transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput
+#: transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput
+#: transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput
+#: transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput
+#: transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutput
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutputWithPooling
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.LongformerConfig:13
+msgid ""
+"Size of an attention window around each token. If an :obj:`int`, use the "
+"same size for all layers. To specify a different window size for each "
+"layer, use a :obj:`List[int]` where ``len(attention_window) == "
+"num_hidden_layers``."
+msgstr ""
+
+#: of transformers.LongformerConfig:18
+#: transformers.LongformerForMultipleChoice.forward:108
+#: transformers.LongformerForSequenceClassification.forward:106
+#: transformers.LongformerForTokenClassification.forward:105
+#: transformers.TFLongformerForMaskedLM.call:106
+#: transformers.TFLongformerForMultipleChoice.call:108
+#: transformers.TFLongformerForQuestionAnswering.call:111
+#: transformers.TFLongformerForSequenceClassification.call:102
+#: transformers.TFLongformerForTokenClassification.call:105
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:100
+msgid "LongformerTokenizer"
+msgstr ""
+
+#: of transformers.LongformerTokenizer:1
+msgid "Construct a Longformer tokenizer."
+msgstr ""
+
+#: of transformers.LongformerTokenizer:3
+msgid ""
+":class:`~transformers.LongformerTokenizer` is identical to "
+":class:`~transformers.RobertaTokenizer`. Refer to the superclass for "
+"usage examples and documentation concerning parameters."
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:107
+msgid "LongformerTokenizerFast"
+msgstr ""
+
+#: of transformers.LongformerTokenizerFast:1
+msgid ""
+"Construct a \"fast\" Longformer tokenizer (backed by HuggingFace's "
+"`tokenizers` library)."
+msgstr ""
+
+#: of transformers.LongformerTokenizerFast:3
+msgid ""
+":class:`~transformers.LongformerTokenizerFast` is identical to "
+":class:`~transformers.RobertaTokenizerFast`. Refer to the superclass for "
+"usage examples and documentation concerning parameters."
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:113
+msgid "Longformer specific outputs"
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutput:1
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutput:1
+msgid ""
+"Base class for Longformer's outputs, with potential hidden states, local "
+"and global attentions."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutput:3
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling:3
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutput:3
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutputWithPooling:3
+msgid "Sequence of hidden-states at the output of the last layer of the model."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutput:5
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling:9
+#: transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput:7
+#: transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput:9
+#: transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput:9
+#: transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput:7
+#: transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput:7
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the model at the output"
+" of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutput:5
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling:9
+#: transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput:7
+#: transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput:9
+#: transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput:9
+#: transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput:7
+#: transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput:7
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:84
+#: transformers.LongformerForMultipleChoice.forward:84
+#: transformers.LongformerForQuestionAnswering.forward:87
+#: transformers.LongformerForSequenceClassification.forward:82
+#: transformers.LongformerForTokenClassification.forward:81
+#: transformers.LongformerModel.forward:80
+#: transformers.TFLongformerForMaskedLM.call:83
+#: transformers.TFLongformerForMultipleChoice.call:85
+#: transformers.TFLongformerForQuestionAnswering.call:88
+#: transformers.TFLongformerForSequenceClassification.call:79
+#: transformers.TFLongformerForTokenClassification.call:82
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutput:8
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling:12
+#: transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput:10
+#: transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput:12
+#: transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput:12
+#: transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput:10
+#: transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput:10
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutput:8
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutputWithPooling:12
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput:10
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput:12
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput:12
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput:10
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput:10
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutput:10
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling:14
+#: transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput:12
+#: transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput:14
+#: transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput:14
+#: transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput:12
+#: transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput:12
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, x + attention_window + "
+"1)`, where ``x`` is the number of tokens with global attention mask.  "
+"Local attentions weights after the attention softmax, used to compute the"
+" weighted average in the self-attention heads. Those are the attention "
+"weights from every token in the sequence to every token with global "
+"attention (first ``x`` values) and to every token in the attention window"
+" (remaining ``attention_window + 1`` values). Note that the first ``x`` "
+"values refer to tokens with fixed positions in the text, but the "
+"remaining ``attention_window + 1`` values refer to tokens with relative "
+"positions: the attention weight of a token to itself is located at index "
+"``x + attention_window / 2`` and the ``attention_window / 2`` preceding "
+"(succeeding) values are the attention weights to the ``attention_window /"
+" 2`` preceding (succeeding) tokens. If the attention window contains a "
+"token with global attention, the attention weight at the corresponding "
+"index is set to 0; the value should be accessed from the first ``x`` "
+"attention weights. If a token has global attention, the attention weights"
+" to all other tokens in :obj:`attentions` is set to 0, the values should "
+"be accessed from :obj:`global_attentions`."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutput:10
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling:14
+#: transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput:12
+#: transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput:14
+#: transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput:14
+#: transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput:12
+#: transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput:12
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, x + attention_window + "
+"1)`, where ``x`` is the number of tokens with global attention mask."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:89
+#: transformers.LongformerForMultipleChoice.forward:89
+#: transformers.LongformerForQuestionAnswering.forward:92
+#: transformers.LongformerForSequenceClassification.forward:87
+#: transformers.LongformerForTokenClassification.forward:86
+#: transformers.LongformerModel.forward:85
+#: transformers.TFLongformerForMaskedLM.call:87
+#: transformers.TFLongformerForMultipleChoice.call:89
+#: transformers.TFLongformerForQuestionAnswering.call:92
+#: transformers.TFLongformerForSequenceClassification.call:83
+#: transformers.TFLongformerForTokenClassification.call:86
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutput:14
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling:18
+#: transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput:16
+#: transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput:18
+#: transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput:18
+#: transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput:16
+#: transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput:16
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutput:13
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutputWithPooling:17
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput:15
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput:17
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput:17
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput:15
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput:15
+msgid ""
+"Local attentions weights after the attention softmax, used to compute the"
+" weighted average in the self-attention heads. Those are the attention "
+"weights from every token in the sequence to every token with global "
+"attention (first ``x`` values) and to every token in the attention window"
+" (remaining ``attention_window + 1`` values). Note that the first ``x`` "
+"values refer to tokens with fixed positions in the text, but the "
+"remaining ``attention_window + 1`` values refer to tokens with relative "
+"positions: the attention weight of a token to itself is located at index "
+"``x + attention_window / 2`` and the ``attention_window / 2`` preceding "
+"(succeeding) values are the attention weights to the ``attention_window /"
+" 2`` preceding (succeeding) tokens. If the attention window contains a "
+"token with global attention, the attention weight at the corresponding "
+"index is set to 0; the value should be accessed from the first ``x`` "
+"attention weights. If a token has global attention, the attention weights"
+" to all other tokens in :obj:`attentions` is set to 0, the values should "
+"be accessed from :obj:`global_attentions`."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutput:26
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling:30
+#: transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput:28
+#: transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput:30
+#: transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput:30
+#: transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput:28
+#: transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput:28
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, x)`, where ``x`` is the "
+"number of tokens with global attention mask.  Global attentions weights "
+"after the attention softmax, used to compute the weighted average in the "
+"self-attention heads. Those are the attention weights from every token "
+"with global attention to every token in the sequence."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutput:26
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling:30
+#: transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput:28
+#: transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput:30
+#: transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput:30
+#: transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput:28
+#: transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput:28
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, x)`, where ``x`` is the "
+"number of tokens with global attention mask."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:103
+#: transformers.LongformerForMultipleChoice.forward:103
+#: transformers.LongformerForQuestionAnswering.forward:106
+#: transformers.LongformerForSequenceClassification.forward:101
+#: transformers.LongformerForTokenClassification.forward:100
+#: transformers.LongformerModel.forward:99
+#: transformers.TFLongformerForMaskedLM.call:101
+#: transformers.TFLongformerForMultipleChoice.call:103
+#: transformers.TFLongformerForQuestionAnswering.call:106
+#: transformers.TFLongformerForSequenceClassification.call:97
+#: transformers.TFLongformerForTokenClassification.call:100
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutput:29
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling:33
+#: transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput:31
+#: transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput:33
+#: transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput:33
+#: transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput:31
+#: transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput:31
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutput:28
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutputWithPooling:32
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput:30
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput:32
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput:32
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput:30
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput:30
+msgid ""
+"Global attentions weights after the attention softmax, used to compute "
+"the weighted average in the self-attention heads. Those are the attention"
+" weights from every token with global attention to every token in the "
+"sequence."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling:1
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutputWithPooling:1
+msgid ""
+"Base class for Longformer's outputs that also contains a pooling of the "
+"last hidden states."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling:5
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutputWithPooling:5
+msgid ""
+"Last layer hidden-state of the first token of the sequence "
+"(classification token) further processed by a Linear layer and a Tanh "
+"activation function. The Linear layer weights are trained from the next "
+"sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput:1
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput:1
+msgid "Base class for masked language models outputs."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput:3
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput:3
+msgid "Masked language modeling (MLM) loss."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput:5
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput:5
+msgid ""
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput:1
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput:1
+msgid "Base class for outputs of question answering Longformer models."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput:3
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput:3
+msgid ""
+"Total span extraction loss is the sum of a Cross-Entropy for the start "
+"and end positions."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput:5
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput:5
+msgid "Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput:7
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput:7
+msgid "Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput:1
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput:1
+msgid "Base class for outputs of sentence classification models."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput:3
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput:3
+msgid "Classification (or regression if config.num_labels==1) loss."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput:5
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput:5
+msgid ""
+"Classification (or regression if config.num_labels==1) scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput:1
+msgid "Base class for outputs of multiple choice Longformer models."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput:3
+#: transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput:3
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput:3
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput:3
+msgid "Classification loss."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput:5
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput:5
+msgid ""
+"`num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).  Classification scores (before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput:5
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput:5
+msgid ""
+"`num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.LongformerForMultipleChoice.forward:80
+#: transformers.TFLongformerForMultipleChoice.call:81
+#: transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput:7
+#: transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput:5
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput:7
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput:5
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput:1
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput:1
+msgid "Base class for outputs of token classification models."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutput:5
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutputWithPooling:9
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput:7
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput:9
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput:9
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput:7
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput:7
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.  Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutput:5
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutputWithPooling:9
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput:7
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput:9
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput:9
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput:7
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput:7
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutput:10
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutputWithPooling:14
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput:12
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput:14
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput:14
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput:12
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput:12
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, x + attention_window + "
+"1)`, where ``x`` is the number of tokens with global attention mask.  "
+"Local attentions weights after the attention softmax, used to compute the"
+" weighted average in the self-attention heads. Those are the attention "
+"weights from every token in the sequence to every token with global "
+"attention (first ``x`` values) and to every token in the attention window"
+" (remaining ``attention_window + 1`` values). Note that the first ``x`` "
+"values refer to tokens with fixed positions in the text, but the "
+"remaining ``attention_window + 1`` values refer to tokens with relative "
+"positions: the attention weight of a token to itself is located at index "
+"``x + attention_window / 2`` and the ``attention_window / 2`` preceding "
+"(succeeding) values are the attention weights to the ``attention_window /"
+" 2`` preceding (succeeding) tokens. If the attention window contains a "
+"token with global attention, the attention weight at the corresponding "
+"index is set to 0; the value should be accessed from the first ``x`` "
+"attention weights. If a token has global attention, the attention weights"
+" to all other tokens in :obj:`attentions` is set to 0, the values should "
+"be accessed from :obj:`global_attentions`."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutput:10
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutputWithPooling:14
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput:12
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput:14
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput:14
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput:12
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput:12
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, x + attention_window + "
+"1)`, where ``x`` is the number of tokens with global attention mask."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutput:25
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutputWithPooling:29
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput:27
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput:29
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput:29
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput:27
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput:27
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, x)`, where ``x`` is the "
+"number of tokens with global attention mask.  Global attentions weights "
+"after the attention softmax, used to compute the weighted average in the "
+"self-attention heads. Those are the attention weights from every token "
+"with global attention to every token in the sequence."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutput:25
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerBaseModelOutputWithPooling:29
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput:27
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput:29
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput:29
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput:27
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput:27
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, x)`, where ``x`` is the "
+"number of tokens with global attention mask."
+msgstr ""
+
+#: of
+#: transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput:1
+msgid "Base class for outputs of multiple choice models."
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:158
+msgid "LongformerModel"
+msgstr ""
+
+#: of transformers.LongformerModel:1 transformers.TFLongformerModel:1
+msgid ""
+"The bare Longformer Model outputting raw hidden-states without any "
+"specific head on top."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM:3
+#: transformers.LongformerForMultipleChoice:5
+#: transformers.LongformerForQuestionAnswering:5
+#: transformers.LongformerForSequenceClassification:5
+#: transformers.LongformerForTokenClassification:5
+#: transformers.LongformerModel:3
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM:7
+#: transformers.LongformerForMultipleChoice:9
+#: transformers.LongformerForQuestionAnswering:9
+#: transformers.LongformerForSequenceClassification:9
+#: transformers.LongformerForTokenClassification:9
+#: transformers.LongformerModel:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM:11
+#: transformers.LongformerForMultipleChoice:13
+#: transformers.LongformerForQuestionAnswering:13
+#: transformers.LongformerForSequenceClassification:13
+#: transformers.LongformerForTokenClassification:13
+#: transformers.LongformerModel:11 transformers.TFLongformerForMaskedLM:30
+#: transformers.TFLongformerForMultipleChoice:32
+#: transformers.TFLongformerForQuestionAnswering:32
+#: transformers.TFLongformerForSequenceClassification:32
+#: transformers.TFLongformerForTokenClassification:32
+#: transformers.TFLongformerModel:30
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.LongformerModel:17
+msgid ""
+"This class copied code from :class:`~transformers.RobertaModel` and "
+"overwrote standard self-attention with longformer self-attention to "
+"provide the ability to process long sequences following the self-"
+"attention approach described in `Longformer: the Long-Document "
+"Transformer <https://arxiv.org/abs/2004.05150>`__ by Iz Beltagy, Matthew "
+"E. Peters, and Arman Cohan. Longformer self-attention combines a local "
+"(sliding window) and global attention to extend to long documents without"
+" the O(n^2) increase in memory and compute."
+msgstr ""
+
+#: of transformers.LongformerModel:23
+msgid ""
+"The self-attention module :obj:`LongformerSelfAttention` implemented here"
+" supports the combination of local and global attention but it lacks "
+"support for autoregressive attention and dilated attention. "
+"Autoregressive and dilated attention are more relevant for autoregressive"
+" language modeling than finetuning on downstream tasks. Future release "
+"will add support for autoregressive attention, but the support for "
+"dilated attention requires a custom CUDA kernel to be memory and compute "
+"efficient."
+msgstr ""
+
+#: of transformers.LongformerModel.forward:1
+msgid ""
+"The :class:`~transformers.LongformerModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:4
+#: transformers.LongformerForMultipleChoice.forward:4
+#: transformers.LongformerForQuestionAnswering.forward:4
+#: transformers.LongformerForSequenceClassification.forward:4
+#: transformers.LongformerForTokenClassification.forward:4
+#: transformers.LongformerModel.forward:4
+#: transformers.TFLongformerForMaskedLM.call:4
+#: transformers.TFLongformerForMultipleChoice.call:4
+#: transformers.TFLongformerForQuestionAnswering.call:4
+#: transformers.TFLongformerForSequenceClassification.call:4
+#: transformers.TFLongformerForTokenClassification.call:4
+#: transformers.TFLongformerModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:8
+#: transformers.LongformerForMultipleChoice.forward:8
+#: transformers.LongformerForQuestionAnswering.forward:8
+#: transformers.LongformerForSequenceClassification.forward:8
+#: transformers.LongformerForTokenClassification.forward:8
+#: transformers.LongformerModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.LongformerTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:8
+#: transformers.LongformerForMultipleChoice.forward:8
+#: transformers.LongformerForQuestionAnswering.forward:8
+#: transformers.LongformerForSequenceClassification.forward:8
+#: transformers.LongformerForTokenClassification.forward:8
+#: transformers.LongformerModel.forward:8
+#: transformers.TFLongformerForMaskedLM.call:8
+#: transformers.TFLongformerForMultipleChoice.call:8
+#: transformers.TFLongformerForQuestionAnswering.call:8
+#: transformers.TFLongformerForSequenceClassification.call:8
+#: transformers.TFLongformerForTokenClassification.call:8
+#: transformers.TFLongformerModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:10
+#: transformers.LongformerForMultipleChoice.forward:10
+#: transformers.LongformerForQuestionAnswering.forward:10
+#: transformers.LongformerForSequenceClassification.forward:10
+#: transformers.LongformerForTokenClassification.forward:10
+#: transformers.LongformerModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.LongformerTokenizer`."
+" See :meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:14
+#: transformers.LongformerForMultipleChoice.forward:14
+#: transformers.LongformerForQuestionAnswering.forward:14
+#: transformers.LongformerForSequenceClassification.forward:14
+#: transformers.LongformerForTokenClassification.forward:14
+#: transformers.LongformerModel.forward:14
+#: transformers.TFLongformerForMaskedLM.call:14
+#: transformers.TFLongformerForMultipleChoice.call:14
+#: transformers.TFLongformerForQuestionAnswering.call:14
+#: transformers.TFLongformerForSequenceClassification.call:14
+#: transformers.TFLongformerForTokenClassification.call:14
+#: transformers.TFLongformerModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:16
+#: transformers.LongformerForMultipleChoice.forward:16
+#: transformers.LongformerForQuestionAnswering.forward:16
+#: transformers.LongformerForSequenceClassification.forward:16
+#: transformers.LongformerForTokenClassification.forward:16
+#: transformers.LongformerModel.forward:16
+#: transformers.TFLongformerForMaskedLM.call:16
+#: transformers.TFLongformerForMultipleChoice.call:16
+#: transformers.TFLongformerForQuestionAnswering.call:16
+#: transformers.TFLongformerForSequenceClassification.call:16
+#: transformers.TFLongformerForTokenClassification.call:16
+#: transformers.TFLongformerModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:16
+#: transformers.LongformerForMultipleChoice.forward:16
+#: transformers.LongformerForQuestionAnswering.forward:16
+#: transformers.LongformerForSequenceClassification.forward:16
+#: transformers.LongformerForTokenClassification.forward:16
+#: transformers.LongformerModel.forward:16
+#: transformers.TFLongformerForMaskedLM.call:16
+#: transformers.TFLongformerForMultipleChoice.call:16
+#: transformers.TFLongformerForQuestionAnswering.call:16
+#: transformers.TFLongformerForSequenceClassification.call:16
+#: transformers.TFLongformerForTokenClassification.call:16
+#: transformers.TFLongformerModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:18
+#: transformers.LongformerForMultipleChoice.forward:18
+#: transformers.LongformerForQuestionAnswering.forward:18
+#: transformers.LongformerForSequenceClassification.forward:18
+#: transformers.LongformerForTokenClassification.forward:18
+#: transformers.LongformerModel.forward:18
+#: transformers.TFLongformerForMaskedLM.call:18
+#: transformers.TFLongformerForMultipleChoice.call:18
+#: transformers.TFLongformerForQuestionAnswering.call:18
+#: transformers.TFLongformerForSequenceClassification.call:18
+#: transformers.TFLongformerForTokenClassification.call:18
+#: transformers.TFLongformerModel.call:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:19
+#: transformers.LongformerForMultipleChoice.forward:19
+#: transformers.LongformerForQuestionAnswering.forward:19
+#: transformers.LongformerForSequenceClassification.forward:19
+#: transformers.LongformerForTokenClassification.forward:19
+#: transformers.LongformerModel.forward:19
+#: transformers.TFLongformerForMaskedLM.call:19
+#: transformers.TFLongformerForMultipleChoice.call:19
+#: transformers.TFLongformerForQuestionAnswering.call:19
+#: transformers.TFLongformerForSequenceClassification.call:19
+#: transformers.TFLongformerForTokenClassification.call:19
+#: transformers.TFLongformerModel.call:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:21
+#: transformers.LongformerForMultipleChoice.forward:21
+#: transformers.LongformerForQuestionAnswering.forward:21
+#: transformers.LongformerForSequenceClassification.forward:21
+#: transformers.LongformerForTokenClassification.forward:21
+#: transformers.LongformerModel.forward:21
+#: transformers.TFLongformerForMaskedLM.call:21
+#: transformers.TFLongformerForMultipleChoice.call:21
+#: transformers.TFLongformerForQuestionAnswering.call:21
+#: transformers.TFLongformerForSequenceClassification.call:21
+#: transformers.TFLongformerForTokenClassification.call:21
+#: transformers.TFLongformerModel.call:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:23
+#: transformers.LongformerForMultipleChoice.forward:23
+#: transformers.LongformerForQuestionAnswering.forward:23
+#: transformers.LongformerForSequenceClassification.forward:23
+#: transformers.LongformerForTokenClassification.forward:23
+#: transformers.LongformerModel.forward:23
+#: transformers.TFLongformerForMaskedLM.call:28
+#: transformers.TFLongformerForMultipleChoice.call:28
+#: transformers.TFLongformerForQuestionAnswering.call:28
+#: transformers.TFLongformerForSequenceClassification.call:28
+#: transformers.TFLongformerForTokenClassification.call:28
+#: transformers.TFLongformerModel.call:28
+msgid ""
+"Mask to decide the attention given on each token, local attention or "
+"global attention. Tokens with global attention attends to all other "
+"tokens, and all other tokens attend to them. This is important for task-"
+"specific finetuning because it makes the model more flexible at "
+"representing the task. For example, for classification, the <s> token "
+"should be given global attention. For QA, all question tokens should also"
+" have global attention. Please refer to the `Longformer paper "
+"<https://arxiv.org/abs/2004.05150>`__ for more details. Mask values "
+"selected in ``[0, 1]``:  - 0 for local attention (a sliding window "
+"attention), - 1 for global attention (tokens that attend to all other "
+"tokens, and all other tokens attend to them)."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:23
+#: transformers.LongformerForMultipleChoice.forward:23
+#: transformers.LongformerForQuestionAnswering.forward:23
+#: transformers.LongformerForSequenceClassification.forward:23
+#: transformers.LongformerForTokenClassification.forward:23
+#: transformers.LongformerModel.forward:23
+#: transformers.TFLongformerForMaskedLM.call:28
+#: transformers.TFLongformerForMultipleChoice.call:28
+#: transformers.TFLongformerForQuestionAnswering.call:28
+#: transformers.TFLongformerForSequenceClassification.call:28
+#: transformers.TFLongformerForTokenClassification.call:28
+#: transformers.TFLongformerModel.call:28
+msgid ""
+"Mask to decide the attention given on each token, local attention or "
+"global attention. Tokens with global attention attends to all other "
+"tokens, and all other tokens attend to them. This is important for task-"
+"specific finetuning because it makes the model more flexible at "
+"representing the task. For example, for classification, the <s> token "
+"should be given global attention. For QA, all question tokens should also"
+" have global attention. Please refer to the `Longformer paper "
+"<https://arxiv.org/abs/2004.05150>`__ for more details. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:30
+#: transformers.LongformerForMultipleChoice.forward:30
+#: transformers.LongformerForQuestionAnswering.forward:30
+#: transformers.LongformerForSequenceClassification.forward:30
+#: transformers.LongformerForTokenClassification.forward:30
+#: transformers.LongformerModel.forward:30
+#: transformers.TFLongformerForMaskedLM.call:35
+#: transformers.TFLongformerForMultipleChoice.call:35
+#: transformers.TFLongformerForQuestionAnswering.call:35
+#: transformers.TFLongformerForSequenceClassification.call:35
+#: transformers.TFLongformerForTokenClassification.call:35
+#: transformers.TFLongformerModel.call:35
+msgid "0 for local attention (a sliding window attention),"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:31
+#: transformers.LongformerForMultipleChoice.forward:31
+#: transformers.LongformerForQuestionAnswering.forward:31
+#: transformers.LongformerForSequenceClassification.forward:31
+#: transformers.LongformerForTokenClassification.forward:31
+#: transformers.LongformerModel.forward:31
+#: transformers.TFLongformerForMaskedLM.call:36
+#: transformers.TFLongformerForMultipleChoice.call:36
+#: transformers.TFLongformerForQuestionAnswering.call:36
+#: transformers.TFLongformerForSequenceClassification.call:36
+#: transformers.TFLongformerForTokenClassification.call:36
+#: transformers.TFLongformerModel.call:36
+msgid ""
+"1 for global attention (tokens that attend to all other tokens, and all "
+"other tokens attend to them)."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:33
+#: transformers.LongformerForMultipleChoice.forward:33
+#: transformers.LongformerForQuestionAnswering.forward:33
+#: transformers.LongformerForSequenceClassification.forward:33
+#: transformers.LongformerForTokenClassification.forward:33
+#: transformers.LongformerModel.forward:33
+msgid ""
+"Mask to nullify selected heads of the attention modules in the encoder. "
+"Mask values selected in ``[0, 1]``:  - 1 indicates the head is **not "
+"masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:33
+#: transformers.LongformerForMultipleChoice.forward:33
+#: transformers.LongformerForQuestionAnswering.forward:33
+#: transformers.LongformerForSequenceClassification.forward:33
+#: transformers.LongformerForTokenClassification.forward:33
+#: transformers.LongformerModel.forward:33
+msgid ""
+"Mask to nullify selected heads of the attention modules in the encoder. "
+"Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:35
+#: transformers.LongformerForMaskedLM.forward:40
+#: transformers.LongformerForMultipleChoice.forward:35
+#: transformers.LongformerForMultipleChoice.forward:40
+#: transformers.LongformerForQuestionAnswering.forward:35
+#: transformers.LongformerForQuestionAnswering.forward:40
+#: transformers.LongformerForSequenceClassification.forward:35
+#: transformers.LongformerForSequenceClassification.forward:40
+#: transformers.LongformerForTokenClassification.forward:35
+#: transformers.LongformerForTokenClassification.forward:40
+#: transformers.LongformerModel.forward:35
+#: transformers.LongformerModel.forward:40
+#: transformers.TFLongformerForMaskedLM.call:25
+#: transformers.TFLongformerForMultipleChoice.call:25
+#: transformers.TFLongformerForQuestionAnswering.call:25
+#: transformers.TFLongformerForSequenceClassification.call:25
+#: transformers.TFLongformerForTokenClassification.call:25
+#: transformers.TFLongformerModel.call:25
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:36
+#: transformers.LongformerForMaskedLM.forward:41
+#: transformers.LongformerForMultipleChoice.forward:36
+#: transformers.LongformerForMultipleChoice.forward:41
+#: transformers.LongformerForQuestionAnswering.forward:36
+#: transformers.LongformerForQuestionAnswering.forward:41
+#: transformers.LongformerForSequenceClassification.forward:36
+#: transformers.LongformerForSequenceClassification.forward:41
+#: transformers.LongformerForTokenClassification.forward:36
+#: transformers.LongformerForTokenClassification.forward:41
+#: transformers.LongformerModel.forward:36
+#: transformers.LongformerModel.forward:41
+#: transformers.TFLongformerForMaskedLM.call:26
+#: transformers.TFLongformerForMultipleChoice.call:26
+#: transformers.TFLongformerForQuestionAnswering.call:26
+#: transformers.TFLongformerForSequenceClassification.call:26
+#: transformers.TFLongformerForTokenClassification.call:26
+#: transformers.TFLongformerModel.call:26
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:38
+#: transformers.LongformerForMultipleChoice.forward:38
+#: transformers.LongformerForQuestionAnswering.forward:38
+#: transformers.LongformerForSequenceClassification.forward:38
+#: transformers.LongformerForTokenClassification.forward:38
+#: transformers.LongformerModel.forward:38
+msgid ""
+"Mask to nullify selected heads of the attention modules in the decoder. "
+"Mask values selected in ``[0, 1]``:  - 1 indicates the head is **not "
+"masked**, - 0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:38
+#: transformers.LongformerForMultipleChoice.forward:38
+#: transformers.LongformerForQuestionAnswering.forward:38
+#: transformers.LongformerForSequenceClassification.forward:38
+#: transformers.LongformerForTokenClassification.forward:38
+#: transformers.LongformerModel.forward:38
+msgid ""
+"Mask to nullify selected heads of the attention modules in the decoder. "
+"Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:43
+#: transformers.LongformerForMultipleChoice.forward:43
+#: transformers.LongformerForQuestionAnswering.forward:43
+#: transformers.LongformerForSequenceClassification.forward:43
+#: transformers.LongformerForTokenClassification.forward:43
+#: transformers.LongformerModel.forward:43
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:43
+#: transformers.LongformerForMultipleChoice.forward:43
+#: transformers.LongformerForQuestionAnswering.forward:43
+#: transformers.LongformerForSequenceClassification.forward:43
+#: transformers.LongformerForTokenClassification.forward:43
+#: transformers.LongformerModel.forward:43
+#: transformers.TFLongformerForMaskedLM.call:38
+#: transformers.TFLongformerForMultipleChoice.call:38
+#: transformers.TFLongformerForQuestionAnswering.call:38
+#: transformers.TFLongformerForSequenceClassification.call:38
+#: transformers.TFLongformerForTokenClassification.call:38
+#: transformers.TFLongformerModel.call:38
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:46
+#: transformers.LongformerForMultipleChoice.forward:46
+#: transformers.LongformerForQuestionAnswering.forward:46
+#: transformers.LongformerForSequenceClassification.forward:46
+#: transformers.LongformerForTokenClassification.forward:46
+#: transformers.LongformerModel.forward:46
+#: transformers.TFLongformerForMaskedLM.call:41
+#: transformers.TFLongformerForMultipleChoice.call:41
+#: transformers.TFLongformerForQuestionAnswering.call:41
+#: transformers.TFLongformerForSequenceClassification.call:41
+#: transformers.TFLongformerForTokenClassification.call:41
+#: transformers.TFLongformerModel.call:41
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:47
+#: transformers.LongformerForMultipleChoice.forward:47
+#: transformers.LongformerForQuestionAnswering.forward:47
+#: transformers.LongformerForSequenceClassification.forward:47
+#: transformers.LongformerForTokenClassification.forward:47
+#: transformers.LongformerModel.forward:47
+#: transformers.TFLongformerForMaskedLM.call:42
+#: transformers.TFLongformerForMultipleChoice.call:42
+#: transformers.TFLongformerForQuestionAnswering.call:42
+#: transformers.TFLongformerForSequenceClassification.call:42
+#: transformers.TFLongformerForTokenClassification.call:42
+#: transformers.TFLongformerModel.call:42
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:49
+#: transformers.LongformerForMultipleChoice.forward:49
+#: transformers.LongformerForQuestionAnswering.forward:49
+#: transformers.LongformerForSequenceClassification.forward:49
+#: transformers.LongformerForTokenClassification.forward:49
+#: transformers.LongformerModel.forward:49
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:51
+#: transformers.LongformerForMultipleChoice.forward:51
+#: transformers.LongformerForQuestionAnswering.forward:51
+#: transformers.LongformerForSequenceClassification.forward:51
+#: transformers.LongformerForTokenClassification.forward:51
+#: transformers.LongformerModel.forward:51
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:51
+#: transformers.LongformerForMultipleChoice.forward:51
+#: transformers.LongformerForQuestionAnswering.forward:51
+#: transformers.LongformerForSequenceClassification.forward:51
+#: transformers.LongformerForTokenClassification.forward:51
+#: transformers.LongformerModel.forward:51
+#: transformers.TFLongformerForMaskedLM.call:46
+#: transformers.TFLongformerForMultipleChoice.call:46
+#: transformers.TFLongformerForQuestionAnswering.call:46
+#: transformers.TFLongformerForSequenceClassification.call:46
+#: transformers.TFLongformerForTokenClassification.call:46
+#: transformers.TFLongformerModel.call:46
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:54
+#: transformers.LongformerForMultipleChoice.forward:54
+#: transformers.LongformerForQuestionAnswering.forward:54
+#: transformers.LongformerForSequenceClassification.forward:54
+#: transformers.LongformerForTokenClassification.forward:54
+#: transformers.LongformerModel.forward:54
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:56
+#: transformers.LongformerForMultipleChoice.forward:56
+#: transformers.LongformerForQuestionAnswering.forward:56
+#: transformers.LongformerForSequenceClassification.forward:56
+#: transformers.LongformerForTokenClassification.forward:56
+#: transformers.LongformerModel.forward:56
+#: transformers.TFLongformerForMaskedLM.call:51
+#: transformers.TFLongformerForMultipleChoice.call:51
+#: transformers.TFLongformerForQuestionAnswering.call:51
+#: transformers.TFLongformerForSequenceClassification.call:51
+#: transformers.TFLongformerForTokenClassification.call:51
+#: transformers.TFLongformerModel.call:51
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:60
+#: transformers.LongformerForMultipleChoice.forward:60
+#: transformers.LongformerForQuestionAnswering.forward:60
+#: transformers.LongformerForSequenceClassification.forward:60
+#: transformers.LongformerForTokenClassification.forward:60
+#: transformers.LongformerModel.forward:60
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:63
+#: transformers.LongformerForMultipleChoice.forward:63
+#: transformers.LongformerForQuestionAnswering.forward:63
+#: transformers.LongformerForSequenceClassification.forward:63
+#: transformers.LongformerForTokenClassification.forward:63
+#: transformers.LongformerModel.forward:63
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:66
+#: transformers.LongformerForMultipleChoice.forward:66
+#: transformers.LongformerForQuestionAnswering.forward:66
+#: transformers.LongformerForSequenceClassification.forward:66
+#: transformers.LongformerForTokenClassification.forward:66
+#: transformers.LongformerModel.forward:66
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward
+#: transformers.LongformerForMultipleChoice.forward
+#: transformers.LongformerForQuestionAnswering.forward
+#: transformers.LongformerForSequenceClassification.forward
+#: transformers.LongformerForTokenClassification.forward
+#: transformers.LongformerModel.forward
+#: transformers.TFLongformerForMaskedLM.call
+#: transformers.TFLongformerForMultipleChoice.call
+#: transformers.TFLongformerForQuestionAnswering.call
+#: transformers.TFLongformerForSequenceClassification.call
+#: transformers.TFLongformerForTokenClassification.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.LongformerModel.forward:69
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LongformerConfig`) "
+"and inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, hidden_size)`) -- "
+"Last layer hidden-state of the first token of the sequence "
+"(classification token) further processed by a   Linear layer and a Tanh "
+"activation function. The Linear layer weights are trained from the next "
+"sentence   prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, x + attention_window + 1)`, where ``x`` is the number of"
+" tokens with global attention   mask.    Local attentions weights after "
+"the attention softmax, used to compute the weighted average in the   "
+"self-attention heads. Those are the attention weights from every token in"
+" the sequence to every token with   global attention (first ``x`` values)"
+" and to every token in the attention window (remaining   "
+"``attention_window + 1`` values). Note that the first ``x`` values refer "
+"to tokens with fixed positions in   the text, but the remaining "
+"``attention_window + 1`` values refer to tokens with relative positions: "
+"the   attention weight of a token to itself is located at index ``x + "
+"attention_window / 2`` and the   ``attention_window / 2`` preceding "
+"(succeeding) values are the attention weights to the ``attention_window"
+"   / 2`` preceding (succeeding) tokens. If the attention window contains "
+"a token with global attention, the   attention weight at the "
+"corresponding index is set to 0; the value should be accessed from the "
+"first ``x``   attention weights. If a token has global attention, the "
+"attention weights to all other tokens in   :obj:`attentions` is set to 0,"
+" the values should be accessed from :obj:`global_attentions`. - "
+"**global_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, x)`, where ``x`` is the number of tokens with global "
+"attention mask.    Global attentions weights after the attention softmax,"
+" used to compute the weighted average in the   self-attention heads. "
+"Those are the attention weights from every token with global attention to"
+" every token   in the sequence.   Examples::      >>> import torch     "
+">>> from transformers import LongformerModel, LongformerTokenizer      "
+">>> model = LongformerModel.from_pretrained('allenai/longformer-"
+"base-4096')     >>> tokenizer = "
+"LongformerTokenizer.from_pretrained('allenai/longformer-base-4096')      "
+">>> SAMPLE_TEXT = ' '.join(['Hello world! '] * 1000)  # long input "
+"document     >>> input_ids = "
+"torch.tensor(tokenizer.encode(SAMPLE_TEXT)).unsqueeze(0)  # batch of size"
+" 1      >>> attention_mask = torch.ones(input_ids.shape, "
+"dtype=torch.long, device=input_ids.device) # initialize to local "
+"attention     >>> global_attention_mask = torch.zeros(input_ids.shape, "
+"dtype=torch.long, device=input_ids.device) # initialize to global "
+"attention to be deactivated for all tokens     >>> "
+"global_attention_mask[:, [1, 4, 21,]] = 1  # Set global attention to "
+"random tokens for the sake of this example     ..."
+"                                     # Usually, set global attention "
+"based on the task. For example,     ..."
+"                                     # classification: the <s> token     "
+"...                                     # QA: question tokens     ..."
+"                                     # LM: potentially on the beginning "
+"of sentences and paragraphs     >>> outputs = model(input_ids, "
+"attention_mask=attention_mask, "
+"global_attention_mask=global_attention_mask)     >>> sequence_output = "
+"outputs.last_hidden_state     >>> pooled_output = outputs.pooler_output"
+msgstr ""
+
+#: of transformers.LongformerModel.forward:69
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LongformerConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.LongformerModel.forward:73
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.LongformerModel.forward:74
+msgid ""
+"**pooler_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:81
+#: transformers.LongformerForMultipleChoice.forward:81
+#: transformers.LongformerForQuestionAnswering.forward:84
+#: transformers.LongformerForSequenceClassification.forward:79
+#: transformers.LongformerForTokenClassification.forward:78
+#: transformers.LongformerModel.forward:77
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:85
+#: transformers.LongformerForMultipleChoice.forward:85
+#: transformers.LongformerForQuestionAnswering.forward:88
+#: transformers.LongformerForSequenceClassification.forward:83
+#: transformers.LongformerForTokenClassification.forward:82
+#: transformers.LongformerModel.forward:81
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, x + attention_window + 1)`, where ``x`` is the number of"
+" tokens with global attention mask."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:100
+#: transformers.LongformerForMultipleChoice.forward:100
+#: transformers.LongformerForQuestionAnswering.forward:103
+#: transformers.LongformerForSequenceClassification.forward:98
+#: transformers.LongformerForTokenClassification.forward:97
+#: transformers.LongformerModel.forward:96
+msgid ""
+"**global_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, x)`, where ``x`` is the number of tokens with global "
+"attention mask."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:108
+#: transformers.LongformerForQuestionAnswering.forward:111
+#: transformers.LongformerModel.forward:104
+msgid "Examples::"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward
+#: transformers.LongformerForMultipleChoice.forward
+#: transformers.LongformerForQuestionAnswering.forward
+#: transformers.LongformerForSequenceClassification.forward
+#: transformers.LongformerForTokenClassification.forward
+#: transformers.LongformerModel.forward
+#: transformers.TFLongformerForMaskedLM.call
+#: transformers.TFLongformerForMultipleChoice.call
+#: transformers.TFLongformerForQuestionAnswering.call
+#: transformers.TFLongformerForSequenceClassification.call
+#: transformers.TFLongformerForTokenClassification.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.LongformerModel.forward:125
+msgid ""
+":class:`~transformers.models.longformer.modeling_longformer.LongformerBaseModelOutputWithPooling`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:165
+msgid "LongformerForMaskedLM"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM:1
+#: transformers.TFLongformerForMaskedLM:1
+msgid "Longformer Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:1
+msgid ""
+"The :class:`~transformers.LongformerForMaskedLM` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:68
+#: transformers.TFLongformerForMaskedLM.call:69
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:72
+msgid "Used to hide legacy arguments that have been deprecated."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:75
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LongformerConfig`) "
+"and inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Masked language "
+"modeling (MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, x + attention_window + 1)`, where ``x`` is the number of"
+" tokens with global attention   mask.    Local attentions weights after "
+"the attention softmax, used to compute the weighted average in the   "
+"self-attention heads. Those are the attention weights from every token in"
+" the sequence to every token with   global attention (first ``x`` values)"
+" and to every token in the attention window (remaining   "
+"``attention_window + 1`` values). Note that the first ``x`` values refer "
+"to tokens with fixed positions in   the text, but the remaining "
+"``attention_window + 1`` values refer to tokens with relative positions: "
+"the   attention weight of a token to itself is located at index ``x + "
+"attention_window / 2`` and the   ``attention_window / 2`` preceding "
+"(succeeding) values are the attention weights to the ``attention_window"
+"   / 2`` preceding (succeeding) tokens. If the attention window contains "
+"a token with global attention, the   attention weight at the "
+"corresponding index is set to 0; the value should be accessed from the "
+"first ``x``   attention weights. If a token has global attention, the "
+"attention weights to all other tokens in   :obj:`attentions` is set to 0,"
+" the values should be accessed from :obj:`global_attentions`. - "
+"**global_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, x)`, where ``x`` is the number of tokens with global "
+"attention mask.    Global attentions weights after the attention softmax,"
+" used to compute the weighted average in the   self-attention heads. "
+"Those are the attention weights from every token with global attention to"
+" every token   in the sequence.   Examples::      >>> import torch     "
+">>> from transformers import LongformerForMaskedLM, LongformerTokenizer"
+"      >>> model = LongformerForMaskedLM.from_pretrained('allenai"
+"/longformer-base-4096')     >>> tokenizer = "
+"LongformerTokenizer.from_pretrained('allenai/longformer-base-4096')      "
+">>> SAMPLE_TEXT = ' '.join(['Hello world! '] * 1000)  # long input "
+"document     >>> input_ids = "
+"torch.tensor(tokenizer.encode(SAMPLE_TEXT)).unsqueeze(0)  # batch of size"
+" 1      >>> attention_mask = None  # default is local attention "
+"everywhere, which is a good choice for MaskedLM     ..."
+"                        # check ``LongformerModel.forward`` for more "
+"details how to set `attention_mask`     >>> outputs = model(input_ids, "
+"attention_mask=attention_mask, labels=input_ids)     >>> loss = "
+"outputs.loss     >>> prediction_logits = output.logits"
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:75
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LongformerConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:79
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:80
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.LongformerForMaskedLM.forward:124
+msgid ""
+":class:`~transformers.models.longformer.modeling_longformer.LongformerMaskedLMOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:172
+msgid "LongformerForSequenceClassification"
+msgstr ""
+
+#: of transformers.LongformerForSequenceClassification:1
+#: transformers.TFLongformerForSequenceClassification:1
+msgid ""
+"Longformer Model transformer with a sequence classification/regression "
+"head on top (a linear layer on top of the pooled output) e.g. for GLUE "
+"tasks."
+msgstr ""
+
+#: of transformers.LongformerForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.LongformerForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.LongformerForSequenceClassification.forward:68
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.LongformerForSequenceClassification.forward:73
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LongformerConfig`) "
+"and inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"(or regression if config.num_labels==1) loss. - **logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, x + attention_window + 1)`, where ``x`` is the number of"
+" tokens with global attention   mask.    Local attentions weights after "
+"the attention softmax, used to compute the weighted average in the   "
+"self-attention heads. Those are the attention weights from every token in"
+" the sequence to every token with   global attention (first ``x`` values)"
+" and to every token in the attention window (remaining   "
+"``attention_window + 1`` values). Note that the first ``x`` values refer "
+"to tokens with fixed positions in   the text, but the remaining "
+"``attention_window + 1`` values refer to tokens with relative positions: "
+"the   attention weight of a token to itself is located at index ``x + "
+"attention_window / 2`` and the   ``attention_window / 2`` preceding "
+"(succeeding) values are the attention weights to the ``attention_window"
+"   / 2`` preceding (succeeding) tokens. If the attention window contains "
+"a token with global attention, the   attention weight at the "
+"corresponding index is set to 0; the value should be accessed from the "
+"first ``x``   attention weights. If a token has global attention, the "
+"attention weights to all other tokens in   :obj:`attentions` is set to 0,"
+" the values should be accessed from :obj:`global_attentions`. - "
+"**global_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, x)`, where ``x`` is the number of tokens with global "
+"attention mask.    Global attentions weights after the attention softmax,"
+" used to compute the weighted average in the   self-attention heads. "
+"Those are the attention weights from every token with global attention to"
+" every token   in the sequence."
+msgstr ""
+
+#: of transformers.LongformerForSequenceClassification.forward:73
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LongformerConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.LongformerForSequenceClassification.forward:77
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.LongformerForSequenceClassification.forward:78
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.LongformerForSequenceClassification.forward:104
+msgid ""
+":class:`~transformers.models.longformer.modeling_longformer.LongformerSequenceClassifierOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:179
+msgid "LongformerForMultipleChoice"
+msgstr ""
+
+#: of transformers.LongformerForMultipleChoice:1
+#: transformers.TFLongformerForMultipleChoice:1
+msgid ""
+"Longformer Model with a multiple choice classification head on top (a "
+"linear layer on top of the pooled output and a softmax) e.g. for "
+"RocStories/SWAG tasks."
+msgstr ""
+
+#: of transformers.LongformerForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.LongformerForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.LongformerForMultipleChoice.forward:68
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.LongformerForMultipleChoice.forward:73
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LongformerConfig`) "
+"and inputs.  - **loss** (:obj:`torch.FloatTensor` of shape `(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"loss. - **logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, x + attention_window + 1)`, where ``x`` is the number of"
+" tokens with global attention   mask.    Local attentions weights after "
+"the attention softmax, used to compute the weighted average in the   "
+"self-attention heads. Those are the attention weights from every token in"
+" the sequence to every token with   global attention (first ``x`` values)"
+" and to every token in the attention window (remaining   "
+"``attention_window + 1`` values). Note that the first ``x`` values refer "
+"to tokens with fixed positions in   the text, but the remaining "
+"``attention_window + 1`` values refer to tokens with relative positions: "
+"the   attention weight of a token to itself is located at index ``x + "
+"attention_window / 2`` and the   ``attention_window / 2`` preceding "
+"(succeeding) values are the attention weights to the ``attention_window"
+"   / 2`` preceding (succeeding) tokens. If the attention window contains "
+"a token with global attention, the   attention weight at the "
+"corresponding index is set to 0; the value should be accessed from the "
+"first ``x``   attention weights. If a token has global attention, the "
+"attention weights to all other tokens in   :obj:`attentions` is set to 0,"
+" the values should be accessed from :obj:`global_attentions`. - "
+"**global_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, x)`, where ``x`` is the number of tokens with global "
+"attention mask.    Global attentions weights after the attention softmax,"
+" used to compute the weighted average in the   self-attention heads. "
+"Those are the attention weights from every token with global attention to"
+" every token   in the sequence."
+msgstr ""
+
+#: of transformers.LongformerForMultipleChoice.forward:73
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LongformerConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.LongformerForMultipleChoice.forward:77
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.LongformerForMultipleChoice.forward:78
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.LongformerForMultipleChoice.forward:106
+msgid ""
+":class:`~transformers.models.longformer.modeling_longformer.LongformerMultipleChoiceModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:186
+msgid "LongformerForTokenClassification"
+msgstr ""
+
+#: of transformers.LongformerForTokenClassification:1
+#: transformers.TFLongformerForTokenClassification:1
+msgid ""
+"Longformer Model with a token classification head on top (a linear layer "
+"on top of the hidden-states output) e.g. for Named-Entity-Recognition "
+"(NER) tasks."
+msgstr ""
+
+#: of transformers.LongformerForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.LongformerForTokenClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.LongformerForTokenClassification.forward:68
+#: transformers.TFLongformerForTokenClassification.call:69
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.LongformerForTokenClassification.forward:72
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LongformerConfig`) "
+"and inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when ``labels`` is provided)  -- Classification "
+"loss. - **logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, x + attention_window + 1)`, where ``x`` is the number of"
+" tokens with global attention   mask.    Local attentions weights after "
+"the attention softmax, used to compute the weighted average in the   "
+"self-attention heads. Those are the attention weights from every token in"
+" the sequence to every token with   global attention (first ``x`` values)"
+" and to every token in the attention window (remaining   "
+"``attention_window + 1`` values). Note that the first ``x`` values refer "
+"to tokens with fixed positions in   the text, but the remaining "
+"``attention_window + 1`` values refer to tokens with relative positions: "
+"the   attention weight of a token to itself is located at index ``x + "
+"attention_window / 2`` and the   ``attention_window / 2`` preceding "
+"(succeeding) values are the attention weights to the ``attention_window"
+"   / 2`` preceding (succeeding) tokens. If the attention window contains "
+"a token with global attention, the   attention weight at the "
+"corresponding index is set to 0; the value should be accessed from the "
+"first ``x``   attention weights. If a token has global attention, the "
+"attention weights to all other tokens in   :obj:`attentions` is set to 0,"
+" the values should be accessed from :obj:`global_attentions`. - "
+"**global_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, x)`, where ``x`` is the number of tokens with global "
+"attention mask.    Global attentions weights after the attention softmax,"
+" used to compute the weighted average in the   self-attention heads. "
+"Those are the attention weights from every token with global attention to"
+" every token   in the sequence."
+msgstr ""
+
+#: of transformers.LongformerForTokenClassification.forward:72
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LongformerConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.LongformerForTokenClassification.forward:76
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.LongformerForTokenClassification.forward:77
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.LongformerForTokenClassification.forward:103
+msgid ""
+":class:`~transformers.models.longformer.modeling_longformer.LongformerTokenClassifierOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:193
+msgid "LongformerForQuestionAnswering"
+msgstr ""
+
+#: of transformers.LongformerForQuestionAnswering:1
+msgid ""
+"Longformer Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD / TriviaQA (a linear layers on top of"
+" the hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.LongformerForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.LongformerForQuestionAnswering` forward method,"
+" overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.LongformerForQuestionAnswering.forward:68
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.LongformerForQuestionAnswering.forward:72
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.LongformerForQuestionAnswering.forward:77
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LongformerConfig`) "
+"and inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, x + attention_window + 1)`, where ``x`` is the number of"
+" tokens with global attention   mask.    Local attentions weights after "
+"the attention softmax, used to compute the weighted average in the   "
+"self-attention heads. Those are the attention weights from every token in"
+" the sequence to every token with   global attention (first ``x`` values)"
+" and to every token in the attention window (remaining   "
+"``attention_window + 1`` values). Note that the first ``x`` values refer "
+"to tokens with fixed positions in   the text, but the remaining "
+"``attention_window + 1`` values refer to tokens with relative positions: "
+"the   attention weight of a token to itself is located at index ``x + "
+"attention_window / 2`` and the   ``attention_window / 2`` preceding "
+"(succeeding) values are the attention weights to the ``attention_window"
+"   / 2`` preceding (succeeding) tokens. If the attention window contains "
+"a token with global attention, the   attention weight at the "
+"corresponding index is set to 0; the value should be accessed from the "
+"first ``x``   attention weights. If a token has global attention, the "
+"attention weights to all other tokens in   :obj:`attentions` is set to 0,"
+" the values should be accessed from :obj:`global_attentions`. - "
+"**global_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, x)`, where ``x`` is the number of tokens with global "
+"attention mask.    Global attentions weights after the attention softmax,"
+" used to compute the weighted average in the   self-attention heads. "
+"Those are the attention weights from every token with global attention to"
+" every token   in the sequence.   Examples::      >>> from transformers "
+"import LongformerTokenizer, LongformerForQuestionAnswering     >>> import"
+" torch      >>> tokenizer = LongformerTokenizer.from_pretrained(\"allenai"
+"/longformer-large-4096-finetuned-triviaqa\")     >>> model = "
+"LongformerForQuestionAnswering.from_pretrained(\"allenai/longformer-"
+"large-4096-finetuned-triviaqa\")      >>> question, text = \"Who was Jim "
+"Henson?\", \"Jim Henson was a nice puppet\"     >>> encoding = "
+"tokenizer(question, text, return_tensors=\"pt\")     >>> input_ids = "
+"encoding[\"input_ids\"]      >>> # default is local attention everywhere"
+"     >>> # the forward method will automatically set global attention on "
+"question tokens     >>> attention_mask = encoding[\"attention_mask\"]"
+"      >>> outputs = model(input_ids, attention_mask=attention_mask)     "
+">>> start_logits = outputs.start_logits     >>> end_logits = "
+"outputs.end_logits     >>> all_tokens = "
+"tokenizer.convert_ids_to_tokens(input_ids[0].tolist())      >>> "
+"answer_tokens = all_tokens[torch.argmax(start_logits) "
+":torch.argmax(end_logits)+1]     >>> answer = "
+"tokenizer.decode(tokenizer.convert_tokens_to_ids(answer_tokens)) # remove"
+" space prepending space token"
+msgstr ""
+
+#: of transformers.LongformerForQuestionAnswering.forward:77
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LongformerConfig`) "
+"and inputs."
+msgstr ""
+
+#: of transformers.LongformerForQuestionAnswering.forward:81
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.LongformerForQuestionAnswering.forward:82
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.LongformerForQuestionAnswering.forward:83
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.LongformerForQuestionAnswering.forward:134
+msgid ""
+":class:`~transformers.models.longformer.modeling_longformer.LongformerQuestionAnsweringModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:200
+msgid "TFLongformerModel"
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM:3
+#: transformers.TFLongformerForMultipleChoice:5
+#: transformers.TFLongformerForQuestionAnswering:5
+#: transformers.TFLongformerForSequenceClassification:5
+#: transformers.TFLongformerForTokenClassification:5
+#: transformers.TFLongformerModel:3
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM:7
+#: transformers.TFLongformerForMultipleChoice:9
+#: transformers.TFLongformerForQuestionAnswering:9
+#: transformers.TFLongformerForSequenceClassification:9
+#: transformers.TFLongformerForTokenClassification:9
+#: transformers.TFLongformerModel:7
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM:13
+#: transformers.TFLongformerForMultipleChoice:15
+#: transformers.TFLongformerForQuestionAnswering:15
+#: transformers.TFLongformerForSequenceClassification:15
+#: transformers.TFLongformerForTokenClassification:15
+#: transformers.TFLongformerModel:13
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM:15
+#: transformers.TFLongformerForMultipleChoice:17
+#: transformers.TFLongformerForQuestionAnswering:17
+#: transformers.TFLongformerForSequenceClassification:17
+#: transformers.TFLongformerForTokenClassification:17
+#: transformers.TFLongformerModel:15
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM:16
+#: transformers.TFLongformerForMultipleChoice:18
+#: transformers.TFLongformerForQuestionAnswering:18
+#: transformers.TFLongformerForSequenceClassification:18
+#: transformers.TFLongformerForTokenClassification:18
+#: transformers.TFLongformerModel:16
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM:18
+#: transformers.TFLongformerForMultipleChoice:20
+#: transformers.TFLongformerForQuestionAnswering:20
+#: transformers.TFLongformerForSequenceClassification:20
+#: transformers.TFLongformerForTokenClassification:20
+#: transformers.TFLongformerModel:18
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM:21
+#: transformers.TFLongformerForMultipleChoice:23
+#: transformers.TFLongformerForQuestionAnswering:23
+#: transformers.TFLongformerForSequenceClassification:23
+#: transformers.TFLongformerForTokenClassification:23
+#: transformers.TFLongformerModel:21
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM:24
+#: transformers.TFLongformerForMultipleChoice:26
+#: transformers.TFLongformerForQuestionAnswering:26
+#: transformers.TFLongformerForSequenceClassification:26
+#: transformers.TFLongformerForTokenClassification:26
+#: transformers.TFLongformerModel:24
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM:25
+#: transformers.TFLongformerForMultipleChoice:27
+#: transformers.TFLongformerForQuestionAnswering:27
+#: transformers.TFLongformerForSequenceClassification:27
+#: transformers.TFLongformerForTokenClassification:27
+#: transformers.TFLongformerModel:25
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM:27
+#: transformers.TFLongformerForMultipleChoice:29
+#: transformers.TFLongformerForQuestionAnswering:29
+#: transformers.TFLongformerForSequenceClassification:29
+#: transformers.TFLongformerForTokenClassification:29
+#: transformers.TFLongformerModel:27
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFLongformerModel:36
+msgid ""
+"This class copies code from :class:`~transformers.TFRobertaModel` and "
+"overwrites standard self-attention with longformer self-attention to "
+"provide the ability to process long sequences following the self-"
+"attention approach described in `Longformer: the Long-Document "
+"Transformer <https://arxiv.org/abs/2004.05150>`__ by Iz Beltagy, Matthew "
+"E. Peters, and Arman Cohan. Longformer self-attention combines a local "
+"(sliding window) and global attention to extend to long documents without"
+" the O(n^2) increase in memory and compute."
+msgstr ""
+
+#: of transformers.TFLongformerModel:42
+msgid ""
+"The self-attention module :obj:`TFLongformerSelfAttention` implemented "
+"here supports the combination of local and global attention but it lacks "
+"support for autoregressive attention and dilated attention. "
+"Autoregressive and dilated attention are more relevant for autoregressive"
+" language modeling than finetuning on downstream tasks. Future release "
+"will add support for autoregressive attention, but the support for "
+"dilated attention requires a custom CUDA kernel to be memory and compute "
+"efficient."
+msgstr ""
+
+#: of transformers.TFLongformerModel.call:1
+msgid ""
+"The :class:`~transformers.TFLongformerModel` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:8
+#: transformers.TFLongformerForMultipleChoice.call:8
+#: transformers.TFLongformerForQuestionAnswering.call:8
+#: transformers.TFLongformerForSequenceClassification.call:8
+#: transformers.TFLongformerForTokenClassification.call:8
+#: transformers.TFLongformerModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.LongformerTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:10
+#: transformers.TFLongformerForMultipleChoice.call:10
+#: transformers.TFLongformerForQuestionAnswering.call:10
+#: transformers.TFLongformerForSequenceClassification.call:10
+#: transformers.TFLongformerForTokenClassification.call:10
+#: transformers.TFLongformerModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.LongformerTokenizer`."
+" See :func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:23
+#: transformers.TFLongformerForMultipleChoice.call:23
+#: transformers.TFLongformerForQuestionAnswering.call:23
+#: transformers.TFLongformerForSequenceClassification.call:23
+#: transformers.TFLongformerForTokenClassification.call:23
+#: transformers.TFLongformerModel.call:23
+msgid ""
+"Mask to nullify selected heads of the attention modules. Mask values "
+"selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:23
+#: transformers.TFLongformerForMultipleChoice.call:23
+#: transformers.TFLongformerForQuestionAnswering.call:23
+#: transformers.TFLongformerForSequenceClassification.call:23
+#: transformers.TFLongformerForTokenClassification.call:23
+#: transformers.TFLongformerModel.call:23
+msgid ""
+"Mask to nullify selected heads of the attention modules. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:38
+#: transformers.TFLongformerForMultipleChoice.call:38
+#: transformers.TFLongformerForQuestionAnswering.call:38
+#: transformers.TFLongformerForSequenceClassification.call:38
+#: transformers.TFLongformerForTokenClassification.call:38
+#: transformers.TFLongformerModel.call:38
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:44
+#: transformers.TFLongformerForMultipleChoice.call:44
+#: transformers.TFLongformerForQuestionAnswering.call:44
+#: transformers.TFLongformerForSequenceClassification.call:44
+#: transformers.TFLongformerForTokenClassification.call:44
+#: transformers.TFLongformerModel.call:44
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:46
+#: transformers.TFLongformerForMultipleChoice.call:46
+#: transformers.TFLongformerForQuestionAnswering.call:46
+#: transformers.TFLongformerForSequenceClassification.call:46
+#: transformers.TFLongformerForTokenClassification.call:46
+#: transformers.TFLongformerModel.call:46
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:49
+#: transformers.TFLongformerForMultipleChoice.call:49
+#: transformers.TFLongformerForQuestionAnswering.call:49
+#: transformers.TFLongformerForSequenceClassification.call:49
+#: transformers.TFLongformerForTokenClassification.call:49
+#: transformers.TFLongformerModel.call:49
+msgid "`What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:55
+#: transformers.TFLongformerForMultipleChoice.call:55
+#: transformers.TFLongformerForQuestionAnswering.call:55
+#: transformers.TFLongformerForSequenceClassification.call:55
+#: transformers.TFLongformerForTokenClassification.call:55
+#: transformers.TFLongformerModel.call:55
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:59
+#: transformers.TFLongformerForMultipleChoice.call:59
+#: transformers.TFLongformerForQuestionAnswering.call:59
+#: transformers.TFLongformerForSequenceClassification.call:59
+#: transformers.TFLongformerForTokenClassification.call:59
+#: transformers.TFLongformerModel.call:59
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:63
+#: transformers.TFLongformerForMultipleChoice.call:63
+#: transformers.TFLongformerForQuestionAnswering.call:63
+#: transformers.TFLongformerForSequenceClassification.call:63
+#: transformers.TFLongformerForTokenClassification.call:63
+#: transformers.TFLongformerModel.call:63
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:66
+#: transformers.TFLongformerForMultipleChoice.call:66
+#: transformers.TFLongformerForQuestionAnswering.call:66
+#: transformers.TFLongformerForSequenceClassification.call:66
+#: transformers.TFLongformerForTokenClassification.call:66
+#: transformers.TFLongformerModel.call:66
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:207
+msgid "TFLongformerForMaskedLM"
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:1
+msgid ""
+"The :class:`~transformers.TFLongformerForMaskedLM` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:74
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LongformerConfig`) and "
+"inputs.  - **loss** (:obj:`tf.Tensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, x +"
+"   attention_window + 1)`, where ``x`` is the number of tokens with "
+"global attention mask.    Local attentions weights after the attention "
+"softmax, used to compute the weighted average in the   self-attention "
+"heads. Those are the attention weights from every token in the sequence "
+"to every token with   global attention (first ``x`` values) and to every "
+"token in the attention window (remaining   ``attention_window + 1`` "
+"values). Note that the first ``x`` values refer to tokens with fixed "
+"positions in   the text, but the remaining ``attention_window + 1`` "
+"values refer to tokens with relative positions: the   attention weight of"
+" a token to itself is located at index ``x + attention_window / 2`` and "
+"the   ``attention_window / 2`` preceding (succeeding) values are the "
+"attention weights to the ``attention_window   / 2`` preceding "
+"(succeeding) tokens. If the attention window contains a token with global"
+" attention, the   attention weight at the corresponding index is set to "
+"0; the value should be accessed from the first ``x``   attention weights."
+" If a token has global attention, the attention weights to all other "
+"tokens in   :obj:`attentions` is set to 0, the values should be accessed "
+"from :obj:`global_attentions`. - **global_attentions** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, x)`,"
+"   where ``x`` is the number of tokens with global attention mask.    "
+"Global attentions weights after the attention softmax, used to compute "
+"the weighted average in the   self-attention heads. Those are the "
+"attention weights from every token with global attention to every token"
+"   in the sequence."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:74
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LongformerConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:78
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Masked language modeling (MLM) loss."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:79
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:80
+#: transformers.TFLongformerForMultipleChoice.call:82
+#: transformers.TFLongformerForQuestionAnswering.call:85
+#: transformers.TFLongformerForSequenceClassification.call:76
+#: transformers.TFLongformerForTokenClassification.call:79
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:84
+#: transformers.TFLongformerForMultipleChoice.call:86
+#: transformers.TFLongformerForQuestionAnswering.call:89
+#: transformers.TFLongformerForSequenceClassification.call:80
+#: transformers.TFLongformerForTokenClassification.call:83
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, x + "
+"attention_window + 1)`, where ``x`` is the number of tokens with global "
+"attention mask."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:98
+#: transformers.TFLongformerForMultipleChoice.call:100
+#: transformers.TFLongformerForQuestionAnswering.call:103
+#: transformers.TFLongformerForSequenceClassification.call:94
+#: transformers.TFLongformerForTokenClassification.call:97
+msgid ""
+"**global_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when"
+" ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, x)`, "
+"where ``x`` is the number of tokens with global attention mask."
+msgstr ""
+
+#: of transformers.TFLongformerForMaskedLM.call:104
+msgid ""
+":class:`~transformers.models.longformer.modeling_tf_longformer.TFLongformerMaskedLMOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:214
+msgid "TFLongformerForQuestionAnswering"
+msgstr ""
+
+#: of transformers.TFLongformerForQuestionAnswering:1
+msgid ""
+"Longformer Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD / TriviaQA (a linear layer on top of "
+"the hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.TFLongformerForQuestionAnswering.call:1
+msgid ""
+"The :class:`~transformers.TFLongformerForQuestionAnswering` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFLongformerForQuestionAnswering.call:69
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.TFLongformerForQuestionAnswering.call:73
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (`sequence_length`). Position outside of the sequence are "
+"not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.TFLongformerForQuestionAnswering.call:78
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LongformerConfig`) and "
+"inputs.  - **loss** (:obj:`tf.Tensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions. - "
+"**start_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax). - "
+"**end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, x +"
+"   attention_window + 1)`, where ``x`` is the number of tokens with "
+"global attention mask.    Local attentions weights after the attention "
+"softmax, used to compute the weighted average in the   self-attention "
+"heads. Those are the attention weights from every token in the sequence "
+"to every token with   global attention (first ``x`` values) and to every "
+"token in the attention window (remaining   ``attention_window + 1`` "
+"values). Note that the first ``x`` values refer to tokens with fixed "
+"positions in   the text, but the remaining ``attention_window + 1`` "
+"values refer to tokens with relative positions: the   attention weight of"
+" a token to itself is located at index ``x + attention_window / 2`` and "
+"the   ``attention_window / 2`` preceding (succeeding) values are the "
+"attention weights to the ``attention_window   / 2`` preceding "
+"(succeeding) tokens. If the attention window contains a token with global"
+" attention, the   attention weight at the corresponding index is set to "
+"0; the value should be accessed from the first ``x``   attention weights."
+" If a token has global attention, the attention weights to all other "
+"tokens in   :obj:`attentions` is set to 0, the values should be accessed "
+"from :obj:`global_attentions`. - **global_attentions** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, x)`,"
+"   where ``x`` is the number of tokens with global attention mask.    "
+"Global attentions weights after the attention softmax, used to compute "
+"the weighted average in the   self-attention heads. Those are the "
+"attention weights from every token with global attention to every token"
+"   in the sequence."
+msgstr ""
+
+#: of transformers.TFLongformerForQuestionAnswering.call:78
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LongformerConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.TFLongformerForQuestionAnswering.call:82
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Total span extraction loss is the sum "
+"of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.TFLongformerForQuestionAnswering.call:83
+msgid ""
+"**start_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFLongformerForQuestionAnswering.call:84
+msgid ""
+"**end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFLongformerForQuestionAnswering.call:109
+msgid ""
+":class:`~transformers.models.longformer.modeling_tf_longformer.TFLongformerQuestionAnsweringModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:221
+msgid "TFLongformerForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFLongformerForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFLongformerForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFLongformerForSequenceClassification.call:70
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LongformerConfig`) and "
+"inputs.  - **loss** (:obj:`tf.Tensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, config.num_labels)`) -- Classification (or regression "
+"if config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, x +"
+"   attention_window + 1)`, where ``x`` is the number of tokens with "
+"global attention mask.    Local attentions weights after the attention "
+"softmax, used to compute the weighted average in the   self-attention "
+"heads. Those are the attention weights from every token in the sequence "
+"to every token with   global attention (first ``x`` values) and to every "
+"token in the attention window (remaining   ``attention_window + 1`` "
+"values). Note that the first ``x`` values refer to tokens with fixed "
+"positions in   the text, but the remaining ``attention_window + 1`` "
+"values refer to tokens with relative positions: the   attention weight of"
+" a token to itself is located at index ``x + attention_window / 2`` and "
+"the   ``attention_window / 2`` preceding (succeeding) values are the "
+"attention weights to the ``attention_window   / 2`` preceding "
+"(succeeding) tokens. If the attention window contains a token with global"
+" attention, the   attention weight at the corresponding index is set to "
+"0; the value should be accessed from the first ``x``   attention weights."
+" If a token has global attention, the attention weights to all other "
+"tokens in   :obj:`attentions` is set to 0, the values should be accessed "
+"from :obj:`global_attentions`. - **global_attentions** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, x)`,"
+"   where ``x`` is the number of tokens with global attention mask.    "
+"Global attentions weights after the attention softmax, used to compute "
+"the weighted average in the   self-attention heads. Those are the "
+"attention weights from every token with global attention to every token"
+"   in the sequence."
+msgstr ""
+
+#: of transformers.TFLongformerForSequenceClassification.call:70
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LongformerConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.TFLongformerForSequenceClassification.call:74
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification (or regression if "
+"config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFLongformerForSequenceClassification.call:75
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFLongformerForSequenceClassification.call:100
+msgid ""
+":class:`~transformers.models.longformer.modeling_tf_longformer.TFLongformerSequenceClassifierOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:228
+msgid "TFLongformerForTokenClassification"
+msgstr ""
+
+#: of transformers.TFLongformerForTokenClassification.call:1
+msgid ""
+"The :class:`~transformers.TFLongformerForTokenClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFLongformerForTokenClassification.call:73
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LongformerConfig`) and "
+"inputs.  - **loss** (:obj:`tf.Tensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss. - "
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.num_labels)`) -- Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, x +"
+"   attention_window + 1)`, where ``x`` is the number of tokens with "
+"global attention mask.    Local attentions weights after the attention "
+"softmax, used to compute the weighted average in the   self-attention "
+"heads. Those are the attention weights from every token in the sequence "
+"to every token with   global attention (first ``x`` values) and to every "
+"token in the attention window (remaining   ``attention_window + 1`` "
+"values). Note that the first ``x`` values refer to tokens with fixed "
+"positions in   the text, but the remaining ``attention_window + 1`` "
+"values refer to tokens with relative positions: the   attention weight of"
+" a token to itself is located at index ``x + attention_window / 2`` and "
+"the   ``attention_window / 2`` preceding (succeeding) values are the "
+"attention weights to the ``attention_window   / 2`` preceding "
+"(succeeding) tokens. If the attention window contains a token with global"
+" attention, the   attention weight at the corresponding index is set to "
+"0; the value should be accessed from the first ``x``   attention weights."
+" If a token has global attention, the attention weights to all other "
+"tokens in   :obj:`attentions` is set to 0, the values should be accessed "
+"from :obj:`global_attentions`. - **global_attentions** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, x)`,"
+"   where ``x`` is the number of tokens with global attention mask.    "
+"Global attentions weights after the attention softmax, used to compute "
+"the weighted average in the   self-attention heads. Those are the "
+"attention weights from every token with global attention to every token"
+"   in the sequence."
+msgstr ""
+
+#: of transformers.TFLongformerForTokenClassification.call:73
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LongformerConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.TFLongformerForTokenClassification.call:77
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(1,)`, `optional`, returned "
+"when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.TFLongformerForTokenClassification.call:78
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.num_labels)`) -- Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFLongformerForTokenClassification.call:103
+msgid ""
+":class:`~transformers.models.longformer.modeling_tf_longformer.TFLongformerTokenClassifierOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/longformer.rst:235
+msgid "TFLongformerForMultipleChoice"
+msgstr ""
+
+#: of transformers.TFLongformerForMultipleChoice.call:1
+msgid ""
+"The :class:`~transformers.TFLongformerForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFLongformerForMultipleChoice.call:69
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.TFLongformerForMultipleChoice.call:74
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LongformerConfig`) and "
+"inputs.  - **loss** (:obj:`tf.Tensor` of shape `(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss. - "
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, x +"
+"   attention_window + 1)`, where ``x`` is the number of tokens with "
+"global attention mask.    Local attentions weights after the attention "
+"softmax, used to compute the weighted average in the   self-attention "
+"heads. Those are the attention weights from every token in the sequence "
+"to every token with   global attention (first ``x`` values) and to every "
+"token in the attention window (remaining   ``attention_window + 1`` "
+"values). Note that the first ``x`` values refer to tokens with fixed "
+"positions in   the text, but the remaining ``attention_window + 1`` "
+"values refer to tokens with relative positions: the   attention weight of"
+" a token to itself is located at index ``x + attention_window / 2`` and "
+"the   ``attention_window / 2`` preceding (succeeding) values are the "
+"attention weights to the ``attention_window   / 2`` preceding "
+"(succeeding) tokens. If the attention window contains a token with global"
+" attention, the   attention weight at the corresponding index is set to "
+"0; the value should be accessed from the first ``x``   attention weights."
+" If a token has global attention, the attention weights to all other "
+"tokens in   :obj:`attentions` is set to 0, the values should be accessed "
+"from :obj:`global_attentions`. - **global_attentions** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, x)`,"
+"   where ``x`` is the number of tokens with global attention mask.    "
+"Global attentions weights after the attention softmax, used to compute "
+"the weighted average in the   self-attention heads. Those are the "
+"attention weights from every token with global attention to every token"
+"   in the sequence."
+msgstr ""
+
+#: of transformers.TFLongformerForMultipleChoice.call:74
+msgid ""
+"A "
+":class:`~transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LongformerConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.TFLongformerForMultipleChoice.call:78
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape `(1,)`, `optional`, returned when "
+":obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.TFLongformerForMultipleChoice.call:79
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.TFLongformerForMultipleChoice.call:106
+msgid ""
+":class:`~transformers.models.longformer.modeling_tf_longformer.TFLongformerMultipleChoiceModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+

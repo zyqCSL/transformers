@@ -1,0 +1,1339 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/ctrl.rst:14
+msgid "CTRL"
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:19
+msgid ""
+"CTRL model was proposed in `CTRL: A Conditional Transformer Language "
+"Model for Controllable Generation <https://arxiv.org/abs/1909.05858>`_ by"
+" Nitish Shirish Keskar*, Bryan McCann*, Lav R. Varshney, Caiming Xiong "
+"and Richard Socher. It's a causal (unidirectional) transformer pre-"
+"trained using language modeling on a very large corpus of ~140 GB of text"
+" data with the first token reserved as a control code (such as Links, "
+"Books, Wikipedia etc.)."
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:24
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:26
+msgid ""
+"*Large-scale language models show promising text generation capabilities,"
+" but users cannot easily control particular aspects of the generated "
+"text. We release CTRL, a 1.63 billion-parameter conditional transformer "
+"language model, trained to condition on control codes that govern style, "
+"content, and task-specific behavior. Control codes were derived from "
+"structure that naturally co-occurs with raw text, preserving the "
+"advantages of unsupervised learning while providing more explicit control"
+" over text generation. These codes also allow CTRL to predict which parts"
+" of the training data are most likely given a sequence. This provides a "
+"potential method for analyzing large amounts of data via model-based "
+"source attribution.*"
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:34
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:36
+msgid ""
+"CTRL makes use of control codes to generate text: it requires generations"
+" to be started by certain words, sentences or links to generate coherent "
+"text. Refer to the `original implementation "
+"<https://github.com/salesforce/ctrl>`__ for more information."
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:39
+msgid ""
+"CTRL is a model with absolute position embeddings so it's usually advised"
+" to pad the inputs on the right rather than the left."
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:41
+msgid ""
+"CTRL was trained with a causal language modeling (CLM) objective and is "
+"therefore powerful at predicting the next token in a sequence. Leveraging"
+" this feature allows CTRL to generate syntactically coherent text as it "
+"can be observed in the `run_generation.py` example script."
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:44
+msgid ""
+"The PyTorch models can take the `past` as input, which is the previously "
+"computed key/value attention pairs. Using this `past` value prevents the "
+"model from re-computing pre-computed values in the context of text "
+"generation. See `reusing the past in generative models "
+"<../quickstart.html#using-the-past>`__ for more information on the usage "
+"of this argument."
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:49
+msgid ""
+"This model was contributed by `keskarnitishr "
+"<https://huggingface.co/keskarnitishr>`__. The original code can be found"
+" `here <https://github.com/salesforce/ctrl>`__."
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:54
+msgid "CTRLConfig"
+msgstr ""
+
+#: of transformers.CTRLConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.CTRLModel` or a :class:`~transformers.TFCTRLModel`."
+" It is used to instantiate a CTRL model according to the specified "
+"arguments, defining the model architecture. Instantiating a configuration"
+" with the defaults will yield a similar configuration to that of the "
+"`ctrl <https://huggingface.co/ctrl>`__ architecture from SalesForce."
+msgstr ""
+
+#: of transformers.CTRLConfig:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.CTRLConfig transformers.CTRLForSequenceClassification
+#: transformers.CTRLForSequenceClassification.forward
+#: transformers.CTRLLMHeadModel transformers.CTRLLMHeadModel.forward
+#: transformers.CTRLModel transformers.CTRLModel.forward
+#: transformers.CTRLTokenizer transformers.CTRLTokenizer.save_vocabulary
+#: transformers.TFCTRLForSequenceClassification
+#: transformers.TFCTRLForSequenceClassification.call
+#: transformers.TFCTRLLMHeadModel transformers.TFCTRLLMHeadModel.call
+#: transformers.TFCTRLModel transformers.TFCTRLModel.call
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.CTRLConfig:9
+msgid ""
+"Vocabulary size of the CTRL model. Defines the number of different tokens"
+" that can be represented by the :obj:`inputs_ids` passed when calling "
+":class:`~transformers.CTRLModel` or :class:`~transformers.TFCTRLModel`."
+msgstr ""
+
+#: of transformers.CTRLConfig:13
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.CTRLConfig:16
+msgid "Dimensionality of the causal mask (usually same as n_positions)."
+msgstr ""
+
+#: of transformers.CTRLConfig:18
+msgid "Dimensionality of the embeddings and hidden states."
+msgstr ""
+
+#: of transformers.CTRLConfig:20
+msgid "Dimensionality of the inner dimension of the feed forward networks (FFN)."
+msgstr ""
+
+#: of transformers.CTRLConfig:22
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.CTRLConfig:24
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.CTRLConfig:26
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.CTRLConfig:28
+msgid "The dropout ratio for the embeddings."
+msgstr ""
+
+#: of transformers.CTRLConfig:30
+msgid "The dropout ratio for the attention."
+msgstr ""
+
+#: of transformers.CTRLConfig:32
+msgid "The epsilon to use in the layer normalization layers"
+msgstr ""
+
+#: of transformers.CTRLConfig:34
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.CTRLConfig:36
+msgid ""
+"Whether or not the model should return the last key/values attentions "
+"(not used by all models)."
+msgstr ""
+
+#: of transformers.CTRLConfig:39
+msgid "Examples::"
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:61
+msgid "CTRLTokenizer"
+msgstr ""
+
+#: of transformers.CTRLTokenizer:1
+msgid "Construct a CTRL tokenizer. Based on Byte-Pair-Encoding."
+msgstr ""
+
+#: of transformers.CTRLTokenizer:3
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.CTRLTokenizer:6
+msgid "Path to the vocabulary file."
+msgstr ""
+
+#: of transformers.CTRLTokenizer:8
+msgid "Path to the merges file."
+msgstr ""
+
+#: of transformers.CTRLTokenizer:10
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.CTRLTokenizer.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.CTRLTokenizer.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.CTRLTokenizer.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.CTRLTokenizer.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward
+#: transformers.CTRLLMHeadModel.forward transformers.CTRLModel.forward
+#: transformers.CTRLTokenizer.save_vocabulary
+#: transformers.TFCTRLForSequenceClassification.call
+#: transformers.TFCTRLLMHeadModel.call transformers.TFCTRLModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.CTRLTokenizer.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward
+#: transformers.CTRLLMHeadModel.forward transformers.CTRLModel.forward
+#: transformers.CTRLTokenizer.save_vocabulary
+#: transformers.TFCTRLForSequenceClassification.call
+#: transformers.TFCTRLLMHeadModel.call transformers.TFCTRLModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.CTRLTokenizer.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:68
+msgid "CTRLModel"
+msgstr ""
+
+#: of transformers.CTRLModel:1 transformers.TFCTRLModel:1
+msgid ""
+"The bare CTRL Model transformer outputting raw hidden-states without any "
+"specific head on top."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification:10
+#: transformers.CTRLLMHeadModel:5 transformers.CTRLModel:3
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification:14
+#: transformers.CTRLLMHeadModel:9 transformers.CTRLModel:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification:18
+#: transformers.CTRLLMHeadModel:13 transformers.CTRLModel:11
+#: transformers.TFCTRLForSequenceClassification:40
+#: transformers.TFCTRLLMHeadModel:32 transformers.TFCTRLModel:30
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.CTRLModel.forward:1
+msgid ""
+"The :class:`~transformers.CTRLModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:4
+#: transformers.CTRLLMHeadModel.forward:4 transformers.CTRLModel.forward:4
+#: transformers.TFCTRLForSequenceClassification.call:4
+#: transformers.TFCTRLLMHeadModel.call:4 transformers.TFCTRLModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:8
+#: transformers.CTRLLMHeadModel.forward:8 transformers.CTRLModel.forward:8
+msgid ""
+":obj:`input_ids_length` = ``sequence_length`` if :obj:`past_key_values` "
+"is ``None`` else ``past_key_values[0].shape[-2]`` (``sequence_length`` of"
+" input past key value states). Indices of input sequence tokens in the "
+"vocabulary.  If :obj:`past_key_values` is used, only input IDs that do "
+"not have their past calculated should be passed as ``input_ids``.  "
+"Indices can be obtained using :class:`~transformers.CTRLTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.__call__` and "
+":meth:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:8
+#: transformers.CTRLLMHeadModel.forward:8 transformers.CTRLModel.forward:8
+msgid ""
+":obj:`input_ids_length` = ``sequence_length`` if :obj:`past_key_values` "
+"is ``None`` else ``past_key_values[0].shape[-2]`` (``sequence_length`` of"
+" input past key value states). Indices of input sequence tokens in the "
+"vocabulary."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:12
+#: transformers.CTRLLMHeadModel.forward:12 transformers.CTRLModel.forward:12
+msgid ""
+"If :obj:`past_key_values` is used, only input IDs that do not have their "
+"past calculated should be passed as ``input_ids``."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:15
+#: transformers.CTRLLMHeadModel.forward:15 transformers.CTRLModel.forward:15
+#: transformers.TFCTRLForSequenceClassification.call:16
+#: transformers.TFCTRLLMHeadModel.call:16 transformers.TFCTRLModel.call:16
+msgid ""
+"Indices can be obtained using :class:`~transformers.CTRLTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.__call__` and "
+":meth:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:19
+#: transformers.CTRLLMHeadModel.forward:19 transformers.CTRLModel.forward:19
+#: transformers.TFCTRLForSequenceClassification.call:20
+#: transformers.TFCTRLLMHeadModel.call:20 transformers.TFCTRLModel.call:20
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:21
+#: transformers.CTRLLMHeadModel.forward:21 transformers.CTRLModel.forward:21
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) as computed by the model (see :obj:`past_key_values` output "
+"below). Can be used to speed up sequential decoding. The ``input_ids`` "
+"which have their past given to this model should not be passed as input "
+"ids as they have already been computed."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:25
+#: transformers.CTRLLMHeadModel.forward:25 transformers.CTRLModel.forward:25
+#: transformers.TFCTRLForSequenceClassification.call:26
+#: transformers.TFCTRLLMHeadModel.call:26 transformers.TFCTRLModel.call:26
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:25
+#: transformers.CTRLLMHeadModel.forward:25 transformers.CTRLModel.forward:25
+#: transformers.TFCTRLForSequenceClassification.call:26
+#: transformers.TFCTRLLMHeadModel.call:26 transformers.TFCTRLModel.call:26
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:27
+#: transformers.CTRLLMHeadModel.forward:27 transformers.CTRLModel.forward:27
+#: transformers.TFCTRLForSequenceClassification.call:28
+#: transformers.TFCTRLLMHeadModel.call:28 transformers.TFCTRLModel.call:28
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:28
+#: transformers.CTRLLMHeadModel.forward:28 transformers.CTRLModel.forward:28
+#: transformers.TFCTRLForSequenceClassification.call:29
+#: transformers.TFCTRLLMHeadModel.call:29 transformers.TFCTRLModel.call:29
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:30
+#: transformers.CTRLLMHeadModel.forward:30 transformers.CTRLModel.forward:30
+#: transformers.TFCTRLForSequenceClassification.call:31
+#: transformers.TFCTRLLMHeadModel.call:31 transformers.TFCTRLModel.call:31
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:32
+#: transformers.CTRLLMHeadModel.forward:32 transformers.CTRLModel.forward:32
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:32
+#: transformers.CTRLLMHeadModel.forward:32 transformers.CTRLModel.forward:32
+#: transformers.TFCTRLForSequenceClassification.call:33
+#: transformers.TFCTRLLMHeadModel.call:33 transformers.TFCTRLModel.call:33
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:35
+#: transformers.CTRLLMHeadModel.forward:35 transformers.CTRLModel.forward:35
+#: transformers.TFCTRLForSequenceClassification.call:36
+#: transformers.TFCTRLLMHeadModel.call:36 transformers.TFCTRLModel.call:36
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:36
+#: transformers.CTRLLMHeadModel.forward:36 transformers.CTRLModel.forward:36
+#: transformers.TFCTRLForSequenceClassification.call:37
+#: transformers.TFCTRLLMHeadModel.call:37 transformers.TFCTRLModel.call:37
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:38
+#: transformers.CTRLLMHeadModel.forward:38 transformers.CTRLModel.forward:38
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:40
+#: transformers.CTRLLMHeadModel.forward:40 transformers.CTRLModel.forward:40
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:40
+#: transformers.CTRLLMHeadModel.forward:40 transformers.CTRLModel.forward:40
+#: transformers.TFCTRLForSequenceClassification.call:41
+#: transformers.TFCTRLLMHeadModel.call:41 transformers.TFCTRLModel.call:41
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:43
+#: transformers.CTRLLMHeadModel.forward:43 transformers.CTRLModel.forward:43
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:45
+#: transformers.CTRLLMHeadModel.forward:45 transformers.CTRLModel.forward:45
+#: transformers.TFCTRLForSequenceClassification.call:46
+#: transformers.TFCTRLLMHeadModel.call:46 transformers.TFCTRLModel.call:46
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:45
+#: transformers.CTRLLMHeadModel.forward:45 transformers.CTRLModel.forward:45
+#: transformers.TFCTRLForSequenceClassification.call:46
+#: transformers.TFCTRLLMHeadModel.call:46 transformers.TFCTRLModel.call:46
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:47
+#: transformers.CTRLLMHeadModel.forward:47 transformers.CTRLModel.forward:47
+#: transformers.TFCTRLForSequenceClassification.call:48
+#: transformers.TFCTRLLMHeadModel.call:48 transformers.TFCTRLModel.call:48
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:48
+#: transformers.CTRLLMHeadModel.forward:48 transformers.CTRLModel.forward:48
+#: transformers.TFCTRLForSequenceClassification.call:49
+#: transformers.TFCTRLLMHeadModel.call:49 transformers.TFCTRLModel.call:49
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:50
+#: transformers.CTRLLMHeadModel.forward:50 transformers.CTRLModel.forward:50
+#: transformers.TFCTRLForSequenceClassification.call:51
+#: transformers.TFCTRLLMHeadModel.call:51 transformers.TFCTRLModel.call:51
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:54
+#: transformers.CTRLLMHeadModel.forward:54 transformers.CTRLModel.forward:54
+msgid ""
+"If set to :obj:`True`, :obj:`past_key_values` key value states are "
+"returned and can be used to speed up decoding (see "
+":obj:`past_key_values`)."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:57
+#: transformers.CTRLLMHeadModel.forward:57 transformers.CTRLModel.forward:57
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:60
+#: transformers.CTRLLMHeadModel.forward:60 transformers.CTRLModel.forward:60
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:63
+#: transformers.CTRLLMHeadModel.forward:63 transformers.CTRLModel.forward:63
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.CTRLModel.forward:66
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutputWithPast` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.CTRLConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model.    If "
+":obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size,   1, hidden_size)` is output. - "
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors   of "
+"shape :obj:`(batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`) and optionally if   "
+"``config.is_encoder_decoder=True`` 2 additional tensors of shape "
+":obj:`(batch_size, num_heads,   encoder_sequence_length, "
+"embed_size_per_head)`.    Contains pre-computed hidden-states (key and "
+"values in the self-attention blocks and optionally if   "
+"``config.is_encoder_decoder=True`` in the cross-attention blocks) that "
+"can be used (see   :obj:`past_key_values` input) to speed up sequential "
+"decoding. - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.CTRLModel.forward:66
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutputWithPast` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.CTRLConfig`) and inputs."
+msgstr ""
+
+#: of transformers.CTRLModel.forward:70
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.CTRLModel.forward:72 transformers.TFCTRLModel.call:79
+msgid ""
+"If :obj:`past_key_values` is used only the last hidden-state of the "
+"sequences of shape :obj:`(batch_size, 1, hidden_size)` is output."
+msgstr ""
+
+#: of transformers.CTRLModel.forward:74
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`) "
+"and optionally if ``config.is_encoder_decoder=True`` 2 additional tensors"
+" of shape :obj:`(batch_size, num_heads, encoder_sequence_length, "
+"embed_size_per_head)`."
+msgstr ""
+
+#: of transformers.CTRLModel.forward:79
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks and optionally if ``config.is_encoder_decoder=True`` in the "
+"cross-attention blocks) that can be used (see :obj:`past_key_values` "
+"input) to speed up sequential decoding."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:76
+#: transformers.CTRLLMHeadModel.forward:81 transformers.CTRLModel.forward:82
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:79
+#: transformers.CTRLLMHeadModel.forward:84 transformers.CTRLModel.forward:85
+#: transformers.TFCTRLForSequenceClassification.call:85
+#: transformers.TFCTRLLMHeadModel.call:90 transformers.TFCTRLModel.call:89
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:80
+#: transformers.CTRLLMHeadModel.forward:85 transformers.CTRLModel.forward:86
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:83
+#: transformers.CTRLLMHeadModel.forward:88 transformers.CTRLModel.forward:89
+#: transformers.TFCTRLForSequenceClassification.call:89
+#: transformers.TFCTRLLMHeadModel.call:94 transformers.TFCTRLModel.call:93
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.CTRLModel.forward:91
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPast` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:87
+#: transformers.CTRLLMHeadModel.forward:92 transformers.CTRLModel.forward:93
+#: transformers.TFCTRLForSequenceClassification.call:93
+#: transformers.TFCTRLLMHeadModel.call:98 transformers.TFCTRLModel.call:97
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:75
+msgid "CTRLLMHeadModel"
+msgstr ""
+
+#: of transformers.CTRLLMHeadModel:1 transformers.TFCTRLLMHeadModel:1
+msgid ""
+"The CTRL Model transformer with a language modeling head on top (linear "
+"layer with weights tied to the input embeddings)."
+msgstr ""
+
+#: of transformers.CTRLLMHeadModel.forward:1
+msgid ""
+"The :class:`~transformers.CTRLLMHeadModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.CTRLLMHeadModel.forward:65
+msgid ""
+"Labels for language modeling. Note that the labels **are shifted** inside"
+" the model, i.e. you can set ``labels = input_ids`` Indices are selected "
+"in ``[-100, 0, ..., config.vocab_size]`` All labels set to ``-100`` are "
+"ignored (masked), the loss is only computed for labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.CTRLLMHeadModel.forward:70
+msgid ""
+"A :class:`~transformers.modeling_outputs.CausalLMOutputWithPast` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.CTRLConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss (for "
+"next-token prediction). - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **past_key_values** "
+"(:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- Tuple "
+"of :obj:`tuple(torch.FloatTensor)` of length :obj:`config.n_layers`, with"
+" each tuple having 2 tensors   of shape :obj:`(batch_size, num_heads, "
+"sequence_length, embed_size_per_head)`)    Contains pre-computed hidden-"
+"states (key and values in the self-attention blocks) that can be used "
+"(see   :obj:`past_key_values` input) to speed up sequential decoding. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.CTRLLMHeadModel.forward:70
+msgid ""
+"A :class:`~transformers.modeling_outputs.CausalLMOutputWithPast` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.CTRLConfig`) and inputs."
+msgstr ""
+
+#: of transformers.CTRLLMHeadModel.forward:74
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Language modeling loss (for "
+"next-token prediction)."
+msgstr ""
+
+#: of transformers.CTRLLMHeadModel.forward:75
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.CTRLLMHeadModel.forward:76
+msgid ""
+"**past_key_values** (:obj:`tuple(tuple(torch.FloatTensor))`, `optional`, "
+"returned when ``use_cache=True`` is passed or when "
+"``config.use_cache=True``) -- Tuple of :obj:`tuple(torch.FloatTensor)` of"
+" length :obj:`config.n_layers`, with each tuple having 2 tensors of shape"
+" :obj:`(batch_size, num_heads, sequence_length, embed_size_per_head)`)"
+msgstr ""
+
+#: of transformers.CTRLLMHeadModel.forward:79
+msgid ""
+"Contains pre-computed hidden-states (key and values in the self-attention"
+" blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.CTRLLMHeadModel.forward:90
+msgid ""
+":class:`~transformers.modeling_outputs.CausalLMOutputWithPast` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:82
+msgid "CTRLForSequenceClassification"
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification:1
+msgid ""
+"The CTRL Model transformer with a sequence classification head on top "
+"(linear layer). :class:`~transformers.CTRLForSequenceClassification` uses"
+" the last token in order to do the classification, as other causal models"
+" (e.g. GPT-2) do. Since it does classification on the last token, it "
+"requires to know the position of the last token. If a :obj:`pad_token_id`"
+" is defined in the configuration, it finds the last token that is not a "
+"padding token in each row. If no :obj:`pad_token_id` is defined, it "
+"simply takes the last value in each row of the batch. Since it cannot "
+"guess the padding tokens when :obj:`inputs_embeds` are passed instead of "
+":obj:`input_ids`, it does the same (take the last value in each row of "
+"the batch)."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.CTRLForSequenceClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:65
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:70
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.CTRLConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:70
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.CTRLConfig`) and inputs."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:74
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:75
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.CTRLForSequenceClassification.forward:85
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:89
+msgid "TFCTRLModel"
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification:13
+#: transformers.TFCTRLLMHeadModel:5 transformers.TFCTRLModel:3
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification:17
+#: transformers.TFCTRLLMHeadModel:9 transformers.TFCTRLModel:7
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification:23
+#: transformers.TFCTRLLMHeadModel:15 transformers.TFCTRLModel:13
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification:25
+#: transformers.TFCTRLLMHeadModel:17 transformers.TFCTRLModel:15
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification:26
+#: transformers.TFCTRLLMHeadModel:18 transformers.TFCTRLModel:16
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification:28
+#: transformers.TFCTRLLMHeadModel:20 transformers.TFCTRLModel:18
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification:31
+#: transformers.TFCTRLLMHeadModel:23 transformers.TFCTRLModel:21
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification:34
+#: transformers.TFCTRLLMHeadModel:26 transformers.TFCTRLModel:24
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification:35
+#: transformers.TFCTRLLMHeadModel:27 transformers.TFCTRLModel:25
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification:37
+#: transformers.TFCTRLLMHeadModel:29 transformers.TFCTRLModel:27
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFCTRLModel.call:1
+msgid ""
+"The :class:`~transformers.TFCTRLModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:8
+#: transformers.TFCTRLLMHeadModel.call:8 transformers.TFCTRLModel.call:8
+msgid ""
+":obj:`input_ids_length` = ``sequence_length`` if ``past`` is ``None`` "
+"else ``past[0].shape[-2]`` (``sequence_length`` of input past key value "
+"states).  Indices of input sequence tokens in the vocabulary.  If "
+":obj:`past` is used, only input IDs that do not have their past "
+"calculated should be passed as ``input_ids``.  Indices can be obtained "
+"using :class:`~transformers.CTRLTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.__call__` and "
+":meth:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:8
+#: transformers.TFCTRLLMHeadModel.call:8 transformers.TFCTRLModel.call:8
+msgid ""
+":obj:`input_ids_length` = ``sequence_length`` if ``past`` is ``None`` "
+"else ``past[0].shape[-2]`` (``sequence_length`` of input past key value "
+"states)."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:11
+#: transformers.TFCTRLLMHeadModel.call:11 transformers.TFCTRLModel.call:11
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:13
+#: transformers.TFCTRLLMHeadModel.call:13 transformers.TFCTRLModel.call:13
+msgid ""
+"If :obj:`past` is used, only input IDs that do not have their past "
+"calculated should be passed as ``input_ids``."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:22
+#: transformers.TFCTRLLMHeadModel.call:22 transformers.TFCTRLModel.call:22
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) as computed by the model (see :obj:`past` output below). Can be "
+"used to speed up sequential decoding. The token ids which have their past"
+" given to this model should not be passed as input ids as they have "
+"already been computed."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:33
+#: transformers.TFCTRLLMHeadModel.call:33 transformers.TFCTRLModel.call:33
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:39
+#: transformers.TFCTRLLMHeadModel.call:39 transformers.TFCTRLModel.call:39
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:41
+#: transformers.TFCTRLLMHeadModel.call:41 transformers.TFCTRLModel.call:41
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:44
+#: transformers.TFCTRLLMHeadModel.call:44 transformers.TFCTRLModel.call:44
+msgid "`What are position IDs? <../glossary.html#position-ids>`__"
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:55
+#: transformers.TFCTRLLMHeadModel.call:55 transformers.TFCTRLModel.call:55
+msgid ""
+"If set to :obj:`True`, ``past`` key value states are returned and can be "
+"used to speed up decoding (see ``past``)."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:58
+#: transformers.TFCTRLLMHeadModel.call:58 transformers.TFCTRLModel.call:58
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:62
+#: transformers.TFCTRLLMHeadModel.call:62 transformers.TFCTRLModel.call:62
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:66
+#: transformers.TFCTRLLMHeadModel.call:66 transformers.TFCTRLModel.call:66
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:69
+#: transformers.TFCTRLLMHeadModel.call:69 transformers.TFCTRLModel.call:69
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFCTRLModel.call:73
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPast` or"
+" a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.CTRLConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model.    If :obj:`past_key_values` is "
+"used only the last hidden-state of the sequences of shape "
+":obj:`(batch_size,   1, hidden_size)` is output. - **past_key_values** "
+"(:obj:`List[tf.Tensor]`, `optional`, returned when ``use_cache=True`` is "
+"passed or when ``config.use_cache=True``) -- List of :obj:`tf.Tensor` of "
+"length :obj:`config.n_layers`, with each tensor of shape :obj:`(2, "
+"batch_size,   num_heads, sequence_length, embed_size_per_head)`).    "
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see   :obj:`past_key_values` input) to speed up"
+" sequential decoding. - **hidden_states** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFCTRLModel.call:73
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPast` or"
+" a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.CTRLConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFCTRLModel.call:77
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.TFCTRLLMHeadModel.call:82 transformers.TFCTRLModel.call:81
+msgid ""
+"**past_key_values** (:obj:`List[tf.Tensor]`, `optional`, returned when "
+"``use_cache=True`` is passed or when ``config.use_cache=True``) -- List "
+"of :obj:`tf.Tensor` of length :obj:`config.n_layers`, with each tensor of"
+" shape :obj:`(2, batch_size, num_heads, sequence_length, "
+"embed_size_per_head)`)."
+msgstr ""
+
+#: of transformers.TFCTRLLMHeadModel.call:85 transformers.TFCTRLModel.call:84
+msgid ""
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see :obj:`past_key_values` input) to speed up "
+"sequential decoding."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:82
+#: transformers.TFCTRLLMHeadModel.call:87 transformers.TFCTRLModel.call:86
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:86
+#: transformers.TFCTRLLMHeadModel.call:91 transformers.TFCTRLModel.call:90
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFCTRLModel.call:95
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPast` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:96
+msgid "TFCTRLLMHeadModel"
+msgstr ""
+
+#: of transformers.TFCTRLLMHeadModel.call:1
+msgid ""
+"The :class:`~transformers.TFCTRLLMHeadModel` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:72
+#: transformers.TFCTRLLMHeadModel.call:72
+msgid ""
+"Labels for computing the cross entropy classification loss. Indices "
+"should be in ``[0, ..., config.vocab_size - 1]``."
+msgstr ""
+
+#: of transformers.TFCTRLLMHeadModel.call:76
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFCausalLMOutputWithPast` or "
+"a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.CTRLConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Language modeling loss (for next-token prediction). - **logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length, "
+"config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax). - **past_key_values** "
+"(:obj:`List[tf.Tensor]`, `optional`, returned when ``use_cache=True`` is "
+"passed or when ``config.use_cache=True``) -- List of :obj:`tf.Tensor` of "
+"length :obj:`config.n_layers`, with each tensor of shape :obj:`(2, "
+"batch_size,   num_heads, sequence_length, embed_size_per_head)`).    "
+"Contains pre-computed hidden-states (key and values in the attention "
+"blocks) that can be used (see   :obj:`past_key_values` input) to speed up"
+" sequential decoding. - **hidden_states** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFCTRLLMHeadModel.call:76
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFCausalLMOutputWithPast` or "
+"a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.CTRLConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFCTRLLMHeadModel.call:80
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Language modeling loss (for next-token prediction)."
+msgstr ""
+
+#: of transformers.TFCTRLLMHeadModel.call:81
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFCTRLLMHeadModel.call:96
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFCausalLMOutputWithPast` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/ctrl.rst:102
+msgid "TFCTRLForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification:1
+msgid ""
+"The CTRL Model transformer with a sequence classification head on top "
+"(linear layer)."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification:3
+msgid ""
+":class:`~transformers.TFCTRLForSequenceClassification` uses the last "
+"token in order to do the classification, as other causal models (e.g. "
+"GPT-1, GPT-2) do."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification:6
+msgid ""
+"Since it does classification on the last token, it requires to know the "
+"position of the last token. If a :obj:`pad_token_id` is defined in the "
+"configuration, it finds the last token that is not a padding token in "
+"each row. If no :obj:`pad_token_id` is defined, it simply takes the last "
+"value in each row of the batch. Since it cannot guess the padding tokens "
+"when :obj:`inputs_embeds` are passed instead of :obj:`input_ids`, it does"
+" the same (take the last value in each row of the batch)."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFCTRLForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:76
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.CTRLConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, config.num_labels)`) -- Classification (or regression "
+"if config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:76
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.CTRLConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:80
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:81
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFCTRLForSequenceClassification.call:91
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+

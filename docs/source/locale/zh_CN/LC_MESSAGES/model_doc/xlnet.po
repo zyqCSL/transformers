@@ -1,0 +1,3300 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/xlnet.rst:14
+msgid "XLNet"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:19
+msgid ""
+"The XLNet model was proposed in `XLNet: Generalized Autoregressive "
+"Pretraining for Language Understanding "
+"<https://arxiv.org/abs/1906.08237>`_ by Zhilin Yang, Zihang Dai, Yiming "
+"Yang, Jaime Carbonell, Ruslan Salakhutdinov, Quoc V. Le. XLnet is an "
+"extension of the Transformer-XL model pre-trained using an autoregressive"
+" method to learn bidirectional contexts by maximizing the expected "
+"likelihood over all permutations of the input sequence factorization "
+"order."
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:25
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:27
+msgid ""
+"*With the capability of modeling bidirectional contexts, denoising "
+"autoencoding based pretraining like BERT achieves better performance than"
+" pretraining approaches based on autoregressive language modeling. "
+"However, relying on corrupting the input with masks, BERT neglects "
+"dependency between the masked positions and suffers from a pretrain-"
+"finetune discrepancy. In light of these pros and cons, we propose XLNet, "
+"a generalized autoregressive pretraining method that (1) enables learning"
+" bidirectional contexts by maximizing the expected likelihood over all "
+"permutations of the factorization order and (2) overcomes the limitations"
+" of BERT thanks to its autoregressive formulation. Furthermore, XLNet "
+"integrates ideas from Transformer-XL, the state-of-the-art autoregressive"
+" model, into pretraining. Empirically, under comparable experiment "
+"settings, XLNet outperforms BERT on 20 tasks, often by a large margin, "
+"including question answering, natural language inference, sentiment "
+"analysis, and document ranking.*"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:37
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:39
+msgid ""
+"The specific attention pattern can be controlled at training and test "
+"time using the :obj:`perm_mask` input."
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:40
+msgid ""
+"Due to the difficulty of training a fully auto-regressive model over "
+"various factorization order, XLNet is pretrained using only a sub-set of "
+"the output tokens as target which are selected with the "
+":obj:`target_mapping` input."
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:42
+msgid ""
+"To use XLNet for sequential decoding (i.e. not in fully bi-directional "
+"setting), use the :obj:`perm_mask` and :obj:`target_mapping` inputs to "
+"control the attention span and outputs (see examples in `examples/pytorch"
+"/text-generation/run_generation.py`)"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:45
+msgid "XLNet is one of the few models that has no sequence length limit."
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:47
+msgid ""
+"This model was contributed by `thomwolf "
+"<https://huggingface.co/thomwolf>`__. The original code can be found "
+"`here <https://github.com/zihangdai/xlnet/>`__."
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:52
+msgid "XLNetConfig"
+msgstr ""
+
+#: of transformers.XLNetConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.XLNetModel` or a "
+":class:`~transformers.TFXLNetModel`. It is used to instantiate a XLNet "
+"model according to the specified arguments, defining the model "
+"architecture. Instantiating a configuration with the defaults will yield "
+"a similar configuration to that of the `xlnet-large-cased "
+"<https://huggingface.co/xlnet-large-cased>`__ architecture."
+msgstr ""
+
+#: of transformers.XLNetConfig:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice
+#: transformers.TFXLNetForMultipleChoice.call
+#: transformers.TFXLNetForQuestionAnsweringSimple
+#: transformers.TFXLNetForQuestionAnsweringSimple.call
+#: transformers.TFXLNetForSequenceClassification
+#: transformers.TFXLNetForSequenceClassification.call
+#: transformers.TFXLNetForTokenClassification
+#: transformers.TFXLNetForTokenClassification.call
+#: transformers.TFXLNetLMHeadModel transformers.TFXLNetLMHeadModel.call
+#: transformers.TFXLNetModel transformers.TFXLNetModel.call
+#: transformers.XLNetConfig transformers.XLNetForMultipleChoice
+#: transformers.XLNetForMultipleChoice.forward
+#: transformers.XLNetForQuestionAnswering
+#: transformers.XLNetForQuestionAnswering.forward
+#: transformers.XLNetForQuestionAnsweringSimple
+#: transformers.XLNetForQuestionAnsweringSimple.forward
+#: transformers.XLNetForSequenceClassification
+#: transformers.XLNetForSequenceClassification.forward
+#: transformers.XLNetForTokenClassification
+#: transformers.XLNetForTokenClassification.forward
+#: transformers.XLNetLMHeadModel transformers.XLNetLMHeadModel.forward
+#: transformers.XLNetModel transformers.XLNetModel.forward
+#: transformers.XLNetTokenizer
+#: transformers.XLNetTokenizer.build_inputs_with_special_tokens
+#: transformers.XLNetTokenizer.create_token_type_ids_from_sequences
+#: transformers.XLNetTokenizer.get_special_tokens_mask
+#: transformers.XLNetTokenizer.save_vocabulary transformers.XLNetTokenizerFast
+#: transformers.XLNetTokenizerFast.build_inputs_with_special_tokens
+#: transformers.XLNetTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.XLNetTokenizerFast.save_vocabulary
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForQuestionAnsweringSimpleOutput
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForSequenceClassificationOutput
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForTokenClassificationOutput
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetModelOutput
+#: transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringSimpleOutput
+#: transformers.models.xlnet.modeling_xlnet.XLNetForSequenceClassificationOutput
+#: transformers.models.xlnet.modeling_xlnet.XLNetForTokenClassificationOutput
+#: transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput
+#: transformers.models.xlnet.modeling_xlnet.XLNetModelOutput
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.XLNetConfig:9
+msgid ""
+"Vocabulary size of the XLNet model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.XLNetModel` or "
+":class:`~transformers.TFXLNetModel`."
+msgstr ""
+
+#: of transformers.XLNetConfig:13
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.XLNetConfig:15
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.XLNetConfig:17
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.XLNetConfig:19
+msgid ""
+"Dimensionality of the \"intermediate\" (often named feed-forward) layer "
+"in the Transformer encoder."
+msgstr ""
+
+#: of transformers.XLNetConfig:21
+msgid ""
+"The non-linear activation function (function or string) in the If string,"
+" :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` and "
+":obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.XLNetConfig:24
+msgid "Whether or not to untie relative position biases"
+msgstr ""
+
+#: of transformers.XLNetConfig:26
+msgid ""
+"The attention type used by the model. Set :obj:`\"bi\"` for XLNet, "
+":obj:`\"uni\"` for Transformer-XL."
+msgstr ""
+
+#: of transformers.XLNetConfig:28
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.XLNetConfig:30
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.XLNetConfig:32
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.XLNetConfig:34
+msgid ""
+"The number of tokens to cache. The key/value pairs that have already been"
+" pre-computed in a previous forward pass won't be re-computed. See the "
+"`quickstart <https://huggingface.co/transformers/quickstart.html#using-"
+"the-past>`__ for more information."
+msgstr ""
+
+#: of transformers.XLNetConfig:38
+msgid ""
+"The number of tokens in the current batch to be cached and reused in the "
+"future."
+msgstr ""
+
+#: of transformers.XLNetConfig:40
+msgid ""
+"Whether or not to use bidirectional input pipeline. Usually set to "
+":obj:`True` during pretraining and :obj:`False` during finetuning."
+msgstr ""
+
+#: of transformers.XLNetConfig:43
+msgid ""
+"Clamp all relative distances larger than clamp_len. Setting this "
+"attribute to -1 means no clamping."
+msgstr ""
+
+#: of transformers.XLNetConfig:45
+msgid "Whether or not to use the same attention length for each token."
+msgstr ""
+
+#: of transformers.XLNetConfig:47
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models.  Has to be one of the "
+"following options:      - :obj:`\"last\"`: Take the last token hidden "
+"state (like XLNet).     - :obj:`\"first\"`: Take the first token hidden "
+"state (like BERT).     - :obj:`\"mean\"`: Take the mean of all tokens "
+"hidden states.     - :obj:`\"cls_index\"`: Supply a Tensor of "
+"classification token position (like GPT/GPT-2).     - :obj:`\"attn\"`: "
+"Not implemented now, use multi-head attention."
+msgstr ""
+
+#: of transformers.XLNetConfig:47 transformers.XLNetConfig:57
+#: transformers.XLNetConfig:61
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models."
+msgstr ""
+
+#: of transformers.XLNetConfig:49
+msgid "Has to be one of the following options:"
+msgstr ""
+
+#: of transformers.XLNetConfig:51
+msgid ":obj:`\"last\"`: Take the last token hidden state (like XLNet)."
+msgstr ""
+
+#: of transformers.XLNetConfig:52
+msgid ":obj:`\"first\"`: Take the first token hidden state (like BERT)."
+msgstr ""
+
+#: of transformers.XLNetConfig:53
+msgid ":obj:`\"mean\"`: Take the mean of all tokens hidden states."
+msgstr ""
+
+#: of transformers.XLNetConfig:54
+msgid ""
+":obj:`\"cls_index\"`: Supply a Tensor of classification token position "
+"(like GPT/GPT-2)."
+msgstr ""
+
+#: of transformers.XLNetConfig:55
+msgid ":obj:`\"attn\"`: Not implemented now, use multi-head attention."
+msgstr ""
+
+#: of transformers.XLNetConfig:57
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models.  Whether or not to add a "
+"projection after the vector extraction."
+msgstr ""
+
+#: of transformers.XLNetConfig:59
+msgid "Whether or not to add a projection after the vector extraction."
+msgstr ""
+
+#: of transformers.XLNetConfig:61
+msgid ""
+"Argument used when doing sequence summary. Used in the sequence "
+"classification and multiple choice models.  Pass :obj:`\"tanh\"` for a "
+"tanh activation to the output, any other value will result in no "
+"activation."
+msgstr ""
+
+#: of transformers.XLNetConfig:63
+msgid ""
+"Pass :obj:`\"tanh\"` for a tanh activation to the output, any other value"
+" will result in no activation."
+msgstr ""
+
+#: of transformers.XLNetConfig:65
+msgid ""
+"Used in the sequence classification and multiple choice models.  Whether "
+"the projection outputs should have :obj:`config.num_labels` or "
+":obj:`config.hidden_size` classes."
+msgstr ""
+
+#: of transformers.XLNetConfig:65 transformers.XLNetConfig:69
+msgid "Used in the sequence classification and multiple choice models."
+msgstr ""
+
+#: of transformers.XLNetConfig:67
+msgid ""
+"Whether the projection outputs should have :obj:`config.num_labels` or "
+":obj:`config.hidden_size` classes."
+msgstr ""
+
+#: of transformers.XLNetConfig:69
+msgid ""
+"Used in the sequence classification and multiple choice models.  The "
+"dropout ratio to be used after the projection and activation."
+msgstr ""
+
+#: of transformers.XLNetConfig:71
+msgid "The dropout ratio to be used after the projection and activation."
+msgstr ""
+
+#: of transformers.XLNetConfig:73 transformers.XLNetConfig:75
+msgid "Used in the SQuAD evaluation script."
+msgstr ""
+
+#: of transformers.XLNetConfig:77
+msgid ""
+"Whether or not the model should make use of the recurrent memory "
+"mechanism in evaluation mode."
+msgstr ""
+
+#: of transformers.XLNetConfig:79
+msgid ""
+"Whether or not the model should make use of the recurrent memory "
+"mechanism in train mode.  .. note::     For pretraining, it is "
+"recommended to set ``use_mems_train`` to :obj:`True`. For fine-tuning, it"
+" is     recommended to set ``use_mems_train`` to :obj:`False` as "
+"discussed `here     "
+"<https://github.com/zihangdai/xlnet/issues/41#issuecomment-505102587>`__."
+" If ``use_mems_train`` is set     to :obj:`True`, one has to make sure "
+"that the train batches are correctly pre-processed, `e.g.`     "
+":obj:`batch_1 = [[This line is], [This is the]]` and :obj:`batch_2 = [[ "
+"the first line], [ second     line]]` and that all batches are of equal "
+"size."
+msgstr ""
+
+#: of transformers.XLNetConfig:79
+msgid ""
+"Whether or not the model should make use of the recurrent memory "
+"mechanism in train mode."
+msgstr ""
+
+#: of transformers.XLNetConfig:82
+msgid ""
+"For pretraining, it is recommended to set ``use_mems_train`` to "
+":obj:`True`. For fine-tuning, it is recommended to set ``use_mems_train``"
+" to :obj:`False` as discussed `here "
+"<https://github.com/zihangdai/xlnet/issues/41#issuecomment-505102587>`__."
+" If ``use_mems_train`` is set to :obj:`True`, one has to make sure that "
+"the train batches are correctly pre-processed, `e.g.` :obj:`batch_1 = "
+"[[This line is], [This is the]]` and :obj:`batch_2 = [[ the first line], "
+"[ second line]]` and that all batches are of equal size."
+msgstr ""
+
+#: of transformers.TFXLNetLMHeadModel.call:109 transformers.XLNetConfig:90
+#: transformers.XLNetLMHeadModel.forward:112
+msgid "Examples::"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:59
+msgid "XLNetTokenizer"
+msgstr ""
+
+#: of transformers.XLNetTokenizer:1
+msgid ""
+"Construct an XLNet tokenizer. Based on `SentencePiece "
+"<https://github.com/google/sentencepiece>`__."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:3
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:6 transformers.XLNetTokenizerFast:7
+msgid ""
+"`SentencePiece <https://github.com/google/sentencepiece>`__ file "
+"(generally has a .spm extension) that contains the vocabulary necessary "
+"to instantiate a tokenizer."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:9 transformers.XLNetTokenizerFast:10
+msgid "Whether to lowercase the input when tokenizing."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:11 transformers.XLNetTokenizerFast:12
+msgid ""
+"Whether to strip the text when tokenizing (removing excess spaces before "
+"and after the string)."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:13 transformers.XLNetTokenizerFast:14
+msgid "Whether to keep accents when tokenizing."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:15 transformers.XLNetTokenizerFast:16
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token.  .. note::      When building a "
+"sequence using special tokens, this is not the token that is used for the"
+" beginning of     sequence. The token used is the :obj:`cls_token`."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:15 transformers.XLNetTokenizerFast:16
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:19 transformers.XLNetTokenizerFast:20
+msgid ""
+"When building a sequence using special tokens, this is not the token that"
+" is used for the beginning of sequence. The token used is the "
+":obj:`cls_token`."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:22 transformers.XLNetTokenizerFast:23
+msgid ""
+"The end of sequence token.  .. note::      When building a sequence using"
+" special tokens, this is not the token that is used for the end of     "
+"sequence. The token used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:22 transformers.XLNetTokenizerFast:23
+msgid "The end of sequence token."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:26 transformers.XLNetTokenizerFast:27
+msgid ""
+"When building a sequence using special tokens, this is not the token that"
+" is used for the end of sequence. The token used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:29 transformers.XLNetTokenizerFast:30
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:32 transformers.XLNetTokenizerFast:33
+msgid ""
+"The separator token, which is used when building a sequence from multiple"
+" sequences, e.g. two sequences for sequence classification or for a text "
+"and a question for question answering. It is also used as the last token "
+"of a sequence built with special tokens."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:36 transformers.XLNetTokenizerFast:37
+msgid ""
+"The token used for padding, for example when batching sequences of "
+"different lengths."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:38 transformers.XLNetTokenizerFast:39
+msgid ""
+"The classifier token which is used when doing sequence classification "
+"(classification of the whole sequence instead of per-token "
+"classification). It is the first token of the sequence when built with "
+"special tokens."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:41 transformers.XLNetTokenizerFast:42
+msgid ""
+"The token used for masking values. This is the token used when training "
+"this model with masked language modeling. This is the token which the "
+"model will try to predict."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:44 transformers.XLNetTokenizerFast:45
+msgid "Additional special tokens used by the tokenizer."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:46
+msgid ""
+"Will be passed to the ``SentencePieceProcessor.__init__()`` method. The "
+"`Python wrapper for SentencePiece "
+"<https://github.com/google/sentencepiece/tree/master/python>`__ can be "
+"used, among other things, to set:  - ``enable_sampling``: Enable subword "
+"regularization. - ``nbest_size``: Sampling parameters for unigram. "
+"Invalid for BPE-Dropout.    - ``nbest_size = {0,1}``: No sampling is "
+"performed.   - ``nbest_size > 1``: samples from the nbest_size results."
+"   - ``nbest_size < 0``: assuming that nbest_size is infinite and samples"
+" from the all hypothesis (lattice)     using forward-filtering-and-"
+"backward-sampling algorithm.  - ``alpha``: Smoothing parameter for "
+"unigram sampling, and dropout probability of merge operations for   BPE-"
+"dropout."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:46
+msgid ""
+"Will be passed to the ``SentencePieceProcessor.__init__()`` method. The "
+"`Python wrapper for SentencePiece "
+"<https://github.com/google/sentencepiece/tree/master/python>`__ can be "
+"used, among other things, to set:"
+msgstr ""
+
+#: of transformers.XLNetTokenizer:49
+msgid "``enable_sampling``: Enable subword regularization."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:50
+msgid "``nbest_size``: Sampling parameters for unigram. Invalid for BPE-Dropout."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:52
+msgid "``nbest_size = {0,1}``: No sampling is performed."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:53
+msgid "``nbest_size > 1``: samples from the nbest_size results."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:54
+msgid ""
+"``nbest_size < 0``: assuming that nbest_size is infinite and samples from"
+" the all hypothesis (lattice) using forward-filtering-and-backward-"
+"sampling algorithm."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:57
+msgid ""
+"``alpha``: Smoothing parameter for unigram sampling, and dropout "
+"probability of merge operations for BPE-dropout."
+msgstr ""
+
+#: of transformers.XLNetTokenizer:63 transformers.XLNetTokenizerFast:50
+msgid ""
+"The `SentencePiece` processor that is used for every conversion (string, "
+"tokens and IDs)."
+msgstr ""
+
+#: of transformers.XLNetTokenizer transformers.XLNetTokenizerFast
+msgid "type"
+msgstr ""
+
+#: of transformers.XLNetTokenizer:65 transformers.XLNetTokenizerFast:52
+msgid ":obj:`SentencePieceProcessor`"
+msgstr ""
+
+#: of transformers.XLNetTokenizer.build_inputs_with_special_tokens:1
+#: transformers.XLNetTokenizerFast.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. An XLNet"
+" sequence has the following format:"
+msgstr ""
+
+#: of transformers.XLNetTokenizer.build_inputs_with_special_tokens:4
+#: transformers.XLNetTokenizerFast.build_inputs_with_special_tokens:4
+msgid "single sequence: ``X <sep> <cls>``"
+msgstr ""
+
+#: of transformers.XLNetTokenizer.build_inputs_with_special_tokens:5
+#: transformers.XLNetTokenizerFast.build_inputs_with_special_tokens:5
+msgid "pair of sequences: ``A <sep> B <sep> <cls>``"
+msgstr ""
+
+#: of transformers.XLNetTokenizer.build_inputs_with_special_tokens:7
+#: transformers.XLNetTokenizerFast.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.XLNetTokenizer.build_inputs_with_special_tokens:9
+#: transformers.XLNetTokenizer.create_token_type_ids_from_sequences:13
+#: transformers.XLNetTokenizer.get_special_tokens_mask:6
+#: transformers.XLNetTokenizerFast.build_inputs_with_special_tokens:9
+#: transformers.XLNetTokenizerFast.create_token_type_ids_from_sequences:13
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call
+#: transformers.TFXLNetForQuestionAnsweringSimple.call
+#: transformers.TFXLNetForSequenceClassification.call
+#: transformers.TFXLNetForTokenClassification.call
+#: transformers.TFXLNetLMHeadModel.call transformers.TFXLNetModel.call
+#: transformers.XLNetForMultipleChoice.forward
+#: transformers.XLNetForQuestionAnswering.forward
+#: transformers.XLNetForQuestionAnsweringSimple.forward
+#: transformers.XLNetForSequenceClassification.forward
+#: transformers.XLNetForTokenClassification.forward
+#: transformers.XLNetLMHeadModel.forward transformers.XLNetModel.forward
+#: transformers.XLNetTokenizer.build_inputs_with_special_tokens
+#: transformers.XLNetTokenizer.create_token_type_ids_from_sequences
+#: transformers.XLNetTokenizer.get_special_tokens_mask
+#: transformers.XLNetTokenizer.save_vocabulary
+#: transformers.XLNetTokenizerFast.build_inputs_with_special_tokens
+#: transformers.XLNetTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.XLNetTokenizerFast.save_vocabulary
+msgid "Returns"
+msgstr ""
+
+#: of transformers.XLNetTokenizer.build_inputs_with_special_tokens:12
+#: transformers.XLNetTokenizerFast.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call
+#: transformers.TFXLNetForQuestionAnsweringSimple.call
+#: transformers.TFXLNetForSequenceClassification.call
+#: transformers.TFXLNetForTokenClassification.call
+#: transformers.TFXLNetLMHeadModel.call transformers.TFXLNetModel.call
+#: transformers.XLNetForMultipleChoice.forward
+#: transformers.XLNetForQuestionAnswering.forward
+#: transformers.XLNetForQuestionAnsweringSimple.forward
+#: transformers.XLNetForSequenceClassification.forward
+#: transformers.XLNetForTokenClassification.forward
+#: transformers.XLNetLMHeadModel.forward transformers.XLNetModel.forward
+#: transformers.XLNetTokenizer.build_inputs_with_special_tokens
+#: transformers.XLNetTokenizer.create_token_type_ids_from_sequences
+#: transformers.XLNetTokenizer.get_special_tokens_mask
+#: transformers.XLNetTokenizer.save_vocabulary
+#: transformers.XLNetTokenizerFast.build_inputs_with_special_tokens
+#: transformers.XLNetTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.XLNetTokenizerFast.save_vocabulary
+msgid "Return type"
+msgstr ""
+
+#: of transformers.XLNetTokenizer.build_inputs_with_special_tokens:13
+#: transformers.XLNetTokenizer.create_token_type_ids_from_sequences:18
+#: transformers.XLNetTokenizer.get_special_tokens_mask:12
+#: transformers.XLNetTokenizerFast.build_inputs_with_special_tokens:13
+#: transformers.XLNetTokenizerFast.create_token_type_ids_from_sequences:18
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.XLNetTokenizer.create_token_type_ids_from_sequences:1
+#: transformers.XLNetTokenizerFast.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. An XLNet sequence pair mask has the following "
+"format:"
+msgstr ""
+
+#: of transformers.XLNetTokenizer.create_token_type_ids_from_sequences:9
+#: transformers.XLNetTokenizerFast.create_token_type_ids_from_sequences:9
+msgid ""
+"If :obj:`token_ids_1` is :obj:`None`, this method only returns the first "
+"portion of the mask (0s)."
+msgstr ""
+
+#: of transformers.XLNetTokenizer.create_token_type_ids_from_sequences:11
+#: transformers.XLNetTokenizer.get_special_tokens_mask:4
+#: transformers.XLNetTokenizerFast.create_token_type_ids_from_sequences:11
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.XLNetTokenizer.create_token_type_ids_from_sequences:16
+#: transformers.XLNetTokenizerFast.create_token_type_ids_from_sequences:16
+msgid ""
+"List of `token type IDs <../glossary.html#token-type-ids>`_ according to "
+"the given sequence(s)."
+msgstr ""
+
+#: of transformers.XLNetTokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.XLNetTokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.XLNetTokenizer.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.XLNetTokenizer.save_vocabulary:1
+#: transformers.XLNetTokenizerFast.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.XLNetTokenizer.save_vocabulary:3
+#: transformers.XLNetTokenizerFast.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.XLNetTokenizer.save_vocabulary:6
+#: transformers.XLNetTokenizerFast.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.XLNetTokenizer.save_vocabulary:8
+#: transformers.XLNetTokenizerFast.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.XLNetTokenizer.save_vocabulary:11
+#: transformers.XLNetTokenizerFast.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.XLNetTokenizer.save_vocabulary:12
+#: transformers.XLNetTokenizerFast.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:67
+msgid "XLNetTokenizerFast"
+msgstr ""
+
+#: of transformers.XLNetTokenizerFast:1
+msgid ""
+"Construct a \"fast\" XLNet tokenizer (backed by HuggingFace's "
+"`tokenizers` library). Based on `Unigram "
+"<https://huggingface.co/docs/tokenizers/python/latest/components.html?highlight=unigram#models>`__."
+msgstr ""
+
+#: of transformers.XLNetTokenizerFast:4
+msgid ""
+"This tokenizer inherits from "
+":class:`~transformers.PreTrainedTokenizerFast` which contains most of the"
+" main methods. Users should refer to this superclass for more information"
+" regarding those methods."
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:74
+msgid "XLNet specific outputs"
+msgstr ""
+
+#: of transformers.models.xlnet.modeling_xlnet.XLNetModelOutput:1
+msgid "Output type of :class:`~transformers.XLNetModel`."
+msgstr ""
+
+#: of transformers.models.xlnet.modeling_tf_xlnet.TFXLNetModelOutput:3
+#: transformers.models.xlnet.modeling_xlnet.XLNetModelOutput:3
+msgid ""
+"Sequence of hidden-states at the last layer of the model.  "
+"``num_predict`` corresponds to ``target_mapping.shape[1]``. If "
+"``target_mapping`` is ``None``, then ``num_predict`` corresponds to "
+"``sequence_length``."
+msgstr ""
+
+#: of transformers.models.xlnet.modeling_tf_xlnet.TFXLNetModelOutput:3
+#: transformers.models.xlnet.modeling_xlnet.XLNetModelOutput:3
+msgid "Sequence of hidden-states at the last layer of the model."
+msgstr ""
+
+#: of transformers.TFXLNetLMHeadModel.call:93 transformers.TFXLNetModel.call:88
+#: transformers.XLNetLMHeadModel.forward:96 transformers.XLNetModel.forward:83
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput:7
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetModelOutput:5
+#: transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput:7
+#: transformers.models.xlnet.modeling_xlnet.XLNetModelOutput:5
+msgid ""
+"``num_predict`` corresponds to ``target_mapping.shape[1]``. If "
+"``target_mapping`` is ``None``, then ``num_predict`` corresponds to "
+"``sequence_length``."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput:9
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForQuestionAnsweringSimpleOutput:9
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForSequenceClassificationOutput:7
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForTokenClassificationOutput:7
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput:10
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetModelOutput:8
+#: transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput:9
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput:17
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringSimpleOutput:9
+#: transformers.models.xlnet.modeling_xlnet.XLNetForSequenceClassificationOutput:7
+#: transformers.models.xlnet.modeling_xlnet.XLNetForTokenClassificationOutput:7
+#: transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput:10
+#: transformers.models.xlnet.modeling_xlnet.XLNetModelOutput:8
+msgid ""
+"Contains pre-computed hidden-states. Can be used (see :obj:`mems` input) "
+"to speed up sequential decoding. The token ids which have their past "
+"given to this model should not be passed as :obj:`input_ids` as they have"
+" already been computed."
+msgstr ""
+
+#: of transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput:13
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput:21
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringSimpleOutput:13
+#: transformers.models.xlnet.modeling_xlnet.XLNetForSequenceClassificationOutput:11
+#: transformers.models.xlnet.modeling_xlnet.XLNetForTokenClassificationOutput:11
+#: transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput:14
+#: transformers.models.xlnet.modeling_xlnet.XLNetModelOutput:12
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the model at the output"
+" of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput:13
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput:21
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringSimpleOutput:13
+#: transformers.models.xlnet.modeling_xlnet.XLNetForSequenceClassificationOutput:11
+#: transformers.models.xlnet.modeling_xlnet.XLNetForTokenClassificationOutput:11
+#: transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput:14
+#: transformers.models.xlnet.modeling_xlnet.XLNetModelOutput:12
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:100
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:103
+#: transformers.TFXLNetForSequenceClassification.call:98
+#: transformers.TFXLNetForTokenClassification.call:97
+#: transformers.TFXLNetLMHeadModel.call:101 transformers.TFXLNetModel.call:96
+#: transformers.XLNetForMultipleChoice.forward:95
+#: transformers.XLNetForQuestionAnswering.forward:111
+#: transformers.XLNetForQuestionAnsweringSimple.forward:98
+#: transformers.XLNetForSequenceClassification.forward:93
+#: transformers.XLNetForTokenClassification.forward:93
+#: transformers.XLNetLMHeadModel.forward:104 transformers.XLNetModel.forward:91
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput:16
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForQuestionAnsweringSimpleOutput:16
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForSequenceClassificationOutput:14
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForTokenClassificationOutput:14
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput:17
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetModelOutput:15
+#: transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput:16
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput:24
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringSimpleOutput:16
+#: transformers.models.xlnet.modeling_xlnet.XLNetForSequenceClassificationOutput:14
+#: transformers.models.xlnet.modeling_xlnet.XLNetForTokenClassificationOutput:14
+#: transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput:17
+#: transformers.models.xlnet.modeling_xlnet.XLNetModelOutput:15
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput:18
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput:26
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringSimpleOutput:18
+#: transformers.models.xlnet.modeling_xlnet.XLNetForSequenceClassificationOutput:16
+#: transformers.models.xlnet.modeling_xlnet.XLNetForTokenClassificationOutput:16
+#: transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput:19
+#: transformers.models.xlnet.modeling_xlnet.XLNetModelOutput:17
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput:18
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput:26
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringSimpleOutput:18
+#: transformers.models.xlnet.modeling_xlnet.XLNetForSequenceClassificationOutput:16
+#: transformers.models.xlnet.modeling_xlnet.XLNetForTokenClassificationOutput:16
+#: transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput:19
+#: transformers.models.xlnet.modeling_xlnet.XLNetModelOutput:17
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:104
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:107
+#: transformers.TFXLNetForSequenceClassification.call:102
+#: transformers.TFXLNetForTokenClassification.call:101
+#: transformers.TFXLNetLMHeadModel.call:105 transformers.TFXLNetModel.call:100
+#: transformers.XLNetForMultipleChoice.forward:99
+#: transformers.XLNetForQuestionAnswering.forward:115
+#: transformers.XLNetForQuestionAnsweringSimple.forward:102
+#: transformers.XLNetForSequenceClassification.forward:97
+#: transformers.XLNetForTokenClassification.forward:97
+#: transformers.XLNetLMHeadModel.forward:108 transformers.XLNetModel.forward:95
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput:21
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForQuestionAnsweringSimpleOutput:21
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForSequenceClassificationOutput:19
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForTokenClassificationOutput:19
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput:22
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetModelOutput:20
+#: transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput:21
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput:29
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringSimpleOutput:21
+#: transformers.models.xlnet.modeling_xlnet.XLNetForSequenceClassificationOutput:19
+#: transformers.models.xlnet.modeling_xlnet.XLNetForTokenClassificationOutput:19
+#: transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput:22
+#: transformers.models.xlnet.modeling_xlnet.XLNetModelOutput:20
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput:1
+msgid "Output type of :class:`~transformers.XLNetLMHeadModel`."
+msgstr ""
+
+#: of transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput:3
+#: transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput:3
+msgid "Language modeling loss (for next-token prediction)."
+msgstr ""
+
+#: of transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput:5
+#: transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput:5
+msgid ""
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax).  ``num_predict`` corresponds to "
+"``target_mapping.shape[1]``. If ``target_mapping`` is ``None``, then "
+"``num_predict`` corresponds to ``sequence_length``."
+msgstr ""
+
+#: of transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput:5
+#: transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput:5
+msgid ""
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_xlnet.XLNetForSequenceClassificationOutput:1
+msgid "Output type of :class:`~transformers.XLNetForSequenceClassification`."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForSequenceClassificationOutput:3
+#: transformers.models.xlnet.modeling_xlnet.XLNetForSequenceClassificationOutput:3
+msgid "Classification (or regression if config.num_labels==1) loss."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForSequenceClassificationOutput:5
+#: transformers.models.xlnet.modeling_xlnet.XLNetForSequenceClassificationOutput:5
+msgid ""
+"Classification (or regression if config.num_labels==1) scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput:1
+msgid "Output type of :class:`~transformers.XLNetForMultipleChoice`."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput:3
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForTokenClassificationOutput:3
+#: transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput:3
+#: transformers.models.xlnet.modeling_xlnet.XLNetForTokenClassificationOutput:3
+msgid "Classification loss."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput:5
+#: transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput:5
+msgid ""
+"`num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).  Classification scores (before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput:5
+#: transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput:5
+msgid ""
+"`num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:93
+#: transformers.XLNetForMultipleChoice.forward:88
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput:7
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForTokenClassificationOutput:5
+#: transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput:7
+#: transformers.models.xlnet.modeling_xlnet.XLNetForTokenClassificationOutput:5
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_xlnet.XLNetForTokenClassificationOutput:1
+msgid "Output type of :class:`~transformers.XLNetForTokenClassificationOutput`."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringSimpleOutput:1
+msgid "Output type of :class:`~transformers.XLNetForQuestionAnsweringSimple`."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForQuestionAnsweringSimpleOutput:3
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringSimpleOutput:3
+msgid ""
+"Total span extraction loss is the sum of a Cross-Entropy for the start "
+"and end positions."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForQuestionAnsweringSimpleOutput:5
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringSimpleOutput:5
+msgid "Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForQuestionAnsweringSimpleOutput:7
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringSimpleOutput:7
+msgid "Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput:1
+msgid "Output type of :class:`~transformers.XLNetForQuestionAnswering`."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput:3
+msgid ""
+"Classification loss as the sum of start token, end token (and "
+"is_impossible if provided) classification losses."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput:6
+msgid ""
+"Log probabilities for the top config.start_n_top start token "
+"possibilities (beam-search)."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput:8
+msgid ""
+"Indices for the top config.start_n_top start token possibilities (beam-"
+"search)."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput:10
+msgid ""
+"Log probabilities for the top ``config.start_n_top * config.end_n_top`` "
+"end token possibilities (beam-search)."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput:13
+msgid ""
+"Indices for the top ``config.start_n_top * config.end_n_top`` end token "
+"possibilities (beam-search)."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput:15
+msgid "Log probabilities for the ``is_impossible`` label of the answers."
+msgstr ""
+
+#: of transformers.models.xlnet.modeling_tf_xlnet.TFXLNetModelOutput:1
+msgid "Output type of :class:`~transformers.TFXLNetModel`."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput:13
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForQuestionAnsweringSimpleOutput:13
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForSequenceClassificationOutput:11
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForTokenClassificationOutput:11
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput:14
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetModelOutput:12
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.  Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput:13
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForQuestionAnsweringSimpleOutput:13
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForSequenceClassificationOutput:11
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForTokenClassificationOutput:11
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput:14
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetModelOutput:12
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput:18
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForQuestionAnsweringSimpleOutput:18
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForSequenceClassificationOutput:16
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForTokenClassificationOutput:16
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput:19
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetModelOutput:17
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput:18
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForQuestionAnsweringSimpleOutput:18
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForSequenceClassificationOutput:16
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForTokenClassificationOutput:16
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput:19
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetModelOutput:17
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput:1
+msgid "Output type of :class:`~transformers.TFXLNetLMHeadModel`."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForSequenceClassificationOutput:1
+msgid "Output type of :class:`~transformers.TFXLNetForSequenceClassification`."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput:1
+msgid "Output type of :class:`~transformers.TFXLNetForMultipleChoice`."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForTokenClassificationOutput:1
+msgid "Output type of :class:`~transformers.TFXLNetForTokenClassificationOutput`."
+msgstr ""
+
+#: of
+#: transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForQuestionAnsweringSimpleOutput:1
+msgid "Output type of :class:`~transformers.TFXLNetForQuestionAnsweringSimple`."
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:117
+msgid "XLNetModel"
+msgstr ""
+
+#: of transformers.TFXLNetModel:1 transformers.XLNetModel:1
+msgid ""
+"The bare XLNet Model transformer outputting raw hidden-states without any"
+" specific head on top."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice:5
+#: transformers.XLNetForQuestionAnswering:5
+#: transformers.XLNetForQuestionAnsweringSimple:5
+#: transformers.XLNetForSequenceClassification:5
+#: transformers.XLNetForTokenClassification:5 transformers.XLNetLMHeadModel:4
+#: transformers.XLNetModel:3
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice:9
+#: transformers.XLNetForQuestionAnswering:9
+#: transformers.XLNetForQuestionAnsweringSimple:9
+#: transformers.XLNetForSequenceClassification:9
+#: transformers.XLNetForTokenClassification:9 transformers.XLNetLMHeadModel:8
+#: transformers.XLNetModel:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice:32
+#: transformers.TFXLNetForQuestionAnsweringSimple:32
+#: transformers.TFXLNetForSequenceClassification:32
+#: transformers.TFXLNetForTokenClassification:32
+#: transformers.TFXLNetLMHeadModel:31 transformers.TFXLNetModel:30
+#: transformers.XLNetForMultipleChoice:13
+#: transformers.XLNetForQuestionAnswering:13
+#: transformers.XLNetForQuestionAnsweringSimple:13
+#: transformers.XLNetForSequenceClassification:13
+#: transformers.XLNetForTokenClassification:13 transformers.XLNetLMHeadModel:12
+#: transformers.XLNetModel:11
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.XLNetModel.forward:1
+msgid ""
+"The :class:`~transformers.XLNetModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:4
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:4
+#: transformers.TFXLNetForSequenceClassification.call:4
+#: transformers.TFXLNetForTokenClassification.call:4
+#: transformers.TFXLNetLMHeadModel.call:4 transformers.TFXLNetModel.call:4
+#: transformers.XLNetForMultipleChoice.forward:4
+#: transformers.XLNetForQuestionAnswering.forward:4
+#: transformers.XLNetForQuestionAnsweringSimple.forward:4
+#: transformers.XLNetForSequenceClassification.forward:4
+#: transformers.XLNetForTokenClassification.forward:4
+#: transformers.XLNetLMHeadModel.forward:4 transformers.XLNetModel.forward:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:8
+#: transformers.XLNetForQuestionAnswering.forward:8
+#: transformers.XLNetForQuestionAnsweringSimple.forward:8
+#: transformers.XLNetForSequenceClassification.forward:8
+#: transformers.XLNetForTokenClassification.forward:8
+#: transformers.XLNetLMHeadModel.forward:8 transformers.XLNetModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`transformers.XLNetTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:8
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:8
+#: transformers.TFXLNetForSequenceClassification.call:8
+#: transformers.TFXLNetForTokenClassification.call:8
+#: transformers.TFXLNetLMHeadModel.call:8 transformers.TFXLNetModel.call:8
+#: transformers.XLNetForMultipleChoice.forward:8
+#: transformers.XLNetForQuestionAnswering.forward:8
+#: transformers.XLNetForQuestionAnsweringSimple.forward:8
+#: transformers.XLNetForSequenceClassification.forward:8
+#: transformers.XLNetForTokenClassification.forward:8
+#: transformers.XLNetLMHeadModel.forward:8 transformers.XLNetModel.forward:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:10
+#: transformers.XLNetForQuestionAnswering.forward:10
+#: transformers.XLNetForQuestionAnsweringSimple.forward:10
+#: transformers.XLNetForSequenceClassification.forward:10
+#: transformers.XLNetForTokenClassification.forward:10
+#: transformers.XLNetLMHeadModel.forward:10 transformers.XLNetModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`transformers.XLNetTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.encode` and "
+":func:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:14
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:14
+#: transformers.TFXLNetForSequenceClassification.call:14
+#: transformers.TFXLNetForTokenClassification.call:14
+#: transformers.TFXLNetLMHeadModel.call:14 transformers.TFXLNetModel.call:14
+#: transformers.XLNetForMultipleChoice.forward:14
+#: transformers.XLNetForQuestionAnswering.forward:14
+#: transformers.XLNetForQuestionAnsweringSimple.forward:14
+#: transformers.XLNetForSequenceClassification.forward:14
+#: transformers.XLNetForTokenClassification.forward:14
+#: transformers.XLNetLMHeadModel.forward:14 transformers.XLNetModel.forward:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:16
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:16
+#: transformers.TFXLNetForSequenceClassification.call:16
+#: transformers.TFXLNetForTokenClassification.call:16
+#: transformers.TFXLNetLMHeadModel.call:16 transformers.TFXLNetModel.call:16
+#: transformers.XLNetForMultipleChoice.forward:16
+#: transformers.XLNetForQuestionAnswering.forward:16
+#: transformers.XLNetForQuestionAnsweringSimple.forward:16
+#: transformers.XLNetForSequenceClassification.forward:16
+#: transformers.XLNetForTokenClassification.forward:16
+#: transformers.XLNetLMHeadModel.forward:16 transformers.XLNetModel.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:16
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:16
+#: transformers.TFXLNetForSequenceClassification.call:16
+#: transformers.TFXLNetForTokenClassification.call:16
+#: transformers.TFXLNetLMHeadModel.call:16 transformers.TFXLNetModel.call:16
+#: transformers.XLNetForMultipleChoice.forward:16
+#: transformers.XLNetForQuestionAnswering.forward:16
+#: transformers.XLNetForQuestionAnsweringSimple.forward:16
+#: transformers.XLNetForSequenceClassification.forward:16
+#: transformers.XLNetForTokenClassification.forward:16
+#: transformers.XLNetLMHeadModel.forward:16 transformers.XLNetModel.forward:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:18
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:18
+#: transformers.TFXLNetForSequenceClassification.call:18
+#: transformers.TFXLNetForTokenClassification.call:18
+#: transformers.TFXLNetLMHeadModel.call:18 transformers.TFXLNetModel.call:18
+#: transformers.XLNetForMultipleChoice.forward:18
+#: transformers.XLNetForQuestionAnswering.forward:18
+#: transformers.XLNetForQuestionAnsweringSimple.forward:18
+#: transformers.XLNetForSequenceClassification.forward:18
+#: transformers.XLNetForTokenClassification.forward:18
+#: transformers.XLNetLMHeadModel.forward:18 transformers.XLNetModel.forward:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:19
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:19
+#: transformers.TFXLNetForSequenceClassification.call:19
+#: transformers.TFXLNetForTokenClassification.call:19
+#: transformers.TFXLNetLMHeadModel.call:19 transformers.TFXLNetModel.call:19
+#: transformers.XLNetForMultipleChoice.forward:19
+#: transformers.XLNetForQuestionAnswering.forward:19
+#: transformers.XLNetForQuestionAnsweringSimple.forward:19
+#: transformers.XLNetForSequenceClassification.forward:19
+#: transformers.XLNetForTokenClassification.forward:19
+#: transformers.XLNetLMHeadModel.forward:19 transformers.XLNetModel.forward:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:21
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:21
+#: transformers.TFXLNetForSequenceClassification.call:21
+#: transformers.TFXLNetForTokenClassification.call:21
+#: transformers.TFXLNetLMHeadModel.call:21 transformers.TFXLNetModel.call:21
+#: transformers.XLNetForMultipleChoice.forward:21
+#: transformers.XLNetForQuestionAnswering.forward:21
+#: transformers.XLNetForQuestionAnsweringSimple.forward:21
+#: transformers.XLNetForSequenceClassification.forward:21
+#: transformers.XLNetForTokenClassification.forward:21
+#: transformers.XLNetLMHeadModel.forward:21 transformers.XLNetModel.forward:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:23
+#: transformers.XLNetForQuestionAnswering.forward:23
+#: transformers.XLNetForQuestionAnsweringSimple.forward:23
+#: transformers.XLNetForSequenceClassification.forward:23
+#: transformers.XLNetForTokenClassification.forward:23
+#: transformers.XLNetLMHeadModel.forward:23 transformers.XLNetModel.forward:23
+msgid ""
+"Contains pre-computed hidden-states (see :obj:`mems` output below) . Can "
+"be used to speed up sequential decoding. The token ids which have their "
+"past given to this model should not be passed as :obj:`input_ids` as they"
+" have already been computed.  :obj:`use_mems` has to be set to "
+":obj:`True` to make use of :obj:`mems`."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:23
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:23
+#: transformers.TFXLNetForSequenceClassification.call:23
+#: transformers.TFXLNetForTokenClassification.call:23
+#: transformers.TFXLNetLMHeadModel.call:23 transformers.TFXLNetModel.call:23
+#: transformers.XLNetForMultipleChoice.forward:23
+#: transformers.XLNetForQuestionAnswering.forward:23
+#: transformers.XLNetForQuestionAnsweringSimple.forward:23
+#: transformers.XLNetForSequenceClassification.forward:23
+#: transformers.XLNetForTokenClassification.forward:23
+#: transformers.XLNetLMHeadModel.forward:23 transformers.XLNetModel.forward:23
+msgid ""
+"Contains pre-computed hidden-states (see :obj:`mems` output below) . Can "
+"be used to speed up sequential decoding. The token ids which have their "
+"past given to this model should not be passed as :obj:`input_ids` as they"
+" have already been computed."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:27
+#: transformers.XLNetForQuestionAnswering.forward:27
+#: transformers.XLNetForQuestionAnsweringSimple.forward:27
+#: transformers.XLNetForSequenceClassification.forward:27
+#: transformers.XLNetForTokenClassification.forward:27
+#: transformers.XLNetLMHeadModel.forward:27 transformers.XLNetModel.forward:27
+msgid ":obj:`use_mems` has to be set to :obj:`True` to make use of :obj:`mems`."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:29
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:29
+#: transformers.TFXLNetForSequenceClassification.call:29
+#: transformers.TFXLNetForTokenClassification.call:29
+#: transformers.TFXLNetLMHeadModel.call:29 transformers.TFXLNetModel.call:29
+#: transformers.XLNetForMultipleChoice.forward:29
+#: transformers.XLNetForQuestionAnswering.forward:29
+#: transformers.XLNetForQuestionAnsweringSimple.forward:29
+#: transformers.XLNetForSequenceClassification.forward:29
+#: transformers.XLNetForTokenClassification.forward:29
+#: transformers.XLNetLMHeadModel.forward:29 transformers.XLNetModel.forward:29
+msgid ""
+"Mask to indicate the attention pattern for each input token with values "
+"selected in ``[0, 1]``:  - if ``perm_mask[k, i, j] = 0``, i attend to j "
+"in batch k; - if ``perm_mask[k, i, j] = 1``, i does not attend to j in "
+"batch k.  If not set, each token attends to all the others (full "
+"bidirectional attention). Only used during pretraining (to define "
+"factorization order) or for sequential decoding (generation)."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:29
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:29
+#: transformers.TFXLNetForSequenceClassification.call:29
+#: transformers.TFXLNetForTokenClassification.call:29
+#: transformers.TFXLNetLMHeadModel.call:29 transformers.TFXLNetModel.call:29
+#: transformers.XLNetForMultipleChoice.forward:29
+#: transformers.XLNetForQuestionAnswering.forward:29
+#: transformers.XLNetForQuestionAnsweringSimple.forward:29
+#: transformers.XLNetForSequenceClassification.forward:29
+#: transformers.XLNetForTokenClassification.forward:29
+#: transformers.XLNetLMHeadModel.forward:29 transformers.XLNetModel.forward:29
+msgid ""
+"Mask to indicate the attention pattern for each input token with values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:31
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:31
+#: transformers.TFXLNetForSequenceClassification.call:31
+#: transformers.TFXLNetForTokenClassification.call:31
+#: transformers.TFXLNetLMHeadModel.call:31 transformers.TFXLNetModel.call:31
+#: transformers.XLNetForMultipleChoice.forward:31
+#: transformers.XLNetForQuestionAnswering.forward:31
+#: transformers.XLNetForQuestionAnsweringSimple.forward:31
+#: transformers.XLNetForSequenceClassification.forward:31
+#: transformers.XLNetForTokenClassification.forward:31
+#: transformers.XLNetLMHeadModel.forward:31 transformers.XLNetModel.forward:31
+msgid "if ``perm_mask[k, i, j] = 0``, i attend to j in batch k;"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:32
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:32
+#: transformers.TFXLNetForSequenceClassification.call:32
+#: transformers.TFXLNetForTokenClassification.call:32
+#: transformers.TFXLNetLMHeadModel.call:32 transformers.TFXLNetModel.call:32
+#: transformers.XLNetForMultipleChoice.forward:32
+#: transformers.XLNetForQuestionAnswering.forward:32
+#: transformers.XLNetForQuestionAnsweringSimple.forward:32
+#: transformers.XLNetForSequenceClassification.forward:32
+#: transformers.XLNetForTokenClassification.forward:32
+#: transformers.XLNetLMHeadModel.forward:32 transformers.XLNetModel.forward:32
+msgid "if ``perm_mask[k, i, j] = 1``, i does not attend to j in batch k."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:34
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:34
+#: transformers.TFXLNetForSequenceClassification.call:34
+#: transformers.TFXLNetForTokenClassification.call:34
+#: transformers.TFXLNetLMHeadModel.call:34 transformers.TFXLNetModel.call:34
+#: transformers.XLNetForMultipleChoice.forward:34
+#: transformers.XLNetForQuestionAnswering.forward:34
+#: transformers.XLNetForQuestionAnsweringSimple.forward:34
+#: transformers.XLNetForSequenceClassification.forward:34
+#: transformers.XLNetForTokenClassification.forward:34
+#: transformers.XLNetLMHeadModel.forward:34 transformers.XLNetModel.forward:34
+msgid ""
+"If not set, each token attends to all the others (full bidirectional "
+"attention). Only used during pretraining (to define factorization order) "
+"or for sequential decoding (generation)."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:37
+#: transformers.XLNetForQuestionAnswering.forward:37
+#: transformers.XLNetForQuestionAnsweringSimple.forward:37
+#: transformers.XLNetForSequenceClassification.forward:37
+#: transformers.XLNetForTokenClassification.forward:37
+#: transformers.XLNetLMHeadModel.forward:37 transformers.XLNetModel.forward:37
+msgid ""
+"Mask to indicate the output tokens to use. If ``target_mapping[k, i, j] ="
+" 1``, the i-th predict in batch k is on the j-th token. Only used during "
+"pretraining for partial prediction or for sequential decoding "
+"(generation)."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:40
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:40
+#: transformers.TFXLNetForSequenceClassification.call:40
+#: transformers.TFXLNetForTokenClassification.call:40
+#: transformers.TFXLNetLMHeadModel.call:40 transformers.TFXLNetModel.call:40
+#: transformers.XLNetForMultipleChoice.forward:41
+#: transformers.XLNetForQuestionAnswering.forward:41
+#: transformers.XLNetForQuestionAnsweringSimple.forward:41
+#: transformers.XLNetForSequenceClassification.forward:41
+#: transformers.XLNetForTokenClassification.forward:41
+#: transformers.XLNetLMHeadModel.forward:41 transformers.XLNetModel.forward:41
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:40
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:40
+#: transformers.TFXLNetForSequenceClassification.call:40
+#: transformers.TFXLNetForTokenClassification.call:40
+#: transformers.TFXLNetLMHeadModel.call:40 transformers.TFXLNetModel.call:40
+#: transformers.XLNetForMultipleChoice.forward:41
+#: transformers.XLNetForQuestionAnswering.forward:41
+#: transformers.XLNetForQuestionAnsweringSimple.forward:41
+#: transformers.XLNetForSequenceClassification.forward:41
+#: transformers.XLNetForTokenClassification.forward:41
+#: transformers.XLNetLMHeadModel.forward:41 transformers.XLNetModel.forward:41
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:43
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:43
+#: transformers.TFXLNetForSequenceClassification.call:43
+#: transformers.TFXLNetForTokenClassification.call:43
+#: transformers.TFXLNetLMHeadModel.call:43 transformers.TFXLNetModel.call:43
+#: transformers.XLNetForMultipleChoice.forward:44
+#: transformers.XLNetForQuestionAnswering.forward:44
+#: transformers.XLNetForQuestionAnsweringSimple.forward:44
+#: transformers.XLNetForSequenceClassification.forward:44
+#: transformers.XLNetForTokenClassification.forward:44
+#: transformers.XLNetLMHeadModel.forward:44 transformers.XLNetModel.forward:44
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:44
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:44
+#: transformers.TFXLNetForSequenceClassification.call:44
+#: transformers.TFXLNetForTokenClassification.call:44
+#: transformers.TFXLNetLMHeadModel.call:44 transformers.TFXLNetModel.call:44
+#: transformers.XLNetForMultipleChoice.forward:45
+#: transformers.XLNetForQuestionAnswering.forward:45
+#: transformers.XLNetForQuestionAnsweringSimple.forward:45
+#: transformers.XLNetForSequenceClassification.forward:45
+#: transformers.XLNetForTokenClassification.forward:45
+#: transformers.XLNetLMHeadModel.forward:45 transformers.XLNetModel.forward:45
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:46
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:46
+#: transformers.TFXLNetForSequenceClassification.call:46
+#: transformers.TFXLNetForTokenClassification.call:46
+#: transformers.TFXLNetLMHeadModel.call:46 transformers.TFXLNetModel.call:46
+#: transformers.XLNetForMultipleChoice.forward:47
+#: transformers.XLNetForQuestionAnswering.forward:47
+#: transformers.XLNetForQuestionAnsweringSimple.forward:47
+#: transformers.XLNetForSequenceClassification.forward:47
+#: transformers.XLNetForTokenClassification.forward:47
+#: transformers.XLNetLMHeadModel.forward:47 transformers.XLNetModel.forward:47
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:48
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:48
+#: transformers.TFXLNetForSequenceClassification.call:48
+#: transformers.TFXLNetForTokenClassification.call:48
+#: transformers.TFXLNetLMHeadModel.call:48 transformers.TFXLNetModel.call:48
+#: transformers.XLNetForMultipleChoice.forward:49
+#: transformers.XLNetForQuestionAnswering.forward:49
+#: transformers.XLNetForQuestionAnsweringSimple.forward:49
+#: transformers.XLNetForSequenceClassification.forward:49
+#: transformers.XLNetForTokenClassification.forward:49
+#: transformers.XLNetLMHeadModel.forward:49 transformers.XLNetModel.forward:49
+msgid ""
+"Mask to avoid performing attention on padding token indices. Negative of "
+":obj:`attention_mask`, i.e. with 0 for real tokens and 1 for padding "
+"which is kept for compatibility with the original code base.  Mask values"
+" selected in ``[0, 1]``:  - 1 for tokens that are **masked**, - 0 for "
+"tokens that are **not masked**.  You can only uses one of "
+":obj:`input_mask` and :obj:`attention_mask`."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:48
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:48
+#: transformers.TFXLNetForSequenceClassification.call:48
+#: transformers.TFXLNetForTokenClassification.call:48
+#: transformers.TFXLNetLMHeadModel.call:48 transformers.TFXLNetModel.call:48
+#: transformers.XLNetForMultipleChoice.forward:49
+#: transformers.XLNetForQuestionAnswering.forward:49
+#: transformers.XLNetForQuestionAnsweringSimple.forward:49
+#: transformers.XLNetForSequenceClassification.forward:49
+#: transformers.XLNetForTokenClassification.forward:49
+#: transformers.XLNetLMHeadModel.forward:49 transformers.XLNetModel.forward:49
+msgid ""
+"Mask to avoid performing attention on padding token indices. Negative of "
+":obj:`attention_mask`, i.e. with 0 for real tokens and 1 for padding "
+"which is kept for compatibility with the original code base."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:51
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:51
+#: transformers.TFXLNetForSequenceClassification.call:51
+#: transformers.TFXLNetForTokenClassification.call:51
+#: transformers.TFXLNetLMHeadModel.call:51 transformers.TFXLNetModel.call:51
+#: transformers.XLNetForMultipleChoice.forward:52
+#: transformers.XLNetForQuestionAnswering.forward:52
+#: transformers.XLNetForQuestionAnsweringSimple.forward:52
+#: transformers.XLNetForSequenceClassification.forward:52
+#: transformers.XLNetForTokenClassification.forward:52
+#: transformers.XLNetLMHeadModel.forward:52 transformers.XLNetModel.forward:52
+msgid "Mask values selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:53
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:53
+#: transformers.TFXLNetForSequenceClassification.call:53
+#: transformers.TFXLNetForTokenClassification.call:53
+#: transformers.TFXLNetLMHeadModel.call:53 transformers.TFXLNetModel.call:53
+#: transformers.XLNetForMultipleChoice.forward:54
+#: transformers.XLNetForQuestionAnswering.forward:54
+#: transformers.XLNetForQuestionAnsweringSimple.forward:54
+#: transformers.XLNetForSequenceClassification.forward:54
+#: transformers.XLNetForTokenClassification.forward:54
+#: transformers.XLNetLMHeadModel.forward:54 transformers.XLNetModel.forward:54
+msgid "1 for tokens that are **masked**,"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:54
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:54
+#: transformers.TFXLNetForSequenceClassification.call:54
+#: transformers.TFXLNetForTokenClassification.call:54
+#: transformers.TFXLNetLMHeadModel.call:54 transformers.TFXLNetModel.call:54
+#: transformers.XLNetForMultipleChoice.forward:55
+#: transformers.XLNetForQuestionAnswering.forward:55
+#: transformers.XLNetForQuestionAnsweringSimple.forward:55
+#: transformers.XLNetForSequenceClassification.forward:55
+#: transformers.XLNetForTokenClassification.forward:55
+#: transformers.XLNetLMHeadModel.forward:55 transformers.XLNetModel.forward:55
+msgid "0 for tokens that are **not masked**."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:56
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:56
+#: transformers.TFXLNetForSequenceClassification.call:56
+#: transformers.TFXLNetForTokenClassification.call:56
+#: transformers.TFXLNetLMHeadModel.call:56 transformers.TFXLNetModel.call:56
+#: transformers.XLNetForMultipleChoice.forward:57
+#: transformers.XLNetForQuestionAnswering.forward:57
+#: transformers.XLNetForQuestionAnsweringSimple.forward:57
+#: transformers.XLNetForSequenceClassification.forward:57
+#: transformers.XLNetForTokenClassification.forward:57
+#: transformers.XLNetLMHeadModel.forward:57 transformers.XLNetModel.forward:57
+msgid "You can only uses one of :obj:`input_mask` and :obj:`attention_mask`."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:58
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:58
+#: transformers.TFXLNetForSequenceClassification.call:58
+#: transformers.TFXLNetForTokenClassification.call:58
+#: transformers.TFXLNetLMHeadModel.call:58 transformers.TFXLNetModel.call:58
+#: transformers.XLNetForMultipleChoice.forward:59
+#: transformers.XLNetForQuestionAnswering.forward:59
+#: transformers.XLNetForQuestionAnsweringSimple.forward:59
+#: transformers.XLNetForSequenceClassification.forward:59
+#: transformers.XLNetForTokenClassification.forward:59
+#: transformers.XLNetLMHeadModel.forward:59 transformers.XLNetModel.forward:59
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:58
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:58
+#: transformers.TFXLNetForSequenceClassification.call:58
+#: transformers.TFXLNetForTokenClassification.call:58
+#: transformers.TFXLNetLMHeadModel.call:58 transformers.TFXLNetModel.call:58
+#: transformers.XLNetForMultipleChoice.forward:59
+#: transformers.XLNetForQuestionAnswering.forward:59
+#: transformers.XLNetForQuestionAnsweringSimple.forward:59
+#: transformers.XLNetForSequenceClassification.forward:59
+#: transformers.XLNetForTokenClassification.forward:59
+#: transformers.XLNetLMHeadModel.forward:59 transformers.XLNetModel.forward:59
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:60
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:60
+#: transformers.TFXLNetForSequenceClassification.call:60
+#: transformers.TFXLNetForTokenClassification.call:60
+#: transformers.TFXLNetLMHeadModel.call:60 transformers.TFXLNetModel.call:60
+#: transformers.XLNetForMultipleChoice.forward:61
+#: transformers.XLNetForQuestionAnswering.forward:61
+#: transformers.XLNetForQuestionAnsweringSimple.forward:61
+#: transformers.XLNetForSequenceClassification.forward:61
+#: transformers.XLNetForTokenClassification.forward:61
+#: transformers.XLNetLMHeadModel.forward:61 transformers.XLNetModel.forward:61
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:61
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:61
+#: transformers.TFXLNetForSequenceClassification.call:61
+#: transformers.TFXLNetForTokenClassification.call:61
+#: transformers.TFXLNetLMHeadModel.call:61 transformers.TFXLNetModel.call:61
+#: transformers.XLNetForMultipleChoice.forward:62
+#: transformers.XLNetForQuestionAnswering.forward:62
+#: transformers.XLNetForQuestionAnsweringSimple.forward:62
+#: transformers.XLNetForSequenceClassification.forward:62
+#: transformers.XLNetForTokenClassification.forward:62
+#: transformers.XLNetLMHeadModel.forward:62 transformers.XLNetModel.forward:62
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:63
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:63
+#: transformers.TFXLNetForSequenceClassification.call:63
+#: transformers.TFXLNetForTokenClassification.call:63
+#: transformers.TFXLNetLMHeadModel.call:63 transformers.TFXLNetModel.call:63
+#: transformers.XLNetForMultipleChoice.forward:64
+#: transformers.XLNetForQuestionAnswering.forward:64
+#: transformers.XLNetForQuestionAnsweringSimple.forward:64
+#: transformers.XLNetForSequenceClassification.forward:64
+#: transformers.XLNetForTokenClassification.forward:64
+#: transformers.XLNetLMHeadModel.forward:64 transformers.XLNetModel.forward:64
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:68
+#: transformers.XLNetForQuestionAnswering.forward:68
+#: transformers.XLNetForQuestionAnsweringSimple.forward:68
+#: transformers.XLNetForSequenceClassification.forward:68
+#: transformers.XLNetForTokenClassification.forward:68
+#: transformers.XLNetLMHeadModel.forward:68 transformers.XLNetModel.forward:68
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:71
+#: transformers.XLNetForQuestionAnswering.forward:71
+#: transformers.XLNetForQuestionAnsweringSimple.forward:71
+#: transformers.XLNetForSequenceClassification.forward:71
+#: transformers.XLNetForTokenClassification.forward:71
+#: transformers.XLNetLMHeadModel.forward:71 transformers.XLNetModel.forward:71
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:74
+#: transformers.XLNetForQuestionAnswering.forward:74
+#: transformers.XLNetForQuestionAnsweringSimple.forward:74
+#: transformers.XLNetForSequenceClassification.forward:74
+#: transformers.XLNetForTokenClassification.forward:74
+#: transformers.XLNetLMHeadModel.forward:74 transformers.XLNetModel.forward:74
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.XLNetModel.forward:77
+msgid ""
+"A :class:`~transformers.models.xlnet.modeling_xlnet.XLNetModelOutput` or "
+"a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLNetConfig`) and "
+"inputs.  - **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, num_predict, hidden_size)`) -- Sequence of hidden-"
+"states at the last layer of the model.    ``num_predict`` corresponds to "
+"``target_mapping.shape[1]``. If ``target_mapping`` is ``None``, then   "
+"``num_predict`` corresponds to ``sequence_length``. - **mems** "
+"(:obj:`List[torch.FloatTensor]` of length :obj:`config.n_layers`) -- "
+"Contains pre-computed hidden-states. Can be used (see :obj:`mems` input) "
+"to speed up sequential decoding.   The token ids which have their past "
+"given to this model should not be passed as :obj:`input_ids` as they   "
+"have already been computed. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.XLNetModel.forward:77
+msgid ""
+"A :class:`~transformers.models.xlnet.modeling_xlnet.XLNetModelOutput` or "
+"a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLNetConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.XLNetModel.forward:81
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, num_predict, hidden_size)`) -- Sequence of hidden-"
+"states at the last layer of the model."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:89
+#: transformers.XLNetForQuestionAnswering.forward:105
+#: transformers.XLNetForQuestionAnsweringSimple.forward:92
+#: transformers.XLNetForSequenceClassification.forward:87
+#: transformers.XLNetForTokenClassification.forward:87
+#: transformers.XLNetLMHeadModel.forward:98 transformers.XLNetModel.forward:85
+msgid ""
+"**mems** (:obj:`List[torch.FloatTensor]` of length "
+":obj:`config.n_layers`) -- Contains pre-computed hidden-states. Can be "
+"used (see :obj:`mems` input) to speed up sequential decoding. The token "
+"ids which have their past given to this model should not be passed as "
+":obj:`input_ids` as they have already been computed."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:92
+#: transformers.XLNetForQuestionAnswering.forward:108
+#: transformers.XLNetForQuestionAnsweringSimple.forward:95
+#: transformers.XLNetForSequenceClassification.forward:90
+#: transformers.XLNetForTokenClassification.forward:90
+#: transformers.XLNetLMHeadModel.forward:101 transformers.XLNetModel.forward:88
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:96
+#: transformers.XLNetForQuestionAnswering.forward:112
+#: transformers.XLNetForQuestionAnsweringSimple.forward:99
+#: transformers.XLNetForSequenceClassification.forward:94
+#: transformers.XLNetForTokenClassification.forward:94
+#: transformers.XLNetLMHeadModel.forward:105 transformers.XLNetModel.forward:92
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.XLNetModel.forward:97
+msgid ""
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:108
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:111
+#: transformers.TFXLNetForSequenceClassification.call:106
+#: transformers.TFXLNetForTokenClassification.call:105
+#: transformers.TFXLNetModel.call:104
+#: transformers.XLNetForMultipleChoice.forward:103
+#: transformers.XLNetForQuestionAnswering.forward:119
+#: transformers.XLNetForQuestionAnsweringSimple.forward:106
+#: transformers.XLNetForSequenceClassification.forward:101
+#: transformers.XLNetForTokenClassification.forward:101
+#: transformers.XLNetModel.forward:99
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:124
+msgid "XLNetLMHeadModel"
+msgstr ""
+
+#: of transformers.TFXLNetLMHeadModel:1 transformers.XLNetLMHeadModel:1
+msgid ""
+"XLNet Model with a language modeling head on top (linear layer with "
+"weights tied to the input embeddings)."
+msgstr ""
+
+#: of transformers.XLNetLMHeadModel.forward:1
+msgid ""
+"The :class:`~transformers.XLNetLMHeadModel` forward method, overrides the"
+" :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.XLNetLMHeadModel.forward:76
+msgid ""
+"Labels for masked language modeling. :obj:`num_predict` corresponds to "
+":obj:`target_mapping.shape[1]`. If :obj:`target_mapping` is :obj`None`, "
+"then :obj:`num_predict` corresponds to :obj:`sequence_length`.  The "
+"labels should correspond to the masked input words that should be "
+"predicted and depends on :obj:`target_mapping`. Note in order to perform "
+"standard auto-regressive language modeling a `<mask>` token has to be "
+"added to the :obj:`input_ids` (see the "
+":obj:`prepare_inputs_for_generation` function and examples below)  "
+"Indices are selected in ``[-100, 0, ..., config.vocab_size]`` All labels "
+"set to ``-100`` are ignored, the loss is only computed for labels in "
+"``[0, ..., config.vocab_size]``"
+msgstr ""
+
+#: of transformers.XLNetLMHeadModel.forward:76
+msgid ""
+"Labels for masked language modeling. :obj:`num_predict` corresponds to "
+":obj:`target_mapping.shape[1]`. If :obj:`target_mapping` is :obj`None`, "
+"then :obj:`num_predict` corresponds to :obj:`sequence_length`."
+msgstr ""
+
+#: of transformers.XLNetLMHeadModel.forward:79
+msgid ""
+"The labels should correspond to the masked input words that should be "
+"predicted and depends on :obj:`target_mapping`. Note in order to perform "
+"standard auto-regressive language modeling a `<mask>` token has to be "
+"added to the :obj:`input_ids` (see the "
+":obj:`prepare_inputs_for_generation` function and examples below)"
+msgstr ""
+
+#: of transformers.XLNetLMHeadModel.forward:84
+msgid ""
+"Indices are selected in ``[-100, 0, ..., config.vocab_size]`` All labels "
+"set to ``-100`` are ignored, the loss is only computed for labels in "
+"``[0, ..., config.vocab_size]``"
+msgstr ""
+
+#: of transformers.XLNetLMHeadModel.forward:88
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLNetConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape `(1,)`, "
+"`optional`, returned when ``labels`` is provided)   Language modeling "
+"loss (for next-token prediction). - **logits** (:obj:`torch.FloatTensor` "
+"of shape :obj:`(batch_size, num_predict, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax).    ``num_predict`` corresponds to "
+"``target_mapping.shape[1]``. If ``target_mapping`` is ``None``, then   "
+"``num_predict`` corresponds to ``sequence_length``. - **mems** "
+"(:obj:`List[torch.FloatTensor]` of length :obj:`config.n_layers`) -- "
+"Contains pre-computed hidden-states. Can be used (see :obj:`mems` input) "
+"to speed up sequential decoding.   The token ids which have their past "
+"given to this model should not be passed as :obj:`input_ids` as they   "
+"have already been computed. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Examples::      >>> from transformers import "
+"XLNetTokenizer, XLNetLMHeadModel     >>> import torch      >>> tokenizer "
+"= XLNetTokenizer.from_pretrained('xlnet-large-cased')     >>> model = "
+"XLNetLMHeadModel.from_pretrained('xlnet-large-cased')      >>> # We show "
+"how to setup inputs to predict a next token using a bi-directional "
+"context.     >>> input_ids = torch.tensor(tokenizer.encode(\"Hello, my "
+"dog is very <mask>\", add_special_tokens=False)).unsqueeze(0)  # We will "
+"predict the masked token     >>> perm_mask = torch.zeros((1, "
+"input_ids.shape[1], input_ids.shape[1]), dtype=torch.float)     >>> "
+"perm_mask[:, :, -1] = 1.0  # Previous tokens don't see last token     >>>"
+" target_mapping = torch.zeros((1, 1, input_ids.shape[1]), "
+"dtype=torch.float)  # Shape [1, 1, seq_length] => let's predict one token"
+"     >>> target_mapping[0, 0, -1] = 1.0  # Our first (and only) "
+"prediction will be the last token of the sequence (the masked token)"
+"      >>> outputs = model(input_ids, perm_mask=perm_mask, "
+"target_mapping=target_mapping)     >>> next_token_logits = outputs[0]  # "
+"Output has shape [target_mapping.size(0), target_mapping.size(1), "
+"config.vocab_size]      >>> # The same way can the XLNetLMHeadModel be "
+"used to be trained by standard auto-regressive language modeling.     >>>"
+" input_ids = torch.tensor(tokenizer.encode(\"Hello, my dog is very "
+"<mask>\", add_special_tokens=False)).unsqueeze(0)  # We will predict the "
+"masked token     >>> labels = torch.tensor(tokenizer.encode(\"cute\", "
+"add_special_tokens=False)).unsqueeze(0)     >>> assert labels.shape[0] =="
+" 1, 'only one word will be predicted'     >>> perm_mask = torch.zeros((1,"
+" input_ids.shape[1], input_ids.shape[1]), dtype=torch.float)     >>> "
+"perm_mask[:, :, -1] = 1.0  # Previous tokens don't see last token as is "
+"done in standard auto-regressive lm training     >>> target_mapping = "
+"torch.zeros((1, 1, input_ids.shape[1]), dtype=torch.float)  # Shape [1, "
+"1, seq_length] => let's predict one token     >>> target_mapping[0, 0, "
+"-1] = 1.0  # Our first (and only) prediction will be the last token of "
+"the sequence (the masked token)      >>> outputs = model(input_ids, "
+"perm_mask=perm_mask, target_mapping=target_mapping, labels=labels)     "
+">>> loss = outputs.loss     >>> next_token_logits = outputs.logits  # "
+"Logits have shape [target_mapping.size(0), target_mapping.size(1), "
+"config.vocab_size]"
+msgstr ""
+
+#: of transformers.XLNetLMHeadModel.forward:88
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLNetConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.XLNetLMHeadModel.forward:92
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when ``labels`` is provided) Language modeling loss (for next-token "
+"prediction)."
+msgstr ""
+
+#: of transformers.XLNetLMHeadModel.forward:94
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_predict, config.vocab_size)`) -- Prediction scores of the language "
+"modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.XLNetLMHeadModel.forward:142
+msgid ""
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetLMHeadModelOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:131
+msgid "XLNetForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFXLNetForSequenceClassification:1
+#: transformers.XLNetForSequenceClassification:1
+msgid ""
+"XLNet Model with a sequence classification/regression head on top (a "
+"linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.XLNetForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.XLNetForSequenceClassification` forward method,"
+" overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLNetForSequenceClassification.call:81
+#: transformers.XLNetForSequenceClassification.forward:76
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in ``[0, ..., config.num_labels - 1]``. If ``config.num_labels"
+" == 1`` a regression loss is computed (Mean-Square loss), If "
+"``config.num_labels > 1`` a classification loss is computed (Cross-"
+"Entropy)."
+msgstr ""
+
+#: of transformers.XLNetForSequenceClassification.forward:81
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetForSequenceClassificationOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLNetConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`label` is provided) -- Classification (or"
+" regression if config.num_labels==1) loss. - **logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax). - **mems** "
+"(:obj:`List[torch.FloatTensor]` of length :obj:`config.n_layers`) -- "
+"Contains pre-computed hidden-states. Can be used (see :obj:`mems` input) "
+"to speed up sequential decoding.   The token ids which have their past "
+"given to this model should not be passed as :obj:`input_ids` as they   "
+"have already been computed. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.XLNetForSequenceClassification.forward:81
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetForSequenceClassificationOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLNetConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.XLNetForSequenceClassification.forward:85
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`label` is provided) -- Classification (or regression "
+"if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.XLNetForSequenceClassification.forward:86
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.XLNetForSequenceClassification.forward:99
+msgid ""
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetForSequenceClassificationOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:138
+msgid "XLNetForMultipleChoice"
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice:1
+msgid ""
+"XLNet Model with a multiple choice classification head on top (a linear "
+"layer on top of the pooled output and a softmax) e.g. for RACE/SWAG "
+"tasks."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.XLNetForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:76
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:81
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLNetConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape `(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Classification "
+"loss. - **logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above).    Classification scores (before "
+"SoftMax). - **mems** (:obj:`List[torch.FloatTensor]` of length "
+":obj:`config.n_layers`) -- Contains pre-computed hidden-states. Can be "
+"used (see :obj:`mems` input) to speed up sequential decoding.   The token"
+" ids which have their past given to this model should not be passed as "
+":obj:`input_ids` as they   have already been computed. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:81
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLNetConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:85
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:86
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.XLNetForMultipleChoice.forward:101
+msgid ""
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetForMultipleChoiceOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:145
+msgid "XLNetForTokenClassification"
+msgstr ""
+
+#: of transformers.TFXLNetForTokenClassification:1
+#: transformers.XLNetForTokenClassification:1
+msgid ""
+"XLNet Model with a token classification head on top (a linear layer on "
+"top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) "
+"tasks."
+msgstr ""
+
+#: of transformers.XLNetForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.XLNetForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.XLNetForTokenClassification.forward:76
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices]`` where `num_choices` is the size of"
+" the second dimension of the input tensors. (see `input_ids` above)"
+msgstr ""
+
+#: of transformers.XLNetForTokenClassification.forward:81
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetForTokenClassificationOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLNetConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when ``labels`` is provided)  -- Classification "
+"loss. - **logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **mems** (:obj:`List[torch.FloatTensor]` of length "
+":obj:`config.n_layers`) -- Contains pre-computed hidden-states. Can be "
+"used (see :obj:`mems` input) to speed up sequential decoding.   The token"
+" ids which have their past given to this model should not be passed as "
+":obj:`input_ids` as they   have already been computed. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.XLNetForTokenClassification.forward:81
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetForTokenClassificationOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLNetConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.XLNetForTokenClassification.forward:85
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.XLNetForTokenClassification.forward:86
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.XLNetForTokenClassification.forward:99
+msgid ""
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetForTokenClassificationOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:152
+msgid "XLNetForQuestionAnsweringSimple"
+msgstr ""
+
+#: of transformers.TFXLNetForQuestionAnsweringSimple:1
+#: transformers.XLNetForQuestionAnswering:1
+#: transformers.XLNetForQuestionAnsweringSimple:1
+msgid ""
+"XLNet Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnsweringSimple.forward:1
+msgid ""
+"The :class:`~transformers.XLNetForQuestionAnsweringSimple` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLNetForQuestionAnsweringSimple.call:81
+#: transformers.XLNetForQuestionAnswering.forward:76
+#: transformers.XLNetForQuestionAnsweringSimple.forward:76
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.TFXLNetForQuestionAnsweringSimple.call:85
+#: transformers.XLNetForQuestionAnswering.forward:80
+#: transformers.XLNetForQuestionAnsweringSimple.forward:80
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnsweringSimple.forward:85
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringSimpleOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLNetConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length,)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length,)`) -- Span-end scores (before "
+"SoftMax). - **mems** (:obj:`List[torch.FloatTensor]` of length "
+":obj:`config.n_layers`) -- Contains pre-computed hidden-states. Can be "
+"used (see :obj:`mems` input) to speed up sequential decoding.   The token"
+" ids which have their past given to this model should not be passed as "
+":obj:`input_ids` as they   have already been computed. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnsweringSimple.forward:85
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringSimpleOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLNetConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnsweringSimple.forward:89
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnsweringSimple.forward:90
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length,)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnsweringSimple.forward:91
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length,)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnsweringSimple.forward:104
+msgid ""
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringSimpleOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:159
+msgid "XLNetForQuestionAnswering"
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.XLNetForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnswering.forward:84
+msgid "Labels whether a question has an answer or no answer (SQuAD 2.0)"
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnswering.forward:86
+msgid ""
+"Labels for position (index) of the classification token to use as input "
+"for computing plausibility of the answer."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnswering.forward:89
+msgid ""
+"Optional mask of tokens which can't be in answers (e.g. [CLS], [PAD], "
+"...). 1.0 means token should be masked. 0.0 mean token is not masked."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnswering.forward:93
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLNetConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned if both :obj:`start_positions` and "
+":obj:`end_positions` are provided) -- Classification loss as the sum of "
+"start token, end token (and is_impossible if provided) classification   "
+"losses. - **start_top_log_probs** (``torch.FloatTensor`` of shape "
+"``(batch_size, config.start_n_top)``, `optional`, returned if "
+"``start_positions`` or ``end_positions`` is not provided) -- Log "
+"probabilities for the top config.start_n_top start token possibilities "
+"(beam-search). - **start_top_index** (``torch.LongTensor`` of shape "
+"``(batch_size, config.start_n_top)``, `optional`, returned if "
+"``start_positions`` or ``end_positions`` is not provided) -- Indices for "
+"the top config.start_n_top start token possibilities (beam-search). - "
+"**end_top_log_probs** (``torch.FloatTensor`` of shape ``(batch_size, "
+"config.start_n_top * config.end_n_top)``, `optional`, returned if "
+"``start_positions`` or ``end_positions`` is not provided) -- Log "
+"probabilities for the top ``config.start_n_top * config.end_n_top`` end "
+"token possibilities   (beam-search). - **end_top_index** "
+"(``torch.LongTensor`` of shape ``(batch_size, config.start_n_top * "
+"config.end_n_top)``, `optional`, returned if ``start_positions`` or "
+"``end_positions`` is not provided) -- Indices for the top "
+"``config.start_n_top * config.end_n_top`` end token possibilities (beam-"
+"search). - **cls_logits** (``torch.FloatTensor`` of shape "
+"``(batch_size,)``, `optional`, returned if ``start_positions`` or "
+"``end_positions`` is not provided) -- Log probabilities for the "
+"``is_impossible`` label of the answers. - **mems** "
+"(:obj:`List[torch.FloatTensor]` of length :obj:`config.n_layers`) -- "
+"Contains pre-computed hidden-states. Can be used (see :obj:`mems` input) "
+"to speed up sequential decoding.   The token ids which have their past "
+"given to this model should not be passed as :obj:`input_ids` as they   "
+"have already been computed. - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Example::      >>> from transformers import "
+"XLNetTokenizer, XLNetForQuestionAnswering     >>> import torch      >>> "
+"tokenizer =  XLNetTokenizer.from_pretrained('xlnet-base-cased')     >>> "
+"model = XLNetForQuestionAnswering.from_pretrained('xlnet-base-cased')"
+"      >>> input_ids = torch.tensor(tokenizer.encode(\"Hello, my dog is "
+"cute\", add_special_tokens=True)).unsqueeze(0)  # Batch size 1     >>> "
+"start_positions = torch.tensor([1])     >>> end_positions = "
+"torch.tensor([3])     >>> outputs = model(input_ids, "
+"start_positions=start_positions, end_positions=end_positions)      >>> "
+"loss = outputs.loss"
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnswering.forward:93
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.XLNetConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnswering.forward:97
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned if both :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Classification loss as the sum of start token, end token "
+"(and is_impossible if provided) classification losses."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnswering.forward:99
+msgid ""
+"**start_top_log_probs** (``torch.FloatTensor`` of shape ``(batch_size, "
+"config.start_n_top)``, `optional`, returned if ``start_positions`` or "
+"``end_positions`` is not provided) -- Log probabilities for the top "
+"config.start_n_top start token possibilities (beam-search)."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnswering.forward:100
+msgid ""
+"**start_top_index** (``torch.LongTensor`` of shape ``(batch_size, "
+"config.start_n_top)``, `optional`, returned if ``start_positions`` or "
+"``end_positions`` is not provided) -- Indices for the top "
+"config.start_n_top start token possibilities (beam-search)."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnswering.forward:101
+msgid ""
+"**end_top_log_probs** (``torch.FloatTensor`` of shape ``(batch_size, "
+"config.start_n_top * config.end_n_top)``, `optional`, returned if "
+"``start_positions`` or ``end_positions`` is not provided) -- Log "
+"probabilities for the top ``config.start_n_top * config.end_n_top`` end "
+"token possibilities (beam-search)."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnswering.forward:103
+msgid ""
+"**end_top_index** (``torch.LongTensor`` of shape ``(batch_size, "
+"config.start_n_top * config.end_n_top)``, `optional`, returned if "
+"``start_positions`` or ``end_positions`` is not provided) -- Indices for "
+"the top ``config.start_n_top * config.end_n_top`` end token possibilities"
+" (beam-search)."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnswering.forward:104
+msgid ""
+"**cls_logits** (``torch.FloatTensor`` of shape ``(batch_size,)``, "
+"`optional`, returned if ``start_positions`` or ``end_positions`` is not "
+"provided) -- Log probabilities for the ``is_impossible`` label of the "
+"answers."
+msgstr ""
+
+#: of transformers.XLNetForQuestionAnswering.forward:133
+msgid ""
+":class:`~transformers.models.xlnet.modeling_xlnet.XLNetForQuestionAnsweringOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:166
+msgid "TFXLNetModel"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice:5
+#: transformers.TFXLNetForQuestionAnsweringSimple:5
+#: transformers.TFXLNetForSequenceClassification:5
+#: transformers.TFXLNetForTokenClassification:5
+#: transformers.TFXLNetLMHeadModel:4 transformers.TFXLNetModel:3
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice:9
+#: transformers.TFXLNetForQuestionAnsweringSimple:9
+#: transformers.TFXLNetForSequenceClassification:9
+#: transformers.TFXLNetForTokenClassification:9
+#: transformers.TFXLNetLMHeadModel:8 transformers.TFXLNetModel:7
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice:15
+#: transformers.TFXLNetForQuestionAnsweringSimple:15
+#: transformers.TFXLNetForSequenceClassification:15
+#: transformers.TFXLNetForTokenClassification:15
+#: transformers.TFXLNetLMHeadModel:14 transformers.TFXLNetModel:13
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice:17
+#: transformers.TFXLNetForQuestionAnsweringSimple:17
+#: transformers.TFXLNetForSequenceClassification:17
+#: transformers.TFXLNetForTokenClassification:17
+#: transformers.TFXLNetLMHeadModel:16 transformers.TFXLNetModel:15
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice:18
+#: transformers.TFXLNetForQuestionAnsweringSimple:18
+#: transformers.TFXLNetForSequenceClassification:18
+#: transformers.TFXLNetForTokenClassification:18
+#: transformers.TFXLNetLMHeadModel:17 transformers.TFXLNetModel:16
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice:20
+#: transformers.TFXLNetForQuestionAnsweringSimple:20
+#: transformers.TFXLNetForSequenceClassification:20
+#: transformers.TFXLNetForTokenClassification:20
+#: transformers.TFXLNetLMHeadModel:19 transformers.TFXLNetModel:18
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice:23
+#: transformers.TFXLNetForQuestionAnsweringSimple:23
+#: transformers.TFXLNetForSequenceClassification:23
+#: transformers.TFXLNetForTokenClassification:23
+#: transformers.TFXLNetLMHeadModel:22 transformers.TFXLNetModel:21
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice:26
+#: transformers.TFXLNetForQuestionAnsweringSimple:26
+#: transformers.TFXLNetForSequenceClassification:26
+#: transformers.TFXLNetForTokenClassification:26
+#: transformers.TFXLNetLMHeadModel:25 transformers.TFXLNetModel:24
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice:27
+#: transformers.TFXLNetForQuestionAnsweringSimple:27
+#: transformers.TFXLNetForSequenceClassification:27
+#: transformers.TFXLNetForTokenClassification:27
+#: transformers.TFXLNetLMHeadModel:26 transformers.TFXLNetModel:25
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice:29
+#: transformers.TFXLNetForQuestionAnsweringSimple:29
+#: transformers.TFXLNetForSequenceClassification:29
+#: transformers.TFXLNetForTokenClassification:29
+#: transformers.TFXLNetLMHeadModel:28 transformers.TFXLNetModel:27
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFXLNetModel.call:1
+msgid ""
+"The :class:`~transformers.TFXLNetModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:8
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:8
+#: transformers.TFXLNetForSequenceClassification.call:8
+#: transformers.TFXLNetForTokenClassification.call:8
+#: transformers.TFXLNetLMHeadModel.call:8 transformers.TFXLNetModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.BertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:10
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:10
+#: transformers.TFXLNetForSequenceClassification.call:10
+#: transformers.TFXLNetForTokenClassification.call:10
+#: transformers.TFXLNetLMHeadModel.call:10 transformers.TFXLNetModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.BertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:23
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:23
+#: transformers.TFXLNetForSequenceClassification.call:23
+#: transformers.TFXLNetForTokenClassification.call:23
+#: transformers.TFXLNetLMHeadModel.call:23 transformers.TFXLNetModel.call:23
+msgid ""
+"Contains pre-computed hidden-states (see :obj:`mems` output below) . Can "
+"be used to speed up sequential decoding. The token ids which have their "
+"past given to this model should not be passed as :obj:`input_ids` as they"
+" have already been computed.  :obj::obj:`use_mems` has to be set to "
+":obj:`True` to make use of :obj:`mems`."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:27
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:27
+#: transformers.TFXLNetForSequenceClassification.call:27
+#: transformers.TFXLNetForTokenClassification.call:27
+#: transformers.TFXLNetLMHeadModel.call:27 transformers.TFXLNetModel.call:27
+msgid ""
+":obj::obj:`use_mems` has to be set to :obj:`True` to make use of "
+":obj:`mems`."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:37
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:37
+#: transformers.TFXLNetForSequenceClassification.call:37
+#: transformers.TFXLNetForTokenClassification.call:37
+#: transformers.TFXLNetLMHeadModel.call:37 transformers.TFXLNetModel.call:37
+msgid ""
+"Mask to indicate the output tokens to use. If ``target_mapping[k, i, j] ="
+" 1``, the i-th predict in batch k is on the j-th token."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:67
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:67
+#: transformers.TFXLNetForSequenceClassification.call:67
+#: transformers.TFXLNetForTokenClassification.call:67
+#: transformers.TFXLNetLMHeadModel.call:67 transformers.TFXLNetModel.call:67
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:71
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:71
+#: transformers.TFXLNetForSequenceClassification.call:71
+#: transformers.TFXLNetForTokenClassification.call:71
+#: transformers.TFXLNetLMHeadModel.call:71 transformers.TFXLNetModel.call:71
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:75
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:75
+#: transformers.TFXLNetForSequenceClassification.call:75
+#: transformers.TFXLNetForTokenClassification.call:75
+#: transformers.TFXLNetLMHeadModel.call:75 transformers.TFXLNetModel.call:75
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:78
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:78
+#: transformers.TFXLNetForSequenceClassification.call:78
+#: transformers.TFXLNetForTokenClassification.call:78
+#: transformers.TFXLNetLMHeadModel.call:78 transformers.TFXLNetModel.call:78
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFXLNetModel.call:82
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLNetConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"num_predict, hidden_size)`) -- Sequence of hidden-states at the last "
+"layer of the model.    ``num_predict`` corresponds to "
+"``target_mapping.shape[1]``. If ``target_mapping`` is ``None``, then   "
+"``num_predict`` corresponds to ``sequence_length``. - **mems** "
+"(:obj:`List[tf.Tensor]` of length :obj:`config.n_layers`) -- Contains "
+"pre-computed hidden-states. Can be used (see :obj:`mems` input) to speed "
+"up sequential decoding.   The token ids which have their past given to "
+"this model should not be passed as :obj:`input_ids` as they   have "
+"already been computed. - **hidden_states** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFXLNetModel.call:82
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLNetConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFXLNetModel.call:86
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"num_predict, hidden_size)`) -- Sequence of hidden-states at the last "
+"layer of the model."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:94
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:97
+#: transformers.TFXLNetForSequenceClassification.call:92
+#: transformers.TFXLNetForTokenClassification.call:91
+#: transformers.TFXLNetLMHeadModel.call:95 transformers.TFXLNetModel.call:90
+msgid ""
+"**mems** (:obj:`List[tf.Tensor]` of length :obj:`config.n_layers`) -- "
+"Contains pre-computed hidden-states. Can be used (see :obj:`mems` input) "
+"to speed up sequential decoding. The token ids which have their past "
+"given to this model should not be passed as :obj:`input_ids` as they have"
+" already been computed."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:97
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:100
+#: transformers.TFXLNetForSequenceClassification.call:95
+#: transformers.TFXLNetForTokenClassification.call:94
+#: transformers.TFXLNetLMHeadModel.call:98 transformers.TFXLNetModel.call:93
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:101
+#: transformers.TFXLNetForQuestionAnsweringSimple.call:104
+#: transformers.TFXLNetForSequenceClassification.call:99
+#: transformers.TFXLNetForTokenClassification.call:98
+#: transformers.TFXLNetLMHeadModel.call:102 transformers.TFXLNetModel.call:97
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFXLNetModel.call:102
+msgid ""
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetModelOutput` "
+"or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:173
+msgid "TFXLNetLMHeadModel"
+msgstr ""
+
+#: of transformers.TFXLNetLMHeadModel.call:1
+msgid ""
+"The :class:`~transformers.TFXLNetLMHeadModel` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLNetLMHeadModel.call:81
+msgid ""
+"Labels for computing the cross entropy classification loss. Indices "
+"should be in ``[0, ..., config.vocab_size - 1]``."
+msgstr ""
+
+#: of transformers.TFXLNetLMHeadModel.call:85
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLNetConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape `(1,)`, `optional`, returned when "
+"``labels`` is provided)   Language modeling loss (for next-token "
+"prediction). - **logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"num_predict, config.vocab_size)`) -- Prediction scores of the language "
+"modeling head (scores for each vocabulary token before SoftMax).    "
+"``num_predict`` corresponds to ``target_mapping.shape[1]``. If "
+"``target_mapping`` is ``None``, then   ``num_predict`` corresponds to "
+"``sequence_length``. - **mems** (:obj:`List[tf.Tensor]` of length "
+":obj:`config.n_layers`) -- Contains pre-computed hidden-states. Can be "
+"used (see :obj:`mems` input) to speed up sequential decoding.   The token"
+" ids which have their past given to this model should not be passed as "
+":obj:`input_ids` as they   have already been computed. - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Examples::      >>> import tensorflow as tf     >>> import numpy as np"
+"     >>> from transformers import XLNetTokenizer, TFXLNetLMHeadModel"
+"      >>> tokenizer = XLNetTokenizer.from_pretrained('xlnet-large-cased')"
+"     >>> model = TFXLNetLMHeadModel.from_pretrained('xlnet-large-cased')"
+"      >>> # We show how to setup inputs to predict a next token using a "
+"bi-directional context.     >>> input_ids = "
+"tf.constant(tokenizer.encode(\"Hello, my dog is very <mask>\", "
+"add_special_tokens=True))[None, :]  # We will predict the masked token"
+"      >>> perm_mask = np.zeros((1, input_ids.shape[1], "
+"input_ids.shape[1]))     >>> perm_mask[:, :, -1] = 1.0  # Previous tokens"
+" don't see last token      >>> target_mapping = np.zeros((1, 1, "
+"input_ids.shape[1]))  # Shape [1, 1, seq_length] => let's predict one "
+"token     >>> target_mapping[0, 0, -1] = 1.0  # Our first (and only) "
+"prediction will be the last token of the sequence (the masked token)"
+"      >>> outputs = model(input_ids, perm_mask=tf.constant(perm_mask, "
+"dtype=tf.float32), target_mapping=tf.constant(target_mapping, "
+"dtype=tf.float32))      >>> next_token_logits = outputs[0]  # Output has "
+"shape [target_mapping.size(0), target_mapping.size(1), config.vocab_size]"
+msgstr ""
+
+#: of transformers.TFXLNetLMHeadModel.call:85
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLNetConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFXLNetLMHeadModel.call:89
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape `(1,)`, `optional`, returned when "
+"``labels`` is provided) Language modeling loss (for next-token "
+"prediction)."
+msgstr ""
+
+#: of transformers.TFXLNetLMHeadModel.call:91
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_predict, "
+"config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFXLNetLMHeadModel.call:130
+msgid ""
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetLMHeadModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:180
+msgid "TFXLNetForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFXLNetForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFXLNetForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLNetForSequenceClassification.call:86
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForSequenceClassificationOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLNetConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(1,)`, `optional`, returned "
+"when :obj:`label` is provided) -- Classification (or regression if "
+"config.num_labels==1) loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, config.num_labels)`) -- Classification (or regression "
+"if config.num_labels==1) scores (before SoftMax). - **mems** "
+"(:obj:`List[tf.Tensor]` of length :obj:`config.n_layers`) -- Contains "
+"pre-computed hidden-states. Can be used (see :obj:`mems` input) to speed "
+"up sequential decoding.   The token ids which have their past given to "
+"this model should not be passed as :obj:`input_ids` as they   have "
+"already been computed. - **hidden_states** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFXLNetForSequenceClassification.call:86
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForSequenceClassificationOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLNetConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFXLNetForSequenceClassification.call:90
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(1,)`, `optional`, returned "
+"when :obj:`label` is provided) -- Classification (or regression if "
+"config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFXLNetForSequenceClassification.call:91
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFXLNetForSequenceClassification.call:104
+msgid ""
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForSequenceClassificationOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:187
+msgid "TFLNetForMultipleChoice"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice:1
+msgid ""
+"XLNET Model with a multiple choice classification head on top (a linear "
+"layer on top of the pooled output and a softmax) e.g. for RocStories/SWAG"
+" tasks."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:1
+msgid ""
+"The :class:`~transformers.TFXLNetForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:81
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:86
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLNetConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape `(1,)`, `optional`, returned when "
+":obj:`labels` is provided) -- Classification loss. - **logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) -- "
+"`num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - **mems**"
+" (:obj:`List[tf.Tensor]` of length :obj:`config.n_layers`) -- Contains "
+"pre-computed hidden-states. Can be used (see :obj:`mems` input) to speed "
+"up sequential decoding.   The token ids which have their past given to "
+"this model should not be passed as :obj:`input_ids` as they   have "
+"already been computed. - **hidden_states** (:obj:`tuple(tf.Tensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:86
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLNetConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:90
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape `(1,)`, `optional`, returned when "
+":obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:91
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.TFXLNetForMultipleChoice.call:106
+msgid ""
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForMultipleChoiceOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:194
+msgid "TFXLNetForTokenClassification"
+msgstr ""
+
+#: of transformers.TFXLNetForTokenClassification.call:1
+msgid ""
+"The :class:`~transformers.TFXLNetForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLNetForTokenClassification.call:81
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.TFXLNetForTokenClassification.call:85
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForTokenClassificationOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLNetConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(1,)`, `optional`, returned "
+"when ``labels`` is provided)  -- Classification loss. - **logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length, "
+"config.num_labels)`) -- Classification scores (before SoftMax). - "
+"**mems** (:obj:`List[tf.Tensor]` of length :obj:`config.n_layers`) -- "
+"Contains pre-computed hidden-states. Can be used (see :obj:`mems` input) "
+"to speed up sequential decoding.   The token ids which have their past "
+"given to this model should not be passed as :obj:`input_ids` as they   "
+"have already been computed. - **hidden_states** (:obj:`tuple(tf.Tensor)`,"
+" `optional`, returned when ``output_hidden_states=True`` is passed or "
+"when ``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` "
+"(one for the output of the embeddings + one for the output of each layer)"
+" of   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFXLNetForTokenClassification.call:85
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForTokenClassificationOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLNetConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFXLNetForTokenClassification.call:89
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(1,)`, `optional`, returned "
+"when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.TFXLNetForTokenClassification.call:90
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.num_labels)`) -- Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFXLNetForTokenClassification.call:103
+msgid ""
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForTokenClassificationOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/xlnet.rst:201
+msgid "TFXLNetForQuestionAnsweringSimple"
+msgstr ""
+
+#: of transformers.TFXLNetForQuestionAnsweringSimple.call:1
+msgid ""
+"The :class:`~transformers.TFXLNetForQuestionAnsweringSimple` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFXLNetForQuestionAnsweringSimple.call:90
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForQuestionAnsweringSimpleOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLNetConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Total span extraction loss is the sum "
+"of a Cross-Entropy for the start and end positions. - **start_logits** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,)`) -- "
+"Span-start scores (before SoftMax). - **end_logits** (:obj:`tf.Tensor` of"
+" shape :obj:`(batch_size, sequence_length,)`) -- Span-end scores (before "
+"SoftMax). - **mems** (:obj:`List[tf.Tensor]` of length "
+":obj:`config.n_layers`) -- Contains pre-computed hidden-states. Can be "
+"used (see :obj:`mems` input) to speed up sequential decoding.   The token"
+" ids which have their past given to this model should not be passed as "
+":obj:`input_ids` as they   have already been computed. - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFXLNetForQuestionAnsweringSimple.call:90
+msgid ""
+"A "
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForQuestionAnsweringSimpleOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.XLNetConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFXLNetForQuestionAnsweringSimple.call:94
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Total span extraction loss is the sum "
+"of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.TFXLNetForQuestionAnsweringSimple.call:95
+msgid ""
+"**start_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length,)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFXLNetForQuestionAnsweringSimple.call:96
+msgid ""
+"**end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length,)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFXLNetForQuestionAnsweringSimple.call:109
+msgid ""
+":class:`~transformers.models.xlnet.modeling_tf_xlnet.TFXLNetForQuestionAnsweringSimpleOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+

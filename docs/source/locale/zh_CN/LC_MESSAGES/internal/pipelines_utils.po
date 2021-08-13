@@ -1,0 +1,257 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 17:01+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/internal/pipelines_utils.rst:14
+msgid "Utilities for pipelines"
+msgstr ""
+
+#: ../../source/internal/pipelines_utils.rst:16
+msgid ""
+"This page lists all the utility functions the library provides for "
+"pipelines."
+msgstr ""
+
+#: ../../source/internal/pipelines_utils.rst:18
+msgid ""
+"Most of those are only useful if you are studying the code of the models "
+"in the library."
+msgstr ""
+
+#: ../../source/internal/pipelines_utils.rst:22
+msgid "Argument handling"
+msgstr ""
+
+#: of transformers.pipelines.ArgumentHandler:1
+msgid ""
+"Base interface for handling arguments for each "
+":class:`~transformers.pipelines.Pipeline`."
+msgstr ""
+
+#: of transformers.pipelines.ZeroShotClassificationArgumentHandler:1
+msgid ""
+"Handles arguments for zero-shot for text classification by turning each "
+"possible label into an NLI premise/hypothesis pair."
+msgstr ""
+
+#: of transformers.pipelines.QuestionAnsweringArgumentHandler:1
+msgid ""
+"QuestionAnsweringPipeline requires the user to provide multiple arguments"
+" (i.e. question & context) to be mapped to internal "
+":class:`~transformers.SquadExample`."
+msgstr ""
+
+#: of transformers.pipelines.QuestionAnsweringArgumentHandler:4
+msgid ""
+"QuestionAnsweringArgumentHandler manages all the possible to create a "
+":class:`~transformers.SquadExample` from the command-line supplied "
+"arguments."
+msgstr ""
+
+#: ../../source/internal/pipelines_utils.rst:32
+msgid "Data format"
+msgstr ""
+
+#: of transformers.pipelines.PipelineDataFormat:1
+msgid ""
+"Base class for all the pipeline supported data format both for reading "
+"and writing. Supported data formats currently includes:"
+msgstr ""
+
+#: of transformers.pipelines.PipelineDataFormat:4
+msgid "JSON"
+msgstr ""
+
+#: of transformers.pipelines.PipelineDataFormat:5
+msgid "CSV"
+msgstr ""
+
+#: of transformers.pipelines.PipelineDataFormat:6
+msgid "stdin/stdout (pipe)"
+msgstr ""
+
+#: of transformers.pipelines.PipelineDataFormat:8
+msgid ""
+":obj:`PipelineDataFormat` also includes some utilities to work with "
+"multi-columns like mapping from datasets columns to pipelines keyword "
+"arguments through the :obj:`dataset_kwarg_1=dataset_column_1` format."
+msgstr ""
+
+#: of transformers.pipelines.CsvPipelineDataFormat
+#: transformers.pipelines.CsvPipelineDataFormat.save
+#: transformers.pipelines.JsonPipelineDataFormat
+#: transformers.pipelines.JsonPipelineDataFormat.save
+#: transformers.pipelines.PipedPipelineDataFormat
+#: transformers.pipelines.PipedPipelineDataFormat.save
+#: transformers.pipelines.PipedPipelineDataFormat.save_binary
+#: transformers.pipelines.PipelineDataFormat
+#: transformers.pipelines.PipelineDataFormat.from_str
+#: transformers.pipelines.PipelineDataFormat.save
+#: transformers.pipelines.PipelineDataFormat.save_binary
+#: transformers.pipelines.PipelineException
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.pipelines.CsvPipelineDataFormat:3
+#: transformers.pipelines.JsonPipelineDataFormat:3
+#: transformers.pipelines.PipedPipelineDataFormat:5
+#: transformers.pipelines.PipelineDataFormat:11
+#: transformers.pipelines.PipelineDataFormat.from_str:6
+msgid "Where to save the outgoing data."
+msgstr ""
+
+#: of transformers.pipelines.CsvPipelineDataFormat:5
+#: transformers.pipelines.JsonPipelineDataFormat:5
+#: transformers.pipelines.PipedPipelineDataFormat:7
+#: transformers.pipelines.PipelineDataFormat:13
+#: transformers.pipelines.PipelineDataFormat.from_str:8
+msgid "Where to look for the input data."
+msgstr ""
+
+#: of transformers.pipelines.CsvPipelineDataFormat:7
+#: transformers.pipelines.JsonPipelineDataFormat:7
+#: transformers.pipelines.PipedPipelineDataFormat:9
+#: transformers.pipelines.PipelineDataFormat:15
+#: transformers.pipelines.PipelineDataFormat.from_str:10
+msgid "The column to read."
+msgstr ""
+
+#: of transformers.pipelines.CsvPipelineDataFormat:9
+#: transformers.pipelines.JsonPipelineDataFormat:9
+#: transformers.pipelines.PipedPipelineDataFormat:11
+#: transformers.pipelines.PipelineDataFormat:17
+#: transformers.pipelines.PipelineDataFormat.from_str:12
+msgid "Whether or not to overwrite the :obj:`output_path`."
+msgstr ""
+
+#: of transformers.pipelines.PipelineDataFormat.from_str:1
+msgid ""
+"Creates an instance of the right subclass of "
+":class:`~transformers.pipelines.PipelineDataFormat` depending on "
+":obj:`format`."
+msgstr ""
+
+#: of transformers.pipelines.PipelineDataFormat.from_str:4
+msgid ""
+"(:obj:`str`): The format of the desired pipeline. Acceptable values are "
+":obj:`\"json\"`, :obj:`\"csv\"` or :obj:`\"pipe\"`."
+msgstr ""
+
+#: of transformers.pipelines.PipedPipelineDataFormat.save_binary
+#: transformers.pipelines.PipelineDataFormat.from_str
+#: transformers.pipelines.PipelineDataFormat.save_binary
+msgid "Returns"
+msgstr ""
+
+#: of transformers.pipelines.PipelineDataFormat.from_str:15
+msgid "The proper data format."
+msgstr ""
+
+#: of transformers.pipelines.PipedPipelineDataFormat.save_binary
+#: transformers.pipelines.PipelineDataFormat.from_str
+#: transformers.pipelines.PipelineDataFormat.save_binary
+msgid "Return type"
+msgstr ""
+
+#: of transformers.pipelines.PipelineDataFormat.from_str:16
+msgid ":class:`~transformers.pipelines.PipelineDataFormat`"
+msgstr ""
+
+#: of transformers.pipelines.CsvPipelineDataFormat.save:1
+#: transformers.pipelines.PipelineDataFormat.save:1
+msgid ""
+"Save the provided data object with the representation for the current "
+":class:`~transformers.pipelines.PipelineDataFormat`."
+msgstr ""
+
+#: of transformers.pipelines.CsvPipelineDataFormat.save:4
+#: transformers.pipelines.JsonPipelineDataFormat.save:3
+#: transformers.pipelines.PipedPipelineDataFormat.save:3
+#: transformers.pipelines.PipedPipelineDataFormat.save_binary:3
+#: transformers.pipelines.PipelineDataFormat.save:4
+#: transformers.pipelines.PipelineDataFormat.save_binary:3
+msgid "The data to store."
+msgstr ""
+
+#: of transformers.pipelines.PipedPipelineDataFormat.save_binary:1
+#: transformers.pipelines.PipelineDataFormat.save_binary:1
+msgid ""
+"Save the provided data object as a pickle-formatted binary data on the "
+"disk."
+msgstr ""
+
+#: of transformers.pipelines.PipedPipelineDataFormat.save_binary:6
+#: transformers.pipelines.PipelineDataFormat.save_binary:6
+msgid "Path where the data has been saved."
+msgstr ""
+
+#: of transformers.pipelines.PipedPipelineDataFormat.save_binary:7
+#: transformers.pipelines.PipelineDataFormat.save_binary:7
+msgid ":obj:`str`"
+msgstr ""
+
+#: of transformers.pipelines.CsvPipelineDataFormat:1
+msgid "Support for pipelines using CSV data format."
+msgstr ""
+
+#: of transformers.pipelines.JsonPipelineDataFormat:1
+msgid "Support for pipelines using JSON file format."
+msgstr ""
+
+#: of transformers.pipelines.JsonPipelineDataFormat.save:1
+msgid "Save the provided data object in a json file."
+msgstr ""
+
+#: of transformers.pipelines.PipedPipelineDataFormat:1
+msgid ""
+"Read data from piped input to the python process. For multi columns data,"
+" columns should separated by"
+msgstr ""
+
+#: of transformers.pipelines.PipedPipelineDataFormat:3
+msgid ""
+"If columns are provided, then the output will be a dictionary with "
+"{column_x: value_x}"
+msgstr ""
+
+#: of transformers.pipelines.PipedPipelineDataFormat.save:1
+msgid "Print the data."
+msgstr ""
+
+#: ../../source/internal/pipelines_utils.rst:48
+msgid "Utilities"
+msgstr ""
+
+#: of transformers.pipelines.PipelineException:1
+msgid "Raised by a :class:`~transformers.Pipeline` when handling __call__."
+msgstr ""
+
+#: of transformers.pipelines.PipelineException:3
+msgid "The task of the pipeline."
+msgstr ""
+
+#: of transformers.pipelines.PipelineException:5
+msgid "The model used by the pipeline."
+msgstr ""
+
+#: of transformers.pipelines.PipelineException:7
+msgid "The error message to display."
+msgstr ""
+

@@ -1,0 +1,1688 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/lxmert.rst:14
+msgid "LXMERT"
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:19
+msgid ""
+"The LXMERT model was proposed in `LXMERT: Learning Cross-Modality Encoder"
+" Representations from Transformers <https://arxiv.org/abs/1908.07490>`__ "
+"by Hao Tan & Mohit Bansal. It is a series of bidirectional transformer "
+"encoders (one for the vision modality, one for the language modality, and"
+" then one to fuse both modalities) pretrained using a combination of "
+"masked language modeling, visual-language text alignment, ROI-feature "
+"regression, masked visual-attribute modeling, masked visual-object "
+"modeling, and visual-question answering objectives. The pretraining "
+"consists of multiple multi-modal datasets: MSCOCO, Visual-Genome + "
+"Visual-Genome Question Answering, VQA 2.0, and GQA."
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:26
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:28
+msgid ""
+"*Vision-and-language reasoning requires an understanding of visual "
+"concepts, language semantics, and, most importantly, the alignment and "
+"relationships between these two modalities. We thus propose the LXMERT "
+"(Learning Cross-Modality Encoder Representations from Transformers) "
+"framework to learn these vision-and-language connections. In LXMERT, we "
+"build a large-scale Transformer model that consists of three encoders: an"
+" object relationship encoder, a language encoder, and a cross-modality "
+"encoder. Next, to endow our model with the capability of connecting "
+"vision and language semantics, we pre-train the model with large amounts "
+"of image-and-sentence pairs, via five diverse representative pretraining "
+"tasks: masked language modeling, masked object prediction (feature "
+"regression and label classification), cross-modality matching, and image "
+"question answering. These tasks help in learning both intra-modality and "
+"cross-modality relationships. After fine-tuning from our pretrained "
+"parameters, our model achieves the state-of-the-art results on two visual"
+" question answering datasets (i.e., VQA and GQA). We also show the "
+"generalizability of our pretrained cross-modality model by adapting it to"
+" a challenging visual-reasoning task, NLVR, and improve the previous best"
+" result by 22% absolute (54% to 76%). Lastly, we demonstrate detailed "
+"ablation studies to prove that both our novel model components and "
+"pretraining strategies significantly contribute to our strong results; "
+"and also present several attention visualizations for the different "
+"encoders*"
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:43
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:45
+msgid ""
+"Bounding boxes are not necessary to be used in the visual feature "
+"embeddings, any kind of visual-spacial features will work."
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:47
+msgid ""
+"Both the language hidden states and the visual hidden states that LXMERT "
+"outputs are passed through the cross-modality layer, so they contain "
+"information from both modalities. To access a modality that only attends "
+"to itself, select the vision/language hidden states from the first input "
+"in the tuple."
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:50
+msgid ""
+"The bidirectional cross-modality encoder attention only returns attention"
+" values when the language modality is used as the input and the vision "
+"modality is used as the context vector. Further, while the cross-modality"
+" encoder contains self-attention for each respective modality and cross-"
+"attention, only the cross attention is returned and both self attention "
+"outputs are disregarded."
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:55
+msgid ""
+"This model was contributed by `eltoto1219 "
+"<https://huggingface.co/eltoto1219>`__. The original code can be found "
+"`here <https://github.com/airsplay/lxmert>`__."
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:60
+msgid "LxmertConfig"
+msgstr ""
+
+#: of transformers.LxmertConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.LxmertModel` or a "
+":class:`~transformers.TFLxmertModel`. It is used to instantiate a LXMERT "
+"model according to the specified arguments, defining the model "
+"architecture."
+msgstr ""
+
+#: of transformers.LxmertConfig:5
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.LxmertConfig transformers.LxmertForPreTraining
+#: transformers.LxmertForPreTraining.forward
+#: transformers.LxmertForQuestionAnswering
+#: transformers.LxmertForQuestionAnswering.forward transformers.LxmertModel
+#: transformers.LxmertModel.forward transformers.TFLxmertForPreTraining
+#: transformers.TFLxmertForPreTraining.call transformers.TFLxmertModel
+#: transformers.TFLxmertModel.call
+#: transformers.models.lxmert.modeling_lxmert.LxmertForPreTrainingOutput
+#: transformers.models.lxmert.modeling_lxmert.LxmertForQuestionAnsweringOutput
+#: transformers.models.lxmert.modeling_lxmert.LxmertModelOutput
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertForPreTrainingOutput
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertModelOutput
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.LxmertConfig:9
+msgid ""
+"Vocabulary size of the LXMERT model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.LxmertModel` or "
+":class:`~transformers.TFLxmertModel`."
+msgstr ""
+
+#: of transformers.LxmertConfig:13
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.LxmertConfig:15
+msgid "Number of hidden layers in the Transformer visual encoder."
+msgstr ""
+
+#: of transformers.LxmertConfig:17
+msgid "Number of hidden layers in the Transformer language encoder."
+msgstr ""
+
+#: of transformers.LxmertConfig:19
+msgid "Number of hidden layers in the Transformer cross modality encoder."
+msgstr ""
+
+#: of transformers.LxmertConfig:21
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.LxmertConfig:23
+msgid ""
+"Dimensionality of the \"intermediate\" (often named feed-forward) layer "
+"in the Transformer encoder."
+msgstr ""
+
+#: of transformers.LxmertConfig:25
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.LxmertConfig:28
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.LxmertConfig:30
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.LxmertConfig:32
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.LxmertConfig:35
+msgid ""
+"The vocabulary size of the `token_type_ids` passed into "
+":class:`~transformers.BertModel`."
+msgstr ""
+
+#: of transformers.LxmertConfig:37
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.LxmertConfig:39
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.LxmertConfig:41
+msgid ""
+"This represents the last dimension of the pooled-object features used as "
+"input for the model, representing the size of each object feature itself."
+msgstr ""
+
+#: of transformers.LxmertConfig:44
+msgid ""
+"This represents the number of spacial features that are mixed into the "
+"visual features. The default is set to 4 because most commonly this will "
+"represent the location of a bounding box. i.e., (x, y, width, height)"
+msgstr ""
+
+#: of transformers.LxmertConfig:47
+msgid ""
+"This represents the scaling factor in which each visual loss is "
+"multiplied by if during pretraining, one decided to train with multiple "
+"vision-based loss objectives."
+msgstr ""
+
+#: of transformers.LxmertConfig:50
+msgid ""
+"This represents the total number of different question answering (QA) "
+"labels there are. If using more than one dataset with QA, the user will "
+"need to account for the total number of labels that all of the datasets "
+"have in total."
+msgstr ""
+
+#: of transformers.LxmertConfig:54
+msgid ""
+"This represents the total number of semantically unique objects that "
+"lxmert will be able to classify a pooled-object feature as belonging too."
+msgstr ""
+
+#: of transformers.LxmertConfig:57
+msgid ""
+"This represents the total number of semantically unique attributes that "
+"lxmert will be able to classify a pooled-object feature as possessing."
+msgstr ""
+
+#: of transformers.LxmertConfig:60
+msgid ""
+"This task is used for sentence-image matching. If the sentence correctly "
+"describes the image the label will be 1. If the sentence does not "
+"correctly describe the image, the label will be 0."
+msgstr ""
+
+#: of transformers.LxmertConfig:63
+msgid ""
+"Whether or not to add masked language modeling (as used in pretraining "
+"models such as BERT) to the loss objective."
+msgstr ""
+
+#: of transformers.LxmertConfig:66
+msgid ""
+"Whether or not to add object prediction, attribute prediction and feature"
+" regression to the loss objective."
+msgstr ""
+
+#: of transformers.LxmertConfig:68
+msgid "Whether or not to add the question-answering loss to the objective"
+msgstr ""
+
+#: of transformers.LxmertConfig:70
+msgid "Whether or not to calculate the object-prediction loss objective"
+msgstr ""
+
+#: of transformers.LxmertConfig:72
+msgid "Whether or not to calculate the attribute-prediction loss objective"
+msgstr ""
+
+#: of transformers.LxmertConfig:74
+msgid "Whether or not to calculate the feature-regression loss objective"
+msgstr ""
+
+#: of transformers.LxmertConfig:76
+msgid ""
+"Whether or not the model should return the attentions from the vision, "
+"language, and cross-modality layers should be returned."
+msgstr ""
+
+#: of transformers.LxmertConfig:79
+msgid ""
+"Whether or not the model should return the hidden states from the vision,"
+" language, and cross-modality layers should be returned."
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:67
+msgid "LxmertTokenizer"
+msgstr ""
+
+#: of transformers.LxmertTokenizer:1
+msgid "Construct an LXMERT tokenizer."
+msgstr ""
+
+#: of transformers.LxmertTokenizer:3
+msgid ""
+":class:`~transformers.LxmertTokenizer` is identical to "
+":class:`~transformers.BertTokenizer` and runs end-to-end tokenization: "
+"punctuation splitting and wordpiece."
+msgstr ""
+
+#: of transformers.LxmertTokenizer:6
+msgid ""
+"Refer to superclass :class:`~transformers.BertTokenizer` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:74
+msgid "LxmertTokenizerFast"
+msgstr ""
+
+#: of transformers.LxmertTokenizerFast:1
+msgid ""
+"Construct a \"fast\" LXMERT tokenizer (backed by HuggingFace's "
+"`tokenizers` library)."
+msgstr ""
+
+#: of transformers.LxmertTokenizerFast:3
+msgid ""
+":class:`~transformers.LxmertTokenizerFast` is identical to "
+":class:`~transformers.BertTokenizerFast` and runs end-to-end "
+"tokenization: punctuation splitting and wordpiece."
+msgstr ""
+
+#: of transformers.LxmertTokenizerFast:6
+msgid ""
+"Refer to superclass :class:`~transformers.BertTokenizerFast` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:81
+msgid "Lxmert specific outputs"
+msgstr ""
+
+#: of transformers.models.lxmert.modeling_lxmert.LxmertModelOutput:1
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertModelOutput:1
+msgid ""
+"Lxmert's outputs that contain the last hidden states, pooled outputs, and"
+" attention probabilities for the language, visual, and, cross-modality "
+"encoders. (note: the visual encoder in Lxmert is referred to as the "
+"\"relation-ship\" encoder\")"
+msgstr ""
+
+#: of transformers.models.lxmert.modeling_lxmert.LxmertModelOutput:6
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertModelOutput:6
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the language"
+" encoder."
+msgstr ""
+
+#: of transformers.models.lxmert.modeling_lxmert.LxmertModelOutput:8
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertModelOutput:8
+msgid ""
+"Sequence of hidden-states at the output of the last layer of the visual "
+"encoder."
+msgstr ""
+
+#: of transformers.models.lxmert.modeling_lxmert.LxmertModelOutput:10
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertModelOutput:10
+msgid ""
+"Last layer hidden-state of the first token of the sequence "
+"(classification, CLS, token) further processed by a Linear layer and a "
+"Tanh activation function. The Linear"
+msgstr ""
+
+#: of transformers.models.lxmert.modeling_lxmert.LxmertForPreTrainingOutput:13
+#: transformers.models.lxmert.modeling_lxmert.LxmertForPreTrainingOutput:16
+#: transformers.models.lxmert.modeling_lxmert.LxmertForQuestionAnsweringOutput:8
+#: transformers.models.lxmert.modeling_lxmert.LxmertForQuestionAnsweringOutput:11
+#: transformers.models.lxmert.modeling_lxmert.LxmertModelOutput:13
+#: transformers.models.lxmert.modeling_lxmert.LxmertModelOutput:16
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for input features + one for the "
+"output of each cross-modality layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.models.lxmert.modeling_lxmert.LxmertForPreTrainingOutput:19
+#: transformers.models.lxmert.modeling_lxmert.LxmertForPreTrainingOutput:23
+#: transformers.models.lxmert.modeling_lxmert.LxmertForPreTrainingOutput:27
+#: transformers.models.lxmert.modeling_lxmert.LxmertForQuestionAnsweringOutput:14
+#: transformers.models.lxmert.modeling_lxmert.LxmertForQuestionAnsweringOutput:18
+#: transformers.models.lxmert.modeling_lxmert.LxmertForQuestionAnsweringOutput:22
+#: transformers.models.lxmert.modeling_lxmert.LxmertModelOutput:19
+#: transformers.models.lxmert.modeling_lxmert.LxmertModelOutput:23
+#: transformers.models.lxmert.modeling_lxmert.LxmertModelOutput:27
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`. "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.models.lxmert.modeling_lxmert.LxmertForPreTrainingOutput:1
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertForPreTrainingOutput:1
+msgid "Output type of :class:`~transformers.LxmertForPreTraining`."
+msgstr ""
+
+#: of transformers.models.lxmert.modeling_lxmert.LxmertForPreTrainingOutput:3
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertForPreTrainingOutput:3
+msgid ""
+"Total loss as the sum of the masked language modeling loss and the next "
+"sequence prediction (classification) loss."
+msgstr ""
+
+#: of transformers.models.lxmert.modeling_lxmert.LxmertForPreTrainingOutput:6
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertForPreTrainingOutput:6
+msgid ""
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.models.lxmert.modeling_lxmert.LxmertForPreTrainingOutput:8
+msgid ""
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, 2)`): Prediction "
+"scores of the textual matching objective (classification) head (scores of"
+" True/False continuation before SoftMax)."
+msgstr ""
+
+#: of transformers.models.lxmert.modeling_lxmert.LxmertForPreTrainingOutput:11
+msgid ""
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, n_qa_answers)`): "
+"Prediction scores of question answering objective (classification)."
+msgstr ""
+
+#: of
+#: transformers.models.lxmert.modeling_lxmert.LxmertForQuestionAnsweringOutput:1
+msgid "Output type of :class:`~transformers.LxmertForQuestionAnswering`."
+msgstr ""
+
+#: of
+#: transformers.models.lxmert.modeling_lxmert.LxmertForQuestionAnsweringOutput:3
+msgid ""
+"Total loss as the sum of the masked language modeling loss and the next "
+"sequence prediction (classification) loss.k."
+msgstr ""
+
+#: of
+#: transformers.models.lxmert.modeling_lxmert.LxmertForQuestionAnsweringOutput:6
+msgid ""
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, n_qa_answers)`, "
+"`optional`): Prediction scores of question answering objective "
+"(classification)."
+msgstr ""
+
+#: of
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertForPreTrainingOutput:13
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertForPreTrainingOutput:16
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertModelOutput:13
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertModelOutput:16
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for input features + one for the output of"
+" each cross-modality layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertForPreTrainingOutput:19
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertForPreTrainingOutput:23
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertForPreTrainingOutput:27
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertModelOutput:19
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertModelOutput:23
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertModelOutput:27
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`. "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertForPreTrainingOutput:8
+msgid ""
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, 2)`): Prediction scores of "
+"the textual matching objective (classification) head (scores of "
+"True/False continuation before SoftMax)."
+msgstr ""
+
+#: of
+#: transformers.models.lxmert.modeling_tf_lxmert.TFLxmertForPreTrainingOutput:11
+msgid ""
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, n_qa_answers)`): Prediction"
+" scores of question answering objective (classification)."
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:100
+msgid "LxmertModel"
+msgstr ""
+
+#: of transformers.LxmertModel:1 transformers.TFLxmertModel:1
+msgid ""
+"The bare Lxmert Model transformer outputting raw hidden-states without "
+"any specific head on top."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining:3
+#: transformers.LxmertForQuestionAnswering:3 transformers.LxmertModel:3
+msgid ""
+"The LXMERT model was proposed in `LXMERT: Learning Cross-Modality Encoder"
+" Representations from Transformers <https://arxiv.org/abs/1908.07490>`__ "
+"by Hao Tan and Mohit Bansal. It's a vision and language transformer "
+"model, pretrained on a variety of multi-modal datasets comprising of GQA,"
+" VQAv2.0, MCSCOCO captions, and Visual genome, using a combination of "
+"masked language modeling, region of interest feature regression, cross "
+"entropy loss for question answering attribute prediction, and object tag "
+"prediction."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining:9
+#: transformers.LxmertForQuestionAnswering:9 transformers.LxmertModel:9
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining:13
+#: transformers.LxmertForQuestionAnswering:13 transformers.LxmertModel:13
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining:17
+#: transformers.LxmertForQuestionAnswering:17 transformers.LxmertModel:17
+#: transformers.TFLxmertForPreTraining:32 transformers.TFLxmertModel:32
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.LxmertModel.forward:1
+msgid ""
+"The :class:`~transformers.LxmertModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:4
+#: transformers.LxmertForQuestionAnswering.forward:4
+#: transformers.LxmertModel.forward:4
+#: transformers.TFLxmertForPreTraining.call:4 transformers.TFLxmertModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:9
+#: transformers.LxmertForQuestionAnswering.forward:9
+#: transformers.LxmertModel.forward:9
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.LxmertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:9
+#: transformers.LxmertForQuestionAnswering.forward:9
+#: transformers.LxmertModel.forward:9
+#: transformers.TFLxmertForPreTraining.call:8 transformers.TFLxmertModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:11
+#: transformers.LxmertForQuestionAnswering.forward:11
+#: transformers.LxmertModel.forward:11
+msgid ""
+"Indices can be obtained using :class:`~transformers.LxmertTokenizer`. See"
+" :meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:15
+#: transformers.LxmertForQuestionAnswering.forward:15
+#: transformers.LxmertModel.forward:15
+#: transformers.TFLxmertForPreTraining.call:14
+#: transformers.TFLxmertModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:17
+#: transformers.LxmertForQuestionAnswering.forward:17
+#: transformers.LxmertModel.forward:17
+msgid ""
+"(:obj:`torch.FloatTensor` of shape :obj:՝(batch_size, "
+"num_visual_features, visual_feat_dim)՝): This input represents visual "
+"features. They ROI pooled object features from bounding boxes using a "
+"faster-RCNN model)  These are currently not provided by the transformers "
+"library."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:17
+#: transformers.LxmertForQuestionAnswering.forward:17
+#: transformers.LxmertModel.forward:17
+msgid ""
+"(:obj:`torch.FloatTensor` of shape :obj:՝(batch_size, "
+"num_visual_features, visual_feat_dim)՝): This input represents visual "
+"features. They ROI pooled object features from bounding boxes using a "
+"faster-RCNN model)"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:21
+#: transformers.LxmertForPreTraining.forward:27
+#: transformers.LxmertForQuestionAnswering.forward:21
+#: transformers.LxmertForQuestionAnswering.forward:27
+#: transformers.LxmertModel.forward:21 transformers.LxmertModel.forward:27
+#: transformers.TFLxmertForPreTraining.call:20
+#: transformers.TFLxmertForPreTraining.call:26
+#: transformers.TFLxmertModel.call:20 transformers.TFLxmertModel.call:26
+msgid "These are currently not provided by the transformers library."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:22
+#: transformers.LxmertForQuestionAnswering.forward:22
+#: transformers.LxmertModel.forward:22
+msgid ""
+"(:obj:`torch.FloatTensor` of shape :obj:՝(batch_size, "
+"num_visual_features, visual_pos_dim)՝): This input represents spacial "
+"features corresponding to their relative (via index) visual features. The"
+" pre-trained LXMERT model expects these spacial features to be normalized"
+" bounding boxes on a scale of 0 to 1.  These are currently not provided "
+"by the transformers library."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:22
+#: transformers.LxmertForQuestionAnswering.forward:22
+#: transformers.LxmertModel.forward:22
+msgid ""
+"(:obj:`torch.FloatTensor` of shape :obj:՝(batch_size, "
+"num_visual_features, visual_pos_dim)՝): This input represents spacial "
+"features corresponding to their relative (via index) visual features. The"
+" pre-trained LXMERT model expects these spacial features to be normalized"
+" bounding boxes on a scale of 0 to 1."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:28
+#: transformers.LxmertForPreTraining.forward:35
+#: transformers.LxmertForQuestionAnswering.forward:28
+#: transformers.LxmertForQuestionAnswering.forward:35
+#: transformers.LxmertModel.forward:28 transformers.LxmertModel.forward:35
+#: transformers.TFLxmertForPreTraining.call:27
+#: transformers.TFLxmertModel.call:27
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:28
+#: transformers.LxmertForPreTraining.forward:35
+#: transformers.LxmertForQuestionAnswering.forward:28
+#: transformers.LxmertForQuestionAnswering.forward:35
+#: transformers.LxmertModel.forward:28 transformers.LxmertModel.forward:35
+#: transformers.TFLxmertForPreTraining.call:27
+#: transformers.TFLxmertModel.call:27
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:30
+#: transformers.LxmertForPreTraining.forward:37
+#: transformers.LxmertForQuestionAnswering.forward:30
+#: transformers.LxmertForQuestionAnswering.forward:37
+#: transformers.LxmertModel.forward:30 transformers.LxmertModel.forward:37
+#: transformers.TFLxmertForPreTraining.call:29
+#: transformers.TFLxmertForPreTraining.call:36
+#: transformers.TFLxmertModel.call:29 transformers.TFLxmertModel.call:36
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:31
+#: transformers.LxmertForPreTraining.forward:38
+#: transformers.LxmertForQuestionAnswering.forward:31
+#: transformers.LxmertForQuestionAnswering.forward:38
+#: transformers.LxmertModel.forward:31 transformers.LxmertModel.forward:38
+#: transformers.TFLxmertForPreTraining.call:30
+#: transformers.TFLxmertForPreTraining.call:37
+#: transformers.TFLxmertModel.call:30 transformers.TFLxmertModel.call:37
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:33
+#: transformers.LxmertForPreTraining.forward:40
+#: transformers.LxmertForQuestionAnswering.forward:33
+#: transformers.LxmertForQuestionAnswering.forward:40
+#: transformers.LxmertModel.forward:33 transformers.LxmertModel.forward:40
+#: transformers.TFLxmertForPreTraining.call:32
+#: transformers.TFLxmertForPreTraining.call:39
+#: transformers.TFLxmertModel.call:32 transformers.TFLxmertModel.call:39
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:42
+#: transformers.LxmertForQuestionAnswering.forward:42
+#: transformers.LxmertModel.forward:42
+#: transformers.TFLxmertForPreTraining.call:41
+#: transformers.TFLxmertModel.call:41
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:42
+#: transformers.LxmertForQuestionAnswering.forward:42
+#: transformers.LxmertModel.forward:42
+#: transformers.TFLxmertForPreTraining.call:41
+#: transformers.TFLxmertModel.call:41
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:45
+#: transformers.LxmertForQuestionAnswering.forward:45
+#: transformers.LxmertModel.forward:45
+#: transformers.TFLxmertForPreTraining.call:44
+#: transformers.TFLxmertModel.call:44
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:46
+#: transformers.LxmertForQuestionAnswering.forward:46
+#: transformers.LxmertModel.forward:46
+#: transformers.TFLxmertForPreTraining.call:45
+#: transformers.TFLxmertModel.call:45
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:48
+#: transformers.LxmertForQuestionAnswering.forward:48
+#: transformers.LxmertModel.forward:48
+#: transformers.TFLxmertForPreTraining.call:47
+#: transformers.TFLxmertModel.call:47
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`__"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:50
+#: transformers.LxmertForQuestionAnswering.forward:50
+#: transformers.LxmertModel.forward:50
+#: transformers.TFLxmertForPreTraining.call:49
+#: transformers.TFLxmertModel.call:49
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:54
+#: transformers.LxmertForQuestionAnswering.forward:54
+#: transformers.LxmertModel.forward:54
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:57
+#: transformers.LxmertForQuestionAnswering.forward:57
+#: transformers.LxmertModel.forward:57
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:60
+#: transformers.LxmertForQuestionAnswering.forward:60
+#: transformers.LxmertModel.forward:60
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward
+#: transformers.LxmertForQuestionAnswering.forward
+#: transformers.LxmertModel.forward transformers.TFLxmertForPreTraining.call
+#: transformers.TFLxmertModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.LxmertModel.forward:63
+msgid ""
+"A :class:`~transformers.models.lxmert.modeling_lxmert.LxmertModelOutput` "
+"or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LxmertConfig`) and "
+"inputs.  - **language_output** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the language encoder. - "
+"**vision_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the visual encoder. - **pooled_output** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, hidden_size)`) -- "
+"Last layer hidden-state of the first token of the sequence "
+"(classification, CLS, token) further processed   by a Linear layer and a "
+"Tanh activation function. The Linear - **language_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for input features + one for the output of "
+"each cross-modality   layer) of shape :obj:`(batch_size, sequence_length,"
+" hidden_size)`. - **vision_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for input features + one for the output of "
+"each cross-modality   layer) of shape :obj:`(batch_size, sequence_length,"
+" hidden_size)`. - **language_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`. Attentions weights after the "
+"attention softmax, used to compute the   weighted average in the self-"
+"attention heads. - **vision_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`. Attentions weights after the "
+"attention softmax, used to compute the   weighted average in the self-"
+"attention heads. - **cross_encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`. Attentions weights after the "
+"attention softmax, used to compute the   weighted average in the self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.LxmertModel.forward:63
+msgid ""
+"A :class:`~transformers.models.lxmert.modeling_lxmert.LxmertModelOutput` "
+"or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LxmertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.LxmertModel.forward:67
+msgid ""
+"**language_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size,"
+" sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the language encoder."
+msgstr ""
+
+#: of transformers.LxmertModel.forward:68
+msgid ""
+"**vision_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the visual encoder."
+msgstr ""
+
+#: of transformers.LxmertModel.forward:69
+msgid ""
+"**pooled_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification, CLS, token) further processed by a Linear layer"
+" and a Tanh activation function. The Linear"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:89
+#: transformers.LxmertForQuestionAnswering.forward:73
+#: transformers.LxmertModel.forward:71
+msgid ""
+"**language_hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for input features + one for the output of "
+"each cross-modality layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:91
+#: transformers.LxmertForQuestionAnswering.forward:75
+#: transformers.LxmertModel.forward:73
+msgid ""
+"**vision_hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for input features + one for the output of "
+"each cross-modality layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:93
+#: transformers.LxmertForQuestionAnswering.forward:77
+#: transformers.LxmertModel.forward:75
+msgid ""
+"**language_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`. Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:96
+#: transformers.LxmertForQuestionAnswering.forward:80
+#: transformers.LxmertModel.forward:78
+msgid ""
+"**vision_attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`. Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:99
+#: transformers.LxmertForQuestionAnswering.forward:83
+#: transformers.LxmertModel.forward:81
+msgid ""
+"**cross_encoder_attentions** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`. Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward
+#: transformers.LxmertForQuestionAnswering.forward
+#: transformers.LxmertModel.forward transformers.TFLxmertForPreTraining.call
+#: transformers.TFLxmertModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.LxmertModel.forward:84
+msgid ""
+":class:`~transformers.models.lxmert.modeling_lxmert.LxmertModelOutput` or"
+" :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.LxmertForQuestionAnswering.forward:88
+#: transformers.LxmertModel.forward:86 transformers.TFLxmertModel.call:91
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:106
+msgid "LxmertForPreTraining"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining:1
+msgid "Lxmert Model with a specified pretraining head on top."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:1
+msgid ""
+"The :class:`~transformers.LxmertForPreTraining` forward method, overrides"
+" the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:62
+#: transformers.TFLxmertForPreTraining.call:67
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:66
+msgid ""
+"(``Dict[Str: Tuple[Torch.FloatTensor, Torch.FloatTensor]]``, `optional`):"
+" each key is named after each one of the visual losses and each element "
+"of the tuple is of the shape ``(batch_size, num_features)`` and "
+"``(batch_size, num_features, visual_feature_dim)`` for each the label id "
+"and the label score respectively"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:70
+#: transformers.TFLxmertForPreTraining.call:75
+msgid ""
+"Labels for computing the whether or not the text input matches the image "
+"(classification) loss. Input should be a sequence pair (see "
+":obj:`input_ids` docstring) Indices should be in ``[0, 1]``:  - 0 "
+"indicates that the sentence does not match the image, - 1 indicates that "
+"the sentence does match the image."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:70
+#: transformers.TFLxmertForPreTraining.call:75
+msgid ""
+"Labels for computing the whether or not the text input matches the image "
+"(classification) loss. Input should be a sequence pair (see "
+":obj:`input_ids` docstring) Indices should be in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:73
+#: transformers.TFLxmertForPreTraining.call:78
+msgid "0 indicates that the sentence does not match the image,"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:74
+#: transformers.TFLxmertForPreTraining.call:79
+msgid "1 indicates that the sentence does match the image."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:76
+msgid ""
+"(``Torch.Tensor`` of shape ``(batch_size)``, `optional`): a one hot "
+"representation hof the correct answer `optional`"
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:79
+msgid ""
+"A "
+":class:`~transformers.models.lxmert.modeling_lxmert.LxmertForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LxmertConfig`) and "
+"inputs.  - **loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss as the sum of "
+"the masked language modeling loss and the next sequence prediction   "
+"(classification) loss. - **prediction_logits** (:obj:`torch.FloatTensor` "
+"of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **cross_relationship_score:** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, 2)`) -- Prediction "
+"scores of the textual matching objective (classification) head (scores of"
+" True/False   continuation before SoftMax). - "
+"**question_answering_score:** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, n_qa_answers)`) -- Prediction scores of question "
+"answering objective (classification). - **language_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for input features + one for the output of "
+"each cross-modality   layer) of shape :obj:`(batch_size, sequence_length,"
+" hidden_size)`. - **vision_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for input features + one for the output of "
+"each cross-modality   layer) of shape :obj:`(batch_size, sequence_length,"
+" hidden_size)`. - **language_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`. Attentions weights after the "
+"attention softmax, used to compute the   weighted average in the self-"
+"attention heads. - **vision_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`. Attentions weights after the "
+"attention softmax, used to compute the   weighted average in the self-"
+"attention heads. - **cross_encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`. Attentions weights after the "
+"attention softmax, used to compute the   weighted average in the self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:79
+msgid ""
+"A "
+":class:`~transformers.models.lxmert.modeling_lxmert.LxmertForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LxmertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:83
+msgid ""
+"**loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss as the sum of "
+"the masked language modeling loss and the next sequence prediction "
+"(classification) loss."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:85
+msgid ""
+"**prediction_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax)."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:86
+msgid ""
+"**cross_relationship_score:** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, 2)`) -- Prediction scores of the textual matching "
+"objective (classification) head (scores of True/False continuation before"
+" SoftMax)."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:88
+msgid ""
+"**question_answering_score:** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, n_qa_answers)`) -- Prediction scores of question "
+"answering objective (classification)."
+msgstr ""
+
+#: of transformers.LxmertForPreTraining.forward:102
+msgid ""
+":class:`~transformers.models.lxmert.modeling_lxmert.LxmertForPreTrainingOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:112
+msgid "LxmertForQuestionAnswering"
+msgstr ""
+
+#: of transformers.LxmertForQuestionAnswering:1
+msgid "Lxmert Model with a visual-answering head on top for downstream QA tasks"
+msgstr ""
+
+#: of transformers.LxmertForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.LxmertForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.LxmertForQuestionAnswering.forward:62
+msgid ""
+"(``Torch.Tensor`` of shape ``(batch_size)``, `optional`): A one-hot "
+"representation of the correct answer"
+msgstr ""
+
+#: of transformers.LxmertForQuestionAnswering.forward:66
+msgid ""
+"A "
+":class:`~transformers.models.lxmert.modeling_lxmert.LxmertForQuestionAnsweringOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LxmertConfig`) and "
+"inputs.  - **loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss as the sum of "
+"the masked language modeling loss and the next sequence prediction   "
+"(classification) loss.k. - **question_answering_score:** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, n_qa_answers)`, "
+"`optional`) -- Prediction scores of question answering objective "
+"(classification). - **language_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for input features + one for the output of "
+"each cross-modality   layer) of shape :obj:`(batch_size, sequence_length,"
+" hidden_size)`. - **vision_hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for input features + one for the output of "
+"each cross-modality   layer) of shape :obj:`(batch_size, sequence_length,"
+" hidden_size)`. - **language_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`. Attentions weights after the "
+"attention softmax, used to compute the   weighted average in the self-"
+"attention heads. - **vision_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`. Attentions weights after the "
+"attention softmax, used to compute the   weighted average in the self-"
+"attention heads. - **cross_encoder_attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`. Attentions weights after the "
+"attention softmax, used to compute the   weighted average in the self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.LxmertForQuestionAnswering.forward:66
+msgid ""
+"A "
+":class:`~transformers.models.lxmert.modeling_lxmert.LxmertForQuestionAnsweringOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.LxmertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.LxmertForQuestionAnswering.forward:70
+msgid ""
+"**loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss as the sum of "
+"the masked language modeling loss and the next sequence prediction "
+"(classification) loss.k."
+msgstr ""
+
+#: of transformers.LxmertForQuestionAnswering.forward:72
+msgid ""
+"**question_answering_score:** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, n_qa_answers)`, `optional`) -- Prediction scores of "
+"question answering objective (classification)."
+msgstr ""
+
+#: of transformers.LxmertForQuestionAnswering.forward:86
+msgid ""
+":class:`~transformers.models.lxmert.modeling_lxmert.LxmertForQuestionAnsweringOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:119
+msgid "TFLxmertModel"
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining:3 transformers.TFLxmertModel:3
+msgid ""
+"The LXMERT model was proposed in `LXMERT: Learning Cross-Modality Encoder"
+" Representations from Transformers <https://arxiv.org/abs/1908.07490>`__ "
+"by Hao Tan and Mohit Bansal. It's a vision and language transformer "
+"model, pre-trained on a variety of multi-modal datasets comprising of "
+"GQA, VQAv2.0, MCSCOCO captions, and Visual genome, using a combination of"
+" masked language modeling, region of interest feature regression, cross "
+"entropy loss for question answering attribute prediction, and object tag "
+"prediction."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining:9 transformers.TFLxmertModel:9
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining:15 transformers.TFLxmertModel:15
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining:17 transformers.TFLxmertModel:17
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining:18 transformers.TFLxmertModel:18
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining:20 transformers.TFLxmertModel:20
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining:23 transformers.TFLxmertModel:23
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining:26 transformers.TFLxmertModel:26
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining:27 transformers.TFLxmertModel:27
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining:29 transformers.TFLxmertModel:29
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFLxmertModel.call:1
+msgid ""
+"The :class:`~transformers.TFLxmertModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:8
+#: transformers.TFLxmertModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.LxmertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:10
+#: transformers.TFLxmertModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.LxmertTokenizer`. See"
+" :func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:16
+#: transformers.TFLxmertModel.call:16
+msgid ""
+"(:obj:`tf.Tensor` of shape :obj:՝(batch_size, num_visual_features, "
+"visual_feat_dim)՝): This input represents visual features. They ROI "
+"pooled object features from bounding boxes using a faster-RCNN model)  "
+"These are currently not provided by the transformers library."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:16
+#: transformers.TFLxmertModel.call:16
+msgid ""
+"(:obj:`tf.Tensor` of shape :obj:՝(batch_size, num_visual_features, "
+"visual_feat_dim)՝): This input represents visual features. They ROI "
+"pooled object features from bounding boxes using a faster-RCNN model)"
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:21
+#: transformers.TFLxmertModel.call:21
+msgid ""
+"(:obj:`tf.Tensor` of shape :obj:՝(batch_size, num_visual_features, "
+"visual_feat_dim)՝): This input represents spacial features corresponding "
+"to their relative (via index) visual features. The pre-trained LXMERT "
+"model expects these spacial features to be normalized bounding boxes on a"
+" scale of 0 to 1.  These are currently not provided by the transformers "
+"library."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:21
+#: transformers.TFLxmertModel.call:21
+msgid ""
+"(:obj:`tf.Tensor` of shape :obj:՝(batch_size, num_visual_features, "
+"visual_feat_dim)՝): This input represents spacial features corresponding "
+"to their relative (via index) visual features. The pre-trained LXMERT "
+"model expects these spacial features to be normalized bounding boxes on a"
+" scale of 0 to 1."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:34
+#: transformers.TFLxmertModel.call:34
+msgid ""
+"MMask to avoid performing attention on padding token indices. Mask values"
+" selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for"
+" tokens that are **masked**.  `What are attention masks? "
+"<../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:34
+#: transformers.TFLxmertModel.call:34
+msgid ""
+"MMask to avoid performing attention on padding token indices. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:53
+#: transformers.TFLxmertModel.call:53
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:57
+#: transformers.TFLxmertModel.call:57
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:61
+#: transformers.TFLxmertModel.call:61
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:64
+#: transformers.TFLxmertModel.call:64
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFLxmertModel.call:68
+msgid ""
+"A "
+":class:`~transformers.models.lxmert.modeling_tf_lxmert.TFLxmertModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LxmertConfig`) and inputs.  -"
+" **language_output** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the language encoder. - **vision_output** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`) -- Sequence of hidden-states at the output of the last "
+"layer of the visual encoder. - **pooled_output** (:obj:`tf.Tensor` of "
+"shape :obj:`(batch_size, hidden_size)`) -- Last layer hidden-state of the"
+" first token of the sequence (classification, CLS, token) further "
+"processed   by a Linear layer and a Tanh activation function. The Linear "
+"- **language_hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, "
+"returned when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for input features + one for the output of each cross-modality layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`. - "
+"**vision_hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for input features + one for the output of each cross-modality layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`. - "
+"**language_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`. Attentions weights after the attention softmax, used "
+"to compute the weighted average in   the self-attention heads. - "
+"**vision_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when"
+" ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`. Attentions weights after the attention softmax, used "
+"to compute the weighted average in   the self-attention heads. - "
+"**cross_encoder_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`. Attentions weights after the attention softmax, used "
+"to compute the weighted average in   the self-attention heads."
+msgstr ""
+
+#: of transformers.TFLxmertModel.call:68
+msgid ""
+"A "
+":class:`~transformers.models.lxmert.modeling_tf_lxmert.TFLxmertModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LxmertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFLxmertModel.call:72
+msgid ""
+"**language_output** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the language encoder."
+msgstr ""
+
+#: of transformers.TFLxmertModel.call:73
+msgid ""
+"**vision_output** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the visual encoder."
+msgstr ""
+
+#: of transformers.TFLxmertModel.call:74
+msgid ""
+"**pooled_output** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification, CLS, token) further processed by a Linear layer"
+" and a Tanh activation function. The Linear"
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:94
+#: transformers.TFLxmertModel.call:76
+msgid ""
+"**language_hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned"
+" when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for input features + one for the output of each cross-modality layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:96
+#: transformers.TFLxmertModel.call:78
+msgid ""
+"**vision_hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for input features + one for the output of each cross-modality layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:98
+#: transformers.TFLxmertModel.call:80
+msgid ""
+"**language_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`. Attentions weights after the attention softmax, used "
+"to compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:101
+#: transformers.TFLxmertModel.call:83
+msgid ""
+"**vision_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when"
+" ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`. Attentions weights after the attention softmax, used "
+"to compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:104
+#: transformers.TFLxmertModel.call:86
+msgid ""
+"**cross_encoder_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`. Attentions weights after the attention softmax, used "
+"to compute the weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.TFLxmertModel.call:89
+msgid ""
+":class:`~transformers.models.lxmert.modeling_tf_lxmert.TFLxmertModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/lxmert.rst:125
+msgid "TFLxmertForPreTraining"
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining:1
+msgid "Lxmert Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:1
+msgid ""
+"The :class:`~transformers.TFLxmertForPreTraining` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:71
+msgid ""
+"(``Dict[Str: Tuple[tf.Tensor, tf.Tensor]]``, `optional`, defaults to "
+":obj: `None`): each key is named after each one of the visual losses and "
+"each element of the tuple is of the shape ``(batch_size, num_features)`` "
+"and ``(batch_size, num_features, visual_feature_dim)`` for each the label"
+" id and the label score respectively"
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:81
+msgid ""
+"(``Torch.Tensor`` of shape ``(batch_size)``, `optional`, defaults to "
+":obj: `None`): a one hot representation hof the correct answer `optional`"
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:84
+msgid ""
+"A "
+":class:`~transformers.models.lxmert.modeling_tf_lxmert.TFLxmertForPreTrainingOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LxmertConfig`) and inputs.  -"
+" **loss** (`optional`, returned when ``labels`` is provided, "
+"``tf.Tensor`` of shape :obj:`(1,)`) -- Total loss as the sum of the "
+"masked language modeling loss and the next sequence prediction   "
+"(classification) loss. - **prediction_logits** (:obj:`tf.Tensor` of shape"
+" :obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **cross_relationship_score:** (:obj:`tf.Tensor` of "
+"shape :obj:`(batch_size, 2)`) -- Prediction scores of the textual "
+"matching objective (classification) head (scores of True/False   "
+"continuation before SoftMax). - **question_answering_score:** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, n_qa_answers)`) -- "
+"Prediction scores of question answering objective (classification). - "
+"**language_hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned"
+" when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for input features + one for the output of each cross-modality layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`. - "
+"**vision_hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for input features + one for the output of each cross-modality layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`. - "
+"**language_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`. Attentions weights after the attention softmax, used "
+"to compute the weighted average in   the self-attention heads. - "
+"**vision_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when"
+" ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`. Attentions weights after the attention softmax, used "
+"to compute the weighted average in   the self-attention heads. - "
+"**cross_encoder_attentions** (:obj:`tuple(tf.Tensor)`, `optional`, "
+"returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`. Attentions weights after the attention softmax, used "
+"to compute the weighted average in   the self-attention heads."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:84
+msgid ""
+"A "
+":class:`~transformers.models.lxmert.modeling_tf_lxmert.TFLxmertForPreTrainingOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.LxmertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:88
+msgid ""
+"**loss** (`optional`, returned when ``labels`` is provided, ``tf.Tensor``"
+" of shape :obj:`(1,)`) -- Total loss as the sum of the masked language "
+"modeling loss and the next sequence prediction (classification) loss."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:90
+msgid ""
+"**prediction_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:91
+msgid ""
+"**cross_relationship_score:** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, 2)`) -- Prediction scores of the textual matching "
+"objective (classification) head (scores of True/False continuation before"
+" SoftMax)."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:93
+msgid ""
+"**question_answering_score:** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, n_qa_answers)`) -- Prediction scores of question "
+"answering objective (classification)."
+msgstr ""
+
+#: of transformers.TFLxmertForPreTraining.call:107
+msgid ""
+":class:`~transformers.models.lxmert.modeling_tf_lxmert.TFLxmertForPreTrainingOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+

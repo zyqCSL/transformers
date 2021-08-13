@@ -1,0 +1,336 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/bertweet.rst:14
+msgid "Bertweet"
+msgstr ""
+
+#: ../../source/model_doc/bertweet.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/bertweet.rst:19
+msgid ""
+"The BERTweet model was proposed in `BERTweet: A pre-trained language "
+"model for English Tweets <https://www.aclweb.org/anthology/2020.emnlp-"
+"demos.2.pdf>`__ by Dat Quoc Nguyen, Thanh Vu, Anh Tuan Nguyen."
+msgstr ""
+
+#: ../../source/model_doc/bertweet.rst:22
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/bertweet.rst:24
+msgid ""
+"*We present BERTweet, the first public large-scale pre-trained language "
+"model for English Tweets. Our BERTweet, having the same architecture as "
+"BERT-base (Devlin et al., 2019), is trained using the RoBERTa pre-"
+"training procedure (Liu et al., 2019). Experiments show that BERTweet "
+"outperforms strong baselines RoBERTa-base and XLM-R-base (Conneau et al.,"
+" 2020), producing better performance results than the previous state-of-"
+"the-art models on three Tweet NLP tasks: Part-of-speech tagging, Named-"
+"entity recognition and text classification.*"
+msgstr ""
+
+#: ../../source/model_doc/bertweet.rst:30
+msgid "Example of use:"
+msgstr ""
+
+#: ../../source/model_doc/bertweet.rst:57
+msgid ""
+"This model was contributed by `dqnguyen "
+"<https://huggingface.co/dqnguyen>`__. The original code can be found "
+"`here <https://github.com/VinAIResearch/BERTweet>`__."
+msgstr ""
+
+#: ../../source/model_doc/bertweet.rst:61
+msgid "BertweetTokenizer"
+msgstr ""
+
+#: of transformers.BertweetTokenizer:1
+msgid "Constructs a BERTweet tokenizer, using Byte-Pair-Encoding."
+msgstr ""
+
+#: of transformers.BertweetTokenizer:3
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.BertweetTokenizer
+#: transformers.BertweetTokenizer.build_inputs_with_special_tokens
+#: transformers.BertweetTokenizer.create_token_type_ids_from_sequences
+#: transformers.BertweetTokenizer.get_special_tokens_mask
+#: transformers.BertweetTokenizer.save_vocabulary
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.BertweetTokenizer:6
+msgid "Path to the vocabulary file."
+msgstr ""
+
+#: of transformers.BertweetTokenizer:8
+msgid "Path to the merges file."
+msgstr ""
+
+#: of transformers.BertweetTokenizer:10
+msgid "Whether or not to apply a normalization preprocess."
+msgstr ""
+
+#: of transformers.BertweetTokenizer:12
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token.  .. note::      When building a "
+"sequence using special tokens, this is not the token that is used for the"
+" beginning of     sequence. The token used is the :obj:`cls_token`."
+msgstr ""
+
+#: of transformers.BertweetTokenizer:12
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token."
+msgstr ""
+
+#: of transformers.BertweetTokenizer:16
+msgid ""
+"When building a sequence using special tokens, this is not the token that"
+" is used for the beginning of sequence. The token used is the "
+":obj:`cls_token`."
+msgstr ""
+
+#: of transformers.BertweetTokenizer:19
+msgid ""
+"The end of sequence token.  .. note::      When building a sequence using"
+" special tokens, this is not the token that is used for the end of     "
+"sequence. The token used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.BertweetTokenizer:19
+msgid "The end of sequence token."
+msgstr ""
+
+#: of transformers.BertweetTokenizer:23
+msgid ""
+"When building a sequence using special tokens, this is not the token that"
+" is used for the end of sequence. The token used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.BertweetTokenizer:26
+msgid ""
+"The separator token, which is used when building a sequence from multiple"
+" sequences, e.g. two sequences for sequence classification or for a text "
+"and a question for question answering. It is also used as the last token "
+"of a sequence built with special tokens."
+msgstr ""
+
+#: of transformers.BertweetTokenizer:30
+msgid ""
+"The classifier token which is used when doing sequence classification "
+"(classification of the whole sequence instead of per-token "
+"classification). It is the first token of the sequence when built with "
+"special tokens."
+msgstr ""
+
+#: of transformers.BertweetTokenizer:33
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.BertweetTokenizer:36
+msgid ""
+"The token used for padding, for example when batching sequences of "
+"different lengths."
+msgstr ""
+
+#: of transformers.BertweetTokenizer:38
+msgid ""
+"The token used for masking values. This is the token used when training "
+"this model with masked language modeling. This is the token which the "
+"model will try to predict."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.add_from_file:1
+msgid ""
+"Loads a pre-existing dictionary from a text file and adds its symbols to "
+"this instance."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. A "
+"BERTweet sequence has the following format:"
+msgstr ""
+
+#: of transformers.BertweetTokenizer.build_inputs_with_special_tokens:4
+msgid "single sequence: ``<s> X </s>``"
+msgstr ""
+
+#: of transformers.BertweetTokenizer.build_inputs_with_special_tokens:5
+msgid "pair of sequences: ``<s> A </s></s> B </s>``"
+msgstr ""
+
+#: of transformers.BertweetTokenizer.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.build_inputs_with_special_tokens:9
+#: transformers.BertweetTokenizer.create_token_type_ids_from_sequences:6
+#: transformers.BertweetTokenizer.get_special_tokens_mask:6
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.build_inputs_with_special_tokens
+#: transformers.BertweetTokenizer.create_token_type_ids_from_sequences
+#: transformers.BertweetTokenizer.get_special_tokens_mask
+#: transformers.BertweetTokenizer.get_vocab
+#: transformers.BertweetTokenizer.save_vocabulary
+msgid "Returns"
+msgstr ""
+
+#: of transformers.BertweetTokenizer.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.build_inputs_with_special_tokens
+#: transformers.BertweetTokenizer.create_token_type_ids_from_sequences
+#: transformers.BertweetTokenizer.get_special_tokens_mask
+#: transformers.BertweetTokenizer.get_vocab
+#: transformers.BertweetTokenizer.save_vocabulary
+msgid "Return type"
+msgstr ""
+
+#: of transformers.BertweetTokenizer.build_inputs_with_special_tokens:13
+#: transformers.BertweetTokenizer.create_token_type_ids_from_sequences:10
+#: transformers.BertweetTokenizer.get_special_tokens_mask:12
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.BertweetTokenizer.convert_tokens_to_string:1
+msgid "Converts a sequence of tokens (string) in a single string."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. BERTweet does not make use of token type ids, "
+"therefore a list of zeros is returned."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.create_token_type_ids_from_sequences:4
+#: transformers.BertweetTokenizer.get_special_tokens_mask:4
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.create_token_type_ids_from_sequences:9
+msgid "List of zeros."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.get_vocab:1
+msgid "Returns the vocabulary as a dictionary of token to index."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.get_vocab:3
+msgid ""
+":obj:`tokenizer.get_vocab()[token]` is equivalent to "
+":obj:`tokenizer.convert_tokens_to_ids(token)` when :obj:`token` is in the"
+" vocab."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.get_vocab:6
+msgid "The vocabulary."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.get_vocab:7
+msgid ":obj:`Dict[str, int]`"
+msgstr ""
+
+#: of transformers.BertweetTokenizer.normalizeToken:1
+msgid "Normalize tokens in a Tweet"
+msgstr ""
+
+#: of transformers.BertweetTokenizer.normalizeTweet:1
+msgid "Normalize a raw Tweet"
+msgstr ""
+
+#: of transformers.BertweetTokenizer.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: of transformers.BertweetTokenizer.vocab_size:1
+msgid "Size of the base vocabulary (without the added tokens)."
+msgstr ""
+
+#: of transformers.BertweetTokenizer.vocab_size
+msgid "type"
+msgstr ""
+
+#: of transformers.BertweetTokenizer.vocab_size:3
+msgid ":obj:`int`"
+msgstr ""
+

@@ -1,0 +1,848 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/deit.rst:14
+msgid "DeiT"
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:18
+msgid ""
+"This is a recently introduced model so the API hasn't been tested "
+"extensively. There may be some bugs or slight breaking changes to fix it "
+"in the future. If you see something strange, file a `Github Issue "
+"<https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template"
+"=bug-report.md&title>`__."
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:24
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:26
+msgid ""
+"The DeiT model was proposed in `Training data-efficient image "
+"transformers & distillation through attention "
+"<https://arxiv.org/abs/2012.12877>`__ by Hugo Touvron, Matthieu Cord, "
+"Matthijs Douze, Francisco Massa, Alexandre Sablayrolles, Hervé Jégou. The"
+" `Vision Transformer (ViT) "
+"<https://huggingface.co/transformers/model_doc/vit.html>`__ introduced in"
+" `Dosovitskiy et al., 2020 <https://arxiv.org/abs/2010.11929>`__ has "
+"shown that one can match or even outperform existing convolutional neural"
+" networks using a Transformer encoder (BERT-like). However, the ViT "
+"models introduced in that paper required training on expensive "
+"infrastructure for multiple weeks, using external data. DeiT (data-"
+"efficient image transformers) are more efficiently trained transformers "
+"for image classification, requiring far less data and far less computing "
+"resources compared to the original ViT models."
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:35
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:37
+msgid ""
+"*Recently, neural networks purely based on attention were shown to "
+"address image understanding tasks such as image classification. However, "
+"these visual transformers are pre-trained with hundreds of millions of "
+"images using an expensive infrastructure, thereby limiting their "
+"adoption. In this work, we produce a competitive convolution-free "
+"transformer by training on Imagenet only. We train them on a single "
+"computer in less than 3 days. Our reference vision transformer (86M "
+"parameters) achieves top-1 accuracy of 83.1% (single-crop evaluation) on "
+"ImageNet with no external data. More importantly, we introduce a teacher-"
+"student strategy specific to transformers. It relies on a distillation "
+"token ensuring that the student learns from the teacher through "
+"attention. We show the interest of this token-based distillation, "
+"especially when using a convnet as a teacher. This leads us to report "
+"results competitive with convnets for both Imagenet (where we obtain up "
+"to 85.2% accuracy) and when transferring to other tasks. We share our "
+"code and models.*"
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:48
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:50
+msgid ""
+"Compared to ViT, DeiT models use a so-called distillation token to "
+"effectively learn from a teacher (which, in the DeiT paper, is a ResNet "
+"like-model). The distillation token is learned through backpropagation, "
+"by interacting with the class ([CLS]) and patch tokens through the self-"
+"attention layers."
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:53
+msgid ""
+"There are 2 ways to fine-tune distilled models, either (1) in a classic "
+"way, by only placing a prediction head on top of the final hidden state "
+"of the class token and not using the distillation signal, or (2) by "
+"placing both a prediction head on top of the class token and on top of "
+"the distillation token. In that case, the [CLS] prediction head is "
+"trained using regular cross-entropy between the prediction of the head "
+"and the ground-truth label, while the distillation prediction head is "
+"trained using hard distillation (cross-entropy between the prediction of "
+"the distillation head and the label predicted by the teacher). At "
+"inference time, one takes the average prediction between both heads as "
+"final prediction. (2) is also called \"fine-tuning with distillation\", "
+"because one relies on a teacher that has already been fine-tuned on the "
+"downstream dataset. In terms of models, (1) corresponds to "
+":class:`~transformers.DeiTForImageClassification` and (2) corresponds to "
+":class:`~transformers.DeiTForImageClassificationWithTeacher`."
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:63
+msgid ""
+"Note that the authors also did try soft distillation for (2) (in which "
+"case the distillation prediction head is trained using KL divergence to "
+"match the softmax output of the teacher), but hard distillation gave the "
+"best results."
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:65
+msgid ""
+"All released checkpoints were pre-trained and fine-tuned on ImageNet-1k "
+"only. No external data was used. This is in contrast with the original "
+"ViT model, which used external data like the JFT-300M dataset/Imagenet-"
+"21k for pre-training."
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:68
+msgid ""
+"The authors of DeiT also released more efficiently trained ViT models, "
+"which you can directly plug into :class:`~transformers.ViTModel` or "
+":class:`~transformers.ViTForImageClassification`. Techniques like data "
+"augmentation, optimization, and regularization were used in order to "
+"simulate training on a much larger dataset (while only using ImageNet-1k "
+"for pre-training). There are 4 variants available (in 3 different sizes):"
+" `facebook/deit-tiny-patch16-224`, `facebook/deit-small-patch16-224`, "
+"`facebook/deit-base-patch16-224` and `facebook/deit-base-patch16-384`. "
+"Note that one should use :class:`~transformers.DeiTFeatureExtractor` in "
+"order to prepare images for the model."
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:76
+msgid "This model was contributed by `nielsr <https://huggingface.co/nielsr>`__."
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:80
+msgid "DeiTConfig"
+msgstr ""
+
+#: of transformers.DeiTConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.DeiTModel`. It is used to instantiate an DeiT model"
+" according to the specified arguments, defining the model architecture. "
+"Instantiating a configuration with the defaults will yield a similar "
+"configuration to that of the DeiT `facebook/deit-base-distilled-"
+"patch16-224 <https://huggingface.co/facebook/deit-base-distilled-"
+"patch16-224>`__ architecture."
+msgstr ""
+
+#: of transformers.DeiTConfig:7
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.DeiTConfig transformers.DeiTFeatureExtractor
+#: transformers.DeiTFeatureExtractor.__call__
+#: transformers.DeiTForImageClassification
+#: transformers.DeiTForImageClassification.forward
+#: transformers.DeiTForImageClassificationWithTeacher
+#: transformers.DeiTForImageClassificationWithTeacher.forward
+#: transformers.DeiTModel transformers.DeiTModel.forward
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.DeiTConfig:11
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.DeiTConfig:13
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.DeiTConfig:15
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.DeiTConfig:17
+msgid ""
+"Dimensionality of the \"intermediate\" (i.e., feed-forward) layer in the "
+"Transformer encoder."
+msgstr ""
+
+#: of transformers.DeiTConfig:19
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"selu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.DeiTConfig:22
+msgid ""
+"The dropout probabilitiy for all fully connected layers in the "
+"embeddings, encoder, and pooler."
+msgstr ""
+
+#: of transformers.DeiTConfig:24
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.DeiTConfig:26
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.DeiTConfig:28
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.DeiTConfig:30
+msgid ""
+"If True, use gradient checkpointing to save memory at the expense of "
+"slower backward pass."
+msgstr ""
+
+#: of transformers.DeiTConfig:32
+msgid "The size (resolution) of each image."
+msgstr ""
+
+#: of transformers.DeiTConfig:34
+msgid "The size (resolution) of each patch."
+msgstr ""
+
+#: of transformers.DeiTConfig:36
+msgid "The number of input channels."
+msgstr ""
+
+#: of transformers.DeiTConfig:39
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:87
+msgid "DeiTFeatureExtractor"
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor:1
+msgid "Constructs a DeiT feature extractor."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor:3
+msgid ""
+"This feature extractor inherits from "
+":class:`~transformers.FeatureExtractionMixin` which contains most of the "
+"main methods. Users should refer to this superclass for more information "
+"regarding those methods."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor:6
+msgid "Whether to resize the input to a certain :obj:`size`."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor:8
+msgid ""
+"Resize the input to the given size. If a tuple is provided, it should be "
+"(width, height). If only an integer is provided, then the input will be "
+"resized to (size, size). Only has an effect if :obj:`do_resize` is set to"
+" :obj:`True`."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor:12
+msgid ""
+"An optional resampling filter. This can be one of "
+":obj:`PIL.Image.NEAREST`, :obj:`PIL.Image.BOX`, "
+":obj:`PIL.Image.BILINEAR`, :obj:`PIL.Image.HAMMING`, "
+":obj:`PIL.Image.BICUBIC` or :obj:`PIL.Image.LANCZOS`. Only has an effect "
+"if :obj:`do_resize` is set to :obj:`True`."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor:16
+msgid ""
+"Whether to crop the input at the center. If the input size is smaller "
+"than :obj:`crop_size` along any edge, the image is padded with 0's and "
+"then center cropped."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor:19
+msgid ""
+"Desired output size when applying center-cropping. Only has an effect if "
+":obj:`do_center_crop` is set to :obj:`True`."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor:22
+msgid ""
+"Whether or not to normalize the input with :obj:`image_mean` and "
+":obj:`image_std`."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor:24
+msgid ""
+"The sequence of means for each channel, to be used when normalizing "
+"images."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor:26
+msgid ""
+"The sequence of standard deviations for each channel, to be used when "
+"normalizing images."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor.__call__:1
+msgid "Main method to prepare for the model one or several image(s)."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor.__call__:5
+msgid ""
+"NumPy arrays and PyTorch tensors are converted to PIL images when "
+"resizing, so the most efficient is to pass PIL images."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor.__call__:8
+msgid ""
+"The image or batch of images to be prepared. Each image can be a PIL "
+"image, NumPy array or PyTorch tensor. In case of a NumPy array/PyTorch "
+"tensor, each image should be of shape (C, H, W), where C is a number of "
+"channels, H and W are image height and width."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor.__call__:12
+msgid ""
+"If set, will return tensors of a particular framework. Acceptable values "
+"are:  * :obj:`'tf'`: Return TensorFlow :obj:`tf.constant` objects. * "
+":obj:`'pt'`: Return PyTorch :obj:`torch.Tensor` objects. * :obj:`'np'`: "
+"Return NumPy :obj:`np.ndarray` objects. * :obj:`'jax'`: Return JAX "
+":obj:`jnp.ndarray` objects."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor.__call__:12
+msgid ""
+"If set, will return tensors of a particular framework. Acceptable values "
+"are:"
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor.__call__:14
+msgid ":obj:`'tf'`: Return TensorFlow :obj:`tf.constant` objects."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor.__call__:15
+msgid ":obj:`'pt'`: Return PyTorch :obj:`torch.Tensor` objects."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor.__call__:16
+msgid ":obj:`'np'`: Return NumPy :obj:`np.ndarray` objects."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor.__call__:17
+msgid ":obj:`'jax'`: Return JAX :obj:`jnp.ndarray` objects."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor.__call__
+#: transformers.DeiTForImageClassification.forward
+#: transformers.DeiTForImageClassificationWithTeacher.forward
+#: transformers.DeiTModel.forward
+msgid "Returns"
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor.__call__:20
+msgid ""
+"A :class:`~transformers.BatchFeature` with the following fields:  - "
+"**pixel_values** -- Pixel values to be fed to a model, of shape "
+"(batch_size, num_channels, height,   width)."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor.__call__:20
+msgid "A :class:`~transformers.BatchFeature` with the following fields:"
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor.__call__:22
+msgid ""
+"**pixel_values** -- Pixel values to be fed to a model, of shape "
+"(batch_size, num_channels, height, width)."
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor.__call__
+#: transformers.DeiTForImageClassification.forward
+#: transformers.DeiTForImageClassificationWithTeacher.forward
+#: transformers.DeiTModel.forward
+msgid "Return type"
+msgstr ""
+
+#: of transformers.DeiTFeatureExtractor.__call__:24
+msgid ":class:`~transformers.BatchFeature`"
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:94
+msgid "DeiTModel"
+msgstr ""
+
+#: of transformers.DeiTModel:1
+msgid ""
+"The bare DeiT Model transformer outputting raw hidden-states without any "
+"specific head on top. This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ subclass. Use"
+" it as a regular PyTorch Module and refer to the PyTorch documentation "
+"for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification:8
+#: transformers.DeiTForImageClassificationWithTeacher:13
+#: transformers.DeiTModel:6
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.DeiTModel.forward:1
+msgid ""
+"The :class:`~transformers.DeiTModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:4
+#: transformers.DeiTForImageClassificationWithTeacher.forward:4
+#: transformers.DeiTModel.forward:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:8
+#: transformers.DeiTForImageClassificationWithTeacher.forward:8
+#: transformers.DeiTModel.forward:8
+msgid ""
+"Pixel values. Pixel values can be obtained using "
+":class:`~transformers.DeiTFeatureExtractor`. See "
+":meth:`transformers.DeiTFeatureExtractor.__call__` for details."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:11
+#: transformers.DeiTForImageClassificationWithTeacher.forward:11
+#: transformers.DeiTModel.forward:11
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:11
+#: transformers.DeiTForImageClassificationWithTeacher.forward:11
+#: transformers.DeiTModel.forward:11
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:13
+#: transformers.DeiTForImageClassificationWithTeacher.forward:13
+#: transformers.DeiTModel.forward:13
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:14
+#: transformers.DeiTForImageClassificationWithTeacher.forward:14
+#: transformers.DeiTModel.forward:14
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:16
+#: transformers.DeiTForImageClassificationWithTeacher.forward:16
+#: transformers.DeiTModel.forward:16
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:19
+#: transformers.DeiTForImageClassificationWithTeacher.forward:19
+#: transformers.DeiTModel.forward:19
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:22
+#: transformers.DeiTForImageClassificationWithTeacher.forward:22
+#: transformers.DeiTModel.forward:22
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.DeiTModel.forward:25
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutputWithPooling` or a"
+" tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or"
+" when ``config.return_dict=False``) comprising various elements depending"
+" on the configuration (:class:`~transformers.DeiTConfig`) and inputs.  - "
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, hidden_size)`) -- "
+"Last layer hidden-state of the first token of the sequence "
+"(classification token) further processed by a   Linear layer and a Tanh "
+"activation function. The Linear layer weights are trained from the next "
+"sentence   prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Examples::      >>> from transformers import "
+"DeiTFeatureExtractor, DeiTModel     >>> from PIL import Image     >>> "
+"import requests      >>> url = "
+"'http://images.cocodataset.org/val2017/000000039769.jpg'     >>> image = "
+"Image.open(requests.get(url, stream=True).raw)      >>> feature_extractor"
+" = DeiTFeatureExtractor.from_pretrained('facebook/deit-base-distilled-"
+"patch16-224')     >>> model = DeiTModel.from_pretrained('facebook/deit-"
+"base-distilled-patch16-224', add_pooling_layer=False)      >>> inputs = "
+"feature_extractor(images=image, return_tensors=\"pt\")     >>> outputs = "
+"model(**inputs)     >>> last_hidden_states = outputs.last_hidden_state"
+msgstr ""
+
+#: of transformers.DeiTModel.forward:25
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutputWithPooling` or a"
+" tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or"
+" when ``config.return_dict=False``) comprising various elements depending"
+" on the configuration (:class:`~transformers.DeiTConfig`) and inputs."
+msgstr ""
+
+#: of transformers.DeiTModel.forward:29
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.DeiTModel.forward:30
+msgid ""
+"**pooler_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:35
+#: transformers.DeiTModel.forward:33
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:38
+#: transformers.DeiTModel.forward:36
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:39
+#: transformers.DeiTModel.forward:37
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:42
+#: transformers.DeiTModel.forward:40
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:46
+#: transformers.DeiTForImageClassificationWithTeacher.forward:42
+#: transformers.DeiTModel.forward:44
+msgid "Examples::"
+msgstr ""
+
+#: of transformers.DeiTModel.forward:59
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPooling` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:101
+msgid "DeiTForImageClassification"
+msgstr ""
+
+#: of transformers.DeiTForImageClassification:1
+msgid ""
+"DeiT Model transformer with an image classification head on top (a linear"
+" layer on top of the final hidden state of the [CLS] token) e.g. for "
+"ImageNet."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification:4
+#: transformers.DeiTForImageClassificationWithTeacher:9
+msgid ""
+"This model is a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`_ subclass. Use"
+" it as a regular PyTorch Module and refer to the PyTorch documentation "
+"for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:1
+msgid ""
+"The :class:`~transformers.DeiTForImageClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:24
+msgid ""
+"Labels for computing the image classification/regression loss. Indices "
+"should be in :obj:`[0, ..., config.num_labels - 1]`. If "
+":obj:`config.num_labels == 1` a regression loss is computed (Mean-Square "
+"loss), If :obj:`config.num_labels > 1` a classification loss is computed "
+"(Cross-Entropy)."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:29
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DeiTConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Examples::      >>> from transformers import "
+"DeiTFeatureExtractor, DeiTForImageClassification     >>> from PIL import "
+"Image     >>> import requests      >>> url = "
+"'http://images.cocodataset.org/val2017/000000039769.jpg'     >>> image = "
+"Image.open(requests.get(url, stream=True).raw)      >>> # note: we are "
+"loading a DeiTForImageClassificationWithTeacher from the hub here,     "
+">>> # so the head will be randomly initialized, hence the predictions "
+"will be random     >>> feature_extractor = "
+"DeiTFeatureExtractor.from_pretrained('facebook/deit-base-distilled-"
+"patch16-224')     >>> model = "
+"DeiTForImageClassification.from_pretrained('facebook/deit-base-distilled-"
+"patch16-224')      >>> inputs = feature_extractor(images=image, "
+"return_tensors=\"pt\")     >>> outputs = model(**inputs)     >>> logits ="
+" outputs.logits     >>> # model predicts one of the 1000 ImageNet classes"
+"     >>> predicted_class_idx = logits.argmax(-1).item()     >>> "
+"print(\"Predicted class:\", model.config.id2label[predicted_class_idx])"
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:29
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.DeiTConfig`) and inputs."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:33
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:34
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.DeiTForImageClassification.forward:66
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/deit.rst:108
+msgid "DeiTForImageClassificationWithTeacher"
+msgstr ""
+
+#: of transformers.DeiTForImageClassificationWithTeacher:1
+msgid ""
+"DeiT Model transformer with image classification heads on top (a linear "
+"layer on top of the final hidden state of the [CLS] token and a linear "
+"layer on top of the final hidden state of the distillation token) e.g. "
+"for ImageNet."
+msgstr ""
+
+#: of transformers.DeiTForImageClassificationWithTeacher:6
+msgid ""
+"This model supports inference-only. Fine-tuning with distillation (i.e. "
+"with a teacher) is not yet supported."
+msgstr ""
+
+#: of transformers.DeiTForImageClassificationWithTeacher.forward:1
+msgid ""
+"The :class:`~transformers.DeiTForImageClassificationWithTeacher` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.DeiTForImageClassificationWithTeacher.forward:25
+msgid ""
+"A "
+":class:`~transformers.models.deit.modeling_deit.DeiTForImageClassificationWithTeacherOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.DeiTConfig`) and "
+"inputs.  - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, config.num_labels)`) -- Prediction scores as the "
+"average of the cls_logits and distillation logits. - **cls_logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Prediction scores of the classification head "
+"(i.e. the linear layer on top of the final hidden state of the   class "
+"token). - **distillation_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, config.num_labels)`) -- Prediction scores of the "
+"distillation head (i.e. the linear layer on top of the final hidden state"
+" of the   distillation token). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`. Hidden-states of the model at the output of   each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`. Attentions weights after the "
+"attention softmax, used to compute the   weighted average in the self-"
+"attention heads.   Examples::      >>> from transformers import "
+"DeiTFeatureExtractor, DeiTForImageClassificationWithTeacher     >>> from "
+"PIL import Image     >>> import requests      >>> url = "
+"'http://images.cocodataset.org/val2017/000000039769.jpg'     >>> image = "
+"Image.open(requests.get(url, stream=True).raw)      >>> feature_extractor"
+" = DeiTFeatureExtractor.from_pretrained('facebook/deit-base-distilled-"
+"patch16-224')     >>> model = "
+"DeiTForImageClassificationWithTeacher.from_pretrained('facebook/deit-"
+"base-distilled-patch16-224')      >>> inputs = "
+"feature_extractor(images=image, return_tensors=\"pt\")     >>> outputs = "
+"model(**inputs)     >>> logits = outputs.logits     >>> # model predicts "
+"one of the 1000 ImageNet classes     >>> predicted_class_idx = "
+"logits.argmax(-1).item()     >>> print(\"Predicted class:\", "
+"model.config.id2label[predicted_class_idx])"
+msgstr ""
+
+#: of transformers.DeiTForImageClassificationWithTeacher.forward:25
+msgid ""
+"A "
+":class:`~transformers.models.deit.modeling_deit.DeiTForImageClassificationWithTeacherOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.DeiTConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.DeiTForImageClassificationWithTeacher.forward:29
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Prediction scores as the average of the "
+"cls_logits and distillation logits."
+msgstr ""
+
+#: of transformers.DeiTForImageClassificationWithTeacher.forward:30
+msgid ""
+"**cls_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Prediction scores of the classification head "
+"(i.e. the linear layer on top of the final hidden state of the class "
+"token)."
+msgstr ""
+
+#: of transformers.DeiTForImageClassificationWithTeacher.forward:32
+msgid ""
+"**distillation_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, config.num_labels)`) -- Prediction scores of the "
+"distillation head (i.e. the linear layer on top of the final hidden state"
+" of the distillation token)."
+msgstr ""
+
+#: of transformers.DeiTForImageClassificationWithTeacher.forward:34
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`. Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.DeiTForImageClassificationWithTeacher.forward:37
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`. Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention heads."
+msgstr ""
+
+#: of transformers.DeiTForImageClassificationWithTeacher.forward:60
+msgid ""
+":class:`~transformers.models.deit.modeling_deit.DeiTForImageClassificationWithTeacherOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+

@@ -1,0 +1,437 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/quicktour.rst:14
+msgid "Quick tour"
+msgstr ""
+
+#: ../../source/quicktour.rst:16
+msgid ""
+"Let's have a quick look at the 🤗 Transformers library features. The "
+"library downloads pretrained models for Natural Language Understanding "
+"(NLU) tasks, such as analyzing the sentiment of a text, and Natural "
+"Language Generation (NLG), such as completing a prompt with new text or "
+"translating in another language."
+msgstr ""
+
+#: ../../source/quicktour.rst:20
+msgid ""
+"First we will see how to easily leverage the pipeline API to quickly use "
+"those pretrained models at inference. Then, we will dig a little bit more"
+" and see how the library gives you access to those models and helps you "
+"preprocess your data."
+msgstr ""
+
+#: ../../source/quicktour.rst:25
+msgid ""
+"All code examples presented in the documentation have a switch on the top"
+" left for Pytorch versus TensorFlow. If not, the code is expected to work"
+" for both backends without any change needed."
+msgstr ""
+
+#: ../../source/quicktour.rst:29
+msgid "Getting started on a task with a pipeline"
+msgstr ""
+
+#: ../../source/quicktour.rst:31
+msgid ""
+"The easiest way to use a pretrained model on a given task is to use "
+":func:`~transformers.pipeline`."
+msgstr ""
+
+#: ../../source/quicktour.rst:39
+msgid "🤗 Transformers provides the following tasks out of the box:"
+msgstr ""
+
+#: ../../source/quicktour.rst:41
+msgid "Sentiment analysis: is a text positive or negative?"
+msgstr ""
+
+#: ../../source/quicktour.rst:42
+msgid ""
+"Text generation (in English): provide a prompt and the model will "
+"generate what follows."
+msgstr ""
+
+#: ../../source/quicktour.rst:43
+msgid ""
+"Name entity recognition (NER): in an input sentence, label each word with"
+" the entity it represents (person, place, etc.)"
+msgstr ""
+
+#: ../../source/quicktour.rst:45
+msgid ""
+"Question answering: provide the model with some context and a question, "
+"extract the answer from the context."
+msgstr ""
+
+#: ../../source/quicktour.rst:46
+msgid ""
+"Filling masked text: given a text with masked words (e.g., replaced by "
+"``[MASK]``), fill the blanks."
+msgstr ""
+
+#: ../../source/quicktour.rst:47
+msgid "Summarization: generate a summary of a long text."
+msgstr ""
+
+#: ../../source/quicktour.rst:48
+msgid "Translation: translate a text in another language."
+msgstr ""
+
+#: ../../source/quicktour.rst:49
+msgid "Feature extraction: return a tensor representation of the text."
+msgstr ""
+
+#: ../../source/quicktour.rst:51
+msgid ""
+"Let's see how this work for sentiment analysis (the other tasks are all "
+"covered in the :doc:`task summary </task_summary>`):"
+msgstr ""
+
+#: ../../source/quicktour.rst:59
+msgid ""
+"When typing this command for the first time, a pretrained model and its "
+"tokenizer are downloaded and cached. We will look at both later on, but "
+"as an introduction the tokenizer's job is to preprocess the text for the "
+"model, which is then responsible for making predictions. The pipeline "
+"groups all of that together, and post-process the predictions to make "
+"them readable. For instance:"
+msgstr ""
+
+#: ../../source/quicktour.rst:70
+msgid ""
+"That's encouraging! You can use it on a list of sentences, which will be "
+"preprocessed then fed to the model as a `batch`, returning a list of "
+"dictionaries like this one:"
+msgstr ""
+
+#: ../../source/quicktour.rst:82
+msgid ""
+"You can see the second sentence has been classified as negative (it needs"
+" to be positive or negative) but its score is fairly neutral."
+msgstr ""
+
+#: ../../source/quicktour.rst:85
+msgid ""
+"By default, the model downloaded for this pipeline is called "
+"\"distilbert-base-uncased-finetuned-sst-2-english\". We can look at its "
+"`model page <https://huggingface.co/distilbert-base-uncased-finetuned-"
+"sst-2-english>`__ to get more information about it. It uses the "
+":doc:`DistilBERT architecture </model_doc/distilbert>` and has been fine-"
+"tuned on a dataset called SST-2 for the sentiment analysis task."
+msgstr ""
+
+#: ../../source/quicktour.rst:90
+msgid ""
+"Let's say we want to use another model; for instance, one that has been "
+"trained on French data. We can search through the `model hub "
+"<https://huggingface.co/models>`__ that gathers models pretrained on a "
+"lot of data by research labs, but also community models (usually fine-"
+"tuned versions of those big models on a specific dataset). Applying the "
+"tags \"French\" and \"text-classification\" gives back a suggestion "
+"\"nlptown/bert-base-multilingual-uncased-sentiment\". Let's see how we "
+"can use it."
+msgstr ""
+
+#: ../../source/quicktour.rst:96
+msgid ""
+"You can directly pass the name of the model to use to "
+":func:`~transformers.pipeline`:"
+msgstr ""
+
+#: ../../source/quicktour.rst:102
+msgid ""
+"This classifier can now deal with texts in English, French, but also "
+"Dutch, German, Italian and Spanish! You can also replace that name by a "
+"local folder where you have saved a pretrained model (see below). You can"
+" also pass a model object and its associated tokenizer."
+msgstr ""
+
+#: ../../source/quicktour.rst:106
+msgid ""
+"We will need two classes for this. The first is "
+":class:`~transformers.AutoTokenizer`, which we will use to download the "
+"tokenizer associated to the model we picked and instantiate it. The "
+"second is :class:`~transformers.AutoModelForSequenceClassification` (or "
+":class:`~transformers.TFAutoModelForSequenceClassification` if you are "
+"using TensorFlow), which we will use to download the model itself. Note "
+"that if we were using the library on an other task, the class of the "
+"model would change. The :doc:`task summary </task_summary>` tutorial "
+"summarizes which class is used for which task."
+msgstr ""
+
+#: ../../source/quicktour.rst:120
+msgid ""
+"Now, to download the models and tokenizer we found previously, we just "
+"have to use the "
+":func:`~transformers.AutoModelForSequenceClassification.from_pretrained` "
+"method (feel free to replace ``model_name`` by any other model from the "
+"model hub):"
+msgstr ""
+
+#: ../../source/quicktour.rst:138
+msgid ""
+"If you don't find a model that has been pretrained on some data similar "
+"to yours, you will need to fine-tune a pretrained model on your data. We "
+"provide :doc:`example scripts </examples>` to do so. Once you're done, "
+"don't forget to share your fine-tuned model on the hub with the "
+"community, using :doc:`this tutorial </model_sharing>`."
+msgstr ""
+
+#: ../../source/quicktour.rst:145
+msgid "Under the hood: pretrained models"
+msgstr ""
+
+#: ../../source/quicktour.rst:147
+msgid "Let's now see what happens beneath the hood when using those pipelines."
+msgstr ""
+
+#: ../../source/quicktour.rst:155
+msgid ""
+"As we saw, the model and tokenizer are created using the "
+":obj:`from_pretrained` method:"
+msgstr ""
+
+#: ../../source/quicktour.rst:171
+msgid "Using the tokenizer"
+msgstr ""
+
+#: ../../source/quicktour.rst:173
+msgid ""
+"We mentioned the tokenizer is responsible for the preprocessing of your "
+"texts. First, it will split a given text in words (or part of words, "
+"punctuation symbols, etc.) usually called `tokens`. There are multiple "
+"rules that can govern that process (you can learn more about them in the "
+":doc:`tokenizer summary <tokenizer_summary>`), which is why we need to "
+"instantiate the tokenizer using the name of the model, to make sure we "
+"use the same rules as when the model was pretrained."
+msgstr ""
+
+#: ../../source/quicktour.rst:179
+msgid ""
+"The second step is to convert those `tokens` into numbers, to be able to "
+"build a tensor out of them and feed them to the model. To do this, the "
+"tokenizer has a `vocab`, which is the part we download when we "
+"instantiate it with the :obj:`from_pretrained` method, since we need to "
+"use the same `vocab` as when the model was pretrained."
+msgstr ""
+
+#: ../../source/quicktour.rst:183
+msgid ""
+"To apply these steps on a given text, we can just feed it to our "
+"tokenizer:"
+msgstr ""
+
+#: ../../source/quicktour.rst:189
+msgid ""
+"This returns a dictionary string to list of ints. It contains the `ids of"
+" the tokens <glossary.html#input-ids>`__, as mentioned before, but also "
+"additional arguments that will be useful to the model. Here for instance,"
+" we also have an `attention mask <glossary.html#attention-mask>`__ that "
+"the model will use to have a better understanding of the sequence:"
+msgstr ""
+
+#: ../../source/quicktour.rst:200
+msgid ""
+"You can pass a list of sentences directly to your tokenizer. If your goal"
+" is to send them through your model as a batch, you probably want to pad "
+"them all to the same length, truncate them to the maximum length the "
+"model can accept and get tensors back. You can specify all of that to the"
+" tokenizer:"
+msgstr ""
+
+#: ../../source/quicktour.rst:223
+msgid ""
+"The padding is automatically applied on the side expected by the model "
+"(in this case, on the right), with the padding token the model was "
+"pretrained with. The attention mask is also adapted to take the padding "
+"into account:"
+msgstr ""
+
+#: ../../source/quicktour.rst:239
+msgid "You can learn more about tokenizers :doc:`here <preprocessing>`."
+msgstr ""
+
+#: ../../source/quicktour.rst:242
+msgid "Using the model"
+msgstr ""
+
+#: ../../source/quicktour.rst:244
+msgid ""
+"Once your input has been preprocessed by the tokenizer, you can send it "
+"directly to the model. As we mentioned, it will contain all the relevant "
+"information the model needs. If you're using a TensorFlow model, you can "
+"pass the dictionary keys directly to tensors, for a PyTorch model, you "
+"need to unpack the dictionary by adding :obj:`**`."
+msgstr ""
+
+#: ../../source/quicktour.rst:255
+msgid ""
+"In 🤗 Transformers, all outputs are objects that contain the model's final"
+" activations along with other metadata. These objects are described in "
+"greater detail :doc:`here <main_classes/output>`. For now, let's inspect "
+"the output ourselves:"
+msgstr ""
+
+#: ../../source/quicktour.rst:270
+msgid ""
+"Notice how the output object has a ``logits`` attribute. You can use this"
+" to access the model's final activations."
+msgstr ""
+
+#: ../../source/quicktour.rst:274
+msgid ""
+"All 🤗 Transformers models (PyTorch or TensorFlow) return the activations "
+"of the model *before* the final activation function (like SoftMax) since "
+"this final activation function is often fused with the loss."
+msgstr ""
+
+#: ../../source/quicktour.rst:277
+msgid "Let's apply the SoftMax activation to get predictions."
+msgstr ""
+
+#: ../../source/quicktour.rst:288
+msgid "We can see we get the numbers from before:"
+msgstr ""
+
+#: ../../source/quicktour.rst:302
+msgid ""
+"If you provide the model with labels in addition to inputs, the model "
+"output object will also contain a ``loss`` attribute:"
+msgstr ""
+
+#: ../../source/quicktour.rst:321
+msgid ""
+"Models are standard `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ or "
+"`tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ so you can"
+" use them in your usual training loop. 🤗 Transformers also provides a "
+":class:`~transformers.Trainer` (or :class:`~transformers.TFTrainer` if "
+"you are using TensorFlow) class to help with your training (taking care "
+"of things such as distributed training, mixed precision, etc.). See the "
+":doc:`training tutorial <training>` for more details."
+msgstr ""
+
+#: ../../source/quicktour.rst:329
+msgid ""
+"Pytorch model outputs are special dataclasses so that you can get "
+"autocompletion for their attributes in an IDE. They also behave like a "
+"tuple or a dictionary (e.g., you can index with an integer, a slice or a "
+"string) in which case the attributes not set (that have :obj:`None` "
+"values) are ignored."
+msgstr ""
+
+#: ../../source/quicktour.rst:333
+msgid ""
+"Once your model is fine-tuned, you can save it with its tokenizer in the "
+"following way:"
+msgstr ""
+
+#: ../../source/quicktour.rst:340
+msgid ""
+"You can then load this model back using the "
+":func:`~transformers.AutoModel.from_pretrained` method by passing the "
+"directory name instead of the model name. One cool feature of 🤗 "
+"Transformers is that you can easily switch between PyTorch and "
+"TensorFlow: any model saved as before can be loaded back either in "
+"PyTorch or TensorFlow. If you are loading a saved PyTorch model in a "
+"TensorFlow model, use :func:`~transformers.TFAutoModel.from_pretrained` "
+"like this:"
+msgstr ""
+
+#: ../../source/quicktour.rst:351
+msgid ""
+"and if you are loading a saved TensorFlow model in a PyTorch model, you "
+"should use the following code:"
+msgstr ""
+
+#: ../../source/quicktour.rst:359
+msgid ""
+"Lastly, you can also ask the model to return all hidden states and all "
+"attention weights if you need them:"
+msgstr ""
+
+#: ../../source/quicktour.rst:374
+msgid "Accessing the code"
+msgstr ""
+
+#: ../../source/quicktour.rst:376
+msgid ""
+"The :obj:`AutoModel` and :obj:`AutoTokenizer` classes are just shortcuts "
+"that will automatically work with any pretrained model. Behind the "
+"scenes, the library has one model class per combination of architecture "
+"plus class, so the code is easy to access and tweak if you need to."
+msgstr ""
+
+#: ../../source/quicktour.rst:380
+msgid ""
+"In our previous example, the model was called \"distilbert-base-uncased-"
+"finetuned-sst-2-english\", which means it's using the :doc:`DistilBERT "
+"</model_doc/distilbert>` architecture. As "
+":class:`~transformers.AutoModelForSequenceClassification` (or "
+":class:`~transformers.TFAutoModelForSequenceClassification` if you are "
+"using TensorFlow) was used, the model automatically created is then a "
+":class:`~transformers.DistilBertForSequenceClassification`. You can look "
+"at its documentation for all details relevant to that specific model, or "
+"browse the source code. This is how you would directly instantiate model "
+"and tokenizer without the auto magic:"
+msgstr ""
+
+#: ../../source/quicktour.rst:402
+msgid "Customizing the model"
+msgstr ""
+
+#: ../../source/quicktour.rst:404
+msgid ""
+"If you want to change how the model itself is built, you can define a "
+"custom configuration class. Each architecture comes with its own relevant"
+" configuration. For example, :class:`~transformers.DistilBertConfig` "
+"allows you to specify parameters such as the hidden dimension, dropout "
+"rate, etc for DistilBERT. If you do core modifications, like changing the"
+" hidden size, you won't be able to use a pretrained model anymore and "
+"will need to train from scratch. You would then instantiate the model "
+"directly from this configuration."
+msgstr ""
+
+#: ../../source/quicktour.rst:410
+msgid ""
+"Below, we load a predefined vocabulary for a tokenizer with the "
+":func:`~transformers.DistilBertTokenizer.from_pretrained` method. "
+"However, unlike the tokenizer, we wish to initialize the model from "
+"scratch. Therefore, we instantiate the model from a configuration instead"
+" of using the "
+":func:`~transformers.DistilBertForSequenceClassification.from_pretrained`"
+" method."
+msgstr ""
+
+#: ../../source/quicktour.rst:428
+msgid ""
+"For something that only changes the head of the model (for instance, the "
+"number of labels), you can still use a pretrained model for the body. For"
+" instance, let's define a classifier for 10 different labels using a "
+"pretrained body. Instead of creating a new configuration with all the "
+"default values just to change the number of labels, we can instead pass "
+"any argument a configuration would take to the :func:`from_pretrained` "
+"method and it will update the default configuration appropriately:"
+msgstr ""
+

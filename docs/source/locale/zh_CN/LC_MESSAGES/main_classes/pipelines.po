@@ -1,0 +1,2321 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-10 04:49+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/main_classes/pipelines.rst:14
+msgid "Pipelines"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:16
+msgid ""
+"The pipelines are a great and easy way to use models for inference. These"
+" pipelines are objects that abstract most of the complex code from the "
+"library, offering a simple API dedicated to several tasks, including "
+"Named Entity Recognition, Masked Language Modeling, Sentiment Analysis, "
+"Feature Extraction and Question Answering. See the :doc:`task summary "
+"<../task_summary>` for examples of use."
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:21
+msgid "There are two categories of pipeline abstractions to be aware about:"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:23
+msgid ""
+"The :func:`~transformers.pipeline` which is the most powerful object "
+"encapsulating all other pipelines."
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:24
+msgid "The other task-specific pipelines:"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:26
+msgid ":class:`~transformers.AutomaticSpeechRecognitionPipeline`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:27
+msgid ":class:`~transformers.ConversationalPipeline`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:28
+msgid ":class:`~transformers.FeatureExtractionPipeline`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:29
+msgid ":class:`~transformers.FillMaskPipeline`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:30
+msgid ":class:`~transformers.ImageClassificationPipeline`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:31
+msgid ":class:`~transformers.QuestionAnsweringPipeline`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:32
+msgid ":class:`~transformers.SummarizationPipeline`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:33
+msgid ":class:`~transformers.TextClassificationPipeline`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:34
+msgid ":class:`~transformers.TextGenerationPipeline`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:35
+msgid ":class:`~transformers.TokenClassificationPipeline`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:36
+msgid ":class:`~transformers.TranslationPipeline`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:37
+msgid ":class:`~transformers.ZeroShotClassificationPipeline`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:38
+msgid ":class:`~transformers.Text2TextGenerationPipeline`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:39
+msgid ":class:`~transformers.TableQuestionAnsweringPipeline`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:42
+msgid "The pipeline abstraction"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:44
+msgid ""
+"The `pipeline` abstraction is a wrapper around all the other available "
+"pipelines. It is instantiated as any other pipeline but requires an "
+"additional argument which is the `task`."
+msgstr ""
+
+#: of transformers.pipeline:1
+msgid "Utility factory method to build a :class:`~transformers.Pipeline`."
+msgstr ""
+
+#: of transformers.pipeline:3
+msgid "Pipelines are made of:"
+msgstr ""
+
+#: of transformers.pipeline:5
+msgid ""
+"A :doc:`tokenizer <tokenizer>` in charge of mapping raw textual input to "
+"token."
+msgstr ""
+
+#: of transformers.pipeline:6
+msgid "A :doc:`model <model>` to make predictions from the inputs."
+msgstr ""
+
+#: of transformers.pipeline:7
+msgid "Some (optional) post processing for enhancing model's output."
+msgstr ""
+
+#: of transformers.AutomaticSpeechRecognitionPipeline.__call__
+#: transformers.Conversation transformers.ConversationalPipeline
+#: transformers.ConversationalPipeline.__call__
+#: transformers.FeatureExtractionPipeline
+#: transformers.FeatureExtractionPipeline.__call__
+#: transformers.FillMaskPipeline transformers.FillMaskPipeline.__call__
+#: transformers.ImageClassificationPipeline
+#: transformers.ImageClassificationPipeline.__call__ transformers.Pipeline
+#: transformers.Pipeline.check_model_type
+#: transformers.Pipeline.ensure_tensor_on_device
+#: transformers.Pipeline.save_pretrained transformers.QuestionAnsweringPipeline
+#: transformers.QuestionAnsweringPipeline.__call__
+#: transformers.QuestionAnsweringPipeline.create_sample
+#: transformers.QuestionAnsweringPipeline.decode
+#: transformers.QuestionAnsweringPipeline.span_to_answer
+#: transformers.SummarizationPipeline
+#: transformers.SummarizationPipeline.__call__
+#: transformers.TableQuestionAnsweringPipeline
+#: transformers.TableQuestionAnsweringPipeline.__call__
+#: transformers.Text2TextGenerationPipeline
+#: transformers.Text2TextGenerationPipeline.__call__
+#: transformers.TextClassificationPipeline
+#: transformers.TextClassificationPipeline.__call__
+#: transformers.TextGenerationPipeline
+#: transformers.TextGenerationPipeline.__call__
+#: transformers.TokenClassificationPipeline
+#: transformers.TokenClassificationPipeline.__call__
+#: transformers.TokenClassificationPipeline.group_entities
+#: transformers.TokenClassificationPipeline.group_sub_entities
+#: transformers.TranslationPipeline transformers.TranslationPipeline.__call__
+#: transformers.ZeroShotClassificationPipeline
+#: transformers.ZeroShotClassificationPipeline.__call__ transformers.pipeline
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.pipeline:9
+msgid ""
+"The task defining which pipeline will be returned. Currently accepted "
+"tasks are:  - :obj:`\"feature-extraction\"`: will return a "
+":class:`~transformers.FeatureExtractionPipeline`. - :obj:`\"text-"
+"classification\"`: will return a "
+":class:`~transformers.TextClassificationPipeline`. - :obj:`\"sentiment-"
+"analysis\"`: (alias of :obj:`\"text-classification\") will return a   "
+":class:`~transformers.TextClassificationPipeline`. - :obj:`\"token-"
+"classification\"`: will return a "
+":class:`~transformers.TokenClassificationPipeline`. - :obj:`\"ner\"` "
+"(alias of :obj:`\"token-classification\"): will return a   "
+":class:`~transformers.TokenClassificationPipeline`. - :obj:`\"question-"
+"answering\"`: will return a "
+":class:`~transformers.QuestionAnsweringPipeline`. - :obj:`\"fill-mask\"`:"
+" will return a :class:`~transformers.FillMaskPipeline`. - "
+":obj:`\"summarization\"`: will return a "
+":class:`~transformers.SummarizationPipeline`. - "
+":obj:`\"translation_xx_to_yy\"`: will return a "
+":class:`~transformers.TranslationPipeline`. - :obj:`\"text2text-"
+"generation\"`: will return a "
+":class:`~transformers.Text2TextGenerationPipeline`. - :obj:`\"text-"
+"generation\"`: will return a "
+":class:`~transformers.TextGenerationPipeline`. - :obj:`\"zero-shot-"
+"classification:`: will return a "
+":class:`~transformers.ZeroShotClassificationPipeline`. - "
+":obj:`\"conversational\"`: will return a "
+":class:`~transformers.ConversationalPipeline`."
+msgstr ""
+
+#: of transformers.pipeline:9
+msgid ""
+"The task defining which pipeline will be returned. Currently accepted "
+"tasks are:"
+msgstr ""
+
+#: of transformers.pipeline:11
+msgid ""
+":obj:`\"feature-extraction\"`: will return a "
+":class:`~transformers.FeatureExtractionPipeline`."
+msgstr ""
+
+#: of transformers.pipeline:12
+msgid ""
+":obj:`\"text-classification\"`: will return a "
+":class:`~transformers.TextClassificationPipeline`."
+msgstr ""
+
+#: of transformers.pipeline:13
+msgid ""
+":obj:`\"sentiment-analysis\"`: (alias of :obj:`\"text-classification\") "
+"will return a :class:`~transformers.TextClassificationPipeline`."
+msgstr ""
+
+#: of transformers.pipeline:15
+msgid ""
+":obj:`\"token-classification\"`: will return a "
+":class:`~transformers.TokenClassificationPipeline`."
+msgstr ""
+
+#: of transformers.pipeline:16
+msgid ""
+":obj:`\"ner\"` (alias of :obj:`\"token-classification\"): will return a "
+":class:`~transformers.TokenClassificationPipeline`."
+msgstr ""
+
+#: of transformers.pipeline:18
+msgid ""
+":obj:`\"question-answering\"`: will return a "
+":class:`~transformers.QuestionAnsweringPipeline`."
+msgstr ""
+
+#: of transformers.pipeline:19
+msgid ""
+":obj:`\"fill-mask\"`: will return a "
+":class:`~transformers.FillMaskPipeline`."
+msgstr ""
+
+#: of transformers.pipeline:20
+msgid ""
+":obj:`\"summarization\"`: will return a "
+":class:`~transformers.SummarizationPipeline`."
+msgstr ""
+
+#: of transformers.pipeline:21
+msgid ""
+":obj:`\"translation_xx_to_yy\"`: will return a "
+":class:`~transformers.TranslationPipeline`."
+msgstr ""
+
+#: of transformers.pipeline:22
+msgid ""
+":obj:`\"text2text-generation\"`: will return a "
+":class:`~transformers.Text2TextGenerationPipeline`."
+msgstr ""
+
+#: of transformers.pipeline:23
+msgid ""
+":obj:`\"text-generation\"`: will return a "
+":class:`~transformers.TextGenerationPipeline`."
+msgstr ""
+
+#: of transformers.pipeline:24
+msgid ""
+":obj:`\"zero-shot-classification:`: will return a "
+":class:`~transformers.ZeroShotClassificationPipeline`."
+msgstr ""
+
+#: of transformers.pipeline:25
+msgid ""
+":obj:`\"conversational\"`: will return a "
+":class:`~transformers.ConversationalPipeline`."
+msgstr ""
+
+#: of transformers.pipeline:27
+msgid ""
+"The model that will be used by the pipeline to make predictions. This can"
+" be a model identifier or an actual instance of a pretrained model "
+"inheriting from :class:`~transformers.PreTrainedModel` (for PyTorch) or "
+":class:`~transformers.TFPreTrainedModel` (for TensorFlow).  If not "
+"provided, the default for the :obj:`task` will be loaded."
+msgstr ""
+
+#: of transformers.pipeline:27
+msgid ""
+"The model that will be used by the pipeline to make predictions. This can"
+" be a model identifier or an actual instance of a pretrained model "
+"inheriting from :class:`~transformers.PreTrainedModel` (for PyTorch) or "
+":class:`~transformers.TFPreTrainedModel` (for TensorFlow)."
+msgstr ""
+
+#: of transformers.pipeline:31
+msgid "If not provided, the default for the :obj:`task` will be loaded."
+msgstr ""
+
+#: of transformers.pipeline:33
+msgid ""
+"The configuration that will be used by the pipeline to instantiate the "
+"model. This can be a model identifier or an actual pretrained model "
+"configuration inheriting from :class:`~transformers.PretrainedConfig`.  "
+"If not provided, the default configuration file for the requested model "
+"will be used. That means that if :obj:`model` is given, its default "
+"configuration will be used. However, if :obj:`model` is not supplied, "
+"this :obj:`task`'s default model's config is used instead."
+msgstr ""
+
+#: of transformers.pipeline:33
+msgid ""
+"The configuration that will be used by the pipeline to instantiate the "
+"model. This can be a model identifier or an actual pretrained model "
+"configuration inheriting from :class:`~transformers.PretrainedConfig`."
+msgstr ""
+
+#: of transformers.pipeline:37
+msgid ""
+"If not provided, the default configuration file for the requested model "
+"will be used. That means that if :obj:`model` is given, its default "
+"configuration will be used. However, if :obj:`model` is not supplied, "
+"this :obj:`task`'s default model's config is used instead."
+msgstr ""
+
+#: of transformers.pipeline:41
+msgid ""
+"The tokenizer that will be used by the pipeline to encode data for the "
+"model. This can be a model identifier or an actual pretrained tokenizer "
+"inheriting from :class:`~transformers.PreTrainedTokenizer`.  If not "
+"provided, the default tokenizer for the given :obj:`model` will be loaded"
+" (if it is a string). If :obj:`model` is not specified or not a string, "
+"then the default tokenizer for :obj:`config` is loaded (if it is a "
+"string). However, if :obj:`config` is also not given or not a string, "
+"then the default tokenizer for the given :obj:`task` will be loaded."
+msgstr ""
+
+#: of transformers.pipeline:41
+msgid ""
+"The tokenizer that will be used by the pipeline to encode data for the "
+"model. This can be a model identifier or an actual pretrained tokenizer "
+"inheriting from :class:`~transformers.PreTrainedTokenizer`."
+msgstr ""
+
+#: of transformers.pipeline:44
+msgid ""
+"If not provided, the default tokenizer for the given :obj:`model` will be"
+" loaded (if it is a string). If :obj:`model` is not specified or not a "
+"string, then the default tokenizer for :obj:`config` is loaded (if it is "
+"a string). However, if :obj:`config` is also not given or not a string, "
+"then the default tokenizer for the given :obj:`task` will be loaded."
+msgstr ""
+
+#: of transformers.pipeline:49
+msgid ""
+"The feature extractor that will be used by the pipeline to encode data "
+"for the model. This can be a model identifier or an actual pretrained "
+"feature extractor inheriting from "
+":class:`~transformers.PreTrainedFeatureExtractor`.  Feature extractors "
+"are used for non-NLP models, such as Speech or Vision models as well as "
+"multi-modal models. Multi-modal models will also require a tokenizer to "
+"be passed.  If not provided, the default feature extractor for the given "
+":obj:`model` will be loaded (if it is a string). If :obj:`model` is not "
+"specified or not a string, then the default feature extractor for "
+":obj:`config` is loaded (if it is a string). However, if :obj:`config` is"
+" also not given or not a string, then the default feature extractor for "
+"the given :obj:`task` will be loaded."
+msgstr ""
+
+#: of transformers.pipeline:49
+msgid ""
+"The feature extractor that will be used by the pipeline to encode data "
+"for the model. This can be a model identifier or an actual pretrained "
+"feature extractor inheriting from "
+":class:`~transformers.PreTrainedFeatureExtractor`."
+msgstr ""
+
+#: of transformers.pipeline:53
+msgid ""
+"Feature extractors are used for non-NLP models, such as Speech or Vision "
+"models as well as multi-modal models. Multi-modal models will also "
+"require a tokenizer to be passed."
+msgstr ""
+
+#: of transformers.pipeline:56
+msgid ""
+"If not provided, the default feature extractor for the given :obj:`model`"
+" will be loaded (if it is a string). If :obj:`model` is not specified or "
+"not a string, then the default feature extractor for :obj:`config` is "
+"loaded (if it is a string). However, if :obj:`config` is also not given "
+"or not a string, then the default feature extractor for the given "
+":obj:`task` will be loaded."
+msgstr ""
+
+#: of transformers.ConversationalPipeline:34
+#: transformers.FeatureExtractionPipeline:19 transformers.FillMaskPipeline:24
+#: transformers.ImageClassificationPipeline:19 transformers.Pipeline:25
+#: transformers.QuestionAnsweringPipeline:20
+#: transformers.SummarizationPipeline:29
+#: transformers.TableQuestionAnsweringPipeline:20
+#: transformers.Text2TextGenerationPipeline:23
+#: transformers.TextClassificationPipeline:24
+#: transformers.TextGenerationPipeline:20
+#: transformers.TokenClassificationPipeline:21
+#: transformers.TranslationPipeline:23
+#: transformers.ZeroShotClassificationPipeline:24 transformers.pipeline:61
+msgid ""
+"The framework to use, either :obj:`\"pt\"` for PyTorch or :obj:`\"tf\"` "
+"for TensorFlow. The specified framework must be installed.  If no "
+"framework is specified, will default to the one currently installed. If "
+"no framework is specified and both frameworks are installed, will default"
+" to the framework of the :obj:`model`, or to PyTorch if no model is "
+"provided."
+msgstr ""
+
+#: of transformers.ConversationalPipeline:34
+#: transformers.FeatureExtractionPipeline:19 transformers.FillMaskPipeline:24
+#: transformers.ImageClassificationPipeline:19 transformers.Pipeline:25
+#: transformers.QuestionAnsweringPipeline:20
+#: transformers.SummarizationPipeline:29
+#: transformers.TableQuestionAnsweringPipeline:20
+#: transformers.Text2TextGenerationPipeline:23
+#: transformers.TextClassificationPipeline:24
+#: transformers.TextGenerationPipeline:20
+#: transformers.TokenClassificationPipeline:21
+#: transformers.TranslationPipeline:23
+#: transformers.ZeroShotClassificationPipeline:24 transformers.pipeline:61
+msgid ""
+"The framework to use, either :obj:`\"pt\"` for PyTorch or :obj:`\"tf\"` "
+"for TensorFlow. The specified framework must be installed."
+msgstr ""
+
+#: of transformers.ConversationalPipeline:37
+#: transformers.FeatureExtractionPipeline:22 transformers.FillMaskPipeline:27
+#: transformers.ImageClassificationPipeline:22 transformers.Pipeline:28
+#: transformers.QuestionAnsweringPipeline:23
+#: transformers.SummarizationPipeline:32
+#: transformers.TableQuestionAnsweringPipeline:23
+#: transformers.Text2TextGenerationPipeline:26
+#: transformers.TextClassificationPipeline:27
+#: transformers.TextGenerationPipeline:23
+#: transformers.TokenClassificationPipeline:24
+#: transformers.TranslationPipeline:26
+#: transformers.ZeroShotClassificationPipeline:27 transformers.pipeline:64
+msgid ""
+"If no framework is specified, will default to the one currently "
+"installed. If no framework is specified and both frameworks are "
+"installed, will default to the framework of the :obj:`model`, or to "
+"PyTorch if no model is provided."
+msgstr ""
+
+#: of transformers.pipeline:68
+msgid ""
+"When passing a task name or a string model identifier: The specific model"
+" version to use. It can be a branch name, a tag name, or a commit id, "
+"since we use a git-based system for storing models and other artifacts on"
+" huggingface.co, so ``revision`` can be any identifier allowed by git."
+msgstr ""
+
+#: of transformers.pipeline:72
+msgid ""
+"Whether or not to use a Fast tokenizer if possible (a "
+":class:`~transformers.PreTrainedTokenizerFast`)."
+msgstr ""
+
+#: of transformers.pipeline:74
+msgid ""
+"The token to use as HTTP bearer authorization for remote files. If "
+":obj:`True`, will use the token generated when running :obj"
+":`transformers-cli login` (stored in :obj:`~/.huggingface`). "
+"revision(:obj:`str`, `optional`, defaults to :obj:`\"main\"`):"
+msgstr ""
+
+#: of transformers.pipeline:78
+msgid ""
+"Additional dictionary of keyword arguments passed along to the model's "
+":obj:`from_pretrained(..., **model_kwargs)` function."
+msgstr ""
+
+#: of transformers.pipeline:80
+msgid ""
+"Additional keyword arguments passed along to the specific pipeline init "
+"(see the documentation for the corresponding pipeline class for possible "
+"values)."
+msgstr ""
+
+#: of transformers.AutomaticSpeechRecognitionPipeline.__call__
+#: transformers.ConversationalPipeline.__call__
+#: transformers.FeatureExtractionPipeline.__call__
+#: transformers.FillMaskPipeline.__call__
+#: transformers.ImageClassificationPipeline.__call__
+#: transformers.Pipeline.device_placement
+#: transformers.Pipeline.ensure_tensor_on_device
+#: transformers.QuestionAnsweringPipeline.__call__
+#: transformers.QuestionAnsweringPipeline.create_sample
+#: transformers.QuestionAnsweringPipeline.span_to_answer
+#: transformers.SummarizationPipeline.__call__
+#: transformers.TableQuestionAnsweringPipeline.__call__
+#: transformers.Text2TextGenerationPipeline.__call__
+#: transformers.TextClassificationPipeline.__call__
+#: transformers.TextGenerationPipeline.__call__
+#: transformers.TokenClassificationPipeline.__call__
+#: transformers.TranslationPipeline.__call__
+#: transformers.ZeroShotClassificationPipeline.__call__ transformers.pipeline
+msgid "Returns"
+msgstr ""
+
+#: of transformers.pipeline:83
+msgid "A suitable pipeline for the task."
+msgstr ""
+
+#: of transformers.AutomaticSpeechRecognitionPipeline.__call__
+#: transformers.ConversationalPipeline.__call__
+#: transformers.FeatureExtractionPipeline.__call__
+#: transformers.FillMaskPipeline.__call__
+#: transformers.Pipeline.ensure_tensor_on_device
+#: transformers.QuestionAnsweringPipeline.__call__
+#: transformers.QuestionAnsweringPipeline.create_sample
+#: transformers.SummarizationPipeline.__call__
+#: transformers.TableQuestionAnsweringPipeline.__call__
+#: transformers.Text2TextGenerationPipeline.__call__
+#: transformers.TextClassificationPipeline.__call__
+#: transformers.TextGenerationPipeline.__call__
+#: transformers.TokenClassificationPipeline.__call__
+#: transformers.TranslationPipeline.__call__
+#: transformers.ZeroShotClassificationPipeline.__call__ transformers.pipeline
+msgid "Return type"
+msgstr ""
+
+#: of transformers.pipeline:84
+msgid ":class:`~transformers.Pipeline`"
+msgstr ""
+
+#: of transformers.Pipeline.device_placement:5 transformers.pipeline:86
+msgid "Examples::"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:51
+msgid "The task specific pipelines"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:54
+msgid "AutomaticSpeechRecognitionPipeline"
+msgstr ""
+
+#: of transformers.AutomaticSpeechRecognitionPipeline:1
+msgid "Pipeline that aims at extracting spoken text contained within some audio."
+msgstr ""
+
+#: of transformers.AutomaticSpeechRecognitionPipeline:3
+msgid ""
+"The input can be either a raw waveform or a audio file. In case of the "
+"audio file, ffmpeg should be installed for to support multiple audio "
+"formats"
+msgstr ""
+
+#: of transformers.AutomaticSpeechRecognitionPipeline.__call__:1
+msgid ""
+"Classify the sequence(s) given as inputs. See the "
+":obj:`~transformers.AutomaticSpeechRecognitionPipeline` documentation for"
+" more information."
+msgstr ""
+
+#: of transformers.AutomaticSpeechRecognitionPipeline.__call__:4
+msgid ""
+"The inputs is either a raw waveform (:obj:`np.ndarray` of shape (n, ) of "
+"type :obj:`np.float32` or :obj:`np.float64`) at the correct sampling rate"
+" (no further check will be done) or a :obj:`str` that is the filename of "
+"the audio file, the file will be read at the correct sampling rate to get"
+" the waveform using `ffmpeg`. This requires `ffmpeg` to be installed on "
+"the system. If `inputs` is :obj:`bytes` it is supposed to be the content "
+"of an audio file and is interpreted by `ffmpeg` in the same way."
+msgstr ""
+
+#: of transformers.AutomaticSpeechRecognitionPipeline.__call__:11
+msgid "- **text** (:obj:`str`) -- The recognized text."
+msgstr ""
+
+#: of transformers.AutomaticSpeechRecognitionPipeline.__call__:13
+msgid "**text** (:obj:`str`) -- The recognized text."
+msgstr ""
+
+#: of transformers.AutomaticSpeechRecognitionPipeline.__call__:14
+msgid "A :obj:`dict` with the following keys"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:61
+msgid "ConversationalPipeline"
+msgstr ""
+
+#: of transformers.Conversation:1
+msgid ""
+"Utility class containing a conversation and its history. This class is "
+"meant to be used as an input to the "
+":class:`~transformers.ConversationalPipeline`. The conversation contains "
+"a number of utility function to manage the addition of new user input and"
+" generated model responses. A conversation needs to contain an "
+"unprocessed user input before being passed to the "
+":class:`~transformers.ConversationalPipeline`. This user input is either "
+"created when the class is instantiated, or by calling "
+":obj:`conversational_pipeline.append_response(\"input\")` after a "
+"conversation turn."
+msgstr ""
+
+#: of transformers.Conversation:8
+msgid ""
+"The initial user input to start the conversation. If not provided, a user"
+" input needs to be provided manually using the "
+":meth:`~transformers.Conversation.add_user_input` method before the "
+"conversation can begin."
+msgstr ""
+
+#: of transformers.Conversation:12
+msgid ""
+"Unique identifier for the conversation. If not provided, a random UUID4 "
+"id will be assigned to the conversation."
+msgstr ""
+
+#: of transformers.Conversation:15
+msgid ""
+"Eventual past history of the conversation of the user. You don't need to "
+"pass it manually if you use the pipeline interactively but if you want to"
+" recreate history you need to set both :obj:`past_user_inputs` and "
+":obj:`generated_responses` with equal length lists of strings"
+msgstr ""
+
+#: of transformers.Conversation:19
+msgid ""
+"Eventual past history of the conversation of the model. You don't need to"
+" pass it manually if you use the pipeline interactively but if you want "
+"to recreate history you need to set both :obj:`past_user_inputs` and "
+":obj:`generated_responses` with equal length lists of strings"
+msgstr ""
+
+#: of transformers.Conversation:24 transformers.ConversationalPipeline:11
+#: transformers.SummarizationPipeline:10
+#: transformers.Text2TextGenerationPipeline:9
+#: transformers.TranslationPipeline:12
+msgid "Usage::"
+msgstr ""
+
+#: of transformers.ConversationalPipeline:1
+msgid "Multi-turn conversational pipeline."
+msgstr ""
+
+#: of transformers.ConversationalPipeline:3
+msgid ""
+"This conversational pipeline can currently be loaded from "
+":func:`~transformers.pipeline` using the following task identifier: "
+":obj:`\"conversational\"`."
+msgstr ""
+
+#: of transformers.ConversationalPipeline:6
+msgid ""
+"The models that this pipeline can use are models that have been fine-"
+"tuned on a multi-turn conversational task, currently: `'microsoft"
+"/DialoGPT-small'`, `'microsoft/DialoGPT-medium'`, `'microsoft/DialoGPT-"
+"large'`. See the up-to-date list of available models on "
+"`huggingface.co/models "
+"<https://huggingface.co/models?filter=conversational>`__."
+msgstr ""
+
+#: of transformers.ConversationalPipeline:25
+#: transformers.FeatureExtractionPipeline:10 transformers.FillMaskPipeline:15
+#: transformers.ImageClassificationPipeline:10 transformers.Pipeline:16
+#: transformers.QuestionAnsweringPipeline:11
+#: transformers.SummarizationPipeline:20
+#: transformers.TableQuestionAnsweringPipeline:11
+#: transformers.Text2TextGenerationPipeline:14
+#: transformers.TextClassificationPipeline:15
+#: transformers.TextGenerationPipeline:11
+#: transformers.TokenClassificationPipeline:12
+#: transformers.TranslationPipeline:14
+#: transformers.ZeroShotClassificationPipeline:15
+msgid ""
+"The model that will be used by the pipeline to make predictions. This "
+"needs to be a model inheriting from "
+":class:`~transformers.PreTrainedModel` for PyTorch and "
+":class:`~transformers.TFPreTrainedModel` for TensorFlow."
+msgstr ""
+
+#: of transformers.ConversationalPipeline:29
+#: transformers.FeatureExtractionPipeline:14 transformers.FillMaskPipeline:19
+#: transformers.ImageClassificationPipeline:14 transformers.Pipeline:20
+#: transformers.QuestionAnsweringPipeline:15
+#: transformers.SummarizationPipeline:24
+#: transformers.TableQuestionAnsweringPipeline:15
+#: transformers.Text2TextGenerationPipeline:18
+#: transformers.TextClassificationPipeline:19
+#: transformers.TextGenerationPipeline:15
+#: transformers.TokenClassificationPipeline:16
+#: transformers.TranslationPipeline:18
+#: transformers.ZeroShotClassificationPipeline:19
+msgid ""
+"The tokenizer that will be used by the pipeline to encode data for the "
+"model. This object inherits from "
+":class:`~transformers.PreTrainedTokenizer`."
+msgstr ""
+
+#: of transformers.ConversationalPipeline:32
+#: transformers.FeatureExtractionPipeline:17 transformers.FillMaskPipeline:22
+#: transformers.ImageClassificationPipeline:17 transformers.Pipeline:23
+#: transformers.QuestionAnsweringPipeline:18
+#: transformers.SummarizationPipeline:27
+#: transformers.TableQuestionAnsweringPipeline:18
+#: transformers.Text2TextGenerationPipeline:21
+#: transformers.TextClassificationPipeline:22
+#: transformers.TextGenerationPipeline:18
+#: transformers.TokenClassificationPipeline:19
+#: transformers.TranslationPipeline:21
+#: transformers.ZeroShotClassificationPipeline:22
+msgid "Model card attributed to the model for this pipeline."
+msgstr ""
+
+#: of transformers.ConversationalPipeline:41
+#: transformers.FeatureExtractionPipeline:26 transformers.FillMaskPipeline:31
+#: transformers.ImageClassificationPipeline:26 transformers.Pipeline:32
+#: transformers.QuestionAnsweringPipeline:27
+#: transformers.SummarizationPipeline:36
+#: transformers.TableQuestionAnsweringPipeline:27
+#: transformers.Text2TextGenerationPipeline:30
+#: transformers.TextClassificationPipeline:31
+#: transformers.TextGenerationPipeline:27
+#: transformers.TokenClassificationPipeline:28
+#: transformers.TranslationPipeline:30
+#: transformers.ZeroShotClassificationPipeline:31
+msgid "A task-identifier for the pipeline."
+msgstr ""
+
+#: of transformers.ConversationalPipeline:43
+#: transformers.FeatureExtractionPipeline:28 transformers.FillMaskPipeline:33
+#: transformers.ImageClassificationPipeline:28 transformers.Pipeline:34
+#: transformers.QuestionAnsweringPipeline:29
+#: transformers.SummarizationPipeline:38
+#: transformers.TableQuestionAnsweringPipeline:29
+#: transformers.Text2TextGenerationPipeline:32
+#: transformers.TextClassificationPipeline:33
+#: transformers.TextGenerationPipeline:29
+#: transformers.TokenClassificationPipeline:30
+#: transformers.TranslationPipeline:32
+#: transformers.ZeroShotClassificationPipeline:33
+msgid "Reference to the object in charge of parsing supplied pipeline parameters."
+msgstr ""
+
+#: of transformers.ConversationalPipeline:45
+#: transformers.FeatureExtractionPipeline:30 transformers.FillMaskPipeline:35
+#: transformers.ImageClassificationPipeline:30 transformers.Pipeline:36
+#: transformers.QuestionAnsweringPipeline:31
+#: transformers.SummarizationPipeline:40
+#: transformers.TableQuestionAnsweringPipeline:31
+#: transformers.Text2TextGenerationPipeline:34
+#: transformers.TextClassificationPipeline:35
+#: transformers.TextGenerationPipeline:31
+#: transformers.TokenClassificationPipeline:32
+#: transformers.TranslationPipeline:34
+#: transformers.ZeroShotClassificationPipeline:35
+msgid ""
+"Device ordinal for CPU/GPU supports. Setting this to -1 will leverage "
+"CPU, a positive will run the model on the associated CUDA device id."
+msgstr ""
+
+#: of transformers.ConversationalPipeline:48 transformers.FillMaskPipeline:38
+#: transformers.ImageClassificationPipeline:33 transformers.Pipeline:39
+#: transformers.QuestionAnsweringPipeline:34
+#: transformers.SummarizationPipeline:43
+#: transformers.TableQuestionAnsweringPipeline:34
+#: transformers.Text2TextGenerationPipeline:37
+#: transformers.TextClassificationPipeline:38
+#: transformers.TextGenerationPipeline:34
+#: transformers.TokenClassificationPipeline:35
+#: transformers.TranslationPipeline:37
+#: transformers.ZeroShotClassificationPipeline:38
+msgid ""
+"Flag indicating if the output the pipeline should happen in a binary "
+"format (i.e., pickle) or as raw text."
+msgstr ""
+
+#: of transformers.ConversationalPipeline:50
+msgid "The minimum length (in number of tokens) for a response."
+msgstr ""
+
+#: of transformers.ConversationalPipeline.__call__:1
+msgid "Generate responses for the conversation(s) given as inputs."
+msgstr ""
+
+#: of transformers.ConversationalPipeline.__call__:3
+msgid "Conversations to generate responses for."
+msgstr ""
+
+#: of transformers.ConversationalPipeline.__call__:5
+#: transformers.SummarizationPipeline.__call__:9
+#: transformers.Text2TextGenerationPipeline.__call__:9
+#: transformers.TextGenerationPipeline.__call__:12
+#: transformers.TranslationPipeline.__call__:9
+msgid "Whether or not to clean up the potential extra spaces in the text output."
+msgstr ""
+
+#: of transformers.ConversationalPipeline.__call__:7
+#: transformers.SummarizationPipeline.__call__:11
+#: transformers.Text2TextGenerationPipeline.__call__:15
+#: transformers.TextGenerationPipeline.__call__:16
+#: transformers.TranslationPipeline.__call__:17
+msgid ""
+"Additional keyword arguments to pass along to the generate method of the "
+"model (see the generate method corresponding to your framework `here "
+"<./model.html#generative-models>`__)."
+msgstr ""
+
+#: of transformers.ConversationalPipeline.__call__:10
+msgid ""
+"Conversation(s) with updated generated responses for those containing a "
+"new user input."
+msgstr ""
+
+#: of transformers.ConversationalPipeline.__call__:12
+msgid ""
+":class:`~transformers.Conversation` or a list of "
+":class:`~transformers.Conversation`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:70
+msgid "FeatureExtractionPipeline"
+msgstr ""
+
+#: of transformers.FeatureExtractionPipeline:1
+msgid ""
+"Feature extraction pipeline using no model head. This pipeline extracts "
+"the hidden states from the base transformer, which can be used as "
+"features in downstream tasks."
+msgstr ""
+
+#: of transformers.FeatureExtractionPipeline:4
+msgid ""
+"This feature extraction pipeline can currently be loaded from "
+":func:`~transformers.pipeline` using the task identifier: :obj"
+":`\"feature-extraction\"`."
+msgstr ""
+
+#: of transformers.FeatureExtractionPipeline:7
+msgid ""
+"All models may be used for this pipeline. See a list of all models, "
+"including community-contributed models on `huggingface.co/models "
+"<https://huggingface.co/models>`__."
+msgstr ""
+
+#: of transformers.FeatureExtractionPipeline.__call__:1
+msgid "Extract the features of the input(s)."
+msgstr ""
+
+#: of transformers.FeatureExtractionPipeline.__call__:3
+msgid "One or several texts (or one list of texts) to get the features of."
+msgstr ""
+
+#: of transformers.FeatureExtractionPipeline.__call__:6
+msgid "The features computed by the model."
+msgstr ""
+
+#: of transformers.FeatureExtractionPipeline.__call__:7
+msgid "A nested list of :obj:`float`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:77
+msgid "FillMaskPipeline"
+msgstr ""
+
+#: of transformers.FillMaskPipeline:1
+msgid ""
+"Masked language modeling prediction pipeline using any "
+":obj:`ModelWithLMHead`. See the `masked language modeling examples "
+"<../task_summary.html#masked-language-modeling>`__ for more information."
+msgstr ""
+
+#: of transformers.FillMaskPipeline:4
+msgid ""
+"This mask filling pipeline can currently be loaded from "
+":func:`~transformers.pipeline` using the following task identifier: :obj"
+":`\"fill-mask\"`."
+msgstr ""
+
+#: of transformers.FillMaskPipeline:7
+msgid ""
+"The models that this pipeline can use are models that have been trained "
+"with a masked language modeling objective, which includes the bi-"
+"directional models in the library. See the up-to-date list of available "
+"models on `huggingface.co/models <https://huggingface.co/models?filter"
+"=masked-lm>`__."
+msgstr ""
+
+#: of transformers.FillMaskPipeline:13
+msgid "This pipeline only works for inputs with exactly one token masked."
+msgstr ""
+
+#: of transformers.FillMaskPipeline:40
+msgid "The number of predictions to return."
+msgstr ""
+
+#: of transformers.FillMaskPipeline.__call__:1
+msgid "Fill the masked token in the text(s) given as inputs."
+msgstr ""
+
+#: of transformers.FillMaskPipeline.__call__:3
+msgid "One or several texts (or one list of prompts) with masked tokens."
+msgstr ""
+
+#: of transformers.FillMaskPipeline.__call__:5
+msgid ""
+"When passed, the model will limit the scores to the passed targets "
+"instead of looking up in the whole vocab. If the provided targets are not"
+" in the model vocab, they will be tokenized and the first resulting token"
+" will be used (with a warning, and that might be slower)."
+msgstr ""
+
+#: of transformers.FillMaskPipeline.__call__:9
+msgid "When passed, overrides the number of predictions to return."
+msgstr ""
+
+#: of transformers.FillMaskPipeline.__call__:12
+msgid ""
+"Each result comes as list of dictionaries with the following keys:  - "
+"**sequence** (:obj:`str`) -- The corresponding input with the mask token "
+"prediction. - **score** (:obj:`float`) -- The corresponding probability. "
+"- **token** (:obj:`int`) -- The predicted token id (to replace the masked"
+" one). - **token** (:obj:`str`) -- The predicted token (to replace the "
+"masked one)."
+msgstr ""
+
+#: of transformers.FillMaskPipeline.__call__:12
+#: transformers.TextClassificationPipeline.__call__:23
+msgid "Each result comes as list of dictionaries with the following keys:"
+msgstr ""
+
+#: of transformers.FillMaskPipeline.__call__:14
+msgid ""
+"**sequence** (:obj:`str`) -- The corresponding input with the mask token "
+"prediction."
+msgstr ""
+
+#: of transformers.FillMaskPipeline.__call__:15
+#: transformers.TextClassificationPipeline.__call__:26
+msgid "**score** (:obj:`float`) -- The corresponding probability."
+msgstr ""
+
+#: of transformers.FillMaskPipeline.__call__:16
+msgid ""
+"**token** (:obj:`int`) -- The predicted token id (to replace the masked "
+"one)."
+msgstr ""
+
+#: of transformers.FillMaskPipeline.__call__:17
+msgid "**token** (:obj:`str`) -- The predicted token (to replace the masked one)."
+msgstr ""
+
+#: of transformers.FillMaskPipeline.__call__:18
+#: transformers.SummarizationPipeline.__call__:20
+#: transformers.Text2TextGenerationPipeline.__call__:23
+#: transformers.TextClassificationPipeline.__call__:29
+#: transformers.TextGenerationPipeline.__call__:24
+#: transformers.TokenClassificationPipeline.__call__:20
+#: transformers.TranslationPipeline.__call__:25
+msgid "A list or a list of list of :obj:`dict`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:84
+msgid "ImageClassificationPipeline"
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline:1
+msgid ""
+"Image classification pipeline using any "
+":obj:`AutoModelForImageClassification`. This pipeline predicts the class "
+"of an image."
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline:4
+msgid ""
+"This image classification pipeline can currently be loaded from "
+":func:`~transformers.pipeline` using the following task identifier: :obj"
+":`\"image-classification\"`."
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline:7
+msgid ""
+"See the list of available models on `huggingface.co/models "
+"<https://huggingface.co/models?filter=image-classification>`__."
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline.__call__:1
+msgid "Assign labels to the image(s) passed as inputs."
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline.__call__:3
+msgid ""
+"The pipeline handles three types of images:  - A string containing a http"
+" link pointing to an image - A string containing a local path to an image"
+" - An image loaded in PIL directly  The pipeline accepts either a single "
+"image or a batch of images, which must then be passed as a string. Images"
+" in a batch must all be in the same format: all as http links, all as "
+"local paths, or all as PIL images."
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline.__call__:3
+msgid "The pipeline handles three types of images:"
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline.__call__:5
+msgid "A string containing a http link pointing to an image"
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline.__call__:6
+msgid "A string containing a local path to an image"
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline.__call__:7
+msgid "An image loaded in PIL directly"
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline.__call__:9
+msgid ""
+"The pipeline accepts either a single image or a batch of images, which "
+"must then be passed as a string. Images in a batch must all be in the "
+"same format: all as http links, all as local paths, or all as PIL images."
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline.__call__:13
+msgid ""
+"The number of top labels that will be returned by the pipeline. If the "
+"provided number is higher than the number of labels available in the "
+"model configuration, it will default to the number of labels."
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline.__call__:17
+msgid ""
+"A dictionary or a list of dictionaries containing result. If the input is"
+" a single image, will return a dictionary, if the input is a list of "
+"several images, will return a list of dictionaries corresponding to the "
+"images.  The dictionaries contain the following keys:  - **label** "
+"(:obj:`str`) -- The label identified by the model. - **score** "
+"(:obj:`int`) -- The score attributed by the model for that label."
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline.__call__:17
+msgid ""
+"A dictionary or a list of dictionaries containing result. If the input is"
+" a single image, will return a dictionary, if the input is a list of "
+"several images, will return a list of dictionaries corresponding to the "
+"images."
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline.__call__:21
+msgid "The dictionaries contain the following keys:"
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline.__call__:23
+msgid "**label** (:obj:`str`) -- The label identified by the model."
+msgstr ""
+
+#: of transformers.ImageClassificationPipeline.__call__:24
+msgid ""
+"**score** (:obj:`int`) -- The score attributed by the model for that "
+"label."
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:91
+msgid "NerPipeline"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:95
+msgid "See :class:`~transformers.TokenClassificationPipeline` for all details."
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:98
+msgid "QuestionAnsweringPipeline"
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline:1
+msgid ""
+"Question Answering pipeline using any :obj:`ModelForQuestionAnswering`. "
+"See the `question answering examples <../task_summary.html#question-"
+"answering>`__ for more information."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline:4
+msgid ""
+"This question answering pipeline can currently be loaded from "
+":func:`~transformers.pipeline` using the following task identifier: :obj"
+":`\"question-answering\"`."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline:7
+msgid ""
+"The models that this pipeline can use are models that have been fine-"
+"tuned on a question answering task. See the up-to-date list of available "
+"models on `huggingface.co/models <https://huggingface.co/models?filter"
+"=question-answering>`__."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:1
+msgid "Answer the question(s) given as inputs by using the context(s)."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:3
+msgid ""
+"One or several :class:`~transformers.SquadExample` containing the "
+"question and context."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:5
+#: transformers.QuestionAnsweringPipeline.__call__:8
+msgid ""
+"One or several :class:`~transformers.SquadExample` containing the "
+"question and context (will be treated the same way as if passed as the "
+"first positional argument)."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:11
+msgid ""
+"One or several question(s) (must be used in conjunction with the "
+":obj:`context` argument)."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:13
+msgid ""
+"One or several context(s) associated with the question(s) (must be used "
+"in conjunction with the :obj:`question` argument)."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:16
+msgid ""
+"The number of answers to return (will be chosen by order of likelihood). "
+"Note that we return less than topk answers if there are not enough "
+"options available within the context."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:19
+msgid ""
+"If the context is too long to fit with the question for the model, it "
+"will be split in several chunks with some overlap. This argument controls"
+" the size of that overlap."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:22
+msgid ""
+"The maximum length of predicted answers (e.g., only answers with a "
+"shorter length are considered)."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:24
+msgid ""
+"The maximum length of the total sentence (context + question) after "
+"tokenization. The context will be split in several chunks (using "
+":obj:`doc_stride`) if needed."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:27
+msgid ""
+"The maximum length of the question after tokenization. It will be "
+"truncated if needed."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:29
+msgid "Whether or not we accept impossible as an answer."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:32
+msgid ""
+"Each result comes as a dictionary with the following keys:  - **score** "
+"(:obj:`float`) -- The probability associated to the answer. - **start** "
+"(:obj:`int`) -- The character start index of the answer (in the tokenized"
+" version of the   input). - **end** (:obj:`int`) -- The character end "
+"index of the answer (in the tokenized version of the input). - **answer**"
+" (:obj:`str`) -- The answer to the question."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:32
+#: transformers.SummarizationPipeline.__call__:14
+#: transformers.Text2TextGenerationPipeline.__call__:18
+#: transformers.TextGenerationPipeline.__call__:19
+#: transformers.TranslationPipeline.__call__:20
+#: transformers.ZeroShotClassificationPipeline.__call__:22
+msgid "Each result comes as a dictionary with the following keys:"
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:34
+msgid "**score** (:obj:`float`) -- The probability associated to the answer."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:35
+msgid ""
+"**start** (:obj:`int`) -- The character start index of the answer (in the"
+" tokenized version of the input)."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:37
+msgid ""
+"**end** (:obj:`int`) -- The character end index of the answer (in the "
+"tokenized version of the input)."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:38
+msgid "**answer** (:obj:`str`) -- The answer to the question."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.__call__:39
+#: transformers.ZeroShotClassificationPipeline.__call__:27
+msgid "A :obj:`dict` or a list of :obj:`dict`"
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.create_sample:1
+msgid ""
+"QuestionAnsweringPipeline leverages the "
+":class:`~transformers.SquadExample` internally. This helper method "
+"encapsulate all the logic for converting question(s) and context(s) to "
+":class:`~transformers.SquadExample`."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.create_sample:4
+msgid "We currently support extractive question answering."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.create_sample:6
+msgid "The question(s) asked."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.create_sample:8
+msgid "The context(s) in which we will look for the answer."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.create_sample:11
+msgid ""
+"The corresponding :class:`~transformers.SquadExample` grouping question "
+"and context."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.create_sample:13
+msgid "One or a list of :class:`~transformers.SquadExample`"
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.decode:1
+msgid ""
+"Take the output of any :obj:`ModelForQuestionAnswering` and will generate"
+" probabilities for each span to be the actual answer."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.decode:4
+msgid ""
+"In addition, it filters out some unwanted/impossible cases like answer "
+"len being greater than max_answer_len or answer end position being before"
+" the starting position. The method supports output the k-best answer "
+"through the topk argument."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.decode:8
+msgid "Individual start probabilities for each token."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.decode:10
+msgid "Individual end probabilities for each token."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.decode:12
+msgid ""
+"Indicates how many possible answer span(s) to extract from the model "
+"output."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.decode:14
+msgid "Maximum size of the answer to extract from the model's output."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.decode:16
+msgid "Mask determining tokens that can be part of the answer"
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.span_to_answer:1
+msgid ""
+"When decoding from token probabilities, this method maps token indexes to"
+" actual word in the initial context."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.span_to_answer:3
+msgid "The actual context to extract the answer from."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.span_to_answer:5
+msgid "The answer starting token index."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.span_to_answer:7
+msgid "The answer end token index."
+msgstr ""
+
+#: of transformers.QuestionAnsweringPipeline.span_to_answer:10
+msgid "Dictionary like :obj:`{'answer': str, 'start': int, 'end': int}`"
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:105
+msgid "SummarizationPipeline"
+msgstr ""
+
+#: of transformers.SummarizationPipeline:1
+msgid "Summarize news articles and other documents."
+msgstr ""
+
+#: of transformers.SummarizationPipeline:3
+msgid ""
+"This summarizing pipeline can currently be loaded from "
+":func:`~transformers.pipeline` using the following task identifier: "
+":obj:`\"summarization\"`."
+msgstr ""
+
+#: of transformers.SummarizationPipeline:6
+msgid ""
+"The models that this pipeline can use are models that have been fine-"
+"tuned on a summarization task, which is currently, '`bart-large-cnn`', "
+"'`t5-small`', '`t5-base`', '`t5-large`', '`t5-3b`', '`t5-11b`'. See the "
+"up-to-date list of available models on `huggingface.co/models "
+"<https://huggingface.co/models?filter=summarization>`__."
+msgstr ""
+
+#: of transformers.SummarizationPipeline.__call__:1
+msgid "Summarize the text(s) given as inputs."
+msgstr ""
+
+#: of transformers.SummarizationPipeline.__call__:3
+msgid "One or several articles (or one list of articles) to summarize."
+msgstr ""
+
+#: of transformers.SummarizationPipeline.__call__:5
+msgid "Whether or not to include the decoded texts in the outputs"
+msgstr ""
+
+#: of transformers.SummarizationPipeline.__call__:7
+#: transformers.Text2TextGenerationPipeline.__call__:5
+#: transformers.TextGenerationPipeline.__call__:5
+#: transformers.TranslationPipeline.__call__:5
+msgid ""
+"Whether or not to include the tensors of predictions (as token indices) "
+"in the outputs."
+msgstr ""
+
+#: of transformers.SummarizationPipeline.__call__:14
+msgid ""
+"Each result comes as a dictionary with the following keys:  - "
+"**summary_text** (:obj:`str`, present when ``return_text=True``) -- The "
+"summary of the corresponding   input. - **summary_token_ids** "
+"(:obj:`torch.Tensor` or :obj:`tf.Tensor`, present when "
+"``return_tensors=True``) --   The token ids of the summary."
+msgstr ""
+
+#: of transformers.SummarizationPipeline.__call__:16
+msgid ""
+"**summary_text** (:obj:`str`, present when ``return_text=True``) -- The "
+"summary of the corresponding input."
+msgstr ""
+
+#: of transformers.SummarizationPipeline.__call__:18
+msgid ""
+"**summary_token_ids** (:obj:`torch.Tensor` or :obj:`tf.Tensor`, present "
+"when ``return_tensors=True``) -- The token ids of the summary."
+msgstr ""
+
+#: of transformers.SummarizationPipeline.check_inputs:1
+#: transformers.Text2TextGenerationPipeline.check_inputs:1
+#: transformers.TranslationPipeline.check_inputs:1
+msgid ""
+"Checks whether there might be something wrong with given input with "
+"regard to the model."
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:112
+msgid "TableQuestionAnsweringPipeline"
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline:1
+msgid ""
+"Table Question Answering pipeline using a "
+":obj:`ModelForTableQuestionAnswering`. This pipeline is only available in"
+" PyTorch."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline:4
+msgid ""
+"This tabular question answering pipeline can currently be loaded from "
+":func:`~transformers.pipeline` using the following task identifier: :obj"
+":`\"table-question-answering\"`."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline:7
+msgid ""
+"The models that this pipeline can use are models that have been fine-"
+"tuned on a tabular question answering task. See the up-to-date list of "
+"available models on `huggingface.co/models "
+"<https://huggingface.co/models?filter=table-question-answering>`__."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:1
+msgid ""
+"Answers queries according to a table. The pipeline accepts several types "
+"of inputs which are detailed below:"
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:3
+msgid "``pipeline(table, query)``"
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:4
+msgid "``pipeline(table, [query])``"
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:5
+msgid "``pipeline(table=table, query=query)``"
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:6
+msgid "``pipeline(table=table, query=[query])``"
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:7
+msgid "``pipeline({\"table\": table, \"query\": query})``"
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:8
+msgid "``pipeline({\"table\": table, \"query\": [query]})``"
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:9
+msgid ""
+"``pipeline([{\"table\": table, \"query\": query}, {\"table\": table, "
+"\"query\": query}])``"
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:11
+msgid ""
+"The :obj:`table` argument should be a dict or a DataFrame built from that"
+" dict, containing the whole table:"
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:13
+#: transformers.TableQuestionAnsweringPipeline.__call__:24
+msgid "Example::"
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:22
+msgid ""
+"This dictionary can be passed in as such, or can be converted to a pandas"
+" DataFrame:"
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:30
+msgid ""
+"Pandas DataFrame or dictionary that will be converted to a DataFrame "
+"containing all the table values. See above for an example of dictionary."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:33
+msgid ""
+"Query or list of queries that will be sent to the model alongside the "
+"table."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:35
+msgid ""
+"Whether to do inference sequentially or as a batch. Batching is faster, "
+"but models like SQA require the inference to be done sequentially to "
+"extract relations within sequences, given their conversational nature."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:39
+msgid ""
+"Activates and controls padding. Accepts the following values:  * "
+":obj:`True` or :obj:`'longest'`: Pad to the longest sequence in the batch"
+" (or no padding if only a   single sequence if provided). * "
+":obj:`'max_length'`: Pad to a maximum length specified with the argument "
+":obj:`max_length` or to the   maximum acceptable input length for the "
+"model if that argument is not provided. * :obj:`False` or "
+":obj:`'do_not_pad'` (default): No padding (i.e., can output a batch with "
+"sequences of   different lengths)."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:39
+msgid "Activates and controls padding. Accepts the following values:"
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:41
+msgid ""
+":obj:`True` or :obj:`'longest'`: Pad to the longest sequence in the batch"
+" (or no padding if only a single sequence if provided)."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:43
+msgid ""
+":obj:`'max_length'`: Pad to a maximum length specified with the argument "
+":obj:`max_length` or to the maximum acceptable input length for the model"
+" if that argument is not provided."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:45
+msgid ""
+":obj:`False` or :obj:`'do_not_pad'` (default): No padding (i.e., can "
+"output a batch with sequences of different lengths)."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:48
+msgid ""
+"Activates and controls truncation. Accepts the following values:  * "
+":obj:`True` or :obj:`'drop_rows_to_fit'`: Truncate to a maximum length "
+"specified with the argument   :obj:`max_length` or to the maximum "
+"acceptable input length for the model if that argument is not   provided."
+" This will truncate row by row, removing rows from the table. * "
+":obj:`False` or :obj:`'do_not_truncate'` (default): No truncation (i.e., "
+"can output batch with   sequence lengths greater than the model maximum "
+"admissible input size)."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:48
+msgid "Activates and controls truncation. Accepts the following values:"
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:50
+msgid ""
+":obj:`True` or :obj:`'drop_rows_to_fit'`: Truncate to a maximum length "
+"specified with the argument :obj:`max_length` or to the maximum "
+"acceptable input length for the model if that argument is not provided. "
+"This will truncate row by row, removing rows from the table."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:53
+msgid ""
+":obj:`False` or :obj:`'do_not_truncate'` (default): No truncation (i.e., "
+"can output batch with sequence lengths greater than the model maximum "
+"admissible input size)."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:57
+msgid ""
+"Each result is a dictionary with the following keys:  - **answer** "
+"(:obj:`str`) -- The answer of the query given the table. If there is an "
+"aggregator, the answer   will be preceded by :obj:`AGGREGATOR >`. - "
+"**coordinates** (:obj:`List[Tuple[int, int]]`) -- Coordinates of the "
+"cells of the answers. - **cells** (:obj:`List[str]`) -- List of strings "
+"made up of the answer cell values. - **aggregator** (:obj:`str`) -- If "
+"the model has an aggregator, this returns the aggregator."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:57
+msgid "Each result is a dictionary with the following keys:"
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:60
+msgid ""
+"**answer** (:obj:`str`) -- The answer of the query given the table. If "
+"there is an aggregator, the answer will be preceded by :obj:`AGGREGATOR "
+">`."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:62
+msgid ""
+"**coordinates** (:obj:`List[Tuple[int, int]]`) -- Coordinates of the "
+"cells of the answers."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:63
+msgid ""
+"**cells** (:obj:`List[str]`) -- List of strings made up of the answer "
+"cell values."
+msgstr ""
+
+#: of transformers.TableQuestionAnsweringPipeline.__call__:64
+msgid ""
+"**aggregator** (:obj:`str`) -- If the model has an aggregator, this "
+"returns the aggregator."
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:119
+msgid "TextClassificationPipeline"
+msgstr ""
+
+#: of transformers.TextClassificationPipeline:1
+msgid ""
+"Text classification pipeline using any "
+":obj:`ModelForSequenceClassification`. See the `sequence classification "
+"examples <../task_summary.html#sequence-classification>`__ for more "
+"information."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline:4
+msgid ""
+"This text classification pipeline can currently be loaded from "
+":func:`~transformers.pipeline` using the following task identifier: :obj"
+":`\"sentiment-analysis\"` (for classifying sequences according to "
+"positive or negative sentiments)."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline:8
+msgid ""
+"If multiple classification labels are available "
+"(:obj:`model.config.num_labels >= 2`), the pipeline will run a softmax "
+"over the results. If there is a single label, the pipeline will run a "
+"sigmoid over the result."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline:11
+msgid ""
+"The models that this pipeline can use are models that have been fine-"
+"tuned on a sequence classification task. See the up-to-date list of "
+"available models on `huggingface.co/models "
+"<https://huggingface.co/models?filter=text-classification>`__."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline:40
+msgid ""
+"Whether to return all prediction scores or just the one of the predicted "
+"class."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline:42
+msgid ""
+"The function to apply to the model outputs in order to retrieve the "
+"scores. Accepts four different values:  - :obj:`\"default\"`: if the "
+"model has a single label, will apply the sigmoid function on the output. "
+"If the   model has several labels, will apply the softmax function on the"
+" output. - :obj:`\"sigmoid\"`: Applies the sigmoid function on the "
+"output. - :obj:`\"softmax\"`: Applies the softmax function on the output."
+" - :obj:`\"none\"`: Does not apply any function on the output."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline:42
+#: transformers.TextClassificationPipeline.__call__:7
+msgid ""
+"The function to apply to the model outputs in order to retrieve the "
+"scores. Accepts four different values:"
+msgstr ""
+
+#: of transformers.TextClassificationPipeline:44
+msgid ""
+":obj:`\"default\"`: if the model has a single label, will apply the "
+"sigmoid function on the output. If the model has several labels, will "
+"apply the softmax function on the output."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline:46
+#: transformers.TextClassificationPipeline.__call__:18
+msgid ":obj:`\"sigmoid\"`: Applies the sigmoid function on the output."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline:47
+#: transformers.TextClassificationPipeline.__call__:19
+msgid ":obj:`\"softmax\"`: Applies the softmax function on the output."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline:48
+#: transformers.TextClassificationPipeline.__call__:20
+msgid ":obj:`\"none\"`: Does not apply any function on the output."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline.__call__:1
+msgid "Classify the text(s) given as inputs."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline.__call__:3
+msgid "One or several texts (or one list of prompts) to classify."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline.__call__:5
+msgid "Whether to return scores for all labels."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline.__call__:7
+msgid ""
+"The function to apply to the model outputs in order to retrieve the "
+"scores. Accepts four different values:  If this argument is not "
+"specified, then it will apply the following functions according to the "
+"number of labels:  - If the model has a single label, will apply the "
+"sigmoid function on the output. - If the model has several labels, will "
+"apply the softmax function on the output.  Possible values are:  - "
+":obj:`\"sigmoid\"`: Applies the sigmoid function on the output. - "
+":obj:`\"softmax\"`: Applies the softmax function on the output. - "
+":obj:`\"none\"`: Does not apply any function on the output."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline.__call__:10
+msgid ""
+"If this argument is not specified, then it will apply the following "
+"functions according to the number of labels:"
+msgstr ""
+
+#: of transformers.TextClassificationPipeline.__call__:13
+msgid ""
+"If the model has a single label, will apply the sigmoid function on the "
+"output."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline.__call__:14
+msgid ""
+"If the model has several labels, will apply the softmax function on the "
+"output."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline.__call__:16
+msgid "Possible values are:"
+msgstr ""
+
+#: of transformers.TextClassificationPipeline.__call__:23
+msgid ""
+"Each result comes as list of dictionaries with the following keys:  - "
+"**label** (:obj:`str`) -- The label predicted. - **score** (:obj:`float`)"
+" -- The corresponding probability.  If ``self.return_all_scores=True``, "
+"one such dictionary is returned per label."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline.__call__:25
+msgid "**label** (:obj:`str`) -- The label predicted."
+msgstr ""
+
+#: of transformers.TextClassificationPipeline.__call__:28
+msgid ""
+"If ``self.return_all_scores=True``, one such dictionary is returned per "
+"label."
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:126
+msgid "TextGenerationPipeline"
+msgstr ""
+
+#: of transformers.TextGenerationPipeline:1
+msgid ""
+"Language generation pipeline using any :obj:`ModelWithLMHead`. This "
+"pipeline predicts the words that will follow a specified text prompt."
+msgstr ""
+
+#: of transformers.TextGenerationPipeline:4
+msgid ""
+"This language generation pipeline can currently be loaded from "
+":func:`~transformers.pipeline` using the following task identifier: :obj"
+":`\"text-generation\"`."
+msgstr ""
+
+#: of transformers.TextGenerationPipeline:7
+msgid ""
+"The models that this pipeline can use are models that have been trained "
+"with an autoregressive language modeling objective, which includes the "
+"uni-directional models in the library (e.g. gpt2). See the list of "
+"available models on `huggingface.co/models "
+"<https://huggingface.co/models?filter=causal-lm>`__."
+msgstr ""
+
+#: of transformers.TextGenerationPipeline.__call__:1
+msgid "Complete the prompt(s) given as inputs."
+msgstr ""
+
+#: of transformers.TextGenerationPipeline.__call__:3
+msgid "One or several prompts (or one list of prompts) to complete."
+msgstr ""
+
+#: of transformers.Text2TextGenerationPipeline.__call__:7
+#: transformers.TextGenerationPipeline.__call__:7
+#: transformers.TranslationPipeline.__call__:7
+msgid "Whether or not to include the decoded texts in the outputs."
+msgstr ""
+
+#: of transformers.TextGenerationPipeline.__call__:9
+msgid ""
+"If set to :obj:`False` only added text is returned, otherwise the full "
+"text is returned Only meaningful if `return_text` is set to True."
+msgstr ""
+
+#: of transformers.TextGenerationPipeline.__call__:14
+msgid "Prefix added to prompt."
+msgstr ""
+
+#: of transformers.Text2TextGenerationPipeline.__call__:18
+#: transformers.TextGenerationPipeline.__call__:19
+msgid ""
+"Each result comes as a dictionary with the following keys:  - "
+"**generated_text** (:obj:`str`, present when ``return_text=True``) -- The"
+" generated text. - **generated_token_ids** (:obj:`torch.Tensor` or "
+":obj:`tf.Tensor`, present when ``return_tensors=True``)   -- The token "
+"ids of the generated text."
+msgstr ""
+
+#: of transformers.Text2TextGenerationPipeline.__call__:20
+#: transformers.TextGenerationPipeline.__call__:21
+msgid ""
+"**generated_text** (:obj:`str`, present when ``return_text=True``) -- The"
+" generated text."
+msgstr ""
+
+#: of transformers.Text2TextGenerationPipeline.__call__:21
+#: transformers.TextGenerationPipeline.__call__:22
+msgid ""
+"**generated_token_ids** (:obj:`torch.Tensor` or :obj:`tf.Tensor`, present"
+" when ``return_tensors=True``) -- The token ids of the generated text."
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:133
+msgid "Text2TextGenerationPipeline"
+msgstr ""
+
+#: of transformers.Text2TextGenerationPipeline:1
+msgid "Pipeline for text to text generation using seq2seq models."
+msgstr ""
+
+#: of transformers.Text2TextGenerationPipeline:3
+msgid ""
+"This Text2TextGenerationPipeline pipeline can currently be loaded from "
+":func:`~transformers.pipeline` using the following task identifier: :obj"
+":`\"text2text-generation\"`."
+msgstr ""
+
+#: of transformers.Text2TextGenerationPipeline:6
+msgid ""
+"The models that this pipeline can use are models that have been fine-"
+"tuned on a translation task. See the up-to-date list of available models "
+"on `huggingface.co/models "
+"<https://huggingface.co/models?filter=seq2seq>`__."
+msgstr ""
+
+#: of transformers.Text2TextGenerationPipeline.__call__:1
+msgid "Generate the output text(s) using text(s) given as inputs."
+msgstr ""
+
+#: of transformers.Text2TextGenerationPipeline.__call__:3
+msgid "Input text for the encoder."
+msgstr ""
+
+#: of transformers.Text2TextGenerationPipeline.__call__:11
+msgid ""
+"The truncation strategy for the tokenization within the pipeline. "
+":obj:`TruncationStrategy.DO_NOT_TRUNCATE` (default) will never truncate, "
+"but it is sometimes desirable to truncate the input to fit the model's "
+"max_length instead of throwing an error down the line."
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:140
+msgid "TokenClassificationPipeline"
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline:1
+msgid ""
+"Named Entity Recognition pipeline using any "
+":obj:`ModelForTokenClassification`. See the `named entity recognition "
+"examples <../task_summary.html#named-entity-recognition>`__ for more "
+"information."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline:4
+msgid ""
+"This token recognition pipeline can currently be loaded from "
+":func:`~transformers.pipeline` using the following task identifier: "
+":obj:`\"ner\"` (for predicting the classes of tokens in a sequence: "
+"person, organisation, location or miscellaneous)."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline:8
+msgid ""
+"The models that this pipeline can use are models that have been fine-"
+"tuned on a token classification task. See the up-to-date list of "
+"available models on `huggingface.co/models "
+"<https://huggingface.co/models?filter=token-classification>`__."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline:37
+msgid "A list of labels to ignore."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline:39
+msgid ""
+"DEPRECATED, use :obj:`aggregation_strategy` instead. Whether or not to "
+"group the tokens corresponding to the same entity together in the "
+"predictions or not."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline:42
+msgid ""
+"The strategy to fuse (or not) tokens based on the model prediction.  - "
+"\"none\" : Will simply not do any aggregation and simply return raw "
+"results from the model - \"simple\" : Will attempt to group entities "
+"following the default schema. (A, B-TAG), (B, I-TAG), (C,   I-TAG), (D, "
+"B-TAG2) (E, B-TAG2) will end up being [{\"word\": ABC, \"entity\": "
+"\"TAG\"}, {\"word\": \"D\",   \"entity\": \"TAG2\"}, {\"word\": \"E\", "
+"\"entity\": \"TAG2\"}] Notice that two consecutive B tags will end up as"
+"   different entities. On word based languages, we might end up splitting"
+" words undesirably : Imagine   Microsoft being tagged as [{\"word\": "
+"\"Micro\", \"entity\": \"ENTERPRISE\"}, {\"word\": \"soft\", \"entity\":"
+"   \"NAME\"}]. Look for FIRST, MAX, AVERAGE for ways to mitigate that and"
+" disambiguate words (on languages   that support that meaning, which is "
+"basically tokens separated by a space). These mitigations will   only "
+"work on real words, \"New york\" might still be tagged with two different"
+" entities. - \"first\" : (works only on word based models) Will use the "
+":obj:`SIMPLE` strategy except that words,   cannot end up with different "
+"tags. Words will simply use the tag of the first token of the word when"
+"   there is ambiguity. - \"average\" : (works only on word based models) "
+"Will use the :obj:`SIMPLE` strategy except that words,   cannot end up "
+"with different tags. scores will be averaged first across tokens, and "
+"then the maximum   label is applied. - \"max\" : (works only on word "
+"based models) Will use the :obj:`SIMPLE` strategy except that words,   "
+"cannot end up with different tags. Word entity will simply be the token "
+"with the maximum score."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline:42
+msgid "The strategy to fuse (or not) tokens based on the model prediction."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline:44
+msgid ""
+"\"none\" : Will simply not do any aggregation and simply return raw "
+"results from the model"
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline:45
+msgid ""
+"\"simple\" : Will attempt to group entities following the default schema."
+" (A, B-TAG), (B, I-TAG), (C, I-TAG), (D, B-TAG2) (E, B-TAG2) will end up "
+"being [{\"word\": ABC, \"entity\": \"TAG\"}, {\"word\": \"D\", "
+"\"entity\": \"TAG2\"}, {\"word\": \"E\", \"entity\": \"TAG2\"}] Notice "
+"that two consecutive B tags will end up as different entities. On word "
+"based languages, we might end up splitting words undesirably : Imagine "
+"Microsoft being tagged as [{\"word\": \"Micro\", \"entity\": "
+"\"ENTERPRISE\"}, {\"word\": \"soft\", \"entity\": \"NAME\"}]. Look for "
+"FIRST, MAX, AVERAGE for ways to mitigate that and disambiguate words (on "
+"languages that support that meaning, which is basically tokens separated "
+"by a space). These mitigations will only work on real words, \"New york\""
+" might still be tagged with two different entities."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline:53
+msgid ""
+"\"first\" : (works only on word based models) Will use the :obj:`SIMPLE` "
+"strategy except that words, cannot end up with different tags. Words will"
+" simply use the tag of the first token of the word when there is "
+"ambiguity."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline:56
+msgid ""
+"\"average\" : (works only on word based models) Will use the "
+":obj:`SIMPLE` strategy except that words, cannot end up with different "
+"tags. scores will be averaged first across tokens, and then the maximum "
+"label is applied."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline:59
+msgid ""
+"\"max\" : (works only on word based models) Will use the :obj:`SIMPLE` "
+"strategy except that words, cannot end up with different tags. Word "
+"entity will simply be the token with the maximum score."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.__call__:1
+msgid "Classify each token of the text(s) given as inputs."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.__call__:3
+msgid "One or several texts (or one list of texts) for token classification."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.__call__:6
+msgid ""
+"Each result comes as a list of dictionaries (one for each token in the "
+"corresponding input, or each entity if this pipeline was instantiated "
+"with an aggregation_strategy) with the following keys:  - **word** "
+"(:obj:`str`) -- The token/word classified. - **score** (:obj:`float`) -- "
+"The corresponding probability for :obj:`entity`. - **entity** "
+"(:obj:`str`) -- The entity predicted for that token/word (it is named "
+"`entity_group` when   `aggregation_strategy` is not :obj:`\"none\"`. - "
+"**index** (:obj:`int`, only present when "
+"``aggregation_strategy=\"none\"``) -- The index of the   corresponding "
+"token in the sentence. - **start** (:obj:`int`, `optional`) -- The index "
+"of the start of the corresponding entity in the sentence.   Only exists "
+"if the offsets are available within the tokenizer - **end** (:obj:`int`, "
+"`optional`) -- The index of the end of the corresponding entity in the "
+"sentence.   Only exists if the offsets are available within the tokenizer"
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.__call__:6
+msgid ""
+"Each result comes as a list of dictionaries (one for each token in the "
+"corresponding input, or each entity if this pipeline was instantiated "
+"with an aggregation_strategy) with the following keys:"
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.__call__:10
+msgid "**word** (:obj:`str`) -- The token/word classified."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.__call__:11
+msgid ""
+"**score** (:obj:`float`) -- The corresponding probability for "
+":obj:`entity`."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.__call__:12
+msgid ""
+"**entity** (:obj:`str`) -- The entity predicted for that token/word (it "
+"is named `entity_group` when `aggregation_strategy` is not "
+":obj:`\"none\"`."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.__call__:14
+msgid ""
+"**index** (:obj:`int`, only present when "
+"``aggregation_strategy=\"none\"``) -- The index of the corresponding "
+"token in the sentence."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.__call__:16
+msgid ""
+"**start** (:obj:`int`, `optional`) -- The index of the start of the "
+"corresponding entity in the sentence. Only exists if the offsets are "
+"available within the tokenizer"
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.__call__:18
+msgid ""
+"**end** (:obj:`int`, `optional`) -- The index of the end of the "
+"corresponding entity in the sentence. Only exists if the offsets are "
+"available within the tokenizer"
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.aggregate_words:1
+msgid ""
+"Override tokens from a given word that disagree to force agreement on "
+"word boundaries."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.aggregate_words:3
+msgid ""
+"Example: micro|soft| com|pany| B-ENT I-NAME I-ENT I-ENT will be rewritten"
+" with first strategy as microsoft| company| B-ENT I-ENT"
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.gather_pre_entities:1
+msgid ""
+"Fuse various numpy arrays into dicts with all the information needed for "
+"aggregation"
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.group_entities:1
+msgid ""
+"Find and group together the adjacent tokens with the same entity "
+"predicted."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.group_entities:3
+#: transformers.TokenClassificationPipeline.group_sub_entities:3
+msgid "The entities predicted by the pipeline."
+msgstr ""
+
+#: of transformers.TokenClassificationPipeline.group_sub_entities:1
+msgid "Group together the adjacent tokens with the same entity predicted."
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:147
+msgid "TranslationPipeline"
+msgstr ""
+
+#: of transformers.TranslationPipeline:1
+msgid "Translates from one language to another."
+msgstr ""
+
+#: of transformers.TranslationPipeline:3
+msgid ""
+"This translation pipeline can currently be loaded from "
+":func:`~transformers.pipeline` using the following task identifier: "
+":obj:`\"translation_xx_to_yy\"`."
+msgstr ""
+
+#: of transformers.TranslationPipeline:6
+msgid ""
+"The models that this pipeline can use are models that have been fine-"
+"tuned on a translation task. See the up-to-date list of available models "
+"on `huggingface.co/models "
+"<https://huggingface.co/models?filter=translation>`__."
+msgstr ""
+
+#: of transformers.TranslationPipeline:11
+msgid ""
+"en_fr_translator = pipeline(\"translation_en_to_fr\") "
+"en_fr_translator(\"How old are you?\")"
+msgstr ""
+
+#: of transformers.TranslationPipeline.__call__:1
+msgid "Translate the text(s) given as inputs."
+msgstr ""
+
+#: of transformers.TranslationPipeline.__call__:3
+msgid "Texts to be translated."
+msgstr ""
+
+#: of transformers.TranslationPipeline.__call__:11
+msgid ""
+"The language of the input. Might be required for multilingual models. "
+"Will not have any effect for single pair translation models"
+msgstr ""
+
+#: of transformers.TranslationPipeline.__call__:14
+msgid ""
+"The language of the desired output. Might be required for multilingual "
+"models. Will not have any effect for single pair translation models"
+msgstr ""
+
+#: of transformers.TranslationPipeline.__call__:20
+msgid ""
+"Each result comes as a dictionary with the following keys:  - "
+"**translation_text** (:obj:`str`, present when ``return_text=True``) -- "
+"The translation. - **translation_token_ids** (:obj:`torch.Tensor` or "
+":obj:`tf.Tensor`, present when ``return_tensors=True``)   -- The token "
+"ids of the translation."
+msgstr ""
+
+#: of transformers.TranslationPipeline.__call__:22
+msgid ""
+"**translation_text** (:obj:`str`, present when ``return_text=True``) -- "
+"The translation."
+msgstr ""
+
+#: of transformers.TranslationPipeline.__call__:23
+msgid ""
+"**translation_token_ids** (:obj:`torch.Tensor` or :obj:`tf.Tensor`, "
+"present when ``return_tensors=True``) -- The token ids of the "
+"translation."
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:154
+msgid "ZeroShotClassificationPipeline"
+msgstr ""
+
+#: of transformers.ZeroShotClassificationPipeline:1
+msgid ""
+"NLI-based zero-shot classification pipeline using a "
+":obj:`ModelForSequenceClassification` trained on NLI (natural language "
+"inference) tasks."
+msgstr ""
+
+#: of transformers.ZeroShotClassificationPipeline:4
+msgid ""
+"Any combination of sequences and labels can be passed and each "
+"combination will be posed as a premise/hypothesis pair and passed to the "
+"pretrained model. Then, the logit for `entailment` is taken as the logit "
+"for the candidate label being valid. Any NLI model can be used, but the "
+"id of the `entailment` label must be included in the model config's "
+":attr:`~transformers.PretrainedConfig.label2id`."
+msgstr ""
+
+#: of transformers.ZeroShotClassificationPipeline:9
+msgid ""
+"This NLI pipeline can currently be loaded from "
+":func:`~transformers.pipeline` using the following task identifier: :obj"
+":`\"zero-shot-classification\"`."
+msgstr ""
+
+#: of transformers.ZeroShotClassificationPipeline:12
+msgid ""
+"The models that this pipeline can use are models that have been fine-"
+"tuned on an NLI task. See the up-to-date list of available models on "
+"`huggingface.co/models <https://huggingface.co/models?search=nli>`__."
+msgstr ""
+
+#: of transformers.ZeroShotClassificationPipeline.__call__:1
+msgid ""
+"Classify the sequence(s) given as inputs. See the "
+":obj:`~transformers.ZeroShotClassificationPipeline` documentation for "
+"more information."
+msgstr ""
+
+#: of transformers.ZeroShotClassificationPipeline.__call__:4
+msgid ""
+"The sequence(s) to classify, will be truncated if the model input is too "
+"large."
+msgstr ""
+
+#: of transformers.ZeroShotClassificationPipeline.__call__:6
+msgid ""
+"The set of possible class labels to classify each sequence into. Can be a"
+" single label, a string of comma-separated labels, or a list of labels."
+msgstr ""
+
+#: of transformers.ZeroShotClassificationPipeline.__call__:9
+msgid ""
+"The template used to turn each label into an NLI-style hypothesis. This "
+"template must include a {} or similar syntax for the candidate label to "
+"be inserted into the template. For example, the default template is "
+":obj:`\"This example is {}.\"` With the candidate label "
+":obj:`\"sports\"`, this would be fed into the model like :obj:`\"<cls> "
+"sequence to classify <sep> This example is sports . <sep>\"`. The default"
+" template works well in many cases, but it may be worthwhile to "
+"experiment with different templates depending on the task setting."
+msgstr ""
+
+#: of transformers.ZeroShotClassificationPipeline.__call__:16
+msgid ""
+"Whether or not multiple candidate labels can be true. If :obj:`False`, "
+"the scores are normalized such that the sum of the label likelihoods for "
+"each sequence is 1. If :obj:`True`, the labels are considered independent"
+" and probabilities are normalized for each candidate by doing a softmax "
+"of the entailment score vs. the contradiction score."
+msgstr ""
+
+#: of transformers.ZeroShotClassificationPipeline.__call__:22
+msgid ""
+"Each result comes as a dictionary with the following keys:  - "
+"**sequence** (:obj:`str`) -- The sequence for which this is the output. -"
+" **labels** (:obj:`List[str]`) -- The labels sorted by order of "
+"likelihood. - **scores** (:obj:`List[float]`) -- The probabilities for "
+"each of the labels."
+msgstr ""
+
+#: of transformers.ZeroShotClassificationPipeline.__call__:24
+msgid "**sequence** (:obj:`str`) -- The sequence for which this is the output."
+msgstr ""
+
+#: of transformers.ZeroShotClassificationPipeline.__call__:25
+msgid "**labels** (:obj:`List[str]`) -- The labels sorted by order of likelihood."
+msgstr ""
+
+#: of transformers.ZeroShotClassificationPipeline.__call__:26
+msgid ""
+"**scores** (:obj:`List[float]`) -- The probabilities for each of the "
+"labels."
+msgstr ""
+
+#: ../../source/main_classes/pipelines.rst:161
+msgid "Parent class: :obj:`Pipeline`"
+msgstr ""
+
+#: of transformers.Pipeline:1
+msgid ""
+"The Pipeline class is the class from which all pipelines inherit. Refer "
+"to this class for methods shared across different pipelines."
+msgstr ""
+
+#: of transformers.Pipeline:4
+msgid ""
+"Base class implementing pipelined operations. Pipeline workflow is "
+"defined as a sequence of the following operations:"
+msgstr ""
+
+#: of transformers.Pipeline:7
+msgid ""
+"Input -> Tokenization -> Model Inference -> Post-Processing (task "
+"dependent) -> Output"
+msgstr ""
+
+#: of transformers.Pipeline:9
+msgid ""
+"Pipeline supports running on CPU or GPU through the device argument (see "
+"below)."
+msgstr ""
+
+#: of transformers.Pipeline:11
+msgid ""
+"Some pipeline, like for instance "
+":class:`~transformers.FeatureExtractionPipeline` (:obj:`'feature-"
+"extraction'` ) output large tensor object as nested-lists. In order to "
+"avoid dumping such large structure as textual data we provide the "
+":obj:`binary_output` constructor argument. If set to :obj:`True`, the "
+"output will be stored in the pickle format."
+msgstr ""
+
+#: of transformers.Pipeline.check_model_type:1
+msgid "Check if the model class is in supported by the pipeline."
+msgstr ""
+
+#: of transformers.Pipeline.check_model_type:3
+msgid ""
+"The list of models supported by the pipeline, or a dictionary with model "
+"class values."
+msgstr ""
+
+#: of transformers.Pipeline.device_placement:1
+msgid ""
+"Context Manager allowing tensor allocation on the user-specified device "
+"in framework agnostic way."
+msgstr ""
+
+#: of transformers.Pipeline.device_placement:3
+msgid "Context manager"
+msgstr ""
+
+#: of transformers.Pipeline.ensure_tensor_on_device:1
+msgid "Ensure PyTorch tensors are on the specified device."
+msgstr ""
+
+#: of transformers.Pipeline.ensure_tensor_on_device:3
+msgid "The tensors to place on :obj:`self.device`."
+msgstr ""
+
+#: of transformers.Pipeline.ensure_tensor_on_device:6
+msgid "The same as :obj:`inputs` but on the proper device."
+msgstr ""
+
+#: of transformers.Pipeline.ensure_tensor_on_device:7
+msgid ":obj:`Dict[str, torch.Tensor]`"
+msgstr ""
+
+#: of transformers.Pipeline.predict:1 transformers.Pipeline.transform:1
+msgid ""
+"Scikit / Keras interface to transformers' pipelines. This method will "
+"forward to __call__()."
+msgstr ""
+
+#: of transformers.Pipeline.save_pretrained:1
+msgid "Save the pipeline's model and tokenizer."
+msgstr ""
+
+#: of transformers.Pipeline.save_pretrained:3
+msgid ""
+"A path to the directory where to saved. It will be created if it doesn't "
+"exist."
+msgstr ""
+

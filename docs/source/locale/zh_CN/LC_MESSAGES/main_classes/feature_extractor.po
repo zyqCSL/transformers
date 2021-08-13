@@ -1,0 +1,560 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/main_classes/feature_extractor.rst:15
+msgid "Feature Extractor"
+msgstr ""
+
+#: ../../source/main_classes/feature_extractor.rst:17
+msgid ""
+"A feature extractor is in charge of preparing input features for a multi-"
+"modal model. This includes feature extraction from sequences, *e.g.*, "
+"pre-processing audio files to Log-Mel Spectrogram features, feature "
+"extraction from images *e.g.* cropping image image files, but also "
+"padding, normalization, and conversion to Numpy, PyTorch, and TensorFlow "
+"tensors."
+msgstr ""
+
+#: ../../source/main_classes/feature_extractor.rst:24
+msgid "FeatureExtractionMixin"
+msgstr ""
+
+#: of transformers.feature_extraction_utils.FeatureExtractionMixin:1
+msgid ""
+"This is a feature extraction mixin used to provide saving/loading "
+"functionality for sequential and image feature extractors."
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:1
+msgid ""
+"Instantiate a type of "
+":class:`~transformers.feature_extraction_utils.FeatureExtractionMixin` "
+"from a feature extractor, *e.g.* a derived class of "
+":class:`~transformers.SequenceFeatureExtractor`."
+msgstr ""
+
+#: of transformers.BatchFeature transformers.BatchFeature.convert_to_tensors
+#: transformers.BatchFeature.to transformers.SequenceFeatureExtractor
+#: transformers.SequenceFeatureExtractor.pad
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.save_pretrained
+#: transformers.image_utils.ImageFeatureExtractionMixin.center_crop
+#: transformers.image_utils.ImageFeatureExtractionMixin.normalize
+#: transformers.image_utils.ImageFeatureExtractionMixin.resize
+#: transformers.image_utils.ImageFeatureExtractionMixin.to_numpy_array
+#: transformers.image_utils.ImageFeatureExtractionMixin.to_pil_image
+msgid "Parameters"
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:4
+msgid ""
+"This can be either:  - a string, the `model id` of a pretrained "
+"feature_extractor hosted inside a model repo on   huggingface.co. Valid "
+"model ids can be located at the root-level, like ``bert-base-uncased``, "
+"or   namespaced under a user or organization name, like ``dbmdz/bert-"
+"base-german-cased``. - a path to a `directory` containing a feature "
+"extractor file saved using the   "
+":func:`~transformers.feature_extraction_utils.FeatureExtractionMixin.save_pretrained`"
+" method, e.g.,   ``./my_model_directory/``. - a path or url to a saved "
+"feature extractor JSON `file`, e.g.,   "
+"``./my_model_directory/preprocessor_config.json``."
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:4
+msgid "This can be either:"
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:6
+msgid ""
+"a string, the `model id` of a pretrained feature_extractor hosted inside "
+"a model repo on huggingface.co. Valid model ids can be located at the "
+"root-level, like ``bert-base-uncased``, or namespaced under a user or "
+"organization name, like ``dbmdz/bert-base-german-cased``."
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:9
+msgid ""
+"a path to a `directory` containing a feature extractor file saved using "
+"the "
+":func:`~transformers.feature_extraction_utils.FeatureExtractionMixin.save_pretrained`"
+" method, e.g., ``./my_model_directory/``."
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:12
+msgid ""
+"a path or url to a saved feature extractor JSON `file`, e.g., "
+"``./my_model_directory/preprocessor_config.json``."
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:15
+msgid ""
+"Path to a directory in which a downloaded pretrained model feature "
+"extractor should be cached if the standard cache should not be used."
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:18
+msgid ""
+"Whether or not to force to (re-)download the feature extractor files and "
+"override the cached versions if they exist."
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:21
+msgid ""
+"Whether or not to delete incompletely received file. Attempts to resume "
+"the download if such a file exists."
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:24
+msgid ""
+"A dictionary of proxy servers to use by protocol or endpoint, e.g., "
+":obj:`{'http': 'foo.bar:3128', 'http://hostname': 'foo.bar:4012'}.` The "
+"proxies are used on each request."
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:27
+msgid ""
+"The token to use as HTTP bearer authorization for remote files. If "
+":obj:`True`, will use the token generated when running :obj"
+":`transformers-cli login` (stored in :obj:`~/.huggingface`)."
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:30
+msgid ""
+"The specific model version to use. It can be a branch name, a tag name, "
+"or a commit id, since we use a git-based system for storing models and "
+"other artifacts on huggingface.co, so ``revision`` can be any identifier "
+"allowed by git."
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:34
+msgid ""
+"If :obj:`False`, then this function returns just the final feature "
+"extractor object. If :obj:`True`, then this functions returns a "
+":obj:`Tuple(feature_extractor, unused_kwargs)` where `unused_kwargs` is a"
+" dictionary consisting of the key/value pairs whose keys are not feature "
+"extractor attributes: i.e., the part of ``kwargs`` which has not been "
+"used to update ``feature_extractor`` and is otherwise ignored."
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:39
+msgid ""
+"The values in kwargs of any keys which are feature extractor attributes "
+"will be used to override the loaded values. Behavior concerning key/value"
+" pairs whose keys are *not* feature extractor attributes is controlled by"
+" the ``return_unused_kwargs`` keyword parameter."
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:46
+msgid ""
+"Passing :obj:`use_auth_token=True` is required when you want to use a "
+"private model."
+msgstr ""
+
+#: of transformers.BatchFeature.to
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained
+msgid "Returns"
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:49
+msgid ""
+"A feature extractor of type "
+":class:`~transformers.feature_extraction_utils.FeatureExtractionMixin`."
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained:51
+msgid "Examples::"
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.save_pretrained:1
+msgid ""
+"Save a feature_extractor object to the directory ``save_directory``, so "
+"that it can be re-loaded using the "
+":func:`~transformers.feature_extraction_utils.FeatureExtractionMixin.from_pretrained`"
+" class method."
+msgstr ""
+
+#: of
+#: transformers.feature_extraction_utils.FeatureExtractionMixin.save_pretrained:4
+msgid ""
+"Directory where the feature extractor JSON file will be saved (will be "
+"created if it does not exist)."
+msgstr ""
+
+#: ../../source/main_classes/feature_extractor.rst:31
+msgid "SequenceFeatureExtractor"
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor:1
+msgid "This is a general feature extraction class for speech recognition."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor:3
+msgid "The feature dimension of the extracted features."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor:5
+msgid ""
+"The sampling rate at which the audio files should be digitalized "
+"expressed in Hertz per second (Hz)."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor:7
+msgid "The value that is used to fill the padding values / vectors."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:1
+msgid ""
+"Pad input values / input vectors or a batch of input values / input "
+"vectors up to predefined length or to the max sequence length in the "
+"batch."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:4
+msgid ""
+"Padding side (left/right) padding values are defined at the feature "
+"extractor level (with ``self.padding_side``, ``self.padding_value``)"
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:9
+msgid ""
+"If the ``processed_features`` passed are dictionary of numpy arrays, "
+"PyTorch tensors or TensorFlow tensors, the result will use the same type "
+"unless you provide a different tensor type with ``return_tensors``. In "
+"the case of PyTorch tensors, you will lose the specific device of your "
+"tensors however."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:13
+msgid ""
+"Processed inputs. Can represent one input "
+"(:class:`~transformers.BatchFeature` or :obj:`Dict[str, List[float]]`) or"
+" a batch of input values / vectors (list of "
+":class:`~transformers.BatchFeature`, `Dict[str, List[List[float]]]` or "
+"`List[Dict[str, List[float]]]`) so you can use this method during "
+"preprocessing as well as in a PyTorch Dataloader collate function.  "
+"Instead of :obj:`List[float]` you can have tensors (numpy arrays, PyTorch"
+" tensors or TensorFlow tensors), see the note above for the return type."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:13
+msgid ""
+"Processed inputs. Can represent one input "
+"(:class:`~transformers.BatchFeature` or :obj:`Dict[str, List[float]]`) or"
+" a batch of input values / vectors (list of "
+":class:`~transformers.BatchFeature`, `Dict[str, List[List[float]]]` or "
+"`List[Dict[str, List[float]]]`) so you can use this method during "
+"preprocessing as well as in a PyTorch Dataloader collate function."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:18
+msgid ""
+"Instead of :obj:`List[float]` you can have tensors (numpy arrays, PyTorch"
+" tensors or TensorFlow tensors), see the note above for the return type."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:21
+msgid ""
+"Select a strategy to pad the returned sequences (according to the model's"
+" padding side and padding index) among:  * :obj:`True` or "
+":obj:`'longest'`: Pad to the longest sequence in the batch (or no padding"
+" if only a   single sequence if provided). * :obj:`'max_length'`: Pad to "
+"a maximum length specified with the argument :obj:`max_length` or to the"
+"   maximum acceptable input length for the model if that argument is not "
+"provided. * :obj:`False` or :obj:`'do_not_pad'` (default): No padding "
+"(i.e., can output a batch with sequences of   different lengths)."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:21
+msgid ""
+"Select a strategy to pad the returned sequences (according to the model's"
+" padding side and padding index) among:"
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:24
+msgid ""
+":obj:`True` or :obj:`'longest'`: Pad to the longest sequence in the batch"
+" (or no padding if only a single sequence if provided)."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:26
+msgid ""
+":obj:`'max_length'`: Pad to a maximum length specified with the argument "
+":obj:`max_length` or to the maximum acceptable input length for the model"
+" if that argument is not provided."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:28
+msgid ""
+":obj:`False` or :obj:`'do_not_pad'` (default): No padding (i.e., can "
+"output a batch with sequences of different lengths)."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:31
+msgid ""
+"Maximum length of the returned list and optionally padding length (see "
+"above)."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:33
+msgid ""
+"Activates truncation to cut input sequences longer than :obj:`max_length`"
+" to :obj:`max_length`."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:35
+msgid ""
+"If set will pad the sequence to a multiple of the provided value.  This "
+"is especially useful to enable the use of Tensor Cores on NVIDIA hardware"
+" with compute capability >= 7.5 (Volta), or on TPUs which benefit from "
+"having sequence lengths be a multiple of 128."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:35
+msgid "If set will pad the sequence to a multiple of the provided value."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:37
+msgid ""
+"This is especially useful to enable the use of Tensor Cores on NVIDIA "
+"hardware with compute capability >= 7.5 (Volta), or on TPUs which benefit"
+" from having sequence lengths be a multiple of 128."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:40
+msgid ""
+"Whether to return the attention mask. If left to the default, will return"
+" the attention mask according to the specific feature_extractor's "
+"default.  `What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:40
+msgid ""
+"Whether to return the attention mask. If left to the default, will return"
+" the attention mask according to the specific feature_extractor's "
+"default."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:43
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:45
+msgid ""
+"If set, will return tensors instead of list of python integers. "
+"Acceptable values are:  * :obj:`'tf'`: Return TensorFlow "
+":obj:`tf.constant` objects. * :obj:`'pt'`: Return PyTorch "
+":obj:`torch.Tensor` objects. * :obj:`'np'`: Return Numpy "
+":obj:`np.ndarray` objects."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:45
+msgid ""
+"If set, will return tensors instead of list of python integers. "
+"Acceptable values are:"
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:47
+msgid ":obj:`'tf'`: Return TensorFlow :obj:`tf.constant` objects."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:48
+msgid ":obj:`'pt'`: Return PyTorch :obj:`torch.Tensor` objects."
+msgstr ""
+
+#: of transformers.SequenceFeatureExtractor.pad:49
+msgid ":obj:`'np'`: Return Numpy :obj:`np.ndarray` objects."
+msgstr ""
+
+#: ../../source/main_classes/feature_extractor.rst:38
+msgid "BatchFeature"
+msgstr ""
+
+#: of transformers.BatchFeature:1
+msgid ""
+"Holds the output of the "
+":meth:`~transformers.SequenceFeatureExtractor.pad` and feature extractor "
+"specific ``__call__`` methods."
+msgstr ""
+
+#: of transformers.BatchFeature:4
+msgid ""
+"This class is derived from a python dictionary and can be used as a "
+"dictionary."
+msgstr ""
+
+#: of transformers.BatchFeature:6
+msgid ""
+"Dictionary of lists/arrays/tensors returned by the __call__/pad methods "
+"('input_values', 'attention_mask', etc.)."
+msgstr ""
+
+#: of transformers.BatchFeature:9
+msgid ""
+"You can give a tensor_type here to convert the lists of integers in "
+"PyTorch/TensorFlow/Numpy Tensors at initialization."
+msgstr ""
+
+#: of transformers.BatchFeature.convert_to_tensors:1
+msgid "Convert the inner content to tensors."
+msgstr ""
+
+#: of transformers.BatchFeature.convert_to_tensors:3
+msgid ""
+"The type of tensors to use. If :obj:`str`, should be one of the values of"
+" the enum :class:`~transformers.file_utils.TensorType`. If :obj:`None`, "
+"no modification is done."
+msgstr ""
+
+#: of transformers.BatchFeature.to:1
+msgid "Send all values to device by calling :obj:`v.to(device)` (PyTorch only)."
+msgstr ""
+
+#: of transformers.BatchFeature.to:3
+msgid "The device to put the tensors on."
+msgstr ""
+
+#: of transformers.BatchFeature.to:6
+msgid "The same instance after modification."
+msgstr ""
+
+#: of transformers.BatchFeature.to
+msgid "Return type"
+msgstr ""
+
+#: of transformers.BatchFeature.to:7
+msgid ":class:`~transformers.BatchFeature`"
+msgstr ""
+
+#: ../../source/main_classes/feature_extractor.rst:45
+msgid "ImageFeatureExtractionMixin"
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin:1
+msgid "Mixin that contain utilities for preparing image features."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.center_crop:1
+msgid ""
+"Crops :obj:`image` to the given size using a center crop. Note that if "
+"the image is too small to be cropped to the size given, it will be padded"
+" (so the returned result has the size asked)."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.center_crop:4
+#: transformers.image_utils.ImageFeatureExtractionMixin.resize:3
+msgid "The image to resize."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.center_crop:6
+msgid "The size to which crop the image."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.normalize:1
+msgid ""
+"Normalizes :obj:`image` with :obj:`mean` and :obj:`std`. Note that this "
+"will trigger a conversion of :obj:`image` to a NumPy array if it's a PIL "
+"Image."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.normalize:4
+msgid "The image to normalize."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.normalize:6
+msgid "The mean (per channel) to use for normalization."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.normalize:8
+msgid "The standard deviation (per channel) to use for normalization."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.resize:1
+msgid ""
+"Resizes :obj:`image`. Note that this will trigger a conversion of "
+":obj:`image` to a PIL Image."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.resize:5
+msgid "The size to use for resizing the image."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.resize:7
+msgid "The filter to user for resampling."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.to_numpy_array:1
+msgid ""
+"Converts :obj:`image` to a numpy array. Optionally rescales it and puts "
+"the channel dimension as the first dimension."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.to_numpy_array:4
+msgid "The image to convert to a NumPy array."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.to_numpy_array:6
+msgid ""
+"Whether or not to apply the scaling factor (to make pixel values floats "
+"between 0. and 1.). Will default to :obj:`True` if the image is a PIL "
+"Image or an array/tensor of integers, :obj:`False` otherwise."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.to_numpy_array:10
+msgid ""
+"Whether or not to permute the dimensions of the image to put the channel "
+"dimension first."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.to_pil_image:1
+msgid ""
+"Converts :obj:`image` to a PIL Image. Optionally rescales it and puts the"
+" channel dimension back as the last axis if needed."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.to_pil_image:4
+msgid "The image to convert to the PIL Image format."
+msgstr ""
+
+#: of transformers.image_utils.ImageFeatureExtractionMixin.to_pil_image:6
+msgid ""
+"Whether or not to apply the scaling factor (to make pixel values integers"
+" between 0 and 255). Will default to :obj:`True` if the image type is a "
+"floating type, :obj:`False` otherwise."
+msgstr ""
+

@@ -1,0 +1,2645 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/albert.rst:14
+msgid "ALBERT"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:19
+msgid ""
+"The ALBERT model was proposed in `ALBERT: A Lite BERT for Self-supervised"
+" Learning of Language Representations "
+"<https://arxiv.org/abs/1909.11942>`__ by Zhenzhong Lan, Mingda Chen, "
+"Sebastian Goodman, Kevin Gimpel, Piyush Sharma, Radu Soricut. It presents"
+" two parameter-reduction techniques to lower memory consumption and "
+"increase the training speed of BERT:"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:24
+msgid "Splitting the embedding matrix into two smaller matrices."
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:25
+msgid "Using repeating layers split among groups."
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:27
+msgid "The abstract from the paper is the following:"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:29
+msgid ""
+"*Increasing model size when pretraining natural language representations "
+"often results in improved performance on downstream tasks. However, at "
+"some point further model increases become harder due to GPU/TPU memory "
+"limitations, longer training times, and unexpected model degradation. To "
+"address these problems, we present two parameter-reduction techniques to "
+"lower memory consumption and increase the training speed of BERT. "
+"Comprehensive empirical evidence shows that our proposed methods lead to "
+"models that scale much better compared to the original BERT. We also use "
+"a self-supervised loss that focuses on modeling inter-sentence coherence,"
+" and show it consistently helps downstream tasks with multi-sentence "
+"inputs. As a result, our best model establishes new state-of-the-art "
+"results on the GLUE, RACE, and SQuAD benchmarks while having fewer "
+"parameters compared to BERT-large.*"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:38
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:40
+msgid ""
+"ALBERT is a model with absolute position embeddings so it's usually "
+"advised to pad the inputs on the right rather than the left."
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:42
+msgid ""
+"ALBERT uses repeating layers which results in a small memory footprint, "
+"however the computational cost remains similar to a BERT-like "
+"architecture with the same number of hidden layers as it has to iterate "
+"through the same number of (repeating) layers."
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:46
+msgid ""
+"This model was contributed by `lysandre "
+"<https://huggingface.co/lysandre>`__. The original code can be found "
+"`here <https://github.com/google-research/ALBERT>`__."
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:50
+msgid "AlbertConfig"
+msgstr ""
+
+#: of transformers.AlbertConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.AlbertModel` or a "
+":class:`~transformers.TFAlbertModel`. It is used to instantiate an ALBERT"
+" model according to the specified arguments, defining the model "
+"architecture. Instantiating a configuration with the defaults will yield "
+"a similar configuration to that of the ALBERT `xxlarge "
+"<https://huggingface.co/albert-xxlarge-v2>`__ architecture."
+msgstr ""
+
+#: of transformers.AlbertConfig:6
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.AlbertConfig transformers.AlbertForMaskedLM
+#: transformers.AlbertForMaskedLM.forward transformers.AlbertForMultipleChoice
+#: transformers.AlbertForMultipleChoice.forward
+#: transformers.AlbertForPreTraining transformers.AlbertForPreTraining.forward
+#: transformers.AlbertForQuestionAnswering
+#: transformers.AlbertForQuestionAnswering.forward
+#: transformers.AlbertForSequenceClassification
+#: transformers.AlbertForSequenceClassification.forward
+#: transformers.AlbertForTokenClassification
+#: transformers.AlbertForTokenClassification.forward transformers.AlbertModel
+#: transformers.AlbertModel.forward transformers.AlbertTokenizer
+#: transformers.AlbertTokenizer.build_inputs_with_special_tokens
+#: transformers.AlbertTokenizer.create_token_type_ids_from_sequences
+#: transformers.AlbertTokenizer.get_special_tokens_mask
+#: transformers.AlbertTokenizer.save_vocabulary
+#: transformers.AlbertTokenizerFast
+#: transformers.AlbertTokenizerFast.build_inputs_with_special_tokens
+#: transformers.AlbertTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.AlbertTokenizerFast.save_vocabulary
+#: transformers.TFAlbertForMaskedLM transformers.TFAlbertForMaskedLM.call
+#: transformers.TFAlbertForMultipleChoice
+#: transformers.TFAlbertForMultipleChoice.call
+#: transformers.TFAlbertForPreTraining transformers.TFAlbertForPreTraining.call
+#: transformers.TFAlbertForQuestionAnswering
+#: transformers.TFAlbertForQuestionAnswering.call
+#: transformers.TFAlbertForSequenceClassification
+#: transformers.TFAlbertForSequenceClassification.call
+#: transformers.TFAlbertForTokenClassification
+#: transformers.TFAlbertForTokenClassification.call transformers.TFAlbertModel
+#: transformers.TFAlbertModel.call
+#: transformers.models.albert.modeling_albert.AlbertForPreTrainingOutput
+#: transformers.models.albert.modeling_tf_albert.TFAlbertForPreTrainingOutput
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.AlbertConfig:9
+msgid ""
+"Vocabulary size of the ALBERT model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.AlbertModel` or "
+":class:`~transformers.TFAlbertModel`."
+msgstr ""
+
+#: of transformers.AlbertConfig:13
+msgid "Dimensionality of vocabulary embeddings."
+msgstr ""
+
+#: of transformers.AlbertConfig:15
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.AlbertConfig:17
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.AlbertConfig:19
+msgid ""
+"Number of groups for the hidden layers, parameters in the same group are "
+"shared."
+msgstr ""
+
+#: of transformers.AlbertConfig:21
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.AlbertConfig:23
+msgid ""
+"The dimensionality of the \"intermediate\" (often named feed-forward) "
+"layer in the Transformer encoder."
+msgstr ""
+
+#: of transformers.AlbertConfig:25
+msgid "The number of inner repetition of attention and ffn."
+msgstr ""
+
+#: of transformers.AlbertConfig:27
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.AlbertConfig:30
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.AlbertConfig:32
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.AlbertConfig:34
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large (e.g., 512 or 1024 or 2048)."
+msgstr ""
+
+#: of transformers.AlbertConfig:37
+msgid ""
+"The vocabulary size of the :obj:`token_type_ids` passed when calling "
+":class:`~transformers.AlbertModel` or "
+":class:`~transformers.TFAlbertModel`."
+msgstr ""
+
+#: of transformers.AlbertConfig:40
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.AlbertConfig:42
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.AlbertConfig:44
+msgid "The dropout ratio for attached classifiers."
+msgstr ""
+
+#: of transformers.AlbertConfig:46
+msgid ""
+"Type of position embedding. Choose one of :obj:`\"absolute\"`, "
+":obj:`\"relative_key\"`, :obj:`\"relative_key_query\"`. For positional "
+"embeddings use :obj:`\"absolute\"`. For more information on "
+":obj:`\"relative_key\"`, please refer to `Self-Attention with Relative "
+"Position Representations (Shaw et al.) "
+"<https://arxiv.org/abs/1803.02155>`__. For more information on "
+":obj:`\"relative_key_query\"`, please refer to `Method 4` in `Improve "
+"Transformer Models with Better Relative Position Embeddings (Huang et "
+"al.) <https://arxiv.org/abs/2009.13658>`__."
+msgstr ""
+
+#: of transformers.AlbertConfig:54
+msgid "Examples::"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:57
+msgid "AlbertTokenizer"
+msgstr ""
+
+#: of transformers.AlbertTokenizer:1
+msgid ""
+"Construct an ALBERT tokenizer. Based on `SentencePiece "
+"<https://github.com/google/sentencepiece>`__."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:3
+msgid ""
+"This tokenizer inherits from :class:`~transformers.PreTrainedTokenizer` "
+"which contains most of the main methods. Users should refer to this "
+"superclass for more information regarding those methods."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:6 transformers.AlbertTokenizerFast:6
+msgid ""
+"`SentencePiece <https://github.com/google/sentencepiece>`__ file "
+"(generally has a `.spm` extension) that contains the vocabulary necessary"
+" to instantiate a tokenizer."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:9 transformers.AlbertTokenizerFast:9
+msgid "Whether or not to lowercase the input when tokenizing."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:11 transformers.AlbertTokenizerFast:11
+msgid ""
+"Whether or not to strip the text when tokenizing (removing excess spaces "
+"before and after the string)."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:13 transformers.AlbertTokenizerFast:13
+msgid "Whether or not to keep accents when tokenizing."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:15
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token.  .. note::      When building a "
+"sequence using special tokens, this is not the token that is used for the"
+" beginning of     sequence. The token used is the :obj:`cls_token`."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:15 transformers.AlbertTokenizerFast:15
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:19 transformers.AlbertTokenizerFast:19
+msgid ""
+"When building a sequence using special tokens, this is not the token that"
+" is used for the beginning of sequence. The token used is the "
+":obj:`cls_token`."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:22
+msgid ""
+"The end of sequence token.  .. note::      When building a sequence using"
+" special tokens, this is not the token that is used for the end of     "
+"sequence. The token used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:22
+msgid "The end of sequence token."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:26
+msgid ""
+"When building a sequence using special tokens, this is not the token that"
+" is used for the end of sequence. The token used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:29 transformers.AlbertTokenizerFast:25
+msgid ""
+"The unknown token. A token that is not in the vocabulary cannot be "
+"converted to an ID and is set to be this token instead."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:32 transformers.AlbertTokenizerFast:28
+msgid ""
+"The separator token, which is used when building a sequence from multiple"
+" sequences, e.g. two sequences for sequence classification or for a text "
+"and a question for question answering. It is also used as the last token "
+"of a sequence built with special tokens."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:36 transformers.AlbertTokenizerFast:32
+msgid ""
+"The token used for padding, for example when batching sequences of "
+"different lengths."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:38 transformers.AlbertTokenizerFast:34
+msgid ""
+"The classifier token which is used when doing sequence classification "
+"(classification of the whole sequence instead of per-token "
+"classification). It is the first token of the sequence when built with "
+"special tokens."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:41 transformers.AlbertTokenizerFast:37
+msgid ""
+"The token used for masking values. This is the token used when training "
+"this model with masked language modeling. This is the token which the "
+"model will try to predict."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:44
+msgid ""
+"Will be passed to the ``SentencePieceProcessor.__init__()`` method. The "
+"`Python wrapper for SentencePiece "
+"<https://github.com/google/sentencepiece/tree/master/python>`__ can be "
+"used, among other things, to set:  - ``enable_sampling``: Enable subword "
+"regularization. - ``nbest_size``: Sampling parameters for unigram. "
+"Invalid for BPE-Dropout.    - ``nbest_size = {0,1}``: No sampling is "
+"performed.   - ``nbest_size > 1``: samples from the nbest_size results."
+"   - ``nbest_size < 0``: assuming that nbest_size is infinite and samples"
+" from the all hypothesis (lattice)     using forward-filtering-and-"
+"backward-sampling algorithm.  - ``alpha``: Smoothing parameter for "
+"unigram sampling, and dropout probability of merge operations for   BPE-"
+"dropout."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:44
+msgid ""
+"Will be passed to the ``SentencePieceProcessor.__init__()`` method. The "
+"`Python wrapper for SentencePiece "
+"<https://github.com/google/sentencepiece/tree/master/python>`__ can be "
+"used, among other things, to set:"
+msgstr ""
+
+#: of transformers.AlbertTokenizer:47
+msgid "``enable_sampling``: Enable subword regularization."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:48
+msgid "``nbest_size``: Sampling parameters for unigram. Invalid for BPE-Dropout."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:50
+msgid "``nbest_size = {0,1}``: No sampling is performed."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:51
+msgid "``nbest_size > 1``: samples from the nbest_size results."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:52
+msgid ""
+"``nbest_size < 0``: assuming that nbest_size is infinite and samples from"
+" the all hypothesis (lattice) using forward-filtering-and-backward-"
+"sampling algorithm."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:55
+msgid ""
+"``alpha``: Smoothing parameter for unigram sampling, and dropout "
+"probability of merge operations for BPE-dropout."
+msgstr ""
+
+#: of transformers.AlbertTokenizer:61
+msgid ""
+"The `SentencePiece` processor that is used for every conversion (string, "
+"tokens and IDs)."
+msgstr ""
+
+#: of transformers.AlbertTokenizer
+msgid "type"
+msgstr ""
+
+#: of transformers.AlbertTokenizer:63
+msgid ":obj:`SentencePieceProcessor`"
+msgstr ""
+
+#: of transformers.AlbertTokenizer.build_inputs_with_special_tokens:1
+#: transformers.AlbertTokenizerFast.build_inputs_with_special_tokens:1
+msgid ""
+"Build model inputs from a sequence or a pair of sequence for sequence "
+"classification tasks by concatenating and adding special tokens. An "
+"ALBERT sequence has the following format:"
+msgstr ""
+
+#: of transformers.AlbertTokenizer.build_inputs_with_special_tokens:4
+#: transformers.AlbertTokenizerFast.build_inputs_with_special_tokens:4
+msgid "single sequence: ``[CLS] X [SEP]``"
+msgstr ""
+
+#: of transformers.AlbertTokenizer.build_inputs_with_special_tokens:5
+#: transformers.AlbertTokenizerFast.build_inputs_with_special_tokens:5
+msgid "pair of sequences: ``[CLS] A [SEP] B [SEP]``"
+msgstr ""
+
+#: of transformers.AlbertTokenizer.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added."
+msgstr ""
+
+#: of transformers.AlbertTokenizer.build_inputs_with_special_tokens:9
+#: transformers.AlbertTokenizer.create_token_type_ids_from_sequences:13
+#: transformers.AlbertTokenizer.get_special_tokens_mask:6
+#: transformers.AlbertTokenizerFast.build_inputs_with_special_tokens:9
+#: transformers.AlbertTokenizerFast.create_token_type_ids_from_sequences:13
+msgid "Optional second list of IDs for sequence pairs."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward
+#: transformers.AlbertForMultipleChoice.forward
+#: transformers.AlbertForPreTraining.forward
+#: transformers.AlbertForQuestionAnswering.forward
+#: transformers.AlbertForSequenceClassification.forward
+#: transformers.AlbertForTokenClassification.forward
+#: transformers.AlbertModel.forward
+#: transformers.AlbertTokenizer.build_inputs_with_special_tokens
+#: transformers.AlbertTokenizer.create_token_type_ids_from_sequences
+#: transformers.AlbertTokenizer.get_special_tokens_mask
+#: transformers.AlbertTokenizer.save_vocabulary
+#: transformers.AlbertTokenizerFast.build_inputs_with_special_tokens
+#: transformers.AlbertTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.AlbertTokenizerFast.save_vocabulary
+#: transformers.TFAlbertForMaskedLM.call
+#: transformers.TFAlbertForMultipleChoice.call
+#: transformers.TFAlbertForPreTraining.call
+#: transformers.TFAlbertForQuestionAnswering.call
+#: transformers.TFAlbertForSequenceClassification.call
+#: transformers.TFAlbertForTokenClassification.call
+#: transformers.TFAlbertModel.call
+msgid "Returns"
+msgstr ""
+
+#: of transformers.AlbertTokenizer.build_inputs_with_special_tokens:12
+msgid ""
+"List of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward
+#: transformers.AlbertForMultipleChoice.forward
+#: transformers.AlbertForPreTraining.forward
+#: transformers.AlbertForQuestionAnswering.forward
+#: transformers.AlbertForSequenceClassification.forward
+#: transformers.AlbertForTokenClassification.forward
+#: transformers.AlbertModel.forward
+#: transformers.AlbertTokenizer.build_inputs_with_special_tokens
+#: transformers.AlbertTokenizer.create_token_type_ids_from_sequences
+#: transformers.AlbertTokenizer.get_special_tokens_mask
+#: transformers.AlbertTokenizer.save_vocabulary
+#: transformers.AlbertTokenizerFast.build_inputs_with_special_tokens
+#: transformers.AlbertTokenizerFast.create_token_type_ids_from_sequences
+#: transformers.AlbertTokenizerFast.save_vocabulary
+#: transformers.TFAlbertForMaskedLM.call
+#: transformers.TFAlbertForMultipleChoice.call
+#: transformers.TFAlbertForPreTraining.call
+#: transformers.TFAlbertForQuestionAnswering.call
+#: transformers.TFAlbertForSequenceClassification.call
+#: transformers.TFAlbertForTokenClassification.call
+#: transformers.TFAlbertModel.call
+msgid "Return type"
+msgstr ""
+
+#: of transformers.AlbertTokenizer.build_inputs_with_special_tokens:13
+#: transformers.AlbertTokenizer.create_token_type_ids_from_sequences:18
+#: transformers.AlbertTokenizer.get_special_tokens_mask:12
+#: transformers.AlbertTokenizerFast.build_inputs_with_special_tokens:13
+#: transformers.AlbertTokenizerFast.create_token_type_ids_from_sequences:18
+msgid ":obj:`List[int]`"
+msgstr ""
+
+#: of transformers.AlbertTokenizer.create_token_type_ids_from_sequences:1
+msgid ""
+"Create a mask from the two sequences passed to be used in a sequence-pair"
+" classification task. An ALBERT sequence pair mask has the following "
+"format:"
+msgstr ""
+
+#: of transformers.AlbertTokenizer.create_token_type_ids_from_sequences:9
+msgid ""
+"If :obj:`token_ids_1` is :obj:`None`, this method only returns the first "
+"portion of the mask (0s)."
+msgstr ""
+
+#: of transformers.AlbertTokenizer.create_token_type_ids_from_sequences:11
+#: transformers.AlbertTokenizer.get_special_tokens_mask:4
+msgid "List of IDs."
+msgstr ""
+
+#: of transformers.AlbertTokenizer.create_token_type_ids_from_sequences:16
+#: transformers.AlbertTokenizerFast.create_token_type_ids_from_sequences:16
+msgid ""
+"List of `token type IDs <../glossary.html#token-type-ids>`_ according to "
+"the given sequence(s)."
+msgstr ""
+
+#: of transformers.AlbertTokenizer.get_special_tokens_mask:1
+msgid ""
+"Retrieve sequence ids from a token list that has no special tokens added."
+" This method is called when adding special tokens using the tokenizer "
+"``prepare_for_model`` method."
+msgstr ""
+
+#: of transformers.AlbertTokenizer.get_special_tokens_mask:8
+msgid ""
+"Whether or not the token list is already formatted with special tokens "
+"for the model."
+msgstr ""
+
+#: of transformers.AlbertTokenizer.get_special_tokens_mask:11
+msgid ""
+"A list of integers in the range [0, 1]: 1 for a special token, 0 for a "
+"sequence token."
+msgstr ""
+
+#: of transformers.AlbertTokenizer.save_vocabulary:1
+#: transformers.AlbertTokenizerFast.save_vocabulary:1
+msgid "Save only the vocabulary of the tokenizer (vocabulary + added tokens)."
+msgstr ""
+
+#: of transformers.AlbertTokenizer.save_vocabulary:3
+#: transformers.AlbertTokenizerFast.save_vocabulary:3
+msgid ""
+"This method won't save the configuration and special token mappings of "
+"the tokenizer. Use "
+":meth:`~transformers.PreTrainedTokenizerFast._save_pretrained` to save "
+"the whole state of the tokenizer."
+msgstr ""
+
+#: of transformers.AlbertTokenizer.save_vocabulary:6
+#: transformers.AlbertTokenizerFast.save_vocabulary:6
+msgid "The directory in which to save the vocabulary."
+msgstr ""
+
+#: of transformers.AlbertTokenizer.save_vocabulary:8
+#: transformers.AlbertTokenizerFast.save_vocabulary:8
+msgid "An optional prefix to add to the named of the saved files."
+msgstr ""
+
+#: of transformers.AlbertTokenizer.save_vocabulary:11
+#: transformers.AlbertTokenizerFast.save_vocabulary:11
+msgid "Paths to the files saved."
+msgstr ""
+
+#: of transformers.AlbertTokenizer.save_vocabulary:12
+#: transformers.AlbertTokenizerFast.save_vocabulary:12
+msgid ":obj:`Tuple(str)`"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:65
+msgid "AlbertTokenizerFast"
+msgstr ""
+
+#: of transformers.AlbertTokenizerFast:1
+msgid ""
+"Construct a \"fast\" ALBERT tokenizer (backed by HuggingFace's "
+"`tokenizers` library). Based on `Unigram "
+"<https://huggingface.co/docs/tokenizers/python/latest/components.html?highlight=unigram#models>`__."
+" This tokenizer inherits from "
+":class:`~transformers.PreTrainedTokenizerFast` which contains most of the"
+" main methods. Users should refer to this superclass for more information"
+" regarding those methods"
+msgstr ""
+
+#: of transformers.AlbertTokenizerFast:15
+msgid ""
+"The beginning of sequence token that was used during pretraining. Can be "
+"used a sequence classifier token.  .. note::     When building a sequence"
+" using special tokens, this is not the token that is used for the "
+"beginning of    sequence. The token used is the :obj:`cls_token`."
+msgstr ""
+
+#: of transformers.AlbertTokenizerFast:22
+msgid ""
+"The end of sequence token. .. note:: When building a sequence using "
+"special tokens, this is not the token that is used for the end of "
+"sequence. The token used is the :obj:`sep_token`."
+msgstr ""
+
+#: of transformers.AlbertTokenizerFast.build_inputs_with_special_tokens:7
+msgid "List of IDs to which the special tokens will be added"
+msgstr ""
+
+#: of transformers.AlbertTokenizerFast.build_inputs_with_special_tokens:12
+msgid ""
+"list of `input IDs <../glossary.html#input-ids>`__ with the appropriate "
+"special tokens."
+msgstr ""
+
+#: of transformers.AlbertTokenizerFast.create_token_type_ids_from_sequences:1
+msgid ""
+"Creates a mask from the two sequences passed to be used in a sequence-"
+"pair classification task. An ALBERT sequence pair mask has the following "
+"format:"
+msgstr ""
+
+#: of transformers.AlbertTokenizerFast.create_token_type_ids_from_sequences:9
+msgid "if token_ids_1 is None, only returns the first portion of the mask (0s)."
+msgstr ""
+
+#: of transformers.AlbertTokenizerFast.create_token_type_ids_from_sequences:11
+msgid "List of ids."
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:72
+msgid "Albert specific outputs"
+msgstr ""
+
+#: of transformers.models.albert.modeling_albert.AlbertForPreTrainingOutput:1
+msgid "Output type of :class:`~transformers.AlbertForPreTraining`."
+msgstr ""
+
+#: of transformers.models.albert.modeling_albert.AlbertForPreTrainingOutput:3
+msgid ""
+"Total loss as the sum of the masked language modeling loss and the next "
+"sequence prediction (classification) loss."
+msgstr ""
+
+#: of transformers.models.albert.modeling_albert.AlbertForPreTrainingOutput:6
+#: transformers.models.albert.modeling_tf_albert.TFAlbertForPreTrainingOutput:3
+msgid ""
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.models.albert.modeling_albert.AlbertForPreTrainingOutput:8
+#: transformers.models.albert.modeling_tf_albert.TFAlbertForPreTrainingOutput:5
+msgid ""
+"Prediction scores of the next sequence prediction (classification) head "
+"(scores of True/False continuation before SoftMax)."
+msgstr ""
+
+#: of transformers.models.albert.modeling_albert.AlbertForPreTrainingOutput:11
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`.  Hidden-states of the model at the output"
+" of each layer plus the initial embedding outputs."
+msgstr ""
+
+#: of transformers.models.albert.modeling_albert.AlbertForPreTrainingOutput:11
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for the output of the embeddings +"
+" one for the output of each layer) of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:67
+#: transformers.AlbertForMultipleChoice.forward:69
+#: transformers.AlbertForPreTraining.forward:74
+#: transformers.AlbertForQuestionAnswering.forward:72
+#: transformers.AlbertForSequenceClassification.forward:67
+#: transformers.AlbertForTokenClassification.forward:66
+#: transformers.AlbertModel.forward:65 transformers.TFAlbertForMaskedLM.call:73
+#: transformers.TFAlbertForMultipleChoice.call:75
+#: transformers.TFAlbertForPreTraining.call:70
+#: transformers.TFAlbertForQuestionAnswering.call:78
+#: transformers.TFAlbertForSequenceClassification.call:73
+#: transformers.TFAlbertForTokenClassification.call:72
+#: transformers.TFAlbertModel.call:74
+#: transformers.models.albert.modeling_albert.AlbertForPreTrainingOutput:14
+#: transformers.models.albert.modeling_tf_albert.TFAlbertForPreTrainingOutput:11
+msgid ""
+"Hidden-states of the model at the output of each layer plus the initial "
+"embedding outputs."
+msgstr ""
+
+#: of transformers.models.albert.modeling_albert.AlbertForPreTrainingOutput:16
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of transformers.models.albert.modeling_albert.AlbertForPreTrainingOutput:16
+msgid ""
+"Tuple of :obj:`torch.FloatTensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:71
+#: transformers.AlbertForMultipleChoice.forward:73
+#: transformers.AlbertForPreTraining.forward:78
+#: transformers.AlbertForQuestionAnswering.forward:76
+#: transformers.AlbertForSequenceClassification.forward:71
+#: transformers.AlbertForTokenClassification.forward:70
+#: transformers.AlbertModel.forward:69 transformers.TFAlbertForMaskedLM.call:77
+#: transformers.TFAlbertForMultipleChoice.call:79
+#: transformers.TFAlbertForPreTraining.call:74
+#: transformers.TFAlbertForQuestionAnswering.call:82
+#: transformers.TFAlbertForSequenceClassification.call:77
+#: transformers.TFAlbertForTokenClassification.call:76
+#: transformers.TFAlbertModel.call:78
+#: transformers.models.albert.modeling_albert.AlbertForPreTrainingOutput:19
+#: transformers.models.albert.modeling_tf_albert.TFAlbertForPreTrainingOutput:16
+msgid ""
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.albert.modeling_tf_albert.TFAlbertForPreTrainingOutput:1
+msgid "Output type of :class:`~transformers.TFAlbertForPreTraining`."
+msgstr ""
+
+#: of
+#: transformers.models.albert.modeling_tf_albert.TFAlbertForPreTrainingOutput:8
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.  Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs."
+msgstr ""
+
+#: of
+#: transformers.models.albert.modeling_tf_albert.TFAlbertForPreTrainingOutput:8
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for the output of the embeddings + one for"
+" the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of
+#: transformers.models.albert.modeling_tf_albert.TFAlbertForPreTrainingOutput:13
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`.  "
+"Attentions weights after the attention softmax, used to compute the "
+"weighted average in the self-attention heads."
+msgstr ""
+
+#: of
+#: transformers.models.albert.modeling_tf_albert.TFAlbertForPreTrainingOutput:13
+msgid ""
+"Tuple of :obj:`tf.Tensor` (one for each layer) of shape "
+":obj:`(batch_size, num_heads, sequence_length, sequence_length)`."
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:82
+msgid "AlbertModel"
+msgstr ""
+
+#: of transformers.AlbertModel:1
+msgid ""
+"The bare ALBERT Model transformer outputting raw hidden-states without "
+"any specific head on top."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM:3 transformers.AlbertForMultipleChoice:5
+#: transformers.AlbertForPreTraining:5
+#: transformers.AlbertForQuestionAnswering:5
+#: transformers.AlbertForSequenceClassification:5
+#: transformers.AlbertForTokenClassification:5 transformers.AlbertModel:3
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM:7 transformers.AlbertForMultipleChoice:9
+#: transformers.AlbertForPreTraining:9
+#: transformers.AlbertForQuestionAnswering:9
+#: transformers.AlbertForSequenceClassification:9
+#: transformers.AlbertForTokenClassification:9 transformers.AlbertModel:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM:11 transformers.AlbertForMultipleChoice:13
+#: transformers.AlbertForPreTraining:13
+#: transformers.AlbertForQuestionAnswering:13
+#: transformers.AlbertForSequenceClassification:13
+#: transformers.AlbertForTokenClassification:13 transformers.AlbertModel:11
+#: transformers.TFAlbertForMaskedLM:30
+#: transformers.TFAlbertForMultipleChoice:32
+#: transformers.TFAlbertForPreTraining:32
+#: transformers.TFAlbertForQuestionAnswering:32
+#: transformers.TFAlbertForSequenceClassification:32
+#: transformers.TFAlbertForTokenClassification:32 transformers.TFAlbertModel:30
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.AlbertModel.forward:1
+msgid ""
+"The :class:`~transformers.AlbertModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:4
+#: transformers.AlbertForMultipleChoice.forward:4
+#: transformers.AlbertForPreTraining.forward:4
+#: transformers.AlbertForQuestionAnswering.forward:4
+#: transformers.AlbertForSequenceClassification.forward:4
+#: transformers.AlbertForTokenClassification.forward:4
+#: transformers.AlbertModel.forward:4 transformers.TFAlbertForMaskedLM.call:4
+#: transformers.TFAlbertForMultipleChoice.call:4
+#: transformers.TFAlbertForPreTraining.call:4
+#: transformers.TFAlbertForQuestionAnswering.call:4
+#: transformers.TFAlbertForSequenceClassification.call:4
+#: transformers.TFAlbertForTokenClassification.call:4
+#: transformers.TFAlbertModel.call:4
+msgid ""
+"Although the recipe for forward pass needs to be defined within this "
+"function, one should call the :class:`Module` instance afterwards instead"
+" of this since the former takes care of running the pre and post "
+"processing steps while the latter silently ignores them."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:8
+#: transformers.AlbertForMultipleChoice.forward:8
+#: transformers.AlbertForPreTraining.forward:8
+#: transformers.AlbertForQuestionAnswering.forward:8
+#: transformers.AlbertForSequenceClassification.forward:8
+#: transformers.AlbertForTokenClassification.forward:8
+#: transformers.AlbertModel.forward:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.AlbertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.__call__` and "
+":meth:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:8
+#: transformers.AlbertForMultipleChoice.forward:8
+#: transformers.AlbertForPreTraining.forward:8
+#: transformers.AlbertForQuestionAnswering.forward:8
+#: transformers.AlbertForSequenceClassification.forward:8
+#: transformers.AlbertForTokenClassification.forward:8
+#: transformers.AlbertModel.forward:8 transformers.TFAlbertForMaskedLM.call:8
+#: transformers.TFAlbertForMultipleChoice.call:8
+#: transformers.TFAlbertForPreTraining.call:8
+#: transformers.TFAlbertForQuestionAnswering.call:8
+#: transformers.TFAlbertForSequenceClassification.call:8
+#: transformers.TFAlbertForTokenClassification.call:8
+#: transformers.TFAlbertModel.call:8
+msgid "Indices of input sequence tokens in the vocabulary."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:10
+#: transformers.AlbertForMultipleChoice.forward:10
+#: transformers.AlbertForPreTraining.forward:10
+#: transformers.AlbertForQuestionAnswering.forward:10
+#: transformers.AlbertForSequenceClassification.forward:10
+#: transformers.AlbertForTokenClassification.forward:10
+#: transformers.AlbertModel.forward:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.AlbertTokenizer`. See"
+" :meth:`transformers.PreTrainedTokenizer.__call__` and "
+":meth:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:14
+#: transformers.AlbertForMultipleChoice.forward:14
+#: transformers.AlbertForPreTraining.forward:14
+#: transformers.AlbertForQuestionAnswering.forward:14
+#: transformers.AlbertForSequenceClassification.forward:14
+#: transformers.AlbertForTokenClassification.forward:14
+#: transformers.AlbertModel.forward:14 transformers.TFAlbertForMaskedLM.call:14
+#: transformers.TFAlbertForMultipleChoice.call:14
+#: transformers.TFAlbertForPreTraining.call:14
+#: transformers.TFAlbertForQuestionAnswering.call:14
+#: transformers.TFAlbertForSequenceClassification.call:14
+#: transformers.TFAlbertForTokenClassification.call:14
+#: transformers.TFAlbertModel.call:14
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:16
+#: transformers.AlbertForMultipleChoice.forward:16
+#: transformers.AlbertForPreTraining.forward:16
+#: transformers.AlbertForQuestionAnswering.forward:16
+#: transformers.AlbertForSequenceClassification.forward:16
+#: transformers.AlbertForTokenClassification.forward:16
+#: transformers.AlbertModel.forward:16 transformers.TFAlbertForMaskedLM.call:16
+#: transformers.TFAlbertForMultipleChoice.call:16
+#: transformers.TFAlbertForPreTraining.call:16
+#: transformers.TFAlbertForQuestionAnswering.call:16
+#: transformers.TFAlbertForSequenceClassification.call:16
+#: transformers.TFAlbertForTokenClassification.call:16
+#: transformers.TFAlbertModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:16
+#: transformers.AlbertForMultipleChoice.forward:16
+#: transformers.AlbertForPreTraining.forward:16
+#: transformers.AlbertForQuestionAnswering.forward:16
+#: transformers.AlbertForSequenceClassification.forward:16
+#: transformers.AlbertForTokenClassification.forward:16
+#: transformers.AlbertModel.forward:16 transformers.TFAlbertForMaskedLM.call:16
+#: transformers.TFAlbertForMultipleChoice.call:16
+#: transformers.TFAlbertForPreTraining.call:16
+#: transformers.TFAlbertForQuestionAnswering.call:16
+#: transformers.TFAlbertForSequenceClassification.call:16
+#: transformers.TFAlbertForTokenClassification.call:16
+#: transformers.TFAlbertModel.call:16
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:18
+#: transformers.AlbertForMultipleChoice.forward:18
+#: transformers.AlbertForPreTraining.forward:18
+#: transformers.AlbertForQuestionAnswering.forward:18
+#: transformers.AlbertForSequenceClassification.forward:18
+#: transformers.AlbertForTokenClassification.forward:18
+#: transformers.AlbertModel.forward:18 transformers.TFAlbertForMaskedLM.call:18
+#: transformers.TFAlbertForMultipleChoice.call:18
+#: transformers.TFAlbertForPreTraining.call:18
+#: transformers.TFAlbertForQuestionAnswering.call:18
+#: transformers.TFAlbertForSequenceClassification.call:18
+#: transformers.TFAlbertForTokenClassification.call:18
+#: transformers.TFAlbertModel.call:18
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:19
+#: transformers.AlbertForMultipleChoice.forward:19
+#: transformers.AlbertForPreTraining.forward:19
+#: transformers.AlbertForQuestionAnswering.forward:19
+#: transformers.AlbertForSequenceClassification.forward:19
+#: transformers.AlbertForTokenClassification.forward:19
+#: transformers.AlbertModel.forward:19 transformers.TFAlbertForMaskedLM.call:19
+#: transformers.TFAlbertForMultipleChoice.call:19
+#: transformers.TFAlbertForPreTraining.call:19
+#: transformers.TFAlbertForQuestionAnswering.call:19
+#: transformers.TFAlbertForSequenceClassification.call:19
+#: transformers.TFAlbertForTokenClassification.call:19
+#: transformers.TFAlbertModel.call:19
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:21
+#: transformers.AlbertForMultipleChoice.forward:21
+#: transformers.AlbertForPreTraining.forward:21
+#: transformers.AlbertForQuestionAnswering.forward:21
+#: transformers.AlbertForSequenceClassification.forward:21
+#: transformers.AlbertForTokenClassification.forward:21
+#: transformers.AlbertModel.forward:21 transformers.TFAlbertForMaskedLM.call:21
+#: transformers.TFAlbertForMultipleChoice.call:21
+#: transformers.TFAlbertForPreTraining.call:21
+#: transformers.TFAlbertForQuestionAnswering.call:21
+#: transformers.TFAlbertForSequenceClassification.call:21
+#: transformers.TFAlbertForTokenClassification.call:21
+#: transformers.TFAlbertModel.call:21
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:23
+#: transformers.AlbertForMultipleChoice.forward:23
+#: transformers.AlbertForPreTraining.forward:23
+#: transformers.AlbertForQuestionAnswering.forward:23
+#: transformers.AlbertForSequenceClassification.forward:23
+#: transformers.AlbertForTokenClassification.forward:23
+#: transformers.AlbertModel.forward:23 transformers.TFAlbertForMaskedLM.call:23
+#: transformers.TFAlbertForMultipleChoice.call:23
+#: transformers.TFAlbertForPreTraining.call:23
+#: transformers.TFAlbertForQuestionAnswering.call:23
+#: transformers.TFAlbertForSequenceClassification.call:23
+#: transformers.TFAlbertForTokenClassification.call:23
+#: transformers.TFAlbertModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:  - 0 corresponds to a "
+"`sentence A` token, - 1 corresponds to a `sentence B` token.  `What are "
+"token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:23
+#: transformers.AlbertForMultipleChoice.forward:23
+#: transformers.AlbertForPreTraining.forward:23
+#: transformers.AlbertForQuestionAnswering.forward:23
+#: transformers.AlbertForSequenceClassification.forward:23
+#: transformers.AlbertForTokenClassification.forward:23
+#: transformers.AlbertModel.forward:23 transformers.TFAlbertForMaskedLM.call:23
+#: transformers.TFAlbertForMultipleChoice.call:23
+#: transformers.TFAlbertForPreTraining.call:23
+#: transformers.TFAlbertForQuestionAnswering.call:23
+#: transformers.TFAlbertForSequenceClassification.call:23
+#: transformers.TFAlbertForTokenClassification.call:23
+#: transformers.TFAlbertModel.call:23
+msgid ""
+"Segment token indices to indicate first and second portions of the "
+"inputs. Indices are selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:26
+#: transformers.AlbertForMultipleChoice.forward:26
+#: transformers.AlbertForPreTraining.forward:26
+#: transformers.AlbertForQuestionAnswering.forward:26
+#: transformers.AlbertForSequenceClassification.forward:26
+#: transformers.AlbertForTokenClassification.forward:26
+#: transformers.AlbertModel.forward:26 transformers.TFAlbertForMaskedLM.call:26
+#: transformers.TFAlbertForMultipleChoice.call:26
+#: transformers.TFAlbertForPreTraining.call:26
+#: transformers.TFAlbertForQuestionAnswering.call:26
+#: transformers.TFAlbertForSequenceClassification.call:26
+#: transformers.TFAlbertForTokenClassification.call:26
+#: transformers.TFAlbertModel.call:26
+msgid "0 corresponds to a `sentence A` token,"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:27
+#: transformers.AlbertForMultipleChoice.forward:27
+#: transformers.AlbertForPreTraining.forward:27
+#: transformers.AlbertForQuestionAnswering.forward:27
+#: transformers.AlbertForSequenceClassification.forward:27
+#: transformers.AlbertForTokenClassification.forward:27
+#: transformers.AlbertModel.forward:27 transformers.TFAlbertForMaskedLM.call:27
+#: transformers.TFAlbertForMultipleChoice.call:27
+#: transformers.TFAlbertForPreTraining.call:27
+#: transformers.TFAlbertForQuestionAnswering.call:27
+#: transformers.TFAlbertForSequenceClassification.call:27
+#: transformers.TFAlbertForTokenClassification.call:27
+#: transformers.TFAlbertModel.call:27
+msgid "1 corresponds to a `sentence B` token."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:29
+#: transformers.AlbertForMultipleChoice.forward:29
+#: transformers.AlbertForPreTraining.forward:29
+#: transformers.AlbertForQuestionAnswering.forward:29
+#: transformers.AlbertForSequenceClassification.forward:29
+#: transformers.AlbertForTokenClassification.forward:29
+#: transformers.AlbertModel.forward:29 transformers.TFAlbertForMaskedLM.call:29
+#: transformers.TFAlbertForMultipleChoice.call:29
+#: transformers.TFAlbertForPreTraining.call:29
+#: transformers.TFAlbertForQuestionAnswering.call:29
+#: transformers.TFAlbertForSequenceClassification.call:29
+#: transformers.TFAlbertForTokenClassification.call:29
+#: transformers.TFAlbertModel.call:29
+msgid "`What are token type IDs? <../glossary.html#token-type-ids>`_"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:31
+#: transformers.AlbertForMultipleChoice.forward:31
+#: transformers.AlbertForPreTraining.forward:31
+#: transformers.AlbertForQuestionAnswering.forward:31
+#: transformers.AlbertForSequenceClassification.forward:31
+#: transformers.AlbertForTokenClassification.forward:31
+#: transformers.AlbertModel.forward:31 transformers.TFAlbertForMaskedLM.call:31
+#: transformers.TFAlbertForMultipleChoice.call:31
+#: transformers.TFAlbertForPreTraining.call:31
+#: transformers.TFAlbertForQuestionAnswering.call:31
+#: transformers.TFAlbertForSequenceClassification.call:31
+#: transformers.TFAlbertForTokenClassification.call:31
+#: transformers.TFAlbertModel.call:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``.  `What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:31
+#: transformers.AlbertForMultipleChoice.forward:31
+#: transformers.AlbertForPreTraining.forward:31
+#: transformers.AlbertForQuestionAnswering.forward:31
+#: transformers.AlbertForSequenceClassification.forward:31
+#: transformers.AlbertForTokenClassification.forward:31
+#: transformers.AlbertModel.forward:31 transformers.TFAlbertForMaskedLM.call:31
+#: transformers.TFAlbertForMultipleChoice.call:31
+#: transformers.TFAlbertForPreTraining.call:31
+#: transformers.TFAlbertForQuestionAnswering.call:31
+#: transformers.TFAlbertForSequenceClassification.call:31
+#: transformers.TFAlbertForTokenClassification.call:31
+#: transformers.TFAlbertModel.call:31
+msgid ""
+"Indices of positions of each input sequence tokens in the position "
+"embeddings. Selected in the range ``[0, config.max_position_embeddings - "
+"1]``."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:34
+#: transformers.AlbertForMultipleChoice.forward:34
+#: transformers.AlbertForPreTraining.forward:34
+#: transformers.AlbertForQuestionAnswering.forward:34
+#: transformers.AlbertForSequenceClassification.forward:34
+#: transformers.AlbertForTokenClassification.forward:34
+#: transformers.AlbertModel.forward:34 transformers.TFAlbertForMaskedLM.call:34
+#: transformers.TFAlbertForMultipleChoice.call:34
+#: transformers.TFAlbertForPreTraining.call:34
+#: transformers.TFAlbertForQuestionAnswering.call:34
+#: transformers.TFAlbertForSequenceClassification.call:34
+#: transformers.TFAlbertForTokenClassification.call:34
+#: transformers.TFAlbertModel.call:34
+msgid "`What are position IDs? <../glossary.html#position-ids>`_"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:36
+#: transformers.AlbertForMultipleChoice.forward:36
+#: transformers.AlbertForPreTraining.forward:36
+#: transformers.AlbertForQuestionAnswering.forward:36
+#: transformers.AlbertForSequenceClassification.forward:36
+#: transformers.AlbertForTokenClassification.forward:36
+#: transformers.AlbertModel.forward:36 transformers.TFAlbertForMaskedLM.call:36
+#: transformers.TFAlbertForMultipleChoice.call:36
+#: transformers.TFAlbertForPreTraining.call:36
+#: transformers.TFAlbertForQuestionAnswering.call:36
+#: transformers.TFAlbertForSequenceClassification.call:36
+#: transformers.TFAlbertForTokenClassification.call:36
+#: transformers.TFAlbertModel.call:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:  - 1 indicates the head is **not masked**, - 0 "
+"indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:36
+#: transformers.AlbertForMultipleChoice.forward:36
+#: transformers.AlbertForPreTraining.forward:36
+#: transformers.AlbertForQuestionAnswering.forward:36
+#: transformers.AlbertForSequenceClassification.forward:36
+#: transformers.AlbertForTokenClassification.forward:36
+#: transformers.AlbertModel.forward:36 transformers.TFAlbertForMaskedLM.call:36
+#: transformers.TFAlbertForMultipleChoice.call:36
+#: transformers.TFAlbertForPreTraining.call:36
+#: transformers.TFAlbertForQuestionAnswering.call:36
+#: transformers.TFAlbertForSequenceClassification.call:36
+#: transformers.TFAlbertForTokenClassification.call:36
+#: transformers.TFAlbertModel.call:36
+msgid ""
+"Mask to nullify selected heads of the self-attention modules. Mask values"
+" selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:38
+#: transformers.AlbertForMultipleChoice.forward:38
+#: transformers.AlbertForPreTraining.forward:38
+#: transformers.AlbertForQuestionAnswering.forward:38
+#: transformers.AlbertForSequenceClassification.forward:38
+#: transformers.AlbertForTokenClassification.forward:38
+#: transformers.AlbertModel.forward:38 transformers.TFAlbertForMaskedLM.call:38
+#: transformers.TFAlbertForMultipleChoice.call:38
+#: transformers.TFAlbertForPreTraining.call:38
+#: transformers.TFAlbertForQuestionAnswering.call:38
+#: transformers.TFAlbertForSequenceClassification.call:38
+#: transformers.TFAlbertForTokenClassification.call:38
+#: transformers.TFAlbertModel.call:38
+msgid "1 indicates the head is **not masked**,"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:39
+#: transformers.AlbertForMultipleChoice.forward:39
+#: transformers.AlbertForPreTraining.forward:39
+#: transformers.AlbertForQuestionAnswering.forward:39
+#: transformers.AlbertForSequenceClassification.forward:39
+#: transformers.AlbertForTokenClassification.forward:39
+#: transformers.AlbertModel.forward:39 transformers.TFAlbertForMaskedLM.call:39
+#: transformers.TFAlbertForMultipleChoice.call:39
+#: transformers.TFAlbertForPreTraining.call:39
+#: transformers.TFAlbertForQuestionAnswering.call:39
+#: transformers.TFAlbertForSequenceClassification.call:39
+#: transformers.TFAlbertForTokenClassification.call:39
+#: transformers.TFAlbertModel.call:39
+msgid "0 indicates the head is **masked**."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:41
+#: transformers.AlbertForMultipleChoice.forward:41
+#: transformers.AlbertForPreTraining.forward:41
+#: transformers.AlbertForQuestionAnswering.forward:41
+#: transformers.AlbertForSequenceClassification.forward:41
+#: transformers.AlbertForTokenClassification.forward:41
+#: transformers.AlbertModel.forward:41 transformers.TFAlbertForMaskedLM.call:41
+#: transformers.TFAlbertForMultipleChoice.call:41
+#: transformers.TFAlbertForPreTraining.call:41
+#: transformers.TFAlbertForQuestionAnswering.call:41
+#: transformers.TFAlbertForSequenceClassification.call:41
+#: transformers.TFAlbertForTokenClassification.call:41
+#: transformers.TFAlbertModel.call:41
+msgid ""
+"Optionally, instead of passing :obj:`input_ids` you can choose to "
+"directly pass an embedded representation. This is useful if you want more"
+" control over how to convert :obj:`input_ids` indices into associated "
+"vectors than the model's internal embedding lookup matrix."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:45
+#: transformers.AlbertForMultipleChoice.forward:45
+#: transformers.AlbertForPreTraining.forward:45
+#: transformers.AlbertForQuestionAnswering.forward:45
+#: transformers.AlbertForSequenceClassification.forward:45
+#: transformers.AlbertForTokenClassification.forward:45
+#: transformers.AlbertModel.forward:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:48
+#: transformers.AlbertForMultipleChoice.forward:48
+#: transformers.AlbertForPreTraining.forward:48
+#: transformers.AlbertForQuestionAnswering.forward:48
+#: transformers.AlbertForSequenceClassification.forward:48
+#: transformers.AlbertForTokenClassification.forward:48
+#: transformers.AlbertModel.forward:48
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:51
+#: transformers.AlbertForMultipleChoice.forward:51
+#: transformers.AlbertForPreTraining.forward:51
+#: transformers.AlbertForQuestionAnswering.forward:51
+#: transformers.AlbertForSequenceClassification.forward:51
+#: transformers.AlbertForTokenClassification.forward:51
+#: transformers.AlbertModel.forward:51
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple."
+msgstr ""
+
+#: of transformers.AlbertModel.forward:54
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutputWithPooling` or a"
+" tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or"
+" when ``config.return_dict=False``) comprising various elements depending"
+" on the configuration (:class:`~transformers.AlbertConfig`) and inputs.  "
+"- **last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model. - **pooler_output** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, hidden_size)`) -- "
+"Last layer hidden-state of the first token of the sequence "
+"(classification token) further processed by a   Linear layer and a Tanh "
+"activation function. The Linear layer weights are trained from the next "
+"sentence   prediction (classification) objective during pretraining. - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.AlbertModel.forward:54
+msgid ""
+"A :class:`~transformers.modeling_outputs.BaseModelOutputWithPooling` or a"
+" tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or"
+" when ``config.return_dict=False``) comprising various elements depending"
+" on the configuration (:class:`~transformers.AlbertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.AlbertModel.forward:58
+msgid ""
+"**last_hidden_state** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, hidden_size)`) -- Sequence of hidden-"
+"states at the output of the last layer of the model."
+msgstr ""
+
+#: of transformers.AlbertModel.forward:59
+msgid ""
+"**pooler_output** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:64
+#: transformers.AlbertForMultipleChoice.forward:66
+#: transformers.AlbertForPreTraining.forward:71
+#: transformers.AlbertForQuestionAnswering.forward:69
+#: transformers.AlbertForSequenceClassification.forward:64
+#: transformers.AlbertForTokenClassification.forward:63
+#: transformers.AlbertModel.forward:62
+msgid ""
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer) of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:68
+#: transformers.AlbertForMultipleChoice.forward:70
+#: transformers.AlbertForPreTraining.forward:75
+#: transformers.AlbertForQuestionAnswering.forward:73
+#: transformers.AlbertForSequenceClassification.forward:68
+#: transformers.AlbertForTokenClassification.forward:67
+#: transformers.AlbertModel.forward:66
+msgid ""
+"**attentions** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads, "
+"sequence_length, sequence_length)`."
+msgstr ""
+
+#: of transformers.AlbertModel.forward:71
+msgid ""
+":class:`~transformers.modeling_outputs.BaseModelOutputWithPooling` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:75
+#: transformers.AlbertForMultipleChoice.forward:77
+#: transformers.AlbertForPreTraining.forward:82
+#: transformers.AlbertForQuestionAnswering.forward:80
+#: transformers.AlbertForSequenceClassification.forward:75
+#: transformers.AlbertForTokenClassification.forward:74
+#: transformers.AlbertModel.forward:73 transformers.TFAlbertForMaskedLM.call:81
+#: transformers.TFAlbertForMultipleChoice.call:83
+#: transformers.TFAlbertForPreTraining.call:78
+#: transformers.TFAlbertForQuestionAnswering.call:86
+#: transformers.TFAlbertForSequenceClassification.call:81
+#: transformers.TFAlbertForTokenClassification.call:80
+#: transformers.TFAlbertModel.call:82
+msgid "Example::"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:89
+msgid "AlbertForPreTraining"
+msgstr ""
+
+#: of transformers.AlbertForPreTraining:1
+msgid ""
+"Albert Model with two heads on top as done during the pretraining: a "
+"`masked language modeling` head and a `sentence order prediction "
+"(classification)` head."
+msgstr ""
+
+#: of transformers.AlbertForPreTraining.forward:1
+msgid ""
+"The :class:`~transformers.AlbertForPreTraining` forward method, overrides"
+" the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:53
+#: transformers.AlbertForPreTraining.forward:53
+#: transformers.TFAlbertForMaskedLM.call:59
+msgid ""
+"Labels for computing the masked language modeling loss. Indices should be"
+" in ``[-100, 0, ..., config.vocab_size]`` (see ``input_ids`` docstring) "
+"Tokens with indices set to ``-100`` are ignored (masked), the loss is "
+"only computed for the tokens with labels in ``[0, ..., "
+"config.vocab_size]``"
+msgstr ""
+
+#: of transformers.AlbertForPreTraining.forward:57
+msgid ""
+"Labels for computing the next sequence prediction (classification) loss. "
+"Input should be a sequence pair (see :obj:`input_ids` docstring) Indices "
+"should be in ``[0, 1]``. ``0`` indicates original order (sequence A, then"
+" sequence B), ``1`` indicates switched order (sequence B, then sequence "
+"A)."
+msgstr ""
+
+#: of transformers.AlbertForPreTraining.forward:62
+msgid ""
+"A "
+":class:`~transformers.models.albert.modeling_albert.AlbertForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.AlbertConfig`) and "
+"inputs.  - **loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss as the sum of "
+"the masked language modeling loss and the next sequence prediction   "
+"(classification) loss. - **prediction_logits** (:obj:`torch.FloatTensor` "
+"of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **sop_logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, 2)`) -- Prediction "
+"scores of the next sequence prediction (classification) head (scores of "
+"True/False continuation   before SoftMax). - **hidden_states** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads.   Example::      >>> from transformers import "
+"AlbertTokenizer, AlbertForPreTraining     >>> import torch      >>> "
+"tokenizer = AlbertTokenizer.from_pretrained('albert-base-v2')     >>> "
+"model = AlbertForPreTraining.from_pretrained('albert-base-v2')      >>> "
+"input_ids = torch.tensor(tokenizer.encode(\"Hello, my dog is cute\", "
+"add_special_tokens=True)).unsqueeze(0)  # Batch size 1     >>> outputs = "
+"model(input_ids)      >>> prediction_logits = outputs.prediction_logits"
+"     >>> sop_logits = outputs.sop_logits"
+msgstr ""
+
+#: of transformers.AlbertForPreTraining.forward:62
+msgid ""
+"A "
+":class:`~transformers.models.albert.modeling_albert.AlbertForPreTrainingOutput`"
+" or a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is "
+"passed or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.AlbertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.AlbertForPreTraining.forward:66
+msgid ""
+"**loss** (`optional`, returned when ``labels`` is provided, "
+"``torch.FloatTensor`` of shape :obj:`(1,)`) -- Total loss as the sum of "
+"the masked language modeling loss and the next sequence prediction "
+"(classification) loss."
+msgstr ""
+
+#: of transformers.AlbertForPreTraining.forward:68
+msgid ""
+"**prediction_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax)."
+msgstr ""
+
+#: of transformers.AlbertForPreTraining.forward:69
+msgid ""
+"**sop_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, 2)`)"
+" -- Prediction scores of the next sequence prediction (classification) "
+"head (scores of True/False continuation before SoftMax)."
+msgstr ""
+
+#: of transformers.AlbertForPreTraining.forward:95
+msgid ""
+":class:`~transformers.models.albert.modeling_albert.AlbertForPreTrainingOutput`"
+" or :obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:96
+msgid "AlbertForMaskedLM"
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM:1 transformers.TFAlbertForMaskedLM:1
+msgid "Albert Model with a `language modeling` head on top."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:1
+msgid ""
+"The :class:`~transformers.AlbertForMaskedLM` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.AlbertConfig`) and inputs.  - "
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss. - **logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length, config.vocab_size)`) -- Prediction "
+"scores of the language modeling head (scores for each vocabulary token "
+"before SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MaskedLMOutput` or a tuple of "
+":obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.AlbertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Masked language modeling "
+"(MLM) loss."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.AlbertForMaskedLM.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.MaskedLMOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:103
+msgid "AlbertForSequenceClassification"
+msgstr ""
+
+#: of transformers.AlbertForSequenceClassification:1
+#: transformers.TFAlbertForSequenceClassification:1
+msgid ""
+"Albert Model transformer with a sequence classification/regression head "
+"on top (a linear layer on top of the pooled output) e.g. for GLUE tasks."
+msgstr ""
+
+#: of transformers.AlbertForSequenceClassification.forward:1
+msgid ""
+"The :class:`~transformers.AlbertForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.AlbertForSequenceClassification.forward:53
+#: transformers.TFAlbertForSequenceClassification.call:59
+msgid ""
+"Labels for computing the sequence classification/regression loss. Indices"
+" should be in ``[0, ..., config.num_labels - 1]``. If ``config.num_labels"
+" == 1`` a regression loss is computed (Mean-Square loss), If "
+"``config.num_labels > 1`` a classification loss is computed (Cross-"
+"Entropy)."
+msgstr ""
+
+#: of transformers.AlbertForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs.  -"
+" **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`torch.FloatTensor` of"
+" shape :obj:`(batch_size, config.num_labels)`) -- Classification (or "
+"regression if config.num_labels==1) scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.AlbertForSequenceClassification.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.SequenceClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.AlbertForSequenceClassification.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.AlbertForSequenceClassification.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.AlbertForSequenceClassification.forward:73
+msgid ""
+":class:`~transformers.modeling_outputs.SequenceClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:110
+msgid "AlbertForMultipleChoice"
+msgstr ""
+
+#: of transformers.AlbertForMultipleChoice:1
+#: transformers.TFAlbertForMultipleChoice:1
+msgid ""
+"Albert Model with a multiple choice classification head on top (a linear "
+"layer on top of the pooled output and a softmax) e.g. for RocStories/SWAG"
+" tasks."
+msgstr ""
+
+#: of transformers.AlbertForMultipleChoice.forward:1
+msgid ""
+"The :class:`~transformers.AlbertForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.AlbertForMultipleChoice.forward:53
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices-1]`` where `num_choices` is the size "
+"of the second dimension of the input tensors. (see `input_ids` above)"
+msgstr ""
+
+#: of transformers.AlbertForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs.  -"
+" **loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned"
+" when :obj:`labels` is provided) -- Classification loss. - **logits** "
+"(:obj:`torch.FloatTensor` of shape :obj:`(batch_size, num_choices)`) -- "
+"`num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(torch.FloatTensor)`, `optional`, returned "
+"when ``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.AlbertForMultipleChoice.forward:58
+msgid ""
+"A :class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.AlbertForMultipleChoice.forward:62
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape `(1,)`, `optional`, returned "
+"when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.AlbertForMultipleChoice.forward:63
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"num_choices)`) -- `num_choices` is the second dimension of the input "
+"tensors. (see `input_ids` above)."
+msgstr ""
+
+#: of transformers.AlbertForMultipleChoice.forward:65
+#: transformers.TFAlbertForMultipleChoice.call:71
+msgid "Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.AlbertForMultipleChoice.forward:75
+msgid ""
+":class:`~transformers.modeling_outputs.MultipleChoiceModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:117
+msgid "AlbertForTokenClassification"
+msgstr ""
+
+#: of transformers.AlbertForTokenClassification:1
+#: transformers.TFAlbertForTokenClassification:1
+msgid ""
+"Albert Model with a token classification head on top (a linear layer on "
+"top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) "
+"tasks."
+msgstr ""
+
+#: of transformers.AlbertForTokenClassification.forward:1
+msgid ""
+"The :class:`~transformers.AlbertForTokenClassification` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.AlbertForTokenClassification.forward:53
+#: transformers.TFAlbertForTokenClassification.call:59
+msgid ""
+"Labels for computing the token classification loss. Indices should be in "
+"``[0, ..., config.num_labels - 1]``."
+msgstr ""
+
+#: of transformers.AlbertForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs.  -"
+" **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss. - "
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.AlbertForTokenClassification.forward:57
+msgid ""
+"A :class:`~transformers.modeling_outputs.TokenClassifierOutput` or a "
+"tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.AlbertForTokenClassification.forward:61
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when ``labels`` is provided)  -- Classification loss."
+msgstr ""
+
+#: of transformers.AlbertForTokenClassification.forward:62
+msgid ""
+"**logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length, config.num_labels)`) -- Classification scores (before "
+"SoftMax)."
+msgstr ""
+
+#: of transformers.AlbertForTokenClassification.forward:72
+msgid ""
+":class:`~transformers.modeling_outputs.TokenClassifierOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:124
+msgid "AlbertForQuestionAnswering"
+msgstr ""
+
+#: of transformers.AlbertForQuestionAnswering:1
+msgid ""
+"Albert Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layers on top of the "
+"hidden-states output to compute `span start logits` and `span end "
+"logits`)."
+msgstr ""
+
+#: of transformers.AlbertForQuestionAnswering.forward:1
+msgid ""
+"The :class:`~transformers.AlbertForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.AlbertForQuestionAnswering.forward:53
+#: transformers.TFAlbertForQuestionAnswering.call:59
+msgid ""
+"Labels for position (index) of the start of the labelled span for "
+"computing the token classification loss. Positions are clamped to the "
+"length of the sequence (:obj:`sequence_length`). Position outside of the "
+"sequence are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.AlbertForQuestionAnswering.forward:57
+#: transformers.TFAlbertForQuestionAnswering.call:63
+msgid ""
+"Labels for position (index) of the end of the labelled span for computing"
+" the token classification loss. Positions are clamped to the length of "
+"the sequence (:obj:`sequence_length`). Position outside of the sequence "
+"are not taken into account for computing the loss."
+msgstr ""
+
+#: of transformers.AlbertForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.AlbertConfig`) and "
+"inputs.  - **loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, "
+"`optional`, returned when :obj:`labels` is provided) -- Total span "
+"extraction loss is the sum of a Cross-Entropy for the start and end "
+"positions. - **start_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`torch.FloatTensor` of shape "
+":obj:`(batch_size, sequence_length)`) -- Span-end scores (before "
+"SoftMax). - **hidden_states** (:obj:`tuple(torch.FloatTensor)`, "
+"`optional`, returned when ``output_hidden_states=True`` is passed or when"
+" ``config.output_hidden_states=True``) -- Tuple of "
+":obj:`torch.FloatTensor` (one for the output of the embeddings + one for "
+"the output of each layer)   of shape :obj:`(batch_size, sequence_length, "
+"hidden_size)`.    Hidden-states of the model at the output of each layer "
+"plus the initial embedding outputs. - **attentions** "
+"(:obj:`tuple(torch.FloatTensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`torch.FloatTensor` "
+"(one for each layer) of shape :obj:`(batch_size, num_heads,   "
+"sequence_length, sequence_length)`.    Attentions weights after the "
+"attention softmax, used to compute the weighted average in the self-"
+"attention   heads."
+msgstr ""
+
+#: of transformers.AlbertForQuestionAnswering.forward:62
+msgid ""
+"A :class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or"
+" a tuple of :obj:`torch.FloatTensor` (if ``return_dict=False`` is passed "
+"or when ``config.return_dict=False``) comprising various elements "
+"depending on the configuration (:class:`~transformers.AlbertConfig`) and "
+"inputs."
+msgstr ""
+
+#: of transformers.AlbertForQuestionAnswering.forward:66
+msgid ""
+"**loss** (:obj:`torch.FloatTensor` of shape :obj:`(1,)`, `optional`, "
+"returned when :obj:`labels` is provided) -- Total span extraction loss is"
+" the sum of a Cross-Entropy for the start and end positions."
+msgstr ""
+
+#: of transformers.AlbertForQuestionAnswering.forward:67
+msgid ""
+"**start_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.AlbertForQuestionAnswering.forward:68
+msgid ""
+"**end_logits** (:obj:`torch.FloatTensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.AlbertForQuestionAnswering.forward:78
+msgid ""
+":class:`~transformers.modeling_outputs.QuestionAnsweringModelOutput` or "
+":obj:`tuple(torch.FloatTensor)`"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:131
+msgid "TFAlbertModel"
+msgstr ""
+
+#: of transformers.TFAlbertModel:1
+msgid ""
+"The bare Albert Model transformer outputting raw hidden-states without "
+"any specific head on top."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM:3
+#: transformers.TFAlbertForMultipleChoice:5
+#: transformers.TFAlbertForPreTraining:5
+#: transformers.TFAlbertForQuestionAnswering:5
+#: transformers.TFAlbertForSequenceClassification:5
+#: transformers.TFAlbertForTokenClassification:5 transformers.TFAlbertModel:3
+msgid ""
+"This model inherits from :class:`~transformers.TFPreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM:7
+#: transformers.TFAlbertForMultipleChoice:9
+#: transformers.TFAlbertForPreTraining:9
+#: transformers.TFAlbertForQuestionAnswering:9
+#: transformers.TFAlbertForSequenceClassification:9
+#: transformers.TFAlbertForTokenClassification:9 transformers.TFAlbertModel:7
+msgid ""
+"This model is also a `tf.keras.Model "
+"<https://www.tensorflow.org/api_docs/python/tf/keras/Model>`__ subclass. "
+"Use it as a regular TF 2.0 Keras Model and refer to the TF 2.0 "
+"documentation for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM:13
+#: transformers.TFAlbertForMultipleChoice:15
+#: transformers.TFAlbertForPreTraining:15
+#: transformers.TFAlbertForQuestionAnswering:15
+#: transformers.TFAlbertForSequenceClassification:15
+#: transformers.TFAlbertForTokenClassification:15 transformers.TFAlbertModel:13
+msgid "TF 2.0 models accepts two formats as inputs:"
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM:15
+#: transformers.TFAlbertForMultipleChoice:17
+#: transformers.TFAlbertForPreTraining:17
+#: transformers.TFAlbertForQuestionAnswering:17
+#: transformers.TFAlbertForSequenceClassification:17
+#: transformers.TFAlbertForTokenClassification:17 transformers.TFAlbertModel:15
+msgid "having all inputs as keyword arguments (like PyTorch models), or"
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM:16
+#: transformers.TFAlbertForMultipleChoice:18
+#: transformers.TFAlbertForPreTraining:18
+#: transformers.TFAlbertForQuestionAnswering:18
+#: transformers.TFAlbertForSequenceClassification:18
+#: transformers.TFAlbertForTokenClassification:18 transformers.TFAlbertModel:16
+msgid ""
+"having all inputs as a list, tuple or dict in the first positional "
+"arguments."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM:18
+#: transformers.TFAlbertForMultipleChoice:20
+#: transformers.TFAlbertForPreTraining:20
+#: transformers.TFAlbertForQuestionAnswering:20
+#: transformers.TFAlbertForSequenceClassification:20
+#: transformers.TFAlbertForTokenClassification:20 transformers.TFAlbertModel:18
+msgid ""
+"This second option is useful when using :meth:`tf.keras.Model.fit` method"
+" which currently requires having all the tensors in the first argument of"
+" the model call function: :obj:`model(inputs)`."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM:21
+#: transformers.TFAlbertForMultipleChoice:23
+#: transformers.TFAlbertForPreTraining:23
+#: transformers.TFAlbertForQuestionAnswering:23
+#: transformers.TFAlbertForSequenceClassification:23
+#: transformers.TFAlbertForTokenClassification:23 transformers.TFAlbertModel:21
+msgid ""
+"If you choose this second option, there are three possibilities you can "
+"use to gather all the input Tensors in the first positional argument :"
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM:24
+#: transformers.TFAlbertForMultipleChoice:26
+#: transformers.TFAlbertForPreTraining:26
+#: transformers.TFAlbertForQuestionAnswering:26
+#: transformers.TFAlbertForSequenceClassification:26
+#: transformers.TFAlbertForTokenClassification:26 transformers.TFAlbertModel:24
+msgid ""
+"a single Tensor with :obj:`input_ids` only and nothing else: "
+":obj:`model(inputs_ids)`"
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM:25
+#: transformers.TFAlbertForMultipleChoice:27
+#: transformers.TFAlbertForPreTraining:27
+#: transformers.TFAlbertForQuestionAnswering:27
+#: transformers.TFAlbertForSequenceClassification:27
+#: transformers.TFAlbertForTokenClassification:27 transformers.TFAlbertModel:25
+msgid ""
+"a list of varying length with one or several input Tensors IN THE ORDER "
+"given in the docstring: :obj:`model([input_ids, attention_mask])` or "
+":obj:`model([input_ids, attention_mask, token_type_ids])`"
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM:27
+#: transformers.TFAlbertForMultipleChoice:29
+#: transformers.TFAlbertForPreTraining:29
+#: transformers.TFAlbertForQuestionAnswering:29
+#: transformers.TFAlbertForSequenceClassification:29
+#: transformers.TFAlbertForTokenClassification:29 transformers.TFAlbertModel:27
+msgid ""
+"a dictionary with one or several input Tensors associated to the input "
+"names given in the docstring: :obj:`model({\"input_ids\": input_ids, "
+"\"token_type_ids\": token_type_ids})`"
+msgstr ""
+
+#: of transformers.TFAlbertModel.call:1
+msgid ""
+"The :class:`~transformers.TFAlbertModel` forward method, overrides the "
+":func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM.call:8
+#: transformers.TFAlbertForMultipleChoice.call:8
+#: transformers.TFAlbertForPreTraining.call:8
+#: transformers.TFAlbertForQuestionAnswering.call:8
+#: transformers.TFAlbertForSequenceClassification.call:8
+#: transformers.TFAlbertForTokenClassification.call:8
+#: transformers.TFAlbertModel.call:8
+msgid ""
+"Indices of input sequence tokens in the vocabulary.  Indices can be "
+"obtained using :class:`~transformers.AlbertTokenizer`. See "
+":func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details.  `What are "
+"input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM.call:10
+#: transformers.TFAlbertForMultipleChoice.call:10
+#: transformers.TFAlbertForPreTraining.call:10
+#: transformers.TFAlbertForQuestionAnswering.call:10
+#: transformers.TFAlbertForSequenceClassification.call:10
+#: transformers.TFAlbertForTokenClassification.call:10
+#: transformers.TFAlbertModel.call:10
+msgid ""
+"Indices can be obtained using :class:`~transformers.AlbertTokenizer`. See"
+" :func:`transformers.PreTrainedTokenizer.__call__` and "
+":func:`transformers.PreTrainedTokenizer.encode` for details."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM.call:45
+#: transformers.TFAlbertForMultipleChoice.call:45
+#: transformers.TFAlbertForPreTraining.call:45
+#: transformers.TFAlbertForQuestionAnswering.call:45
+#: transformers.TFAlbertForSequenceClassification.call:45
+#: transformers.TFAlbertForTokenClassification.call:45
+#: transformers.TFAlbertModel.call:45
+msgid ""
+"Whether or not to return the attentions tensors of all attention layers. "
+"See ``attentions`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM.call:49
+#: transformers.TFAlbertForMultipleChoice.call:49
+#: transformers.TFAlbertForPreTraining.call:49
+#: transformers.TFAlbertForQuestionAnswering.call:49
+#: transformers.TFAlbertForSequenceClassification.call:49
+#: transformers.TFAlbertForTokenClassification.call:49
+#: transformers.TFAlbertModel.call:49
+msgid ""
+"Whether or not to return the hidden states of all layers. See "
+"``hidden_states`` under returned tensors for more detail. This argument "
+"can be used only in eager mode, in graph mode the value in the config "
+"will be used instead."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM.call:53
+#: transformers.TFAlbertForMultipleChoice.call:53
+#: transformers.TFAlbertForPreTraining.call:53
+#: transformers.TFAlbertForQuestionAnswering.call:53
+#: transformers.TFAlbertForSequenceClassification.call:53
+#: transformers.TFAlbertForTokenClassification.call:53
+#: transformers.TFAlbertModel.call:53
+msgid ""
+"Whether or not to return a :class:`~transformers.file_utils.ModelOutput` "
+"instead of a plain tuple. This argument can be used in eager mode, in "
+"graph mode the value will always be set to True."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM.call:56
+#: transformers.TFAlbertForMultipleChoice.call:56
+#: transformers.TFAlbertForPreTraining.call:56
+#: transformers.TFAlbertForQuestionAnswering.call:56
+#: transformers.TFAlbertForSequenceClassification.call:56
+#: transformers.TFAlbertForTokenClassification.call:56
+#: transformers.TFAlbertModel.call:56
+msgid ""
+"Whether or not to use the model in training mode (some modules like "
+"dropout modules have different behaviors between training and "
+"evaluation)."
+msgstr ""
+
+#: of transformers.TFAlbertModel.call:60
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs.  -"
+" **last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model. - **pooler_output** "
+"(:obj:`tf.Tensor` of shape :obj:`(batch_size, hidden_size)`) -- Last "
+"layer hidden-state of the first token of the sequence (classification "
+"token) further processed by a   Linear layer and a Tanh activation "
+"function. The Linear layer weights are trained from the next sentence   "
+"prediction (classification) objective during pretraining.    This output "
+"is usually *not* a good summary of the semantic content of the input, "
+"you're often better with   averaging or pooling the sequence of hidden-"
+"states for the whole input sequence. - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFAlbertModel.call:60
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFAlbertModel.call:64
+msgid ""
+"**last_hidden_state** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, hidden_size)`) -- Sequence of hidden-states at the "
+"output of the last layer of the model."
+msgstr ""
+
+#: of transformers.TFAlbertModel.call:65
+msgid ""
+"**pooler_output** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"hidden_size)`) -- Last layer hidden-state of the first token of the "
+"sequence (classification token) further processed by a Linear layer and a"
+" Tanh activation function. The Linear layer weights are trained from the "
+"next sentence prediction (classification) objective during pretraining."
+msgstr ""
+
+#: of transformers.TFAlbertModel.call:69
+msgid ""
+"This output is usually *not* a good summary of the semantic content of "
+"the input, you're often better with averaging or pooling the sequence of "
+"hidden-states for the whole input sequence."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM.call:70
+#: transformers.TFAlbertForMultipleChoice.call:72
+#: transformers.TFAlbertForPreTraining.call:67
+#: transformers.TFAlbertForQuestionAnswering.call:75
+#: transformers.TFAlbertForSequenceClassification.call:70
+#: transformers.TFAlbertForTokenClassification.call:69
+#: transformers.TFAlbertModel.call:71
+msgid ""
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of "
+"shape :obj:`(batch_size, sequence_length, hidden_size)`."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM.call:74
+#: transformers.TFAlbertForMultipleChoice.call:76
+#: transformers.TFAlbertForPreTraining.call:71
+#: transformers.TFAlbertForQuestionAnswering.call:79
+#: transformers.TFAlbertForSequenceClassification.call:74
+#: transformers.TFAlbertForTokenClassification.call:73
+#: transformers.TFAlbertModel.call:75
+msgid ""
+"**attentions** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length, "
+"sequence_length)`."
+msgstr ""
+
+#: of transformers.TFAlbertModel.call:80
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFBaseModelOutputWithPooling` "
+"or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:138
+msgid "TFAlbertForPreTraining"
+msgstr ""
+
+#: of transformers.TFAlbertForPreTraining:1
+msgid ""
+"Albert Model with two heads on top for pretraining: a `masked language "
+"modeling` head and a `sentence order prediction` (classification) head."
+msgstr ""
+
+#: of transformers.TFAlbertForPreTraining.call:1
+msgid ""
+"The :class:`~transformers.TFAlbertForPreTraining` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFAlbertForPreTraining.call:60
+msgid ""
+"A "
+":class:`~transformers.models.albert.modeling_tf_albert.TFAlbertForPreTrainingOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs.  -"
+" **prediction_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+" - **sop_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, 2)`) -- "
+"Prediction scores of the next sequence prediction (classification) head "
+"(scores of True/False continuation   before SoftMax). - **hidden_states**"
+" (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads.   "
+"Example::      >>> import tensorflow as tf     >>> from transformers "
+"import AlbertTokenizer, TFAlbertForPreTraining      >>> tokenizer = "
+"AlbertTokenizer.from_pretrained('albert-base-v2')     >>> model = "
+"TFAlbertForPreTraining.from_pretrained('albert-base-v2')      >>> "
+"input_ids = tf.constant(tokenizer.encode(\"Hello, my dog is cute\", "
+"add_special_tokens=True))[None, :]  # Batch size 1     >>> outputs = "
+"model(input_ids)      >>> prediction_logits = outputs.prediction_logits"
+"     >>> sop_logits = outputs.sop_logits"
+msgstr ""
+
+#: of transformers.TFAlbertForPreTraining.call:60
+msgid ""
+"A "
+":class:`~transformers.models.albert.modeling_tf_albert.TFAlbertForPreTrainingOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFAlbertForPreTraining.call:64
+msgid ""
+"**prediction_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length, config.vocab_size)`) -- Prediction scores of the "
+"language modeling head (scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFAlbertForPreTraining.call:65
+msgid ""
+"**sop_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, 2)`) -- "
+"Prediction scores of the next sequence prediction (classification) head "
+"(scores of True/False continuation before SoftMax)."
+msgstr ""
+
+#: of transformers.TFAlbertForPreTraining.call:91
+msgid ""
+":class:`~transformers.models.albert.modeling_tf_albert.TFAlbertForPreTrainingOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:145
+msgid "TFAlbertForMaskedLM"
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM.call:1
+msgid ""
+"The :class:`~transformers.TFAlbertForMaskedLM` forward method, overrides "
+"the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.AlbertConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss. - **logits** (:obj:`tf.Tensor` "
+"of shape :obj:`(batch_size, sequence_length, config.vocab_size)`) -- "
+"Prediction scores of the language modeling head (scores for each "
+"vocabulary token before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or a tuple "
+"of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.AlbertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of non-masked labels, returned when :obj:`labels` is provided)"
+" -- Masked language modeling (MLM) loss."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.vocab_size)`) -- Prediction scores of the language modeling head "
+"(scores for each vocabulary token before SoftMax)."
+msgstr ""
+
+#: of transformers.TFAlbertForMaskedLM.call:79
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMaskedLMOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:152
+msgid "TFAlbertForSequenceClassification"
+msgstr ""
+
+#: of transformers.TFAlbertForSequenceClassification.call:1
+msgid ""
+"The :class:`~transformers.TFAlbertForSequenceClassification` forward "
+"method, overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFAlbertForSequenceClassification.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs.  -"
+" **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, config.num_labels)`) -- Classification (or regression "
+"if config.num_labels==1) scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFAlbertForSequenceClassification.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFAlbertForSequenceClassification.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification (or regression"
+" if config.num_labels==1) loss."
+msgstr ""
+
+#: of transformers.TFAlbertForSequenceClassification.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"config.num_labels)`) -- Classification (or regression if "
+"config.num_labels==1) scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFAlbertForSequenceClassification.call:79
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFSequenceClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:159
+msgid "TFAlbertForMultipleChoice"
+msgstr ""
+
+#: of transformers.TFAlbertForMultipleChoice.call:1
+msgid ""
+"The :class:`~transformers.TFAlbertForMultipleChoice` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFAlbertForMultipleChoice.call:59
+msgid ""
+"Labels for computing the multiple choice classification loss. Indices "
+"should be in ``[0, ..., num_choices]`` where :obj:`num_choices` is the "
+"size of the second dimension of the input tensors. (See :obj:`input_ids` "
+"above)"
+msgstr ""
+
+#: of transformers.TFAlbertForMultipleChoice.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs.  -"
+" **loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss. - "
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above).    Classification scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFAlbertForMultipleChoice.call:64
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` "
+"or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFAlbertForMultipleChoice.call:68
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape `(batch_size, )`, `optional`, "
+"returned when :obj:`labels` is provided) -- Classification loss."
+msgstr ""
+
+#: of transformers.TFAlbertForMultipleChoice.call:69
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, num_choices)`) "
+"-- `num_choices` is the second dimension of the input tensors. (see "
+"`input_ids` above)."
+msgstr ""
+
+#: of transformers.TFAlbertForMultipleChoice.call:81
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFMultipleChoiceModelOutput` or"
+" :obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:166
+msgid "TFAlbertForTokenClassification"
+msgstr ""
+
+#: of transformers.TFAlbertForTokenClassification.call:1
+msgid ""
+"The :class:`~transformers.TFAlbertForTokenClassification` forward method,"
+" overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFAlbertForTokenClassification.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.AlbertConfig`) and inputs.  - "
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss. - **logits** (:obj:`tf.Tensor` of shape "
+":obj:`(batch_size, sequence_length, config.num_labels)`) -- "
+"Classification scores (before SoftMax). - **hidden_states** "
+"(:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFAlbertForTokenClassification.call:63
+msgid ""
+"A :class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or a"
+" tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or when "
+"``config.return_dict=False``) comprising various elements depending on "
+"the configuration (:class:`~transformers.AlbertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFAlbertForTokenClassification.call:67
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(n,)`, `optional`, where n is "
+"the number of unmasked labels, returned when ``labels`` is provided)  -- "
+"Classification loss."
+msgstr ""
+
+#: of transformers.TFAlbertForTokenClassification.call:68
+msgid ""
+"**logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, sequence_length,"
+" config.num_labels)`) -- Classification scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFAlbertForTokenClassification.call:78
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFTokenClassifierOutput` or "
+":obj:`tuple(tf.Tensor)`"
+msgstr ""
+
+#: ../../source/model_doc/albert.rst:173
+msgid "TFAlbertForQuestionAnswering"
+msgstr ""
+
+#: of transformers.TFAlbertForQuestionAnswering:1
+msgid ""
+"Albert Model with a span classification head on top for extractive "
+"question-answering tasks like SQuAD (a linear layer on top of the hidden-"
+"states output to compute `span start logits` and `span end logits`)."
+msgstr ""
+
+#: of transformers.TFAlbertForQuestionAnswering.call:1
+msgid ""
+"The :class:`~transformers.TFAlbertForQuestionAnswering` forward method, "
+"overrides the :func:`__call__` special method."
+msgstr ""
+
+#: of transformers.TFAlbertForQuestionAnswering.call:68
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs.  -"
+" **loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions. - **start_logits** (:obj:`tf.Tensor` of "
+"shape :obj:`(batch_size, sequence_length)`) -- Span-start scores (before "
+"SoftMax). - **end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax). - "
+"**hidden_states** (:obj:`tuple(tf.Tensor)`, `optional`, returned when "
+"``output_hidden_states=True`` is passed or when "
+"``config.output_hidden_states=True``) -- Tuple of :obj:`tf.Tensor` (one "
+"for the output of the embeddings + one for the output of each layer) of"
+"   shape :obj:`(batch_size, sequence_length, hidden_size)`.    Hidden-"
+"states of the model at the output of each layer plus the initial "
+"embedding outputs. - **attentions** (:obj:`tuple(tf.Tensor)`, `optional`,"
+" returned when ``output_attentions=True`` is passed or when "
+"``config.output_attentions=True``) -- Tuple of :obj:`tf.Tensor` (one for "
+"each layer) of shape :obj:`(batch_size, num_heads, sequence_length,   "
+"sequence_length)`.    Attentions weights after the attention softmax, "
+"used to compute the weighted average in the self-attention   heads."
+msgstr ""
+
+#: of transformers.TFAlbertForQuestionAnswering.call:68
+msgid ""
+"A "
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or a tuple of :obj:`tf.Tensor` (if ``return_dict=False`` is passed or "
+"when ``config.return_dict=False``) comprising various elements depending "
+"on the configuration (:class:`~transformers.AlbertConfig`) and inputs."
+msgstr ""
+
+#: of transformers.TFAlbertForQuestionAnswering.call:72
+msgid ""
+"**loss** (:obj:`tf.Tensor` of shape :obj:`(batch_size, )`, `optional`, "
+"returned when :obj:`start_positions` and :obj:`end_positions` are "
+"provided) -- Total span extraction loss is the sum of a Cross-Entropy for"
+" the start and end positions."
+msgstr ""
+
+#: of transformers.TFAlbertForQuestionAnswering.call:73
+msgid ""
+"**start_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-start scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFAlbertForQuestionAnswering.call:74
+msgid ""
+"**end_logits** (:obj:`tf.Tensor` of shape :obj:`(batch_size, "
+"sequence_length)`) -- Span-end scores (before SoftMax)."
+msgstr ""
+
+#: of transformers.TFAlbertForQuestionAnswering.call:84
+msgid ""
+":class:`~transformers.modeling_tf_outputs.TFQuestionAnsweringModelOutput`"
+" or :obj:`tuple(tf.Tensor)`"
+msgstr ""
+

@@ -1,0 +1,127 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/bert_japanese.rst:14
+msgid "BertJapanese"
+msgstr ""
+
+#: ../../source/model_doc/bert_japanese.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/bert_japanese.rst:19
+msgid "The BERT models trained on Japanese text."
+msgstr ""
+
+#: ../../source/model_doc/bert_japanese.rst:21
+msgid "There are models with two different tokenization methods:"
+msgstr ""
+
+#: ../../source/model_doc/bert_japanese.rst:23
+msgid ""
+"Tokenize with MeCab and WordPiece. This requires some extra dependencies,"
+" `fugashi <https://github.com/polm/fugashi>`__ which is a wrapper around "
+"`MeCab <https://taku910.github.io/mecab/>`__."
+msgstr ""
+
+#: ../../source/model_doc/bert_japanese.rst:25
+msgid "Tokenize into characters."
+msgstr ""
+
+#: ../../source/model_doc/bert_japanese.rst:27
+msgid ""
+"To use `MecabTokenizer`, you should ``pip install transformers[\"ja\"]`` "
+"(or ``pip install -e .[\"ja\"]`` if you install from source) to install "
+"dependencies."
+msgstr ""
+
+#: ../../source/model_doc/bert_japanese.rst:30
+msgid ""
+"See `details on cl-tohoku repository <https://github.com/cl-tohoku/bert-"
+"japanese>`__."
+msgstr ""
+
+#: ../../source/model_doc/bert_japanese.rst:32
+msgid "Example of using a model with MeCab and WordPiece tokenization:"
+msgstr ""
+
+#: ../../source/model_doc/bert_japanese.rst:52
+msgid "Example of using a model with Character tokenization:"
+msgstr ""
+
+#: ../../source/model_doc/bert_japanese.rst:69
+msgid "Tips:"
+msgstr ""
+
+#: ../../source/model_doc/bert_japanese.rst:71
+msgid ""
+"This implementation is the same as BERT, except for tokenization method. "
+"Refer to the :doc:`documentation of BERT <bert>` for more usage examples."
+msgstr ""
+
+#: ../../source/model_doc/bert_japanese.rst:74
+msgid ""
+"This model was contributed by `cl-tohoku <https://huggingface.co/cl-"
+"tohoku>`__."
+msgstr ""
+
+#: ../../source/model_doc/bert_japanese.rst:77
+msgid "BertJapaneseTokenizer"
+msgstr ""
+
+#: of transformers.BertJapaneseTokenizer:1
+msgid "Construct a BERT tokenizer for Japanese text, based on a MecabTokenizer."
+msgstr ""
+
+#: of transformers.BertJapaneseTokenizer
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.BertJapaneseTokenizer:3
+msgid "Path to a one-wordpiece-per-line vocabulary file."
+msgstr ""
+
+#: of transformers.BertJapaneseTokenizer:5
+msgid ""
+"Whether to lower case the input. Only has an effect when "
+"do_basic_tokenize=True."
+msgstr ""
+
+#: of transformers.BertJapaneseTokenizer:7
+msgid "Whether to do word tokenization."
+msgstr ""
+
+#: of transformers.BertJapaneseTokenizer:9
+msgid "Whether to do subword tokenization."
+msgstr ""
+
+#: of transformers.BertJapaneseTokenizer:11
+msgid "Type of word tokenizer."
+msgstr ""
+
+#: of transformers.BertJapaneseTokenizer:13
+msgid "Type of subword tokenizer."
+msgstr ""
+
+#: of transformers.BertJapaneseTokenizer:15
+msgid "Dictionary passed to the :obj:`MecabTokenizer` constructor."
+msgstr ""
+

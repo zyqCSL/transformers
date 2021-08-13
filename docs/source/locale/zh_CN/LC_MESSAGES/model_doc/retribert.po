@@ -1,0 +1,314 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The Hugging Face Team, Licenced under the Apache
+# License, Version 2.0
+# This file is distributed under the same license as the transformers
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: transformers \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 16:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/model_doc/retribert.rst:14
+msgid "RetriBERT"
+msgstr ""
+
+#: ../../source/model_doc/retribert.rst:17
+msgid "Overview"
+msgstr ""
+
+#: ../../source/model_doc/retribert.rst:19
+msgid ""
+"The RetriBERT model was proposed in the blog post `Explain Anything Like "
+"I'm Five: A Model for Open Domain Long Form Question Answering "
+"<https://yjernite.github.io/lfqa.html>`__. RetriBERT is a small model "
+"that uses either a single or pair of BERT encoders with lower-dimension "
+"projection for dense semantic indexing of text."
+msgstr ""
+
+#: ../../source/model_doc/retribert.rst:23
+msgid ""
+"This model was contributed by `yjernite "
+"<https://huggingface.co/yjernite>`__. Code to train and use the model can"
+" be found :prefix_link:`here <examples/research-projects/distillation>`."
+msgstr ""
+
+#: ../../source/model_doc/retribert.rst:28
+msgid "RetriBertConfig"
+msgstr ""
+
+#: of transformers.RetriBertConfig:1
+msgid ""
+"This is the configuration class to store the configuration of a "
+":class:`~transformers.RetriBertModel`. It is used to instantiate a "
+"RetriBertModel model according to the specified arguments, defining the "
+"model architecture."
+msgstr ""
+
+#: of transformers.RetriBertConfig:4
+msgid ""
+"Configuration objects inherit from "
+":class:`~transformers.PretrainedConfig` and can be used to control the "
+"model outputs. Read the documentation from "
+":class:`~transformers.PretrainedConfig` for more information."
+msgstr ""
+
+#: of transformers.RetriBertConfig transformers.RetriBertModel
+#: transformers.RetriBertModel.forward
+msgid "Parameters"
+msgstr ""
+
+#: of transformers.RetriBertConfig:8
+msgid ""
+"Vocabulary size of the RetriBERT model. Defines the number of different "
+"tokens that can be represented by the :obj:`inputs_ids` passed when "
+"calling :class:`~transformers.RetriBertModel`"
+msgstr ""
+
+#: of transformers.RetriBertConfig:11
+msgid "Dimensionality of the encoder layers and the pooler layer."
+msgstr ""
+
+#: of transformers.RetriBertConfig:13
+msgid "Number of hidden layers in the Transformer encoder."
+msgstr ""
+
+#: of transformers.RetriBertConfig:15
+msgid ""
+"Number of attention heads for each attention layer in the Transformer "
+"encoder."
+msgstr ""
+
+#: of transformers.RetriBertConfig:17
+msgid ""
+"Dimensionality of the \"intermediate\" (often named feed-forward) layer "
+"in the Transformer encoder."
+msgstr ""
+
+#: of transformers.RetriBertConfig:19
+msgid ""
+"The non-linear activation function (function or string) in the encoder "
+"and pooler. If string, :obj:`\"gelu\"`, :obj:`\"relu\"`, :obj:`\"silu\"` "
+"and :obj:`\"gelu_new\"` are supported."
+msgstr ""
+
+#: of transformers.RetriBertConfig:22
+msgid ""
+"The dropout probability for all fully connected layers in the embeddings,"
+" encoder, and pooler."
+msgstr ""
+
+#: of transformers.RetriBertConfig:24
+msgid "The dropout ratio for the attention probabilities."
+msgstr ""
+
+#: of transformers.RetriBertConfig:26
+msgid ""
+"The maximum sequence length that this model might ever be used with. "
+"Typically set this to something large just in case (e.g., 512 or 1024 or "
+"2048)."
+msgstr ""
+
+#: of transformers.RetriBertConfig:29
+msgid ""
+"The vocabulary size of the `token_type_ids` passed into "
+":class:`~transformers.BertModel`."
+msgstr ""
+
+#: of transformers.RetriBertConfig:31
+msgid ""
+"The standard deviation of the truncated_normal_initializer for "
+"initializing all weight matrices."
+msgstr ""
+
+#: of transformers.RetriBertConfig:33
+msgid "The epsilon used by the layer normalization layers."
+msgstr ""
+
+#: of transformers.RetriBertConfig:35
+msgid ""
+"Whether or not to use the same Bert-type encoder for the queries and "
+"document"
+msgstr ""
+
+#: of transformers.RetriBertConfig:37
+msgid "Final dimension of the query and document representation after projection"
+msgstr ""
+
+#: ../../source/model_doc/retribert.rst:35
+msgid "RetriBertTokenizer"
+msgstr ""
+
+#: of transformers.RetriBertTokenizer:1
+msgid "Constructs a RetriBERT tokenizer."
+msgstr ""
+
+#: of transformers.RetriBertTokenizer:3
+msgid ""
+":class:`~transformers.RetroBertTokenizer` is identical to "
+":class:`~transformers.BertTokenizer` and runs end-to-end tokenization: "
+"punctuation splitting and wordpiece."
+msgstr ""
+
+#: of transformers.RetriBertTokenizer:6
+msgid ""
+"Refer to superclass :class:`~transformers.BertTokenizer` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: ../../source/model_doc/retribert.rst:42
+msgid "RetriBertTokenizerFast"
+msgstr ""
+
+#: of transformers.RetriBertTokenizerFast:1
+msgid ""
+"Construct a \"fast\" RetriBERT tokenizer (backed by HuggingFace's "
+"`tokenizers` library)."
+msgstr ""
+
+#: of transformers.RetriBertTokenizerFast:3
+msgid ""
+":class:`~transformers.RetriBertTokenizerFast` is identical to "
+":class:`~transformers.BertTokenizerFast` and runs end-to-end "
+"tokenization: punctuation splitting and wordpiece."
+msgstr ""
+
+#: of transformers.RetriBertTokenizerFast:6
+msgid ""
+"Refer to superclass :class:`~transformers.BertTokenizerFast` for usage "
+"examples and documentation concerning parameters."
+msgstr ""
+
+#: ../../source/model_doc/retribert.rst:49
+msgid "RetriBertModel"
+msgstr ""
+
+#: of transformers.RetriBertModel:1
+msgid "Bert Based model to embed queries or document for document retrieval."
+msgstr ""
+
+#: of transformers.RetriBertModel:3
+msgid ""
+"This model inherits from :class:`~transformers.PreTrainedModel`. Check "
+"the superclass documentation for the generic methods the library "
+"implements for all its model (such as downloading or saving, resizing the"
+" input embeddings, pruning heads etc.)"
+msgstr ""
+
+#: of transformers.RetriBertModel:7
+msgid ""
+"This model is also a PyTorch `torch.nn.Module "
+"<https://pytorch.org/docs/stable/nn.html#torch.nn.Module>`__ subclass. "
+"Use it as a regular PyTorch Module and refer to the PyTorch documentation"
+" for all matter related to general usage and behavior."
+msgstr ""
+
+#: of transformers.RetriBertModel:11
+msgid ""
+"Model configuration class with all the parameters of the model. "
+"Initializing with a config file does not load the weights associated with"
+" the model, only the configuration. Check out the "
+":meth:`~transformers.PreTrainedModel.from_pretrained` method to load the "
+"model weights."
+msgstr ""
+
+#: of transformers.RetriBertModel.forward:1
+msgid ""
+"Indices of input sequence tokens in the vocabulary for the queries in a "
+"batch.  Indices can be obtained using "
+":class:`~transformers.RetriBertTokenizer`. See "
+":meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details.  `What are"
+" input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.RetriBertModel.forward:1
+msgid ""
+"Indices of input sequence tokens in the vocabulary for the queries in a "
+"batch."
+msgstr ""
+
+#: of transformers.RetriBertModel.forward:3
+msgid ""
+"Indices can be obtained using :class:`~transformers.RetriBertTokenizer`. "
+"See :meth:`transformers.PreTrainedTokenizer.encode` and "
+":meth:`transformers.PreTrainedTokenizer.__call__` for details."
+msgstr ""
+
+#: of transformers.RetriBertModel.forward:7
+msgid "`What are input IDs? <../glossary.html#input-ids>`__"
+msgstr ""
+
+#: of transformers.RetriBertModel.forward:9
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:  - 1 for tokens that are **not masked**, - 0 for "
+"tokens that are **masked**.  `What are attention masks? <../glossary.html"
+"#attention-mask>`__"
+msgstr ""
+
+#: of transformers.RetriBertModel.forward:9
+msgid ""
+"Mask to avoid performing attention on padding token indices. Mask values "
+"selected in ``[0, 1]``:"
+msgstr ""
+
+#: of transformers.RetriBertModel.forward:11
+msgid "1 for tokens that are **not masked**,"
+msgstr ""
+
+#: of transformers.RetriBertModel.forward:12
+msgid "0 for tokens that are **masked**."
+msgstr ""
+
+#: of transformers.RetriBertModel.forward:14
+msgid "`What are attention masks? <../glossary.html#attention-mask>`__"
+msgstr ""
+
+#: of transformers.RetriBertModel.forward:16
+msgid ""
+"Indices of input sequence tokens in the vocabulary for the documents in a"
+" batch."
+msgstr ""
+
+#: of transformers.RetriBertModel.forward:18
+msgid "Mask to avoid performing attention on documents padding token indices."
+msgstr ""
+
+#: of transformers.RetriBertModel.forward:20
+msgid ""
+"If greater than 0, uses gradient checkpointing to only compute sequence "
+"representation on :obj:`checkpoint_batch_size` examples at a time on the "
+"GPU. All query representations are still compared to all document "
+"representations in the batch."
+msgstr ""
+
+#: of transformers.RetriBertModel.forward
+msgid "Returns"
+msgstr ""
+
+#: of transformers.RetriBertModel.forward:25
+msgid ""
+"The bidirectional cross-entropy loss obtained while trying to match each "
+"query to its corresponding document and each document to its "
+"corresponding query in the batch"
+msgstr ""
+
+#: of transformers.RetriBertModel.forward
+msgid "Return type"
+msgstr ""
+
+#: of transformers.RetriBertModel.forward:27
+msgid ":obj:`torch.FloatTensor`"
+msgstr ""
+
