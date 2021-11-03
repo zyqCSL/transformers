@@ -340,6 +340,7 @@ class BeitModelTest(ModelTesterMixin, unittest.TestCase):
                 outputs = model(**self._prepare_for_class(inputs_dict, model_class))
 
             self.assertEqual(out_len + 1, len(outputs))
+            
 
             self_attentions = outputs.attentions
 
