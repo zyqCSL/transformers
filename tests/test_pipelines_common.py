@@ -34,7 +34,7 @@ from transformers import (
 )
 from transformers.pipelines import get_task
 from transformers.pipelines.base import _pad
-from transformers.testing_utils import is_pipeline_test, nested_simplify, require_tf, require_torch
+from transformers.testing_utils import is_pipeline_test, nested_simplify, require_flax, require_tf, require_torch
 
 
 logger = logging.getLogger(__name__)
@@ -315,7 +315,21 @@ class CommonPipelineTest(unittest.TestCase):
                 yield "This is a test"
 
         pipe = pipeline(model="Narsil/tiny-distilbert-sequence-classification", framework="tf")
-        out = pipe("This is a test")
+        results = []
+        for out in pipe(data(10)):
+            self.assertEqual(nested_simplify(out), {"label": "LABEL_1", "score": 0.502})
+            results.append(out)
+        self.assertEqual(len(results), 10)
+
+    @require_flax
+    def test_iterator_data_flax(self):
+        def data(n: int):
+            for _ in range(n):
+                yield "This is a test"
+
+        pipe = pipeline(
+            model="Narsil/tiny-distilbert-sequence-classification", framework="flax", model_kwargs={"from_pt": True}
+        )
         results = []
         for out in pipe(data(10)):
             self.assertEqual(nested_simplify(out), {"label": "LABEL_1", "score": 0.502})
